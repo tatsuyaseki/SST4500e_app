@@ -83,7 +83,6 @@ Partial Class FrmSST4500_1_0_0J_meas
         Me.CmdOldDataLoad = New System.Windows.Forms.Button()
         Me.CmdEtcOldMeasData = New System.Windows.Forms.Button()
         Me.CmdQuitSinglesheet = New System.Windows.Forms.Button()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.TblMeasData_adm = New System.Windows.Forms.TableLayoutPanel()
         Me.LblMeasDatBak1_adm = New System.Windows.Forms.Label()
         Me.LblMeasDatBak2_adm = New System.Windows.Forms.Label()
@@ -242,8 +241,9 @@ Partial Class FrmSST4500_1_0_0J_meas
         Me.保存ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.設定ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.設定ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.TblMeasInfo_adm.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TblMeasData_adm.SuspendLayout()
         Me.TblMeasInfo_nom.SuspendLayout()
         Me.TblMeasData_nom.SuspendLayout()
@@ -254,6 +254,8 @@ Partial Class FrmSST4500_1_0_0J_meas
         Me.GbMeasSpec.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LblProductNameMeas
@@ -1039,15 +1041,6 @@ Partial Class FrmSST4500_1_0_0J_meas
         Me.CmdQuitSinglesheet.TabIndex = 20
         Me.CmdQuitSinglesheet.Text = "終　了"
         Me.CmdQuitSinglesheet.UseVisualStyleBackColor = True
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackColor = System.Drawing.Color.White
-        Me.PictureBox1.Location = New System.Drawing.Point(17, 271)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(481, 452)
-        Me.PictureBox1.TabIndex = 21
-        Me.PictureBox1.TabStop = False
         '
         'TblMeasData_adm
         '
@@ -3133,12 +3126,33 @@ Partial Class FrmSST4500_1_0_0J_meas
         Me.設定ToolStripMenuItem1.Size = New System.Drawing.Size(98, 22)
         Me.設定ToolStripMenuItem1.Text = "設定"
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.White
+        Me.PictureBox1.Location = New System.Drawing.Point(17, 271)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(481, 452)
+        Me.PictureBox1.TabIndex = 21
+        Me.PictureBox1.TabStop = False
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox2.Image = Global.SST4500_1_0_0J.My.Resources.Resources.nomura_logo1
+        Me.PictureBox2.Location = New System.Drawing.Point(824, 0)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(160, 50)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox2.TabIndex = 54
+        Me.PictureBox2.TabStop = False
+        '
         'FrmSST4500_1_0_0J_meas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(984, 761)
+        Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.TxtMeasNumBak)
         Me.Controls.Add(Me.TxtMeasNumCur)
         Me.Controls.Add(Me.GbMeasSpec)
@@ -3168,12 +3182,10 @@ Partial Class FrmSST4500_1_0_0J_meas
         Me.Font = New System.Drawing.Font("MS UI Gothic", 9.0!)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MenuStrip1
-        Me.MaximizeBox = False
         Me.Name = "FrmSST4500_1_0_0J_meas"
         Me.Text = "SST-4500 Single Sheet"
         Me.TblMeasInfo_adm.ResumeLayout(False)
         Me.TblMeasInfo_adm.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TblMeasData_adm.ResumeLayout(False)
         Me.TblMeasData_adm.PerformLayout()
         Me.TblMeasInfo_nom.ResumeLayout(False)
@@ -3190,6 +3202,8 @@ Partial Class FrmSST4500_1_0_0J_meas
         Me.GroupBox5.ResumeLayout(False)
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -3413,4 +3427,5 @@ Partial Class FrmSST4500_1_0_0J_meas
     Friend WithEvents 手動印刷ToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents 保存ToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents 設定ToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents PictureBox2 As PictureBox
 End Class

@@ -99,28 +99,22 @@
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="_test_count1" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">500</Value>
+      <Value Profile="(Default)">50</Value>
     </Setting>
     <Setting Name="_test_count2" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">200</Value>
+      <Value Profile="(Default)">20</Value>
     </Setting>
     <Setting Name="_test_count1_prf" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">500</Value>
+      <Value Profile="(Default)">50</Value>
     </Setting>
     <Setting Name="_test_count2_prf" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">200</Value>
+      <Value Profile="(Default)">20</Value>
     </Setting>
     <Setting Name="_test_count1_md" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">500</Value>
+      <Value Profile="(Default)">50</Value>
     </Setting>
     <Setting Name="_test_count2_md" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">200</Value>
-    </Setting>
-    <Setting Name="_test_count3_prf" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">700</Value>
-    </Setting>
-    <Setting Name="_test_count3_md" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">200</Value>
+      <Value Profile="(Default)">20</Value>
     </Setting>
     <Setting Name="_timeout_time" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">400</Value>

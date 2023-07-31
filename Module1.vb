@@ -1,11 +1,10 @@
 ﻿Imports System.CodeDom
 Imports System.IO
+Imports System.Reflection
 Imports System.Text
 Imports Microsoft.Office.Interop.Excel
 
 Module Module1
-    Public Const product_name = "SST-4500"
-
     Public Declare Function FT_ListDevices Lib "FTD2XX.DLL" (ByVal arg1 As Integer, ByVal arg2 As String, ByVal dwFlags As Integer) As Integer
     Public Declare Function FT_GetNumDevices Lib "FTD2XX.DLL" Alias "FT_ListDevices" (ByVal arg1 As Integer, ByVal arg2 As String, ByVal dwFlags As Integer) As Integer
 

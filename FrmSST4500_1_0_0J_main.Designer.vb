@@ -51,8 +51,10 @@ Partial Class FrmSST4500_1_0_0J_main
         Me.管理者モードToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MD長尺測定ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.試験調整ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.StatusStrip1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TimSplash
@@ -271,11 +273,22 @@ Partial Class FrmSST4500_1_0_0J_main
         Me.試験調整ToolStripMenuItem.Size = New System.Drawing.Size(135, 22)
         Me.試験調整ToolStripMenuItem.Text = "試験・調整"
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.SST4500_1_0_0J.My.Resources.Resources.nomura_logo1
+        Me.PictureBox1.Location = New System.Drawing.Point(624, 0)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(160, 50)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox1.TabIndex = 12
+        Me.PictureBox1.TabStop = False
+        '
         'FrmSST4500_1_0_0J_main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(96.0!, 96.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi
         Me.ClientSize = New System.Drawing.Size(784, 561)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.CmdCutSheetProfile)
         Me.Controls.Add(Me.CmdSinglesheet)
         Me.Controls.Add(Me.CmdProfile)
@@ -295,6 +308,7 @@ Partial Class FrmSST4500_1_0_0J_main
         Me.StatusStrip1.PerformLayout()
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -326,4 +340,5 @@ Partial Class FrmSST4500_1_0_0J_main
     Friend WithEvents 管理者モードToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents MD長尺測定ToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents 試験調整ToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents PictureBox1 As PictureBox
 End Class

@@ -143,31 +143,33 @@ Partial Class FrmSST4500_1_0_0J_test
         Me.Label15 = New System.Windows.Forms.Label()
         Me.LblRxData = New System.Windows.Forms.Label()
         Me.LblTT1 = New System.Windows.Forms.Label()
+        Me.PictureBox5 = New System.Windows.Forms.PictureBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
+        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label2.Location = New System.Drawing.Point(148, 9)
+        Me.Label2.Font = New System.Drawing.Font("MS UI Gothic", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label2.Location = New System.Drawing.Point(140, 9)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(68, 31)
+        Me.Label2.Size = New System.Drawing.Size(67, 27)
         Me.Label2.TabIndex = 3
         Me.Label2.Text = "Test"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("MS UI Gothic", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label1.Location = New System.Drawing.Point(12, 9)
+        Me.Label1.Font = New System.Drawing.Font("MS UI Gothic", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label1.Location = New System.Drawing.Point(6, 9)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(130, 27)
+        Me.Label1.Size = New System.Drawing.Size(138, 27)
         Me.Label1.TabIndex = 2
         Me.Label1.Text = "SST-4500"
         '
@@ -436,18 +438,18 @@ Partial Class FrmSST4500_1_0_0J_test
         '
         'CmdUSBClose
         '
-        Me.CmdUSBClose.Location = New System.Drawing.Point(737, 12)
+        Me.CmdUSBClose.Location = New System.Drawing.Point(574, 24)
         Me.CmdUSBClose.Name = "CmdUSBClose"
-        Me.CmdUSBClose.Size = New System.Drawing.Size(75, 23)
+        Me.CmdUSBClose.Size = New System.Drawing.Size(76, 23)
         Me.CmdUSBClose.TabIndex = 18
         Me.CmdUSBClose.Text = "USB Close"
         Me.CmdUSBClose.UseVisualStyleBackColor = True
         '
         'CmdUSBOpen
         '
-        Me.CmdUSBOpen.Location = New System.Drawing.Point(662, 12)
+        Me.CmdUSBOpen.Location = New System.Drawing.Point(574, 1)
         Me.CmdUSBOpen.Name = "CmdUSBOpen"
-        Me.CmdUSBOpen.Size = New System.Drawing.Size(75, 23)
+        Me.CmdUSBOpen.Size = New System.Drawing.Size(76, 23)
         Me.CmdUSBOpen.TabIndex = 19
         Me.CmdUSBOpen.Text = "USB Open"
         Me.CmdUSBOpen.UseVisualStyleBackColor = True
@@ -1636,7 +1638,7 @@ Partial Class FrmSST4500_1_0_0J_test
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(227, 8)
+        Me.Label13.Location = New System.Drawing.Point(206, 8)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(63, 12)
         Me.Label13.TabIndex = 36
@@ -1645,10 +1647,10 @@ Partial Class FrmSST4500_1_0_0J_test
         'LblTxData
         '
         Me.LblTxData.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.LblTxData.Location = New System.Drawing.Point(293, 4)
+        Me.LblTxData.Location = New System.Drawing.Point(272, 4)
         Me.LblTxData.Margin = New System.Windows.Forms.Padding(0)
         Me.LblTxData.Name = "LblTxData"
-        Me.LblTxData.Size = New System.Drawing.Size(300, 20)
+        Me.LblTxData.Size = New System.Drawing.Size(299, 20)
         Me.LblTxData.TabIndex = 37
         Me.LblTxData.Text = "1111"
         Me.LblTxData.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -1656,7 +1658,7 @@ Partial Class FrmSST4500_1_0_0J_test
         'Label15
         '
         Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(227, 29)
+        Me.Label15.Location = New System.Drawing.Point(206, 29)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(63, 12)
         Me.Label15.TabIndex = 38
@@ -1665,10 +1667,10 @@ Partial Class FrmSST4500_1_0_0J_test
         'LblRxData
         '
         Me.LblRxData.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.LblRxData.Location = New System.Drawing.Point(293, 25)
+        Me.LblRxData.Location = New System.Drawing.Point(272, 25)
         Me.LblRxData.Margin = New System.Windows.Forms.Padding(0)
         Me.LblRxData.Name = "LblRxData"
-        Me.LblRxData.Size = New System.Drawing.Size(300, 20)
+        Me.LblRxData.Size = New System.Drawing.Size(299, 20)
         Me.LblRxData.TabIndex = 39
         Me.LblRxData.Text = "111"
         Me.LblRxData.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -1684,11 +1686,23 @@ Partial Class FrmSST4500_1_0_0J_test
         Me.LblTT1.Text = "11"
         Me.LblTT1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
+        'PictureBox5
+        '
+        Me.PictureBox5.Image = Global.SST4500_1_0_0J.My.Resources.Resources.nomura_logo1
+        Me.PictureBox5.Location = New System.Drawing.Point(664, 0)
+        Me.PictureBox5.Name = "PictureBox5"
+        Me.PictureBox5.Size = New System.Drawing.Size(160, 50)
+        Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox5.TabIndex = 59
+        Me.PictureBox5.TabStop = False
+        '
         'FrmSST4500_1_0_0J_test
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(824, 677)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.PictureBox5)
         Me.Controls.Add(Me.LblTT1)
         Me.Controls.Add(Me.LblRxData)
         Me.Controls.Add(Me.Label15)
@@ -1723,11 +1737,9 @@ Partial Class FrmSST4500_1_0_0J_test
         Me.Controls.Add(Me.CmdLoadFileData)
         Me.Controls.Add(Me.CmdAnotherFileData)
         Me.Controls.Add(Me.CmdClsGraph)
-        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.MaximizeBox = False
         Me.Name = "FrmSST4500_1_0_0J_test"
         Me.Text = "SST-4500 Test"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1739,6 +1751,7 @@ Partial Class FrmSST4500_1_0_0J_test
         Me.StatusStrip1.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
+        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1863,4 +1876,5 @@ Partial Class FrmSST4500_1_0_0J_test
     Friend WithEvents Label15 As Label
     Friend WithEvents LblRxData As Label
     Friend WithEvents LblTT1 As Label
+    Friend WithEvents PictureBox5 As PictureBox
 End Class

@@ -440,7 +440,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("500")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("50")>  _
         Public Property _test_count1() As Integer
             Get
                 Return CType(Me("_test_count1"),Integer)
@@ -452,7 +452,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("200")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("20")>  _
         Public Property _test_count2() As Integer
             Get
                 Return CType(Me("_test_count2"),Integer)
@@ -464,7 +464,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("500")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("50")>  _
         Public Property _test_count1_prf() As Integer
             Get
                 Return CType(Me("_test_count1_prf"),Integer)
@@ -476,7 +476,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("200")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("20")>  _
         Public Property _test_count2_prf() As Integer
             Get
                 Return CType(Me("_test_count2_prf"),Integer)
@@ -488,7 +488,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("500")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("50")>  _
         Public Property _test_count1_md() As Integer
             Get
                 Return CType(Me("_test_count1_md"),Integer)
@@ -500,37 +500,13 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("200")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("20")>  _
         Public Property _test_count2_md() As Integer
             Get
                 Return CType(Me("_test_count2_md"),Integer)
             End Get
             Set
                 Me("_test_count2_md") = value
-            End Set
-        End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("700")>  _
-        Public Property _test_count3_prf() As Integer
-            Get
-                Return CType(Me("_test_count3_prf"),Integer)
-            End Get
-            Set
-                Me("_test_count3_prf") = value
-            End Set
-        End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("200")>  _
-        Public Property _test_count3_md() As Integer
-            Get
-                Return CType(Me("_test_count3_md"),Integer)
-            End Get
-            Set
-                Me("_test_count3_md") = value
             End Set
         End Property
         

@@ -23,20 +23,20 @@ Partial Class FrmSST4500_1_0_0J_Profile
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle29 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle41 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle30 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle31 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle32 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle33 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle34 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle35 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle36 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle37 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle38 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle39 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle40 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle42 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmSST4500_1_0_0J_Profile))
         Me.LblPrfTitle = New System.Windows.Forms.Label()
         Me.LblProductNamePrf = New System.Windows.Forms.Label()
@@ -59,8 +59,6 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.LblAngCenter = New System.Windows.Forms.Label()
         Me.HScrollBar1 = New System.Windows.Forms.HScrollBar()
         Me.CmdAngleRange = New System.Windows.Forms.Button()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.TblPDMCratio_nom = New System.Windows.Forms.TableLayoutPanel()
         Me.LblRatioMDCDMin_nom = New System.Windows.Forms.Label()
         Me.LblRatioPkDpMin_nom = New System.Windows.Forms.Label()
@@ -74,31 +72,6 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.LblRatioMDCDMax_nom = New System.Windows.Forms.Label()
         Me.LblRatioPkDpAvg_nom = New System.Windows.Forms.Label()
         Me.LblRatioMDCDAvg_nom = New System.Windows.Forms.Label()
-        Me.TblAngle_adm = New System.Windows.Forms.TableLayoutPanel()
-        Me.LblAnglePkMinAvg_adm = New System.Windows.Forms.Label()
-        Me.LblAngleDpMinAvg_adm = New System.Windows.Forms.Label()
-        Me.LblAnglePkMinBak_adm = New System.Windows.Forms.Label()
-        Me.LblAngleDpMinBak_adm = New System.Windows.Forms.Label()
-        Me.Label76 = New System.Windows.Forms.Label()
-        Me.Label77 = New System.Windows.Forms.Label()
-        Me.Label78 = New System.Windows.Forms.Label()
-        Me.Label79 = New System.Windows.Forms.Label()
-        Me.Label80 = New System.Windows.Forms.Label()
-        Me.Label81 = New System.Windows.Forms.Label()
-        Me.LblAnglePkMaxCur_adm = New System.Windows.Forms.Label()
-        Me.LblAnglePkMaxBak_adm = New System.Windows.Forms.Label()
-        Me.LblAnglePkAvgCur_adm = New System.Windows.Forms.Label()
-        Me.LblAnglePkAvgBak_adm = New System.Windows.Forms.Label()
-        Me.LblAnglePkMinCur_adm = New System.Windows.Forms.Label()
-        Me.LblAngleDpMaxCur_adm = New System.Windows.Forms.Label()
-        Me.LblAngleDpMaxBak_adm = New System.Windows.Forms.Label()
-        Me.LblAngleDpAvgCur_adm = New System.Windows.Forms.Label()
-        Me.LblAngleDpAvgBak_adm = New System.Windows.Forms.Label()
-        Me.LblAngleDpMinCur_adm = New System.Windows.Forms.Label()
-        Me.LblAnglePkMaxAvg_adm = New System.Windows.Forms.Label()
-        Me.LblAngleDpMaxAvg_adm = New System.Windows.Forms.Label()
-        Me.LblAnglePkAvgAvg_adm = New System.Windows.Forms.Label()
-        Me.LblAngleDpAvgAvg_adm = New System.Windows.Forms.Label()
         Me.TblPDMCratio_adm = New System.Windows.Forms.TableLayoutPanel()
         Me.LblRatioPkDpMinAvg_adm = New System.Windows.Forms.Label()
         Me.LblRatioMDCDMinAvg_adm = New System.Windows.Forms.Label()
@@ -137,6 +110,31 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.LblAngleDpMax_nom = New System.Windows.Forms.Label()
         Me.LblAnglePkAvg_nom = New System.Windows.Forms.Label()
         Me.LblAngleDpAvg_nom = New System.Windows.Forms.Label()
+        Me.TblAngle_adm = New System.Windows.Forms.TableLayoutPanel()
+        Me.LblAnglePkMinAvg_adm = New System.Windows.Forms.Label()
+        Me.LblAngleDpMinAvg_adm = New System.Windows.Forms.Label()
+        Me.LblAnglePkMinBak_adm = New System.Windows.Forms.Label()
+        Me.LblAngleDpMinBak_adm = New System.Windows.Forms.Label()
+        Me.Label76 = New System.Windows.Forms.Label()
+        Me.Label77 = New System.Windows.Forms.Label()
+        Me.Label78 = New System.Windows.Forms.Label()
+        Me.Label79 = New System.Windows.Forms.Label()
+        Me.Label80 = New System.Windows.Forms.Label()
+        Me.Label81 = New System.Windows.Forms.Label()
+        Me.LblAnglePkMaxCur_adm = New System.Windows.Forms.Label()
+        Me.LblAnglePkMaxBak_adm = New System.Windows.Forms.Label()
+        Me.LblAnglePkAvgCur_adm = New System.Windows.Forms.Label()
+        Me.LblAnglePkAvgBak_adm = New System.Windows.Forms.Label()
+        Me.LblAnglePkMinCur_adm = New System.Windows.Forms.Label()
+        Me.LblAngleDpMaxCur_adm = New System.Windows.Forms.Label()
+        Me.LblAngleDpMaxBak_adm = New System.Windows.Forms.Label()
+        Me.LblAngleDpAvgCur_adm = New System.Windows.Forms.Label()
+        Me.LblAngleDpAvgBak_adm = New System.Windows.Forms.Label()
+        Me.LblAngleDpMinCur_adm = New System.Windows.Forms.Label()
+        Me.LblAnglePkMaxAvg_adm = New System.Windows.Forms.Label()
+        Me.LblAngleDpMaxAvg_adm = New System.Windows.Forms.Label()
+        Me.LblAnglePkAvgAvg_adm = New System.Windows.Forms.Label()
+        Me.LblAngleDpAvgAvg_adm = New System.Windows.Forms.Label()
         Me.TabVeloTsi = New System.Windows.Forms.TabPage()
         Me.TblTSI_nom = New System.Windows.Forms.TableLayoutPanel()
         Me.LblTSICDMin_nom = New System.Windows.Forms.Label()
@@ -158,8 +156,6 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.HScrollBar2 = New System.Windows.Forms.HScrollBar()
         Me.CmdTSIRange = New System.Windows.Forms.Button()
         Me.CmdVeloRange = New System.Windows.Forms.Button()
-        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.TblVeloMDCD_nom = New System.Windows.Forms.TableLayoutPanel()
         Me.LblVeloCDMin_nom = New System.Windows.Forms.Label()
         Me.LblVeloMDMin_nom = New System.Windows.Forms.Label()
@@ -534,20 +530,21 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.単位ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MmToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.InchToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox5 = New System.Windows.Forms.PictureBox()
         Me.TabControl1.SuspendLayout
         Me.TabAngleratio.SuspendLayout
         Me.TableLayoutPanel4.SuspendLayout
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit
         Me.TblPDMCratio_nom.SuspendLayout
-        Me.TblAngle_adm.SuspendLayout
         Me.TblPDMCratio_adm.SuspendLayout
         Me.TblAngle_nom.SuspendLayout
+        Me.TblAngle_adm.SuspendLayout
         Me.TabVeloTsi.SuspendLayout
         Me.TblTSI_nom.SuspendLayout
         Me.TableLayoutPanel5.SuspendLayout
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit
         Me.TblVeloMDCD_nom.SuspendLayout
         Me.TblVeloPkDp_nom.SuspendLayout
         Me.TblVeloPkDp_adm.SuspendLayout
@@ -571,25 +568,30 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.GroupBox2.SuspendLayout
         Me.GbPrfSpec.SuspendLayout
         Me.MenuStrip1.SuspendLayout
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit
         Me.SuspendLayout
         '
         'LblPrfTitle
         '
         Me.LblPrfTitle.AutoSize = True
-        Me.LblPrfTitle.Font = New System.Drawing.Font("MS UI Gothic", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.LblPrfTitle.Font = New System.Drawing.Font("MS UI Gothic", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.LblPrfTitle.Location = New System.Drawing.Point(156, 26)
         Me.LblPrfTitle.Name = "LblPrfTitle"
-        Me.LblPrfTitle.Size = New System.Drawing.Size(128, 27)
+        Me.LblPrfTitle.Size = New System.Drawing.Size(134, 27)
         Me.LblPrfTitle.TabIndex = 3
         Me.LblPrfTitle.Text = "プロファイル"
         '
         'LblProductNamePrf
         '
         Me.LblProductNamePrf.AutoSize = True
-        Me.LblProductNamePrf.Font = New System.Drawing.Font("MS UI Gothic", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.LblProductNamePrf.Font = New System.Drawing.Font("MS UI Gothic", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.LblProductNamePrf.Location = New System.Drawing.Point(10, 26)
         Me.LblProductNamePrf.Name = "LblProductNamePrf"
-        Me.LblProductNamePrf.Size = New System.Drawing.Size(130, 27)
+        Me.LblProductNamePrf.Size = New System.Drawing.Size(138, 27)
         Me.LblProductNamePrf.TabIndex = 2
         Me.LblProductNamePrf.Text = "SST-4500"
         '
@@ -804,28 +806,6 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.CmdAngleRange.TabIndex = 15
         Me.CmdAngleRange.Text = "レンジ切替"
         Me.CmdAngleRange.UseVisualStyleBackColor = True
-        '
-        'PictureBox2
-        '
-        Me.PictureBox2.BackColor = System.Drawing.Color.White
-        Me.PictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.PictureBox2.Location = New System.Drawing.Point(0, 288)
-        Me.PictureBox2.Margin = New System.Windows.Forms.Padding(0)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(613, 286)
-        Me.PictureBox2.TabIndex = 1
-        Me.PictureBox2.TabStop = False
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackColor = System.Drawing.Color.White
-        Me.PictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
-        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(0)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(613, 286)
-        Me.PictureBox1.TabIndex = 0
-        Me.PictureBox1.TabStop = False
         '
         'TblPDMCratio_nom
         '
@@ -1045,399 +1025,6 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.LblRatioMDCDAvg_nom.TabIndex = 12
         Me.LblRatioMDCDAvg_nom.Text = "+0.0"
         Me.LblRatioMDCDAvg_nom.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'TblAngle_adm
-        '
-        Me.TblAngle_adm.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.[Single]
-        Me.TblAngle_adm.ColumnCount = 3
-        Me.TblAngle_adm.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.0!))
-        Me.TblAngle_adm.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.0!))
-        Me.TblAngle_adm.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.0!))
-        Me.TblAngle_adm.Controls.Add(Me.LblAnglePkMinAvg_adm, 0, 10)
-        Me.TblAngle_adm.Controls.Add(Me.LblAngleDpMinAvg_adm, 0, 10)
-        Me.TblAngle_adm.Controls.Add(Me.LblAnglePkMinBak_adm, 0, 9)
-        Me.TblAngle_adm.Controls.Add(Me.LblAngleDpMinBak_adm, 0, 9)
-        Me.TblAngle_adm.Controls.Add(Me.Label76, 0, 0)
-        Me.TblAngle_adm.Controls.Add(Me.Label77, 1, 1)
-        Me.TblAngle_adm.Controls.Add(Me.Label78, 2, 1)
-        Me.TblAngle_adm.Controls.Add(Me.Label79, 0, 2)
-        Me.TblAngle_adm.Controls.Add(Me.Label80, 0, 8)
-        Me.TblAngle_adm.Controls.Add(Me.Label81, 0, 5)
-        Me.TblAngle_adm.Controls.Add(Me.LblAnglePkMaxCur_adm, 1, 2)
-        Me.TblAngle_adm.Controls.Add(Me.LblAnglePkMaxBak_adm, 1, 3)
-        Me.TblAngle_adm.Controls.Add(Me.LblAnglePkAvgCur_adm, 1, 5)
-        Me.TblAngle_adm.Controls.Add(Me.LblAnglePkAvgBak_adm, 1, 6)
-        Me.TblAngle_adm.Controls.Add(Me.LblAnglePkMinCur_adm, 1, 8)
-        Me.TblAngle_adm.Controls.Add(Me.LblAngleDpMaxCur_adm, 2, 2)
-        Me.TblAngle_adm.Controls.Add(Me.LblAngleDpMaxBak_adm, 2, 3)
-        Me.TblAngle_adm.Controls.Add(Me.LblAngleDpAvgCur_adm, 2, 5)
-        Me.TblAngle_adm.Controls.Add(Me.LblAngleDpAvgBak_adm, 2, 6)
-        Me.TblAngle_adm.Controls.Add(Me.LblAngleDpMinCur_adm, 2, 8)
-        Me.TblAngle_adm.Controls.Add(Me.LblAnglePkMaxAvg_adm, 1, 4)
-        Me.TblAngle_adm.Controls.Add(Me.LblAngleDpMaxAvg_adm, 2, 4)
-        Me.TblAngle_adm.Controls.Add(Me.LblAnglePkAvgAvg_adm, 1, 7)
-        Me.TblAngle_adm.Controls.Add(Me.LblAngleDpAvgAvg_adm, 2, 7)
-        Me.TblAngle_adm.Location = New System.Drawing.Point(613, 10)
-        Me.TblAngle_adm.Margin = New System.Windows.Forms.Padding(0)
-        Me.TblAngle_adm.Name = "TblAngle_adm"
-        Me.TblAngle_adm.RowCount = 11
-        Me.TblAngle_adm.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 14.0!))
-        Me.TblAngle_adm.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 14.0!))
-        Me.TblAngle_adm.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 13.0!))
-        Me.TblAngle_adm.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 13.0!))
-        Me.TblAngle_adm.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 13.0!))
-        Me.TblAngle_adm.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 13.0!))
-        Me.TblAngle_adm.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 13.0!))
-        Me.TblAngle_adm.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 13.0!))
-        Me.TblAngle_adm.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 13.0!))
-        Me.TblAngle_adm.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 13.0!))
-        Me.TblAngle_adm.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 13.0!))
-        Me.TblAngle_adm.Size = New System.Drawing.Size(189, 157)
-        Me.TblAngle_adm.TabIndex = 14
-        '
-        'LblAnglePkMinAvg_adm
-        '
-        Me.LblAnglePkMinAvg_adm.AutoSize = True
-        Me.LblAnglePkMinAvg_adm.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LblAnglePkMinAvg_adm.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.LblAnglePkMinAvg_adm.Location = New System.Drawing.Point(50, 143)
-        Me.LblAnglePkMinAvg_adm.Margin = New System.Windows.Forms.Padding(0)
-        Me.LblAnglePkMinAvg_adm.Name = "LblAnglePkMinAvg_adm"
-        Me.LblAnglePkMinAvg_adm.Padding = New System.Windows.Forms.Padding(0, 0, 15, 0)
-        Me.LblAnglePkMinAvg_adm.Size = New System.Drawing.Size(68, 13)
-        Me.LblAnglePkMinAvg_adm.TabIndex = 47
-        Me.LblAnglePkMinAvg_adm.Text = "+0.0"
-        Me.LblAnglePkMinAvg_adm.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'LblAngleDpMinAvg_adm
-        '
-        Me.LblAngleDpMinAvg_adm.AutoSize = True
-        Me.LblAngleDpMinAvg_adm.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LblAngleDpMinAvg_adm.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.LblAngleDpMinAvg_adm.Location = New System.Drawing.Point(119, 143)
-        Me.LblAngleDpMinAvg_adm.Margin = New System.Windows.Forms.Padding(0)
-        Me.LblAngleDpMinAvg_adm.Name = "LblAngleDpMinAvg_adm"
-        Me.LblAngleDpMinAvg_adm.Padding = New System.Windows.Forms.Padding(0, 0, 15, 0)
-        Me.LblAngleDpMinAvg_adm.Size = New System.Drawing.Size(69, 13)
-        Me.LblAngleDpMinAvg_adm.TabIndex = 46
-        Me.LblAngleDpMinAvg_adm.Text = "+0.0"
-        Me.LblAngleDpMinAvg_adm.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'LblAnglePkMinBak_adm
-        '
-        Me.LblAnglePkMinBak_adm.AutoSize = True
-        Me.LblAnglePkMinBak_adm.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LblAnglePkMinBak_adm.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.LblAnglePkMinBak_adm.ForeColor = System.Drawing.Color.Blue
-        Me.LblAnglePkMinBak_adm.Location = New System.Drawing.Point(50, 129)
-        Me.LblAnglePkMinBak_adm.Margin = New System.Windows.Forms.Padding(0)
-        Me.LblAnglePkMinBak_adm.Name = "LblAnglePkMinBak_adm"
-        Me.LblAnglePkMinBak_adm.Padding = New System.Windows.Forms.Padding(0, 0, 15, 0)
-        Me.LblAnglePkMinBak_adm.Size = New System.Drawing.Size(68, 13)
-        Me.LblAnglePkMinBak_adm.TabIndex = 41
-        Me.LblAnglePkMinBak_adm.Text = "+0.0"
-        Me.LblAnglePkMinBak_adm.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'LblAngleDpMinBak_adm
-        '
-        Me.LblAngleDpMinBak_adm.AutoSize = True
-        Me.LblAngleDpMinBak_adm.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LblAngleDpMinBak_adm.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.LblAngleDpMinBak_adm.ForeColor = System.Drawing.Color.Blue
-        Me.LblAngleDpMinBak_adm.Location = New System.Drawing.Point(119, 129)
-        Me.LblAngleDpMinBak_adm.Margin = New System.Windows.Forms.Padding(0)
-        Me.LblAngleDpMinBak_adm.Name = "LblAngleDpMinBak_adm"
-        Me.LblAngleDpMinBak_adm.Padding = New System.Windows.Forms.Padding(0, 0, 15, 0)
-        Me.LblAngleDpMinBak_adm.Size = New System.Drawing.Size(69, 13)
-        Me.LblAngleDpMinBak_adm.TabIndex = 40
-        Me.LblAngleDpMinBak_adm.Text = "+0.0"
-        Me.LblAngleDpMinBak_adm.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'Label76
-        '
-        Me.Label76.AutoSize = True
-        Me.Label76.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.TblAngle_adm.SetColumnSpan(Me.Label76, 3)
-        Me.Label76.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label76.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label76.Location = New System.Drawing.Point(1, 1)
-        Me.Label76.Margin = New System.Windows.Forms.Padding(0)
-        Me.Label76.Name = "Label76"
-        Me.Label76.Size = New System.Drawing.Size(187, 14)
-        Me.Label76.TabIndex = 1
-        Me.Label76.Text = "配向角 [deg.]"
-        Me.Label76.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label77
-        '
-        Me.Label77.AutoSize = True
-        Me.Label77.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label77.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label77.Location = New System.Drawing.Point(50, 16)
-        Me.Label77.Margin = New System.Windows.Forms.Padding(0)
-        Me.Label77.Name = "Label77"
-        Me.Label77.Size = New System.Drawing.Size(68, 14)
-        Me.Label77.TabIndex = 3
-        Me.Label77.Text = "Peak"
-        Me.Label77.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label78
-        '
-        Me.Label78.AutoSize = True
-        Me.Label78.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label78.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label78.Location = New System.Drawing.Point(119, 16)
-        Me.Label78.Margin = New System.Windows.Forms.Padding(0)
-        Me.Label78.Name = "Label78"
-        Me.Label78.Size = New System.Drawing.Size(69, 14)
-        Me.Label78.TabIndex = 4
-        Me.Label78.Text = "Deep"
-        Me.Label78.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label79
-        '
-        Me.Label79.AutoSize = True
-        Me.Label79.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Label79.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label79.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label79.Location = New System.Drawing.Point(1, 31)
-        Me.Label79.Margin = New System.Windows.Forms.Padding(0)
-        Me.Label79.Name = "Label79"
-        Me.TblAngle_adm.SetRowSpan(Me.Label79, 3)
-        Me.Label79.Size = New System.Drawing.Size(48, 41)
-        Me.Label79.TabIndex = 11
-        Me.Label79.Text = "Max."
-        Me.Label79.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label80
-        '
-        Me.Label80.AutoSize = True
-        Me.Label80.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Label80.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label80.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label80.Location = New System.Drawing.Point(1, 115)
-        Me.Label80.Margin = New System.Windows.Forms.Padding(0)
-        Me.Label80.Name = "Label80"
-        Me.TblAngle_adm.SetRowSpan(Me.Label80, 3)
-        Me.Label80.Size = New System.Drawing.Size(48, 41)
-        Me.Label80.TabIndex = 9
-        Me.Label80.Text = "Min."
-        Me.Label80.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label81
-        '
-        Me.Label81.AutoSize = True
-        Me.Label81.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Label81.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label81.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label81.Location = New System.Drawing.Point(1, 73)
-        Me.Label81.Margin = New System.Windows.Forms.Padding(0)
-        Me.Label81.Name = "Label81"
-        Me.TblAngle_adm.SetRowSpan(Me.Label81, 3)
-        Me.Label81.Size = New System.Drawing.Size(48, 41)
-        Me.Label81.TabIndex = 10
-        Me.Label81.Text = "Avg."
-        Me.Label81.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'LblAnglePkMaxCur_adm
-        '
-        Me.LblAnglePkMaxCur_adm.AutoSize = True
-        Me.LblAnglePkMaxCur_adm.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LblAnglePkMaxCur_adm.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.LblAnglePkMaxCur_adm.Location = New System.Drawing.Point(50, 31)
-        Me.LblAnglePkMaxCur_adm.Margin = New System.Windows.Forms.Padding(0)
-        Me.LblAnglePkMaxCur_adm.Name = "LblAnglePkMaxCur_adm"
-        Me.LblAnglePkMaxCur_adm.Padding = New System.Windows.Forms.Padding(0, 0, 15, 0)
-        Me.LblAnglePkMaxCur_adm.Size = New System.Drawing.Size(68, 13)
-        Me.LblAnglePkMaxCur_adm.TabIndex = 30
-        Me.LblAnglePkMaxCur_adm.Text = "+0.0"
-        Me.LblAnglePkMaxCur_adm.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'LblAnglePkMaxBak_adm
-        '
-        Me.LblAnglePkMaxBak_adm.AutoSize = True
-        Me.LblAnglePkMaxBak_adm.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LblAnglePkMaxBak_adm.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.LblAnglePkMaxBak_adm.ForeColor = System.Drawing.Color.Blue
-        Me.LblAnglePkMaxBak_adm.Location = New System.Drawing.Point(50, 45)
-        Me.LblAnglePkMaxBak_adm.Margin = New System.Windows.Forms.Padding(0)
-        Me.LblAnglePkMaxBak_adm.Name = "LblAnglePkMaxBak_adm"
-        Me.LblAnglePkMaxBak_adm.Padding = New System.Windows.Forms.Padding(0, 0, 15, 0)
-        Me.LblAnglePkMaxBak_adm.Size = New System.Drawing.Size(68, 13)
-        Me.LblAnglePkMaxBak_adm.TabIndex = 31
-        Me.LblAnglePkMaxBak_adm.Text = "+0.0"
-        Me.LblAnglePkMaxBak_adm.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'LblAnglePkAvgCur_adm
-        '
-        Me.LblAnglePkAvgCur_adm.AutoSize = True
-        Me.LblAnglePkAvgCur_adm.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LblAnglePkAvgCur_adm.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.LblAnglePkAvgCur_adm.Location = New System.Drawing.Point(50, 73)
-        Me.LblAnglePkAvgCur_adm.Margin = New System.Windows.Forms.Padding(0)
-        Me.LblAnglePkAvgCur_adm.Name = "LblAnglePkAvgCur_adm"
-        Me.LblAnglePkAvgCur_adm.Padding = New System.Windows.Forms.Padding(0, 0, 15, 0)
-        Me.LblAnglePkAvgCur_adm.Size = New System.Drawing.Size(68, 13)
-        Me.LblAnglePkAvgCur_adm.TabIndex = 32
-        Me.LblAnglePkAvgCur_adm.Text = "+0.0"
-        Me.LblAnglePkAvgCur_adm.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'LblAnglePkAvgBak_adm
-        '
-        Me.LblAnglePkAvgBak_adm.AutoSize = True
-        Me.LblAnglePkAvgBak_adm.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LblAnglePkAvgBak_adm.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.LblAnglePkAvgBak_adm.ForeColor = System.Drawing.Color.Blue
-        Me.LblAnglePkAvgBak_adm.Location = New System.Drawing.Point(50, 87)
-        Me.LblAnglePkAvgBak_adm.Margin = New System.Windows.Forms.Padding(0)
-        Me.LblAnglePkAvgBak_adm.Name = "LblAnglePkAvgBak_adm"
-        Me.LblAnglePkAvgBak_adm.Padding = New System.Windows.Forms.Padding(0, 0, 15, 0)
-        Me.LblAnglePkAvgBak_adm.Size = New System.Drawing.Size(68, 13)
-        Me.LblAnglePkAvgBak_adm.TabIndex = 33
-        Me.LblAnglePkAvgBak_adm.Text = "+0.0"
-        Me.LblAnglePkAvgBak_adm.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'LblAnglePkMinCur_adm
-        '
-        Me.LblAnglePkMinCur_adm.AutoSize = True
-        Me.LblAnglePkMinCur_adm.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LblAnglePkMinCur_adm.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.LblAnglePkMinCur_adm.Location = New System.Drawing.Point(50, 115)
-        Me.LblAnglePkMinCur_adm.Margin = New System.Windows.Forms.Padding(0)
-        Me.LblAnglePkMinCur_adm.Name = "LblAnglePkMinCur_adm"
-        Me.LblAnglePkMinCur_adm.Padding = New System.Windows.Forms.Padding(0, 0, 15, 0)
-        Me.LblAnglePkMinCur_adm.Size = New System.Drawing.Size(68, 13)
-        Me.LblAnglePkMinCur_adm.TabIndex = 34
-        Me.LblAnglePkMinCur_adm.Text = "+0.0"
-        Me.LblAnglePkMinCur_adm.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'LblAngleDpMaxCur_adm
-        '
-        Me.LblAngleDpMaxCur_adm.AutoSize = True
-        Me.LblAngleDpMaxCur_adm.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LblAngleDpMaxCur_adm.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.LblAngleDpMaxCur_adm.Location = New System.Drawing.Point(119, 31)
-        Me.LblAngleDpMaxCur_adm.Margin = New System.Windows.Forms.Padding(0)
-        Me.LblAngleDpMaxCur_adm.Name = "LblAngleDpMaxCur_adm"
-        Me.LblAngleDpMaxCur_adm.Padding = New System.Windows.Forms.Padding(0, 0, 15, 0)
-        Me.LblAngleDpMaxCur_adm.Size = New System.Drawing.Size(69, 13)
-        Me.LblAngleDpMaxCur_adm.TabIndex = 35
-        Me.LblAngleDpMaxCur_adm.Text = "+0.0"
-        Me.LblAngleDpMaxCur_adm.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'LblAngleDpMaxBak_adm
-        '
-        Me.LblAngleDpMaxBak_adm.AutoSize = True
-        Me.LblAngleDpMaxBak_adm.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LblAngleDpMaxBak_adm.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.LblAngleDpMaxBak_adm.ForeColor = System.Drawing.Color.Blue
-        Me.LblAngleDpMaxBak_adm.Location = New System.Drawing.Point(119, 45)
-        Me.LblAngleDpMaxBak_adm.Margin = New System.Windows.Forms.Padding(0)
-        Me.LblAngleDpMaxBak_adm.Name = "LblAngleDpMaxBak_adm"
-        Me.LblAngleDpMaxBak_adm.Padding = New System.Windows.Forms.Padding(0, 0, 15, 0)
-        Me.LblAngleDpMaxBak_adm.Size = New System.Drawing.Size(69, 13)
-        Me.LblAngleDpMaxBak_adm.TabIndex = 36
-        Me.LblAngleDpMaxBak_adm.Text = "+0.0"
-        Me.LblAngleDpMaxBak_adm.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'LblAngleDpAvgCur_adm
-        '
-        Me.LblAngleDpAvgCur_adm.AutoSize = True
-        Me.LblAngleDpAvgCur_adm.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LblAngleDpAvgCur_adm.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.LblAngleDpAvgCur_adm.Location = New System.Drawing.Point(119, 73)
-        Me.LblAngleDpAvgCur_adm.Margin = New System.Windows.Forms.Padding(0)
-        Me.LblAngleDpAvgCur_adm.Name = "LblAngleDpAvgCur_adm"
-        Me.LblAngleDpAvgCur_adm.Padding = New System.Windows.Forms.Padding(0, 0, 15, 0)
-        Me.LblAngleDpAvgCur_adm.Size = New System.Drawing.Size(69, 13)
-        Me.LblAngleDpAvgCur_adm.TabIndex = 37
-        Me.LblAngleDpAvgCur_adm.Text = "+0.0"
-        Me.LblAngleDpAvgCur_adm.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'LblAngleDpAvgBak_adm
-        '
-        Me.LblAngleDpAvgBak_adm.AutoSize = True
-        Me.LblAngleDpAvgBak_adm.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LblAngleDpAvgBak_adm.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.LblAngleDpAvgBak_adm.ForeColor = System.Drawing.Color.Blue
-        Me.LblAngleDpAvgBak_adm.Location = New System.Drawing.Point(119, 87)
-        Me.LblAngleDpAvgBak_adm.Margin = New System.Windows.Forms.Padding(0)
-        Me.LblAngleDpAvgBak_adm.Name = "LblAngleDpAvgBak_adm"
-        Me.LblAngleDpAvgBak_adm.Padding = New System.Windows.Forms.Padding(0, 0, 15, 0)
-        Me.LblAngleDpAvgBak_adm.Size = New System.Drawing.Size(69, 13)
-        Me.LblAngleDpAvgBak_adm.TabIndex = 38
-        Me.LblAngleDpAvgBak_adm.Text = "+0.0"
-        Me.LblAngleDpAvgBak_adm.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'LblAngleDpMinCur_adm
-        '
-        Me.LblAngleDpMinCur_adm.AutoSize = True
-        Me.LblAngleDpMinCur_adm.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LblAngleDpMinCur_adm.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.LblAngleDpMinCur_adm.Location = New System.Drawing.Point(119, 115)
-        Me.LblAngleDpMinCur_adm.Margin = New System.Windows.Forms.Padding(0)
-        Me.LblAngleDpMinCur_adm.Name = "LblAngleDpMinCur_adm"
-        Me.LblAngleDpMinCur_adm.Padding = New System.Windows.Forms.Padding(0, 0, 15, 0)
-        Me.LblAngleDpMinCur_adm.Size = New System.Drawing.Size(69, 13)
-        Me.LblAngleDpMinCur_adm.TabIndex = 39
-        Me.LblAngleDpMinCur_adm.Text = "+0.0"
-        Me.LblAngleDpMinCur_adm.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'LblAnglePkMaxAvg_adm
-        '
-        Me.LblAnglePkMaxAvg_adm.AutoSize = True
-        Me.LblAnglePkMaxAvg_adm.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LblAnglePkMaxAvg_adm.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.LblAnglePkMaxAvg_adm.Location = New System.Drawing.Point(50, 59)
-        Me.LblAnglePkMaxAvg_adm.Margin = New System.Windows.Forms.Padding(0)
-        Me.LblAnglePkMaxAvg_adm.Name = "LblAnglePkMaxAvg_adm"
-        Me.LblAnglePkMaxAvg_adm.Padding = New System.Windows.Forms.Padding(0, 0, 15, 0)
-        Me.LblAnglePkMaxAvg_adm.Size = New System.Drawing.Size(68, 13)
-        Me.LblAnglePkMaxAvg_adm.TabIndex = 42
-        Me.LblAnglePkMaxAvg_adm.Text = "+0.0"
-        Me.LblAnglePkMaxAvg_adm.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'LblAngleDpMaxAvg_adm
-        '
-        Me.LblAngleDpMaxAvg_adm.AutoSize = True
-        Me.LblAngleDpMaxAvg_adm.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LblAngleDpMaxAvg_adm.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.LblAngleDpMaxAvg_adm.Location = New System.Drawing.Point(119, 59)
-        Me.LblAngleDpMaxAvg_adm.Margin = New System.Windows.Forms.Padding(0)
-        Me.LblAngleDpMaxAvg_adm.Name = "LblAngleDpMaxAvg_adm"
-        Me.LblAngleDpMaxAvg_adm.Padding = New System.Windows.Forms.Padding(0, 0, 15, 0)
-        Me.LblAngleDpMaxAvg_adm.Size = New System.Drawing.Size(69, 13)
-        Me.LblAngleDpMaxAvg_adm.TabIndex = 43
-        Me.LblAngleDpMaxAvg_adm.Text = "+0.0"
-        Me.LblAngleDpMaxAvg_adm.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'LblAnglePkAvgAvg_adm
-        '
-        Me.LblAnglePkAvgAvg_adm.AutoSize = True
-        Me.LblAnglePkAvgAvg_adm.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LblAnglePkAvgAvg_adm.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.LblAnglePkAvgAvg_adm.Location = New System.Drawing.Point(50, 101)
-        Me.LblAnglePkAvgAvg_adm.Margin = New System.Windows.Forms.Padding(0)
-        Me.LblAnglePkAvgAvg_adm.Name = "LblAnglePkAvgAvg_adm"
-        Me.LblAnglePkAvgAvg_adm.Padding = New System.Windows.Forms.Padding(0, 0, 15, 0)
-        Me.LblAnglePkAvgAvg_adm.Size = New System.Drawing.Size(68, 13)
-        Me.LblAnglePkAvgAvg_adm.TabIndex = 44
-        Me.LblAnglePkAvgAvg_adm.Text = "+0.0"
-        Me.LblAnglePkAvgAvg_adm.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'LblAngleDpAvgAvg_adm
-        '
-        Me.LblAngleDpAvgAvg_adm.AutoSize = True
-        Me.LblAngleDpAvgAvg_adm.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LblAngleDpAvgAvg_adm.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.LblAngleDpAvgAvg_adm.Location = New System.Drawing.Point(119, 101)
-        Me.LblAngleDpAvgAvg_adm.Margin = New System.Windows.Forms.Padding(0)
-        Me.LblAngleDpAvgAvg_adm.Name = "LblAngleDpAvgAvg_adm"
-        Me.LblAngleDpAvgAvg_adm.Padding = New System.Windows.Forms.Padding(0, 0, 15, 0)
-        Me.LblAngleDpAvgAvg_adm.Size = New System.Drawing.Size(69, 13)
-        Me.LblAngleDpAvgAvg_adm.TabIndex = 45
-        Me.LblAngleDpAvgAvg_adm.Text = "+0.0"
-        Me.LblAngleDpAvgAvg_adm.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'TblPDMCratio_adm
         '
@@ -2278,6 +1865,399 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.LblAngleDpAvg_nom.Text = "+0.0"
         Me.LblAngleDpAvg_nom.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
+        'TblAngle_adm
+        '
+        Me.TblAngle_adm.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.[Single]
+        Me.TblAngle_adm.ColumnCount = 3
+        Me.TblAngle_adm.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.0!))
+        Me.TblAngle_adm.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.0!))
+        Me.TblAngle_adm.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.0!))
+        Me.TblAngle_adm.Controls.Add(Me.LblAnglePkMinAvg_adm, 0, 10)
+        Me.TblAngle_adm.Controls.Add(Me.LblAngleDpMinAvg_adm, 0, 10)
+        Me.TblAngle_adm.Controls.Add(Me.LblAnglePkMinBak_adm, 0, 9)
+        Me.TblAngle_adm.Controls.Add(Me.LblAngleDpMinBak_adm, 0, 9)
+        Me.TblAngle_adm.Controls.Add(Me.Label76, 0, 0)
+        Me.TblAngle_adm.Controls.Add(Me.Label77, 1, 1)
+        Me.TblAngle_adm.Controls.Add(Me.Label78, 2, 1)
+        Me.TblAngle_adm.Controls.Add(Me.Label79, 0, 2)
+        Me.TblAngle_adm.Controls.Add(Me.Label80, 0, 8)
+        Me.TblAngle_adm.Controls.Add(Me.Label81, 0, 5)
+        Me.TblAngle_adm.Controls.Add(Me.LblAnglePkMaxCur_adm, 1, 2)
+        Me.TblAngle_adm.Controls.Add(Me.LblAnglePkMaxBak_adm, 1, 3)
+        Me.TblAngle_adm.Controls.Add(Me.LblAnglePkAvgCur_adm, 1, 5)
+        Me.TblAngle_adm.Controls.Add(Me.LblAnglePkAvgBak_adm, 1, 6)
+        Me.TblAngle_adm.Controls.Add(Me.LblAnglePkMinCur_adm, 1, 8)
+        Me.TblAngle_adm.Controls.Add(Me.LblAngleDpMaxCur_adm, 2, 2)
+        Me.TblAngle_adm.Controls.Add(Me.LblAngleDpMaxBak_adm, 2, 3)
+        Me.TblAngle_adm.Controls.Add(Me.LblAngleDpAvgCur_adm, 2, 5)
+        Me.TblAngle_adm.Controls.Add(Me.LblAngleDpAvgBak_adm, 2, 6)
+        Me.TblAngle_adm.Controls.Add(Me.LblAngleDpMinCur_adm, 2, 8)
+        Me.TblAngle_adm.Controls.Add(Me.LblAnglePkMaxAvg_adm, 1, 4)
+        Me.TblAngle_adm.Controls.Add(Me.LblAngleDpMaxAvg_adm, 2, 4)
+        Me.TblAngle_adm.Controls.Add(Me.LblAnglePkAvgAvg_adm, 1, 7)
+        Me.TblAngle_adm.Controls.Add(Me.LblAngleDpAvgAvg_adm, 2, 7)
+        Me.TblAngle_adm.Location = New System.Drawing.Point(613, 10)
+        Me.TblAngle_adm.Margin = New System.Windows.Forms.Padding(0)
+        Me.TblAngle_adm.Name = "TblAngle_adm"
+        Me.TblAngle_adm.RowCount = 11
+        Me.TblAngle_adm.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 14.0!))
+        Me.TblAngle_adm.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 14.0!))
+        Me.TblAngle_adm.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 13.0!))
+        Me.TblAngle_adm.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 13.0!))
+        Me.TblAngle_adm.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 13.0!))
+        Me.TblAngle_adm.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 13.0!))
+        Me.TblAngle_adm.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 13.0!))
+        Me.TblAngle_adm.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 13.0!))
+        Me.TblAngle_adm.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 13.0!))
+        Me.TblAngle_adm.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 13.0!))
+        Me.TblAngle_adm.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 13.0!))
+        Me.TblAngle_adm.Size = New System.Drawing.Size(189, 157)
+        Me.TblAngle_adm.TabIndex = 14
+        '
+        'LblAnglePkMinAvg_adm
+        '
+        Me.LblAnglePkMinAvg_adm.AutoSize = True
+        Me.LblAnglePkMinAvg_adm.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LblAnglePkMinAvg_adm.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.LblAnglePkMinAvg_adm.Location = New System.Drawing.Point(50, 143)
+        Me.LblAnglePkMinAvg_adm.Margin = New System.Windows.Forms.Padding(0)
+        Me.LblAnglePkMinAvg_adm.Name = "LblAnglePkMinAvg_adm"
+        Me.LblAnglePkMinAvg_adm.Padding = New System.Windows.Forms.Padding(0, 0, 15, 0)
+        Me.LblAnglePkMinAvg_adm.Size = New System.Drawing.Size(68, 13)
+        Me.LblAnglePkMinAvg_adm.TabIndex = 47
+        Me.LblAnglePkMinAvg_adm.Text = "+0.0"
+        Me.LblAnglePkMinAvg_adm.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'LblAngleDpMinAvg_adm
+        '
+        Me.LblAngleDpMinAvg_adm.AutoSize = True
+        Me.LblAngleDpMinAvg_adm.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LblAngleDpMinAvg_adm.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.LblAngleDpMinAvg_adm.Location = New System.Drawing.Point(119, 143)
+        Me.LblAngleDpMinAvg_adm.Margin = New System.Windows.Forms.Padding(0)
+        Me.LblAngleDpMinAvg_adm.Name = "LblAngleDpMinAvg_adm"
+        Me.LblAngleDpMinAvg_adm.Padding = New System.Windows.Forms.Padding(0, 0, 15, 0)
+        Me.LblAngleDpMinAvg_adm.Size = New System.Drawing.Size(69, 13)
+        Me.LblAngleDpMinAvg_adm.TabIndex = 46
+        Me.LblAngleDpMinAvg_adm.Text = "+0.0"
+        Me.LblAngleDpMinAvg_adm.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'LblAnglePkMinBak_adm
+        '
+        Me.LblAnglePkMinBak_adm.AutoSize = True
+        Me.LblAnglePkMinBak_adm.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LblAnglePkMinBak_adm.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.LblAnglePkMinBak_adm.ForeColor = System.Drawing.Color.Blue
+        Me.LblAnglePkMinBak_adm.Location = New System.Drawing.Point(50, 129)
+        Me.LblAnglePkMinBak_adm.Margin = New System.Windows.Forms.Padding(0)
+        Me.LblAnglePkMinBak_adm.Name = "LblAnglePkMinBak_adm"
+        Me.LblAnglePkMinBak_adm.Padding = New System.Windows.Forms.Padding(0, 0, 15, 0)
+        Me.LblAnglePkMinBak_adm.Size = New System.Drawing.Size(68, 13)
+        Me.LblAnglePkMinBak_adm.TabIndex = 41
+        Me.LblAnglePkMinBak_adm.Text = "+0.0"
+        Me.LblAnglePkMinBak_adm.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'LblAngleDpMinBak_adm
+        '
+        Me.LblAngleDpMinBak_adm.AutoSize = True
+        Me.LblAngleDpMinBak_adm.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LblAngleDpMinBak_adm.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.LblAngleDpMinBak_adm.ForeColor = System.Drawing.Color.Blue
+        Me.LblAngleDpMinBak_adm.Location = New System.Drawing.Point(119, 129)
+        Me.LblAngleDpMinBak_adm.Margin = New System.Windows.Forms.Padding(0)
+        Me.LblAngleDpMinBak_adm.Name = "LblAngleDpMinBak_adm"
+        Me.LblAngleDpMinBak_adm.Padding = New System.Windows.Forms.Padding(0, 0, 15, 0)
+        Me.LblAngleDpMinBak_adm.Size = New System.Drawing.Size(69, 13)
+        Me.LblAngleDpMinBak_adm.TabIndex = 40
+        Me.LblAngleDpMinBak_adm.Text = "+0.0"
+        Me.LblAngleDpMinBak_adm.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Label76
+        '
+        Me.Label76.AutoSize = True
+        Me.Label76.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.TblAngle_adm.SetColumnSpan(Me.Label76, 3)
+        Me.Label76.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label76.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label76.Location = New System.Drawing.Point(1, 1)
+        Me.Label76.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label76.Name = "Label76"
+        Me.Label76.Size = New System.Drawing.Size(187, 14)
+        Me.Label76.TabIndex = 1
+        Me.Label76.Text = "配向角 [deg.]"
+        Me.Label76.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label77
+        '
+        Me.Label77.AutoSize = True
+        Me.Label77.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label77.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label77.Location = New System.Drawing.Point(50, 16)
+        Me.Label77.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label77.Name = "Label77"
+        Me.Label77.Size = New System.Drawing.Size(68, 14)
+        Me.Label77.TabIndex = 3
+        Me.Label77.Text = "Peak"
+        Me.Label77.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label78
+        '
+        Me.Label78.AutoSize = True
+        Me.Label78.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label78.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label78.Location = New System.Drawing.Point(119, 16)
+        Me.Label78.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label78.Name = "Label78"
+        Me.Label78.Size = New System.Drawing.Size(69, 14)
+        Me.Label78.TabIndex = 4
+        Me.Label78.Text = "Deep"
+        Me.Label78.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label79
+        '
+        Me.Label79.AutoSize = True
+        Me.Label79.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Label79.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label79.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label79.Location = New System.Drawing.Point(1, 31)
+        Me.Label79.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label79.Name = "Label79"
+        Me.TblAngle_adm.SetRowSpan(Me.Label79, 3)
+        Me.Label79.Size = New System.Drawing.Size(48, 41)
+        Me.Label79.TabIndex = 11
+        Me.Label79.Text = "Max."
+        Me.Label79.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label80
+        '
+        Me.Label80.AutoSize = True
+        Me.Label80.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Label80.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label80.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label80.Location = New System.Drawing.Point(1, 115)
+        Me.Label80.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label80.Name = "Label80"
+        Me.TblAngle_adm.SetRowSpan(Me.Label80, 3)
+        Me.Label80.Size = New System.Drawing.Size(48, 41)
+        Me.Label80.TabIndex = 9
+        Me.Label80.Text = "Min."
+        Me.Label80.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label81
+        '
+        Me.Label81.AutoSize = True
+        Me.Label81.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Label81.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label81.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label81.Location = New System.Drawing.Point(1, 73)
+        Me.Label81.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label81.Name = "Label81"
+        Me.TblAngle_adm.SetRowSpan(Me.Label81, 3)
+        Me.Label81.Size = New System.Drawing.Size(48, 41)
+        Me.Label81.TabIndex = 10
+        Me.Label81.Text = "Avg."
+        Me.Label81.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'LblAnglePkMaxCur_adm
+        '
+        Me.LblAnglePkMaxCur_adm.AutoSize = True
+        Me.LblAnglePkMaxCur_adm.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LblAnglePkMaxCur_adm.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.LblAnglePkMaxCur_adm.Location = New System.Drawing.Point(50, 31)
+        Me.LblAnglePkMaxCur_adm.Margin = New System.Windows.Forms.Padding(0)
+        Me.LblAnglePkMaxCur_adm.Name = "LblAnglePkMaxCur_adm"
+        Me.LblAnglePkMaxCur_adm.Padding = New System.Windows.Forms.Padding(0, 0, 15, 0)
+        Me.LblAnglePkMaxCur_adm.Size = New System.Drawing.Size(68, 13)
+        Me.LblAnglePkMaxCur_adm.TabIndex = 30
+        Me.LblAnglePkMaxCur_adm.Text = "+0.0"
+        Me.LblAnglePkMaxCur_adm.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'LblAnglePkMaxBak_adm
+        '
+        Me.LblAnglePkMaxBak_adm.AutoSize = True
+        Me.LblAnglePkMaxBak_adm.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LblAnglePkMaxBak_adm.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.LblAnglePkMaxBak_adm.ForeColor = System.Drawing.Color.Blue
+        Me.LblAnglePkMaxBak_adm.Location = New System.Drawing.Point(50, 45)
+        Me.LblAnglePkMaxBak_adm.Margin = New System.Windows.Forms.Padding(0)
+        Me.LblAnglePkMaxBak_adm.Name = "LblAnglePkMaxBak_adm"
+        Me.LblAnglePkMaxBak_adm.Padding = New System.Windows.Forms.Padding(0, 0, 15, 0)
+        Me.LblAnglePkMaxBak_adm.Size = New System.Drawing.Size(68, 13)
+        Me.LblAnglePkMaxBak_adm.TabIndex = 31
+        Me.LblAnglePkMaxBak_adm.Text = "+0.0"
+        Me.LblAnglePkMaxBak_adm.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'LblAnglePkAvgCur_adm
+        '
+        Me.LblAnglePkAvgCur_adm.AutoSize = True
+        Me.LblAnglePkAvgCur_adm.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LblAnglePkAvgCur_adm.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.LblAnglePkAvgCur_adm.Location = New System.Drawing.Point(50, 73)
+        Me.LblAnglePkAvgCur_adm.Margin = New System.Windows.Forms.Padding(0)
+        Me.LblAnglePkAvgCur_adm.Name = "LblAnglePkAvgCur_adm"
+        Me.LblAnglePkAvgCur_adm.Padding = New System.Windows.Forms.Padding(0, 0, 15, 0)
+        Me.LblAnglePkAvgCur_adm.Size = New System.Drawing.Size(68, 13)
+        Me.LblAnglePkAvgCur_adm.TabIndex = 32
+        Me.LblAnglePkAvgCur_adm.Text = "+0.0"
+        Me.LblAnglePkAvgCur_adm.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'LblAnglePkAvgBak_adm
+        '
+        Me.LblAnglePkAvgBak_adm.AutoSize = True
+        Me.LblAnglePkAvgBak_adm.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LblAnglePkAvgBak_adm.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.LblAnglePkAvgBak_adm.ForeColor = System.Drawing.Color.Blue
+        Me.LblAnglePkAvgBak_adm.Location = New System.Drawing.Point(50, 87)
+        Me.LblAnglePkAvgBak_adm.Margin = New System.Windows.Forms.Padding(0)
+        Me.LblAnglePkAvgBak_adm.Name = "LblAnglePkAvgBak_adm"
+        Me.LblAnglePkAvgBak_adm.Padding = New System.Windows.Forms.Padding(0, 0, 15, 0)
+        Me.LblAnglePkAvgBak_adm.Size = New System.Drawing.Size(68, 13)
+        Me.LblAnglePkAvgBak_adm.TabIndex = 33
+        Me.LblAnglePkAvgBak_adm.Text = "+0.0"
+        Me.LblAnglePkAvgBak_adm.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'LblAnglePkMinCur_adm
+        '
+        Me.LblAnglePkMinCur_adm.AutoSize = True
+        Me.LblAnglePkMinCur_adm.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LblAnglePkMinCur_adm.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.LblAnglePkMinCur_adm.Location = New System.Drawing.Point(50, 115)
+        Me.LblAnglePkMinCur_adm.Margin = New System.Windows.Forms.Padding(0)
+        Me.LblAnglePkMinCur_adm.Name = "LblAnglePkMinCur_adm"
+        Me.LblAnglePkMinCur_adm.Padding = New System.Windows.Forms.Padding(0, 0, 15, 0)
+        Me.LblAnglePkMinCur_adm.Size = New System.Drawing.Size(68, 13)
+        Me.LblAnglePkMinCur_adm.TabIndex = 34
+        Me.LblAnglePkMinCur_adm.Text = "+0.0"
+        Me.LblAnglePkMinCur_adm.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'LblAngleDpMaxCur_adm
+        '
+        Me.LblAngleDpMaxCur_adm.AutoSize = True
+        Me.LblAngleDpMaxCur_adm.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LblAngleDpMaxCur_adm.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.LblAngleDpMaxCur_adm.Location = New System.Drawing.Point(119, 31)
+        Me.LblAngleDpMaxCur_adm.Margin = New System.Windows.Forms.Padding(0)
+        Me.LblAngleDpMaxCur_adm.Name = "LblAngleDpMaxCur_adm"
+        Me.LblAngleDpMaxCur_adm.Padding = New System.Windows.Forms.Padding(0, 0, 15, 0)
+        Me.LblAngleDpMaxCur_adm.Size = New System.Drawing.Size(69, 13)
+        Me.LblAngleDpMaxCur_adm.TabIndex = 35
+        Me.LblAngleDpMaxCur_adm.Text = "+0.0"
+        Me.LblAngleDpMaxCur_adm.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'LblAngleDpMaxBak_adm
+        '
+        Me.LblAngleDpMaxBak_adm.AutoSize = True
+        Me.LblAngleDpMaxBak_adm.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LblAngleDpMaxBak_adm.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.LblAngleDpMaxBak_adm.ForeColor = System.Drawing.Color.Blue
+        Me.LblAngleDpMaxBak_adm.Location = New System.Drawing.Point(119, 45)
+        Me.LblAngleDpMaxBak_adm.Margin = New System.Windows.Forms.Padding(0)
+        Me.LblAngleDpMaxBak_adm.Name = "LblAngleDpMaxBak_adm"
+        Me.LblAngleDpMaxBak_adm.Padding = New System.Windows.Forms.Padding(0, 0, 15, 0)
+        Me.LblAngleDpMaxBak_adm.Size = New System.Drawing.Size(69, 13)
+        Me.LblAngleDpMaxBak_adm.TabIndex = 36
+        Me.LblAngleDpMaxBak_adm.Text = "+0.0"
+        Me.LblAngleDpMaxBak_adm.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'LblAngleDpAvgCur_adm
+        '
+        Me.LblAngleDpAvgCur_adm.AutoSize = True
+        Me.LblAngleDpAvgCur_adm.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LblAngleDpAvgCur_adm.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.LblAngleDpAvgCur_adm.Location = New System.Drawing.Point(119, 73)
+        Me.LblAngleDpAvgCur_adm.Margin = New System.Windows.Forms.Padding(0)
+        Me.LblAngleDpAvgCur_adm.Name = "LblAngleDpAvgCur_adm"
+        Me.LblAngleDpAvgCur_adm.Padding = New System.Windows.Forms.Padding(0, 0, 15, 0)
+        Me.LblAngleDpAvgCur_adm.Size = New System.Drawing.Size(69, 13)
+        Me.LblAngleDpAvgCur_adm.TabIndex = 37
+        Me.LblAngleDpAvgCur_adm.Text = "+0.0"
+        Me.LblAngleDpAvgCur_adm.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'LblAngleDpAvgBak_adm
+        '
+        Me.LblAngleDpAvgBak_adm.AutoSize = True
+        Me.LblAngleDpAvgBak_adm.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LblAngleDpAvgBak_adm.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.LblAngleDpAvgBak_adm.ForeColor = System.Drawing.Color.Blue
+        Me.LblAngleDpAvgBak_adm.Location = New System.Drawing.Point(119, 87)
+        Me.LblAngleDpAvgBak_adm.Margin = New System.Windows.Forms.Padding(0)
+        Me.LblAngleDpAvgBak_adm.Name = "LblAngleDpAvgBak_adm"
+        Me.LblAngleDpAvgBak_adm.Padding = New System.Windows.Forms.Padding(0, 0, 15, 0)
+        Me.LblAngleDpAvgBak_adm.Size = New System.Drawing.Size(69, 13)
+        Me.LblAngleDpAvgBak_adm.TabIndex = 38
+        Me.LblAngleDpAvgBak_adm.Text = "+0.0"
+        Me.LblAngleDpAvgBak_adm.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'LblAngleDpMinCur_adm
+        '
+        Me.LblAngleDpMinCur_adm.AutoSize = True
+        Me.LblAngleDpMinCur_adm.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LblAngleDpMinCur_adm.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.LblAngleDpMinCur_adm.Location = New System.Drawing.Point(119, 115)
+        Me.LblAngleDpMinCur_adm.Margin = New System.Windows.Forms.Padding(0)
+        Me.LblAngleDpMinCur_adm.Name = "LblAngleDpMinCur_adm"
+        Me.LblAngleDpMinCur_adm.Padding = New System.Windows.Forms.Padding(0, 0, 15, 0)
+        Me.LblAngleDpMinCur_adm.Size = New System.Drawing.Size(69, 13)
+        Me.LblAngleDpMinCur_adm.TabIndex = 39
+        Me.LblAngleDpMinCur_adm.Text = "+0.0"
+        Me.LblAngleDpMinCur_adm.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'LblAnglePkMaxAvg_adm
+        '
+        Me.LblAnglePkMaxAvg_adm.AutoSize = True
+        Me.LblAnglePkMaxAvg_adm.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LblAnglePkMaxAvg_adm.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.LblAnglePkMaxAvg_adm.Location = New System.Drawing.Point(50, 59)
+        Me.LblAnglePkMaxAvg_adm.Margin = New System.Windows.Forms.Padding(0)
+        Me.LblAnglePkMaxAvg_adm.Name = "LblAnglePkMaxAvg_adm"
+        Me.LblAnglePkMaxAvg_adm.Padding = New System.Windows.Forms.Padding(0, 0, 15, 0)
+        Me.LblAnglePkMaxAvg_adm.Size = New System.Drawing.Size(68, 13)
+        Me.LblAnglePkMaxAvg_adm.TabIndex = 42
+        Me.LblAnglePkMaxAvg_adm.Text = "+0.0"
+        Me.LblAnglePkMaxAvg_adm.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'LblAngleDpMaxAvg_adm
+        '
+        Me.LblAngleDpMaxAvg_adm.AutoSize = True
+        Me.LblAngleDpMaxAvg_adm.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LblAngleDpMaxAvg_adm.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.LblAngleDpMaxAvg_adm.Location = New System.Drawing.Point(119, 59)
+        Me.LblAngleDpMaxAvg_adm.Margin = New System.Windows.Forms.Padding(0)
+        Me.LblAngleDpMaxAvg_adm.Name = "LblAngleDpMaxAvg_adm"
+        Me.LblAngleDpMaxAvg_adm.Padding = New System.Windows.Forms.Padding(0, 0, 15, 0)
+        Me.LblAngleDpMaxAvg_adm.Size = New System.Drawing.Size(69, 13)
+        Me.LblAngleDpMaxAvg_adm.TabIndex = 43
+        Me.LblAngleDpMaxAvg_adm.Text = "+0.0"
+        Me.LblAngleDpMaxAvg_adm.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'LblAnglePkAvgAvg_adm
+        '
+        Me.LblAnglePkAvgAvg_adm.AutoSize = True
+        Me.LblAnglePkAvgAvg_adm.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LblAnglePkAvgAvg_adm.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.LblAnglePkAvgAvg_adm.Location = New System.Drawing.Point(50, 101)
+        Me.LblAnglePkAvgAvg_adm.Margin = New System.Windows.Forms.Padding(0)
+        Me.LblAnglePkAvgAvg_adm.Name = "LblAnglePkAvgAvg_adm"
+        Me.LblAnglePkAvgAvg_adm.Padding = New System.Windows.Forms.Padding(0, 0, 15, 0)
+        Me.LblAnglePkAvgAvg_adm.Size = New System.Drawing.Size(68, 13)
+        Me.LblAnglePkAvgAvg_adm.TabIndex = 44
+        Me.LblAnglePkAvgAvg_adm.Text = "+0.0"
+        Me.LblAnglePkAvgAvg_adm.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'LblAngleDpAvgAvg_adm
+        '
+        Me.LblAngleDpAvgAvg_adm.AutoSize = True
+        Me.LblAngleDpAvgAvg_adm.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LblAngleDpAvgAvg_adm.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.LblAngleDpAvgAvg_adm.Location = New System.Drawing.Point(119, 101)
+        Me.LblAngleDpAvgAvg_adm.Margin = New System.Windows.Forms.Padding(0)
+        Me.LblAngleDpAvgAvg_adm.Name = "LblAngleDpAvgAvg_adm"
+        Me.LblAngleDpAvgAvg_adm.Padding = New System.Windows.Forms.Padding(0, 0, 15, 0)
+        Me.LblAngleDpAvgAvg_adm.Size = New System.Drawing.Size(69, 13)
+        Me.LblAngleDpAvgAvg_adm.TabIndex = 45
+        Me.LblAngleDpAvgAvg_adm.Text = "+0.0"
+        Me.LblAngleDpAvgAvg_adm.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
         'TabVeloTsi
         '
         Me.TabVeloTsi.BackColor = System.Drawing.Color.White
@@ -2286,13 +2266,13 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.TabVeloTsi.Controls.Add(Me.HScrollBar2)
         Me.TabVeloTsi.Controls.Add(Me.CmdTSIRange)
         Me.TabVeloTsi.Controls.Add(Me.CmdVeloRange)
-        Me.TabVeloTsi.Controls.Add(Me.PictureBox4)
-        Me.TabVeloTsi.Controls.Add(Me.PictureBox3)
         Me.TabVeloTsi.Controls.Add(Me.TblVeloMDCD_nom)
         Me.TabVeloTsi.Controls.Add(Me.TblVeloPkDp_nom)
         Me.TabVeloTsi.Controls.Add(Me.TblVeloPkDp_adm)
         Me.TabVeloTsi.Controls.Add(Me.TblVeloMDCD_adm)
         Me.TabVeloTsi.Controls.Add(Me.TblTSI_adm)
+        Me.TabVeloTsi.Controls.Add(Me.PictureBox4)
+        Me.TabVeloTsi.Controls.Add(Me.PictureBox3)
         Me.TabVeloTsi.Location = New System.Drawing.Point(4, 22)
         Me.TabVeloTsi.Name = "TabVeloTsi"
         Me.TabVeloTsi.Padding = New System.Windows.Forms.Padding(3)
@@ -2600,28 +2580,6 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.CmdVeloRange.TabIndex = 16
         Me.CmdVeloRange.Text = "レンジ切替"
         Me.CmdVeloRange.UseVisualStyleBackColor = True
-        '
-        'PictureBox4
-        '
-        Me.PictureBox4.BackColor = System.Drawing.Color.White
-        Me.PictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.PictureBox4.Location = New System.Drawing.Point(0, 288)
-        Me.PictureBox4.Margin = New System.Windows.Forms.Padding(0)
-        Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(613, 286)
-        Me.PictureBox4.TabIndex = 13
-        Me.PictureBox4.TabStop = False
-        '
-        'PictureBox3
-        '
-        Me.PictureBox3.BackColor = System.Drawing.Color.White
-        Me.PictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.PictureBox3.Location = New System.Drawing.Point(0, 0)
-        Me.PictureBox3.Margin = New System.Windows.Forms.Padding(0)
-        Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(613, 286)
-        Me.PictureBox3.TabIndex = 12
-        Me.PictureBox3.TabStop = False
         '
         'TblVeloMDCD_nom
         '
@@ -4265,15 +4223,15 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.ColumnHeadersVisible = False
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7, Me.Column8, Me.Column9, Me.Column10, Me.Column11})
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle1.Padding = New System.Windows.Forms.Padding(0, 0, 15, 0)
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle29.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle29.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        DataGridViewCellStyle29.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle29.Padding = New System.Windows.Forms.Padding(0, 0, 15, 0)
+        DataGridViewCellStyle29.SelectionBackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle29
         Me.DataGridView1.GridColor = System.Drawing.Color.Black
         Me.DataGridView1.Location = New System.Drawing.Point(3, 117)
         Me.DataGridView1.Margin = New System.Windows.Forms.Padding(0)
@@ -5160,15 +5118,15 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView2.ColumnHeadersVisible = False
         Me.DataGridView2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn11})
-        DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle13.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        DataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle13.Padding = New System.Windows.Forms.Padding(0, 0, 15, 0)
-        DataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridView2.DefaultCellStyle = DataGridViewCellStyle13
+        DataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle41.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle41.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        DataGridViewCellStyle41.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle41.Padding = New System.Windows.Forms.Padding(0, 0, 15, 0)
+        DataGridViewCellStyle41.SelectionBackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle41.SelectionForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle41.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridView2.DefaultCellStyle = DataGridViewCellStyle41
         Me.DataGridView2.GridColor = System.Drawing.Color.Black
         Me.DataGridView2.Location = New System.Drawing.Point(3, 117)
         Me.DataGridView2.Margin = New System.Windows.Forms.Padding(0)
@@ -5183,8 +5141,8 @@ Partial Class FrmSST4500_1_0_0J_Profile
         '
         'DataGridViewTextBoxColumn1
         '
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
-        Me.DataGridViewTextBoxColumn1.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle30.ForeColor = System.Drawing.Color.Black
+        Me.DataGridViewTextBoxColumn1.DefaultCellStyle = DataGridViewCellStyle30
         Me.DataGridViewTextBoxColumn1.FillWeight = 60.0!
         Me.DataGridViewTextBoxColumn1.Frozen = True
         Me.DataGridViewTextBoxColumn1.HeaderText = "Column1"
@@ -5198,9 +5156,9 @@ Partial Class FrmSST4500_1_0_0J_Profile
         '
         'DataGridViewTextBoxColumn2
         '
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Blue
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Blue
-        Me.DataGridViewTextBoxColumn2.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle31.ForeColor = System.Drawing.Color.Blue
+        DataGridViewCellStyle31.SelectionForeColor = System.Drawing.Color.Blue
+        Me.DataGridViewTextBoxColumn2.DefaultCellStyle = DataGridViewCellStyle31
         Me.DataGridViewTextBoxColumn2.FillWeight = 76.0!
         Me.DataGridViewTextBoxColumn2.Frozen = True
         Me.DataGridViewTextBoxColumn2.HeaderText = "Column2"
@@ -5214,9 +5172,9 @@ Partial Class FrmSST4500_1_0_0J_Profile
         '
         'DataGridViewTextBoxColumn3
         '
-        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.Blue
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Blue
-        Me.DataGridViewTextBoxColumn3.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle32.ForeColor = System.Drawing.Color.Blue
+        DataGridViewCellStyle32.SelectionForeColor = System.Drawing.Color.Blue
+        Me.DataGridViewTextBoxColumn3.DefaultCellStyle = DataGridViewCellStyle32
         Me.DataGridViewTextBoxColumn3.FillWeight = 76.0!
         Me.DataGridViewTextBoxColumn3.Frozen = True
         Me.DataGridViewTextBoxColumn3.HeaderText = "Column3"
@@ -5230,9 +5188,9 @@ Partial Class FrmSST4500_1_0_0J_Profile
         '
         'DataGridViewTextBoxColumn4
         '
-        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.Blue
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Blue
-        Me.DataGridViewTextBoxColumn4.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle33.ForeColor = System.Drawing.Color.Blue
+        DataGridViewCellStyle33.SelectionForeColor = System.Drawing.Color.Blue
+        Me.DataGridViewTextBoxColumn4.DefaultCellStyle = DataGridViewCellStyle33
         Me.DataGridViewTextBoxColumn4.FillWeight = 69.0!
         Me.DataGridViewTextBoxColumn4.Frozen = True
         Me.DataGridViewTextBoxColumn4.HeaderText = "Column4"
@@ -5246,9 +5204,9 @@ Partial Class FrmSST4500_1_0_0J_Profile
         '
         'DataGridViewTextBoxColumn5
         '
-        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.Blue
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Blue
-        Me.DataGridViewTextBoxColumn5.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle34.ForeColor = System.Drawing.Color.Blue
+        DataGridViewCellStyle34.SelectionForeColor = System.Drawing.Color.Blue
+        Me.DataGridViewTextBoxColumn5.DefaultCellStyle = DataGridViewCellStyle34
         Me.DataGridViewTextBoxColumn5.FillWeight = 72.0!
         Me.DataGridViewTextBoxColumn5.Frozen = True
         Me.DataGridViewTextBoxColumn5.HeaderText = "Column5"
@@ -5262,9 +5220,9 @@ Partial Class FrmSST4500_1_0_0J_Profile
         '
         'DataGridViewTextBoxColumn6
         '
-        DataGridViewCellStyle7.ForeColor = System.Drawing.Color.Blue
-        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Blue
-        Me.DataGridViewTextBoxColumn6.DefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle35.ForeColor = System.Drawing.Color.Blue
+        DataGridViewCellStyle35.SelectionForeColor = System.Drawing.Color.Blue
+        Me.DataGridViewTextBoxColumn6.DefaultCellStyle = DataGridViewCellStyle35
         Me.DataGridViewTextBoxColumn6.FillWeight = 69.0!
         Me.DataGridViewTextBoxColumn6.Frozen = True
         Me.DataGridViewTextBoxColumn6.HeaderText = "Column6"
@@ -5278,9 +5236,9 @@ Partial Class FrmSST4500_1_0_0J_Profile
         '
         'DataGridViewTextBoxColumn7
         '
-        DataGridViewCellStyle8.ForeColor = System.Drawing.Color.Blue
-        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Blue
-        Me.DataGridViewTextBoxColumn7.DefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle36.ForeColor = System.Drawing.Color.Blue
+        DataGridViewCellStyle36.SelectionForeColor = System.Drawing.Color.Blue
+        Me.DataGridViewTextBoxColumn7.DefaultCellStyle = DataGridViewCellStyle36
         Me.DataGridViewTextBoxColumn7.FillWeight = 68.0!
         Me.DataGridViewTextBoxColumn7.Frozen = True
         Me.DataGridViewTextBoxColumn7.HeaderText = "Column7"
@@ -5294,9 +5252,9 @@ Partial Class FrmSST4500_1_0_0J_Profile
         '
         'DataGridViewTextBoxColumn8
         '
-        DataGridViewCellStyle9.ForeColor = System.Drawing.Color.Blue
-        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Blue
-        Me.DataGridViewTextBoxColumn8.DefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle37.ForeColor = System.Drawing.Color.Blue
+        DataGridViewCellStyle37.SelectionForeColor = System.Drawing.Color.Blue
+        Me.DataGridViewTextBoxColumn8.DefaultCellStyle = DataGridViewCellStyle37
         Me.DataGridViewTextBoxColumn8.FillWeight = 68.0!
         Me.DataGridViewTextBoxColumn8.Frozen = True
         Me.DataGridViewTextBoxColumn8.HeaderText = "Column8"
@@ -5310,9 +5268,9 @@ Partial Class FrmSST4500_1_0_0J_Profile
         '
         'DataGridViewTextBoxColumn9
         '
-        DataGridViewCellStyle10.ForeColor = System.Drawing.Color.Blue
-        DataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Blue
-        Me.DataGridViewTextBoxColumn9.DefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle38.ForeColor = System.Drawing.Color.Blue
+        DataGridViewCellStyle38.SelectionForeColor = System.Drawing.Color.Blue
+        Me.DataGridViewTextBoxColumn9.DefaultCellStyle = DataGridViewCellStyle38
         Me.DataGridViewTextBoxColumn9.FillWeight = 68.0!
         Me.DataGridViewTextBoxColumn9.Frozen = True
         Me.DataGridViewTextBoxColumn9.HeaderText = "Column9"
@@ -5326,9 +5284,9 @@ Partial Class FrmSST4500_1_0_0J_Profile
         '
         'DataGridViewTextBoxColumn10
         '
-        DataGridViewCellStyle11.ForeColor = System.Drawing.Color.Blue
-        DataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.Blue
-        Me.DataGridViewTextBoxColumn10.DefaultCellStyle = DataGridViewCellStyle11
+        DataGridViewCellStyle39.ForeColor = System.Drawing.Color.Blue
+        DataGridViewCellStyle39.SelectionForeColor = System.Drawing.Color.Blue
+        Me.DataGridViewTextBoxColumn10.DefaultCellStyle = DataGridViewCellStyle39
         Me.DataGridViewTextBoxColumn10.FillWeight = 68.0!
         Me.DataGridViewTextBoxColumn10.HeaderText = "Column10"
         Me.DataGridViewTextBoxColumn10.MaxInputLength = 10
@@ -5341,9 +5299,9 @@ Partial Class FrmSST4500_1_0_0J_Profile
         '
         'DataGridViewTextBoxColumn11
         '
-        DataGridViewCellStyle12.ForeColor = System.Drawing.Color.Blue
-        DataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Blue
-        Me.DataGridViewTextBoxColumn11.DefaultCellStyle = DataGridViewCellStyle12
+        DataGridViewCellStyle40.ForeColor = System.Drawing.Color.Blue
+        DataGridViewCellStyle40.SelectionForeColor = System.Drawing.Color.Blue
+        Me.DataGridViewTextBoxColumn11.DefaultCellStyle = DataGridViewCellStyle40
         Me.DataGridViewTextBoxColumn11.FillWeight = 68.0!
         Me.DataGridViewTextBoxColumn11.HeaderText = "Column11"
         Me.DataGridViewTextBoxColumn11.MaxInputLength = 10
@@ -6117,15 +6075,15 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.DataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView3.ColumnHeadersVisible = False
         Me.DataGridView3.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn14, Me.DataGridViewTextBoxColumn15, Me.DataGridViewTextBoxColumn16, Me.DataGridViewTextBoxColumn17, Me.DataGridViewTextBoxColumn18, Me.DataGridViewTextBoxColumn19, Me.DataGridViewTextBoxColumn20, Me.DataGridViewTextBoxColumn21, Me.DataGridViewTextBoxColumn22})
-        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle14.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        DataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle14.Padding = New System.Windows.Forms.Padding(0, 0, 15, 0)
-        DataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridView3.DefaultCellStyle = DataGridViewCellStyle14
+        DataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle42.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle42.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        DataGridViewCellStyle42.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle42.Padding = New System.Windows.Forms.Padding(0, 0, 15, 0)
+        DataGridViewCellStyle42.SelectionBackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle42.SelectionForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle42.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridView3.DefaultCellStyle = DataGridViewCellStyle42
         Me.DataGridView3.GridColor = System.Drawing.Color.Black
         Me.DataGridView3.Location = New System.Drawing.Point(3, 117)
         Me.DataGridView3.Margin = New System.Windows.Forms.Padding(0)
@@ -7195,7 +7153,7 @@ Partial Class FrmSST4500_1_0_0J_Profile
         '
         Me.OptMm.AutoSize = True
         Me.OptMm.Checked = True
-        Me.OptMm.Location = New System.Drawing.Point(750, 33)
+        Me.OptMm.Location = New System.Drawing.Point(880, 12)
         Me.OptMm.Name = "OptMm"
         Me.OptMm.Size = New System.Drawing.Size(41, 16)
         Me.OptMm.TabIndex = 41
@@ -7206,7 +7164,7 @@ Partial Class FrmSST4500_1_0_0J_Profile
         'OptInch
         '
         Me.OptInch.AutoSize = True
-        Me.OptInch.Location = New System.Drawing.Point(799, 33)
+        Me.OptInch.Location = New System.Drawing.Point(929, 12)
         Me.OptInch.Name = "OptInch"
         Me.OptInch.Size = New System.Drawing.Size(44, 16)
         Me.OptInch.TabIndex = 42
@@ -7722,12 +7680,69 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.InchToolStripMenuItem.Size = New System.Drawing.Size(97, 22)
         Me.InchToolStripMenuItem.Text = "inch"
         '
+        'PictureBox2
+        '
+        Me.PictureBox2.BackColor = System.Drawing.Color.White
+        Me.PictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PictureBox2.Location = New System.Drawing.Point(0, 288)
+        Me.PictureBox2.Margin = New System.Windows.Forms.Padding(0)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(613, 286)
+        Me.PictureBox2.TabIndex = 1
+        Me.PictureBox2.TabStop = False
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.White
+        Me.PictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PictureBox1.Location = New System.Drawing.Point(0, 0)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(0)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(613, 286)
+        Me.PictureBox1.TabIndex = 0
+        Me.PictureBox1.TabStop = False
+        '
+        'PictureBox4
+        '
+        Me.PictureBox4.BackColor = System.Drawing.Color.White
+        Me.PictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PictureBox4.Location = New System.Drawing.Point(0, 288)
+        Me.PictureBox4.Margin = New System.Windows.Forms.Padding(0)
+        Me.PictureBox4.Name = "PictureBox4"
+        Me.PictureBox4.Size = New System.Drawing.Size(613, 286)
+        Me.PictureBox4.TabIndex = 13
+        Me.PictureBox4.TabStop = False
+        '
+        'PictureBox3
+        '
+        Me.PictureBox3.BackColor = System.Drawing.Color.White
+        Me.PictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PictureBox3.Location = New System.Drawing.Point(0, 0)
+        Me.PictureBox3.Margin = New System.Windows.Forms.Padding(0)
+        Me.PictureBox3.Name = "PictureBox3"
+        Me.PictureBox3.Size = New System.Drawing.Size(613, 286)
+        Me.PictureBox3.TabIndex = 12
+        Me.PictureBox3.TabStop = False
+        '
+        'PictureBox5
+        '
+        Me.PictureBox5.Image = Global.SST4500_1_0_0J.My.Resources.Resources.nomura_logo1
+        Me.PictureBox5.Location = New System.Drawing.Point(686, 0)
+        Me.PictureBox5.Name = "PictureBox5"
+        Me.PictureBox5.Size = New System.Drawing.Size(160, 50)
+        Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox5.TabIndex = 58
+        Me.PictureBox5.TabStop = False
+        '
         'FrmSST4500_1_0_0J_Profile
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(984, 781)
+        Me.Controls.Add(Me.OptInch)
+        Me.Controls.Add(Me.OptMm)
+        Me.Controls.Add(Me.PictureBox5)
         Me.Controls.Add(Me.LblMeasSpecBak2)
         Me.Controls.Add(Me.LblMeasSpecCur2)
         Me.Controls.Add(Me.TxtPointsOld)
@@ -7741,8 +7756,6 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.Controls.Add(Me.CmdClsGraph)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.MenuStrip1)
-        Me.Controls.Add(Me.OptInch)
-        Me.Controls.Add(Me.OptMm)
         Me.Controls.Add(Me.LblPitch_num)
         Me.Controls.Add(Me.TxtPitch)
         Me.Controls.Add(Me.TxtLength)
@@ -7776,23 +7789,19 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.TabAngleratio.ResumeLayout(False)
         Me.TableLayoutPanel4.ResumeLayout(False)
         Me.TableLayoutPanel4.PerformLayout
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit
         Me.TblPDMCratio_nom.ResumeLayout(False)
         Me.TblPDMCratio_nom.PerformLayout
-        Me.TblAngle_adm.ResumeLayout(False)
-        Me.TblAngle_adm.PerformLayout
         Me.TblPDMCratio_adm.ResumeLayout(False)
         Me.TblPDMCratio_adm.PerformLayout
         Me.TblAngle_nom.ResumeLayout(False)
         Me.TblAngle_nom.PerformLayout
+        Me.TblAngle_adm.ResumeLayout(False)
+        Me.TblAngle_adm.PerformLayout
         Me.TabVeloTsi.ResumeLayout(False)
         Me.TblTSI_nom.ResumeLayout(False)
         Me.TblTSI_nom.PerformLayout
         Me.TableLayoutPanel5.ResumeLayout(False)
         Me.TableLayoutPanel5.PerformLayout
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit
         Me.TblVeloMDCD_nom.ResumeLayout(False)
         Me.TblVeloMDCD_nom.PerformLayout
         Me.TblVeloPkDp_nom.ResumeLayout(False)
@@ -7828,6 +7837,11 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.GbPrfSpec.ResumeLayout(False)
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit
         Me.ResumeLayout(False)
         Me.PerformLayout
 
@@ -8329,4 +8343,5 @@ Partial Class FrmSST4500_1_0_0J_Profile
     Friend WithEvents 単位ToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents MmToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents InchToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents PictureBox5 As PictureBox
 End Class

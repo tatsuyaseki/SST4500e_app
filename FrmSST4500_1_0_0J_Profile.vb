@@ -97,16 +97,16 @@ Public Class FrmSST4500_1_0_0J_Profile
 
                 Select Case FlgProfile
                     Case 1
-                        Text = "SST-4000 Profile"
+                        Text = My.Application.Info.ProductName & " Profile (Ver:" & My.Application.Info.Version.ToString & ")"
                         LblPrfTitle.Text = "プロファイル"
                     Case 2
-                        Text = "SST-4000 Cut Sheet Profile"
+                        Text = My.Application.Info.ProductName & " Cut Sheet Profile (Ver:" & My.Application.Info.Version.ToString & ")"
                         LblPrfTitle.Text = "カットシートプロファイル"
                     Case 3
-                        Text = "SST-4000 MD Long Sample"
+                        Text = My.Application.Info.ProductName & " MD Long Sample (Ver:" & My.Application.Info.Version.ToString & ")"
                         LblPrfTitle.Text = "MD長尺サンプル"
                     Case Else
-                        Text = "SST-4000 Profile"
+                        Text = My.Application.Info.ProductName & " Profile (Ver:" & My.Application.Info.Version.ToString & ")"
                         LblPrfTitle.Text = "プロファイル"
                 End Select
 
@@ -140,7 +140,9 @@ Public Class FrmSST4500_1_0_0J_Profile
                     LblAngCenter.Visible = True
 
                     CmdMeas.Enabled = True
-                    CmdMeas.BackColor = SystemColors.Control
+                    'CmdMeas.BackColor = SystemColors.Control
+                    CmdMeas.BackColor = frm_PrfButton_bc
+                    CmdMeas.ForeColor = frm_PrfButton_fc
                     CmdMeas.FlatStyle = FlatStyle.System
                     CmdMeas.Text = "測定開始"
                     測定開始ToolStripMenuItem.Enabled = True
@@ -149,10 +151,12 @@ Public Class FrmSST4500_1_0_0J_Profile
                     終了ToolStripMenuItem.Enabled = True
 
                     If FlgAdmin <> 0 Then
-                        CmdOldDataLoad.Enabled = True
                         過去データToolStripMenuItem.Enabled = True
+                        CmdOldDataLoad.Enabled = True
                         読込ToolStripMenuItem.Enabled = True
                     End If
+
+                    ToolStripStatusLabel4.Text = "Ready "
 
                     TxtMeasLotCur.Text = 0
 
@@ -163,8 +167,6 @@ Public Class FrmSST4500_1_0_0J_Profile
                     HScrollBar1.Enabled = False
                     HScrollBar2.Visible = False
                     HScrollBar2.Enabled = False
-
-                    ToolStripStatusLabel4.Text = "Ready  "
 
                     SetPrintChk()
 
@@ -306,7 +308,9 @@ Public Class FrmSST4500_1_0_0J_Profile
                 If _flgRx = 0 Then
                     If strRxdata = "MEAS" & vbCr Then
                         ToolStripStatusLabel4.Text = "測定中 "
-                        CmdMeas.BackColor = Color.Yellow
+                        'CmdMeas.BackColor = Color.Yellow
+                        CmdMeas.BackColor = frm_PrfMeasuringButton_bc
+                        CmdMeas.ForeColor = frm_PrfMeasuringButton_fc
                         CmdMeas.FlatStyle = FlatStyle.Standard
                         CmdMeas.Text = "測定中"
                         測定開始ToolStripMenuItem.Text = "測定中"
@@ -408,7 +412,9 @@ Public Class FrmSST4500_1_0_0J_Profile
                             ToolStripStatusLabel4.Text = "次のサンプルを"
                             CmdMeas.Enabled = True
                             CmdMeas.Text = "測定開始"
-                            CmdMeas.BackColor = SystemColors.Control
+                            'CmdMeas.BackColor = SystemColors.Control
+                            CmdMeas.BackColor = frm_PrfButton_bc
+                            CmdMeas.ForeColor = frm_PrfButton_fc
                             CmdMeas.FlatStyle = FlatStyle.System
                             測定開始ToolStripMenuItem.Enabled = True
                             測定開始ToolStripMenuItem.Text = "測定開始"
@@ -526,7 +532,9 @@ Public Class FrmSST4500_1_0_0J_Profile
 
                 CmdMeas.Enabled = True
                 CmdMeas.Text = "測定開始"
-                CmdMeas.BackColor = SystemColors.Control
+                'CmdMeas.BackColor = SystemColors.Control
+                CmdMeas.BackColor = frm_PrfButton_bc
+                CmdMeas.ForeColor = frm_PrfButton_fc
                 CmdMeas.FlatStyle = FlatStyle.System
                 測定開始ToolStripMenuItem.Enabled = True
                 測定開始ToolStripMenuItem.Text = "測定開始"
@@ -561,7 +569,9 @@ Public Class FrmSST4500_1_0_0J_Profile
 
                 CmdMeas.Enabled = True
                 CmdMeas.FlatStyle = FlatStyle.System
-                CmdMeas.BackColor = SystemColors.Control
+                'CmdMeas.BackColor = SystemColors.Control
+                CmdMeas.BackColor = frm_PrfButton_bc
+                CmdMeas.ForeColor = frm_PrfButton_fc
                 CmdMeas.Text = "測定開始"
                 測定開始ToolStripMenuItem.Enabled = True
                 測定開始ToolStripMenuItem.Text = "測定開始"
@@ -1252,8 +1262,11 @@ Public Class FrmSST4500_1_0_0J_Profile
                 If timerCount1 = 10 Then
                     TimProfile.Enabled = False
 
-                    CmdMeas.BackColor = SystemColors.Control
-                    CmdMeas.FlatStyle = FlatStyle.Standard
+                    'CmdMeas.BackColor = SystemColors.Control
+                    CmdMeas.BackColor = frm_PrfButton_bc
+                    CmdMeas.ForeColor = frm_PrfButton_fc
+                    'CmdMeas.FlatStyle = FlatStyle.Standard
+                    CmdMeas.FlatStyle = FlatStyle.System
                     CmdMeas.Text = "測定開始"
                     測定開始ToolStripMenuItem.Text = "測定開始"
 
@@ -1277,10 +1290,18 @@ Public Class FrmSST4500_1_0_0J_Profile
                 測定中断ToolStripMenuItem.Enabled = True
 
                 ToolStripStatusLabel4.Text = "測定中 "
-                CmdMeas.BackColor = Color.Yellow
+                'CmdMeas.BackColor = Color.Yellow
+                CmdMeas.BackColor = frm_PrfMeasuringButton_bc
+                CmdMeas.ForeColor = frm_PrfMeasuringButton_fc
                 CmdMeas.FlatStyle = FlatStyle.Standard
                 CmdMeas.Text = "測定中"
                 測定開始ToolStripMenuItem.Text = "測定中"
+
+                'カットシートの場合、2回目以降が100番から始まる
+                If FlgProfile = 2 Then
+                    CmdQuitProfile.Text = "中断"
+                    終了ToolStripMenuItem.Enabled = False
+                End If
 
                 timerCount1 = 0
                 FlgMainProfile = 101
@@ -1289,7 +1310,7 @@ Public Class FrmSST4500_1_0_0J_Profile
                 timerCount1 += 1
 
                 If FlgProfile <> 3 Then
-                    If timerCount1 Mod 50 = 0 Then
+                    If timerCount1 Mod 5 = 0 Then
                         ToolStripStatusLabel4.Text &= "o"
                     End If
 
@@ -1298,7 +1319,7 @@ Public Class FrmSST4500_1_0_0J_Profile
                         FlgMainProfile = 102
                     End If
                 Else
-                    If timerCount1 Mod 50 = 0 Then
+                    If timerCount1 Mod 5 = 0 Then
                         ToolStripStatusLabel4.Text &= "o"
                     End If
 
@@ -1312,7 +1333,7 @@ Public Class FrmSST4500_1_0_0J_Profile
                 timerCount1 += 1
 
                 If FlgProfile <> 3 Then
-                    If timerCount1 Mod 20 = 0 Then
+                    If timerCount1 Mod 2 = 0 Then
                         ToolStripStatusLabel4.Text &= "->"
                     End If
 
@@ -1321,7 +1342,7 @@ Public Class FrmSST4500_1_0_0J_Profile
                         FlgMainProfile = 103
                     End If
                 Else
-                    If timerCount1 Mod 20 = 0 Then
+                    If timerCount1 Mod 2 = 0 Then
                         ToolStripStatusLabel4.Text &= "->"
                     End If
 
@@ -1380,7 +1401,9 @@ Public Class FrmSST4500_1_0_0J_Profile
                             ToolStripStatusLabel4.Text = "次のサンプルを"
                             CmdMeas.Enabled = True
                             CmdMeas.Text = "測定開始"
-                            CmdMeas.BackColor = SystemColors.Control
+                            'CmdMeas.BackColor = SystemColors.Control
+                            CmdMeas.BackColor = frm_PrfButton_bc
+                            CmdMeas.ForeColor = frm_PrfButton_fc
                             CmdMeas.FlatStyle = FlatStyle.System
                             測定開始ToolStripMenuItem.Enabled = True
                             測定開始ToolStripMenuItem.Text = "測定開始"
@@ -1422,21 +1445,21 @@ Public Class FrmSST4500_1_0_0J_Profile
             Case 111
                 timerCount1 += 1
                 If FlgProfile <> 3 Then
-                    If timerCount1 Mod 10 = 0 Then
+                    If timerCount1 Mod 2 = 0 Then
                         ToolStripStatusLabel4.Text &= "=>"
                     End If
 
-                    '                    If timerCount1 >= test_count3_prf Then
-                    If timerCount1 >= Math.Round(Pitch / 2) Then
+                    'If timerCount1 >= test_count3_prf Then
+                    If timerCount1 >= Math.Round(Pitch / 20) Then
                         timerCount1 = 0
                         FlgMainProfile = 100
                     End If
                 Else
-                    If timerCount1 Mod 10 = 0 Then
+                    If timerCount1 Mod 2 = 0 Then
                         ToolStripStatusLabel4.Text &= "=>"
                     End If
 
-                    If timerCount1 >= Math.Round(Pitch / 2) Then
+                    If timerCount1 >= Math.Round(Pitch / 20) Then
                         timerCount1 = 0
                         FlgMainProfile = 100
                     End If
@@ -1458,7 +1481,9 @@ Public Class FrmSST4500_1_0_0J_Profile
                 FlgLongMeas = 1
 
                 CmdMeas.Enabled = True
-                CmdMeas.BackColor = SystemColors.Control
+                'CmdMeas.BackColor = SystemColors.Control
+                CmdMeas.BackColor = frm_PrfButton_bc
+                CmdMeas.ForeColor = frm_PrfButton_fc
                 CmdMeas.FlatStyle = FlatStyle.System
                 CmdMeas.Text = "測定開始"
                 測定開始ToolStripMenuItem.Enabled = True
@@ -6071,6 +6096,8 @@ Public Class FrmSST4500_1_0_0J_Profile
         'Me.MaximumSize = Me.Size
         Me.MinimumSize = Me.Size
 
+        LblProductNamePrf.Text = My.Application.Info.ProductName
+
         groupMenuUnit = New ToolStripMenuItem() _
             {Me.MmToolStripMenuItem,
              Me.InchToolStripMenuItem}
@@ -6897,7 +6924,7 @@ Rdg8:
         Dim fnt_9 As New Font("MS UI Gothic", 9)
         Dim paper_width As Integer = e.MarginBounds.Width
 
-        string_tmp = product_name & " " & LblPrfTitle.Text
+        string_tmp = My.Application.Info.ProductName & " " & LblPrfTitle.Text
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_14)
         title_height = stringSize.Height
 
@@ -7217,7 +7244,7 @@ Rdg8:
         Dim fnt_9 As New Font("MS UI Gothic", 9)
         Dim paper_width As Integer = e.MarginBounds.Width
 
-        string_tmp = product_name & " " & LblPrfTitle.Text
+        string_tmp = My.Application.Info.ProductName & " " & LblPrfTitle.Text
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_14)
         title_height = stringSize.Height
 
@@ -7682,7 +7709,7 @@ Rdg8:
         Dim fnt_9 As New Font("MS UI Gothic", 9)
         Dim paper_width As Integer = e.MarginBounds.Width
 
-        string_tmp = product_name & " " & LblPrfTitle.Text
+        string_tmp = My.Application.Info.ProductName & " " & LblPrfTitle.Text
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_14)
         title_height = stringSize.Height
 
@@ -8019,7 +8046,7 @@ Rdg8:
         Dim fnt_9 As New Font("MS UI Gothic", 9)
         Dim paper_width As Integer = e.MarginBounds.Width
 
-        string_tmp = product_name & " " & LblPrfTitle.Text
+        string_tmp = My.Application.Info.ProductName & " " & LblPrfTitle.Text
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_14)
         title_height = stringSize.Height
 
@@ -8565,7 +8592,7 @@ Rdg8:
                 sub_title = "測定データ"
         End Select
 
-        string_tmp = product_name & " " & LblPrfTitle.Text & " " & sub_title
+        string_tmp = My.Application.Info.ProductName & " " & LblPrfTitle.Text & " " & sub_title
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_14)
         title_height = stringSize.Height
         title_width = stringSize.Width
@@ -9700,7 +9727,7 @@ Rdg8:
                             With sheet1
                                 .Cells.Locked = False
 
-                                .Cells(1, 1) = product_name & " " & LblPrfTitle.Text
+                                .Cells(1, 1) = My.Application.Info.ProductName & " " & LblPrfTitle.Text
                                 .Cells(2, 1) = "測定データ 測定　日付：" & DataDate_cur & "  時間：" & DataTime_cur
                                 .Range(.Cells(1, 1), .Cells(2, 1)).Locked = True
 
@@ -9802,7 +9829,7 @@ Rdg8:
                             With sheet2
                                 .Cells.Locked = False
 
-                                .Cells(1, 1) = product_name & " " & LblPrfTitle.Text
+                                .Cells(1, 1) = My.Application.Info.ProductName & " " & LblPrfTitle.Text
                                 .Cells(2, 1) = "測定データ 測定　日付：" & DataDate_cur & "  時間：" & DataTime_cur
                                 .Range(.Cells(1, 1), .Cells(2, 1)).Locked = True
 
@@ -9908,7 +9935,7 @@ Rdg8:
                                 If SampleNo > 0 Then
                                     .Cells.Locked = False
 
-                                    .Cells(1, 1) = product_name & " " & LblPrfTitle.Text
+                                    .Cells(1, 1) = My.Application.Info.ProductName & " " & LblPrfTitle.Text
                                     .Cells(2, 1) = "測定データ 測定　日付：" & DataDate_cur & "  時間：" & DataTime_cur
                                     .Range(.Cells(1, 1), .Cells(2, 1)).Locked = True
 
@@ -9996,7 +10023,7 @@ Rdg8:
                                 If FileDataMax > 0 Then
                                     .Cells.Locked = False
 
-                                    .Cells(1, 1) = product_name & " " & LblPrfTitle.Text
+                                    .Cells(1, 1) = My.Application.Info.ProductName & " " & LblPrfTitle.Text
                                     .Cells(2, 1) = "測定データ 測定　日付：" & DataDate_cur & "  時間：" & DataTime_cur
                                     .Range(.Cells(1, 1), .Cells(2, 1)).Locked = True
 
@@ -10082,7 +10109,7 @@ Rdg8:
 
                             With sheet5
                                 If FlgAvg > 0 Then
-                                    .Cells(1, 1) = product_name & " " & LblPrfTitle.Text
+                                    .Cells(1, 1) = My.Application.Info.ProductName & " " & LblPrfTitle.Text
                                     .Cells(2, 1) = "測定データ 測定　日付：" & DataDate_cur & "  時間：" & DataTime_cur
                                     .Range(.Cells(1, 1), .Cells(2, 1)).Locked = True
 
@@ -10170,7 +10197,7 @@ Rdg8:
                             With sheet1
                                 .Cells.Locked = False
 
-                                .Cells(1, 1) = product_name & " " & LblPrfTitle.Text
+                                .Cells(1, 1) = My.Application.Info.ProductName & " " & LblPrfTitle.Text
 
                                 .Cells(2, 1) = "測定データ 測定　日付：" & DataDate_cur & "  時間：" & DataTime_cur
                                 .Cells(3, 1) = "過去データ 測定　日付：" & DataDate_bak & "  時間：" & DataTime_bak
@@ -10305,7 +10332,7 @@ Rdg8:
                             With sheet2
                                 .Cells.Locked = False
 
-                                .Cells(1, 1) = product_name & " " & LblPrfTitle.Text
+                                .Cells(1, 1) = My.Application.Info.ProductName & " " & LblPrfTitle.Text
                                 .Cells(2, 1) = "測定データ 測定　日付：" & DataDate_cur & "  時間：" & DataTime_cur
                                 .Cells(3, 1) = "過去データ 測定　日付：" & DataDate_bak & "  時間：" & DataTime_bak
                                 .Cells(3, 1).font.color = Color.Blue
@@ -10483,7 +10510,7 @@ Rdg8:
 
                             With sheet3
                                 If SampleNo > 0 Then
-                                    .Cells(1, 1) = product_name & " " & LblPrfTitle.Text
+                                    .Cells(1, 1) = My.Application.Info.ProductName & " " & LblPrfTitle.Text
                                     .Cells(2, 1) = "測定データ 測定　日付：" & DataDate_cur & "  時間：" & DataTime_cur
                                     .Cells(3, 1) = "過去データ 測定　日付：" & DataDate_bak & "  時間：" & DataTime_bak
                                     .Cells(3, 1).font.color = Color.Blue
@@ -10580,7 +10607,7 @@ Rdg8:
                                 If FileDataMax > 0 Then
                                     .Cells.Locked = False
 
-                                    .Cells(1, 1) = product_name & " " & LblPrfTitle.Text
+                                    .Cells(1, 1) = My.Application.Info.ProductName & " " & LblPrfTitle.Text
                                     .Cells(2, 1) = "測定データ 測定　日付：" & DataDate_cur & "  時間：" & DataTime_cur
                                     .Cells(3, 1) = "過去データ 測定　日付：" & DataDate_bak & "  時間：" & DataTime_bak
                                     .Cells(3, 1).font.color = Color.Blue
@@ -10677,7 +10704,7 @@ Rdg8:
                                 If FlgAvg > 0 Then
                                     .Cells.Locked = False
 
-                                    .Cells(1, 1) = product_name & " " & LblPrfTitle.Text
+                                    .Cells(1, 1) = My.Application.Info.ProductName & " " & LblPrfTitle.Text
                                     .Cells(2, 1) = "測定データ 測定　日付：" & DataDate_cur & "  時間：" & DataTime_cur
                                     .Cells(3, 1) = "過去データ 測定　日付：" & DataDate_bak & "  時間：" & DataTime_bak
                                     .Cells(3, 1).font.color = Color.Blue

@@ -1,4 +1,5 @@
-﻿Imports System.ComponentModel.Design
+﻿Imports System.ComponentModel
+Imports System.ComponentModel.Design
 Imports System.Drawing.Drawing2D
 Imports System.IO
 Imports System.Runtime.CompilerServices
@@ -32,6 +33,9 @@ Public Class FrmSST4500_1_0_0J_test
     Private Sub FrmSST4500_1_0_0J_test_Load(sender As Object, e As EventArgs) Handles Me.Load
         'Me.MaximumSize = Me.Size
         Me.MinimumSize = Me.Size
+
+        Me.Text = My.Application.Info.ProductName & " Test (Ver:" & My.Application.Info.Version.ToString & ")"
+        Me.Label1.Text = My.Application.Info.ProductName
 
     End Sub
 
@@ -128,7 +132,7 @@ Public Class FrmSST4500_1_0_0J_test
 
                 DrawGraph()
                 DrawData()
-                Drawdef()
+                DrawDef()
 
                 FlgMainTest = 0
 
@@ -1202,5 +1206,10 @@ Public Class FrmSST4500_1_0_0J_test
         ReceivedData()
 
         FlgMainTest = 0
+    End Sub
+
+    Private Sub FrmSST4500_1_0_0J_test_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+        e.Cancel = True
+        FlgMainTest = 90
     End Sub
 End Class

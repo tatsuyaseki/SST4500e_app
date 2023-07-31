@@ -22,6 +22,7 @@ Partial Class FrmSST4500_1_0_0J_colorsetting
     'コード エディターを使って変更しないでください。
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmSST4500_1_0_0J_colorsetting))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.LblFrmMainLineColor = New System.Windows.Forms.Label()
@@ -78,6 +79,8 @@ Partial Class FrmSST4500_1_0_0J_colorsetting
         Me.LblFrmMeasFormBC = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.LblFrmPrfAvgDataColor = New System.Windows.Forms.Label()
         Me.LblFrmPrfGraphWakuColor = New System.Windows.Forms.Label()
         Me.Label26 = New System.Windows.Forms.Label()
         Me.LblFrmPrfCurDataColor = New System.Windows.Forms.Label()
@@ -111,8 +114,6 @@ Partial Class FrmSST4500_1_0_0J_colorsetting
         Me.LblFrmPrfFormBC = New System.Windows.Forms.Label()
         Me.Label57 = New System.Windows.Forms.Label()
         Me.Label58 = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.LblFrmPrfAvgDataColor = New System.Windows.Forms.Label()
         Me.CmdColorSettingQuit = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -685,6 +686,23 @@ Partial Class FrmSST4500_1_0_0J_colorsetting
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "プロファイル系画面"
         '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(6, 388)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(69, 12)
+        Me.Label11.TabIndex = 39
+        Me.Label11.Text = "過去データ色"
+        '
+        'LblFrmPrfAvgDataColor
+        '
+        Me.LblFrmPrfAvgDataColor.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.LblFrmPrfAvgDataColor.Location = New System.Drawing.Point(128, 384)
+        Me.LblFrmPrfAvgDataColor.Name = "LblFrmPrfAvgDataColor"
+        Me.LblFrmPrfAvgDataColor.Size = New System.Drawing.Size(30, 20)
+        Me.LblFrmPrfAvgDataColor.TabIndex = 40
+        '
         'LblFrmPrfGraphWakuColor
         '
         Me.LblFrmPrfGraphWakuColor.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
@@ -967,23 +985,6 @@ Partial Class FrmSST4500_1_0_0J_colorsetting
         Me.Label58.TabIndex = 5
         Me.Label58.Text = "プロファイル系 : プロファイル、カットシート、MD長尺サンプル"
         '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(6, 388)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(69, 12)
-        Me.Label11.TabIndex = 39
-        Me.Label11.Text = "過去データ色"
-        '
-        'LblFrmPrfAvgDataColor
-        '
-        Me.LblFrmPrfAvgDataColor.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.LblFrmPrfAvgDataColor.Location = New System.Drawing.Point(128, 384)
-        Me.LblFrmPrfAvgDataColor.Name = "LblFrmPrfAvgDataColor"
-        Me.LblFrmPrfAvgDataColor.Size = New System.Drawing.Size(30, 20)
-        Me.LblFrmPrfAvgDataColor.TabIndex = 40
-        '
         'CmdColorSettingQuit
         '
         Me.CmdColorSettingQuit.Location = New System.Drawing.Point(103, 412)
@@ -1004,6 +1005,7 @@ Partial Class FrmSST4500_1_0_0J_colorsetting
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.CmdColorSettingReset)
         Me.Controls.Add(Me.GroupBox1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FrmSST4500_1_0_0J_colorsetting"
         Me.Text = "ウィンドウ・ボタン色設定"
         Me.GroupBox1.ResumeLayout(False)

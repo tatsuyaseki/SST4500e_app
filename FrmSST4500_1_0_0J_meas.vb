@@ -26,6 +26,10 @@ Public Class FrmSST4500_1_0_0J_meas
         'Me.MaximumSize = Me.Size
         Me.MinimumSize = Me.Size
         Menu_AutoPrn = DirectCast(印刷ToolStripMenuItem, ToolStripMenuItem)
+
+        Me.Text = My.Application.Info.ProductName & " Single Sheet (Ver:" & My.Application.Info.Version.ToString & ")"
+        Me.LblProductNameMeas.Text = My.Application.Info.ProductName
+
     End Sub
 
     Private Sub TimMeas_Tick(sender As Object, e As EventArgs) Handles TimMeas.Tick
@@ -206,7 +210,9 @@ Public Class FrmSST4500_1_0_0J_meas
 
                 timerCount1 += 1
 
-                If timerCount1 Mod 50 = 0 Then
+                If FlgTest = 0 And timerCount1 Mod 50 = 0 Then
+                    ToolStripStatusLabel4.Text &= "o"
+                ElseIf FlgTest <> 0 And timerCount1 Mod 5 = 0 Then
                     ToolStripStatusLabel4.Text &= "o"
                 End If
 
@@ -224,6 +230,7 @@ Public Class FrmSST4500_1_0_0J_meas
 
                 If FlgTest = 0 And timerCount1 Mod 20 = 0 Then
                     ToolStripStatusLabel4.Text &= "-"
+
                     strRxdata = ""
                     _flgRx = UsbRead(strRxdata)
 
@@ -243,7 +250,7 @@ Public Class FrmSST4500_1_0_0J_meas
                             FlgMainMeas = 99
                         End If
                     End If
-                ElseIf FlgTest <> 0 And timerCount1 Mod 20 = 0 Then
+                ElseIf FlgTest <> 0 And timerCount1 Mod 2 = 0 Then
                     ToolStripStatusLabel4.Text &= "-"
                     'If timerCount1 = 100 Then
                     If timerCount1 >= test_count2 Then
@@ -1504,7 +1511,7 @@ Public Class FrmSST4500_1_0_0J_meas
         'Console.WriteLine(paper_width)
         'Console.WriteLine(paper_height)
 
-        string_tmp = product_name & " シングルシート"
+        string_tmp = My.Application.Info.ProductName & " シングルシート"
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_14)
         title_height = stringSize.Height
         e.Graphics.DrawString(string_tmp, fnt_14, Brushes.Black, 0, 0)
@@ -2227,7 +2234,7 @@ Public Class FrmSST4500_1_0_0J_meas
 
         'e.Graphics.DrawRectangle(New Pen(Color.Black, 1), New Rectangle(0, 0, e.MarginBounds.Width, e.MarginBounds.Height))
 
-        string_tmp = product_name & " シングルシート"
+        string_tmp = My.Application.Info.ProductName & " シングルシート"
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_20)
         title_height = stringSize.Height
         e.Graphics.DrawString(string_tmp, fnt_20, Brushes.Black, 0, 0)
@@ -2652,7 +2659,7 @@ Public Class FrmSST4500_1_0_0J_meas
                             '通常モード時
                             With sheet
                                 .Cells.Locked = False
-                                .Cells(1, 1) = product_name & " シングルシート"
+                                .Cells(1, 1) = My.Application.Info.ProductName & " シングルシート"
                                 .Cells(2, 1) = "測定データ 測定　日付：" & DataDate_cur & "  時間：" & DataTime_cur
                                 .Range(.Cells(1, 1), .Cells(2, 1)).Locked = True
 

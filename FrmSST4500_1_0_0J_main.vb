@@ -43,8 +43,8 @@ Public Class FrmSST4500_1_0_0J_main
         Me.MinimumSize = Me.Size
 
         cur_dir = Directory.GetCurrentDirectory
-
-        Me.LblProductNameMenu.Text = product_name
+        Me.Text = My.Application.Info.ProductName & " Menu (Ver:" & My.Application.Info.Version.ToString & ")"
+        Me.LblProductNameMenu.Text = My.Application.Info.ProductName
 
         SG_ResultSave_path = My.Settings._sgresultsave_path
         If SG_ResultSave_path = "" Then
@@ -113,14 +113,12 @@ Public Class FrmSST4500_1_0_0J_main
         prfform_color_setting_load()
 
         'test count
-        test_count1 = My.Settings._test_count1
-        test_count2 = My.Settings._test_count2
+        test_count1 = My.Settings._test_count1              'テストモード蒔の予備加圧時間
+        test_count2 = My.Settings._test_count2              'テストモード時の測定時間
         test_count1_prf = My.Settings._test_count1_prf
         test_count2_prf = My.Settings._test_count2_prf
-        'test_count3_prf = My.Settings._test_count3_prf
         test_count1_md = My.Settings._test_count1_md
         test_count2_md = My.Settings._test_count2_md
-        'test_count3_md = My.Settings._test_count3_md
 
         timeout_time = My.Settings._timeout_time
         cmd_timeout = My.Settings._cmd_timeout
