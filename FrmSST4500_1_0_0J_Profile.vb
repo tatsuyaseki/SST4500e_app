@@ -100,8 +100,8 @@ Public Class FrmSST4500_1_0_0J_Profile
                         Text = My.Application.Info.ProductName & " Profile (Ver:" & My.Application.Info.Version.ToString & ")"
                         LblPrfTitle.Text = "プロファイル"
                     Case 2
-                        Text = My.Application.Info.ProductName & " Cut Sheet Profile (Ver:" & My.Application.Info.Version.ToString & ")"
-                        LblPrfTitle.Text = "カットシートプロファイル"
+                        Text = My.Application.Info.ProductName & " Cut Sheet (Ver:" & My.Application.Info.Version.ToString & ")"
+                        LblPrfTitle.Text = "カットシート"
                     Case 3
                         Text = My.Application.Info.ProductName & " MD Long Sample (Ver:" & My.Application.Info.Version.ToString & ")"
                         LblPrfTitle.Text = "MD長尺サンプル"
@@ -8024,6 +8024,16 @@ Rdg8:
             e.Graphics.DrawPath(pen_black_1, path_tmp)
         Next
 
+        bmp1.Dispose()
+        bmp2.Dispose()
+        bmp_resize1.Dispose()
+        bmp_resize2.Dispose()
+        path.Dispose()
+        pen_black_1.Dispose()
+        fnt_10.Dispose()
+        fnt_14.Dispose()
+        fnt_9.Dispose()
+
     End Sub
 
     Private Sub PDVeloTSI_adm_PrintPage(sender As Object, e As PrintPageEventArgs) Handles PDVeloTSI_adm.PrintPage
@@ -8523,6 +8533,17 @@ Rdg8:
         For Each path_tmp As GraphicsPath In prf_prn_linepath1
             e.Graphics.DrawPath(pen_black_1, path_tmp)
         Next
+
+        bmp1.Dispose()
+        bmp2.Dispose()
+        bmp_resize1.Dispose()
+        bmp_resize2.Dispose()
+        path.Dispose()
+        pen_black_1.Dispose()
+        fnt_10.Dispose()
+        fnt_14.Dispose()
+        fnt_9.Dispose()
+
     End Sub
 
     Private Sub PDMeasData_PrintPage(sender As Object, e As PrintPageEventArgs) Handles PDMeasData.PrintPage
@@ -9484,6 +9505,14 @@ Rdg8:
             Next
 
         End If
+
+        path.Dispose()
+        path2.Dispose()
+        pen_black_1.Dispose()
+        pen_black_2.Dispose()
+        fnt_10.Dispose()
+        fnt_14.Dispose()
+
     End Sub
 
     Private Sub FrmSST4500_1_0_0J_Profile_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing

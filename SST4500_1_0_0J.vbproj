@@ -115,6 +115,12 @@
     <Compile Include="FrmSST4500_1_0_0J_colorsetting.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmSST4500_1_0_0J_helpinfo.Designer.vb">
+      <DependentUpon>FrmSST4500_1_0_0J_helpinfo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSST4500_1_0_0J_helpinfo.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmSST4500_1_0_0J_setting.Designer.vb">
       <DependentUpon>FrmSST4500_1_0_0J_setting.vb</DependentUpon>
     </Compile>
@@ -179,6 +185,9 @@
   <ItemGroup>
     <EmbeddedResource Include="FrmSST4500_1_0_0J_colorsetting.resx">
       <DependentUpon>FrmSST4500_1_0_0J_colorsetting.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSST4500_1_0_0J_helpinfo.resx">
+      <DependentUpon>FrmSST4500_1_0_0J_helpinfo.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSST4500_1_0_0J_setting.resx">
       <DependentUpon>FrmSST4500_1_0_0J_setting.vb</DependentUpon>
@@ -266,6 +275,7 @@
   <ItemGroup>
     <None Include="Resources\nomura_logo1.png" />
     <Content Include="Resources\nomura_logo.png" />
+    <None Include="Resources\nomura_logo2.png" />
     <Content Include="sst4500.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

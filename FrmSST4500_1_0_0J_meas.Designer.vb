@@ -3139,7 +3139,7 @@ Partial Class FrmSST4500_1_0_0J_meas
         '
         Me.PictureBox2.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox2.Image = Global.SST4500_1_0_0J.My.Resources.Resources.nomura_logo1
-        Me.PictureBox2.Location = New System.Drawing.Point(824, 0)
+        Me.PictureBox2.Location = New System.Drawing.Point(824, 24)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(160, 50)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom

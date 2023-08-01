@@ -376,7 +376,7 @@
 
                 set_measformfc()
 
-                My.Settings._frm_MainForm_fc = frm_MainForm_fc
+                My.Settings._frm_MeasForm_fc = frm_MeasForm_fc
                 My.Settings.Save()
             End If
         End Using
@@ -599,7 +599,7 @@
 
                 set_prfformbc()
 
-                My.Settings._frm_MainForm_bc = frm_MainForm_bc
+                My.Settings._frm_PrfForm_bc = frm_PrfForm_bc
                 My.Settings.Save()
             End If
         End Using

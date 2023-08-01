@@ -1001,6 +1001,8 @@ Public Class FrmSST4500_1_0_0J_meas
         square_path2.Add(path)
 
         PictureBox1.Refresh()
+
+        'path.Dispose()
     End Sub
 
     Private Sub DrawTriangle(Px As Single, Py As Single)
@@ -1019,6 +1021,8 @@ Public Class FrmSST4500_1_0_0J_meas
         triangle_path2.Add(path)
 
         PictureBox1.Refresh()
+
+        'path.Dispose()
     End Sub
 
     Private Sub DrawAxisCur()
@@ -1059,7 +1063,10 @@ Public Class FrmSST4500_1_0_0J_meas
         path.AddLine(225 - CdX, 225 - CdY, 225 + CdX, 225 + CdY)
 
         axis_path_cur.Add(path)
+
         PictureBox1.Refresh()
+
+        'path.Dispose()
     End Sub
 
     Private Sub DrawAxisBak()
@@ -1100,7 +1107,10 @@ Public Class FrmSST4500_1_0_0J_meas
         path.AddLine(225 - CdX, 225 - CdY, 225 + CdX, 225 + CdY)
 
         axis_path_bak.Add(path)
+
         PictureBox1.Refresh()
+
+        'path.Dispose()
     End Sub
 
     Private Sub DrawCalcData()
@@ -2020,6 +2030,16 @@ Public Class FrmSST4500_1_0_0J_meas
             e.Graphics.DrawPath(pen_black_1, path_tmp)
         Next
 
+        path.Dispose()
+        bmp.Dispose()
+        bmp_resize.Dispose()
+        pen_black_1.Dispose()
+        pen_black_2.Dispose()
+        pen_blue_1.Dispose()
+        fnt_10.Dispose()
+        fnt_14.Dispose()
+        fnt_9.Dispose()
+
     End Sub
 
     Private Sub PrnDrawGraph(ByVal KdData_tmp As Integer,
@@ -2106,6 +2126,7 @@ Public Class FrmSST4500_1_0_0J_meas
         path.AddRectangle(New Rectangle(Px, Py, 1, 1))
         prn_square_path2.Add(path)
 
+        path.Dispose()
     End Sub
 
     Private Sub PrnDrawTriangle(Px As Single, Py As Single)
@@ -2123,6 +2144,7 @@ Public Class FrmSST4500_1_0_0J_meas
         path.AddRectangle(New Rectangle(Px, Py, 1, 1))
         prn_triangle_path2.Add(path)
 
+        path.Dispose()
     End Sub
 
     Private Sub PrnDrawAxisCur(ByVal KdData_tmp As Integer,
@@ -2156,6 +2178,8 @@ Public Class FrmSST4500_1_0_0J_meas
         path.AddLine(center_x - CdX, center_y - CdY, center_x + CdX, center_y + CdY)
 
         prn_axis_path_cur.Add(path)
+
+        path.Dispose()
     End Sub
 
     Private Sub PrnDrawAxisBak(ByVal KdData_tmp As Integer,
@@ -2189,6 +2213,8 @@ Public Class FrmSST4500_1_0_0J_meas
         path.AddLine(center_x - CdX, center_y - CdY, center_x + CdX, center_y + CdY)
 
         prn_axis_path_bak.Add(path)
+
+        path.Dispose()
     End Sub
 
     Private Sub PrintDocument_nom_PrintPage(sender As Object, e As PrintPageEventArgs) Handles PrintDocument_nom.PrintPage
@@ -2608,6 +2634,13 @@ Public Class FrmSST4500_1_0_0J_meas
         Next
 
         bmp.Dispose()
+        bmp_resize.Dispose()
+        pen_black_1.Dispose()
+        pen_black_2.Dispose()
+        pen_blue_1.Dispose()
+        fnt_10.Dispose()
+        fnt_20.Dispose()
+        fnt_9.Dispose()
 
     End Sub
 

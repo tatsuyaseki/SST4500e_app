@@ -157,6 +157,8 @@ Public Class FrmSST4500_1_0_0J_main
         mainform_borderstyle_init()
         measform_color_init()
         measform_borderstyle_init()
+        prfform_color_init()
+        prfform_borderstyle_init()
     End Sub
 
     Private Sub TimSplash_Tick(sender As Object, e As EventArgs) Handles TimSplash.Tick
@@ -663,25 +665,11 @@ Public Class FrmSST4500_1_0_0J_main
     Private Sub 設定ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles 設定ToolStripMenuItem1.Click
         FrmSST4500_1_0_0J_setting.Visible = True
     End Sub
-    'Private Sub PictureBox1_Paint(sender As Object, e As PaintEventArgs)
-    '
-    'Dim pen As New Pen(Color.Black, 2)
-    'Dim path As New GraphicsPath
-    '
-    'Dim line_path As New List(Of GraphicsPath)
 
-    'path.StartFigure()
-    'path.AddLine(0, 50, 2000, 0)
-    'line_path.Add(path)
-    'PictureBox1.Width = 2000
-    'For Each path_temp As GraphicsPath In line_path
-    'e.Graphics.DrawPath(pen, path_temp)
-    'Next
+    Private Sub SST4500についてToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SST4500についてToolStripMenuItem.Click
+        FrmSST4500_1_0_0J_helpinfo.ShowDialog()
+    End Sub
 
-    'pen.Dispose()
-    'e.Dispose()
-
-    '    End Sub
 End Class
 
 Public NotInheritable Class Simple3Des

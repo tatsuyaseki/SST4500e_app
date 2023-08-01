@@ -51,6 +51,9 @@ Partial Class FrmSST4500_1_0_0J_main
         Me.管理者モードToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MD長尺測定ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.試験調整ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ヘルプToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SST4500ヘルプToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SST4500についてToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.StatusStrip1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
@@ -194,7 +197,7 @@ Partial Class FrmSST4500_1_0_0J_main
         'MenuStrip1
         '
         Me.MenuStrip1.Font = New System.Drawing.Font("MS UI Gothic", 9.0!)
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1, Me.設定ToolStripMenuItem, Me.管理者モードToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1, Me.設定ToolStripMenuItem, Me.管理者モードToolStripMenuItem, Me.ヘルプToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(784, 24)
@@ -273,10 +276,30 @@ Partial Class FrmSST4500_1_0_0J_main
         Me.試験調整ToolStripMenuItem.Size = New System.Drawing.Size(135, 22)
         Me.試験調整ToolStripMenuItem.Text = "試験・調整"
         '
+        'ヘルプToolStripMenuItem
+        '
+        Me.ヘルプToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SST4500ヘルプToolStripMenuItem, Me.SST4500についてToolStripMenuItem})
+        Me.ヘルプToolStripMenuItem.Name = "ヘルプToolStripMenuItem"
+        Me.ヘルプToolStripMenuItem.Size = New System.Drawing.Size(46, 20)
+        Me.ヘルプToolStripMenuItem.Text = "ヘルプ"
+        '
+        'SST4500ヘルプToolStripMenuItem
+        '
+        Me.SST4500ヘルプToolStripMenuItem.Enabled = False
+        Me.SST4500ヘルプToolStripMenuItem.Name = "SST4500ヘルプToolStripMenuItem"
+        Me.SST4500ヘルプToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SST4500ヘルプToolStripMenuItem.Text = "SST-4500ヘルプ"
+        '
+        'SST4500についてToolStripMenuItem
+        '
+        Me.SST4500についてToolStripMenuItem.Name = "SST4500についてToolStripMenuItem"
+        Me.SST4500についてToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SST4500についてToolStripMenuItem.Text = "SST-4500について"
+        '
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.SST4500_1_0_0J.My.Resources.Resources.nomura_logo1
-        Me.PictureBox1.Location = New System.Drawing.Point(624, 0)
+        Me.PictureBox1.Location = New System.Drawing.Point(621, 24)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(160, 50)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -287,6 +310,7 @@ Partial Class FrmSST4500_1_0_0J_main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(96.0!, 96.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi
+        Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(784, 561)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.CmdCutSheetProfile)
@@ -341,4 +365,7 @@ Partial Class FrmSST4500_1_0_0J_main
     Friend WithEvents MD長尺測定ToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents 試験調整ToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents ヘルプToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SST4500ヘルプToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SST4500についてToolStripMenuItem As ToolStripMenuItem
 End Class
