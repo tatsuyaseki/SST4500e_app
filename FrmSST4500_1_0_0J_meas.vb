@@ -3059,4 +3059,8 @@ Public Class FrmSST4500_1_0_0J_meas
     Private Sub Button1_Click(sender As Object, e As EventArgs)
         FrmSST4500_1_0_0J_colorsetting.Visible = True
     End Sub
+
+    Private Sub SST4500についてToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SST4500についてToolStripMenuItem.Click
+        FrmSST4500_1_0_0J_helpinfo.ShowDialog()
+    End Sub
 End Class

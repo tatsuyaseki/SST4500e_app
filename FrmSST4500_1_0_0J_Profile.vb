@@ -11125,7 +11125,7 @@ Rdg8:
         FrmSST4500_1_0_0J_colorsetting.Visible = True
     End Sub
 
-    Private Sub OptMm_ChangeUICues(sender As Object, e As UICuesEventArgs) Handles OptMm.ChangeUICues
-
+    Private Sub SST4500についてToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SST4500についてToolStripMenuItem.Click
+        FrmSST4500_1_0_0J_helpinfo.ShowDialog()
     End Sub
 End Class

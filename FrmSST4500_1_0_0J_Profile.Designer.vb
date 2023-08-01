@@ -23,20 +23,20 @@ Partial Class FrmSST4500_1_0_0J_Profile
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle27 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle19 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle20 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle21 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle22 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle23 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle24 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle25 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle26 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle28 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmSST4500_1_0_0J_Profile))
         Me.LblPrfTitle = New System.Windows.Forms.Label()
         Me.LblProductNamePrf = New System.Windows.Forms.Label()
@@ -535,6 +535,9 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.MmToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.InchToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PictureBox5 = New System.Windows.Forms.PictureBox()
+        Me.ヘルプToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SST4500ヘルプToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SST4500についてToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TabControl1.SuspendLayout
         Me.TabAngleratio.SuspendLayout
         Me.TableLayoutPanel4.SuspendLayout
@@ -4267,15 +4270,15 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.ColumnHeadersVisible = False
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7, Me.Column8, Me.Column9, Me.Column10, Me.Column11})
-        DataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle15.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        DataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle15.Padding = New System.Windows.Forms.Padding(0, 0, 15, 0)
-        DataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle15
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle1.Padding = New System.Windows.Forms.Padding(0, 0, 15, 0)
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridView1.GridColor = System.Drawing.Color.Black
         Me.DataGridView1.Location = New System.Drawing.Point(3, 117)
         Me.DataGridView1.Margin = New System.Windows.Forms.Padding(0)
@@ -5162,15 +5165,15 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView2.ColumnHeadersVisible = False
         Me.DataGridView2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn11})
-        DataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle27.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle27.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        DataGridViewCellStyle27.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle27.Padding = New System.Windows.Forms.Padding(0, 0, 15, 0)
-        DataGridViewCellStyle27.SelectionBackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridView2.DefaultCellStyle = DataGridViewCellStyle27
+        DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle13.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        DataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle13.Padding = New System.Windows.Forms.Padding(0, 0, 15, 0)
+        DataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridView2.DefaultCellStyle = DataGridViewCellStyle13
         Me.DataGridView2.GridColor = System.Drawing.Color.Black
         Me.DataGridView2.Location = New System.Drawing.Point(3, 117)
         Me.DataGridView2.Margin = New System.Windows.Forms.Padding(0)
@@ -5185,8 +5188,8 @@ Partial Class FrmSST4500_1_0_0J_Profile
         '
         'DataGridViewTextBoxColumn1
         '
-        DataGridViewCellStyle16.ForeColor = System.Drawing.Color.Black
-        Me.DataGridViewTextBoxColumn1.DefaultCellStyle = DataGridViewCellStyle16
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
+        Me.DataGridViewTextBoxColumn1.DefaultCellStyle = DataGridViewCellStyle2
         Me.DataGridViewTextBoxColumn1.FillWeight = 60.0!
         Me.DataGridViewTextBoxColumn1.Frozen = True
         Me.DataGridViewTextBoxColumn1.HeaderText = "Column1"
@@ -5200,9 +5203,9 @@ Partial Class FrmSST4500_1_0_0J_Profile
         '
         'DataGridViewTextBoxColumn2
         '
-        DataGridViewCellStyle17.ForeColor = System.Drawing.Color.Blue
-        DataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.Blue
-        Me.DataGridViewTextBoxColumn2.DefaultCellStyle = DataGridViewCellStyle17
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Blue
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Blue
+        Me.DataGridViewTextBoxColumn2.DefaultCellStyle = DataGridViewCellStyle3
         Me.DataGridViewTextBoxColumn2.FillWeight = 76.0!
         Me.DataGridViewTextBoxColumn2.Frozen = True
         Me.DataGridViewTextBoxColumn2.HeaderText = "Column2"
@@ -5216,9 +5219,9 @@ Partial Class FrmSST4500_1_0_0J_Profile
         '
         'DataGridViewTextBoxColumn3
         '
-        DataGridViewCellStyle18.ForeColor = System.Drawing.Color.Blue
-        DataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.Blue
-        Me.DataGridViewTextBoxColumn3.DefaultCellStyle = DataGridViewCellStyle18
+        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.Blue
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Blue
+        Me.DataGridViewTextBoxColumn3.DefaultCellStyle = DataGridViewCellStyle4
         Me.DataGridViewTextBoxColumn3.FillWeight = 76.0!
         Me.DataGridViewTextBoxColumn3.Frozen = True
         Me.DataGridViewTextBoxColumn3.HeaderText = "Column3"
@@ -5232,9 +5235,9 @@ Partial Class FrmSST4500_1_0_0J_Profile
         '
         'DataGridViewTextBoxColumn4
         '
-        DataGridViewCellStyle19.ForeColor = System.Drawing.Color.Blue
-        DataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.Blue
-        Me.DataGridViewTextBoxColumn4.DefaultCellStyle = DataGridViewCellStyle19
+        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.Blue
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Blue
+        Me.DataGridViewTextBoxColumn4.DefaultCellStyle = DataGridViewCellStyle5
         Me.DataGridViewTextBoxColumn4.FillWeight = 69.0!
         Me.DataGridViewTextBoxColumn4.Frozen = True
         Me.DataGridViewTextBoxColumn4.HeaderText = "Column4"
@@ -5248,9 +5251,9 @@ Partial Class FrmSST4500_1_0_0J_Profile
         '
         'DataGridViewTextBoxColumn5
         '
-        DataGridViewCellStyle20.ForeColor = System.Drawing.Color.Blue
-        DataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.Blue
-        Me.DataGridViewTextBoxColumn5.DefaultCellStyle = DataGridViewCellStyle20
+        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.Blue
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Blue
+        Me.DataGridViewTextBoxColumn5.DefaultCellStyle = DataGridViewCellStyle6
         Me.DataGridViewTextBoxColumn5.FillWeight = 72.0!
         Me.DataGridViewTextBoxColumn5.Frozen = True
         Me.DataGridViewTextBoxColumn5.HeaderText = "Column5"
@@ -5264,9 +5267,9 @@ Partial Class FrmSST4500_1_0_0J_Profile
         '
         'DataGridViewTextBoxColumn6
         '
-        DataGridViewCellStyle21.ForeColor = System.Drawing.Color.Blue
-        DataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.Blue
-        Me.DataGridViewTextBoxColumn6.DefaultCellStyle = DataGridViewCellStyle21
+        DataGridViewCellStyle7.ForeColor = System.Drawing.Color.Blue
+        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Blue
+        Me.DataGridViewTextBoxColumn6.DefaultCellStyle = DataGridViewCellStyle7
         Me.DataGridViewTextBoxColumn6.FillWeight = 69.0!
         Me.DataGridViewTextBoxColumn6.Frozen = True
         Me.DataGridViewTextBoxColumn6.HeaderText = "Column6"
@@ -5280,9 +5283,9 @@ Partial Class FrmSST4500_1_0_0J_Profile
         '
         'DataGridViewTextBoxColumn7
         '
-        DataGridViewCellStyle22.ForeColor = System.Drawing.Color.Blue
-        DataGridViewCellStyle22.SelectionForeColor = System.Drawing.Color.Blue
-        Me.DataGridViewTextBoxColumn7.DefaultCellStyle = DataGridViewCellStyle22
+        DataGridViewCellStyle8.ForeColor = System.Drawing.Color.Blue
+        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Blue
+        Me.DataGridViewTextBoxColumn7.DefaultCellStyle = DataGridViewCellStyle8
         Me.DataGridViewTextBoxColumn7.FillWeight = 68.0!
         Me.DataGridViewTextBoxColumn7.Frozen = True
         Me.DataGridViewTextBoxColumn7.HeaderText = "Column7"
@@ -5296,9 +5299,9 @@ Partial Class FrmSST4500_1_0_0J_Profile
         '
         'DataGridViewTextBoxColumn8
         '
-        DataGridViewCellStyle23.ForeColor = System.Drawing.Color.Blue
-        DataGridViewCellStyle23.SelectionForeColor = System.Drawing.Color.Blue
-        Me.DataGridViewTextBoxColumn8.DefaultCellStyle = DataGridViewCellStyle23
+        DataGridViewCellStyle9.ForeColor = System.Drawing.Color.Blue
+        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Blue
+        Me.DataGridViewTextBoxColumn8.DefaultCellStyle = DataGridViewCellStyle9
         Me.DataGridViewTextBoxColumn8.FillWeight = 68.0!
         Me.DataGridViewTextBoxColumn8.Frozen = True
         Me.DataGridViewTextBoxColumn8.HeaderText = "Column8"
@@ -5312,9 +5315,9 @@ Partial Class FrmSST4500_1_0_0J_Profile
         '
         'DataGridViewTextBoxColumn9
         '
-        DataGridViewCellStyle24.ForeColor = System.Drawing.Color.Blue
-        DataGridViewCellStyle24.SelectionForeColor = System.Drawing.Color.Blue
-        Me.DataGridViewTextBoxColumn9.DefaultCellStyle = DataGridViewCellStyle24
+        DataGridViewCellStyle10.ForeColor = System.Drawing.Color.Blue
+        DataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Blue
+        Me.DataGridViewTextBoxColumn9.DefaultCellStyle = DataGridViewCellStyle10
         Me.DataGridViewTextBoxColumn9.FillWeight = 68.0!
         Me.DataGridViewTextBoxColumn9.Frozen = True
         Me.DataGridViewTextBoxColumn9.HeaderText = "Column9"
@@ -5328,9 +5331,9 @@ Partial Class FrmSST4500_1_0_0J_Profile
         '
         'DataGridViewTextBoxColumn10
         '
-        DataGridViewCellStyle25.ForeColor = System.Drawing.Color.Blue
-        DataGridViewCellStyle25.SelectionForeColor = System.Drawing.Color.Blue
-        Me.DataGridViewTextBoxColumn10.DefaultCellStyle = DataGridViewCellStyle25
+        DataGridViewCellStyle11.ForeColor = System.Drawing.Color.Blue
+        DataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.Blue
+        Me.DataGridViewTextBoxColumn10.DefaultCellStyle = DataGridViewCellStyle11
         Me.DataGridViewTextBoxColumn10.FillWeight = 68.0!
         Me.DataGridViewTextBoxColumn10.HeaderText = "Column10"
         Me.DataGridViewTextBoxColumn10.MaxInputLength = 10
@@ -5343,9 +5346,9 @@ Partial Class FrmSST4500_1_0_0J_Profile
         '
         'DataGridViewTextBoxColumn11
         '
-        DataGridViewCellStyle26.ForeColor = System.Drawing.Color.Blue
-        DataGridViewCellStyle26.SelectionForeColor = System.Drawing.Color.Blue
-        Me.DataGridViewTextBoxColumn11.DefaultCellStyle = DataGridViewCellStyle26
+        DataGridViewCellStyle12.ForeColor = System.Drawing.Color.Blue
+        DataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Blue
+        Me.DataGridViewTextBoxColumn11.DefaultCellStyle = DataGridViewCellStyle12
         Me.DataGridViewTextBoxColumn11.FillWeight = 68.0!
         Me.DataGridViewTextBoxColumn11.HeaderText = "Column11"
         Me.DataGridViewTextBoxColumn11.MaxInputLength = 10
@@ -6119,15 +6122,15 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.DataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView3.ColumnHeadersVisible = False
         Me.DataGridView3.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn14, Me.DataGridViewTextBoxColumn15, Me.DataGridViewTextBoxColumn16, Me.DataGridViewTextBoxColumn17, Me.DataGridViewTextBoxColumn18, Me.DataGridViewTextBoxColumn19, Me.DataGridViewTextBoxColumn20, Me.DataGridViewTextBoxColumn21, Me.DataGridViewTextBoxColumn22})
-        DataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle28.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle28.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        DataGridViewCellStyle28.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle28.Padding = New System.Windows.Forms.Padding(0, 0, 15, 0)
-        DataGridViewCellStyle28.SelectionBackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle28.SelectionForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridView3.DefaultCellStyle = DataGridViewCellStyle28
+        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle14.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        DataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle14.Padding = New System.Windows.Forms.Padding(0, 0, 15, 0)
+        DataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridView3.DefaultCellStyle = DataGridViewCellStyle14
         Me.DataGridView3.GridColor = System.Drawing.Color.Black
         Me.DataGridView3.Location = New System.Drawing.Point(3, 117)
         Me.DataGridView3.Margin = New System.Windows.Forms.Padding(0)
@@ -7531,7 +7534,7 @@ Partial Class FrmSST4500_1_0_0J_Profile
         'MenuStrip1
         '
         Me.MenuStrip1.BackColor = System.Drawing.SystemColors.Control
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ファイルToolStripMenuItem, Me.測定ToolStripMenuItem, Me.結果ToolStripMenuItem, Me.設定ToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ファイルToolStripMenuItem, Me.測定ToolStripMenuItem, Me.結果ToolStripMenuItem, Me.設定ToolStripMenuItem, Me.ヘルプToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(984, 24)
@@ -7733,6 +7736,26 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox5.TabIndex = 58
         Me.PictureBox5.TabStop = False
+        '
+        'ヘルプToolStripMenuItem
+        '
+        Me.ヘルプToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SST4500ヘルプToolStripMenuItem, Me.SST4500についてToolStripMenuItem})
+        Me.ヘルプToolStripMenuItem.Name = "ヘルプToolStripMenuItem"
+        Me.ヘルプToolStripMenuItem.Size = New System.Drawing.Size(48, 20)
+        Me.ヘルプToolStripMenuItem.Text = "ヘルプ"
+        '
+        'SST4500ヘルプToolStripMenuItem
+        '
+        Me.SST4500ヘルプToolStripMenuItem.Enabled = False
+        Me.SST4500ヘルプToolStripMenuItem.Name = "SST4500ヘルプToolStripMenuItem"
+        Me.SST4500ヘルプToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SST4500ヘルプToolStripMenuItem.Text = "SST-4500ヘルプ"
+        '
+        'SST4500についてToolStripMenuItem
+        '
+        Me.SST4500についてToolStripMenuItem.Name = "SST4500についてToolStripMenuItem"
+        Me.SST4500についてToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SST4500についてToolStripMenuItem.Text = "SST-4500について"
         '
         'FrmSST4500_1_0_0J_Profile
         '
@@ -8344,4 +8367,7 @@ Partial Class FrmSST4500_1_0_0J_Profile
     Friend WithEvents MmToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents InchToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PictureBox5 As PictureBox
+    Friend WithEvents ヘルプToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SST4500ヘルプToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SST4500についてToolStripMenuItem As ToolStripMenuItem
 End Class
