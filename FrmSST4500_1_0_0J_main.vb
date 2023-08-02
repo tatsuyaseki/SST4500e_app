@@ -670,6 +670,9 @@ Public Class FrmSST4500_1_0_0J_main
         FrmSST4500_1_0_0J_helpinfo.ShowDialog()
     End Sub
 
+    Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
+        FrmSST4500_1_0_0J_helpinfo.ShowDialog()
+    End Sub
 End Class
 
 Public NotInheritable Class Simple3Des

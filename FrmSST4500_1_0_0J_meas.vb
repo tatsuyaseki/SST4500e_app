@@ -3026,7 +3026,6 @@ Public Class FrmSST4500_1_0_0J_meas
         FlgMainMeas = 2
     End Sub
 
-
     Private Sub 他の測定データ選択ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles 他の測定データ選択ToolStripMenuItem1.Click
         FlgMainMeas = 10
     End Sub
@@ -3061,6 +3060,10 @@ Public Class FrmSST4500_1_0_0J_meas
     End Sub
 
     Private Sub SST4500についてToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SST4500についてToolStripMenuItem.Click
+        FrmSST4500_1_0_0J_helpinfo.ShowDialog()
+    End Sub
+
+    Private Sub PictureBox2_Click(sender As Object, e As EventArgs) Handles PictureBox2.Click
         FrmSST4500_1_0_0J_helpinfo.ShowDialog()
     End Sub
 End Class

@@ -23,20 +23,20 @@ Partial Class FrmSST4500_1_0_0J_Profile
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle127 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle139 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle128 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle129 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle130 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle131 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle132 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle133 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle134 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle135 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle136 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle137 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle138 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle140 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmSST4500_1_0_0J_Profile))
         Me.LblPrfTitle = New System.Windows.Forms.Label()
         Me.LblProductNamePrf = New System.Windows.Forms.Label()
@@ -534,10 +534,10 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.単位ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MmToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.InchToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.PictureBox5 = New System.Windows.Forms.PictureBox()
         Me.ヘルプToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SST4500ヘルプToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SST4500についてToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PictureBox5 = New System.Windows.Forms.PictureBox()
         Me.TabControl1.SuspendLayout
         Me.TabAngleratio.SuspendLayout
         Me.TableLayoutPanel4.SuspendLayout
@@ -602,7 +602,7 @@ Partial Class FrmSST4500_1_0_0J_Profile
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("MS UI Gothic", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label7.Location = New System.Drawing.Point(544, 59)
+        Me.Label7.Location = New System.Drawing.Point(544, 62)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(67, 14)
         Me.Label7.TabIndex = 15
@@ -612,7 +612,7 @@ Partial Class FrmSST4500_1_0_0J_Profile
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("MS UI Gothic", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label6.Location = New System.Drawing.Point(200, 59)
+        Me.Label6.Location = New System.Drawing.Point(200, 62)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(69, 14)
         Me.Label6.TabIndex = 14
@@ -622,7 +622,7 @@ Partial Class FrmSST4500_1_0_0J_Profile
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("MS UI Gothic", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label5.Location = New System.Drawing.Point(94, 59)
+        Me.Label5.Location = New System.Drawing.Point(94, 62)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(81, 14)
         Me.Label5.TabIndex = 13
@@ -643,7 +643,7 @@ Partial Class FrmSST4500_1_0_0J_Profile
         '
         Me.LblMeasSpecCur.AutoSize = True
         Me.LblMeasSpecCur.Font = New System.Drawing.Font("MS UI Gothic", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.LblMeasSpecCur.Location = New System.Drawing.Point(12, 80)
+        Me.LblMeasSpecCur.Location = New System.Drawing.Point(12, 83)
         Me.LblMeasSpecCur.Name = "LblMeasSpecCur"
         Me.LblMeasSpecCur.Size = New System.Drawing.Size(67, 14)
         Me.LblMeasSpecCur.TabIndex = 11
@@ -652,7 +652,7 @@ Partial Class FrmSST4500_1_0_0J_Profile
         'TxtMachNoCur
         '
         Me.TxtMachNoCur.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.TxtMachNoCur.Location = New System.Drawing.Point(97, 75)
+        Me.TxtMachNoCur.Location = New System.Drawing.Point(97, 78)
         Me.TxtMachNoCur.Name = "TxtMachNoCur"
         Me.TxtMachNoCur.Size = New System.Drawing.Size(100, 22)
         Me.TxtMachNoCur.TabIndex = 16
@@ -678,7 +678,7 @@ Partial Class FrmSST4500_1_0_0J_Profile
         'TxtSmplNamCur
         '
         Me.TxtSmplNamCur.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.TxtSmplNamCur.Location = New System.Drawing.Point(203, 75)
+        Me.TxtSmplNamCur.Location = New System.Drawing.Point(203, 78)
         Me.TxtSmplNamCur.Name = "TxtSmplNamCur"
         Me.TxtSmplNamCur.Size = New System.Drawing.Size(340, 22)
         Me.TxtSmplNamCur.TabIndex = 18
@@ -687,7 +687,7 @@ Partial Class FrmSST4500_1_0_0J_Profile
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("MS UI Gothic", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label3.Location = New System.Drawing.Point(614, 59)
+        Me.Label3.Location = New System.Drawing.Point(614, 62)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(83, 14)
         Me.Label3.TabIndex = 24
@@ -2300,7 +2300,7 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.TabVeloTsi.Controls.Add(Me.PictureBox3)
         Me.TabVeloTsi.Location = New System.Drawing.Point(4, 22)
         Me.TabVeloTsi.Name = "TabVeloTsi"
-        Me.TabVeloTsi.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabVeloTsi.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
         Me.TabVeloTsi.Size = New System.Drawing.Size(802, 596)
         Me.TabVeloTsi.TabIndex = 1
         Me.TabVeloTsi.Text = "伝播速度・TSI"
@@ -4255,7 +4255,7 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.TabPage1.Controls.Add(Me.TableLayoutPanel1)
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
         Me.TabPage1.Size = New System.Drawing.Size(788, 542)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "測定値"
@@ -4270,15 +4270,15 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.ColumnHeadersVisible = False
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7, Me.Column8, Me.Column9, Me.Column10, Me.Column11})
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle1.Padding = New System.Windows.Forms.Padding(0, 0, 15, 0)
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle127.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle127.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle127.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        DataGridViewCellStyle127.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle127.Padding = New System.Windows.Forms.Padding(0, 0, 15, 0)
+        DataGridViewCellStyle127.SelectionBackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle127.SelectionForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle127.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle127
         Me.DataGridView1.GridColor = System.Drawing.Color.Black
         Me.DataGridView1.Location = New System.Drawing.Point(3, 117)
         Me.DataGridView1.Margin = New System.Windows.Forms.Padding(0)
@@ -5150,7 +5150,7 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.TabPage2.Controls.Add(Me.TableLayoutPanel2)
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
         Me.TabPage2.Size = New System.Drawing.Size(788, 542)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "過去データ"
@@ -5165,15 +5165,15 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView2.ColumnHeadersVisible = False
         Me.DataGridView2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn11})
-        DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle13.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        DataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle13.Padding = New System.Windows.Forms.Padding(0, 0, 15, 0)
-        DataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridView2.DefaultCellStyle = DataGridViewCellStyle13
+        DataGridViewCellStyle139.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle139.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle139.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        DataGridViewCellStyle139.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle139.Padding = New System.Windows.Forms.Padding(0, 0, 15, 0)
+        DataGridViewCellStyle139.SelectionBackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle139.SelectionForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle139.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridView2.DefaultCellStyle = DataGridViewCellStyle139
         Me.DataGridView2.GridColor = System.Drawing.Color.Black
         Me.DataGridView2.Location = New System.Drawing.Point(3, 117)
         Me.DataGridView2.Margin = New System.Windows.Forms.Padding(0)
@@ -5188,8 +5188,8 @@ Partial Class FrmSST4500_1_0_0J_Profile
         '
         'DataGridViewTextBoxColumn1
         '
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
-        Me.DataGridViewTextBoxColumn1.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle128.ForeColor = System.Drawing.Color.Black
+        Me.DataGridViewTextBoxColumn1.DefaultCellStyle = DataGridViewCellStyle128
         Me.DataGridViewTextBoxColumn1.FillWeight = 60.0!
         Me.DataGridViewTextBoxColumn1.Frozen = True
         Me.DataGridViewTextBoxColumn1.HeaderText = "Column1"
@@ -5203,9 +5203,9 @@ Partial Class FrmSST4500_1_0_0J_Profile
         '
         'DataGridViewTextBoxColumn2
         '
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Blue
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Blue
-        Me.DataGridViewTextBoxColumn2.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle129.ForeColor = System.Drawing.Color.Blue
+        DataGridViewCellStyle129.SelectionForeColor = System.Drawing.Color.Blue
+        Me.DataGridViewTextBoxColumn2.DefaultCellStyle = DataGridViewCellStyle129
         Me.DataGridViewTextBoxColumn2.FillWeight = 76.0!
         Me.DataGridViewTextBoxColumn2.Frozen = True
         Me.DataGridViewTextBoxColumn2.HeaderText = "Column2"
@@ -5219,9 +5219,9 @@ Partial Class FrmSST4500_1_0_0J_Profile
         '
         'DataGridViewTextBoxColumn3
         '
-        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.Blue
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Blue
-        Me.DataGridViewTextBoxColumn3.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle130.ForeColor = System.Drawing.Color.Blue
+        DataGridViewCellStyle130.SelectionForeColor = System.Drawing.Color.Blue
+        Me.DataGridViewTextBoxColumn3.DefaultCellStyle = DataGridViewCellStyle130
         Me.DataGridViewTextBoxColumn3.FillWeight = 76.0!
         Me.DataGridViewTextBoxColumn3.Frozen = True
         Me.DataGridViewTextBoxColumn3.HeaderText = "Column3"
@@ -5235,9 +5235,9 @@ Partial Class FrmSST4500_1_0_0J_Profile
         '
         'DataGridViewTextBoxColumn4
         '
-        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.Blue
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Blue
-        Me.DataGridViewTextBoxColumn4.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle131.ForeColor = System.Drawing.Color.Blue
+        DataGridViewCellStyle131.SelectionForeColor = System.Drawing.Color.Blue
+        Me.DataGridViewTextBoxColumn4.DefaultCellStyle = DataGridViewCellStyle131
         Me.DataGridViewTextBoxColumn4.FillWeight = 69.0!
         Me.DataGridViewTextBoxColumn4.Frozen = True
         Me.DataGridViewTextBoxColumn4.HeaderText = "Column4"
@@ -5251,9 +5251,9 @@ Partial Class FrmSST4500_1_0_0J_Profile
         '
         'DataGridViewTextBoxColumn5
         '
-        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.Blue
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Blue
-        Me.DataGridViewTextBoxColumn5.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle132.ForeColor = System.Drawing.Color.Blue
+        DataGridViewCellStyle132.SelectionForeColor = System.Drawing.Color.Blue
+        Me.DataGridViewTextBoxColumn5.DefaultCellStyle = DataGridViewCellStyle132
         Me.DataGridViewTextBoxColumn5.FillWeight = 72.0!
         Me.DataGridViewTextBoxColumn5.Frozen = True
         Me.DataGridViewTextBoxColumn5.HeaderText = "Column5"
@@ -5267,9 +5267,9 @@ Partial Class FrmSST4500_1_0_0J_Profile
         '
         'DataGridViewTextBoxColumn6
         '
-        DataGridViewCellStyle7.ForeColor = System.Drawing.Color.Blue
-        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Blue
-        Me.DataGridViewTextBoxColumn6.DefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle133.ForeColor = System.Drawing.Color.Blue
+        DataGridViewCellStyle133.SelectionForeColor = System.Drawing.Color.Blue
+        Me.DataGridViewTextBoxColumn6.DefaultCellStyle = DataGridViewCellStyle133
         Me.DataGridViewTextBoxColumn6.FillWeight = 69.0!
         Me.DataGridViewTextBoxColumn6.Frozen = True
         Me.DataGridViewTextBoxColumn6.HeaderText = "Column6"
@@ -5283,9 +5283,9 @@ Partial Class FrmSST4500_1_0_0J_Profile
         '
         'DataGridViewTextBoxColumn7
         '
-        DataGridViewCellStyle8.ForeColor = System.Drawing.Color.Blue
-        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Blue
-        Me.DataGridViewTextBoxColumn7.DefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle134.ForeColor = System.Drawing.Color.Blue
+        DataGridViewCellStyle134.SelectionForeColor = System.Drawing.Color.Blue
+        Me.DataGridViewTextBoxColumn7.DefaultCellStyle = DataGridViewCellStyle134
         Me.DataGridViewTextBoxColumn7.FillWeight = 68.0!
         Me.DataGridViewTextBoxColumn7.Frozen = True
         Me.DataGridViewTextBoxColumn7.HeaderText = "Column7"
@@ -5299,9 +5299,9 @@ Partial Class FrmSST4500_1_0_0J_Profile
         '
         'DataGridViewTextBoxColumn8
         '
-        DataGridViewCellStyle9.ForeColor = System.Drawing.Color.Blue
-        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Blue
-        Me.DataGridViewTextBoxColumn8.DefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle135.ForeColor = System.Drawing.Color.Blue
+        DataGridViewCellStyle135.SelectionForeColor = System.Drawing.Color.Blue
+        Me.DataGridViewTextBoxColumn8.DefaultCellStyle = DataGridViewCellStyle135
         Me.DataGridViewTextBoxColumn8.FillWeight = 68.0!
         Me.DataGridViewTextBoxColumn8.Frozen = True
         Me.DataGridViewTextBoxColumn8.HeaderText = "Column8"
@@ -5315,9 +5315,9 @@ Partial Class FrmSST4500_1_0_0J_Profile
         '
         'DataGridViewTextBoxColumn9
         '
-        DataGridViewCellStyle10.ForeColor = System.Drawing.Color.Blue
-        DataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Blue
-        Me.DataGridViewTextBoxColumn9.DefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle136.ForeColor = System.Drawing.Color.Blue
+        DataGridViewCellStyle136.SelectionForeColor = System.Drawing.Color.Blue
+        Me.DataGridViewTextBoxColumn9.DefaultCellStyle = DataGridViewCellStyle136
         Me.DataGridViewTextBoxColumn9.FillWeight = 68.0!
         Me.DataGridViewTextBoxColumn9.Frozen = True
         Me.DataGridViewTextBoxColumn9.HeaderText = "Column9"
@@ -5331,9 +5331,9 @@ Partial Class FrmSST4500_1_0_0J_Profile
         '
         'DataGridViewTextBoxColumn10
         '
-        DataGridViewCellStyle11.ForeColor = System.Drawing.Color.Blue
-        DataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.Blue
-        Me.DataGridViewTextBoxColumn10.DefaultCellStyle = DataGridViewCellStyle11
+        DataGridViewCellStyle137.ForeColor = System.Drawing.Color.Blue
+        DataGridViewCellStyle137.SelectionForeColor = System.Drawing.Color.Blue
+        Me.DataGridViewTextBoxColumn10.DefaultCellStyle = DataGridViewCellStyle137
         Me.DataGridViewTextBoxColumn10.FillWeight = 68.0!
         Me.DataGridViewTextBoxColumn10.HeaderText = "Column10"
         Me.DataGridViewTextBoxColumn10.MaxInputLength = 10
@@ -5346,9 +5346,9 @@ Partial Class FrmSST4500_1_0_0J_Profile
         '
         'DataGridViewTextBoxColumn11
         '
-        DataGridViewCellStyle12.ForeColor = System.Drawing.Color.Blue
-        DataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Blue
-        Me.DataGridViewTextBoxColumn11.DefaultCellStyle = DataGridViewCellStyle12
+        DataGridViewCellStyle138.ForeColor = System.Drawing.Color.Blue
+        DataGridViewCellStyle138.SelectionForeColor = System.Drawing.Color.Blue
+        Me.DataGridViewTextBoxColumn11.DefaultCellStyle = DataGridViewCellStyle138
         Me.DataGridViewTextBoxColumn11.FillWeight = 68.0!
         Me.DataGridViewTextBoxColumn11.HeaderText = "Column11"
         Me.DataGridViewTextBoxColumn11.MaxInputLength = 10
@@ -6107,7 +6107,7 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.TabPage3.Controls.Add(Me.TableLayoutPanel3)
         Me.TabPage3.Location = New System.Drawing.Point(4, 22)
         Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage3.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
         Me.TabPage3.Size = New System.Drawing.Size(788, 542)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "平均値"
@@ -6122,15 +6122,15 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.DataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView3.ColumnHeadersVisible = False
         Me.DataGridView3.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn14, Me.DataGridViewTextBoxColumn15, Me.DataGridViewTextBoxColumn16, Me.DataGridViewTextBoxColumn17, Me.DataGridViewTextBoxColumn18, Me.DataGridViewTextBoxColumn19, Me.DataGridViewTextBoxColumn20, Me.DataGridViewTextBoxColumn21, Me.DataGridViewTextBoxColumn22})
-        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle14.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        DataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle14.Padding = New System.Windows.Forms.Padding(0, 0, 15, 0)
-        DataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridView3.DefaultCellStyle = DataGridViewCellStyle14
+        DataGridViewCellStyle140.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle140.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle140.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        DataGridViewCellStyle140.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle140.Padding = New System.Windows.Forms.Padding(0, 0, 15, 0)
+        DataGridViewCellStyle140.SelectionBackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle140.SelectionForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle140.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridView3.DefaultCellStyle = DataGridViewCellStyle140
         Me.DataGridView3.GridColor = System.Drawing.Color.Black
         Me.DataGridView3.Location = New System.Drawing.Point(3, 117)
         Me.DataGridView3.Margin = New System.Windows.Forms.Padding(0)
@@ -7200,7 +7200,7 @@ Partial Class FrmSST4500_1_0_0J_Profile
         '
         Me.OptMm.AutoSize = True
         Me.OptMm.Checked = True
-        Me.OptMm.Location = New System.Drawing.Point(880, 12)
+        Me.OptMm.Location = New System.Drawing.Point(751, 34)
         Me.OptMm.Name = "OptMm"
         Me.OptMm.Size = New System.Drawing.Size(41, 16)
         Me.OptMm.TabIndex = 41
@@ -7211,7 +7211,7 @@ Partial Class FrmSST4500_1_0_0J_Profile
         'OptInch
         '
         Me.OptInch.AutoSize = True
-        Me.OptInch.Location = New System.Drawing.Point(929, 12)
+        Me.OptInch.Location = New System.Drawing.Point(800, 34)
         Me.OptInch.Name = "OptInch"
         Me.OptInch.Size = New System.Drawing.Size(44, 16)
         Me.OptInch.TabIndex = 42
@@ -7226,7 +7226,7 @@ Partial Class FrmSST4500_1_0_0J_Profile
         '
         Me.StatusStrip1.ImageScalingSize = New System.Drawing.Size(24, 24)
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.ToolStripStatusLabel3, Me.ToolStripStatusLabel2, Me.ToolStripStatusLabel4})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 759)
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 760)
         Me.StatusStrip1.Name = "StatusStrip1"
         Me.StatusStrip1.Size = New System.Drawing.Size(984, 22)
         Me.StatusStrip1.TabIndex = 43
@@ -7264,7 +7264,7 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.ToolStripStatusLabel4.BorderStyle = System.Windows.Forms.Border3DStyle.Sunken
         Me.ToolStripStatusLabel4.Font = New System.Drawing.Font("MS UI Gothic", 9.0!)
         Me.ToolStripStatusLabel4.Name = "ToolStripStatusLabel4"
-        Me.ToolStripStatusLabel4.Size = New System.Drawing.Size(750, 17)
+        Me.ToolStripStatusLabel4.Size = New System.Drawing.Size(739, 17)
         Me.ToolStripStatusLabel4.Spring = True
         Me.ToolStripStatusLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
@@ -7446,7 +7446,7 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.TxtMeasNumCur.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.TxtMeasNumCur.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.TxtMeasNumCur.ForeColor = System.Drawing.Color.Black
-        Me.TxtMeasNumCur.Location = New System.Drawing.Point(547, 75)
+        Me.TxtMeasNumCur.Location = New System.Drawing.Point(547, 78)
         Me.TxtMeasNumCur.Margin = New System.Windows.Forms.Padding(0)
         Me.TxtMeasNumCur.Name = "TxtMeasNumCur"
         Me.TxtMeasNumCur.Size = New System.Drawing.Size(55, 22)
@@ -7458,7 +7458,7 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.TxtMeasLotCur.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.TxtMeasLotCur.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.TxtMeasLotCur.ForeColor = System.Drawing.Color.Black
-        Me.TxtMeasLotCur.Location = New System.Drawing.Point(617, 75)
+        Me.TxtMeasLotCur.Location = New System.Drawing.Point(617, 78)
         Me.TxtMeasLotCur.Margin = New System.Windows.Forms.Padding(0)
         Me.TxtMeasLotCur.Name = "TxtMeasLotCur"
         Me.TxtMeasLotCur.Size = New System.Drawing.Size(55, 22)
@@ -7525,7 +7525,7 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.LblMeasSpecBak2.AutoSize = True
         Me.LblMeasSpecBak2.Font = New System.Drawing.Font("MS UI Gothic", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.LblMeasSpecBak2.ForeColor = System.Drawing.Color.Blue
-        Me.LblMeasSpecBak2.Location = New System.Drawing.Point(915, 36)
+        Me.LblMeasSpecBak2.Location = New System.Drawing.Point(915, 37)
         Me.LblMeasSpecBak2.Name = "LblMeasSpecBak2"
         Me.LblMeasSpecBak2.Size = New System.Drawing.Size(58, 11)
         Me.LblMeasSpecBak2.TabIndex = 56
@@ -7534,6 +7534,8 @@ Partial Class FrmSST4500_1_0_0J_Profile
         'MenuStrip1
         '
         Me.MenuStrip1.BackColor = System.Drawing.SystemColors.Control
+        Me.MenuStrip1.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(32, 32)
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ファイルToolStripMenuItem, Me.測定ToolStripMenuItem, Me.結果ToolStripMenuItem, Me.設定ToolStripMenuItem, Me.ヘルプToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
@@ -7545,83 +7547,83 @@ Partial Class FrmSST4500_1_0_0J_Profile
         '
         Me.ファイルToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.測定仕様ToolStripMenuItem, Me.過去データToolStripMenuItem, Me.終了ToolStripMenuItem})
         Me.ファイルToolStripMenuItem.Name = "ファイルToolStripMenuItem"
-        Me.ファイルToolStripMenuItem.Size = New System.Drawing.Size(53, 20)
+        Me.ファイルToolStripMenuItem.Size = New System.Drawing.Size(68, 22)
         Me.ファイルToolStripMenuItem.Text = "ファイル"
         '
         '測定仕様ToolStripMenuItem
         '
         Me.測定仕様ToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.選択ToolStripMenuItem, Me.保存ToolStripMenuItem})
         Me.測定仕様ToolStripMenuItem.Name = "測定仕様ToolStripMenuItem"
-        Me.測定仕様ToolStripMenuItem.Size = New System.Drawing.Size(124, 22)
+        Me.測定仕様ToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
         Me.測定仕様ToolStripMenuItem.Text = "測定仕様"
         '
         '選択ToolStripMenuItem
         '
         Me.選択ToolStripMenuItem.Name = "選択ToolStripMenuItem"
-        Me.選択ToolStripMenuItem.Size = New System.Drawing.Size(98, 22)
+        Me.選択ToolStripMenuItem.Size = New System.Drawing.Size(100, 22)
         Me.選択ToolStripMenuItem.Text = "選択"
         '
         '保存ToolStripMenuItem
         '
         Me.保存ToolStripMenuItem.Name = "保存ToolStripMenuItem"
-        Me.保存ToolStripMenuItem.Size = New System.Drawing.Size(98, 22)
+        Me.保存ToolStripMenuItem.Size = New System.Drawing.Size(100, 22)
         Me.保存ToolStripMenuItem.Text = "保存"
         '
         '過去データToolStripMenuItem
         '
         Me.過去データToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.読込ToolStripMenuItem})
         Me.過去データToolStripMenuItem.Name = "過去データToolStripMenuItem"
-        Me.過去データToolStripMenuItem.Size = New System.Drawing.Size(124, 22)
+        Me.過去データToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
         Me.過去データToolStripMenuItem.Text = "過去データ"
         '
         '読込ToolStripMenuItem
         '
         Me.読込ToolStripMenuItem.Name = "読込ToolStripMenuItem"
-        Me.読込ToolStripMenuItem.Size = New System.Drawing.Size(98, 22)
+        Me.読込ToolStripMenuItem.Size = New System.Drawing.Size(100, 22)
         Me.読込ToolStripMenuItem.Text = "読込"
         '
         '終了ToolStripMenuItem
         '
         Me.終了ToolStripMenuItem.Name = "終了ToolStripMenuItem"
-        Me.終了ToolStripMenuItem.Size = New System.Drawing.Size(124, 22)
+        Me.終了ToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
         Me.終了ToolStripMenuItem.Text = "終了"
         '
         '測定ToolStripMenuItem
         '
         Me.測定ToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.測定開始ToolStripMenuItem, Me.測定中断ToolStripMenuItem, Me.グラフ消去ToolStripMenuItem, Me.平均値ToolStripMenuItem})
         Me.測定ToolStripMenuItem.Name = "測定ToolStripMenuItem"
-        Me.測定ToolStripMenuItem.Size = New System.Drawing.Size(43, 20)
+        Me.測定ToolStripMenuItem.Size = New System.Drawing.Size(44, 22)
         Me.測定ToolStripMenuItem.Text = "測定"
         '
         '測定開始ToolStripMenuItem
         '
         Me.測定開始ToolStripMenuItem.Name = "測定開始ToolStripMenuItem"
-        Me.測定開始ToolStripMenuItem.Size = New System.Drawing.Size(123, 22)
+        Me.測定開始ToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
         Me.測定開始ToolStripMenuItem.Text = "測定開始"
         '
         '測定中断ToolStripMenuItem
         '
         Me.測定中断ToolStripMenuItem.Name = "測定中断ToolStripMenuItem"
-        Me.測定中断ToolStripMenuItem.Size = New System.Drawing.Size(123, 22)
+        Me.測定中断ToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
         Me.測定中断ToolStripMenuItem.Text = "測定中断"
         '
         'グラフ消去ToolStripMenuItem
         '
         Me.グラフ消去ToolStripMenuItem.Name = "グラフ消去ToolStripMenuItem"
-        Me.グラフ消去ToolStripMenuItem.Size = New System.Drawing.Size(123, 22)
+        Me.グラフ消去ToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
         Me.グラフ消去ToolStripMenuItem.Text = "グラフ消去"
         '
         '平均値ToolStripMenuItem
         '
         Me.平均値ToolStripMenuItem.Name = "平均値ToolStripMenuItem"
-        Me.平均値ToolStripMenuItem.Size = New System.Drawing.Size(123, 22)
+        Me.平均値ToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
         Me.平均値ToolStripMenuItem.Text = "平均値"
         '
         '結果ToolStripMenuItem
         '
         Me.結果ToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.自動印刷ToolStripMenuItem, Me.印刷項目ToolStripMenuItem, Me.手動印刷ToolStripMenuItem, Me.保存ToolStripMenuItem1})
         Me.結果ToolStripMenuItem.Name = "結果ToolStripMenuItem"
-        Me.結果ToolStripMenuItem.Size = New System.Drawing.Size(43, 20)
+        Me.結果ToolStripMenuItem.Size = New System.Drawing.Size(44, 22)
         Me.結果ToolStripMenuItem.Text = "結果"
         '
         '自動印刷ToolStripMenuItem
@@ -7629,14 +7631,14 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.自動印刷ToolStripMenuItem.Checked = True
         Me.自動印刷ToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
         Me.自動印刷ToolStripMenuItem.Name = "自動印刷ToolStripMenuItem"
-        Me.自動印刷ToolStripMenuItem.Size = New System.Drawing.Size(133, 22)
+        Me.自動印刷ToolStripMenuItem.Size = New System.Drawing.Size(140, 22)
         Me.自動印刷ToolStripMenuItem.Text = "自動印刷"
         '
         '印刷項目ToolStripMenuItem
         '
         Me.印刷項目ToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.配向角配向比ToolStripMenuItem, Me.伝播速度TSIToolStripMenuItem, Me.測定データ表ToolStripMenuItem, Me.過去データ表ToolStripMenuItem, Me.平均値データ表ToolStripMenuItem})
         Me.印刷項目ToolStripMenuItem.Name = "印刷項目ToolStripMenuItem"
-        Me.印刷項目ToolStripMenuItem.Size = New System.Drawing.Size(133, 22)
+        Me.印刷項目ToolStripMenuItem.Size = New System.Drawing.Size(140, 22)
         Me.印刷項目ToolStripMenuItem.Text = "印刷項目"
         '
         '配向角配向比ToolStripMenuItem
@@ -7644,7 +7646,7 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.配向角配向比ToolStripMenuItem.Checked = True
         Me.配向角配向比ToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
         Me.配向角配向比ToolStripMenuItem.Name = "配向角配向比ToolStripMenuItem"
-        Me.配向角配向比ToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.配向角配向比ToolStripMenuItem.Size = New System.Drawing.Size(160, 22)
         Me.配向角配向比ToolStripMenuItem.Text = "配向角・配向比"
         '
         '伝播速度TSIToolStripMenuItem
@@ -7652,7 +7654,7 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.伝播速度TSIToolStripMenuItem.Checked = True
         Me.伝播速度TSIToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
         Me.伝播速度TSIToolStripMenuItem.Name = "伝播速度TSIToolStripMenuItem"
-        Me.伝播速度TSIToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.伝播速度TSIToolStripMenuItem.Size = New System.Drawing.Size(160, 22)
         Me.伝播速度TSIToolStripMenuItem.Text = "伝播速度・TSI"
         '
         '測定データ表ToolStripMenuItem
@@ -7660,7 +7662,7 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.測定データ表ToolStripMenuItem.Checked = True
         Me.測定データ表ToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
         Me.測定データ表ToolStripMenuItem.Name = "測定データ表ToolStripMenuItem"
-        Me.測定データ表ToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.測定データ表ToolStripMenuItem.Size = New System.Drawing.Size(160, 22)
         Me.測定データ表ToolStripMenuItem.Text = "測定データ表"
         '
         '過去データ表ToolStripMenuItem
@@ -7668,7 +7670,7 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.過去データ表ToolStripMenuItem.Checked = True
         Me.過去データ表ToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
         Me.過去データ表ToolStripMenuItem.Name = "過去データ表ToolStripMenuItem"
-        Me.過去データ表ToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.過去データ表ToolStripMenuItem.Size = New System.Drawing.Size(160, 22)
         Me.過去データ表ToolStripMenuItem.Text = "過去データ表"
         '
         '平均値データ表ToolStripMenuItem
@@ -7676,39 +7678,39 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.平均値データ表ToolStripMenuItem.Checked = True
         Me.平均値データ表ToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
         Me.平均値データ表ToolStripMenuItem.Name = "平均値データ表ToolStripMenuItem"
-        Me.平均値データ表ToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.平均値データ表ToolStripMenuItem.Size = New System.Drawing.Size(160, 22)
         Me.平均値データ表ToolStripMenuItem.Text = "平均値データ表"
         '
         '手動印刷ToolStripMenuItem
         '
         Me.手動印刷ToolStripMenuItem.Name = "手動印刷ToolStripMenuItem"
-        Me.手動印刷ToolStripMenuItem.Size = New System.Drawing.Size(133, 22)
+        Me.手動印刷ToolStripMenuItem.Size = New System.Drawing.Size(140, 22)
         Me.手動印刷ToolStripMenuItem.Text = "手動印刷"
         '
         '保存ToolStripMenuItem1
         '
         Me.保存ToolStripMenuItem1.Name = "保存ToolStripMenuItem1"
-        Me.保存ToolStripMenuItem1.Size = New System.Drawing.Size(133, 22)
+        Me.保存ToolStripMenuItem1.Size = New System.Drawing.Size(140, 22)
         Me.保存ToolStripMenuItem1.Text = "保存(Excel)"
         '
         '設定ToolStripMenuItem
         '
         Me.設定ToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.設定ToolStripMenuItem1, Me.単位ToolStripMenuItem})
         Me.設定ToolStripMenuItem.Name = "設定ToolStripMenuItem"
-        Me.設定ToolStripMenuItem.Size = New System.Drawing.Size(43, 20)
+        Me.設定ToolStripMenuItem.Size = New System.Drawing.Size(44, 22)
         Me.設定ToolStripMenuItem.Text = "設定"
         '
         '設定ToolStripMenuItem1
         '
         Me.設定ToolStripMenuItem1.Name = "設定ToolStripMenuItem1"
-        Me.設定ToolStripMenuItem1.Size = New System.Drawing.Size(98, 22)
+        Me.設定ToolStripMenuItem1.Size = New System.Drawing.Size(100, 22)
         Me.設定ToolStripMenuItem1.Text = "設定"
         '
         '単位ToolStripMenuItem
         '
         Me.単位ToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MmToolStripMenuItem, Me.InchToolStripMenuItem})
         Me.単位ToolStripMenuItem.Name = "単位ToolStripMenuItem"
-        Me.単位ToolStripMenuItem.Size = New System.Drawing.Size(98, 22)
+        Me.単位ToolStripMenuItem.Size = New System.Drawing.Size(100, 22)
         Me.単位ToolStripMenuItem.Text = "単位"
         '
         'MmToolStripMenuItem
@@ -7716,7 +7718,7 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.MmToolStripMenuItem.Checked = True
         Me.MmToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
         Me.MmToolStripMenuItem.Name = "MmToolStripMenuItem"
-        Me.MmToolStripMenuItem.Size = New System.Drawing.Size(97, 22)
+        Me.MmToolStripMenuItem.Size = New System.Drawing.Size(100, 22)
         Me.MmToolStripMenuItem.Text = "mm"
         '
         'InchToolStripMenuItem
@@ -7724,24 +7726,14 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.InchToolStripMenuItem.Checked = True
         Me.InchToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
         Me.InchToolStripMenuItem.Name = "InchToolStripMenuItem"
-        Me.InchToolStripMenuItem.Size = New System.Drawing.Size(97, 22)
+        Me.InchToolStripMenuItem.Size = New System.Drawing.Size(100, 22)
         Me.InchToolStripMenuItem.Text = "inch"
-        '
-        'PictureBox5
-        '
-        Me.PictureBox5.Image = Global.SST4500_1_0_0J.My.Resources.Resources.nomura_logo1
-        Me.PictureBox5.Location = New System.Drawing.Point(380, 24)
-        Me.PictureBox5.Name = "PictureBox5"
-        Me.PictureBox5.Size = New System.Drawing.Size(160, 50)
-        Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox5.TabIndex = 58
-        Me.PictureBox5.TabStop = False
         '
         'ヘルプToolStripMenuItem
         '
         Me.ヘルプToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SST4500ヘルプToolStripMenuItem, Me.SST4500についてToolStripMenuItem})
         Me.ヘルプToolStripMenuItem.Name = "ヘルプToolStripMenuItem"
-        Me.ヘルプToolStripMenuItem.Size = New System.Drawing.Size(48, 20)
+        Me.ヘルプToolStripMenuItem.Size = New System.Drawing.Size(56, 22)
         Me.ヘルプToolStripMenuItem.Text = "ヘルプ"
         '
         'SST4500ヘルプToolStripMenuItem
@@ -7757,12 +7749,23 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.SST4500についてToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.SST4500についてToolStripMenuItem.Text = "SST-4500について"
         '
+        'PictureBox5
+        '
+        Me.PictureBox5.Image = Global.SST4500_1_0_0J.My.Resources.Resources.nomura_logo1
+        Me.PictureBox5.Location = New System.Drawing.Point(380, 25)
+        Me.PictureBox5.Name = "PictureBox5"
+        Me.PictureBox5.Size = New System.Drawing.Size(160, 50)
+        Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox5.TabIndex = 58
+        Me.PictureBox5.TabStop = False
+        '
         'FrmSST4500_1_0_0J_Profile
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoScroll = True
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(984, 781)
+        Me.ClientSize = New System.Drawing.Size(984, 782)
         Me.Controls.Add(Me.OptInch)
         Me.Controls.Add(Me.OptMm)
         Me.Controls.Add(Me.PictureBox5)

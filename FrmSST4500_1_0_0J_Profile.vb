@@ -11128,4 +11128,8 @@ Rdg8:
     Private Sub SST4500についてToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SST4500についてToolStripMenuItem.Click
         FrmSST4500_1_0_0J_helpinfo.ShowDialog()
     End Sub
+
+    Private Sub PictureBox5_Click(sender As Object, e As EventArgs) Handles PictureBox5.Click
+        FrmSST4500_1_0_0J_helpinfo.ShowDialog()
+    End Sub
 End Class

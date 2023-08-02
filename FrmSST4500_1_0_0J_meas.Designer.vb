@@ -241,11 +241,11 @@ Partial Class FrmSST4500_1_0_0J_meas
         Me.保存ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.設定ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.設定ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.ヘルプToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SST4500ヘルプToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SST4500についてToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.TblMeasInfo_adm.SuspendLayout()
         Me.TblMeasData_adm.SuspendLayout()
         Me.TblMeasInfo_nom.SuspendLayout()
@@ -285,7 +285,7 @@ Partial Class FrmSST4500_1_0_0J_meas
         '
         Me.LblMeasSpecCur.AutoSize = True
         Me.LblMeasSpecCur.Font = New System.Drawing.Font("MS UI Gothic", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.LblMeasSpecCur.Location = New System.Drawing.Point(12, 83)
+        Me.LblMeasSpecCur.Location = New System.Drawing.Point(12, 86)
         Me.LblMeasSpecCur.Name = "LblMeasSpecCur"
         Me.LblMeasSpecCur.Size = New System.Drawing.Size(67, 14)
         Me.LblMeasSpecCur.TabIndex = 2
@@ -296,7 +296,7 @@ Partial Class FrmSST4500_1_0_0J_meas
         Me.LblMeasSpecBak.AutoSize = True
         Me.LblMeasSpecBak.Font = New System.Drawing.Font("MS UI Gothic", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.LblMeasSpecBak.ForeColor = System.Drawing.Color.Blue
-        Me.LblMeasSpecBak.Location = New System.Drawing.Point(12, 110)
+        Me.LblMeasSpecBak.Location = New System.Drawing.Point(12, 112)
         Me.LblMeasSpecBak.Name = "LblMeasSpecBak"
         Me.LblMeasSpecBak.Size = New System.Drawing.Size(79, 14)
         Me.LblMeasSpecBak.TabIndex = 3
@@ -306,7 +306,7 @@ Partial Class FrmSST4500_1_0_0J_meas
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("MS UI Gothic", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label5.Location = New System.Drawing.Point(94, 62)
+        Me.Label5.Location = New System.Drawing.Point(94, 65)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(81, 14)
         Me.Label5.TabIndex = 4
@@ -315,7 +315,7 @@ Partial Class FrmSST4500_1_0_0J_meas
         'TxtMachNoCur
         '
         Me.TxtMachNoCur.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.TxtMachNoCur.Location = New System.Drawing.Point(97, 80)
+        Me.TxtMachNoCur.Location = New System.Drawing.Point(97, 83)
         Me.TxtMachNoCur.Name = "TxtMachNoCur"
         Me.TxtMachNoCur.Size = New System.Drawing.Size(100, 22)
         Me.TxtMachNoCur.TabIndex = 5
@@ -324,7 +324,7 @@ Partial Class FrmSST4500_1_0_0J_meas
         '
         Me.TxtMachNoBak.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.TxtMachNoBak.ForeColor = System.Drawing.Color.Blue
-        Me.TxtMachNoBak.Location = New System.Drawing.Point(97, 107)
+        Me.TxtMachNoBak.Location = New System.Drawing.Point(97, 109)
         Me.TxtMachNoBak.Name = "TxtMachNoBak"
         Me.TxtMachNoBak.Size = New System.Drawing.Size(100, 22)
         Me.TxtMachNoBak.TabIndex = 6
@@ -333,7 +333,7 @@ Partial Class FrmSST4500_1_0_0J_meas
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("MS UI Gothic", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label6.Location = New System.Drawing.Point(200, 61)
+        Me.Label6.Location = New System.Drawing.Point(200, 64)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(69, 14)
         Me.Label6.TabIndex = 7
@@ -342,7 +342,7 @@ Partial Class FrmSST4500_1_0_0J_meas
         'TxtSmplNamCur
         '
         Me.TxtSmplNamCur.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.TxtSmplNamCur.Location = New System.Drawing.Point(200, 80)
+        Me.TxtSmplNamCur.Location = New System.Drawing.Point(200, 83)
         Me.TxtSmplNamCur.Name = "TxtSmplNamCur"
         Me.TxtSmplNamCur.Size = New System.Drawing.Size(340, 22)
         Me.TxtSmplNamCur.TabIndex = 8
@@ -352,7 +352,7 @@ Partial Class FrmSST4500_1_0_0J_meas
         '
         Me.TxtSmplNamBak.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.TxtSmplNamBak.ForeColor = System.Drawing.Color.Blue
-        Me.TxtSmplNamBak.Location = New System.Drawing.Point(200, 107)
+        Me.TxtSmplNamBak.Location = New System.Drawing.Point(200, 109)
         Me.TxtSmplNamBak.Name = "TxtSmplNamBak"
         Me.TxtSmplNamBak.Size = New System.Drawing.Size(340, 22)
         Me.TxtSmplNamBak.TabIndex = 9
@@ -361,7 +361,7 @@ Partial Class FrmSST4500_1_0_0J_meas
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("MS UI Gothic", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label7.Location = New System.Drawing.Point(540, 61)
+        Me.Label7.Location = New System.Drawing.Point(540, 64)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(67, 14)
         Me.Label7.TabIndex = 10
@@ -782,7 +782,7 @@ Partial Class FrmSST4500_1_0_0J_meas
         Me.Label28.AutoSize = True
         Me.Label28.BackColor = System.Drawing.Color.Transparent
         Me.Label28.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label28.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label28.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Label28.Location = New System.Drawing.Point(732, 37)
         Me.Label28.Margin = New System.Windows.Forms.Padding(0)
         Me.Label28.Name = "Label28"
@@ -2870,7 +2870,7 @@ Partial Class FrmSST4500_1_0_0J_meas
         Me.StatusStrip1.BackColor = System.Drawing.SystemColors.Control
         Me.StatusStrip1.ImageScalingSize = New System.Drawing.Size(24, 24)
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.ToolStripStatusLabel3, Me.ToolStripStatusLabel2, Me.ToolStripStatusLabel4})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 739)
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 740)
         Me.StatusStrip1.Name = "StatusStrip1"
         Me.StatusStrip1.Size = New System.Drawing.Size(984, 22)
         Me.StatusStrip1.TabIndex = 27
@@ -2991,7 +2991,7 @@ Partial Class FrmSST4500_1_0_0J_meas
         Me.TxtMeasNumCur.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.TxtMeasNumCur.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.TxtMeasNumCur.ForeColor = System.Drawing.Color.Black
-        Me.TxtMeasNumCur.Location = New System.Drawing.Point(543, 80)
+        Me.TxtMeasNumCur.Location = New System.Drawing.Point(543, 83)
         Me.TxtMeasNumCur.Margin = New System.Windows.Forms.Padding(0)
         Me.TxtMeasNumCur.Name = "TxtMeasNumCur"
         Me.TxtMeasNumCur.Size = New System.Drawing.Size(55, 22)
@@ -3003,7 +3003,7 @@ Partial Class FrmSST4500_1_0_0J_meas
         Me.TxtMeasNumBak.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.TxtMeasNumBak.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.TxtMeasNumBak.ForeColor = System.Drawing.Color.Blue
-        Me.TxtMeasNumBak.Location = New System.Drawing.Point(543, 107)
+        Me.TxtMeasNumBak.Location = New System.Drawing.Point(543, 109)
         Me.TxtMeasNumBak.Margin = New System.Windows.Forms.Padding(0)
         Me.TxtMeasNumBak.Name = "TxtMeasNumBak"
         Me.TxtMeasNumBak.Size = New System.Drawing.Size(55, 22)
@@ -3012,6 +3012,8 @@ Partial Class FrmSST4500_1_0_0J_meas
         '
         'MenuStrip1
         '
+        Me.MenuStrip1.BackColor = System.Drawing.SystemColors.Control
+        Me.MenuStrip1.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ファイルToolStripMenuItem, Me.測定ToolStripMenuItem, Me.結果ToolStripMenuItem, Me.設定ToolStripMenuItem, Me.ヘルプToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
@@ -3023,77 +3025,77 @@ Partial Class FrmSST4500_1_0_0J_meas
         '
         Me.ファイルToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.測定仕様ToolStripMenuItem, Me.過去データToolStripMenuItem, Me.終了ToolStripMenuItem})
         Me.ファイルToolStripMenuItem.Name = "ファイルToolStripMenuItem"
-        Me.ファイルToolStripMenuItem.Size = New System.Drawing.Size(53, 20)
+        Me.ファイルToolStripMenuItem.Size = New System.Drawing.Size(68, 22)
         Me.ファイルToolStripMenuItem.Text = "ファイル"
         '
         '測定仕様ToolStripMenuItem
         '
         Me.測定仕様ToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.選択ToolStripMenuItem, Me.保存ToolStripMenuItem})
         Me.測定仕様ToolStripMenuItem.Name = "測定仕様ToolStripMenuItem"
-        Me.測定仕様ToolStripMenuItem.Size = New System.Drawing.Size(124, 22)
+        Me.測定仕様ToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.測定仕様ToolStripMenuItem.Text = "測定仕様"
         '
         '選択ToolStripMenuItem
         '
         Me.選択ToolStripMenuItem.Name = "選択ToolStripMenuItem"
-        Me.選択ToolStripMenuItem.Size = New System.Drawing.Size(98, 22)
+        Me.選択ToolStripMenuItem.Size = New System.Drawing.Size(100, 22)
         Me.選択ToolStripMenuItem.Text = "選択"
         '
         '保存ToolStripMenuItem
         '
         Me.保存ToolStripMenuItem.Name = "保存ToolStripMenuItem"
-        Me.保存ToolStripMenuItem.Size = New System.Drawing.Size(98, 22)
+        Me.保存ToolStripMenuItem.Size = New System.Drawing.Size(100, 22)
         Me.保存ToolStripMenuItem.Text = "保存"
         '
         '過去データToolStripMenuItem
         '
         Me.過去データToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.読込ToolStripMenuItem, Me.他の測定データ選択ToolStripMenuItem})
         Me.過去データToolStripMenuItem.Name = "過去データToolStripMenuItem"
-        Me.過去データToolStripMenuItem.Size = New System.Drawing.Size(124, 22)
+        Me.過去データToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.過去データToolStripMenuItem.Text = "過去データ"
         '
         '読込ToolStripMenuItem
         '
         Me.読込ToolStripMenuItem.Name = "読込ToolStripMenuItem"
-        Me.読込ToolStripMenuItem.Size = New System.Drawing.Size(170, 22)
+        Me.読込ToolStripMenuItem.Size = New System.Drawing.Size(184, 22)
         Me.読込ToolStripMenuItem.Text = "読込"
         '
         '他の測定データ選択ToolStripMenuItem
         '
         Me.他の測定データ選択ToolStripMenuItem.Name = "他の測定データ選択ToolStripMenuItem"
-        Me.他の測定データ選択ToolStripMenuItem.Size = New System.Drawing.Size(170, 22)
+        Me.他の測定データ選択ToolStripMenuItem.Size = New System.Drawing.Size(184, 22)
         Me.他の測定データ選択ToolStripMenuItem.Text = "他の測定データ選択"
         '
         '終了ToolStripMenuItem
         '
         Me.終了ToolStripMenuItem.Name = "終了ToolStripMenuItem"
-        Me.終了ToolStripMenuItem.Size = New System.Drawing.Size(124, 22)
+        Me.終了ToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.終了ToolStripMenuItem.Text = "終了"
         '
         '測定ToolStripMenuItem
         '
         Me.測定ToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.測定開始ToolStripMenuItem, Me.他の測定データ選択ToolStripMenuItem1})
         Me.測定ToolStripMenuItem.Name = "測定ToolStripMenuItem"
-        Me.測定ToolStripMenuItem.Size = New System.Drawing.Size(43, 20)
+        Me.測定ToolStripMenuItem.Size = New System.Drawing.Size(44, 22)
         Me.測定ToolStripMenuItem.Text = "測定"
         '
         '測定開始ToolStripMenuItem
         '
         Me.測定開始ToolStripMenuItem.Name = "測定開始ToolStripMenuItem"
-        Me.測定開始ToolStripMenuItem.Size = New System.Drawing.Size(170, 22)
+        Me.測定開始ToolStripMenuItem.Size = New System.Drawing.Size(184, 22)
         Me.測定開始ToolStripMenuItem.Text = "測定開始"
         '
         '他の測定データ選択ToolStripMenuItem1
         '
         Me.他の測定データ選択ToolStripMenuItem1.Name = "他の測定データ選択ToolStripMenuItem1"
-        Me.他の測定データ選択ToolStripMenuItem1.Size = New System.Drawing.Size(170, 22)
+        Me.他の測定データ選択ToolStripMenuItem1.Size = New System.Drawing.Size(184, 22)
         Me.他の測定データ選択ToolStripMenuItem1.Text = "他の測定データ選択"
         '
         '結果ToolStripMenuItem
         '
         Me.結果ToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.印刷ToolStripMenuItem, Me.手動印刷ToolStripMenuItem, Me.保存ToolStripMenuItem1})
         Me.結果ToolStripMenuItem.Name = "結果ToolStripMenuItem"
-        Me.結果ToolStripMenuItem.Size = New System.Drawing.Size(43, 20)
+        Me.結果ToolStripMenuItem.Size = New System.Drawing.Size(44, 22)
         Me.結果ToolStripMenuItem.Text = "結果"
         '
         '印刷ToolStripMenuItem
@@ -3101,59 +3103,39 @@ Partial Class FrmSST4500_1_0_0J_meas
         Me.印刷ToolStripMenuItem.Checked = True
         Me.印刷ToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
         Me.印刷ToolStripMenuItem.Name = "印刷ToolStripMenuItem"
-        Me.印刷ToolStripMenuItem.Size = New System.Drawing.Size(133, 22)
+        Me.印刷ToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.印刷ToolStripMenuItem.Text = "自動印刷"
         '
         '手動印刷ToolStripMenuItem
         '
         Me.手動印刷ToolStripMenuItem.Name = "手動印刷ToolStripMenuItem"
-        Me.手動印刷ToolStripMenuItem.Size = New System.Drawing.Size(133, 22)
+        Me.手動印刷ToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.手動印刷ToolStripMenuItem.Text = "手動印刷"
         '
         '保存ToolStripMenuItem1
         '
         Me.保存ToolStripMenuItem1.Name = "保存ToolStripMenuItem1"
-        Me.保存ToolStripMenuItem1.Size = New System.Drawing.Size(133, 22)
+        Me.保存ToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
         Me.保存ToolStripMenuItem1.Text = "保存(Excel)"
         '
         '設定ToolStripMenuItem
         '
         Me.設定ToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.設定ToolStripMenuItem1})
         Me.設定ToolStripMenuItem.Name = "設定ToolStripMenuItem"
-        Me.設定ToolStripMenuItem.Size = New System.Drawing.Size(43, 20)
+        Me.設定ToolStripMenuItem.Size = New System.Drawing.Size(44, 22)
         Me.設定ToolStripMenuItem.Text = "設定"
         '
         '設定ToolStripMenuItem1
         '
         Me.設定ToolStripMenuItem1.Name = "設定ToolStripMenuItem1"
-        Me.設定ToolStripMenuItem1.Size = New System.Drawing.Size(98, 22)
+        Me.設定ToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
         Me.設定ToolStripMenuItem1.Text = "設定"
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackColor = System.Drawing.Color.White
-        Me.PictureBox1.Location = New System.Drawing.Point(17, 271)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(481, 452)
-        Me.PictureBox1.TabIndex = 21
-        Me.PictureBox1.TabStop = False
-        '
-        'PictureBox2
-        '
-        Me.PictureBox2.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox2.Image = Global.SST4500_1_0_0J.My.Resources.Resources.nomura_logo1
-        Me.PictureBox2.Location = New System.Drawing.Point(824, 24)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(160, 50)
-        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox2.TabIndex = 54
-        Me.PictureBox2.TabStop = False
         '
         'ヘルプToolStripMenuItem
         '
         Me.ヘルプToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SST4500ヘルプToolStripMenuItem, Me.SST4500についてToolStripMenuItem})
         Me.ヘルプToolStripMenuItem.Name = "ヘルプToolStripMenuItem"
-        Me.ヘルプToolStripMenuItem.Size = New System.Drawing.Size(48, 20)
+        Me.ヘルプToolStripMenuItem.Size = New System.Drawing.Size(56, 22)
         Me.ヘルプToolStripMenuItem.Text = "ヘルプ"
         '
         'SST4500ヘルプToolStripMenuItem
@@ -3169,12 +3151,33 @@ Partial Class FrmSST4500_1_0_0J_meas
         Me.SST4500についてToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.SST4500についてToolStripMenuItem.Text = "SST-4500について"
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.White
+        Me.PictureBox1.Location = New System.Drawing.Point(17, 271)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(481, 452)
+        Me.PictureBox1.TabIndex = 21
+        Me.PictureBox1.TabStop = False
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox2.Image = Global.SST4500_1_0_0J.My.Resources.Resources.nomura_logo1
+        Me.PictureBox2.Location = New System.Drawing.Point(824, 25)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(160, 50)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox2.TabIndex = 54
+        Me.PictureBox2.TabStop = False
+        '
         'FrmSST4500_1_0_0J_meas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoScroll = True
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(984, 761)
+        Me.ClientSize = New System.Drawing.Size(984, 762)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.TxtMeasNumBak)
         Me.Controls.Add(Me.TxtMeasNumCur)

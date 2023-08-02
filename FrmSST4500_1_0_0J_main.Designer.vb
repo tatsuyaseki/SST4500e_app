@@ -69,7 +69,7 @@ Partial Class FrmSST4500_1_0_0J_main
         Me.StatusStrip1.Font = New System.Drawing.Font("MS UI Gothic", 9.0!)
         Me.StatusStrip1.ImageScalingSize = New System.Drawing.Size(24, 24)
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.ToolStripStatusLabel3, Me.ToolStripStatusLabel2})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 539)
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 540)
         Me.StatusStrip1.Name = "StatusStrip1"
         Me.StatusStrip1.Size = New System.Drawing.Size(784, 22)
         Me.StatusStrip1.TabIndex = 0
@@ -175,7 +175,6 @@ Partial Class FrmSST4500_1_0_0J_main
         '
         'CmdProfile
         '
-        Me.CmdProfile.Enabled = False
         Me.CmdProfile.Font = New System.Drawing.Font("MS UI Gothic", 20.0!)
         Me.CmdProfile.Location = New System.Drawing.Point(518, 130)
         Me.CmdProfile.Name = "CmdProfile"
@@ -287,19 +286,19 @@ Partial Class FrmSST4500_1_0_0J_main
         '
         Me.SST4500ヘルプToolStripMenuItem.Enabled = False
         Me.SST4500ヘルプToolStripMenuItem.Name = "SST4500ヘルプToolStripMenuItem"
-        Me.SST4500ヘルプToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SST4500ヘルプToolStripMenuItem.Size = New System.Drawing.Size(158, 22)
         Me.SST4500ヘルプToolStripMenuItem.Text = "SST-4500ヘルプ"
         '
         'SST4500についてToolStripMenuItem
         '
         Me.SST4500についてToolStripMenuItem.Name = "SST4500についてToolStripMenuItem"
-        Me.SST4500についてToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SST4500についてToolStripMenuItem.Size = New System.Drawing.Size(158, 22)
         Me.SST4500についてToolStripMenuItem.Text = "SST-4500について"
         '
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.SST4500_1_0_0J.My.Resources.Resources.nomura_logo1
-        Me.PictureBox1.Location = New System.Drawing.Point(621, 24)
+        Me.PictureBox1.Location = New System.Drawing.Point(621, 25)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(160, 50)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -311,7 +310,7 @@ Partial Class FrmSST4500_1_0_0J_main
         Me.AutoScaleDimensions = New System.Drawing.SizeF(96.0!, 96.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(784, 561)
+        Me.ClientSize = New System.Drawing.Size(784, 562)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.CmdCutSheetProfile)
         Me.Controls.Add(Me.CmdSinglesheet)
