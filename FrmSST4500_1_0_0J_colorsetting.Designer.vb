@@ -46,6 +46,10 @@ Partial Class FrmSST4500_1_0_0J_colorsetting
         Me.LblFrmMainFormBC = New System.Windows.Forms.Label()
         Me.CmdColorSettingReset = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.LblFrmMeasMeasButtonFC = New System.Windows.Forms.Label()
+        Me.Label38 = New System.Windows.Forms.Label()
+        Me.LblFrmMeasMeasButtonBC = New System.Windows.Forms.Label()
+        Me.Label41 = New System.Windows.Forms.Label()
         Me.LblFrmMeasGraphWakuColor = New System.Windows.Forms.Label()
         Me.Label54 = New System.Windows.Forms.Label()
         Me.LblFrmMeasCurDataColor = New System.Windows.Forms.Label()
@@ -79,6 +83,10 @@ Partial Class FrmSST4500_1_0_0J_colorsetting
         Me.LblFrmMeasFormBC = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.LblFrmPrfMeasButtonFC = New System.Windows.Forms.Label()
+        Me.Label28 = New System.Windows.Forms.Label()
+        Me.LblFrmPrfMeasButtonBC = New System.Windows.Forms.Label()
+        Me.Label33 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.LblFrmPrfAvgDataColor = New System.Windows.Forms.Label()
         Me.LblFrmPrfGraphWakuColor = New System.Windows.Forms.Label()
@@ -322,7 +330,7 @@ Partial Class FrmSST4500_1_0_0J_colorsetting
         '
         'CmdColorSettingReset
         '
-        Me.CmdColorSettingReset.Location = New System.Drawing.Point(12, 412)
+        Me.CmdColorSettingReset.Location = New System.Drawing.Point(12, 457)
         Me.CmdColorSettingReset.Name = "CmdColorSettingReset"
         Me.CmdColorSettingReset.Size = New System.Drawing.Size(75, 23)
         Me.CmdColorSettingReset.TabIndex = 2
@@ -331,6 +339,10 @@ Partial Class FrmSST4500_1_0_0J_colorsetting
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.LblFrmMeasMeasButtonFC)
+        Me.GroupBox2.Controls.Add(Me.Label38)
+        Me.GroupBox2.Controls.Add(Me.LblFrmMeasMeasButtonBC)
+        Me.GroupBox2.Controls.Add(Me.Label41)
         Me.GroupBox2.Controls.Add(Me.LblFrmMeasGraphWakuColor)
         Me.GroupBox2.Controls.Add(Me.Label54)
         Me.GroupBox2.Controls.Add(Me.LblFrmMeasCurDataColor)
@@ -365,15 +377,49 @@ Partial Class FrmSST4500_1_0_0J_colorsetting
         Me.GroupBox2.Controls.Add(Me.Label12)
         Me.GroupBox2.Location = New System.Drawing.Point(184, 12)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(169, 389)
+        Me.GroupBox2.Size = New System.Drawing.Size(169, 433)
         Me.GroupBox2.TabIndex = 3
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "シングルシート画面"
         '
+        'LblFrmMeasMeasButtonFC
+        '
+        Me.LblFrmMeasMeasButtonFC.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.LblFrmMeasMeasButtonFC.Location = New System.Drawing.Point(128, 251)
+        Me.LblFrmMeasMeasButtonFC.Name = "LblFrmMeasMeasButtonFC"
+        Me.LblFrmMeasMeasButtonFC.Size = New System.Drawing.Size(30, 20)
+        Me.LblFrmMeasMeasButtonFC.TabIndex = 42
+        '
+        'Label38
+        '
+        Me.Label38.AutoSize = True
+        Me.Label38.Location = New System.Drawing.Point(7, 255)
+        Me.Label38.Name = "Label38"
+        Me.Label38.Size = New System.Drawing.Size(92, 12)
+        Me.Label38.TabIndex = 41
+        Me.Label38.Text = "測定ボタン文字色"
+        '
+        'LblFrmMeasMeasButtonBC
+        '
+        Me.LblFrmMeasMeasButtonBC.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.LblFrmMeasMeasButtonBC.Location = New System.Drawing.Point(128, 229)
+        Me.LblFrmMeasMeasButtonBC.Name = "LblFrmMeasMeasButtonBC"
+        Me.LblFrmMeasMeasButtonBC.Size = New System.Drawing.Size(30, 20)
+        Me.LblFrmMeasMeasButtonBC.TabIndex = 40
+        '
+        'Label41
+        '
+        Me.Label41.AutoSize = True
+        Me.Label41.Location = New System.Drawing.Point(7, 233)
+        Me.Label41.Name = "Label41"
+        Me.Label41.Size = New System.Drawing.Size(68, 12)
+        Me.Label41.TabIndex = 39
+        Me.Label41.Text = "測定ボタン色"
+        '
         'LblFrmMeasGraphWakuColor
         '
         Me.LblFrmMeasGraphWakuColor.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.LblFrmMeasGraphWakuColor.Location = New System.Drawing.Point(128, 318)
+        Me.LblFrmMeasGraphWakuColor.Location = New System.Drawing.Point(128, 361)
         Me.LblFrmMeasGraphWakuColor.Name = "LblFrmMeasGraphWakuColor"
         Me.LblFrmMeasGraphWakuColor.Size = New System.Drawing.Size(30, 20)
         Me.LblFrmMeasGraphWakuColor.TabIndex = 38
@@ -381,7 +427,7 @@ Partial Class FrmSST4500_1_0_0J_colorsetting
         'Label54
         '
         Me.Label54.AutoSize = True
-        Me.Label54.Location = New System.Drawing.Point(6, 322)
+        Me.Label54.Location = New System.Drawing.Point(6, 365)
         Me.Label54.Name = "Label54"
         Me.Label54.Size = New System.Drawing.Size(78, 12)
         Me.Label54.TabIndex = 37
@@ -390,7 +436,7 @@ Partial Class FrmSST4500_1_0_0J_colorsetting
         'LblFrmMeasCurDataColor
         '
         Me.LblFrmMeasCurDataColor.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.LblFrmMeasCurDataColor.Location = New System.Drawing.Point(128, 340)
+        Me.LblFrmMeasCurDataColor.Location = New System.Drawing.Point(128, 383)
         Me.LblFrmMeasCurDataColor.Name = "LblFrmMeasCurDataColor"
         Me.LblFrmMeasCurDataColor.Size = New System.Drawing.Size(30, 20)
         Me.LblFrmMeasCurDataColor.TabIndex = 36
@@ -398,7 +444,7 @@ Partial Class FrmSST4500_1_0_0J_colorsetting
         'LblFrmMeasTextBoxBC
         '
         Me.LblFrmMeasTextBoxBC.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.LblFrmMeasTextBoxBC.Location = New System.Drawing.Point(128, 274)
+        Me.LblFrmMeasTextBoxBC.Location = New System.Drawing.Point(128, 317)
         Me.LblFrmMeasTextBoxBC.Name = "LblFrmMeasTextBoxBC"
         Me.LblFrmMeasTextBoxBC.Size = New System.Drawing.Size(30, 20)
         Me.LblFrmMeasTextBoxBC.TabIndex = 34
@@ -406,7 +452,7 @@ Partial Class FrmSST4500_1_0_0J_colorsetting
         'LblFrmMeasGraphBC
         '
         Me.LblFrmMeasGraphBC.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.LblFrmMeasGraphBC.Location = New System.Drawing.Point(128, 296)
+        Me.LblFrmMeasGraphBC.Location = New System.Drawing.Point(128, 339)
         Me.LblFrmMeasGraphBC.Name = "LblFrmMeasGraphBC"
         Me.LblFrmMeasGraphBC.Size = New System.Drawing.Size(30, 20)
         Me.LblFrmMeasGraphBC.TabIndex = 12
@@ -414,7 +460,7 @@ Partial Class FrmSST4500_1_0_0J_colorsetting
         'Label17
         '
         Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(6, 301)
+        Me.Label17.Location = New System.Drawing.Point(6, 344)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(66, 12)
         Me.Label17.TabIndex = 11
@@ -423,7 +469,7 @@ Partial Class FrmSST4500_1_0_0J_colorsetting
         'Label53
         '
         Me.Label53.AutoSize = True
-        Me.Label53.Location = New System.Drawing.Point(6, 344)
+        Me.Label53.Location = New System.Drawing.Point(6, 387)
         Me.Label53.Name = "Label53"
         Me.Label53.Size = New System.Drawing.Size(69, 12)
         Me.Label53.TabIndex = 35
@@ -432,7 +478,7 @@ Partial Class FrmSST4500_1_0_0J_colorsetting
         'Label24
         '
         Me.Label24.AutoSize = True
-        Me.Label24.Location = New System.Drawing.Point(7, 278)
+        Me.Label24.Location = New System.Drawing.Point(7, 321)
         Me.Label24.Name = "Label24"
         Me.Label24.Size = New System.Drawing.Size(111, 12)
         Me.Label24.TabIndex = 33
@@ -441,7 +487,7 @@ Partial Class FrmSST4500_1_0_0J_colorsetting
         'LblFrmMeasuringButtonFC
         '
         Me.LblFrmMeasuringButtonFC.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.LblFrmMeasuringButtonFC.Location = New System.Drawing.Point(128, 252)
+        Me.LblFrmMeasuringButtonFC.Location = New System.Drawing.Point(128, 295)
         Me.LblFrmMeasuringButtonFC.Name = "LblFrmMeasuringButtonFC"
         Me.LblFrmMeasuringButtonFC.Size = New System.Drawing.Size(30, 20)
         Me.LblFrmMeasuringButtonFC.TabIndex = 32
@@ -449,7 +495,7 @@ Partial Class FrmSST4500_1_0_0J_colorsetting
         'Label25
         '
         Me.Label25.AutoSize = True
-        Me.Label25.Location = New System.Drawing.Point(7, 256)
+        Me.Label25.Location = New System.Drawing.Point(7, 299)
         Me.Label25.Name = "Label25"
         Me.Label25.Size = New System.Drawing.Size(104, 12)
         Me.Label25.TabIndex = 31
@@ -458,7 +504,7 @@ Partial Class FrmSST4500_1_0_0J_colorsetting
         'LblFrmMeasuringButtonBC
         '
         Me.LblFrmMeasuringButtonBC.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.LblFrmMeasuringButtonBC.Location = New System.Drawing.Point(128, 230)
+        Me.LblFrmMeasuringButtonBC.Location = New System.Drawing.Point(128, 273)
         Me.LblFrmMeasuringButtonBC.Name = "LblFrmMeasuringButtonBC"
         Me.LblFrmMeasuringButtonBC.Size = New System.Drawing.Size(30, 20)
         Me.LblFrmMeasuringButtonBC.TabIndex = 30
@@ -466,7 +512,7 @@ Partial Class FrmSST4500_1_0_0J_colorsetting
         'Label18
         '
         Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(6, 366)
+        Me.Label18.Location = New System.Drawing.Point(6, 409)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(69, 12)
         Me.Label18.TabIndex = 17
@@ -475,7 +521,7 @@ Partial Class FrmSST4500_1_0_0J_colorsetting
         'Label19
         '
         Me.Label19.AutoSize = True
-        Me.Label19.Location = New System.Drawing.Point(7, 234)
+        Me.Label19.Location = New System.Drawing.Point(7, 277)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(80, 12)
         Me.Label19.TabIndex = 29
@@ -484,7 +530,7 @@ Partial Class FrmSST4500_1_0_0J_colorsetting
         'LblFrmMeasOldDataColor
         '
         Me.LblFrmMeasOldDataColor.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.LblFrmMeasOldDataColor.Location = New System.Drawing.Point(128, 362)
+        Me.LblFrmMeasOldDataColor.Location = New System.Drawing.Point(128, 405)
         Me.LblFrmMeasOldDataColor.Name = "LblFrmMeasOldDataColor"
         Me.LblFrmMeasOldDataColor.Size = New System.Drawing.Size(30, 20)
         Me.LblFrmMeasOldDataColor.TabIndex = 18
@@ -645,6 +691,10 @@ Partial Class FrmSST4500_1_0_0J_colorsetting
         '
         'GroupBox3
         '
+        Me.GroupBox3.Controls.Add(Me.LblFrmPrfMeasButtonFC)
+        Me.GroupBox3.Controls.Add(Me.Label28)
+        Me.GroupBox3.Controls.Add(Me.LblFrmPrfMeasButtonBC)
+        Me.GroupBox3.Controls.Add(Me.Label33)
         Me.GroupBox3.Controls.Add(Me.Label11)
         Me.GroupBox3.Controls.Add(Me.LblFrmPrfAvgDataColor)
         Me.GroupBox3.Controls.Add(Me.LblFrmPrfGraphWakuColor)
@@ -679,17 +729,51 @@ Partial Class FrmSST4500_1_0_0J_colorsetting
         Me.GroupBox3.Controls.Add(Me.Label55)
         Me.GroupBox3.Controls.Add(Me.LblFrmPrfFormBC)
         Me.GroupBox3.Controls.Add(Me.Label57)
-        Me.GroupBox3.Location = New System.Drawing.Point(359, 12)
+        Me.GroupBox3.Location = New System.Drawing.Point(359, 13)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(169, 411)
+        Me.GroupBox3.Size = New System.Drawing.Size(169, 455)
         Me.GroupBox3.TabIndex = 4
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "プロファイル系画面"
         '
+        'LblFrmPrfMeasButtonFC
+        '
+        Me.LblFrmPrfMeasButtonFC.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.LblFrmPrfMeasButtonFC.Location = New System.Drawing.Point(128, 252)
+        Me.LblFrmPrfMeasButtonFC.Name = "LblFrmPrfMeasButtonFC"
+        Me.LblFrmPrfMeasButtonFC.Size = New System.Drawing.Size(30, 20)
+        Me.LblFrmPrfMeasButtonFC.TabIndex = 44
+        '
+        'Label28
+        '
+        Me.Label28.AutoSize = True
+        Me.Label28.Location = New System.Drawing.Point(7, 256)
+        Me.Label28.Name = "Label28"
+        Me.Label28.Size = New System.Drawing.Size(92, 12)
+        Me.Label28.TabIndex = 43
+        Me.Label28.Text = "測定ボタン文字色"
+        '
+        'LblFrmPrfMeasButtonBC
+        '
+        Me.LblFrmPrfMeasButtonBC.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.LblFrmPrfMeasButtonBC.Location = New System.Drawing.Point(128, 230)
+        Me.LblFrmPrfMeasButtonBC.Name = "LblFrmPrfMeasButtonBC"
+        Me.LblFrmPrfMeasButtonBC.Size = New System.Drawing.Size(30, 20)
+        Me.LblFrmPrfMeasButtonBC.TabIndex = 42
+        '
+        'Label33
+        '
+        Me.Label33.AutoSize = True
+        Me.Label33.Location = New System.Drawing.Point(7, 234)
+        Me.Label33.Name = "Label33"
+        Me.Label33.Size = New System.Drawing.Size(68, 12)
+        Me.Label33.TabIndex = 41
+        Me.Label33.Text = "測定ボタン色"
+        '
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(6, 388)
+        Me.Label11.Location = New System.Drawing.Point(6, 431)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(69, 12)
         Me.Label11.TabIndex = 39
@@ -698,7 +782,7 @@ Partial Class FrmSST4500_1_0_0J_colorsetting
         'LblFrmPrfAvgDataColor
         '
         Me.LblFrmPrfAvgDataColor.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.LblFrmPrfAvgDataColor.Location = New System.Drawing.Point(128, 384)
+        Me.LblFrmPrfAvgDataColor.Location = New System.Drawing.Point(128, 427)
         Me.LblFrmPrfAvgDataColor.Name = "LblFrmPrfAvgDataColor"
         Me.LblFrmPrfAvgDataColor.Size = New System.Drawing.Size(30, 20)
         Me.LblFrmPrfAvgDataColor.TabIndex = 40
@@ -706,7 +790,7 @@ Partial Class FrmSST4500_1_0_0J_colorsetting
         'LblFrmPrfGraphWakuColor
         '
         Me.LblFrmPrfGraphWakuColor.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.LblFrmPrfGraphWakuColor.Location = New System.Drawing.Point(128, 318)
+        Me.LblFrmPrfGraphWakuColor.Location = New System.Drawing.Point(128, 361)
         Me.LblFrmPrfGraphWakuColor.Name = "LblFrmPrfGraphWakuColor"
         Me.LblFrmPrfGraphWakuColor.Size = New System.Drawing.Size(30, 20)
         Me.LblFrmPrfGraphWakuColor.TabIndex = 38
@@ -714,7 +798,7 @@ Partial Class FrmSST4500_1_0_0J_colorsetting
         'Label26
         '
         Me.Label26.AutoSize = True
-        Me.Label26.Location = New System.Drawing.Point(6, 322)
+        Me.Label26.Location = New System.Drawing.Point(6, 365)
         Me.Label26.Name = "Label26"
         Me.Label26.Size = New System.Drawing.Size(78, 12)
         Me.Label26.TabIndex = 37
@@ -723,7 +807,7 @@ Partial Class FrmSST4500_1_0_0J_colorsetting
         'LblFrmPrfCurDataColor
         '
         Me.LblFrmPrfCurDataColor.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.LblFrmPrfCurDataColor.Location = New System.Drawing.Point(128, 340)
+        Me.LblFrmPrfCurDataColor.Location = New System.Drawing.Point(128, 383)
         Me.LblFrmPrfCurDataColor.Name = "LblFrmPrfCurDataColor"
         Me.LblFrmPrfCurDataColor.Size = New System.Drawing.Size(30, 20)
         Me.LblFrmPrfCurDataColor.TabIndex = 36
@@ -731,7 +815,7 @@ Partial Class FrmSST4500_1_0_0J_colorsetting
         'LblFrmPrfTextBoxBC
         '
         Me.LblFrmPrfTextBoxBC.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.LblFrmPrfTextBoxBC.Location = New System.Drawing.Point(128, 274)
+        Me.LblFrmPrfTextBoxBC.Location = New System.Drawing.Point(128, 317)
         Me.LblFrmPrfTextBoxBC.Name = "LblFrmPrfTextBoxBC"
         Me.LblFrmPrfTextBoxBC.Size = New System.Drawing.Size(30, 20)
         Me.LblFrmPrfTextBoxBC.TabIndex = 34
@@ -739,7 +823,7 @@ Partial Class FrmSST4500_1_0_0J_colorsetting
         'LblFrmPrfGraphBC
         '
         Me.LblFrmPrfGraphBC.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.LblFrmPrfGraphBC.Location = New System.Drawing.Point(128, 296)
+        Me.LblFrmPrfGraphBC.Location = New System.Drawing.Point(128, 339)
         Me.LblFrmPrfGraphBC.Name = "LblFrmPrfGraphBC"
         Me.LblFrmPrfGraphBC.Size = New System.Drawing.Size(30, 20)
         Me.LblFrmPrfGraphBC.TabIndex = 12
@@ -747,7 +831,7 @@ Partial Class FrmSST4500_1_0_0J_colorsetting
         'Label30
         '
         Me.Label30.AutoSize = True
-        Me.Label30.Location = New System.Drawing.Point(6, 301)
+        Me.Label30.Location = New System.Drawing.Point(6, 344)
         Me.Label30.Name = "Label30"
         Me.Label30.Size = New System.Drawing.Size(66, 12)
         Me.Label30.TabIndex = 11
@@ -756,7 +840,7 @@ Partial Class FrmSST4500_1_0_0J_colorsetting
         'Label31
         '
         Me.Label31.AutoSize = True
-        Me.Label31.Location = New System.Drawing.Point(6, 344)
+        Me.Label31.Location = New System.Drawing.Point(6, 387)
         Me.Label31.Name = "Label31"
         Me.Label31.Size = New System.Drawing.Size(69, 12)
         Me.Label31.TabIndex = 35
@@ -765,7 +849,7 @@ Partial Class FrmSST4500_1_0_0J_colorsetting
         'Label32
         '
         Me.Label32.AutoSize = True
-        Me.Label32.Location = New System.Drawing.Point(7, 278)
+        Me.Label32.Location = New System.Drawing.Point(7, 321)
         Me.Label32.Name = "Label32"
         Me.Label32.Size = New System.Drawing.Size(111, 12)
         Me.Label32.TabIndex = 33
@@ -774,7 +858,7 @@ Partial Class FrmSST4500_1_0_0J_colorsetting
         'LblFrmPrfMeasuringButtonFC
         '
         Me.LblFrmPrfMeasuringButtonFC.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.LblFrmPrfMeasuringButtonFC.Location = New System.Drawing.Point(128, 252)
+        Me.LblFrmPrfMeasuringButtonFC.Location = New System.Drawing.Point(128, 295)
         Me.LblFrmPrfMeasuringButtonFC.Name = "LblFrmPrfMeasuringButtonFC"
         Me.LblFrmPrfMeasuringButtonFC.Size = New System.Drawing.Size(30, 20)
         Me.LblFrmPrfMeasuringButtonFC.TabIndex = 32
@@ -782,7 +866,7 @@ Partial Class FrmSST4500_1_0_0J_colorsetting
         'Label34
         '
         Me.Label34.AutoSize = True
-        Me.Label34.Location = New System.Drawing.Point(7, 256)
+        Me.Label34.Location = New System.Drawing.Point(7, 299)
         Me.Label34.Name = "Label34"
         Me.Label34.Size = New System.Drawing.Size(104, 12)
         Me.Label34.TabIndex = 31
@@ -791,7 +875,7 @@ Partial Class FrmSST4500_1_0_0J_colorsetting
         'LblFrmPrfMeasuringButtonBC
         '
         Me.LblFrmPrfMeasuringButtonBC.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.LblFrmPrfMeasuringButtonBC.Location = New System.Drawing.Point(128, 230)
+        Me.LblFrmPrfMeasuringButtonBC.Location = New System.Drawing.Point(128, 273)
         Me.LblFrmPrfMeasuringButtonBC.Name = "LblFrmPrfMeasuringButtonBC"
         Me.LblFrmPrfMeasuringButtonBC.Size = New System.Drawing.Size(30, 20)
         Me.LblFrmPrfMeasuringButtonBC.TabIndex = 30
@@ -799,7 +883,7 @@ Partial Class FrmSST4500_1_0_0J_colorsetting
         'Label36
         '
         Me.Label36.AutoSize = True
-        Me.Label36.Location = New System.Drawing.Point(6, 366)
+        Me.Label36.Location = New System.Drawing.Point(6, 409)
         Me.Label36.Name = "Label36"
         Me.Label36.Size = New System.Drawing.Size(69, 12)
         Me.Label36.TabIndex = 17
@@ -808,7 +892,7 @@ Partial Class FrmSST4500_1_0_0J_colorsetting
         'Label37
         '
         Me.Label37.AutoSize = True
-        Me.Label37.Location = New System.Drawing.Point(7, 234)
+        Me.Label37.Location = New System.Drawing.Point(7, 277)
         Me.Label37.Name = "Label37"
         Me.Label37.Size = New System.Drawing.Size(80, 12)
         Me.Label37.TabIndex = 29
@@ -817,7 +901,7 @@ Partial Class FrmSST4500_1_0_0J_colorsetting
         'LblFrmPrfOldDataColor
         '
         Me.LblFrmPrfOldDataColor.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.LblFrmPrfOldDataColor.Location = New System.Drawing.Point(128, 362)
+        Me.LblFrmPrfOldDataColor.Location = New System.Drawing.Point(128, 405)
         Me.LblFrmPrfOldDataColor.Name = "LblFrmPrfOldDataColor"
         Me.LblFrmPrfOldDataColor.Size = New System.Drawing.Size(30, 20)
         Me.LblFrmPrfOldDataColor.TabIndex = 18
@@ -979,7 +1063,7 @@ Partial Class FrmSST4500_1_0_0J_colorsetting
         'Label58
         '
         Me.Label58.AutoSize = True
-        Me.Label58.Location = New System.Drawing.Point(250, 426)
+        Me.Label58.Location = New System.Drawing.Point(250, 471)
         Me.Label58.Name = "Label58"
         Me.Label58.Size = New System.Drawing.Size(278, 12)
         Me.Label58.TabIndex = 5
@@ -987,7 +1071,7 @@ Partial Class FrmSST4500_1_0_0J_colorsetting
         '
         'CmdColorSettingQuit
         '
-        Me.CmdColorSettingQuit.Location = New System.Drawing.Point(103, 412)
+        Me.CmdColorSettingQuit.Location = New System.Drawing.Point(103, 457)
         Me.CmdColorSettingQuit.Name = "CmdColorSettingQuit"
         Me.CmdColorSettingQuit.Size = New System.Drawing.Size(75, 23)
         Me.CmdColorSettingQuit.TabIndex = 6
@@ -998,7 +1082,7 @@ Partial Class FrmSST4500_1_0_0J_colorsetting
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(538, 447)
+        Me.ClientSize = New System.Drawing.Size(538, 492)
         Me.Controls.Add(Me.CmdColorSettingQuit)
         Me.Controls.Add(Me.Label58)
         Me.Controls.Add(Me.GroupBox3)
@@ -1111,4 +1195,12 @@ Partial Class FrmSST4500_1_0_0J_colorsetting
     Friend WithEvents Label11 As Label
     Friend WithEvents LblFrmPrfAvgDataColor As Label
     Friend WithEvents CmdColorSettingQuit As Button
+    Friend WithEvents LblFrmMeasMeasButtonFC As Label
+    Friend WithEvents Label38 As Label
+    Friend WithEvents LblFrmMeasMeasButtonBC As Label
+    Friend WithEvents Label41 As Label
+    Friend WithEvents LblFrmPrfMeasButtonFC As Label
+    Friend WithEvents Label28 As Label
+    Friend WithEvents LblFrmPrfMeasButtonBC As Label
+    Friend WithEvents Label33 As Label
 End Class

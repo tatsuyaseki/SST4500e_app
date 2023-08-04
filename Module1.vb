@@ -416,6 +416,8 @@ Module Module1
     Public frm_MeasuringButton_fc As Color
     Public frm_MeasTextBox_bc As Color
     Public frm_MeasGraphWaku_color As Color
+    Public frm_MeasMeasButton_bc As Color
+    Public frm_MeasMeasButton_fc As Color
 
     Public frm_PrfForm_bc As Color
     Public frm_PrfMenu_bc As Color
@@ -433,47 +435,95 @@ Module Module1
     Public frm_PrfMeasuringButton_fc As Color
     Public frm_PrfTextBox_bc As Color
     Public frm_PrfGraphWaku_color As Color
+    Public frm_PrfMeasButton_bc As Color
+    Public frm_PrfMeasButton_fc As Color
 
     Public frm_MainStatusBorder_stl As Border3DStyle
     Public frm_MeasStatusBorder_stl As Border3DStyle
     Public frm_PrfStatusBorder_stl As Border3DStyle
 
+    Public Const _rdy = 0
+    Public Const _mes = 1
+
+    Public Sub CmdMeasButton_set(ByVal meas_status As Integer)
+        If FlgProfile = 0 Then
+            'シングルモード
+            If meas_status = _rdy Then
+                With FrmSST4500_1_0_0J_meas
+                    .CmdMeas.BackColor = frm_MeasMeasButton_bc
+                    .CmdMeas.ForeColor = frm_MeasMeasButton_fc
+                    .CmdMeas.FlatStyle = FlatStyle.Standard
+                    If .CmdMeas.BackColor = SystemColors.Control Then
+                        .CmdMeas.UseVisualStyleBackColor = True
+                    End If
+                End With
+            ElseIf meas_status = _mes Then
+                With FrmSST4500_1_0_0J_meas
+                    .CmdMeas.BackColor = frm_MeasuringButton_bc
+                    .CmdMeas.ForeColor = frm_MeasuringButton_fc
+                End With
+            End If
+        Else
+            'プロファイルモード
+            If meas_status = _rdy Then
+                With FrmSST4500_1_0_0J_Profile
+                    .CmdMeas.BackColor = frm_PrfMeasButton_bc
+                    .CmdMeas.ForeColor = frm_PrfMeasButton_fc
+                    .CmdMeas.FlatStyle = FlatStyle.Standard
+                    If .CmdMeas.BackColor = SystemColors.Control Then
+                        .CmdMeas.UseVisualStyleBackColor = True
+                    End If
+                End With
+            ElseIf meas_status = _mes Then
+                With FrmSST4500_1_0_0J_Profile
+                    .CmdMeas.BackColor = frm_PrfMeasuringButton_bc
+                    .CmdMeas.ForeColor = frm_PrfMeasuringButton_fc
+                End With
+            End If
+        End If
+    End Sub
+
     Public Sub mainform_color_setting_load()
-        frm_MainForm_bc = My.Settings._frm_MainForm_bc
-        frm_MainMenu_bc = My.Settings._frm_MainMenu_bc
-        frm_MainStatus_bc = My.Settings._frm_MainStatus_bc
-        frm_MainButton_bc = My.Settings._frm_MainButton_bc
-        frm_MainButton_fc = My.Settings._frm_MainButton_fc
-        frm_MainForm_fc = My.Settings._frm_MainForm_fc
-        frm_MainMenu_fc = My.Settings._frm_MainMenu_fc
-        frm_MainStatus_fc = My.Settings._frm_MainStatus_fc
-        frm_MainLine_color = My.Settings._frm_MainLine_color
+        With My.Settings
+            frm_MainForm_bc = ._frm_MainForm_bc
+            frm_MainMenu_bc = ._frm_MainMenu_bc
+            frm_MainStatus_bc = ._frm_MainStatus_bc
+            frm_MainButton_bc = ._frm_MainButton_bc
 
-        frm_MainStatusBorder_stl = My.Settings._frm_MainStatusBorder_stl
+            frm_MainForm_fc = ._frm_MainForm_fc
+            frm_MainMenu_fc = ._frm_MainMenu_fc
+            frm_MainStatus_fc = ._frm_MainStatus_fc
+            frm_MainButton_fc = ._frm_MainButton_fc
+            frm_MainLine_color = ._frm_MainLine_color
 
+            frm_MainStatusBorder_stl = ._frm_MainStatusBorder_stl
+        End With
     End Sub
 
     Public Sub measform_color_setting_load()
-        frm_MeasForm_bc = My.Settings._frm_MeasForm_bc
-        frm_MeasMenu_bc = My.Settings._frm_MeasMenu_bc
-        frm_MeasStatus_bc = My.Settings._frm_MeasStatus_bc
-        frm_MeasGraph_bc = My.Settings._frm_MeasGraph_bc
-        frm_MeasForm_fc = My.Settings._frm_MeasForm_fc
-        frm_MeasOldData_color = My.Settings._frm_MeasOldData_color
-        frm_MeasCurData_color = My.Settings._frm_MeasCurData_color
-        frm_MeasGraphWaku_color = My.Settings._frm_MeasGraphWaku_color
+        With My.Settings
+            frm_MeasForm_bc = ._frm_MeasForm_bc
+            frm_MeasMenu_bc = ._frm_MeasMenu_bc
+            frm_MeasStatus_bc = ._frm_MeasStatus_bc
+            frm_MeasButton_bc = ._frm_MeasButton_bc
+            frm_MeasMeasButton_bc = ._frm_MeasMeasButton_bc
+            frm_MeasuringButton_bc = ._frm_MeasuringButton_bc
+            frm_MeasGraph_bc = ._frm_MeasGraph_bc
+            frm_MeasTextBox_bc = ._frm_MeasTextBox_bc
 
-        frm_MeasMenu_fc = My.Settings._frm_MeasMenu_fc
-        frm_MeasStatus_fc = My.Settings._frm_MeasStatus_fc
-        frm_MeasButton_bc = My.Settings._frm_MeasButton_bc
-        frm_MeasButton_fc = My.Settings._frm_MeasButton_fc
-        frm_MeasuringButton_bc = My.Settings._frm_MeasuringButton_bc
-        frm_MeasuringButton_fc = My.Settings._frm_MeasuringButton_fc
+            frm_MeasOldData_color = ._frm_MeasOldData_color
+            frm_MeasCurData_color = ._frm_MeasCurData_color
+            frm_MeasGraphWaku_color = ._frm_MeasGraphWaku_color
 
-        frm_MeasTextBox_bc = My.Settings._frm_MeasTextBox_bc
+            frm_MeasForm_fc = ._frm_MeasForm_fc
+            frm_MeasMenu_fc = ._frm_MeasMenu_fc
+            frm_MeasStatus_fc = ._frm_MeasStatus_fc
+            frm_MeasButton_fc = ._frm_MeasButton_fc
+            frm_MeasMeasButton_fc = ._frm_MeasMeasButton_fc
+            frm_MeasuringButton_fc = ._frm_MeasuringButton_fc
 
-        frm_MeasStatusBorder_stl = My.Settings._frm_MeasStatusBorder_stl
-
+            frm_MeasStatusBorder_stl = ._frm_MeasStatusBorder_stl
+        End With
     End Sub
 
     Public Sub prfform_color_setting_load()
@@ -481,21 +531,23 @@ Module Module1
             frm_PrfForm_bc = ._frm_PrfForm_bc
             frm_PrfMenu_bc = ._frm_PrfMenu_bc
             frm_PrfStatus_bc = ._frm_PrfStatus_bc
+            frm_PrfButton_bc = ._frm_PrfButton_bc
+            frm_PrfMeasButton_bc = ._frm_PrfMeasButton_bc
+            frm_PrfMeasuringButton_bc = ._frm_PrfMeasuringButton_bc
             frm_PrfGraph_bc = ._frm_PrfGraph_bc
-            frm_PrfForm_fc = ._frm_PrfForm_fc
+            frm_PrfTextBox_bc = ._frm_PrfTextBox_bc
+
             frm_PrfOldData_color = ._frm_PrfOldData_color
             frm_PrfCurData_color = ._frm_PrfCurData_color
             frm_PrfAvgData_color = ._frm_PrfAvgData_color
             frm_PrfGraphWaku_color = ._frm_PrfGraphWaku_color
 
+            frm_PrfForm_fc = ._frm_PrfForm_fc
             frm_PrfMenu_fc = ._frm_PrfMenu_fc
             frm_PrfStatus_fc = ._frm_PrfStatus_fc
-            frm_PrfButton_bc = ._frm_PrfButton_bc
             frm_PrfButton_fc = ._frm_PrfButton_fc
-            frm_PrfMeasuringButton_bc = ._frm_PrfMeasuringButton_bc
+            frm_PrfMeasButton_fc = ._frm_PrfMeasButton_fc
             frm_PrfMeasuringButton_fc = ._frm_PrfMeasuringButton_fc
-
-            frm_PrfTextBox_bc = ._frm_PrfTextBox_bc
 
             frm_PrfStatusBorder_stl = ._frm_PrfStatusBorder_stl
 
@@ -510,10 +562,11 @@ Module Module1
                     .LblFrmMainMenuBC.BackColor = frm_MainMenu_bc
                     .LblFrmMainStatusBC.BackColor = frm_MainStatus_bc
                     .LblFrmMainButtonBC.BackColor = frm_MainButton_bc
-                    .LblFrmMainButtonFC.ForeColor = frm_MainButton_fc
+
                     .LblFrmMainFormFC.BackColor = frm_MainForm_fc
                     .LblFrmMainMenuFC.BackColor = frm_MainMenu_fc
                     .LblFrmMainStatusFC.BackColor = frm_MainStatus_fc
+                    .LblFrmMainButtonFC.ForeColor = frm_MainButton_fc
                     .LblFrmMainLineColor.BackColor = frm_MainLine_color
                 End With
                 mainform_borderstyle_init()
@@ -523,17 +576,18 @@ Module Module1
                     .LblFrmMeasFormBC.BackColor = frm_MeasForm_bc
                     .LblFrmMeasMenuBC.BackColor = frm_MeasMenu_bc
                     .LblFrmMeasStatusBC.BackColor = frm_MeasStatus_bc
+                    .LblFrmMeasButtonBC.BackColor = frm_MeasButton_bc
+                    .LblFrmMeasuringButtonBC.BackColor = frm_MeasuringButton_bc
                     .LblFrmMeasGraphBC.BackColor = frm_MeasGraph_bc
+                    .LblFrmMeasTextBoxBC.BackColor = frm_MeasTextBox_bc
+
                     .LblFrmMeasFormFC.BackColor = frm_MeasForm_fc
-                    .LblFrmMeasOldDataColor.BackColor = frm_MeasOldData_color
-                    .LblFrmMeasCurDataColor.BackColor = frm_MeasCurData_color
                     .LblFrmMeasMenuFC.BackColor = frm_MeasMenu_fc
                     .LblFrmMeasStatusFC.BackColor = frm_MeasStatus_fc
-                    .LblFrmMeasButtonBC.BackColor = frm_MeasButton_bc
                     .LblFrmMeasButtonFC.BackColor = frm_MeasButton_fc
-                    .LblFrmMeasuringButtonBC.BackColor = frm_MeasuringButton_bc
                     .LblFrmMeasuringButtonFC.BackColor = frm_MeasuringButton_fc
-                    .LblFrmMeasTextBoxBC.BackColor = frm_MeasTextBox_bc
+                    .LblFrmMeasOldDataColor.BackColor = frm_MeasOldData_color
+                    .LblFrmMeasCurDataColor.BackColor = frm_MeasCurData_color
                     .LblFrmMeasGraphWakuColor.BackColor = frm_MeasGraphWaku_color
                 End With
                 measform_borderstyle_init()
@@ -543,18 +597,19 @@ Module Module1
                     .LblFrmPrfFormBC.BackColor = frm_PrfForm_bc
                     .LblFrmPrfMenuBC.BackColor = frm_PrfMenu_bc
                     .LblFrmPrfStatusBC.BackColor = frm_PrfStatus_bc
+                    .LblFrmPrfButtonBC.BackColor = frm_PrfButton_bc
+                    .LblFrmPrfMeasuringButtonBC.BackColor = frm_PrfMeasuringButton_bc
                     .LblFrmPrfGraphBC.BackColor = frm_PrfGraph_bc
+                    .LblFrmPrfTextBoxBC.BackColor = frm_PrfTextBox_bc
+
                     .LblFrmPrfFormFC.BackColor = frm_PrfForm_fc
+                    .LblFrmPrfMenuFC.BackColor = frm_PrfMenu_fc
+                    .LblFrmPrfStatusFC.BackColor = frm_PrfStatus_fc
+                    .LblFrmPrfButtonFC.BackColor = frm_PrfButton_fc
+                    .LblFrmPrfMeasuringButtonFC.BackColor = frm_PrfMeasuringButton_fc
                     .LblFrmPrfOldDataColor.BackColor = frm_PrfOldData_color
                     .LblFrmPrfCurDataColor.BackColor = frm_PrfCurData_color
                     .LblFrmPrfAvgDataColor.BackColor = frm_PrfAvgData_color
-                    .LblFrmPrfMenuFC.BackColor = frm_PrfMenu_fc
-                    .LblFrmPrfStatusFC.BackColor = frm_PrfStatus_fc
-                    .LblFrmPrfButtonBC.BackColor = frm_PrfButton_bc
-                    .LblFrmPrfButtonFC.BackColor = frm_PrfButton_fc
-                    .LblFrmPrfMeasuringButtonBC.BackColor = frm_PrfMeasuringButton_bc
-                    .LblFrmPrfMeasuringButtonFC.BackColor = frm_PrfMeasuringButton_fc
-                    .LblFrmPrfTextBoxBC.BackColor = frm_PrfTextBox_bc
                     .LblFrmPrfGraphWakuColor.BackColor = frm_PrfGraphWaku_color
                 End With
                 prfform_borderstyle_init()
@@ -565,24 +620,26 @@ Module Module1
         With FrmSST4500_1_0_0J_Profile
             set_prfformbc()
             .MenuStrip1.BackColor = frm_PrfMenu_bc
-            .StatusStrip1.BackColor = frm_PrfMenu_bc
+            .StatusStrip1.BackColor = frm_PrfStatus_bc
             set_prfgraphbc()
             set_prftextboxbc()
             set_prfcmdbc()
             set_prfcmdfc()
 
-            .CmdMeas.UseVisualStyleBackColor = True
-            .CmdMeasSpecSel.UseVisualStyleBackColor = True
-            .CmdMeasSpecSave.UseVisualStyleBackColor = True
-            .CmdOldDataLoad.UseVisualStyleBackColor = True
-            .CmdClsGraph.UseVisualStyleBackColor = True
-            .CmdAvg.UseVisualStyleBackColor = True
-            .CmdQuitProfile.UseVisualStyleBackColor = True
-            .CmdPrfPrint.UseVisualStyleBackColor = True
-            .CmdPrfResultSave.UseVisualStyleBackColor = True
-            .CmdAngleRange.UseVisualStyleBackColor = True
-            .CmdVeloRange.UseVisualStyleBackColor = True
-            .CmdTSIRange.UseVisualStyleBackColor = True
+            If frm_PrfButton_bc = SystemColors.Control Then
+                .CmdMeas.UseVisualStyleBackColor = True
+                .CmdMeasSpecSel.UseVisualStyleBackColor = True
+                .CmdMeasSpecSave.UseVisualStyleBackColor = True
+                .CmdOldDataLoad.UseVisualStyleBackColor = True
+                .CmdClsGraph.UseVisualStyleBackColor = True
+                .CmdAvg.UseVisualStyleBackColor = True
+                .CmdQuitProfile.UseVisualStyleBackColor = True
+                .CmdPrfPrint.UseVisualStyleBackColor = True
+                .CmdPrfResultSave.UseVisualStyleBackColor = True
+                .CmdAngleRange.UseVisualStyleBackColor = True
+                .CmdVeloRange.UseVisualStyleBackColor = True
+                .CmdTSIRange.UseVisualStyleBackColor = True
+            End If
 
             set_prfformfc()
             set_prfolddatacolor()
@@ -590,6 +647,9 @@ Module Module1
             set_prfavgdatacolor()
             set_prfmenufc()
 
+            .ToolStripStatusLabel1.ForeColor = frm_PrfStatus_fc
+            .ToolStripStatusLabel2.ForeColor = frm_PrfStatus_fc
+            .ToolStripStatusLabel3.ForeColor = frm_PrfStatus_fc
         End With
     End Sub
 
@@ -631,9 +691,9 @@ Module Module1
             set_meascurdatacolor()
             set_measmenufc()
 
-            .ToolStripStatusLabel1.ForeColor = frm_MainStatus_fc
-            .ToolStripStatusLabel2.ForeColor = frm_MainStatus_fc
-            .ToolStripStatusLabel3.ForeColor = frm_MainStatus_fc
+            .ToolStripStatusLabel1.ForeColor = frm_MeasStatus_fc
+            .ToolStripStatusLabel2.ForeColor = frm_MeasStatus_fc
+            .ToolStripStatusLabel3.ForeColor = frm_MeasStatus_fc
         End With
     End Sub
 
@@ -778,7 +838,8 @@ Module Module1
 
     Public Sub set_meascmdbc()
         With FrmSST4500_1_0_0J_meas
-            .CmdMeas.BackColor = frm_MeasButton_bc
+            '.CmdMeas.BackColor = frm_MeasButton_bc
+            .CmdMeas.BackColor = frm_MeasMeasButton_bc
             .CmdEtcMeasData.BackColor = frm_MeasButton_bc
             .CmdMeasSpecSel.BackColor = frm_MeasButton_bc
             .CmdMeasSpecSave.BackColor = frm_MeasButton_bc
@@ -792,7 +853,8 @@ Module Module1
 
     Public Sub set_prfcmdbc()
         With FrmSST4500_1_0_0J_Profile
-            .CmdMeas.BackColor = frm_PrfButton_bc
+            '.CmdMeas.BackColor = frm_PrfButton_bc
+            .CmdMeas.BackColor = frm_PrfMeasButton_bc
             .CmdMeasSpecSel.BackColor = frm_PrfButton_bc
             .CmdMeasSpecSave.BackColor = frm_PrfButton_bc
             .CmdOldDataLoad.BackColor = frm_PrfButton_bc
@@ -809,7 +871,8 @@ Module Module1
 
     Public Sub set_prfcmdfc()
         With FrmSST4500_1_0_0J_Profile
-            .CmdMeas.ForeColor = frm_PrfButton_fc
+            '.CmdMeas.ForeColor = frm_PrfButton_fc
+            .CmdMeas.ForeColor = frm_PrfMeasButton_fc
             .CmdMeasSpecSel.ForeColor = frm_PrfButton_fc
             .CmdMeasSpecSave.ForeColor = frm_PrfButton_fc
             .CmdOldDataLoad.ForeColor = frm_PrfButton_fc
@@ -826,7 +889,8 @@ Module Module1
 
     Public Sub set_meascmdfc()
         With FrmSST4500_1_0_0J_meas
-            .CmdMeas.ForeColor = frm_MeasButton_fc
+            '.CmdMeas.ForeColor = frm_MeasButton_fc
+            .CmdMeas.ForeColor = frm_MeasMeasButton_fc
             .CmdEtcMeasData.ForeColor = frm_MeasButton_fc
             .CmdMeasSpecSel.ForeColor = frm_MeasButton_fc
             .CmdMeasSpecSave.ForeColor = frm_MeasButton_fc
@@ -1334,8 +1398,6 @@ Module Module1
     End Sub
 
     Public Sub mainform_color_init()
-
-        'colorsetting_label_init(Main_Enum)
 
         With FrmSST4500_1_0_0J_main
             .BackColor = frm_MainForm_bc

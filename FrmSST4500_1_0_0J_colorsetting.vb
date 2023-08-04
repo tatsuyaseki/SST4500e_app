@@ -950,4 +950,112 @@
     Private Sub CmdColorSettingQuit_Click(sender As Object, e As EventArgs) Handles CmdColorSettingQuit.Click
         Me.Visible = False
     End Sub
+
+    Private Sub LblMeasMeasButtonBC_Click(sender As Object, e As EventArgs) Handles LblFrmMeasMeasButtonBC.Click
+        Dim a As Integer
+
+        Using Dialog As New ColorDialog
+            With Dialog
+                .AllowFullOpen = True
+                .FullOpen = True
+                .Color = frm_MeasMeasButton_bc
+            End With
+
+            If Dialog.ShowDialog = DialogResult.OK Then
+                LblFrmMeasMeasButtonBC.BackColor = Dialog.Color
+                frm_MeasMeasButton_bc = Dialog.Color
+
+                a = FlgProfile
+
+                FlgProfile = 0
+                CmdMeasButton_set(_rdy)
+
+                FlgProfile = a
+
+                My.Settings._frm_MeasMeasButton_bc = frm_MeasMeasButton_bc
+                My.Settings.Save()
+            End If
+        End Using
+    End Sub
+
+    Private Sub LblFrmMeasMeasButtonFC_Click(sender As Object, e As EventArgs) Handles LblFrmMeasMeasButtonFC.Click
+        Dim a As Integer
+
+        Using Dialog As New ColorDialog
+            With Dialog
+                .AllowFullOpen = True
+                .FullOpen = True
+                .Color = frm_MeasMeasButton_fc
+            End With
+
+            If Dialog.ShowDialog = DialogResult.OK Then
+                LblFrmMeasMeasButtonFC.BackColor = Dialog.Color
+                frm_MeasMeasButton_fc = Dialog.Color
+
+                a = FlgProfile
+
+                FlgProfile = 0
+                CmdMeasButton_set(_rdy)
+
+                FlgProfile = a
+
+                My.Settings._frm_MeasMeasButton_fc = frm_MeasMeasButton_fc
+                My.Settings.Save()
+            End If
+        End Using
+    End Sub
+
+    Private Sub LblFrmPrfMeasButtonBC_Click(sender As Object, e As EventArgs) Handles LblFrmPrfMeasButtonBC.Click
+        Dim a As Integer
+
+        Using Dialog As New ColorDialog
+            With Dialog
+                .AllowFullOpen = True
+                .FullOpen = True
+                .Color = frm_PrfMeasButton_bc
+            End With
+
+            If Dialog.ShowDialog = DialogResult.OK Then
+                LblFrmPrfMeasButtonBC.BackColor = Dialog.Color
+                frm_PrfMeasButton_bc = Dialog.Color
+
+                a = FlgProfile
+
+                FlgProfile = 1
+                CmdMeasButton_set(_rdy)
+
+                FlgProfile = a
+
+                My.Settings._frm_PrfMeasButton_bc = frm_PrfMeasButton_bc
+                My.Settings.Save()
+            End If
+        End Using
+    End Sub
+
+    Private Sub LblFrmPrfMeasButtonFC_Click(sender As Object, e As EventArgs) Handles LblFrmPrfMeasButtonFC.Click
+        Dim a As Integer
+
+        Using Dialog As New ColorDialog
+            With Dialog
+                .AllowFullOpen = True
+                .FullOpen = True
+                .Color = frm_PrfMeasButton_fc
+            End With
+
+            If Dialog.ShowDialog = DialogResult.OK Then
+                LblFrmPrfMeasButtonFC.BackColor = Dialog.Color
+                frm_PrfMeasButton_fc = Dialog.Color
+
+                a = FlgProfile
+
+                FlgProfile = 1
+                CmdMeasButton_set(_rdy)
+
+                FlgProfile = a
+
+                My.Settings._frm_PrfMeasButton_fc = frm_PrfMeasButton_fc
+                My.Settings.Save()
+            End If
+        End Using
+    End Sub
 End Class

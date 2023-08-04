@@ -15,7 +15,7 @@ Option Explicit On
 Namespace My
     
     <Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute(),  _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.5.0.0"),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.6.0.0"),  _
      Global.System.ComponentModel.EditorBrowsableAttribute(Global.System.ComponentModel.EditorBrowsableState.Advanced)>  _
     Partial Friend NotInheritable Class MySettings
         Inherits Global.System.Configuration.ApplicationSettingsBase
@@ -1059,6 +1059,54 @@ Namespace My
             End Get
             Set
                 Me("_frm_PrfStatusBorder_stl") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Control")>  _
+        Public Property _frm_MeasMeasButton_bc() As Global.System.Drawing.Color
+            Get
+                Return CType(Me("_frm_MeasMeasButton_bc"),Global.System.Drawing.Color)
+            End Get
+            Set
+                Me("_frm_MeasMeasButton_bc") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("ControlText")>  _
+        Public Property _frm_MeasMeasButton_fc() As Global.System.Drawing.Color
+            Get
+                Return CType(Me("_frm_MeasMeasButton_fc"),Global.System.Drawing.Color)
+            End Get
+            Set
+                Me("_frm_MeasMeasButton_fc") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Control")>  _
+        Public Property _frm_PrfMeasButton_bc() As Global.System.Drawing.Color
+            Get
+                Return CType(Me("_frm_PrfMeasButton_bc"),Global.System.Drawing.Color)
+            End Get
+            Set
+                Me("_frm_PrfMeasButton_bc") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("ControlText")>  _
+        Public Property _frm_PrfMeasButton_fc() As Global.System.Drawing.Color
+            Get
+                Return CType(Me("_frm_PrfMeasButton_fc"),Global.System.Drawing.Color)
+            End Get
+            Set
+                Me("_frm_PrfMeasButton_fc") = value
             End Set
         End Property
     End Class

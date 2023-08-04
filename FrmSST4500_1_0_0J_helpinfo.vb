@@ -4,7 +4,7 @@
     End Sub
 
     Private Sub LinkLabel2_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel2.LinkClicked
-        Process.Start("http://www.nomurashoji.com")
+        Process.Start("https://www.nomurashoji.com")
     End Sub
 
     Private Sub FrmSST4500_1_0_0J_helpinfo_Load(sender As Object, e As EventArgs) Handles Me.Load

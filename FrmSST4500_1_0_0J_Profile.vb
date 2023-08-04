@@ -141,9 +141,10 @@ Public Class FrmSST4500_1_0_0J_Profile
 
                     CmdMeas.Enabled = True
                     'CmdMeas.BackColor = SystemColors.Control
-                    CmdMeas.BackColor = frm_PrfButton_bc
-                    CmdMeas.ForeColor = frm_PrfButton_fc
-                    CmdMeas.FlatStyle = FlatStyle.System
+                    'CmdMeas.BackColor = frm_PrfButton_bc
+                    'CmdMeas.ForeColor = frm_PrfButton_fc
+                    'CmdMeas.FlatStyle = FlatStyle.System
+                    CmdMeasButton_set(_rdy)
                     CmdMeas.Text = "測定開始"
                     測定開始ToolStripMenuItem.Enabled = True
                     測定開始ToolStripMenuItem.Text = "測定開始"
@@ -309,9 +310,10 @@ Public Class FrmSST4500_1_0_0J_Profile
                     If strRxdata = "MEAS" & vbCr Then
                         ToolStripStatusLabel4.Text = "測定中 "
                         'CmdMeas.BackColor = Color.Yellow
-                        CmdMeas.BackColor = frm_PrfMeasuringButton_bc
-                        CmdMeas.ForeColor = frm_PrfMeasuringButton_fc
-                        CmdMeas.FlatStyle = FlatStyle.Standard
+                        'CmdMeas.BackColor = frm_PrfMeasuringButton_bc
+                        'CmdMeas.ForeColor = frm_PrfMeasuringButton_fc
+                        'CmdMeas.FlatStyle = FlatStyle.Standard
+                        CmdMeasButton_set(_mes)
                         CmdMeas.Text = "測定中"
                         測定開始ToolStripMenuItem.Text = "測定中"
                         timerCount1 = 0
@@ -413,9 +415,10 @@ Public Class FrmSST4500_1_0_0J_Profile
                             CmdMeas.Enabled = True
                             CmdMeas.Text = "測定開始"
                             'CmdMeas.BackColor = SystemColors.Control
-                            CmdMeas.BackColor = frm_PrfButton_bc
-                            CmdMeas.ForeColor = frm_PrfButton_fc
-                            CmdMeas.FlatStyle = FlatStyle.System
+                            'CmdMeas.BackColor = frm_PrfButton_bc
+                            'CmdMeas.ForeColor = frm_PrfButton_fc
+                            'CmdMeas.FlatStyle = FlatStyle.System
+                            CmdMeasButton_set(_rdy)
                             測定開始ToolStripMenuItem.Enabled = True
                             測定開始ToolStripMenuItem.Text = "測定開始"
                             測定中断ToolStripMenuItem.Enabled = False
@@ -533,9 +536,10 @@ Public Class FrmSST4500_1_0_0J_Profile
                 CmdMeas.Enabled = True
                 CmdMeas.Text = "測定開始"
                 'CmdMeas.BackColor = SystemColors.Control
-                CmdMeas.BackColor = frm_PrfButton_bc
-                CmdMeas.ForeColor = frm_PrfButton_fc
-                CmdMeas.FlatStyle = FlatStyle.System
+                'CmdMeas.BackColor = frm_PrfButton_bc
+                'CmdMeas.ForeColor = frm_PrfButton_fc
+                'CmdMeas.FlatStyle = FlatStyle.System
+                CmdMeasButton_set(_rdy)
                 測定開始ToolStripMenuItem.Enabled = True
                 測定開始ToolStripMenuItem.Text = "測定開始"
                 測定中断ToolStripMenuItem.Enabled = False
@@ -568,10 +572,11 @@ Public Class FrmSST4500_1_0_0J_Profile
                 GraphInitPrf()
 
                 CmdMeas.Enabled = True
-                CmdMeas.FlatStyle = FlatStyle.System
+                'CmdMeas.FlatStyle = FlatStyle.System
                 'CmdMeas.BackColor = SystemColors.Control
-                CmdMeas.BackColor = frm_PrfButton_bc
-                CmdMeas.ForeColor = frm_PrfButton_fc
+                'CmdMeas.BackColor = frm_PrfButton_bc
+                'CmdMeas.ForeColor = frm_PrfButton_fc
+                CmdMeasButton_set(_rdy)
                 CmdMeas.Text = "測定開始"
                 測定開始ToolStripMenuItem.Enabled = True
                 測定開始ToolStripMenuItem.Text = "測定開始"
@@ -1263,10 +1268,11 @@ Public Class FrmSST4500_1_0_0J_Profile
                     TimProfile.Enabled = False
 
                     'CmdMeas.BackColor = SystemColors.Control
-                    CmdMeas.BackColor = frm_PrfButton_bc
-                    CmdMeas.ForeColor = frm_PrfButton_fc
+                    'CmdMeas.BackColor = frm_PrfButton_bc
+                    'CmdMeas.ForeColor = frm_PrfButton_fc
                     'CmdMeas.FlatStyle = FlatStyle.Standard
-                    CmdMeas.FlatStyle = FlatStyle.System
+                    'CmdMeas.FlatStyle = FlatStyle.System
+                    CmdMeasButton_set(_rdy)
                     CmdMeas.Text = "測定開始"
                     測定開始ToolStripMenuItem.Text = "測定開始"
 
@@ -1291,9 +1297,10 @@ Public Class FrmSST4500_1_0_0J_Profile
 
                 ToolStripStatusLabel4.Text = "測定中 "
                 'CmdMeas.BackColor = Color.Yellow
-                CmdMeas.BackColor = frm_PrfMeasuringButton_bc
-                CmdMeas.ForeColor = frm_PrfMeasuringButton_fc
-                CmdMeas.FlatStyle = FlatStyle.Standard
+                'CmdMeas.BackColor = frm_PrfMeasuringButton_bc
+                'CmdMeas.ForeColor = frm_PrfMeasuringButton_fc
+                'CmdMeas.FlatStyle = FlatStyle.Standard
+                CmdMeasButton_set(_mes)
                 CmdMeas.Text = "測定中"
                 測定開始ToolStripMenuItem.Text = "測定中"
 
@@ -1402,9 +1409,10 @@ Public Class FrmSST4500_1_0_0J_Profile
                             CmdMeas.Enabled = True
                             CmdMeas.Text = "測定開始"
                             'CmdMeas.BackColor = SystemColors.Control
-                            CmdMeas.BackColor = frm_PrfButton_bc
-                            CmdMeas.ForeColor = frm_PrfButton_fc
-                            CmdMeas.FlatStyle = FlatStyle.System
+                            'CmdMeas.BackColor = frm_PrfButton_bc
+                            'CmdMeas.ForeColor = frm_PrfButton_fc
+                            'CmdMeas.FlatStyle = FlatStyle.System
+                            CmdMeasButton_set(_rdy)
                             測定開始ToolStripMenuItem.Enabled = True
                             測定開始ToolStripMenuItem.Text = "測定開始"
                             測定中断ToolStripMenuItem.Enabled = False
@@ -1482,9 +1490,10 @@ Public Class FrmSST4500_1_0_0J_Profile
 
                 CmdMeas.Enabled = True
                 'CmdMeas.BackColor = SystemColors.Control
-                CmdMeas.BackColor = frm_PrfButton_bc
-                CmdMeas.ForeColor = frm_PrfButton_fc
-                CmdMeas.FlatStyle = FlatStyle.System
+                'CmdMeas.BackColor = frm_PrfButton_bc
+                'CmdMeas.ForeColor = frm_PrfButton_fc
+                'CmdMeas.FlatStyle = FlatStyle.System
+                CmdMeasButton_set(_rdy)
                 CmdMeas.Text = "測定開始"
                 測定開始ToolStripMenuItem.Enabled = True
                 測定開始ToolStripMenuItem.Text = "測定開始"
@@ -3575,7 +3584,7 @@ Public Class FrmSST4500_1_0_0J_Profile
             CmdClsGraph.Enabled = False
             グラフ消去ToolStripMenuItem.Enabled = False
         End If
-
+        設定ToolStripMenuItem1.Enabled = True
     End Sub
 
     Private Sub ConditionDisable()
@@ -3611,6 +3620,7 @@ Public Class FrmSST4500_1_0_0J_Profile
         CmdVeloRange.Enabled = False
         CmdTSIRange.Enabled = False
         LblAngCenter.Enabled = False
+        設定ToolStripMenuItem1.Enabled = False
     End Sub
 
     Private Sub DataMaxMinInt()

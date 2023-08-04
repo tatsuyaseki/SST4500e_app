@@ -254,5 +254,17 @@
     <Setting Name="_frm_PrfStatusBorder_stl" Type="System.Windows.Forms.Border3DStyle" Scope="User">
       <Value Profile="(Default)">Flat</Value>
     </Setting>
+    <Setting Name="_frm_MeasMeasButton_bc" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Control</Value>
+    </Setting>
+    <Setting Name="_frm_MeasMeasButton_fc" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">ControlText</Value>
+    </Setting>
+    <Setting Name="_frm_PrfMeasButton_bc" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Control</Value>
+    </Setting>
+    <Setting Name="_frm_PrfMeasButton_fc" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">ControlText</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

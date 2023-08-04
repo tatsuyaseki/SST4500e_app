@@ -3025,77 +3025,77 @@ Partial Class FrmSST4500_1_0_0J_meas
         '
         Me.ファイルToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.測定仕様ToolStripMenuItem, Me.過去データToolStripMenuItem, Me.終了ToolStripMenuItem})
         Me.ファイルToolStripMenuItem.Name = "ファイルToolStripMenuItem"
-        Me.ファイルToolStripMenuItem.Size = New System.Drawing.Size(68, 22)
+        Me.ファイルToolStripMenuItem.Size = New System.Drawing.Size(51, 20)
         Me.ファイルToolStripMenuItem.Text = "ファイル"
         '
         '測定仕様ToolStripMenuItem
         '
         Me.測定仕様ToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.選択ToolStripMenuItem, Me.保存ToolStripMenuItem})
         Me.測定仕様ToolStripMenuItem.Name = "測定仕様ToolStripMenuItem"
-        Me.測定仕様ToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.測定仕様ToolStripMenuItem.Size = New System.Drawing.Size(122, 22)
         Me.測定仕様ToolStripMenuItem.Text = "測定仕様"
         '
         '選択ToolStripMenuItem
         '
         Me.選択ToolStripMenuItem.Name = "選択ToolStripMenuItem"
-        Me.選択ToolStripMenuItem.Size = New System.Drawing.Size(100, 22)
+        Me.選択ToolStripMenuItem.Size = New System.Drawing.Size(94, 22)
         Me.選択ToolStripMenuItem.Text = "選択"
         '
         '保存ToolStripMenuItem
         '
         Me.保存ToolStripMenuItem.Name = "保存ToolStripMenuItem"
-        Me.保存ToolStripMenuItem.Size = New System.Drawing.Size(100, 22)
+        Me.保存ToolStripMenuItem.Size = New System.Drawing.Size(94, 22)
         Me.保存ToolStripMenuItem.Text = "保存"
         '
         '過去データToolStripMenuItem
         '
         Me.過去データToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.読込ToolStripMenuItem, Me.他の測定データ選択ToolStripMenuItem})
         Me.過去データToolStripMenuItem.Name = "過去データToolStripMenuItem"
-        Me.過去データToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.過去データToolStripMenuItem.Size = New System.Drawing.Size(122, 22)
         Me.過去データToolStripMenuItem.Text = "過去データ"
         '
         '読込ToolStripMenuItem
         '
         Me.読込ToolStripMenuItem.Name = "読込ToolStripMenuItem"
-        Me.読込ToolStripMenuItem.Size = New System.Drawing.Size(184, 22)
+        Me.読込ToolStripMenuItem.Size = New System.Drawing.Size(168, 22)
         Me.読込ToolStripMenuItem.Text = "読込"
         '
         '他の測定データ選択ToolStripMenuItem
         '
         Me.他の測定データ選択ToolStripMenuItem.Name = "他の測定データ選択ToolStripMenuItem"
-        Me.他の測定データ選択ToolStripMenuItem.Size = New System.Drawing.Size(184, 22)
+        Me.他の測定データ選択ToolStripMenuItem.Size = New System.Drawing.Size(168, 22)
         Me.他の測定データ選択ToolStripMenuItem.Text = "他の測定データ選択"
         '
         '終了ToolStripMenuItem
         '
         Me.終了ToolStripMenuItem.Name = "終了ToolStripMenuItem"
-        Me.終了ToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.終了ToolStripMenuItem.Size = New System.Drawing.Size(122, 22)
         Me.終了ToolStripMenuItem.Text = "終了"
         '
         '測定ToolStripMenuItem
         '
         Me.測定ToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.測定開始ToolStripMenuItem, Me.他の測定データ選択ToolStripMenuItem1})
         Me.測定ToolStripMenuItem.Name = "測定ToolStripMenuItem"
-        Me.測定ToolStripMenuItem.Size = New System.Drawing.Size(44, 22)
+        Me.測定ToolStripMenuItem.Size = New System.Drawing.Size(41, 20)
         Me.測定ToolStripMenuItem.Text = "測定"
         '
         '測定開始ToolStripMenuItem
         '
         Me.測定開始ToolStripMenuItem.Name = "測定開始ToolStripMenuItem"
-        Me.測定開始ToolStripMenuItem.Size = New System.Drawing.Size(184, 22)
+        Me.測定開始ToolStripMenuItem.Size = New System.Drawing.Size(168, 22)
         Me.測定開始ToolStripMenuItem.Text = "測定開始"
         '
         '他の測定データ選択ToolStripMenuItem1
         '
         Me.他の測定データ選択ToolStripMenuItem1.Name = "他の測定データ選択ToolStripMenuItem1"
-        Me.他の測定データ選択ToolStripMenuItem1.Size = New System.Drawing.Size(184, 22)
+        Me.他の測定データ選択ToolStripMenuItem1.Size = New System.Drawing.Size(168, 22)
         Me.他の測定データ選択ToolStripMenuItem1.Text = "他の測定データ選択"
         '
         '結果ToolStripMenuItem
         '
         Me.結果ToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.印刷ToolStripMenuItem, Me.手動印刷ToolStripMenuItem, Me.保存ToolStripMenuItem1})
         Me.結果ToolStripMenuItem.Name = "結果ToolStripMenuItem"
-        Me.結果ToolStripMenuItem.Size = New System.Drawing.Size(44, 22)
+        Me.結果ToolStripMenuItem.Size = New System.Drawing.Size(41, 20)
         Me.結果ToolStripMenuItem.Text = "結果"
         '
         '印刷ToolStripMenuItem
@@ -3103,52 +3103,52 @@ Partial Class FrmSST4500_1_0_0J_meas
         Me.印刷ToolStripMenuItem.Checked = True
         Me.印刷ToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
         Me.印刷ToolStripMenuItem.Name = "印刷ToolStripMenuItem"
-        Me.印刷ToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.印刷ToolStripMenuItem.Size = New System.Drawing.Size(130, 22)
         Me.印刷ToolStripMenuItem.Text = "自動印刷"
         '
         '手動印刷ToolStripMenuItem
         '
         Me.手動印刷ToolStripMenuItem.Name = "手動印刷ToolStripMenuItem"
-        Me.手動印刷ToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.手動印刷ToolStripMenuItem.Size = New System.Drawing.Size(130, 22)
         Me.手動印刷ToolStripMenuItem.Text = "手動印刷"
         '
         '保存ToolStripMenuItem1
         '
         Me.保存ToolStripMenuItem1.Name = "保存ToolStripMenuItem1"
-        Me.保存ToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
+        Me.保存ToolStripMenuItem1.Size = New System.Drawing.Size(130, 22)
         Me.保存ToolStripMenuItem1.Text = "保存(Excel)"
         '
         '設定ToolStripMenuItem
         '
         Me.設定ToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.設定ToolStripMenuItem1})
         Me.設定ToolStripMenuItem.Name = "設定ToolStripMenuItem"
-        Me.設定ToolStripMenuItem.Size = New System.Drawing.Size(44, 22)
+        Me.設定ToolStripMenuItem.Size = New System.Drawing.Size(41, 20)
         Me.設定ToolStripMenuItem.Text = "設定"
         '
         '設定ToolStripMenuItem1
         '
         Me.設定ToolStripMenuItem1.Name = "設定ToolStripMenuItem1"
-        Me.設定ToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
+        Me.設定ToolStripMenuItem1.Size = New System.Drawing.Size(94, 22)
         Me.設定ToolStripMenuItem1.Text = "設定"
         '
         'ヘルプToolStripMenuItem
         '
         Me.ヘルプToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SST4500ヘルプToolStripMenuItem, Me.SST4500についてToolStripMenuItem})
         Me.ヘルプToolStripMenuItem.Name = "ヘルプToolStripMenuItem"
-        Me.ヘルプToolStripMenuItem.Size = New System.Drawing.Size(56, 22)
+        Me.ヘルプToolStripMenuItem.Size = New System.Drawing.Size(46, 20)
         Me.ヘルプToolStripMenuItem.Text = "ヘルプ"
         '
         'SST4500ヘルプToolStripMenuItem
         '
         Me.SST4500ヘルプToolStripMenuItem.Enabled = False
         Me.SST4500ヘルプToolStripMenuItem.Name = "SST4500ヘルプToolStripMenuItem"
-        Me.SST4500ヘルプToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SST4500ヘルプToolStripMenuItem.Size = New System.Drawing.Size(158, 22)
         Me.SST4500ヘルプToolStripMenuItem.Text = "SST-4500ヘルプ"
         '
         'SST4500についてToolStripMenuItem
         '
         Me.SST4500についてToolStripMenuItem.Name = "SST4500についてToolStripMenuItem"
-        Me.SST4500についてToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SST4500についてToolStripMenuItem.Size = New System.Drawing.Size(158, 22)
         Me.SST4500についてToolStripMenuItem.Text = "SST-4500について"
         '
         'PictureBox1

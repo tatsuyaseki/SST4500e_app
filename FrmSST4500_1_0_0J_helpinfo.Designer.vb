@@ -60,10 +60,10 @@ Partial Class FrmSST4500_1_0_0J_helpinfo
         Me.LinkLabel1.AutoSize = True
         Me.LinkLabel1.Location = New System.Drawing.Point(30, 96)
         Me.LinkLabel1.Name = "LinkLabel1"
-        Me.LinkLabel1.Size = New System.Drawing.Size(152, 12)
+        Me.LinkLabel1.Size = New System.Drawing.Size(158, 12)
         Me.LinkLabel1.TabIndex = 2
         Me.LinkLabel1.TabStop = True
-        Me.LinkLabel1.Text = "nomurashoji@nomurahoji.com"
+        Me.LinkLabel1.Text = "nomurashoji@nomurashoji.com"
         '
         'Label2
         '
@@ -88,10 +88,10 @@ Partial Class FrmSST4500_1_0_0J_helpinfo
         Me.LinkLabel2.AutoSize = True
         Me.LinkLabel2.Location = New System.Drawing.Point(30, 110)
         Me.LinkLabel2.Name = "LinkLabel2"
-        Me.LinkLabel2.Size = New System.Drawing.Size(149, 12)
+        Me.LinkLabel2.Size = New System.Drawing.Size(155, 12)
         Me.LinkLabel2.TabIndex = 5
         Me.LinkLabel2.TabStop = True
-        Me.LinkLabel2.Text = "http://www.nomurashoji.com"
+        Me.LinkLabel2.Text = "https://www.nomurashoji.com"
         '
         'Label4
         '
