@@ -18,6 +18,9 @@
         colorsetting_label_init(Profile_Enum)
         'prfform_borderstyle_init()
 
+        Me.CbPrintBc.Checked = My.Settings._printbc
+        FlgPrnBc_enable = Me.CbPrintBc.Checked
+
         FrmSST4500_1_0_0J_main.Refresh()
     End Sub
 
@@ -1057,5 +1060,11 @@
                 My.Settings.Save()
             End If
         End Using
+    End Sub
+
+    Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CbPrintBc.CheckedChanged
+        FlgPrnBc_enable = Me.CbPrintBc.Checked
+        My.Settings._printbc = FlgPrnBc_enable
+        My.Settings.Save()
     End Sub
 End Class

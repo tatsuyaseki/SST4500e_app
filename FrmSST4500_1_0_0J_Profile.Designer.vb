@@ -23,20 +23,20 @@ Partial Class FrmSST4500_1_0_0J_Profile
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle29 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle41 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle30 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle31 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle32 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle33 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle34 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle35 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle36 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle37 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle38 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle39 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle40 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle42 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmSST4500_1_0_0J_Profile))
         Me.LblPrfTitle = New System.Windows.Forms.Label()
         Me.LblProductNamePrf = New System.Windows.Forms.Label()
@@ -158,32 +158,6 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.HScrollBar2 = New System.Windows.Forms.HScrollBar()
         Me.CmdTSIRange = New System.Windows.Forms.Button()
         Me.CmdVeloRange = New System.Windows.Forms.Button()
-        Me.TblVeloMDCD_nom = New System.Windows.Forms.TableLayoutPanel()
-        Me.LblVeloCDMin_nom = New System.Windows.Forms.Label()
-        Me.LblVeloMDMin_nom = New System.Windows.Forms.Label()
-        Me.Label45 = New System.Windows.Forms.Label()
-        Me.Label46 = New System.Windows.Forms.Label()
-        Me.Label47 = New System.Windows.Forms.Label()
-        Me.Label48 = New System.Windows.Forms.Label()
-        Me.Label49 = New System.Windows.Forms.Label()
-        Me.Label50 = New System.Windows.Forms.Label()
-        Me.LblVeloMDMax_nom = New System.Windows.Forms.Label()
-        Me.LblVeloCDMax_nom = New System.Windows.Forms.Label()
-        Me.LblVeloMDAvg_nom = New System.Windows.Forms.Label()
-        Me.LblVeloCDAvg_nom = New System.Windows.Forms.Label()
-        Me.TblVeloPkDp_nom = New System.Windows.Forms.TableLayoutPanel()
-        Me.LblVeloDpMin_nom = New System.Windows.Forms.Label()
-        Me.LblVeloPkMin_nom = New System.Windows.Forms.Label()
-        Me.Label29 = New System.Windows.Forms.Label()
-        Me.Label30 = New System.Windows.Forms.Label()
-        Me.Label31 = New System.Windows.Forms.Label()
-        Me.Label32 = New System.Windows.Forms.Label()
-        Me.Label33 = New System.Windows.Forms.Label()
-        Me.Label34 = New System.Windows.Forms.Label()
-        Me.LblVeloPkMax_nom = New System.Windows.Forms.Label()
-        Me.LblVeloDpMax_nom = New System.Windows.Forms.Label()
-        Me.LblVeloPkAvg_nom = New System.Windows.Forms.Label()
-        Me.LblVeloDpAvg_nom = New System.Windows.Forms.Label()
         Me.TblVeloPkDp_adm = New System.Windows.Forms.TableLayoutPanel()
         Me.LblVeloPkMinAvg_adm = New System.Windows.Forms.Label()
         Me.LblVeloDpMinAvg_adm = New System.Windows.Forms.Label()
@@ -261,6 +235,32 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.LblTSICDAvgAvg_adm = New System.Windows.Forms.Label()
         Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
+        Me.TblVeloPkDp_nom = New System.Windows.Forms.TableLayoutPanel()
+        Me.LblVeloDpMin_nom = New System.Windows.Forms.Label()
+        Me.LblVeloPkMin_nom = New System.Windows.Forms.Label()
+        Me.Label29 = New System.Windows.Forms.Label()
+        Me.Label30 = New System.Windows.Forms.Label()
+        Me.Label31 = New System.Windows.Forms.Label()
+        Me.Label32 = New System.Windows.Forms.Label()
+        Me.Label33 = New System.Windows.Forms.Label()
+        Me.Label34 = New System.Windows.Forms.Label()
+        Me.LblVeloPkMax_nom = New System.Windows.Forms.Label()
+        Me.LblVeloDpMax_nom = New System.Windows.Forms.Label()
+        Me.LblVeloPkAvg_nom = New System.Windows.Forms.Label()
+        Me.LblVeloDpAvg_nom = New System.Windows.Forms.Label()
+        Me.TblVeloMDCD_nom = New System.Windows.Forms.TableLayoutPanel()
+        Me.LblVeloCDMin_nom = New System.Windows.Forms.Label()
+        Me.LblVeloMDMin_nom = New System.Windows.Forms.Label()
+        Me.Label45 = New System.Windows.Forms.Label()
+        Me.Label46 = New System.Windows.Forms.Label()
+        Me.Label47 = New System.Windows.Forms.Label()
+        Me.Label48 = New System.Windows.Forms.Label()
+        Me.Label49 = New System.Windows.Forms.Label()
+        Me.Label50 = New System.Windows.Forms.Label()
+        Me.LblVeloMDMax_nom = New System.Windows.Forms.Label()
+        Me.LblVeloCDMax_nom = New System.Windows.Forms.Label()
+        Me.LblVeloMDAvg_nom = New System.Windows.Forms.Label()
+        Me.LblVeloCDAvg_nom = New System.Windows.Forms.Label()
         Me.TabMeasDataView = New System.Windows.Forms.TabPage()
         Me.TabControl2 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
@@ -550,13 +550,13 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.TabVeloTsi.SuspendLayout
         Me.TblTSI_nom.SuspendLayout
         Me.TableLayoutPanel5.SuspendLayout
-        Me.TblVeloMDCD_nom.SuspendLayout
-        Me.TblVeloPkDp_nom.SuspendLayout
         Me.TblVeloPkDp_adm.SuspendLayout
         Me.TblVeloMDCD_adm.SuspendLayout
         Me.TblTSI_adm.SuspendLayout
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit
+        Me.TblVeloPkDp_nom.SuspendLayout
+        Me.TblVeloMDCD_nom.SuspendLayout
         Me.TabMeasDataView.SuspendLayout
         Me.TabControl2.SuspendLayout
         Me.TabPage1.SuspendLayout
@@ -698,7 +698,7 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.TabControl1.Controls.Add(Me.TabAngleratio)
         Me.TabControl1.Controls.Add(Me.TabVeloTsi)
         Me.TabControl1.Controls.Add(Me.TabMeasDataView)
-        Me.TabControl1.Location = New System.Drawing.Point(12, 127)
+        Me.TabControl1.Location = New System.Drawing.Point(15, 127)
         Me.TabControl1.Margin = New System.Windows.Forms.Padding(0)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
@@ -2291,13 +2291,13 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.TabVeloTsi.Controls.Add(Me.HScrollBar2)
         Me.TabVeloTsi.Controls.Add(Me.CmdTSIRange)
         Me.TabVeloTsi.Controls.Add(Me.CmdVeloRange)
-        Me.TabVeloTsi.Controls.Add(Me.TblVeloMDCD_nom)
-        Me.TabVeloTsi.Controls.Add(Me.TblVeloPkDp_nom)
         Me.TabVeloTsi.Controls.Add(Me.TblVeloPkDp_adm)
         Me.TabVeloTsi.Controls.Add(Me.TblVeloMDCD_adm)
         Me.TabVeloTsi.Controls.Add(Me.TblTSI_adm)
         Me.TabVeloTsi.Controls.Add(Me.PictureBox4)
         Me.TabVeloTsi.Controls.Add(Me.PictureBox3)
+        Me.TabVeloTsi.Controls.Add(Me.TblVeloPkDp_nom)
+        Me.TabVeloTsi.Controls.Add(Me.TblVeloMDCD_nom)
         Me.TabVeloTsi.Location = New System.Drawing.Point(4, 22)
         Me.TabVeloTsi.Name = "TabVeloTsi"
         Me.TabVeloTsi.Padding = New System.Windows.Forms.Padding(3)
@@ -2605,444 +2605,6 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.CmdVeloRange.TabIndex = 16
         Me.CmdVeloRange.Text = "レンジ切替"
         Me.CmdVeloRange.UseVisualStyleBackColor = True
-        '
-        'TblVeloMDCD_nom
-        '
-        Me.TblVeloMDCD_nom.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.[Single]
-        Me.TblVeloMDCD_nom.ColumnCount = 3
-        Me.TblVeloMDCD_nom.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.0!))
-        Me.TblVeloMDCD_nom.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.0!))
-        Me.TblVeloMDCD_nom.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.0!))
-        Me.TblVeloMDCD_nom.Controls.Add(Me.LblVeloCDMin_nom, 2, 6)
-        Me.TblVeloMDCD_nom.Controls.Add(Me.LblVeloMDMin_nom, 1, 6)
-        Me.TblVeloMDCD_nom.Controls.Add(Me.Label45, 0, 0)
-        Me.TblVeloMDCD_nom.Controls.Add(Me.Label46, 1, 1)
-        Me.TblVeloMDCD_nom.Controls.Add(Me.Label47, 2, 1)
-        Me.TblVeloMDCD_nom.Controls.Add(Me.Label48, 0, 2)
-        Me.TblVeloMDCD_nom.Controls.Add(Me.Label49, 0, 6)
-        Me.TblVeloMDCD_nom.Controls.Add(Me.Label50, 0, 4)
-        Me.TblVeloMDCD_nom.Controls.Add(Me.LblVeloMDMax_nom, 1, 2)
-        Me.TblVeloMDCD_nom.Controls.Add(Me.LblVeloCDMax_nom, 2, 2)
-        Me.TblVeloMDCD_nom.Controls.Add(Me.LblVeloMDAvg_nom, 1, 4)
-        Me.TblVeloMDCD_nom.Controls.Add(Me.LblVeloCDAvg_nom, 2, 4)
-        Me.TblVeloMDCD_nom.Location = New System.Drawing.Point(613, 153)
-        Me.TblVeloMDCD_nom.Margin = New System.Windows.Forms.Padding(0)
-        Me.TblVeloMDCD_nom.Name = "TblVeloMDCD_nom"
-        Me.TblVeloMDCD_nom.RowCount = 8
-        Me.TblVeloMDCD_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TblVeloMDCD_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TblVeloMDCD_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 14.0!))
-        Me.TblVeloMDCD_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 14.0!))
-        Me.TblVeloMDCD_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 14.0!))
-        Me.TblVeloMDCD_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 14.0!))
-        Me.TblVeloMDCD_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 14.0!))
-        Me.TblVeloMDCD_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 14.0!))
-        Me.TblVeloMDCD_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TblVeloMDCD_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TblVeloMDCD_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TblVeloMDCD_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TblVeloMDCD_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TblVeloMDCD_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TblVeloMDCD_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TblVeloMDCD_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TblVeloMDCD_nom.Size = New System.Drawing.Size(189, 133)
-        Me.TblVeloMDCD_nom.TabIndex = 8
-        '
-        'LblVeloCDMin_nom
-        '
-        Me.LblVeloCDMin_nom.AutoSize = True
-        Me.LblVeloCDMin_nom.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.LblVeloCDMin_nom.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LblVeloCDMin_nom.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.LblVeloCDMin_nom.Location = New System.Drawing.Point(119, 103)
-        Me.LblVeloCDMin_nom.Margin = New System.Windows.Forms.Padding(0)
-        Me.LblVeloCDMin_nom.Name = "LblVeloCDMin_nom"
-        Me.TblVeloMDCD_nom.SetRowSpan(Me.LblVeloCDMin_nom, 2)
-        Me.LblVeloCDMin_nom.Size = New System.Drawing.Size(69, 29)
-        Me.LblVeloCDMin_nom.TabIndex = 16
-        Me.LblVeloCDMin_nom.Text = "Label35"
-        Me.LblVeloCDMin_nom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'LblVeloMDMin_nom
-        '
-        Me.LblVeloMDMin_nom.AutoSize = True
-        Me.LblVeloMDMin_nom.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.LblVeloMDMin_nom.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LblVeloMDMin_nom.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.LblVeloMDMin_nom.Location = New System.Drawing.Point(50, 103)
-        Me.LblVeloMDMin_nom.Margin = New System.Windows.Forms.Padding(0)
-        Me.LblVeloMDMin_nom.Name = "LblVeloMDMin_nom"
-        Me.TblVeloMDCD_nom.SetRowSpan(Me.LblVeloMDMin_nom, 2)
-        Me.LblVeloMDMin_nom.Size = New System.Drawing.Size(68, 29)
-        Me.LblVeloMDMin_nom.TabIndex = 15
-        Me.LblVeloMDMin_nom.Text = "Label34"
-        Me.LblVeloMDMin_nom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label45
-        '
-        Me.Label45.AutoSize = True
-        Me.Label45.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.TblVeloMDCD_nom.SetColumnSpan(Me.Label45, 3)
-        Me.Label45.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label45.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label45.Location = New System.Drawing.Point(1, 1)
-        Me.Label45.Margin = New System.Windows.Forms.Padding(0)
-        Me.Label45.Name = "Label45"
-        Me.Label45.Size = New System.Drawing.Size(187, 20)
-        Me.Label45.TabIndex = 0
-        Me.Label45.Text = "伝播速度[Km/S]"
-        Me.Label45.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label46
-        '
-        Me.Label46.AutoSize = True
-        Me.Label46.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label46.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label46.Location = New System.Drawing.Point(50, 22)
-        Me.Label46.Margin = New System.Windows.Forms.Padding(0)
-        Me.Label46.Name = "Label46"
-        Me.Label46.Size = New System.Drawing.Size(68, 20)
-        Me.Label46.TabIndex = 1
-        Me.Label46.Text = "MD"
-        Me.Label46.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label47
-        '
-        Me.Label47.AutoSize = True
-        Me.Label47.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label47.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label47.Location = New System.Drawing.Point(119, 22)
-        Me.Label47.Margin = New System.Windows.Forms.Padding(0)
-        Me.Label47.Name = "Label47"
-        Me.Label47.Size = New System.Drawing.Size(69, 20)
-        Me.Label47.TabIndex = 2
-        Me.Label47.Text = "CD"
-        Me.Label47.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label48
-        '
-        Me.Label48.AutoSize = True
-        Me.Label48.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Label48.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label48.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label48.Location = New System.Drawing.Point(1, 43)
-        Me.Label48.Margin = New System.Windows.Forms.Padding(0)
-        Me.Label48.Name = "Label48"
-        Me.TblVeloMDCD_nom.SetRowSpan(Me.Label48, 2)
-        Me.Label48.Size = New System.Drawing.Size(48, 29)
-        Me.Label48.TabIndex = 3
-        Me.Label48.Text = "Max."
-        Me.Label48.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label49
-        '
-        Me.Label49.AutoSize = True
-        Me.Label49.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Label49.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label49.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label49.Location = New System.Drawing.Point(1, 103)
-        Me.Label49.Margin = New System.Windows.Forms.Padding(0)
-        Me.Label49.Name = "Label49"
-        Me.TblVeloMDCD_nom.SetRowSpan(Me.Label49, 2)
-        Me.Label49.Size = New System.Drawing.Size(48, 29)
-        Me.Label49.TabIndex = 5
-        Me.Label49.Text = "Min."
-        Me.Label49.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label50
-        '
-        Me.Label50.AutoSize = True
-        Me.Label50.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Label50.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label50.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label50.Location = New System.Drawing.Point(1, 73)
-        Me.Label50.Margin = New System.Windows.Forms.Padding(0)
-        Me.Label50.Name = "Label50"
-        Me.TblVeloMDCD_nom.SetRowSpan(Me.Label50, 2)
-        Me.Label50.Size = New System.Drawing.Size(48, 29)
-        Me.Label50.TabIndex = 4
-        Me.Label50.Text = "Avg."
-        Me.Label50.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'LblVeloMDMax_nom
-        '
-        Me.LblVeloMDMax_nom.AutoSize = True
-        Me.LblVeloMDMax_nom.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.LblVeloMDMax_nom.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LblVeloMDMax_nom.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.LblVeloMDMax_nom.ForeColor = System.Drawing.Color.Black
-        Me.LblVeloMDMax_nom.Location = New System.Drawing.Point(50, 43)
-        Me.LblVeloMDMax_nom.Margin = New System.Windows.Forms.Padding(0)
-        Me.LblVeloMDMax_nom.Name = "LblVeloMDMax_nom"
-        Me.TblVeloMDCD_nom.SetRowSpan(Me.LblVeloMDMax_nom, 2)
-        Me.LblVeloMDMax_nom.Size = New System.Drawing.Size(68, 29)
-        Me.LblVeloMDMax_nom.TabIndex = 6
-        Me.LblVeloMDMax_nom.Text = "Label25"
-        Me.LblVeloMDMax_nom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'LblVeloCDMax_nom
-        '
-        Me.LblVeloCDMax_nom.AutoSize = True
-        Me.LblVeloCDMax_nom.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.LblVeloCDMax_nom.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LblVeloCDMax_nom.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.LblVeloCDMax_nom.Location = New System.Drawing.Point(119, 43)
-        Me.LblVeloCDMax_nom.Margin = New System.Windows.Forms.Padding(0)
-        Me.LblVeloCDMax_nom.Name = "LblVeloCDMax_nom"
-        Me.TblVeloMDCD_nom.SetRowSpan(Me.LblVeloCDMax_nom, 2)
-        Me.LblVeloCDMax_nom.Size = New System.Drawing.Size(69, 29)
-        Me.LblVeloCDMax_nom.TabIndex = 8
-        Me.LblVeloCDMax_nom.Text = "Label27"
-        Me.LblVeloCDMax_nom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'LblVeloMDAvg_nom
-        '
-        Me.LblVeloMDAvg_nom.AutoSize = True
-        Me.LblVeloMDAvg_nom.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.LblVeloMDAvg_nom.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LblVeloMDAvg_nom.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.LblVeloMDAvg_nom.Location = New System.Drawing.Point(50, 73)
-        Me.LblVeloMDAvg_nom.Margin = New System.Windows.Forms.Padding(0)
-        Me.LblVeloMDAvg_nom.Name = "LblVeloMDAvg_nom"
-        Me.TblVeloMDCD_nom.SetRowSpan(Me.LblVeloMDAvg_nom, 2)
-        Me.LblVeloMDAvg_nom.Size = New System.Drawing.Size(68, 29)
-        Me.LblVeloMDAvg_nom.TabIndex = 10
-        Me.LblVeloMDAvg_nom.Text = "Label29"
-        Me.LblVeloMDAvg_nom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'LblVeloCDAvg_nom
-        '
-        Me.LblVeloCDAvg_nom.AutoSize = True
-        Me.LblVeloCDAvg_nom.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.LblVeloCDAvg_nom.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LblVeloCDAvg_nom.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.LblVeloCDAvg_nom.Location = New System.Drawing.Point(119, 73)
-        Me.LblVeloCDAvg_nom.Margin = New System.Windows.Forms.Padding(0)
-        Me.LblVeloCDAvg_nom.Name = "LblVeloCDAvg_nom"
-        Me.TblVeloMDCD_nom.SetRowSpan(Me.LblVeloCDAvg_nom, 2)
-        Me.LblVeloCDAvg_nom.Size = New System.Drawing.Size(69, 29)
-        Me.LblVeloCDAvg_nom.TabIndex = 12
-        Me.LblVeloCDAvg_nom.Text = "Label31"
-        Me.LblVeloCDAvg_nom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'TblVeloPkDp_nom
-        '
-        Me.TblVeloPkDp_nom.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.[Single]
-        Me.TblVeloPkDp_nom.ColumnCount = 3
-        Me.TblVeloPkDp_nom.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.0!))
-        Me.TblVeloPkDp_nom.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.0!))
-        Me.TblVeloPkDp_nom.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.0!))
-        Me.TblVeloPkDp_nom.Controls.Add(Me.LblVeloDpMin_nom, 2, 6)
-        Me.TblVeloPkDp_nom.Controls.Add(Me.LblVeloPkMin_nom, 1, 6)
-        Me.TblVeloPkDp_nom.Controls.Add(Me.Label29, 0, 0)
-        Me.TblVeloPkDp_nom.Controls.Add(Me.Label30, 1, 1)
-        Me.TblVeloPkDp_nom.Controls.Add(Me.Label31, 2, 1)
-        Me.TblVeloPkDp_nom.Controls.Add(Me.Label32, 0, 2)
-        Me.TblVeloPkDp_nom.Controls.Add(Me.Label33, 0, 6)
-        Me.TblVeloPkDp_nom.Controls.Add(Me.Label34, 0, 4)
-        Me.TblVeloPkDp_nom.Controls.Add(Me.LblVeloPkMax_nom, 1, 2)
-        Me.TblVeloPkDp_nom.Controls.Add(Me.LblVeloDpMax_nom, 2, 2)
-        Me.TblVeloPkDp_nom.Controls.Add(Me.LblVeloPkAvg_nom, 1, 4)
-        Me.TblVeloPkDp_nom.Controls.Add(Me.LblVeloDpAvg_nom, 2, 4)
-        Me.TblVeloPkDp_nom.Location = New System.Drawing.Point(613, 10)
-        Me.TblVeloPkDp_nom.Margin = New System.Windows.Forms.Padding(0)
-        Me.TblVeloPkDp_nom.Name = "TblVeloPkDp_nom"
-        Me.TblVeloPkDp_nom.RowCount = 8
-        Me.TblVeloPkDp_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TblVeloPkDp_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TblVeloPkDp_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 14.0!))
-        Me.TblVeloPkDp_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 14.0!))
-        Me.TblVeloPkDp_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 14.0!))
-        Me.TblVeloPkDp_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 14.0!))
-        Me.TblVeloPkDp_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 14.0!))
-        Me.TblVeloPkDp_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 14.0!))
-        Me.TblVeloPkDp_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TblVeloPkDp_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TblVeloPkDp_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TblVeloPkDp_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TblVeloPkDp_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TblVeloPkDp_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TblVeloPkDp_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TblVeloPkDp_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TblVeloPkDp_nom.Size = New System.Drawing.Size(189, 133)
-        Me.TblVeloPkDp_nom.TabIndex = 6
-        '
-        'LblVeloDpMin_nom
-        '
-        Me.LblVeloDpMin_nom.AutoSize = True
-        Me.LblVeloDpMin_nom.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.LblVeloDpMin_nom.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LblVeloDpMin_nom.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.LblVeloDpMin_nom.Location = New System.Drawing.Point(119, 103)
-        Me.LblVeloDpMin_nom.Margin = New System.Windows.Forms.Padding(0)
-        Me.LblVeloDpMin_nom.Name = "LblVeloDpMin_nom"
-        Me.TblVeloPkDp_nom.SetRowSpan(Me.LblVeloDpMin_nom, 2)
-        Me.LblVeloDpMin_nom.Size = New System.Drawing.Size(69, 29)
-        Me.LblVeloDpMin_nom.TabIndex = 16
-        Me.LblVeloDpMin_nom.Text = "Label35"
-        Me.LblVeloDpMin_nom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'LblVeloPkMin_nom
-        '
-        Me.LblVeloPkMin_nom.AutoSize = True
-        Me.LblVeloPkMin_nom.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.LblVeloPkMin_nom.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LblVeloPkMin_nom.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.LblVeloPkMin_nom.Location = New System.Drawing.Point(50, 103)
-        Me.LblVeloPkMin_nom.Margin = New System.Windows.Forms.Padding(0)
-        Me.LblVeloPkMin_nom.Name = "LblVeloPkMin_nom"
-        Me.TblVeloPkDp_nom.SetRowSpan(Me.LblVeloPkMin_nom, 2)
-        Me.LblVeloPkMin_nom.Size = New System.Drawing.Size(68, 29)
-        Me.LblVeloPkMin_nom.TabIndex = 15
-        Me.LblVeloPkMin_nom.Text = "Label34"
-        Me.LblVeloPkMin_nom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label29
-        '
-        Me.Label29.AutoSize = True
-        Me.Label29.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.TblVeloPkDp_nom.SetColumnSpan(Me.Label29, 3)
-        Me.Label29.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label29.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label29.Location = New System.Drawing.Point(1, 1)
-        Me.Label29.Margin = New System.Windows.Forms.Padding(0)
-        Me.Label29.Name = "Label29"
-        Me.Label29.Size = New System.Drawing.Size(187, 20)
-        Me.Label29.TabIndex = 0
-        Me.Label29.Text = "伝播速度[Km/S]"
-        Me.Label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label30
-        '
-        Me.Label30.AutoSize = True
-        Me.Label30.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label30.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label30.Location = New System.Drawing.Point(50, 22)
-        Me.Label30.Margin = New System.Windows.Forms.Padding(0)
-        Me.Label30.Name = "Label30"
-        Me.Label30.Size = New System.Drawing.Size(68, 20)
-        Me.Label30.TabIndex = 1
-        Me.Label30.Text = "Peak"
-        Me.Label30.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label31
-        '
-        Me.Label31.AutoSize = True
-        Me.Label31.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label31.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label31.Location = New System.Drawing.Point(119, 22)
-        Me.Label31.Margin = New System.Windows.Forms.Padding(0)
-        Me.Label31.Name = "Label31"
-        Me.Label31.Size = New System.Drawing.Size(69, 20)
-        Me.Label31.TabIndex = 2
-        Me.Label31.Text = "Deep"
-        Me.Label31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label32
-        '
-        Me.Label32.AutoSize = True
-        Me.Label32.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Label32.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label32.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label32.Location = New System.Drawing.Point(1, 43)
-        Me.Label32.Margin = New System.Windows.Forms.Padding(0)
-        Me.Label32.Name = "Label32"
-        Me.TblVeloPkDp_nom.SetRowSpan(Me.Label32, 2)
-        Me.Label32.Size = New System.Drawing.Size(48, 29)
-        Me.Label32.TabIndex = 3
-        Me.Label32.Text = "Max."
-        Me.Label32.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label33
-        '
-        Me.Label33.AutoSize = True
-        Me.Label33.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Label33.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label33.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label33.Location = New System.Drawing.Point(1, 103)
-        Me.Label33.Margin = New System.Windows.Forms.Padding(0)
-        Me.Label33.Name = "Label33"
-        Me.TblVeloPkDp_nom.SetRowSpan(Me.Label33, 2)
-        Me.Label33.Size = New System.Drawing.Size(48, 29)
-        Me.Label33.TabIndex = 5
-        Me.Label33.Text = "Min."
-        Me.Label33.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label34
-        '
-        Me.Label34.AutoSize = True
-        Me.Label34.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Label34.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label34.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label34.Location = New System.Drawing.Point(1, 73)
-        Me.Label34.Margin = New System.Windows.Forms.Padding(0)
-        Me.Label34.Name = "Label34"
-        Me.TblVeloPkDp_nom.SetRowSpan(Me.Label34, 2)
-        Me.Label34.Size = New System.Drawing.Size(48, 29)
-        Me.Label34.TabIndex = 4
-        Me.Label34.Text = "Avg."
-        Me.Label34.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'LblVeloPkMax_nom
-        '
-        Me.LblVeloPkMax_nom.AutoSize = True
-        Me.LblVeloPkMax_nom.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.LblVeloPkMax_nom.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LblVeloPkMax_nom.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.LblVeloPkMax_nom.ForeColor = System.Drawing.Color.Black
-        Me.LblVeloPkMax_nom.Location = New System.Drawing.Point(50, 43)
-        Me.LblVeloPkMax_nom.Margin = New System.Windows.Forms.Padding(0)
-        Me.LblVeloPkMax_nom.Name = "LblVeloPkMax_nom"
-        Me.TblVeloPkDp_nom.SetRowSpan(Me.LblVeloPkMax_nom, 2)
-        Me.LblVeloPkMax_nom.Size = New System.Drawing.Size(68, 29)
-        Me.LblVeloPkMax_nom.TabIndex = 6
-        Me.LblVeloPkMax_nom.Text = "Label25"
-        Me.LblVeloPkMax_nom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'LblVeloDpMax_nom
-        '
-        Me.LblVeloDpMax_nom.AutoSize = True
-        Me.LblVeloDpMax_nom.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.LblVeloDpMax_nom.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LblVeloDpMax_nom.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.LblVeloDpMax_nom.Location = New System.Drawing.Point(119, 43)
-        Me.LblVeloDpMax_nom.Margin = New System.Windows.Forms.Padding(0)
-        Me.LblVeloDpMax_nom.Name = "LblVeloDpMax_nom"
-        Me.TblVeloPkDp_nom.SetRowSpan(Me.LblVeloDpMax_nom, 2)
-        Me.LblVeloDpMax_nom.Size = New System.Drawing.Size(69, 29)
-        Me.LblVeloDpMax_nom.TabIndex = 8
-        Me.LblVeloDpMax_nom.Text = "Label27"
-        Me.LblVeloDpMax_nom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'LblVeloPkAvg_nom
-        '
-        Me.LblVeloPkAvg_nom.AutoSize = True
-        Me.LblVeloPkAvg_nom.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.LblVeloPkAvg_nom.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LblVeloPkAvg_nom.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.LblVeloPkAvg_nom.Location = New System.Drawing.Point(50, 73)
-        Me.LblVeloPkAvg_nom.Margin = New System.Windows.Forms.Padding(0)
-        Me.LblVeloPkAvg_nom.Name = "LblVeloPkAvg_nom"
-        Me.TblVeloPkDp_nom.SetRowSpan(Me.LblVeloPkAvg_nom, 2)
-        Me.LblVeloPkAvg_nom.Size = New System.Drawing.Size(68, 29)
-        Me.LblVeloPkAvg_nom.TabIndex = 10
-        Me.LblVeloPkAvg_nom.Text = "Label29"
-        Me.LblVeloPkAvg_nom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'LblVeloDpAvg_nom
-        '
-        Me.LblVeloDpAvg_nom.AutoSize = True
-        Me.LblVeloDpAvg_nom.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.LblVeloDpAvg_nom.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LblVeloDpAvg_nom.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.LblVeloDpAvg_nom.Location = New System.Drawing.Point(119, 73)
-        Me.LblVeloDpAvg_nom.Margin = New System.Windows.Forms.Padding(0)
-        Me.LblVeloDpAvg_nom.Name = "LblVeloDpAvg_nom"
-        Me.TblVeloPkDp_nom.SetRowSpan(Me.LblVeloDpAvg_nom, 2)
-        Me.LblVeloDpAvg_nom.Size = New System.Drawing.Size(69, 29)
-        Me.LblVeloDpAvg_nom.TabIndex = 12
-        Me.LblVeloDpAvg_nom.Text = "Label31"
-        Me.LblVeloDpAvg_nom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'TblVeloPkDp_adm
         '
@@ -4227,6 +3789,444 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.PictureBox3.TabIndex = 12
         Me.PictureBox3.TabStop = False
         '
+        'TblVeloPkDp_nom
+        '
+        Me.TblVeloPkDp_nom.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.[Single]
+        Me.TblVeloPkDp_nom.ColumnCount = 3
+        Me.TblVeloPkDp_nom.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.0!))
+        Me.TblVeloPkDp_nom.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.0!))
+        Me.TblVeloPkDp_nom.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.0!))
+        Me.TblVeloPkDp_nom.Controls.Add(Me.LblVeloDpMin_nom, 2, 6)
+        Me.TblVeloPkDp_nom.Controls.Add(Me.LblVeloPkMin_nom, 1, 6)
+        Me.TblVeloPkDp_nom.Controls.Add(Me.Label29, 0, 0)
+        Me.TblVeloPkDp_nom.Controls.Add(Me.Label30, 1, 1)
+        Me.TblVeloPkDp_nom.Controls.Add(Me.Label31, 2, 1)
+        Me.TblVeloPkDp_nom.Controls.Add(Me.Label32, 0, 2)
+        Me.TblVeloPkDp_nom.Controls.Add(Me.Label33, 0, 6)
+        Me.TblVeloPkDp_nom.Controls.Add(Me.Label34, 0, 4)
+        Me.TblVeloPkDp_nom.Controls.Add(Me.LblVeloPkMax_nom, 1, 2)
+        Me.TblVeloPkDp_nom.Controls.Add(Me.LblVeloDpMax_nom, 2, 2)
+        Me.TblVeloPkDp_nom.Controls.Add(Me.LblVeloPkAvg_nom, 1, 4)
+        Me.TblVeloPkDp_nom.Controls.Add(Me.LblVeloDpAvg_nom, 2, 4)
+        Me.TblVeloPkDp_nom.Location = New System.Drawing.Point(613, 10)
+        Me.TblVeloPkDp_nom.Margin = New System.Windows.Forms.Padding(0)
+        Me.TblVeloPkDp_nom.Name = "TblVeloPkDp_nom"
+        Me.TblVeloPkDp_nom.RowCount = 8
+        Me.TblVeloPkDp_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TblVeloPkDp_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TblVeloPkDp_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 14.0!))
+        Me.TblVeloPkDp_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 14.0!))
+        Me.TblVeloPkDp_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 14.0!))
+        Me.TblVeloPkDp_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 14.0!))
+        Me.TblVeloPkDp_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 14.0!))
+        Me.TblVeloPkDp_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 14.0!))
+        Me.TblVeloPkDp_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TblVeloPkDp_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TblVeloPkDp_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TblVeloPkDp_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TblVeloPkDp_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TblVeloPkDp_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TblVeloPkDp_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TblVeloPkDp_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TblVeloPkDp_nom.Size = New System.Drawing.Size(189, 133)
+        Me.TblVeloPkDp_nom.TabIndex = 6
+        '
+        'LblVeloDpMin_nom
+        '
+        Me.LblVeloDpMin_nom.AutoSize = True
+        Me.LblVeloDpMin_nom.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.LblVeloDpMin_nom.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LblVeloDpMin_nom.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.LblVeloDpMin_nom.Location = New System.Drawing.Point(119, 103)
+        Me.LblVeloDpMin_nom.Margin = New System.Windows.Forms.Padding(0)
+        Me.LblVeloDpMin_nom.Name = "LblVeloDpMin_nom"
+        Me.TblVeloPkDp_nom.SetRowSpan(Me.LblVeloDpMin_nom, 2)
+        Me.LblVeloDpMin_nom.Size = New System.Drawing.Size(69, 29)
+        Me.LblVeloDpMin_nom.TabIndex = 16
+        Me.LblVeloDpMin_nom.Text = "Label35"
+        Me.LblVeloDpMin_nom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'LblVeloPkMin_nom
+        '
+        Me.LblVeloPkMin_nom.AutoSize = True
+        Me.LblVeloPkMin_nom.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.LblVeloPkMin_nom.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LblVeloPkMin_nom.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.LblVeloPkMin_nom.Location = New System.Drawing.Point(50, 103)
+        Me.LblVeloPkMin_nom.Margin = New System.Windows.Forms.Padding(0)
+        Me.LblVeloPkMin_nom.Name = "LblVeloPkMin_nom"
+        Me.TblVeloPkDp_nom.SetRowSpan(Me.LblVeloPkMin_nom, 2)
+        Me.LblVeloPkMin_nom.Size = New System.Drawing.Size(68, 29)
+        Me.LblVeloPkMin_nom.TabIndex = 15
+        Me.LblVeloPkMin_nom.Text = "Label34"
+        Me.LblVeloPkMin_nom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label29
+        '
+        Me.Label29.AutoSize = True
+        Me.Label29.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.TblVeloPkDp_nom.SetColumnSpan(Me.Label29, 3)
+        Me.Label29.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label29.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label29.Location = New System.Drawing.Point(1, 1)
+        Me.Label29.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label29.Name = "Label29"
+        Me.Label29.Size = New System.Drawing.Size(187, 20)
+        Me.Label29.TabIndex = 0
+        Me.Label29.Text = "伝播速度[Km/S]"
+        Me.Label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label30
+        '
+        Me.Label30.AutoSize = True
+        Me.Label30.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label30.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label30.Location = New System.Drawing.Point(50, 22)
+        Me.Label30.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label30.Name = "Label30"
+        Me.Label30.Size = New System.Drawing.Size(68, 20)
+        Me.Label30.TabIndex = 1
+        Me.Label30.Text = "Peak"
+        Me.Label30.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label31
+        '
+        Me.Label31.AutoSize = True
+        Me.Label31.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label31.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label31.Location = New System.Drawing.Point(119, 22)
+        Me.Label31.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label31.Name = "Label31"
+        Me.Label31.Size = New System.Drawing.Size(69, 20)
+        Me.Label31.TabIndex = 2
+        Me.Label31.Text = "Deep"
+        Me.Label31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label32
+        '
+        Me.Label32.AutoSize = True
+        Me.Label32.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Label32.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label32.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label32.Location = New System.Drawing.Point(1, 43)
+        Me.Label32.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label32.Name = "Label32"
+        Me.TblVeloPkDp_nom.SetRowSpan(Me.Label32, 2)
+        Me.Label32.Size = New System.Drawing.Size(48, 29)
+        Me.Label32.TabIndex = 3
+        Me.Label32.Text = "Max."
+        Me.Label32.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label33
+        '
+        Me.Label33.AutoSize = True
+        Me.Label33.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Label33.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label33.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label33.Location = New System.Drawing.Point(1, 103)
+        Me.Label33.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label33.Name = "Label33"
+        Me.TblVeloPkDp_nom.SetRowSpan(Me.Label33, 2)
+        Me.Label33.Size = New System.Drawing.Size(48, 29)
+        Me.Label33.TabIndex = 5
+        Me.Label33.Text = "Min."
+        Me.Label33.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label34
+        '
+        Me.Label34.AutoSize = True
+        Me.Label34.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Label34.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label34.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label34.Location = New System.Drawing.Point(1, 73)
+        Me.Label34.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label34.Name = "Label34"
+        Me.TblVeloPkDp_nom.SetRowSpan(Me.Label34, 2)
+        Me.Label34.Size = New System.Drawing.Size(48, 29)
+        Me.Label34.TabIndex = 4
+        Me.Label34.Text = "Avg."
+        Me.Label34.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'LblVeloPkMax_nom
+        '
+        Me.LblVeloPkMax_nom.AutoSize = True
+        Me.LblVeloPkMax_nom.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.LblVeloPkMax_nom.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LblVeloPkMax_nom.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.LblVeloPkMax_nom.ForeColor = System.Drawing.Color.Black
+        Me.LblVeloPkMax_nom.Location = New System.Drawing.Point(50, 43)
+        Me.LblVeloPkMax_nom.Margin = New System.Windows.Forms.Padding(0)
+        Me.LblVeloPkMax_nom.Name = "LblVeloPkMax_nom"
+        Me.TblVeloPkDp_nom.SetRowSpan(Me.LblVeloPkMax_nom, 2)
+        Me.LblVeloPkMax_nom.Size = New System.Drawing.Size(68, 29)
+        Me.LblVeloPkMax_nom.TabIndex = 6
+        Me.LblVeloPkMax_nom.Text = "Label25"
+        Me.LblVeloPkMax_nom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'LblVeloDpMax_nom
+        '
+        Me.LblVeloDpMax_nom.AutoSize = True
+        Me.LblVeloDpMax_nom.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.LblVeloDpMax_nom.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LblVeloDpMax_nom.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.LblVeloDpMax_nom.Location = New System.Drawing.Point(119, 43)
+        Me.LblVeloDpMax_nom.Margin = New System.Windows.Forms.Padding(0)
+        Me.LblVeloDpMax_nom.Name = "LblVeloDpMax_nom"
+        Me.TblVeloPkDp_nom.SetRowSpan(Me.LblVeloDpMax_nom, 2)
+        Me.LblVeloDpMax_nom.Size = New System.Drawing.Size(69, 29)
+        Me.LblVeloDpMax_nom.TabIndex = 8
+        Me.LblVeloDpMax_nom.Text = "Label27"
+        Me.LblVeloDpMax_nom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'LblVeloPkAvg_nom
+        '
+        Me.LblVeloPkAvg_nom.AutoSize = True
+        Me.LblVeloPkAvg_nom.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.LblVeloPkAvg_nom.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LblVeloPkAvg_nom.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.LblVeloPkAvg_nom.Location = New System.Drawing.Point(50, 73)
+        Me.LblVeloPkAvg_nom.Margin = New System.Windows.Forms.Padding(0)
+        Me.LblVeloPkAvg_nom.Name = "LblVeloPkAvg_nom"
+        Me.TblVeloPkDp_nom.SetRowSpan(Me.LblVeloPkAvg_nom, 2)
+        Me.LblVeloPkAvg_nom.Size = New System.Drawing.Size(68, 29)
+        Me.LblVeloPkAvg_nom.TabIndex = 10
+        Me.LblVeloPkAvg_nom.Text = "Label29"
+        Me.LblVeloPkAvg_nom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'LblVeloDpAvg_nom
+        '
+        Me.LblVeloDpAvg_nom.AutoSize = True
+        Me.LblVeloDpAvg_nom.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.LblVeloDpAvg_nom.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LblVeloDpAvg_nom.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.LblVeloDpAvg_nom.Location = New System.Drawing.Point(119, 73)
+        Me.LblVeloDpAvg_nom.Margin = New System.Windows.Forms.Padding(0)
+        Me.LblVeloDpAvg_nom.Name = "LblVeloDpAvg_nom"
+        Me.TblVeloPkDp_nom.SetRowSpan(Me.LblVeloDpAvg_nom, 2)
+        Me.LblVeloDpAvg_nom.Size = New System.Drawing.Size(69, 29)
+        Me.LblVeloDpAvg_nom.TabIndex = 12
+        Me.LblVeloDpAvg_nom.Text = "Label31"
+        Me.LblVeloDpAvg_nom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'TblVeloMDCD_nom
+        '
+        Me.TblVeloMDCD_nom.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.[Single]
+        Me.TblVeloMDCD_nom.ColumnCount = 3
+        Me.TblVeloMDCD_nom.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.0!))
+        Me.TblVeloMDCD_nom.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.0!))
+        Me.TblVeloMDCD_nom.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.0!))
+        Me.TblVeloMDCD_nom.Controls.Add(Me.LblVeloCDMin_nom, 2, 6)
+        Me.TblVeloMDCD_nom.Controls.Add(Me.LblVeloMDMin_nom, 1, 6)
+        Me.TblVeloMDCD_nom.Controls.Add(Me.Label45, 0, 0)
+        Me.TblVeloMDCD_nom.Controls.Add(Me.Label46, 1, 1)
+        Me.TblVeloMDCD_nom.Controls.Add(Me.Label47, 2, 1)
+        Me.TblVeloMDCD_nom.Controls.Add(Me.Label48, 0, 2)
+        Me.TblVeloMDCD_nom.Controls.Add(Me.Label49, 0, 6)
+        Me.TblVeloMDCD_nom.Controls.Add(Me.Label50, 0, 4)
+        Me.TblVeloMDCD_nom.Controls.Add(Me.LblVeloMDMax_nom, 1, 2)
+        Me.TblVeloMDCD_nom.Controls.Add(Me.LblVeloCDMax_nom, 2, 2)
+        Me.TblVeloMDCD_nom.Controls.Add(Me.LblVeloMDAvg_nom, 1, 4)
+        Me.TblVeloMDCD_nom.Controls.Add(Me.LblVeloCDAvg_nom, 2, 4)
+        Me.TblVeloMDCD_nom.Location = New System.Drawing.Point(613, 153)
+        Me.TblVeloMDCD_nom.Margin = New System.Windows.Forms.Padding(0)
+        Me.TblVeloMDCD_nom.Name = "TblVeloMDCD_nom"
+        Me.TblVeloMDCD_nom.RowCount = 8
+        Me.TblVeloMDCD_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TblVeloMDCD_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TblVeloMDCD_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 14.0!))
+        Me.TblVeloMDCD_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 14.0!))
+        Me.TblVeloMDCD_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 14.0!))
+        Me.TblVeloMDCD_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 14.0!))
+        Me.TblVeloMDCD_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 14.0!))
+        Me.TblVeloMDCD_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 14.0!))
+        Me.TblVeloMDCD_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TblVeloMDCD_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TblVeloMDCD_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TblVeloMDCD_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TblVeloMDCD_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TblVeloMDCD_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TblVeloMDCD_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TblVeloMDCD_nom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TblVeloMDCD_nom.Size = New System.Drawing.Size(189, 133)
+        Me.TblVeloMDCD_nom.TabIndex = 8
+        '
+        'LblVeloCDMin_nom
+        '
+        Me.LblVeloCDMin_nom.AutoSize = True
+        Me.LblVeloCDMin_nom.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.LblVeloCDMin_nom.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LblVeloCDMin_nom.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.LblVeloCDMin_nom.Location = New System.Drawing.Point(119, 103)
+        Me.LblVeloCDMin_nom.Margin = New System.Windows.Forms.Padding(0)
+        Me.LblVeloCDMin_nom.Name = "LblVeloCDMin_nom"
+        Me.TblVeloMDCD_nom.SetRowSpan(Me.LblVeloCDMin_nom, 2)
+        Me.LblVeloCDMin_nom.Size = New System.Drawing.Size(69, 29)
+        Me.LblVeloCDMin_nom.TabIndex = 16
+        Me.LblVeloCDMin_nom.Text = "Label35"
+        Me.LblVeloCDMin_nom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'LblVeloMDMin_nom
+        '
+        Me.LblVeloMDMin_nom.AutoSize = True
+        Me.LblVeloMDMin_nom.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.LblVeloMDMin_nom.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LblVeloMDMin_nom.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.LblVeloMDMin_nom.Location = New System.Drawing.Point(50, 103)
+        Me.LblVeloMDMin_nom.Margin = New System.Windows.Forms.Padding(0)
+        Me.LblVeloMDMin_nom.Name = "LblVeloMDMin_nom"
+        Me.TblVeloMDCD_nom.SetRowSpan(Me.LblVeloMDMin_nom, 2)
+        Me.LblVeloMDMin_nom.Size = New System.Drawing.Size(68, 29)
+        Me.LblVeloMDMin_nom.TabIndex = 15
+        Me.LblVeloMDMin_nom.Text = "Label34"
+        Me.LblVeloMDMin_nom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label45
+        '
+        Me.Label45.AutoSize = True
+        Me.Label45.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.TblVeloMDCD_nom.SetColumnSpan(Me.Label45, 3)
+        Me.Label45.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label45.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label45.Location = New System.Drawing.Point(1, 1)
+        Me.Label45.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label45.Name = "Label45"
+        Me.Label45.Size = New System.Drawing.Size(187, 20)
+        Me.Label45.TabIndex = 0
+        Me.Label45.Text = "伝播速度[Km/S]"
+        Me.Label45.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label46
+        '
+        Me.Label46.AutoSize = True
+        Me.Label46.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label46.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label46.Location = New System.Drawing.Point(50, 22)
+        Me.Label46.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label46.Name = "Label46"
+        Me.Label46.Size = New System.Drawing.Size(68, 20)
+        Me.Label46.TabIndex = 1
+        Me.Label46.Text = "MD"
+        Me.Label46.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label47
+        '
+        Me.Label47.AutoSize = True
+        Me.Label47.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label47.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label47.Location = New System.Drawing.Point(119, 22)
+        Me.Label47.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label47.Name = "Label47"
+        Me.Label47.Size = New System.Drawing.Size(69, 20)
+        Me.Label47.TabIndex = 2
+        Me.Label47.Text = "CD"
+        Me.Label47.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label48
+        '
+        Me.Label48.AutoSize = True
+        Me.Label48.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Label48.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label48.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label48.Location = New System.Drawing.Point(1, 43)
+        Me.Label48.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label48.Name = "Label48"
+        Me.TblVeloMDCD_nom.SetRowSpan(Me.Label48, 2)
+        Me.Label48.Size = New System.Drawing.Size(48, 29)
+        Me.Label48.TabIndex = 3
+        Me.Label48.Text = "Max."
+        Me.Label48.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label49
+        '
+        Me.Label49.AutoSize = True
+        Me.Label49.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Label49.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label49.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label49.Location = New System.Drawing.Point(1, 103)
+        Me.Label49.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label49.Name = "Label49"
+        Me.TblVeloMDCD_nom.SetRowSpan(Me.Label49, 2)
+        Me.Label49.Size = New System.Drawing.Size(48, 29)
+        Me.Label49.TabIndex = 5
+        Me.Label49.Text = "Min."
+        Me.Label49.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label50
+        '
+        Me.Label50.AutoSize = True
+        Me.Label50.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Label50.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label50.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label50.Location = New System.Drawing.Point(1, 73)
+        Me.Label50.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label50.Name = "Label50"
+        Me.TblVeloMDCD_nom.SetRowSpan(Me.Label50, 2)
+        Me.Label50.Size = New System.Drawing.Size(48, 29)
+        Me.Label50.TabIndex = 4
+        Me.Label50.Text = "Avg."
+        Me.Label50.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'LblVeloMDMax_nom
+        '
+        Me.LblVeloMDMax_nom.AutoSize = True
+        Me.LblVeloMDMax_nom.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.LblVeloMDMax_nom.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LblVeloMDMax_nom.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.LblVeloMDMax_nom.ForeColor = System.Drawing.Color.Black
+        Me.LblVeloMDMax_nom.Location = New System.Drawing.Point(50, 43)
+        Me.LblVeloMDMax_nom.Margin = New System.Windows.Forms.Padding(0)
+        Me.LblVeloMDMax_nom.Name = "LblVeloMDMax_nom"
+        Me.TblVeloMDCD_nom.SetRowSpan(Me.LblVeloMDMax_nom, 2)
+        Me.LblVeloMDMax_nom.Size = New System.Drawing.Size(68, 29)
+        Me.LblVeloMDMax_nom.TabIndex = 6
+        Me.LblVeloMDMax_nom.Text = "Label25"
+        Me.LblVeloMDMax_nom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'LblVeloCDMax_nom
+        '
+        Me.LblVeloCDMax_nom.AutoSize = True
+        Me.LblVeloCDMax_nom.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.LblVeloCDMax_nom.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LblVeloCDMax_nom.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.LblVeloCDMax_nom.Location = New System.Drawing.Point(119, 43)
+        Me.LblVeloCDMax_nom.Margin = New System.Windows.Forms.Padding(0)
+        Me.LblVeloCDMax_nom.Name = "LblVeloCDMax_nom"
+        Me.TblVeloMDCD_nom.SetRowSpan(Me.LblVeloCDMax_nom, 2)
+        Me.LblVeloCDMax_nom.Size = New System.Drawing.Size(69, 29)
+        Me.LblVeloCDMax_nom.TabIndex = 8
+        Me.LblVeloCDMax_nom.Text = "Label27"
+        Me.LblVeloCDMax_nom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'LblVeloMDAvg_nom
+        '
+        Me.LblVeloMDAvg_nom.AutoSize = True
+        Me.LblVeloMDAvg_nom.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.LblVeloMDAvg_nom.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LblVeloMDAvg_nom.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.LblVeloMDAvg_nom.Location = New System.Drawing.Point(50, 73)
+        Me.LblVeloMDAvg_nom.Margin = New System.Windows.Forms.Padding(0)
+        Me.LblVeloMDAvg_nom.Name = "LblVeloMDAvg_nom"
+        Me.TblVeloMDCD_nom.SetRowSpan(Me.LblVeloMDAvg_nom, 2)
+        Me.LblVeloMDAvg_nom.Size = New System.Drawing.Size(68, 29)
+        Me.LblVeloMDAvg_nom.TabIndex = 10
+        Me.LblVeloMDAvg_nom.Text = "Label29"
+        Me.LblVeloMDAvg_nom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'LblVeloCDAvg_nom
+        '
+        Me.LblVeloCDAvg_nom.AutoSize = True
+        Me.LblVeloCDAvg_nom.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.LblVeloCDAvg_nom.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LblVeloCDAvg_nom.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.LblVeloCDAvg_nom.Location = New System.Drawing.Point(119, 73)
+        Me.LblVeloCDAvg_nom.Margin = New System.Windows.Forms.Padding(0)
+        Me.LblVeloCDAvg_nom.Name = "LblVeloCDAvg_nom"
+        Me.TblVeloMDCD_nom.SetRowSpan(Me.LblVeloCDAvg_nom, 2)
+        Me.LblVeloCDAvg_nom.Size = New System.Drawing.Size(69, 29)
+        Me.LblVeloCDAvg_nom.TabIndex = 12
+        Me.LblVeloCDAvg_nom.Text = "Label31"
+        Me.LblVeloCDAvg_nom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'TabMeasDataView
         '
         Me.TabMeasDataView.BackColor = System.Drawing.Color.White
@@ -4270,15 +4270,15 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.ColumnHeadersVisible = False
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.Column7, Me.Column8, Me.Column9, Me.Column10, Me.Column11})
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle1.Padding = New System.Windows.Forms.Padding(0, 0, 15, 0)
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle29.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle29.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        DataGridViewCellStyle29.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle29.Padding = New System.Windows.Forms.Padding(0, 0, 15, 0)
+        DataGridViewCellStyle29.SelectionBackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle29
         Me.DataGridView1.GridColor = System.Drawing.Color.Black
         Me.DataGridView1.Location = New System.Drawing.Point(3, 117)
         Me.DataGridView1.Margin = New System.Windows.Forms.Padding(0)
@@ -4835,7 +4835,7 @@ Partial Class FrmSST4500_1_0_0J_Profile
         'Label57
         '
         Me.Label57.AutoSize = True
-        Me.Label57.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Label57.BackColor = System.Drawing.Color.White
         Me.Label57.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label57.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Label57.Location = New System.Drawing.Point(1, 1)
@@ -4850,7 +4850,7 @@ Partial Class FrmSST4500_1_0_0J_Profile
         'Label70
         '
         Me.Label70.AutoSize = True
-        Me.Label70.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Label70.BackColor = System.Drawing.Color.White
         Me.TableLayoutPanel1.SetColumnSpan(Me.Label70, 2)
         Me.Label70.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label70.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
@@ -4891,7 +4891,7 @@ Partial Class FrmSST4500_1_0_0J_Profile
         'Label73
         '
         Me.Label73.AutoSize = True
-        Me.Label73.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Label73.BackColor = System.Drawing.Color.White
         Me.TableLayoutPanel1.SetColumnSpan(Me.Label73, 2)
         Me.Label73.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label73.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
@@ -4932,7 +4932,7 @@ Partial Class FrmSST4500_1_0_0J_Profile
         'Label82
         '
         Me.Label82.AutoSize = True
-        Me.Label82.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Label82.BackColor = System.Drawing.Color.White
         Me.TableLayoutPanel1.SetColumnSpan(Me.Label82, 4)
         Me.Label82.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label82.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
@@ -4999,7 +4999,7 @@ Partial Class FrmSST4500_1_0_0J_Profile
         'Label88
         '
         Me.Label88.AutoSize = True
-        Me.Label88.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Label88.BackColor = System.Drawing.Color.White
         Me.TableLayoutPanel1.SetColumnSpan(Me.Label88, 2)
         Me.Label88.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label88.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
@@ -5165,15 +5165,15 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView2.ColumnHeadersVisible = False
         Me.DataGridView2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn11})
-        DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle13.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        DataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle13.Padding = New System.Windows.Forms.Padding(0, 0, 15, 0)
-        DataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridView2.DefaultCellStyle = DataGridViewCellStyle13
+        DataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle41.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle41.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        DataGridViewCellStyle41.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle41.Padding = New System.Windows.Forms.Padding(0, 0, 15, 0)
+        DataGridViewCellStyle41.SelectionBackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle41.SelectionForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle41.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridView2.DefaultCellStyle = DataGridViewCellStyle41
         Me.DataGridView2.GridColor = System.Drawing.Color.Black
         Me.DataGridView2.Location = New System.Drawing.Point(3, 117)
         Me.DataGridView2.Margin = New System.Windows.Forms.Padding(0)
@@ -5188,8 +5188,8 @@ Partial Class FrmSST4500_1_0_0J_Profile
         '
         'DataGridViewTextBoxColumn1
         '
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
-        Me.DataGridViewTextBoxColumn1.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle30.ForeColor = System.Drawing.Color.Black
+        Me.DataGridViewTextBoxColumn1.DefaultCellStyle = DataGridViewCellStyle30
         Me.DataGridViewTextBoxColumn1.FillWeight = 60.0!
         Me.DataGridViewTextBoxColumn1.Frozen = True
         Me.DataGridViewTextBoxColumn1.HeaderText = "Column1"
@@ -5203,9 +5203,9 @@ Partial Class FrmSST4500_1_0_0J_Profile
         '
         'DataGridViewTextBoxColumn2
         '
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Blue
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Blue
-        Me.DataGridViewTextBoxColumn2.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle31.ForeColor = System.Drawing.Color.Blue
+        DataGridViewCellStyle31.SelectionForeColor = System.Drawing.Color.Blue
+        Me.DataGridViewTextBoxColumn2.DefaultCellStyle = DataGridViewCellStyle31
         Me.DataGridViewTextBoxColumn2.FillWeight = 76.0!
         Me.DataGridViewTextBoxColumn2.Frozen = True
         Me.DataGridViewTextBoxColumn2.HeaderText = "Column2"
@@ -5219,9 +5219,9 @@ Partial Class FrmSST4500_1_0_0J_Profile
         '
         'DataGridViewTextBoxColumn3
         '
-        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.Blue
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Blue
-        Me.DataGridViewTextBoxColumn3.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle32.ForeColor = System.Drawing.Color.Blue
+        DataGridViewCellStyle32.SelectionForeColor = System.Drawing.Color.Blue
+        Me.DataGridViewTextBoxColumn3.DefaultCellStyle = DataGridViewCellStyle32
         Me.DataGridViewTextBoxColumn3.FillWeight = 76.0!
         Me.DataGridViewTextBoxColumn3.Frozen = True
         Me.DataGridViewTextBoxColumn3.HeaderText = "Column3"
@@ -5235,9 +5235,9 @@ Partial Class FrmSST4500_1_0_0J_Profile
         '
         'DataGridViewTextBoxColumn4
         '
-        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.Blue
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Blue
-        Me.DataGridViewTextBoxColumn4.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle33.ForeColor = System.Drawing.Color.Blue
+        DataGridViewCellStyle33.SelectionForeColor = System.Drawing.Color.Blue
+        Me.DataGridViewTextBoxColumn4.DefaultCellStyle = DataGridViewCellStyle33
         Me.DataGridViewTextBoxColumn4.FillWeight = 69.0!
         Me.DataGridViewTextBoxColumn4.Frozen = True
         Me.DataGridViewTextBoxColumn4.HeaderText = "Column4"
@@ -5251,9 +5251,9 @@ Partial Class FrmSST4500_1_0_0J_Profile
         '
         'DataGridViewTextBoxColumn5
         '
-        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.Blue
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Blue
-        Me.DataGridViewTextBoxColumn5.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle34.ForeColor = System.Drawing.Color.Blue
+        DataGridViewCellStyle34.SelectionForeColor = System.Drawing.Color.Blue
+        Me.DataGridViewTextBoxColumn5.DefaultCellStyle = DataGridViewCellStyle34
         Me.DataGridViewTextBoxColumn5.FillWeight = 72.0!
         Me.DataGridViewTextBoxColumn5.Frozen = True
         Me.DataGridViewTextBoxColumn5.HeaderText = "Column5"
@@ -5267,9 +5267,9 @@ Partial Class FrmSST4500_1_0_0J_Profile
         '
         'DataGridViewTextBoxColumn6
         '
-        DataGridViewCellStyle7.ForeColor = System.Drawing.Color.Blue
-        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Blue
-        Me.DataGridViewTextBoxColumn6.DefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle35.ForeColor = System.Drawing.Color.Blue
+        DataGridViewCellStyle35.SelectionForeColor = System.Drawing.Color.Blue
+        Me.DataGridViewTextBoxColumn6.DefaultCellStyle = DataGridViewCellStyle35
         Me.DataGridViewTextBoxColumn6.FillWeight = 69.0!
         Me.DataGridViewTextBoxColumn6.Frozen = True
         Me.DataGridViewTextBoxColumn6.HeaderText = "Column6"
@@ -5283,9 +5283,9 @@ Partial Class FrmSST4500_1_0_0J_Profile
         '
         'DataGridViewTextBoxColumn7
         '
-        DataGridViewCellStyle8.ForeColor = System.Drawing.Color.Blue
-        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Blue
-        Me.DataGridViewTextBoxColumn7.DefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle36.ForeColor = System.Drawing.Color.Blue
+        DataGridViewCellStyle36.SelectionForeColor = System.Drawing.Color.Blue
+        Me.DataGridViewTextBoxColumn7.DefaultCellStyle = DataGridViewCellStyle36
         Me.DataGridViewTextBoxColumn7.FillWeight = 68.0!
         Me.DataGridViewTextBoxColumn7.Frozen = True
         Me.DataGridViewTextBoxColumn7.HeaderText = "Column7"
@@ -5299,9 +5299,9 @@ Partial Class FrmSST4500_1_0_0J_Profile
         '
         'DataGridViewTextBoxColumn8
         '
-        DataGridViewCellStyle9.ForeColor = System.Drawing.Color.Blue
-        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Blue
-        Me.DataGridViewTextBoxColumn8.DefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle37.ForeColor = System.Drawing.Color.Blue
+        DataGridViewCellStyle37.SelectionForeColor = System.Drawing.Color.Blue
+        Me.DataGridViewTextBoxColumn8.DefaultCellStyle = DataGridViewCellStyle37
         Me.DataGridViewTextBoxColumn8.FillWeight = 68.0!
         Me.DataGridViewTextBoxColumn8.Frozen = True
         Me.DataGridViewTextBoxColumn8.HeaderText = "Column8"
@@ -5315,9 +5315,9 @@ Partial Class FrmSST4500_1_0_0J_Profile
         '
         'DataGridViewTextBoxColumn9
         '
-        DataGridViewCellStyle10.ForeColor = System.Drawing.Color.Blue
-        DataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Blue
-        Me.DataGridViewTextBoxColumn9.DefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle38.ForeColor = System.Drawing.Color.Blue
+        DataGridViewCellStyle38.SelectionForeColor = System.Drawing.Color.Blue
+        Me.DataGridViewTextBoxColumn9.DefaultCellStyle = DataGridViewCellStyle38
         Me.DataGridViewTextBoxColumn9.FillWeight = 68.0!
         Me.DataGridViewTextBoxColumn9.Frozen = True
         Me.DataGridViewTextBoxColumn9.HeaderText = "Column9"
@@ -5331,9 +5331,9 @@ Partial Class FrmSST4500_1_0_0J_Profile
         '
         'DataGridViewTextBoxColumn10
         '
-        DataGridViewCellStyle11.ForeColor = System.Drawing.Color.Blue
-        DataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.Blue
-        Me.DataGridViewTextBoxColumn10.DefaultCellStyle = DataGridViewCellStyle11
+        DataGridViewCellStyle39.ForeColor = System.Drawing.Color.Blue
+        DataGridViewCellStyle39.SelectionForeColor = System.Drawing.Color.Blue
+        Me.DataGridViewTextBoxColumn10.DefaultCellStyle = DataGridViewCellStyle39
         Me.DataGridViewTextBoxColumn10.FillWeight = 68.0!
         Me.DataGridViewTextBoxColumn10.HeaderText = "Column10"
         Me.DataGridViewTextBoxColumn10.MaxInputLength = 10
@@ -5346,9 +5346,9 @@ Partial Class FrmSST4500_1_0_0J_Profile
         '
         'DataGridViewTextBoxColumn11
         '
-        DataGridViewCellStyle12.ForeColor = System.Drawing.Color.Blue
-        DataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Blue
-        Me.DataGridViewTextBoxColumn11.DefaultCellStyle = DataGridViewCellStyle12
+        DataGridViewCellStyle40.ForeColor = System.Drawing.Color.Blue
+        DataGridViewCellStyle40.SelectionForeColor = System.Drawing.Color.Blue
+        Me.DataGridViewTextBoxColumn11.DefaultCellStyle = DataGridViewCellStyle40
         Me.DataGridViewTextBoxColumn11.FillWeight = 68.0!
         Me.DataGridViewTextBoxColumn11.HeaderText = "Column11"
         Me.DataGridViewTextBoxColumn11.MaxInputLength = 10
@@ -5787,7 +5787,7 @@ Partial Class FrmSST4500_1_0_0J_Profile
         'Label110
         '
         Me.Label110.AutoSize = True
-        Me.Label110.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Label110.BackColor = System.Drawing.Color.White
         Me.Label110.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label110.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Label110.Location = New System.Drawing.Point(1, 1)
@@ -5802,7 +5802,7 @@ Partial Class FrmSST4500_1_0_0J_Profile
         'Label111
         '
         Me.Label111.AutoSize = True
-        Me.Label111.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Label111.BackColor = System.Drawing.Color.White
         Me.TableLayoutPanel2.SetColumnSpan(Me.Label111, 2)
         Me.Label111.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label111.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
@@ -5843,7 +5843,7 @@ Partial Class FrmSST4500_1_0_0J_Profile
         'Label114
         '
         Me.Label114.AutoSize = True
-        Me.Label114.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Label114.BackColor = System.Drawing.Color.White
         Me.TableLayoutPanel2.SetColumnSpan(Me.Label114, 2)
         Me.Label114.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label114.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
@@ -5884,7 +5884,7 @@ Partial Class FrmSST4500_1_0_0J_Profile
         'Label117
         '
         Me.Label117.AutoSize = True
-        Me.Label117.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Label117.BackColor = System.Drawing.Color.White
         Me.TableLayoutPanel2.SetColumnSpan(Me.Label117, 4)
         Me.Label117.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label117.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
@@ -5951,7 +5951,7 @@ Partial Class FrmSST4500_1_0_0J_Profile
         'Label123
         '
         Me.Label123.AutoSize = True
-        Me.Label123.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Label123.BackColor = System.Drawing.Color.White
         Me.TableLayoutPanel2.SetColumnSpan(Me.Label123, 2)
         Me.Label123.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label123.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
@@ -6122,15 +6122,15 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.DataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView3.ColumnHeadersVisible = False
         Me.DataGridView3.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn14, Me.DataGridViewTextBoxColumn15, Me.DataGridViewTextBoxColumn16, Me.DataGridViewTextBoxColumn17, Me.DataGridViewTextBoxColumn18, Me.DataGridViewTextBoxColumn19, Me.DataGridViewTextBoxColumn20, Me.DataGridViewTextBoxColumn21, Me.DataGridViewTextBoxColumn22})
-        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle14.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        DataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle14.Padding = New System.Windows.Forms.Padding(0, 0, 15, 0)
-        DataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridView3.DefaultCellStyle = DataGridViewCellStyle14
+        DataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle42.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle42.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        DataGridViewCellStyle42.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle42.Padding = New System.Windows.Forms.Padding(0, 0, 15, 0)
+        DataGridViewCellStyle42.SelectionBackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle42.SelectionForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle42.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridView3.DefaultCellStyle = DataGridViewCellStyle42
         Me.DataGridView3.GridColor = System.Drawing.Color.Black
         Me.DataGridView3.Location = New System.Drawing.Point(3, 117)
         Me.DataGridView3.Margin = New System.Windows.Forms.Padding(0)
@@ -6687,7 +6687,7 @@ Partial Class FrmSST4500_1_0_0J_Profile
         'Label129
         '
         Me.Label129.AutoSize = True
-        Me.Label129.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Label129.BackColor = System.Drawing.Color.White
         Me.Label129.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label129.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Label129.Location = New System.Drawing.Point(1, 1)
@@ -6702,7 +6702,7 @@ Partial Class FrmSST4500_1_0_0J_Profile
         'Label130
         '
         Me.Label130.AutoSize = True
-        Me.Label130.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Label130.BackColor = System.Drawing.Color.White
         Me.TableLayoutPanel3.SetColumnSpan(Me.Label130, 2)
         Me.Label130.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label130.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
@@ -6743,7 +6743,7 @@ Partial Class FrmSST4500_1_0_0J_Profile
         'Label133
         '
         Me.Label133.AutoSize = True
-        Me.Label133.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Label133.BackColor = System.Drawing.Color.White
         Me.TableLayoutPanel3.SetColumnSpan(Me.Label133, 2)
         Me.Label133.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label133.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
@@ -6784,7 +6784,7 @@ Partial Class FrmSST4500_1_0_0J_Profile
         'Label136
         '
         Me.Label136.AutoSize = True
-        Me.Label136.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Label136.BackColor = System.Drawing.Color.White
         Me.TableLayoutPanel3.SetColumnSpan(Me.Label136, 4)
         Me.Label136.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label136.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
@@ -6851,7 +6851,7 @@ Partial Class FrmSST4500_1_0_0J_Profile
         'Label142
         '
         Me.Label142.AutoSize = True
-        Me.Label142.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Label142.BackColor = System.Drawing.Color.White
         Me.TableLayoutPanel3.SetColumnSpan(Me.Label142, 2)
         Me.Label142.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label142.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
@@ -7832,10 +7832,6 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.TblTSI_nom.PerformLayout
         Me.TableLayoutPanel5.ResumeLayout(False)
         Me.TableLayoutPanel5.PerformLayout
-        Me.TblVeloMDCD_nom.ResumeLayout(False)
-        Me.TblVeloMDCD_nom.PerformLayout
-        Me.TblVeloPkDp_nom.ResumeLayout(False)
-        Me.TblVeloPkDp_nom.PerformLayout
         Me.TblVeloPkDp_adm.ResumeLayout(False)
         Me.TblVeloPkDp_adm.PerformLayout
         Me.TblVeloMDCD_adm.ResumeLayout(False)
@@ -7844,6 +7840,10 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.TblTSI_adm.PerformLayout
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit
+        Me.TblVeloPkDp_nom.ResumeLayout(False)
+        Me.TblVeloPkDp_nom.PerformLayout
+        Me.TblVeloMDCD_nom.ResumeLayout(False)
+        Me.TblVeloMDCD_nom.PerformLayout
         Me.TabMeasDataView.ResumeLayout(False)
         Me.TabControl2.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)

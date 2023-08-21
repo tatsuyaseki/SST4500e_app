@@ -21,6 +21,8 @@ Public Class FrmSST4500_1_0_0J_meas
     'Dim Es As Object
     Dim result2 As Integer
     Dim Menu_AutoPrn As ToolStripMenuItem
+    Dim title_text As String
+    Dim flgInitEnd As Integer = 0
 
     Private Sub FrmSST4500_1_0_0J_meas_Load(sender As Object, e As EventArgs) Handles Me.Load
         'Me.MaximumSize = Me.Size
@@ -28,6 +30,7 @@ Public Class FrmSST4500_1_0_0J_meas
         Menu_AutoPrn = DirectCast(印刷ToolStripMenuItem, ToolStripMenuItem)
 
         Me.Text = My.Application.Info.ProductName & " Single Sheet (Ver:" & My.Application.Info.Version.ToString & ")"
+        title_text = Me.Text
         Me.LblProductNameMeas.Text = My.Application.Info.ProductName
 
     End Sub
@@ -35,12 +38,12 @@ Public Class FrmSST4500_1_0_0J_meas
     Private Sub TimMeas_Tick(sender As Object, e As EventArgs) Handles TimMeas.Tick
 
         Select Case FlgMainMeas
-            Case 1
-                '初期化処理
+            Case 1   '初期化処理
                 If FlgAdmin <> 0 Then
                     '管理者モード
                     AdmVisible_onoff(True)
                 Else
+                    '通常モード
                     AdmVisible_onoff(False)
                 End If
 
@@ -53,7 +56,7 @@ Public Class FrmSST4500_1_0_0J_meas
                 If result = DialogResult.OK Then
                     StrConstFileName = fname
 
-                    LoadConst()
+                    LoadConst(Me, title_text)
 
                     If FlgMeasAutoPrn = True Then
                         Menu_AutoPrn.Checked = True
@@ -100,6 +103,7 @@ Public Class FrmSST4500_1_0_0J_meas
 
                 timerCount1 = 0
                 TimMeas.Enabled = True
+                flgInitEnd = 1  '初期化完了
 
             Case 2
                 '測定ボタンクリック
@@ -555,8 +559,32 @@ Public Class FrmSST4500_1_0_0J_meas
 
             Case 90
                 '終了ボタン
+
+                TimMeas.Enabled = False
+
                 If FlgTest = 0 Then
                     UsbClose()
+                End If
+
+                '測定仕様ファイルの保存処理
+                If FlgConstChg = True Then
+                    result = MessageBox.Show("測定仕様が変更されています。" & vbCrLf &
+                                             "変更内容を保存しますか？" & vbCrLf &
+                                             "Yes: 上書き" & vbCrLf &
+                                             "No: 名前を付けて保存" & vbCrLf &
+                                             "Cancel: 保存しないで終了",
+                                             "測定仕様変更確認",
+                                             MessageBoxButtons.YesNoCancel,
+                                             MessageBoxIcon.Information)
+                    Select Case result
+                        Case DialogResult.OK
+                            SaveConst(StrConstFilePath)
+                        Case DialogResult.No
+                            SaveConstMeas()
+                        Case DialogResult.Cancel
+                            'なにもしない
+                    End Select
+
                 End If
 
                 Visible = False
@@ -564,6 +592,8 @@ Public Class FrmSST4500_1_0_0J_meas
                 timerCount1 = 0
 
                 FlgMainMeas = 91
+
+                TimMeas.Enabled = True
 
             Case 91
                 '終了ボタン続き
@@ -582,6 +612,7 @@ Public Class FrmSST4500_1_0_0J_meas
 
                     FlgMainSplash = 11
                     FlgMainMeas = 0
+                    flgInitEnd = 0
                 End If
 
             Case 99
@@ -622,11 +653,19 @@ Public Class FrmSST4500_1_0_0J_meas
             FlgMeasAutoPrn = 1
             If Menu_AutoPrn.Checked = False Then
                 Menu_AutoPrn.Checked = True
+                'FlgConstChg = True  '変更有の状態にセットする
+                If flgInitEnd = 1 Then
+                    ConstChangeTrue(Me, title_text)
+                End If
             End If
         Else
             FlgMeasAutoPrn = 0
             If Menu_AutoPrn.Checked = True Then
                 Menu_AutoPrn.Checked = False
+                'FlgConstChg = True  '変更有の状態にセットする
+                If flgInitEnd = 1 Then
+                    ConstChangeTrue(Me, title_text)
+                End If
             End If
         End If
     End Sub
@@ -1319,6 +1358,8 @@ Public Class FrmSST4500_1_0_0J_meas
                         Exit Sub
                     End If
 
+                    StrConstFileName = Path.GetFileName(FilePath)
+                    StrConstFilePath = FilePath
                     Using sw As New StreamWriter(FilePath, False, Encoding.UTF8)
                         sw.WriteLine(MachineNo & "," & Sample & "," &
                                      Mark & "," & BW & "," &
@@ -1331,11 +1372,14 @@ Public Class FrmSST4500_1_0_0J_meas
                                      FlgVelocityRange & "," & FlgAngleRange & "," &
                                      FlgPkCenterAngle & "," & FlgDpCenterAngle)
                     End Using
+
+                    Dim _filename2 As String
+                    _filename2 = Path.GetFileNameWithoutExtension(StrConstFileName)
+                    Me.Text = title_text & " (" & _filename2 & ")"
+                    FlgConstChg = False '変更無し状態に初期化
                 End If
             End With
-
         End Using
-
     End Sub
 
     Private Sub CmdMeasSpecSel_Click(sender As Object, e As EventArgs) Handles CmdMeasSpecSel.Click
@@ -1351,7 +1395,7 @@ Public Class FrmSST4500_1_0_0J_meas
         If result = DialogResult.OK Then
             StrConstFileName = fname
 
-            LoadConst()
+            LoadConst(Me, title_text)
 
             'ClsNoMeas()    'FlgMainMeas = 20 で実行される
             ClsData()
@@ -1378,13 +1422,19 @@ Public Class FrmSST4500_1_0_0J_meas
 
     Private Sub TxtMachNoCur_TextChanged(sender As Object, e As EventArgs) Handles TxtMachNoCur.TextChanged
         MachineNo = TxtMachNoCur.Text
-
+        'FlgConstChg = True  '変更有の状態にセットする
+        If flgInitEnd = 1 Then
+            ConstChangeTrue(Me, title_text)
+        End If
         FlgMainMeas = 20
     End Sub
 
     Private Sub TxtSmplNamCur_TextChanged(sender As Object, e As EventArgs) Handles TxtSmplNamCur.TextChanged
         Sample = TxtSmplNamCur.Text
-
+        'FlgConstChg = True  '変更有の状態にセットする
+        If flgInitEnd = 1 Then
+            ConstChangeTrue(Me, title_text)
+        End If
         FlgMainMeas = 20
     End Sub
 
@@ -1524,15 +1574,26 @@ Public Class FrmSST4500_1_0_0J_meas
         Dim fnt_10 As New Font("MS UI Gothic", 10)
         Dim fnt_9 As New Font("MS US Gothic", 9)
 
+        Dim printbc_brush As Brush = New SolidBrush(frm_MeasForm_bc)
+        Dim print_curdata_brush As Brush = New SolidBrush(frm_MeasCurData_color)
+        Dim print_olddata_brush As Brush = New SolidBrush(frm_MeasOldData_color)
+        Dim printfc_brush As Brush = New SolidBrush(frm_MeasForm_fc)
+
         Dim paper_width As Integer = e.MarginBounds.Width
         Dim paper_height As Integer = e.MarginBounds.Height
         'Console.WriteLine(paper_width)
         'Console.WriteLine(paper_height)
 
+        '用紙の色（印刷範囲全体）
+        If frm_MeasForm_bc <> SystemColors.Control Then
+            e.Graphics.FillRectangle(printbc_brush, -Prn_left_margin, -Prn_top_margin, paper_width + Prn_left_margin + Prn_right_margin * 2, paper_height + Prn_top_margin + Prn_btm_margin * 2)
+        End If
+
         string_tmp = My.Application.Info.ProductName & " シングルシート"
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_14)
         title_height = stringSize.Height
-        e.Graphics.DrawString(string_tmp, fnt_14, Brushes.Black, 0, 0)
+
+        e.Graphics.DrawString(string_tmp, fnt_14, printfc_brush, 0, 0)
 
         '測定仕様枠
         Dim measspec_hyoutop As Single = title_height + gyou_height25
@@ -1634,7 +1695,7 @@ Public Class FrmSST4500_1_0_0J_meas
         If MeasDataNo_cur > 0 Then
             string_tmp = "測定データ  測定　日付：" & DataDate_cur & "   時間：" & DataTime_cur
             stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-            e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+            e.Graphics.DrawString(string_tmp, fnt_10, print_curdata_brush,
                                   paper_width - stringSize.Width, 0)
         End If
 
@@ -1643,301 +1704,301 @@ Public Class FrmSST4500_1_0_0J_meas
         If MeasDataNo_bak > 0 Then
             string_tmp = "過去データ  測定　日付：" & DataDate_bak & "   時間：" & DataTime_bak
             stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-            e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Blue,
+            e.Graphics.DrawString(string_tmp, fnt_10, print_olddata_brush,
                                   paper_width - stringSize.Width,
                                   stringSize.Height + 5)
         End If
 
         string_tmp = "マシーンNo."
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               120 + cell_padding_left,
                               title_height + gyou_height25 + cell_height25 / 2 - stringSize.Height / 2)
         string_tmp = "サンプル名"
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               120 + 150 + cell_padding_left,
                               title_height + gyou_height25 + cell_height25 / 2 - stringSize.Height / 2)
         string_tmp = "測定回数"
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               paper_width - 100 + cell_padding_left,
                               title_height + gyou_height25 + cell_height25 / 2 - stringSize.Height / 2)
 
         string_tmp = "測定仕様"
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, print_curdata_brush,
                               cell_padding_left,
                               title_height + gyou_height25 + (cell_height25 * 1) + cell_height25 / 2 - stringSize.Height / 2)
         string_tmp = "過去の仕様"
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Blue,
+        e.Graphics.DrawString(string_tmp, fnt_10, print_olddata_brush,
                               cell_padding_left,
                               title_height + gyou_height25 + (cell_height25 * 2) + cell_height25 / 2 - stringSize.Height / 2)
         string_tmp = "データ"
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               cell_width74 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + cell_height25 * 1 + cell_height25 - stringSize.Height / 2)
         string_tmp = "測定"
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               cell_width74 + cell_width43 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + cell_height25 * 1 + 8)
         string_tmp = "No."
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               cell_width74 + cell_width43 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + cell_height25 * 2 + 2)
         string_tmp = "配向角[deg.]"
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               cell_width74 + cell_width43 + cell_width67 - stringSize.Width / 2,
                               measresultcalc_hyoutop + cell_height25 * 1 + cell_height25 / 2 - stringSize.Height / 2)
         string_tmp = "配向比"
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               cell_width74 + cell_width43 + cell_width67 * 2 + cell_width67 - stringSize.Width / 2,
                               measresultcalc_hyoutop + cell_height25 * 1 + cell_height25 / 2 - stringSize.Height / 2)
         string_tmp = "伝播速度[Km/S]"
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               cell_width74 + cell_width43 + cell_width67 * 4 + cell_width67 - stringSize.Width / 2,
                               measresultcalc_hyoutop + cell_height25 * 1 + cell_height25 / 2 - stringSize.Height / 2)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               cell_width74 + cell_width43 + cell_width67 * 6 + cell_width67 - stringSize.Width / 2,
                               measresultcalc_hyoutop + cell_height25 * 1 + cell_height25 / 2 - stringSize.Height / 2)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               paper_width - meas_data_table_col_width - stringSize.Width / 2,
                               meas_data_table_top + cell_height25 / 2 - stringSize.Height / 2)
         string_tmp = "TSI[Km/S]^2"
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               cell_width74 + cell_width43 + cell_width67 * 8 + cell_width67 - stringSize.Width / 2,
                               measresultcalc_hyoutop + cell_height25 * 1 + cell_height25 / 2 - stringSize.Height / 2)
         string_tmp = "Peak"
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               cell_width74 + cell_width43 + cell_width67 * 0 + cell_width67 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + cell_height25 * 2 + cell_height25 / 2 - stringSize.Height / 2)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               cell_width74 + cell_width43 + cell_width67 * 6 + cell_width67 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + cell_height25 * 2 + cell_height25 / 2 - stringSize.Height / 2)
         string_tmp = "Deep"
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               cell_width74 + cell_width43 + cell_width67 * 1 + cell_width67 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + cell_height25 * 2 + cell_height25 / 2 - stringSize.Height / 2)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               cell_width74 + cell_width43 + cell_width67 * 7 + cell_width67 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + cell_height25 * 2 + cell_height25 / 2 - stringSize.Height / 2)
         string_tmp = "MD/CD"
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               cell_width74 + cell_width43 + cell_width67 * 2 + cell_width67 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + cell_height25 * 2 + cell_height25 / 2 - stringSize.Height / 2)
         string_tmp = "Peak/Deep"
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_9)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               cell_width74 + cell_width43 + cell_width67 * 3 + cell_width67 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + cell_height25 * 2 + cell_height25 / 2 - stringSize.Height / 2)
         string_tmp = "MD"
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_9)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               cell_width74 + cell_width43 + cell_width67 * 4 + cell_width67 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + cell_height25 * 2 + cell_height25 / 2 - stringSize.Height / 2)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               cell_width74 + cell_width43 + cell_width67 * 8 + cell_width67 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + cell_height25 * 2 + cell_height25 / 2 - stringSize.Height / 2)
         string_tmp = "CD"
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               cell_width74 + cell_width43 + cell_width67 * 5 + cell_width67 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + cell_height25 * 2 + cell_height25 / 2 - stringSize.Height / 2)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               cell_width74 + cell_width43 + cell_width67 * 9 + cell_width67 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + cell_height25 * 2 + cell_height25 / 2 - stringSize.Height / 2)
 
         string_tmp = "測定データ"
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
         '測定結果計算表のタイトル
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, print_curdata_brush,
                               cell_width74 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + cell_height25 * 3 + cell_height25 / 2 - stringSize.Height / 2)
         '測定データ表のタイトル
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, print_curdata_brush,
                               prn_graph_width + meas_data_table_col_width + meas_data_table_col_width / 2 - stringSize.Width / 2,
                               meas_data_table_top + cell_height25 * 1 + cell_height25 / 2 - stringSize.Height / 2)
 
         string_tmp = "過去データ"
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
         '測定結果計算表のタイトル
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Blue,
+        e.Graphics.DrawString(string_tmp, fnt_10, print_olddata_brush,
                               cell_width74 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + cell_height25 * 4 + cell_height25 / 2 - stringSize.Height / 2)
         '測定データ表のタイトル
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Blue,
+        e.Graphics.DrawString(string_tmp, fnt_10, print_olddata_brush,
                               paper_width - meas_data_table_col_width / 2 - stringSize.Width / 2, meas_data_table_top + cell_height25 * 1 + cell_height25 / 2 - stringSize.Height / 2)
         'マシーンNo. cur
         string_tmp = TxtMachNoCur.Text
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, print_curdata_brush,
                               120 + cell_padding_left,
                               measspec_hyoutop + cell_height25 * 1 + cell_height25 / 2 - stringSize.Height / 2)
         'マシーンNo. bak
         string_tmp = TxtMachNoBak.Text
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Blue,
+        e.Graphics.DrawString(string_tmp, fnt_10, print_olddata_brush,
                               120 + cell_padding_left,
                               measspec_hyoutop + cell_height25 * 2 + cell_height25 / 2 - stringSize.Height / 2)
         'サンプル名 cur
         string_tmp = TxtSmplNamCur.Text
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, print_curdata_brush,
                               120 + 150 + cell_padding_left,
                               measspec_hyoutop + cell_height25 * 1 + cell_height25 / 2 - stringSize.Height / 2)
         'サンプル名 bak
         string_tmp = TxtSmplNamBak.Text
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Blue,
+        e.Graphics.DrawString(string_tmp, fnt_10, print_olddata_brush,
                               120 + 150 + cell_padding_left,
                               measspec_hyoutop + cell_height25 * 2 + cell_height25 / 2 - stringSize.Height / 2)
         '測定回数 cur
         string_tmp = Trim(TxtMeasNumCur.Text)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, print_curdata_brush,
                               paper_width - 100 + cell_padding_left,
                               measspec_hyoutop + cell_height25 * 1 + cell_height25 / 2 - stringSize.Height / 2)
         '測定回数 bak
         string_tmp = Trim(TxtMeasNumBak.Text)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Blue,
+        e.Graphics.DrawString(string_tmp, fnt_10, print_olddata_brush,
                               paper_width - 100 + cell_padding_left,
                               measspec_hyoutop + cell_height25 * 2 + cell_height25 / 2 - stringSize.Height / 2)
         '測定No. cur
         string_tmp = LblMeasNumCur_adm.Text
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, print_curdata_brush,
                               cell_width74 + cell_width43 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + cell_height25 * 3 + cell_height25 / 2 - stringSize.Height / 2)
         '配向角Peak cur
         string_tmp = LblAnglPeakCur_adm.Text
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, print_curdata_brush,
                               cell_width74 + cell_width43 + cell_width67 * 0 + cell_width67 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + gyou_height25 + cell_height25 * 2 + cell_height25 / 2 - stringSize.Height / 2)
         '配向角Deep cur
         string_tmp = LblAnglDeepCur_adm.Text
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, print_curdata_brush,
                               cell_width74 + cell_width43 + cell_width67 * 1 + cell_width67 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + gyou_height25 + cell_height25 * 2 + cell_height25 / 2 - stringSize.Height / 2)
         '配向比MD/CD cur
         string_tmp = LblratioMDCDCur_adm.Text
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, print_curdata_brush,
                               cell_width74 + cell_width43 + cell_width67 * 2 + cell_width67 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + gyou_height25 + cell_height25 * 2 + cell_height25 / 2 - stringSize.Height / 2)
         '配向比Peak/Deep cur
         string_tmp = LblratioPKDPCur_adm.Text
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, print_curdata_brush,
                               cell_width74 + cell_width43 + cell_width67 * 3 + cell_width67 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + gyou_height25 + cell_height25 * 2 + cell_height25 / 2 - stringSize.Height / 2)
         '伝播速度MD cur
         string_tmp = LblSpdMDCur_adm.Text
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, print_curdata_brush,
                               cell_width74 + cell_width43 + cell_width67 * 4 + cell_width67 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + gyou_height25 + cell_height25 * 2 + cell_height25 / 2 - stringSize.Height / 2)
         '伝播速度CD cur
         string_tmp = LblSpdCDCur_adm.Text
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, print_curdata_brush,
                               cell_width74 + cell_width43 + cell_width67 * 5 + cell_width67 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + gyou_height25 + cell_height25 * 2 + cell_height25 / 2 - stringSize.Height / 2)
         '伝播速度Peak cur
         string_tmp = LblSpdPeakCur_adm.Text
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, print_curdata_brush,
                               cell_width74 + cell_width43 + cell_width67 * 6 + cell_width67 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + gyou_height25 + cell_height25 * 2 + cell_height25 / 2 - stringSize.Height / 2)
         '伝播速度Deep cur
         string_tmp = LblSpdDeepCur_adm.Text
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, print_curdata_brush,
                               cell_width74 + cell_width43 + cell_width67 * 7 + cell_width67 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + gyou_height25 + cell_height25 * 2 + cell_height25 / 2 - stringSize.Height / 2)
         'TSIMD cur
         string_tmp = LblTSIMDCur_adm.Text
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, print_curdata_brush,
                               cell_width74 + cell_width43 + cell_width67 * 8 + cell_width67 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + gyou_height25 + cell_height25 * 2 + cell_height25 / 2 - stringSize.Height / 2)
         'TSICD cur
         string_tmp = LblTSICDCur_adm.Text
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, print_curdata_brush,
                               cell_width74 + cell_width43 + cell_width67 * 9 + cell_width67 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + gyou_height25 + cell_height25 * 2 + cell_height25 / 2 - stringSize.Height / 2)
         '測定No. bak
         string_tmp = LblMeasNumBak_adm.Text
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Blue,
+        e.Graphics.DrawString(string_tmp, fnt_10, print_olddata_brush,
                               cell_width74 + cell_width43 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + gyou_height25 + cell_height25 * 3 + cell_height25 / 2 - stringSize.Height / 2)
         '配向角Peak bak
         string_tmp = LblAnglPeakBak_adm.Text
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Blue,
+        e.Graphics.DrawString(string_tmp, fnt_10, print_olddata_brush,
                               cell_width74 + cell_width43 + cell_width67 * 0 + cell_width67 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + gyou_height25 + cell_height25 * 3 + cell_height25 / 2 - stringSize.Height / 2)
         '配向角Deep bak
         string_tmp = LblAnglDeepBak_adm.Text
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Blue,
+        e.Graphics.DrawString(string_tmp, fnt_10, print_olddata_brush,
                               cell_width74 + cell_width43 + cell_width67 * 1 + cell_width67 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + gyou_height25 + cell_height25 * 3 + cell_height25 / 2 - stringSize.Height / 2)
         '配向比MD/CD bak
         string_tmp = LblratioMDCDBak_adm.Text
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Blue,
+        e.Graphics.DrawString(string_tmp, fnt_10, print_olddata_brush,
                               cell_width74 + cell_width43 + cell_width67 * 2 + cell_width67 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + gyou_height25 + cell_height25 * 3 + cell_height25 / 2 - stringSize.Height / 2)
         '配向比Peak/Deep bak
         string_tmp = LblratioPKDPBak_adm.Text
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Blue,
+        e.Graphics.DrawString(string_tmp, fnt_10, print_olddata_brush,
                               cell_width74 + cell_width43 + cell_width67 * 3 + cell_width67 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + gyou_height25 + cell_height25 * 3 + cell_height25 / 2 - stringSize.Height / 2)
         '伝播速度MD bak
         string_tmp = LblSpdMDBak_adm.Text
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Blue,
+        e.Graphics.DrawString(string_tmp, fnt_10, print_olddata_brush,
                               cell_width74 + cell_width43 + cell_width67 * 4 + cell_width67 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + gyou_height25 + cell_height25 * 3 + cell_height25 / 2 - stringSize.Height / 2)
         '伝播速度CD bak
         string_tmp = LblSpdCDBak_adm.Text
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Blue,
+        e.Graphics.DrawString(string_tmp, fnt_10, print_olddata_brush,
                               cell_width74 + cell_width43 + cell_width67 * 5 + cell_width67 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + gyou_height25 + cell_height25 * 3 + cell_height25 / 2 - stringSize.Height / 2)
         '伝播速度Peak bak
         string_tmp = LblSpdPeakBak_adm.Text
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Blue,
+        e.Graphics.DrawString(string_tmp, fnt_10, print_olddata_brush,
                               cell_width74 + cell_width43 + cell_width67 * 6 + cell_width67 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + gyou_height25 + cell_height25 * 3 + cell_height25 / 2 - stringSize.Height / 2)
         '伝播速度Deep bak
         string_tmp = LblSpdDeepBak_adm.Text
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Blue,
+        e.Graphics.DrawString(string_tmp, fnt_10, print_olddata_brush,
                               cell_width74 + cell_width43 + cell_width67 * 7 + cell_width67 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + gyou_height25 + cell_height25 * 3 + cell_height25 / 2 - stringSize.Height / 2)
         'TSIMD bak
         string_tmp = LblTSIMDBak_adm.Text
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Blue,
+        e.Graphics.DrawString(string_tmp, fnt_10, print_olddata_brush,
                               cell_width74 + cell_width43 + cell_width67 * 8 + cell_width67 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + gyou_height25 + cell_height25 * 3 + cell_height25 / 2 - stringSize.Height / 2)
         'TSICD bak
         string_tmp = LblTSICDBak_adm.Text
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Blue,
+        e.Graphics.DrawString(string_tmp, fnt_10, print_olddata_brush,
                               cell_width74 + cell_width43 + cell_width67 * 9 + cell_width67 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + gyou_height25 + cell_height25 * 3 + cell_height25 / 2 - stringSize.Height / 2)
 
@@ -1945,7 +2006,7 @@ Public Class FrmSST4500_1_0_0J_meas
         'Dim meas_data_hyou_col1_width As Single = (Prn_left_margin + paper_width - 200) - (Prn_left_margin + prn_graph_width + 25)
         string_tmp = "角度[deg.]"
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               prn_graph_width + meas_data_table_col_width / 2 - stringSize.Width / 2,
                               meas_data_table_top + cell_height25 - stringSize.Height / 2)
         For i = 2 To 17
@@ -1968,7 +2029,7 @@ Public Class FrmSST4500_1_0_0J_meas
                 Case 17 : string_tmp = "168.75"
             End Select
             stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-            e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+            e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                                   prn_graph_width + meas_data_table_col_width / 2 - stringSize.Width / 2,
                                   meas_data_table_top + cell_height25 * i + cell_height25 / 2 - stringSize.Height / 2)
         Next
@@ -1993,7 +2054,7 @@ Public Class FrmSST4500_1_0_0J_meas
                 Case 17 : string_tmp = LblMeasDatCur16_adm.Text
             End Select
             stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-            e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+            e.Graphics.DrawString(string_tmp, fnt_10, print_curdata_brush,
                                   prn_graph_width + meas_data_table_col_width + meas_data_table_col_width / 2 - stringSize.Width / 2,
                                   meas_data_table_top + cell_height25 * i + cell_height25 / 2 - stringSize.Height / 2)
         Next
@@ -2018,7 +2079,7 @@ Public Class FrmSST4500_1_0_0J_meas
                 Case 17 : string_tmp = LblMeasDatBak16_adm.Text
             End Select
             stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-            e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Blue,
+            e.Graphics.DrawString(string_tmp, fnt_10, print_olddata_brush,
                                   paper_width - meas_data_table_col_width / 2 - stringSize.Width / 2,
                                   meas_data_table_top + cell_height25 * i + cell_height25 / 2 - stringSize.Height / 2)
         Next
@@ -2255,8 +2316,18 @@ Public Class FrmSST4500_1_0_0J_meas
         Dim fnt_10 As New Font("MS UI Gothic", 10)
         Dim fnt_9 As New Font("MS US Gothic", 9)
 
+        Dim printbc_brush As Brush = New SolidBrush(frm_MeasForm_bc)
+        Dim print_curdata_brush As Brush = New SolidBrush(frm_MeasCurData_color)
+        Dim print_olddata_brush As Brush = New SolidBrush(frm_MeasOldData_color)
+        Dim printfc_brush As Brush = New SolidBrush(frm_MeasForm_fc)
+
         Dim paper_width As Integer = e.MarginBounds.Width
         Dim paper_height As Integer = e.MarginBounds.Height
+
+        '用紙の色（印刷範囲全体）
+        If frm_MeasForm_bc <> SystemColors.Control Then
+            e.Graphics.FillRectangle(printbc_brush, -Prn_left_margin, -Prn_top_margin, paper_width + Prn_left_margin + Prn_right_margin * 2, paper_height + Prn_top_margin + Prn_btm_margin * 2)
+        End If
         'Console.WriteLine(e.Graphics.PageUnit)
         'Console.WriteLine(e.PageSettings.Margins.Left)
         'Console.WriteLine(e.PageSettings.Margins.Right)
@@ -2271,7 +2342,7 @@ Public Class FrmSST4500_1_0_0J_meas
         string_tmp = My.Application.Info.ProductName & " シングルシート"
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_20)
         title_height = stringSize.Height
-        e.Graphics.DrawString(string_tmp, fnt_20, Brushes.Black, 0, 0)
+        e.Graphics.DrawString(string_tmp, fnt_20, printfc_brush, 0, 0)
 
         '測定仕様枠
         Dim measspec_hyoutop As Single = title_height + gyou_height25
@@ -2365,211 +2436,211 @@ Public Class FrmSST4500_1_0_0J_meas
         If MeasDataNo_cur > 0 Then
             string_tmp = "測定データ  測定　日付：" & DataDate_cur & "   時間：" & DataTime_cur
             stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-            e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+            e.Graphics.DrawString(string_tmp, fnt_10, print_curdata_brush,
                                   paper_width - stringSize.Width, 0)
         End If
 
         string_tmp = "マシーンNo."
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               120 + cell_padding_left,
                               title_height + gyou_height25 + cell_height25 / 2 - stringSize.Height / 2)
         string_tmp = "サンプル名"
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               120 + 150 + cell_padding_left,
                               title_height + gyou_height25 + cell_height25 / 2 - stringSize.Height / 2)
         string_tmp = "測定回数"
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               paper_width - 100 + cell_padding_left,
                               title_height + gyou_height25 + cell_height25 / 2 - stringSize.Height / 2)
 
         string_tmp = "測定仕様"
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, print_curdata_brush,
                               cell_padding_left,
                               title_height + gyou_height25 + (cell_height25 * 1) + cell_height25 / 2 - stringSize.Height / 2)
         string_tmp = "データ"
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               cell_width74 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + cell_height25 * 1 + 19)
         string_tmp = "測定"
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               cell_width74 + cell_width43 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + cell_height25 * 1 + 8)
         string_tmp = "No."
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               cell_width74 + cell_width43 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + cell_height25 * 2 + 2)
         string_tmp = "配向角[deg.]"
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               cell_width74 + cell_width43 + cell_width67 - stringSize.Width / 2,
                               measresultcalc_hyoutop + cell_height25 * 1 + cell_height25 / 2 - stringSize.Height / 2)
         string_tmp = "配向比"
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               cell_width74 + cell_width43 + cell_width67 * 2 + cell_width67 - stringSize.Width / 2,
                               measresultcalc_hyoutop + cell_height25 * 1 + cell_height25 / 2 - stringSize.Height / 2)
         string_tmp = "伝播速度[Km/S]"
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               cell_width74 + cell_width43 + cell_width67 * 4 + cell_width67 - stringSize.Width / 2,
                               measresultcalc_hyoutop + cell_height25 * 1 + cell_height25 / 2 - stringSize.Height / 2)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               cell_width74 + cell_width43 + cell_width67 * 6 + cell_width67 - stringSize.Width / 2,
                               measresultcalc_hyoutop + cell_height25 * 1 + cell_height25 / 2 - stringSize.Height / 2)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               paper_width - meas_data_table_col_width - stringSize.Width / 2,
                               meas_data_table_top + cell_height25 / 2 - stringSize.Height / 2)
         string_tmp = "TSI[Km/S]^2"
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               cell_width74 + cell_width43 + cell_width67 * 8 + cell_width67 - stringSize.Width / 2,
                               measresultcalc_hyoutop + cell_height25 * 1 + cell_height25 / 2 - stringSize.Height / 2)
         string_tmp = "Peak"
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               cell_width74 + cell_width43 + cell_width67 * 0 + cell_width67 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + cell_height25 * 2 + cell_height25 / 2 - stringSize.Height / 2)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               cell_width74 + cell_width43 + cell_width67 * 6 + cell_width67 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + cell_height25 * 2 + cell_height25 / 2 - stringSize.Height / 2)
         string_tmp = "Deep"
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               cell_width74 + cell_width43 + cell_width67 * 1 + cell_width67 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + cell_height25 * 2 + cell_height25 / 2 - stringSize.Height / 2)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               cell_width74 + cell_width43 + cell_width67 * 7 + cell_width67 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + cell_height25 * 2 + cell_height25 / 2 - stringSize.Height / 2)
         string_tmp = "MD/CD"
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               cell_width74 + cell_width43 + cell_width67 * 2 + cell_width67 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + cell_height25 * 2 + cell_height25 / 2 - stringSize.Height / 2)
         string_tmp = "Peak/Deep"
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_9)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               cell_width74 + cell_width43 + cell_width67 * 3 + cell_width67 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + cell_height25 * 2 + cell_height25 / 2 - stringSize.Height / 2)
         string_tmp = "MD"
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_9)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               cell_width74 + cell_width43 + cell_width67 * 4 + cell_width67 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + cell_height25 * 2 + cell_height25 / 2 - stringSize.Height / 2)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               cell_width74 + cell_width43 + cell_width67 * 8 + cell_width67 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + cell_height25 * 2 + cell_height25 / 2 - stringSize.Height / 2)
         string_tmp = "CD"
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               cell_width74 + cell_width43 + cell_width67 * 5 + cell_width67 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + cell_height25 * 2 + cell_height25 / 2 - stringSize.Height / 2)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               cell_width74 + cell_width43 + cell_width67 * 9 + cell_width67 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + cell_height25 * 2 + cell_height25 / 2 - stringSize.Height / 2)
 
         string_tmp = "測定データ"
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
         '測定結果計算表のタイトル
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, print_curdata_brush,
                               cell_width74 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + cell_height25 * 3 + cell_height25 / 2 - stringSize.Height / 2)
         '測定データ表のタイトル
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, print_curdata_brush,
                               paper_width - meas_data_table_col_width - stringSize.Width / 2,
                               meas_data_table_top + cell_height25 * 1 + cell_height25 / 2 - stringSize.Height / 2)
         'マシーンNo. cur
         string_tmp = TxtMachNoCur.Text
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, print_curdata_brush,
                               120 + cell_padding_left,
                               title_height + gyou_height25 + cell_height25 * 1 + cell_height25 / 2 - stringSize.Height / 2)
         'サンプル名 cur
         string_tmp = TxtSmplNamCur.Text
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, print_curdata_brush,
                               120 + 150 + cell_padding_left,
                               title_height + gyou_height25 + cell_height25 * 1 + cell_height25 / 2 - stringSize.Height / 2)
         '測定回数 cur
         string_tmp = Trim(TxtMeasNumCur.Text)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, print_curdata_brush,
                               paper_width - 100 + cell_padding_left,
                               title_height + gyou_height25 + cell_height25 * 1 + cell_height25 / 2 - stringSize.Height / 2)
         '測定No. cur
         string_tmp = LblMeasNumCur_nom.Text
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, print_curdata_brush,
                               cell_width74 + cell_width43 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + cell_height25 * 3 + cell_height25 / 2 - stringSize.Height / 2)
         '配向角Peak cur
         string_tmp = LblAnglPeakCur_nom.Text
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, print_curdata_brush,
                               cell_width74 + cell_width43 + cell_width67 * 0 + cell_width67 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + gyou_height25 + cell_height25 * 2 + cell_height25 / 2 - stringSize.Height / 2)
         '配向角Deep cur
         string_tmp = LblAnglDeepCur_nom.Text
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, print_curdata_brush,
                               cell_width74 + cell_width43 + cell_width67 * 1 + cell_width67 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + gyou_height25 + cell_height25 * 2 + cell_height25 / 2 - stringSize.Height / 2)
         '配向比MD/CD cur
         string_tmp = LblratioMDCDCur_nom.Text
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, print_curdata_brush,
                               cell_width74 + cell_width43 + cell_width67 * 2 + cell_width67 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + gyou_height25 + cell_height25 * 2 + cell_height25 / 2 - stringSize.Height / 2)
         '配向比Peak/Deep cur
         string_tmp = LblratioPKDPCur_nom.Text
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, print_curdata_brush,
                               cell_width74 + cell_width43 + cell_width67 * 3 + cell_width67 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + gyou_height25 + cell_height25 * 2 + cell_height25 / 2 - stringSize.Height / 2)
         '伝播速度MD cur
         string_tmp = LblSpdMDCur_nom.Text
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, print_curdata_brush,
                               cell_width74 + cell_width43 + cell_width67 * 4 + cell_width67 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + gyou_height25 + cell_height25 * 2 + cell_height25 / 2 - stringSize.Height / 2)
         '伝播速度CD cur
         string_tmp = LblSpdCDCur_nom.Text
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, print_curdata_brush,
                               cell_width74 + cell_width43 + cell_width67 * 5 + cell_width67 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + gyou_height25 + cell_height25 * 2 + cell_height25 / 2 - stringSize.Height / 2)
         '伝播速度Peak cur
         string_tmp = LblSpdPeakCur_nom.Text
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, print_curdata_brush,
                               cell_width74 + cell_width43 + cell_width67 * 6 + cell_width67 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + gyou_height25 + cell_height25 * 2 + cell_height25 / 2 - stringSize.Height / 2)
         '伝播速度Deep cur
         string_tmp = LblSpdDeepCur_nom.Text
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, print_curdata_brush,
                               cell_width74 + cell_width43 + cell_width67 * 7 + cell_width67 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + gyou_height25 + cell_height25 * 2 + cell_height25 / 2 - stringSize.Height / 2)
         'TSIMD cur
         string_tmp = LblTSIMDCur_nom.Text
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, print_curdata_brush,
                               cell_width74 + cell_width43 + cell_width67 * 8 + cell_width67 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + gyou_height25 + cell_height25 * 2 + cell_height25 / 2 - stringSize.Height / 2)
         'TSICD cur
         string_tmp = LblTSICDCur_nom.Text
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, print_curdata_brush,
                               cell_width74 + cell_width43 + cell_width67 * 9 + cell_width67 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + gyou_height25 + cell_height25 * 2 + cell_height25 / 2 - stringSize.Height / 2)
 
         'Dim meas_data_hyou_col1_width As Single = paper_width - 200 - prn_graph_width + 25
         string_tmp = "角度[deg.]"
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-        e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+        e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               prn_graph_width + meas_data_table_col_width / 2 - stringSize.Width / 2,
                               meas_data_table_top + cell_height25 - stringSize.Height / 2)
         For i = 2 To 17
@@ -2592,7 +2663,7 @@ Public Class FrmSST4500_1_0_0J_meas
                 Case 17 : string_tmp = "168.75"
             End Select
             stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-            e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+            e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               prn_graph_width + meas_data_table_col_width / 2 - stringSize.Width / 2,
                               meas_data_table_top + cell_height25 * i + cell_height25 / 2 - stringSize.Height / 2)
         Next
@@ -2617,7 +2688,7 @@ Public Class FrmSST4500_1_0_0J_meas
                 Case 17 : string_tmp = LblMeasDatCur16_nom.Text
             End Select
             stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-            e.Graphics.DrawString(string_tmp, fnt_10, Brushes.Black,
+            e.Graphics.DrawString(string_tmp, fnt_10, print_curdata_brush,
                                   paper_width - meas_data_table_col_width - stringSize.Width / 2,
                                   meas_data_table_top + cell_height25 * i + cell_height25 / 2 - stringSize.Height / 2)
         Next
@@ -2700,17 +2771,25 @@ Public Class FrmSST4500_1_0_0J_meas
                             '通常モード時
                             With sheet
                                 .Cells.Locked = False
+                                If frm_MeasForm_bc <> SystemColors.Control Then
+                                    .Cells.Interior.Color = frm_MeasForm_bc
+                                End If
+
                                 .Cells(1, 1) = My.Application.Info.ProductName & " シングルシート"
+                                .Range(.Cells(1, 1), .Cells(1, 1)).Font.Color = frm_MeasForm_fc
                                 .Cells(2, 1) = "測定データ 測定　日付：" & DataDate_cur & "  時間：" & DataTime_cur
+                                .Range(.Cells(2, 1), .Cells(2, 1)).Font.Color = frm_MeasCurData_color
                                 .Range(.Cells(1, 1), .Cells(2, 1)).Locked = True
 
                                 .Cells(4, 2) = "マシーンNo."
                                 .Cells(4, 3) = "サンプル名"
                                 .Cells(4, 4) = "測定回数"
+                                .Range(.Cells(4, 2), .Cells(4, 4)).Font.Color = frm_MeasForm_fc
                                 .Cells(5, 1) = "測定仕様"
                                 .Cells(5, 2) = TxtMachNoCur.Text
                                 .Cells(5, 3) = TxtSmplNamCur.Text
                                 .Cells(5, 4) = TxtMeasNumCur.Text
+                                .Range(.Cells(5, 1), .Cells(5, 4)).Font.Color = frm_MeasCurData_color
                                 .Range(.Cells(4, 1), .Cells(5, 4)).Borders.LineStyle = Excel.XlLineStyle.xlContinuous
                                 .Range(.Cells(4, 1), .Cells(5, 4)).Locked = True
 
@@ -2738,6 +2817,7 @@ Public Class FrmSST4500_1_0_0J_meas
                                 .Cells(7, 11) = "TSI(Km/S)^2"
                                 .Cells(8, 11) = "MD"
                                 .Cells(8, 12) = "CD"
+                                .Range(.Cells(7, 1), .Cells(8, 12)).Font.Color = frm_MeasForm_fc
                                 .Cells(9, 1) = "測定データ"
                                 .Cells(9, 2) = LblMeasNumCur_nom.Text
                                 .Cells(9, 3) = LblAnglPeakCur_nom.Text
@@ -2750,13 +2830,14 @@ Public Class FrmSST4500_1_0_0J_meas
                                 .Cells(9, 10) = LblSpdDeepCur_nom.Text
                                 .Cells(9, 11) = LblTSIMDCur_nom.Text
                                 .Cells(9, 12) = LblTSICDCur_nom.Text
+                                .Range(.Cells(9, 1), .Cells(9, 12)).Font.Color = frm_MeasCurData_color
                                 .Range(.Cells(7, 1), .Cells(9, 12)).Borders.LineStyle = Excel.XlLineStyle.xlContinuous
                                 .Range(.Cells(7, 1), .Cells(9, 12)).Locked = True
 
                                 .Range(.Cells(11, 10), .Cells(12, 10)).MergeCells = True
                                 .Cells(11, 10) = "角度[deg.]"
                                 .Cells(11, 11) = "伝播速度[Km/S]"
-                                .Cells(12, 11) = "測定データ"
+                                .Range(.Cells(11, 10), .Cells(11, 11)).Font.Color = frm_MeasForm_fc
                                 .Cells(13, 10) = "0.00"
                                 .Cells(14, 10) = "11.25"
                                 .Cells(15, 10) = "22.50"
@@ -2773,7 +2854,9 @@ Public Class FrmSST4500_1_0_0J_meas
                                 .Cells(26, 10) = "146.25"
                                 .Cells(27, 10) = "157.50"
                                 .Cells(28, 10) = "168.75"
+                                .Range(.Cells(13, 10), .Cells(28, 10)).Font.Color = frm_MeasForm_fc
 
+                                .Cells(12, 11) = "測定データ"
                                 .Cells(13, 11) = LblMeasDatCur1_nom.Text
                                 .Cells(14, 11) = LblMeasDatCur2_nom.Text
                                 .Cells(15, 11) = LblMeasDatCur3_nom.Text
@@ -2790,6 +2873,7 @@ Public Class FrmSST4500_1_0_0J_meas
                                 .Cells(26, 11) = LblMeasDatCur14_nom.Text
                                 .Cells(27, 11) = LblMeasDatCur15_nom.Text
                                 .Cells(28, 11) = LblMeasDatCur16_nom.Text
+                                .Range(.Cells(12, 11), .Cells(28, 11)).Font.Color = frm_MeasCurData_color
                                 .Range(.Cells(11, 10), .Cells(28, 11)).Borders.LineStyle = Excel.XlLineStyle.xlContinuous
                                 .Range(.Cells(11, 10), .Cells(28, 11)).Locked = True
 
@@ -2822,31 +2906,38 @@ Public Class FrmSST4500_1_0_0J_meas
 
                             With sheet
                                 .Cells.Locked = False
+                                If frm_MeasForm_bc <> SystemColors.Control Then
+                                    .Cells.Interior.Color = frm_MeasForm_bc
+                                End If
 
                                 .Cells(1, 1) = "SST-4000 シングルシート"
+                                .Range(.Cells(1, 1), .Cells(1, 1)).Font.Color = frm_MeasForm_fc
                                 .Cells(2, 1) = "測定データ 測定　日付：" & DataDate_cur & "  時間：" & DataTime_cur
+                                .Range(.Cells(2, 1), .Cells(2, 1)).Font.Color = frm_MeasCurData_color
                                 .Cells(3, 1) = "過去データ 測定　日付：" & DataDate_bak & "  時間：" & DataTime_bak
-                                .Range(.Cells(3, 1), .Cells(3, 1)).Font.Color = Color.Blue
+                                .Range(.Cells(3, 1), .Cells(3, 1)).Font.Color = frm_MeasOldData_color
                                 .Range(.Cells(1, 1), .Cells(3, 1)).Locked = True
 
                                 .Cells(5, 2) = "マシーンNo."
                                 .Cells(5, 3) = "サンプル名"
                                 .Cells(5, 4) = "測定回数"
+                                .Range(.Cells(5, 2), .Cells(5, 4)).Font.Color = frm_MeasForm_fc
                                 .Cells(6, 1) = "測定仕様"
                                 .Cells(6, 2) = TxtMachNoCur.Text
                                 .Cells(6, 3) = TxtSmplNamCur.Text
                                 .Cells(6, 4) = TxtMeasNumCur.Text
+                                .Range(.Cells(6, 1), .Cells(6, 4)).Font.Color = frm_MeasCurData_color
                                 .Cells(7, 1) = "過去の仕様"
                                 .Cells(7, 2) = TxtMachNoBak.Text
                                 .Cells(7, 3) = TxtSmplNamBak.Text
                                 .Cells(7, 4) = TxtMeasNumBak.Text
-                                .Range(.Cells(7, 1), .Cells(7, 4)).Font.Color = Color.Blue
+                                .Range(.Cells(7, 1), .Cells(7, 4)).Font.Color = frm_MeasOldData_color
                                 .Range(.Cells(5, 1), .Cells(7, 4)).Borders.LineStyle = Excel.XlLineStyle.xlContinuous
                                 .Range(.Cells(5, 1), .Cells(7, 4)).Locked = True
 
-                                .Range(.Cells(9, 1), .Cells(9, 1)).MergeCells = True
+                                .Range(.Cells(9, 1), .Cells(10, 1)).MergeCells = True
                                 .Cells(9, 1) = "データ"
-                                .Range(.Cells(9, 2), .Cells(9, 2)).MergeCells = True
+                                .Range(.Cells(9, 2), .Cells(10, 2)).MergeCells = True
                                 .Cells(9, 2) = "測定No."
                                 .Range(.Cells(9, 3), .Cells(9, 4)).MergeCells = True
                                 .Cells(9, 3) = "配向角[deg.]"
@@ -2868,6 +2959,7 @@ Public Class FrmSST4500_1_0_0J_meas
                                 .Cells(9, 11) = "TSI(Km/S)^2"
                                 .Cells(10, 11) = "MD"
                                 .Cells(10, 12) = "CD"
+                                .Range(.Cells(9, 1), .Cells(10, 12)).Font.Color = frm_MeasForm_fc
                                 .Cells(11, 1) = "測定データ"
                                 .Cells(11, 2) = LblMeasNumCur_adm.Text
                                 .Cells(11, 3) = LblAnglPeakCur_adm.Text
@@ -2880,6 +2972,7 @@ Public Class FrmSST4500_1_0_0J_meas
                                 .Cells(11, 10) = LblSpdDeepCur_adm.Text
                                 .Cells(11, 11) = LblTSIMDCur_adm.Text
                                 .Cells(11, 12) = LblTSICDCur_adm.Text
+                                .Range(.Cells(11, 1), .Cells(11, 12)).Font.Color = frm_MeasCurData_color
                                 .Cells(12, 1) = "過去データ"
                                 .Cells(12, 2) = LblMeasNumBak_adm.Text
                                 .Cells(12, 3) = LblAnglPeakBak_adm.Text
@@ -2892,7 +2985,7 @@ Public Class FrmSST4500_1_0_0J_meas
                                 .Cells(12, 10) = LblSpdDeepBak_adm.Text
                                 .Cells(12, 11) = LblTSIMDBak_adm.Text
                                 .Cells(12, 12) = LblTSICDBak_adm.Text
-                                .Range(.Cells(12, 1), .Cells(12, 12)).Font.Color = Color.Blue
+                                .Range(.Cells(12, 1), .Cells(12, 12)).Font.Color = frm_MeasOldData_color
                                 .Range(.Cells(9, 1), .Cells(12, 12)).Borders.LineStyle = Excel.XlLineStyle.xlContinuous
                                 .Range(.Cells(9, 1), .Cells(12, 12)).Locked = True
 
@@ -2900,6 +2993,7 @@ Public Class FrmSST4500_1_0_0J_meas
                                 .Cells(14, 10) = "角度[deg.]"
                                 .Range(.Cells(14, 11), .Cells(14, 12)).MergeCells = True
                                 .Cells(14, 11) = "伝播速度[Km/S]"
+                                .Range(.Cells(14, 10), .Cells(14, 11)).Font.Color = frm_MeasForm_fc
                                 .Cells(16, 10) = "0.00"
                                 .Cells(17, 10) = "11.25"
                                 .Cells(18, 10) = "22.50"
@@ -2916,6 +3010,7 @@ Public Class FrmSST4500_1_0_0J_meas
                                 .Cells(29, 10) = "146.25"
                                 .Cells(30, 10) = "157.50"
                                 .Cells(31, 10) = "168.75"
+                                .Range(.Cells(16, 10), .Cells(31, 10)).Font.Color = frm_MeasForm_fc
 
                                 .Cells(15, 11) = "測定データ"
                                 .Cells(16, 11) = LblMeasDatCur1_adm.Text
@@ -2934,6 +3029,7 @@ Public Class FrmSST4500_1_0_0J_meas
                                 .Cells(29, 11) = LblMeasDatCur14_adm.Text
                                 .Cells(30, 11) = LblMeasDatCur15_adm.Text
                                 .Cells(31, 11) = LblMeasDatCur16_adm.Text
+                                .Range(.Cells(15, 11), .Cells(31, 11)).Font.Color = frm_MeasCurData_color
 
                                 .Cells(15, 12) = "過去データ"
                                 .Cells(16, 12) = LblMeasDatBak1_adm.Text
@@ -2952,7 +3048,7 @@ Public Class FrmSST4500_1_0_0J_meas
                                 .Cells(29, 12) = LblMeasDatBak14_adm.Text
                                 .Cells(30, 12) = LblMeasDatBak15_adm.Text
                                 .Cells(31, 12) = LblMeasDatBak16_adm.Text
-                                .Range(.Cells(15, 12), .Cells(31, 12)).Font.Color = Color.Blue
+                                .Range(.Cells(15, 12), .Cells(31, 12)).Font.Color = frm_MeasOldData_color
                                 .Range(.Cells(14, 10), .Cells(31, 12)).Borders.LineStyle = Excel.XlLineStyle.xlContinuous
                                 .Range(.Cells(14, 10), .Cells(31, 12)).Locked = True
 

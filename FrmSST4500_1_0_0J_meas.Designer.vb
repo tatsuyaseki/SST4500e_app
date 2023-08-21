@@ -346,7 +346,6 @@ Partial Class FrmSST4500_1_0_0J_meas
         Me.TxtSmplNamCur.Name = "TxtSmplNamCur"
         Me.TxtSmplNamCur.Size = New System.Drawing.Size(340, 22)
         Me.TxtSmplNamCur.TabIndex = 8
-        Me.TxtSmplNamCur.Text = "11"
         '
         'TxtSmplNamBak
         '
@@ -3202,9 +3201,9 @@ Partial Class FrmSST4500_1_0_0J_meas
         Me.Controls.Add(Me.LblProductNameMeas)
         Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.TblMeasInfo_adm)
-        Me.Controls.Add(Me.TblMeasData_nom)
         Me.Controls.Add(Me.TblMeasData_adm)
         Me.Controls.Add(Me.TblMeasInfo_nom)
+        Me.Controls.Add(Me.TblMeasData_nom)
         Me.Font = New System.Drawing.Font("MS UI Gothic", 9.0!)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MenuStrip1

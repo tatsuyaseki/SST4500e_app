@@ -123,6 +123,8 @@ Partial Class FrmSST4500_1_0_0J_colorsetting
         Me.Label57 = New System.Windows.Forms.Label()
         Me.Label58 = New System.Windows.Forms.Label()
         Me.CmdColorSettingQuit = New System.Windows.Forms.Button()
+        Me.Label27 = New System.Windows.Forms.Label()
+        Me.CbPrintBc = New System.Windows.Forms.CheckBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -775,9 +777,9 @@ Partial Class FrmSST4500_1_0_0J_colorsetting
         Me.Label11.AutoSize = True
         Me.Label11.Location = New System.Drawing.Point(6, 431)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(69, 12)
+        Me.Label11.Size = New System.Drawing.Size(81, 12)
         Me.Label11.TabIndex = 39
-        Me.Label11.Text = "過去データ色"
+        Me.Label11.Text = "平均値データ色"
         '
         'LblFrmPrfAvgDataColor
         '
@@ -1078,11 +1080,32 @@ Partial Class FrmSST4500_1_0_0J_colorsetting
         Me.CmdColorSettingQuit.Text = "閉じる"
         Me.CmdColorSettingQuit.UseVisualStyleBackColor = True
         '
+        'Label27
+        '
+        Me.Label27.AutoSize = True
+        Me.Label27.Location = New System.Drawing.Point(15, 397)
+        Me.Label27.Name = "Label27"
+        Me.Label27.Size = New System.Drawing.Size(141, 24)
+        Me.Label27.TabIndex = 7
+        Me.Label27.Text = "フォーム背景色を" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "印刷、Excel保存に適用する"
+        '
+        'CbPrintBc
+        '
+        Me.CbPrintBc.AutoSize = True
+        Me.CbPrintBc.Location = New System.Drawing.Point(17, 424)
+        Me.CbPrintBc.Name = "CbPrintBc"
+        Me.CbPrintBc.Size = New System.Drawing.Size(43, 16)
+        Me.CbPrintBc.TabIndex = 43
+        Me.CbPrintBc.Text = "する"
+        Me.CbPrintBc.UseVisualStyleBackColor = True
+        '
         'FrmSST4500_1_0_0J_colorsetting
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(538, 492)
+        Me.Controls.Add(Me.CbPrintBc)
+        Me.Controls.Add(Me.Label27)
         Me.Controls.Add(Me.CmdColorSettingQuit)
         Me.Controls.Add(Me.Label58)
         Me.Controls.Add(Me.GroupBox3)
@@ -1203,4 +1226,6 @@ Partial Class FrmSST4500_1_0_0J_colorsetting
     Friend WithEvents Label28 As Label
     Friend WithEvents LblFrmPrfMeasButtonBC As Label
     Friend WithEvents Label33 As Label
+    Friend WithEvents Label27 As Label
+    Friend WithEvents CbPrintBc As CheckBox
 End Class

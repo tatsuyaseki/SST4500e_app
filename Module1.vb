@@ -120,6 +120,9 @@ Module Module1
     Public LengthOld As Single
     Public PitchOld As Single
     Public PointsOld As Single
+    Public LengthBak As Single
+    Public PitchBak As Single
+    Public PointsBak As Single
     Public MeasNo As Integer
     Public FlgInch As Integer
     Public FlgPrfDisplay As Integer
@@ -244,6 +247,8 @@ Module Module1
 
 
     Public StrConstFileName As String
+    Public StrConstFilePath As String
+    Public FlgConstChg As Boolean
     Public StrDataFileName As String
     Public StrFileName As String
 
@@ -342,6 +347,7 @@ Module Module1
     Public Prn_btm_margin As Integer
     Public Prn_left_margin As Integer
     Public Prn_right_margin As Integer
+    Public FlgPrnBc_enable As Boolean
 
     Public FlgFTDLLerr As Integer
 
@@ -566,7 +572,7 @@ Module Module1
                     .LblFrmMainFormFC.BackColor = frm_MainForm_fc
                     .LblFrmMainMenuFC.BackColor = frm_MainMenu_fc
                     .LblFrmMainStatusFC.BackColor = frm_MainStatus_fc
-                    .LblFrmMainButtonFC.ForeColor = frm_MainButton_fc
+                    .LblFrmMainButtonFC.BackColor = frm_MainButton_fc
                     .LblFrmMainLineColor.BackColor = frm_MainLine_color
                 End With
                 mainform_borderstyle_init()
@@ -577,6 +583,7 @@ Module Module1
                     .LblFrmMeasMenuBC.BackColor = frm_MeasMenu_bc
                     .LblFrmMeasStatusBC.BackColor = frm_MeasStatus_bc
                     .LblFrmMeasButtonBC.BackColor = frm_MeasButton_bc
+                    .LblFrmMeasMeasButtonBC.BackColor = frm_MeasMeasButton_bc
                     .LblFrmMeasuringButtonBC.BackColor = frm_MeasuringButton_bc
                     .LblFrmMeasGraphBC.BackColor = frm_MeasGraph_bc
                     .LblFrmMeasTextBoxBC.BackColor = frm_MeasTextBox_bc
@@ -585,6 +592,7 @@ Module Module1
                     .LblFrmMeasMenuFC.BackColor = frm_MeasMenu_fc
                     .LblFrmMeasStatusFC.BackColor = frm_MeasStatus_fc
                     .LblFrmMeasButtonFC.BackColor = frm_MeasButton_fc
+                    .LblFrmMeasMeasButtonFC.BackColor = frm_MeasMeasButton_fc
                     .LblFrmMeasuringButtonFC.BackColor = frm_MeasuringButton_fc
                     .LblFrmMeasOldDataColor.BackColor = frm_MeasOldData_color
                     .LblFrmMeasCurDataColor.BackColor = frm_MeasCurData_color
@@ -598,6 +606,7 @@ Module Module1
                     .LblFrmPrfMenuBC.BackColor = frm_PrfMenu_bc
                     .LblFrmPrfStatusBC.BackColor = frm_PrfStatus_bc
                     .LblFrmPrfButtonBC.BackColor = frm_PrfButton_bc
+                    .LblFrmPrfMeasButtonBC.BackColor = frm_PrfMeasButton_bc
                     .LblFrmPrfMeasuringButtonBC.BackColor = frm_PrfMeasuringButton_bc
                     .LblFrmPrfGraphBC.BackColor = frm_PrfGraph_bc
                     .LblFrmPrfTextBoxBC.BackColor = frm_PrfTextBox_bc
@@ -606,6 +615,7 @@ Module Module1
                     .LblFrmPrfMenuFC.BackColor = frm_PrfMenu_fc
                     .LblFrmPrfStatusFC.BackColor = frm_PrfStatus_fc
                     .LblFrmPrfButtonFC.BackColor = frm_PrfButton_fc
+                    .LblFrmPrfMeasButtonFC.BackColor = frm_PrfMeasButton_fc
                     .LblFrmPrfMeasuringButtonFC.BackColor = frm_PrfMeasuringButton_fc
                     .LblFrmPrfOldDataColor.BackColor = frm_PrfOldData_color
                     .LblFrmPrfCurDataColor.BackColor = frm_PrfCurData_color
@@ -703,80 +713,104 @@ Module Module1
             .PictureBox2.BackColor = frm_PrfGraph_bc
             .PictureBox3.BackColor = frm_PrfGraph_bc
             .PictureBox4.BackColor = frm_PrfGraph_bc
-            .TabAngleratio.BackColor = frm_PrfGraph_bc
-            .TabVeloTsi.BackColor = frm_PrfGraph_bc
-            .TabMeasDataView.BackColor = frm_PrfGraph_bc
             .LblAngCenter.BackColor = frm_PrfGraph_bc
-            .Label76.BackColor = frm_PrfGraph_bc        '配向角 [deg.]
-            .Label79.BackColor = frm_PrfGraph_bc        'Max.
-            .Label81.BackColor = frm_PrfGraph_bc        'Avg.
-            .Label80.BackColor = frm_PrfGraph_bc        'Min.
-            .Label19.BackColor = frm_PrfGraph_bc        '配向比
-            .Label22.BackColor = frm_PrfGraph_bc        'Max.
-            .Label23.BackColor = frm_PrfGraph_bc        'Avg.
-            .Label24.BackColor = frm_PrfGraph_bc        'Min.
-            .Label64.BackColor = frm_PrfGraph_bc
-            .Label67.BackColor = frm_PrfGraph_bc
-            .Label69.BackColor = frm_PrfGraph_bc
-            .Label68.BackColor = frm_PrfGraph_bc
-            .LblAnglePkMax_nom.BackColor = frm_PrfGraph_bc
-            .LblAnglePkAvg_nom.BackColor = frm_PrfGraph_bc
-            .LblAnglePkMin_nom.BackColor = frm_PrfGraph_bc
-            .LblAngleDpMax_nom.BackColor = frm_PrfGraph_bc
-            .LblAngleDpAvg_nom.BackColor = frm_PrfGraph_bc
-            .LblAngleDpMin_nom.BackColor = frm_PrfGraph_bc
-            .Label39.BackColor = frm_PrfGraph_bc
-            .Label42.BackColor = frm_PrfGraph_bc
-            .Label44.BackColor = frm_PrfGraph_bc
-            .Label43.BackColor = frm_PrfGraph_bc
-            .LblRatioPkDpMax_nom.BackColor = frm_PrfGraph_bc
-            .LblRatioPkDpAvg_nom.BackColor = frm_PrfGraph_bc
-            .LblRatioPkDpMin_nom.BackColor = frm_PrfGraph_bc
-            .LblRatioMDCDMax_nom.BackColor = frm_PrfGraph_bc
-            .LblRatioMDCDAvg_nom.BackColor = frm_PrfGraph_bc
-            .LblRatioMDCDMin_nom.BackColor = frm_PrfGraph_bc
-            .Label4.BackColor = frm_PrfGraph_bc
-            .Label10.BackColor = frm_PrfGraph_bc
-            .Label11.BackColor = frm_PrfGraph_bc
-            .Label12.BackColor = frm_PrfGraph_bc
-            .Label13.BackColor = frm_PrfGraph_bc
-            .Label16.BackColor = frm_PrfGraph_bc
-            .Label17.BackColor = frm_PrfGraph_bc
-            .Label18.BackColor = frm_PrfGraph_bc
-            .Label58.BackColor = frm_PrfGraph_bc
-            .Label61.BackColor = frm_PrfGraph_bc
-            .Label63.BackColor = frm_PrfGraph_bc
-            .Label62.BackColor = frm_PrfGraph_bc
-            .Label29.BackColor = frm_PrfGraph_bc
-            .Label32.BackColor = frm_PrfGraph_bc
-            .Label34.BackColor = frm_PrfGraph_bc
-            .Label33.BackColor = frm_PrfGraph_bc
-            .LblVeloPkMax_nom.BackColor = frm_PrfGraph_bc
-            .LblVeloPkAvg_nom.BackColor = frm_PrfGraph_bc
-            .LblVeloPkMin_nom.BackColor = frm_PrfGraph_bc
-            .LblVeloDpMax_nom.BackColor = frm_PrfGraph_bc
-            .LblVeloDpAvg_nom.BackColor = frm_PrfGraph_bc
-            .LblVeloDpMin_nom.BackColor = frm_PrfGraph_bc
-            .Label45.BackColor = frm_PrfGraph_bc
-            .Label48.BackColor = frm_PrfGraph_bc
-            .Label50.BackColor = frm_PrfGraph_bc
-            .Label49.BackColor = frm_PrfGraph_bc
-            .LblVeloMDMax_nom.BackColor = frm_PrfGraph_bc
-            .LblVeloMDAvg_nom.BackColor = frm_PrfGraph_bc
-            .LblVeloMDMin_nom.BackColor = frm_PrfGraph_bc
-            .LblVeloCDMax_nom.BackColor = frm_PrfGraph_bc
-            .LblVeloCDAvg_nom.BackColor = frm_PrfGraph_bc
-            .LblVeloCDMin_nom.BackColor = frm_PrfGraph_bc
-            .Label35.BackColor = frm_PrfGraph_bc
-            .Label38.BackColor = frm_PrfGraph_bc
-            .Label56.BackColor = frm_PrfGraph_bc
-            .Label55.BackColor = frm_PrfGraph_bc
-            .LblTSIMDMax_nom.BackColor = frm_PrfGraph_bc
-            .LblTSIMDAvg_nom.BackColor = frm_PrfGraph_bc
-            .LblTSIMDMin_nom.BackColor = frm_PrfGraph_bc
-            .LblTSICDMax_nom.BackColor = frm_PrfGraph_bc
-            .LblTSICDAvg_nom.BackColor = frm_PrfGraph_bc
-            .LblTSICDMin_nom.BackColor = frm_PrfGraph_bc
+            '.TabAngleratio.BackColor = frm_PrfGraph_bc
+            '.TabVeloTsi.BackColor = frm_PrfGraph_bc
+            '.TabMeasDataView.BackColor = frm_PrfGraph_bc
+            '.TabPage1.BackColor = frm_PrfGraph_bc
+            '.TabPage2.BackColor = frm_PrfGraph_bc
+            '.TabPage3.BackColor = frm_PrfGraph_bc
+            '.Label57.BackColor = frm_PrfGraph_bc
+            '.Label70.BackColor = frm_PrfGraph_bc
+            '.Label73.BackColor = frm_PrfGraph_bc
+            '.Label82.BackColor = frm_PrfGraph_bc
+            '.Label88.BackColor = frm_PrfGraph_bc
+            '.Label110.BackColor = frm_PrfGraph_bc
+            '.Label111.BackColor = frm_PrfGraph_bc
+            '.Label114.BackColor = frm_PrfGraph_bc
+            '.Label117.BackColor = frm_PrfGraph_bc
+            '.Label123.BackColor = frm_PrfGraph_bc
+            '.Label129.BackColor = frm_PrfGraph_bc
+            '.Label130.BackColor = frm_PrfGraph_bc
+            '.Label133.BackColor = frm_PrfGraph_bc
+            '.Label136.BackColor = frm_PrfGraph_bc
+            '.Label142.BackColor = frm_PrfGraph_bc
+            '.DataGridView1.DefaultCellStyle.BackColor = frm_PrfGraph_bc
+            '.DataGridView1.DefaultCellStyle.SelectionBackColor = frm_PrfGraph_bc
+            '.DataGridView2.DefaultCellStyle.BackColor = frm_PrfGraph_bc
+            '.DataGridView2.DefaultCellStyle.SelectionBackColor = frm_PrfGraph_bc
+            '.DataGridView3.DefaultCellStyle.BackColor = frm_PrfGraph_bc
+            '.DataGridView3.DefaultCellStyle.SelectionBackColor = frm_PrfGraph_bc
+            '.Label76.BackColor = frm_PrfGraph_bc        '配向角 [deg.]
+            '.Label79.BackColor = frm_PrfGraph_bc        'Max.
+            '.Label81.BackColor = frm_PrfGraph_bc        'Avg.
+            '.Label80.BackColor = frm_PrfGraph_bc        'Min.
+            '.Label19.BackColor = frm_PrfGraph_bc        '配向比
+            '.Label22.BackColor = frm_PrfGraph_bc        'Max.
+            '.Label23.BackColor = frm_PrfGraph_bc        'Avg.
+            '.Label24.BackColor = frm_PrfGraph_bc        'Min.
+            '.Label64.BackColor = frm_PrfGraph_bc
+            '.Label67.BackColor = frm_PrfGraph_bc
+            '.Label69.BackColor = frm_PrfGraph_bc
+            '.Label68.BackColor = frm_PrfGraph_bc
+            '.LblAnglePkMax_nom.BackColor = frm_PrfGraph_bc
+            '.LblAnglePkAvg_nom.BackColor = frm_PrfGraph_bc
+            '.LblAnglePkMin_nom.BackColor = frm_PrfGraph_bc
+            '.LblAngleDpMax_nom.BackColor = frm_PrfGraph_bc
+            '.LblAngleDpAvg_nom.BackColor = frm_PrfGraph_bc
+            '.LblAngleDpMin_nom.BackColor = frm_PrfGraph_bc
+            '.Label39.BackColor = frm_PrfGraph_bc
+            '.Label42.BackColor = frm_PrfGraph_bc
+            '.Label44.BackColor = frm_PrfGraph_bc
+            '.Label43.BackColor = frm_PrfGraph_bc
+            '.LblRatioPkDpMax_nom.BackColor = frm_PrfGraph_bc
+            '.LblRatioPkDpAvg_nom.BackColor = frm_PrfGraph_bc
+            '.LblRatioPkDpMin_nom.BackColor = frm_PrfGraph_bc
+            '.LblRatioMDCDMax_nom.BackColor = frm_PrfGraph_bc
+            '.LblRatioMDCDAvg_nom.BackColor = frm_PrfGraph_bc
+            '.LblRatioMDCDMin_nom.BackColor = frm_PrfGraph_bc
+            '.Label4.BackColor = frm_PrfGraph_bc
+            '.Label10.BackColor = frm_PrfGraph_bc
+            '.Label11.BackColor = frm_PrfGraph_bc
+            '.Label12.BackColor = frm_PrfGraph_bc
+            '.Label13.BackColor = frm_PrfGraph_bc
+            '.Label16.BackColor = frm_PrfGraph_bc
+            '.Label17.BackColor = frm_PrfGraph_bc
+            '.Label18.BackColor = frm_PrfGraph_bc
+            '.Label58.BackColor = frm_PrfGraph_bc
+            '.Label61.BackColor = frm_PrfGraph_bc
+            '.Label63.BackColor = frm_PrfGraph_bc
+            '.Label62.BackColor = frm_PrfGraph_bc
+            '.Label29.BackColor = frm_PrfGraph_bc
+            '.Label32.BackColor = frm_PrfGraph_bc
+            '.Label34.BackColor = frm_PrfGraph_bc
+            '.Label33.BackColor = frm_PrfGraph_bc
+            '.LblVeloPkMax_nom.BackColor = frm_PrfGraph_bc
+            '.LblVeloPkAvg_nom.BackColor = frm_PrfGraph_bc
+            '.LblVeloPkMin_nom.BackColor = frm_PrfGraph_bc
+            '.LblVeloDpMax_nom.BackColor = frm_PrfGraph_bc
+            '.LblVeloDpAvg_nom.BackColor = frm_PrfGraph_bc
+            '.LblVeloDpMin_nom.BackColor = frm_PrfGraph_bc
+            '.Label45.BackColor = frm_PrfGraph_bc
+            '.Label48.BackColor = frm_PrfGraph_bc
+            '.Label50.BackColor = frm_PrfGraph_bc
+            '.Label49.BackColor = frm_PrfGraph_bc
+            '.LblVeloMDMax_nom.BackColor = frm_PrfGraph_bc
+            '.LblVeloMDAvg_nom.BackColor = frm_PrfGraph_bc
+            '.LblVeloMDMin_nom.BackColor = frm_PrfGraph_bc
+            '.LblVeloCDMax_nom.BackColor = frm_PrfGraph_bc
+            '.LblVeloCDAvg_nom.BackColor = frm_PrfGraph_bc
+            '.LblVeloCDMin_nom.BackColor = frm_PrfGraph_bc
+            '.Label35.BackColor = frm_PrfGraph_bc
+            '.Label38.BackColor = frm_PrfGraph_bc
+            '.Label56.BackColor = frm_PrfGraph_bc
+            '.Label55.BackColor = frm_PrfGraph_bc
+            '.LblTSIMDMax_nom.BackColor = frm_PrfGraph_bc
+            '.LblTSIMDAvg_nom.BackColor = frm_PrfGraph_bc
+            '.LblTSIMDMin_nom.BackColor = frm_PrfGraph_bc
+            '.LblTSICDMax_nom.BackColor = frm_PrfGraph_bc
+            '.LblTSICDAvg_nom.BackColor = frm_PrfGraph_bc
+            '.LblTSICDMin_nom.BackColor = frm_PrfGraph_bc
         End With
     End Sub
 
@@ -804,6 +838,103 @@ Module Module1
             .GbPrint.BackColor = frm_PrfForm_bc
             .GroupBox3.BackColor = frm_PrfForm_bc
             .GroupBox2.BackColor = frm_PrfForm_bc
+            .TabAngleratio.BackColor = frm_PrfForm_bc
+            .TabVeloTsi.BackColor = frm_PrfForm_bc
+            .TabMeasDataView.BackColor = frm_PrfForm_bc
+            .TabPage1.BackColor = frm_PrfForm_bc
+            .TabPage2.BackColor = frm_PrfForm_bc
+            .TabPage3.BackColor = frm_PrfForm_bc
+            .Label57.BackColor = frm_PrfForm_bc
+            .Label70.BackColor = frm_PrfForm_bc
+            .Label73.BackColor = frm_PrfForm_bc
+            .Label82.BackColor = frm_PrfForm_bc
+            .Label88.BackColor = frm_PrfForm_bc
+            .Label110.BackColor = frm_PrfForm_bc
+            .Label111.BackColor = frm_PrfForm_bc
+            .Label114.BackColor = frm_PrfForm_bc
+            .Label117.BackColor = frm_PrfForm_bc
+            .Label123.BackColor = frm_PrfForm_bc
+            .Label129.BackColor = frm_PrfForm_bc
+            .Label130.BackColor = frm_PrfForm_bc
+            .Label133.BackColor = frm_PrfForm_bc
+            .Label136.BackColor = frm_PrfForm_bc
+            .Label142.BackColor = frm_PrfForm_bc
+            .DataGridView1.DefaultCellStyle.BackColor = frm_PrfForm_bc
+            .DataGridView1.DefaultCellStyle.SelectionBackColor = frm_PrfForm_bc
+            .DataGridView2.DefaultCellStyle.BackColor = frm_PrfForm_bc
+            .DataGridView2.DefaultCellStyle.SelectionBackColor = frm_PrfForm_bc
+            .DataGridView3.DefaultCellStyle.BackColor = frm_PrfForm_bc
+            .DataGridView3.DefaultCellStyle.SelectionBackColor = frm_PrfForm_bc
+            .Label76.BackColor = frm_PrfForm_bc        '配向角 [deg.]
+            .Label79.BackColor = frm_PrfForm_bc        'Max.
+            .Label81.BackColor = frm_PrfForm_bc        'Avg.
+            .Label80.BackColor = frm_PrfForm_bc        'Min.
+            .Label19.BackColor = frm_PrfForm_bc        '配向比
+            .Label22.BackColor = frm_PrfForm_bc        'Max.
+            .Label23.BackColor = frm_PrfForm_bc        'Avg.
+            .Label24.BackColor = frm_PrfForm_bc        'Min.
+            .Label64.BackColor = frm_PrfForm_bc
+            .Label67.BackColor = frm_PrfForm_bc
+            .Label69.BackColor = frm_PrfForm_bc
+            .Label68.BackColor = frm_PrfForm_bc
+            .LblAnglePkMax_nom.BackColor = frm_PrfForm_bc
+            .LblAnglePkAvg_nom.BackColor = frm_PrfForm_bc
+            .LblAnglePkMin_nom.BackColor = frm_PrfForm_bc
+            .LblAngleDpMax_nom.BackColor = frm_PrfForm_bc
+            .LblAngleDpAvg_nom.BackColor = frm_PrfForm_bc
+            .LblAngleDpMin_nom.BackColor = frm_PrfForm_bc
+            .Label39.BackColor = frm_PrfForm_bc
+            .Label42.BackColor = frm_PrfForm_bc
+            .Label44.BackColor = frm_PrfForm_bc
+            .Label43.BackColor = frm_PrfForm_bc
+            .LblRatioPkDpMax_nom.BackColor = frm_PrfForm_bc
+            .LblRatioPkDpAvg_nom.BackColor = frm_PrfForm_bc
+            .LblRatioPkDpMin_nom.BackColor = frm_PrfForm_bc
+            .LblRatioMDCDMax_nom.BackColor = frm_PrfForm_bc
+            .LblRatioMDCDAvg_nom.BackColor = frm_PrfForm_bc
+            .LblRatioMDCDMin_nom.BackColor = frm_PrfForm_bc
+            .Label4.BackColor = frm_PrfForm_bc
+            .Label10.BackColor = frm_PrfForm_bc
+            .Label11.BackColor = frm_PrfForm_bc
+            .Label12.BackColor = frm_PrfForm_bc
+            .Label13.BackColor = frm_PrfForm_bc
+            .Label16.BackColor = frm_PrfForm_bc
+            .Label17.BackColor = frm_PrfForm_bc
+            .Label18.BackColor = frm_PrfForm_bc
+            .Label58.BackColor = frm_PrfForm_bc
+            .Label61.BackColor = frm_PrfForm_bc
+            .Label63.BackColor = frm_PrfForm_bc
+            .Label62.BackColor = frm_PrfForm_bc
+            .Label29.BackColor = frm_PrfForm_bc
+            .Label32.BackColor = frm_PrfForm_bc
+            .Label34.BackColor = frm_PrfForm_bc
+            .Label33.BackColor = frm_PrfForm_bc
+            .LblVeloPkMax_nom.BackColor = frm_PrfForm_bc
+            .LblVeloPkAvg_nom.BackColor = frm_PrfForm_bc
+            .LblVeloPkMin_nom.BackColor = frm_PrfForm_bc
+            .LblVeloDpMax_nom.BackColor = frm_PrfForm_bc
+            .LblVeloDpAvg_nom.BackColor = frm_PrfForm_bc
+            .LblVeloDpMin_nom.BackColor = frm_PrfForm_bc
+            .Label45.BackColor = frm_PrfForm_bc
+            .Label48.BackColor = frm_PrfForm_bc
+            .Label50.BackColor = frm_PrfForm_bc
+            .Label49.BackColor = frm_PrfForm_bc
+            .LblVeloMDMax_nom.BackColor = frm_PrfForm_bc
+            .LblVeloMDAvg_nom.BackColor = frm_PrfForm_bc
+            .LblVeloMDMin_nom.BackColor = frm_PrfForm_bc
+            .LblVeloCDMax_nom.BackColor = frm_PrfForm_bc
+            .LblVeloCDAvg_nom.BackColor = frm_PrfForm_bc
+            .LblVeloCDMin_nom.BackColor = frm_PrfForm_bc
+            .Label35.BackColor = frm_PrfForm_bc
+            .Label38.BackColor = frm_PrfForm_bc
+            .Label56.BackColor = frm_PrfForm_bc
+            .Label55.BackColor = frm_PrfForm_bc
+            .LblTSIMDMax_nom.BackColor = frm_PrfForm_bc
+            .LblTSIMDAvg_nom.BackColor = frm_PrfForm_bc
+            .LblTSIMDMin_nom.BackColor = frm_PrfForm_bc
+            .LblTSICDMax_nom.BackColor = frm_PrfForm_bc
+            .LblTSICDAvg_nom.BackColor = frm_PrfForm_bc
+            .LblTSICDMin_nom.BackColor = frm_PrfForm_bc
         End With
     End Sub
 
@@ -921,9 +1052,8 @@ Module Module1
             .LblSpdPeakBak_adm.ForeColor = frm_MeasOldData_Color
             .LblSpdDeepBak_adm.ForeColor = frm_MeasOldData_Color
             .LblTSIMDBak_adm.ForeColor = frm_MeasOldData_Color
-            .LblTSICDBak_adm.ForeColor = frm_MeasOldData_Color
-            .LblMeasDatCur1_adm.ForeColor = frm_MeasOldData_Color
-            .Label56.ForeColor = frm_MeasOldData_Color               '過去データ
+            .LblTSICDBak_adm.ForeColor = frm_MeasOldData_color
+            .Label56.ForeColor = frm_MeasOldData_color               '過去データ
             .LblMeasDatBak1_adm.ForeColor = frm_MeasOldData_Color
             .LblMeasDatBak2_adm.ForeColor = frm_MeasOldData_Color
             .LblMeasDatBak3_adm.ForeColor = frm_MeasOldData_Color
@@ -1052,6 +1182,7 @@ Module Module1
                 For i = 1 To 10
                     .Columns(i).DefaultCellStyle.ForeColor = frm_PrfCurData_color
                 Next
+                .DefaultCellStyle.SelectionForeColor = frm_PrfCurData_color
             End With
         End With
     End Sub
@@ -1135,6 +1266,7 @@ Module Module1
                 For i = 1 To 10
                     .Columns(i).DefaultCellStyle.ForeColor = frm_PrfOldData_color
                 Next
+                .DefaultCellStyle.SelectionForeColor = frm_PrfOldData_color
             End With
         End With
     End Sub
@@ -1209,6 +1341,7 @@ Module Module1
                 For i = 1 To 10
                     .Columns(i).DefaultCellStyle.ForeColor = frm_PrfAvgData_color
                 Next
+                .DefaultCellStyle.SelectionForeColor = frm_PrfAvgData_color
             End With
         End With
     End Sub
@@ -1224,7 +1357,7 @@ Module Module1
             .LblMeasNumCur_nom.ForeColor = frm_MeasCurData_color
             .LblMeasNumCur_adm.ForeColor = frm_MeasCurData_color
             .LblAnglPeakCur_nom.ForeColor = frm_MeasCurData_color
-            .LblAnglDeepCur_adm.ForeColor = frm_MeasCurData_color
+            .LblAnglPeakCur_adm.ForeColor = frm_MeasCurData_color
             .LblAnglDeepCur_nom.ForeColor = frm_MeasCurData_color
             .LblAnglDeepCur_adm.ForeColor = frm_MeasCurData_color
             .LblratioMDCDCur_nom.ForeColor = frm_MeasCurData_color
@@ -1840,6 +1973,7 @@ Module Module1
                 LoadDefConstName = .ShowDialog
 
                 fname = .FileName
+                StrConstFilePath = fname
             End With
         End Using
 
@@ -1965,6 +2099,21 @@ Module Module1
 
     End Function
 
+    Public Sub SaveConst(ByVal fpath As String)
+        Using sw As New StreamWriter(fpath, False, Encoding.UTF8)
+            sw.WriteLine(MachineNo & "," & Sample & "," &
+                         Mark & "," & BW & "," &
+                         DataDate & "," & DataTime & "," &
+                         FlgProfile & "," & Length & "," &
+                         Pitch & "," & Points & "," &
+                         FlgInch & "," & FlgPrfDisplay & "," &
+                         FlgMeasAutoPrn & "," & FlgPrfAutoPrn & "," &
+                         FlgPrfPrint & "," & FlgAlternate & "," &
+                         FlgVelocityRange & "," & FlgAngleRange & "," &
+                         FlgPkCenterAngle & "," & FlgDpCenterAngle)
+        End Using
+    End Sub
+
     Public Sub MakeDisplayData()
         Dim M As Integer
         Dim N As Integer
@@ -1980,7 +2129,22 @@ Module Module1
         Next
     End Sub
 
-    Public Sub LoadConst()
+    Public Sub ConstChangeTrue(ByVal this_form As Form, ByVal title_text As String)
+        Dim _filename2 As String
+
+        FlgConstChg = True
+        '変更があった事を示すためにタイトルに"*"をつける
+        _filename2 = Path.GetFileNameWithoutExtension(StrConstFileName)
+        this_form.Text = title_text & " (" & _filename2 & " *)"
+
+    End Sub
+
+    Public Sub LoadConst(ByVal this_form As Form, ByVal title_text As String)
+        Dim _filename2 As String
+        _filename2 = Path.GetFileNameWithoutExtension(StrConstFileName)
+        this_form.Text = title_text & " (" & _filename2 & ")"
+        FlgConstChg = False '変更無し状態に初期化
+
         Dim txtParser As FileIO.TextFieldParser =
             New FileIO.TextFieldParser(StrConstFileName, Encoding.GetEncoding("Shift_jis"))
 

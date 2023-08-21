@@ -85,6 +85,7 @@ Public Class FrmSST4500_1_0_0J_main
         Prn_right_margin = My.Settings._printmargin_right
         Prn_top_margin = My.Settings._printmargin_top
         Prn_btm_margin = My.Settings._printmargin_bottom
+        FlgPrnBc_enable = My.Settings._printbc
 
         'pen color
         angdpgraph_color = My.Settings._angdpgraph_color
