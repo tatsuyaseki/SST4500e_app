@@ -570,14 +570,14 @@ Public Class FrmSST4500_1_0_0J_meas
                 If FlgConstChg = True Then
                     result = MessageBox.Show("測定仕様が変更されています。" & vbCrLf &
                                              "変更内容を保存しますか？" & vbCrLf &
-                                             "Yes: 上書き" & vbCrLf &
-                                             "No: 名前を付けて保存" & vbCrLf &
-                                             "Cancel: 保存しないで終了",
+                                             "はい(Y): 上書き" & vbCrLf &
+                                             "いいえ(N): 名前を付けて保存" & vbCrLf &
+                                             "キャンセル: 保存しないで終了",
                                              "測定仕様変更確認",
                                              MessageBoxButtons.YesNoCancel,
                                              MessageBoxIcon.Information)
                     Select Case result
-                        Case DialogResult.OK
+                        Case DialogResult.Yes
                             SaveConst(StrConstFilePath)
                         Case DialogResult.No
                             SaveConstMeas()
@@ -654,19 +654,17 @@ Public Class FrmSST4500_1_0_0J_meas
             If Menu_AutoPrn.Checked = False Then
                 Menu_AutoPrn.Checked = True
                 'FlgConstChg = True  '変更有の状態にセットする
-                If flgInitEnd = 1 Then
-                    ConstChangeTrue(Me, title_text)
-                End If
             End If
         Else
             FlgMeasAutoPrn = 0
             If Menu_AutoPrn.Checked = True Then
                 Menu_AutoPrn.Checked = False
                 'FlgConstChg = True  '変更有の状態にセットする
-                If flgInitEnd = 1 Then
-                    ConstChangeTrue(Me, title_text)
-                End If
+
             End If
+        End If
+        If flgInitEnd = 1 Then
+            ConstChangeTrue(Me, title_text)
         End If
     End Sub
 
@@ -1585,7 +1583,7 @@ Public Class FrmSST4500_1_0_0J_meas
         'Console.WriteLine(paper_height)
 
         '用紙の色（印刷範囲全体）
-        If frm_MeasForm_bc <> SystemColors.Control Then
+        If frm_MeasForm_bc <> SystemColors.Control And FlgPrnBc_enable = True Then
             e.Graphics.FillRectangle(printbc_brush, -Prn_left_margin, -Prn_top_margin, paper_width + Prn_left_margin + Prn_right_margin * 2, paper_height + Prn_top_margin + Prn_btm_margin * 2)
         End If
 
@@ -2325,7 +2323,7 @@ Public Class FrmSST4500_1_0_0J_meas
         Dim paper_height As Integer = e.MarginBounds.Height
 
         '用紙の色（印刷範囲全体）
-        If frm_MeasForm_bc <> SystemColors.Control Then
+        If frm_MeasForm_bc <> SystemColors.Control And FlgPrnBc_enable = True Then
             e.Graphics.FillRectangle(printbc_brush, -Prn_left_margin, -Prn_top_margin, paper_width + Prn_left_margin + Prn_right_margin * 2, paper_height + Prn_top_margin + Prn_btm_margin * 2)
         End If
         'Console.WriteLine(e.Graphics.PageUnit)
@@ -2771,7 +2769,7 @@ Public Class FrmSST4500_1_0_0J_meas
                             '通常モード時
                             With sheet
                                 .Cells.Locked = False
-                                If frm_MeasForm_bc <> SystemColors.Control Then
+                                If frm_MeasForm_bc <> SystemColors.Control And FlgPrnBc_enable = True Then
                                     .Cells.Interior.Color = frm_MeasForm_bc
                                 End If
 
@@ -2906,7 +2904,7 @@ Public Class FrmSST4500_1_0_0J_meas
 
                             With sheet
                                 .Cells.Locked = False
-                                If frm_MeasForm_bc <> SystemColors.Control Then
+                                If frm_MeasForm_bc <> SystemColors.Control And FlgPrnBc_enable = True Then
                                     .Cells.Interior.Color = frm_MeasForm_bc
                                 End If
 

@@ -1289,14 +1289,14 @@ Public Class FrmSST4500_1_0_0J_Profile
                 If FlgConstChg = True Then
                     result = MessageBox.Show("測定仕様が変更されています。" & vbCrLf &
                                              "変更内容を保存しますか？" & vbCrLf &
-                                             "Yes : 上書き" & vbCrLf &
-                                             "No : 名前を付けて保存" & vbCrLf &
-                                             "Cancel : 保存しないで終了",
+                                             "はい(Y) : 上書き" & vbCrLf &
+                                             "いいえ(N) : 名前を付けて保存" & vbCrLf &
+                                             "キャンセル : 保存しないで終了",
                                              "測定仕様変更確認",
                                              MessageBoxButtons.YesNoCancel,
                                              MessageBoxIcon.Information)
                     Select Case result
-                        Case DialogResult.OK
+                        Case DialogResult.Yes
                             SaveConst(StrConstFilePath)
                         Case DialogResult.No
                             SaveConstPrf()
@@ -6037,18 +6037,12 @@ Public Class FrmSST4500_1_0_0J_Profile
             If MenuPrn_AngleRatio.Checked = False Then
                 MenuPrn_AngleRatio.Checked = True
                 'FlgConstChg = True  '変更有の状態にセットする
-                If FlgInitEnd = 1 Then
-                    ConstChangeTrue(Me, title_text)
-                End If
             End If
         Else
             chkPrnAngleRatio = 0
             If MenuPrn_AngleRatio.Checked = True Then
                 MenuPrn_AngleRatio.Checked = False
                 'FlgConstChg = True  '変更有の状態にセットする
-                If FlgInitEnd = 1 Then
-                    ConstChangeTrue(Me, title_text)
-                End If
             End If
         End If
         FlgPrfPrint = chkPrnAngleRatio * 1 +
@@ -6056,6 +6050,9 @@ Public Class FrmSST4500_1_0_0J_Profile
                       chkPrnMeasData * 4 +
                       chkPrnOldData * 8 +
                       chkPrnAvgData * 16
+        If FlgInitEnd = 1 Then
+            ConstChangeTrue(Me, title_text)
+        End If
     End Sub
 
     Private Sub ChkPrn_Velocity_CheckedChanged(sender As Object, e As EventArgs) Handles ChkPrn_VelocityTSI.CheckedChanged
@@ -6063,17 +6060,11 @@ Public Class FrmSST4500_1_0_0J_Profile
             chkPrnVelocityTSI = 1
             If MenuPrn_VeloTSI.Checked = False Then
                 MenuPrn_VeloTSI.Checked = True
-                If FlgInitEnd = 1 Then
-                    ConstChangeTrue(Me, title_text)
-                End If
             End If
         Else
             chkPrnVelocityTSI = 0
             If MenuPrn_VeloTSI.Checked = True Then
                 MenuPrn_VeloTSI.Checked = False
-                If FlgInitEnd = 1 Then
-                    ConstChangeTrue(Me, title_text)
-                End If
             End If
         End If
         FlgPrfPrint = chkPrnAngleRatio * 1 +
@@ -6081,6 +6072,9 @@ Public Class FrmSST4500_1_0_0J_Profile
                       chkPrnMeasData * 4 +
                       chkPrnOldData * 8 +
                       chkPrnAvgData * 16
+        If FlgInitEnd = 1 Then
+            ConstChangeTrue(Me, title_text)
+        End If
     End Sub
 
     Private Sub ChkPrn_MeasData_CheckedChanged(sender As Object, e As EventArgs) Handles ChkPrn_MeasData.CheckedChanged
@@ -6088,17 +6082,11 @@ Public Class FrmSST4500_1_0_0J_Profile
             chkPrnMeasData = 1
             If MenuPrn_measData.Checked = False Then
                 MenuPrn_measData.Checked = True
-                If FlgInitEnd = 1 Then
-                    ConstChangeTrue(Me, title_text)
-                End If
             End If
         Else
             chkPrnMeasData = 0
             If MenuPrn_measData.Checked = True Then
                 MenuPrn_measData.Checked = False
-                If FlgInitEnd = 1 Then
-                    ConstChangeTrue(Me, title_text)
-                End If
             End If
         End If
         FlgPrfPrint = chkPrnAngleRatio * 1 +
@@ -6106,6 +6094,9 @@ Public Class FrmSST4500_1_0_0J_Profile
                       chkPrnMeasData * 4 +
                       chkPrnOldData * 8 +
                       chkPrnAvgData * 16
+        If FlgInitEnd = 1 Then
+            ConstChangeTrue(Me, title_text)
+        End If
     End Sub
 
     Private Sub ChkPrn_OldData_CheckedChanged(sender As Object, e As EventArgs) Handles ChkPrn_OldData.CheckedChanged
@@ -6113,17 +6104,11 @@ Public Class FrmSST4500_1_0_0J_Profile
             chkPrnOldData = 1
             If MenuPrn_OldData.Checked = False Then
                 MenuPrn_OldData.Checked = True
-                If FlgInitEnd = 1 Then
-                    ConstChangeTrue(Me, title_text)
-                End If
             End If
         Else
             chkPrnOldData = 0
             If MenuPrn_OldData.Checked = True Then
                 MenuPrn_OldData.Checked = False
-                If FlgInitEnd = 1 Then
-                    ConstChangeTrue(Me, title_text)
-                End If
             End If
         End If
         FlgPrfPrint = chkPrnAngleRatio * 1 +
@@ -6131,6 +6116,9 @@ Public Class FrmSST4500_1_0_0J_Profile
                       chkPrnMeasData * 4 +
                       chkPrnOldData * 8 +
                       chkPrnAvgData * 16
+        If FlgInitEnd = 1 Then
+            ConstChangeTrue(Me, title_text)
+        End If
     End Sub
 
     Private Sub ChkPrn_AvgData_CheckedChanged(sender As Object, e As EventArgs) Handles ChkPrn_AvgData.CheckedChanged
@@ -6138,17 +6126,11 @@ Public Class FrmSST4500_1_0_0J_Profile
             chkPrnAvgData = 1
             If MenuPrn_AvgData.Checked = False Then
                 MenuPrn_AvgData.Checked = True
-                If FlgInitEnd = 1 Then
-                    ConstChangeTrue(Me, title_text)
-                End If
             End If
         Else
             chkPrnAvgData = 0
             If MenuPrn_AvgData.Checked = True Then
                 MenuPrn_AvgData.Checked = False
-                If FlgInitEnd = 1 Then
-                    ConstChangeTrue(Me, title_text)
-                End If
             End If
         End If
         FlgPrfPrint = chkPrnAngleRatio * 1 +
@@ -6156,6 +6138,9 @@ Public Class FrmSST4500_1_0_0J_Profile
                       chkPrnMeasData * 4 +
                       chkPrnOldData * 8 +
                       chkPrnAvgData * 16
+        If FlgInitEnd = 1 Then
+            ConstChangeTrue(Me, title_text)
+        End If
     End Sub
 
     Private Sub CmdMeasSpecSel_Click(sender As Object, e As EventArgs) Handles CmdMeasSpecSel.Click
@@ -9889,25 +9874,21 @@ Rdg8:
     End Sub
 
     Private Sub ChkPrfAutoPrn_CheckedChanged(sender As Object, e As EventArgs) Handles ChkPrfAutoPrn.CheckedChanged
-
         If ChkPrfAutoPrn.Checked = True Then
             FlgPrfAutoPrn = 1
             If Menu_AutoPrn.Checked = False Then
                 Menu_AutoPrn.Checked = True
                 'FlgConstChg = True  '変更有の状態にセットする
-                If FlgInitEnd = 1 Then
-                    ConstChangeTrue(Me, title_text)
-                End If
             End If
         Else
             FlgPrfAutoPrn = 0
             If Menu_AutoPrn.Checked = True Then
                 Menu_AutoPrn.Checked = False
                 'FlgConstChg = True  '変更有の状態にセットする
-                If FlgInitEnd = 1 Then
-                    ConstChangeTrue(Me, title_text)
-                End If
             End If
+        End If
+        If FlgInitEnd = 1 Then
+            ConstChangeTrue(Me, title_text)
         End If
     End Sub
 
@@ -9989,7 +9970,7 @@ Rdg8:
                             '通常モード時　配向角・配向比
                             With sheet1
                                 .Cells.Locked = False
-                                If frm_PrfForm_bc <> SystemColors.Control Then
+                                If frm_PrfForm_bc <> SystemColors.Control And FlgPrnBc_enable = True Then
                                     .Cells.Interior.Color = frm_PrfForm_bc
                                 End If
 
@@ -10012,8 +9993,9 @@ Rdg8:
                                 .Range(.Cells(5, 1), .Cells(5, 5)).Font.Color = frm_PrfCurData_color
                                 .Range(.Cells(4, 1), .Cells(5, 5)).Borders.LineStyle = Excel.XlLineStyle.xlContinuous
                                 .Range(.Cells(4, 1), .Cells(5, 5)).Locked = True
-                                .Range(.Cells(4, 1), .Cells(5, 5)).Interior.Color = frm_PrfGraph_bc
-
+                                'If FlgPrnBc_enable = True Then
+                                '.Range(.Cells(4, 1), .Cells(5, 5)).Interior.Color = frm_PrfGraph_bc
+                                'End If
                                 .Range(.Cells(7, 1), .Cells(7, 3)).MergeCells = True
                                 .Cells(7, 1) = "配向角[deg.]"
                                 .Cells(8, 2) = "Peak"
@@ -10032,8 +10014,9 @@ Rdg8:
                                 .Range(.Cells(9, 2), .Cells(11, 3)).Font.Color = frm_PrfCurData_color
                                 .Range(.Cells(7, 1), .Cells(11, 3)).Borders.LineStyle = Excel.XlLineStyle.xlContinuous
                                 .Range(.Cells(7, 1), .Cells(11, 3)).Locked = True
-                                .Range(.Cells(7, 1).cells(11, 3)).Interior.Color = frm_PrfGraph_bc
-
+                                'If FlgPrnBc_enable = True Then
+                                '.Range(.Cells(7, 1), .Cells(11, 3)).Interior.Color = frm_PrfGraph_bc
+                                'End If
                                 bmp = New Bitmap(PictureBox1.Width, PictureBox1.Height)
                                 'bmp.MakeTransparent(BackColor)
                                 PictureBox1.DrawToBitmap(bmp, New Rectangle(0, 0, bmp.Width, bmp.Height))
@@ -10078,8 +10061,9 @@ Rdg8:
                                 .Range(.Cells(ratio_top_row + 2, 2), .Cells(ratio_top_row + 4, 3)).Font.Color = frm_PrfCurData_color
                                 .Range(.Cells(ratio_top_row, 1), .Cells(ratio_top_row + 4, 3)).Borders.LineStyle = Excel.XlLineStyle.xlContinuous
                                 .Range(.Cells(ratio_top_row, 1), .Cells(ratio_top_row + 4, 3)).Locked = True
-                                .Range(.Cells(ratio_top_row, 1), .Cells(ratio_top_row + 4, 3)).Interior.Color = frm_PrfGraph_bc
-
+                                'If FlgPrnBc_enable = True Then
+                                '.Range(.Cells(ratio_top_row, 1), .Cells(ratio_top_row + 4, 3)).Interior.Color = frm_PrfGraph_bc
+                                'End If
                                 bmp = New Bitmap(PictureBox2.Width, PictureBox2.Height)
                                 'bmp.MakeTransparent(BackColor)
                                 PictureBox2.DrawToBitmap(bmp, New Rectangle(0, 0, bmp.Width, bmp.Height))
@@ -10107,7 +10091,7 @@ Rdg8:
 
                             With sheet2
                                 .Cells.Locked = False
-                                If frm_PrfForm_bc <> SystemColors.Control Then
+                                If frm_PrfForm_bc <> SystemColors.Control And FlgPrnBc_enable = True Then
                                     .Cells.Interior.Color = frm_PrfForm_bc
                                 End If
 
@@ -10157,8 +10141,9 @@ Rdg8:
                                 .Range(.Cells(9, 2), .Cells(11, 5)).Font.Color = frm_PrfCurData_color
                                 .Range(.Cells(7, 1), .Cells(11, 5)).Borders.LineStyle = Excel.XlLineStyle.xlContinuous
                                 .Range(.Cells(7, 1), .Cells(11, 5)).Locked = True
-                                .Range(.Cells(7, 1).cells(11, 5)).Interior.Color = frm_PrfGraph_bc
-
+                                'If FlgPrnBc_enable = True Then
+                                '.Range(.Cells(7, 1).cells(11, 5)).Interior.Color = frm_PrfGraph_bc
+                                'End If
                                 bmp = New Bitmap(PictureBox3.Width, PictureBox3.Height)
                                 'bmp.MakeTransparent(BackColor)
                                 PictureBox3.DrawToBitmap(bmp, New Rectangle(0, 0, bmp.Width, bmp.Height))
@@ -10203,8 +10188,9 @@ Rdg8:
                                 .Range(.Cells(tsi_top_row + 2, 2), .Cells(tsi_top_row + 4, 3)).Font.Color = frm_PrfCurData_color
                                 .Range(.Cells(tsi_top_row, 1), .Cells(tsi_top_row + 4, 3)).Borders.LineStyle = Excel.XlLineStyle.xlContinuous
                                 .Range(.Cells(tsi_top_row, 1), .Cells(tsi_top_row + 4, 3)).Locked = True
-                                .Range(.Cells(tsi_top_row, 1), .Cells(tsi_top_row + 4, 3)).Interior.Color = frm_PrfGraph_bc
-
+                                'If FlgPrnBc_enable = True Then
+                                '.Range(.Cells(tsi_top_row, 1), .Cells(tsi_top_row + 4, 3)).Interior.Color = frm_PrfGraph_bc
+                                'End If
                                 bmp = New Bitmap(PictureBox4.Width, PictureBox4.Height)
                                 'bmp.MakeTransparent(BackColor)
                                 PictureBox4.DrawToBitmap(bmp, New Rectangle(0, 0, bmp.Width, bmp.Height))
@@ -10228,7 +10214,7 @@ Rdg8:
                             With sheet3
                                 If SampleNo > 0 Then
                                     .Cells.Locked = False
-                                    If frm_PrfForm_bc <> SystemColors.Control Then
+                                    If frm_PrfForm_bc <> SystemColors.Control And FlgPrnBc_enable = True Then
                                         .Cells.Interior.Color = frm_PrfForm_bc
                                     End If
 
@@ -10251,8 +10237,9 @@ Rdg8:
                                     .Range(.Cells(5, 1), .Cells(5, 5)).Font.Color = frm_PrfCurData_color
                                     .Range(.Cells(4, 1), .Cells(5, 5)).Borders.LineStyle = Excel.XlLineStyle.xlContinuous
                                     .Range(.Cells(4, 1), .Cells(5, 5)).Locked = True
-                                    .Range(.Cells(4, 1), .Cells(5, 5)).Interior.Color = frm_PrfGraph_bc
-
+                                    'If FlgPrnBc_enable = True Then
+                                    '.Range(.Cells(4, 1), .Cells(5, 5)).Interior.Color = frm_PrfGraph_bc
+                                    'End If
                                     .Range(.Cells(7, 1), .Cells(8, 1)).MergeCells = True
                                     .Cells(7, 1) = "No."
                                     .Range(.Cells(7, 2), .Cells(7, 3)).MergeCells = True
@@ -10317,7 +10304,9 @@ Rdg8:
                                             .Range(.Cells(11 + s, k + 1), .Cells(11 + s, k + 1)).Font.Color = frm_PrfCurData_color
                                         Next
                                     Next
-                                    .Range(.Cells(7, 1), .Cells(11 + SampleNo, 11)).Interior.Color = frm_PrfGraph_bc
+                                    'If FlgPrnBc_enable = True Then
+                                    '.Range(.Cells(7, 1), .Cells(11 + SampleNo, 11)).Interior.Color = frm_PrfGraph_bc
+                                    'End If
                                     .Range(.Cells(7, 1), .Cells(11 + SampleNo, 11)).Borders.LineStyle = Excel.XlLineStyle.xlContinuous
                                     .Range(.Cells(7, 1), .Cells(11 + SampleNo, 11)).Locked = True
 
@@ -10331,7 +10320,7 @@ Rdg8:
                             With sheet4
                                 If FileDataMax > 0 Then
                                     .Cells.Locked = False
-                                    If frm_PrfForm_bc <> SystemColors.Control Then
+                                    If frm_PrfForm_bc <> SystemColors.Control And FlgPrnBc_enable = True Then
                                         .Cells.Interior.Color = frm_PrfForm_bc
                                     End If
 
@@ -10353,8 +10342,9 @@ Rdg8:
                                     .Range(.Cells(5, 1), .Cells(5, 5)).Font.Color = frm_PrfOldData_color
                                     .Range(.Cells(4, 1), .Cells(5, 5)).Borders.LineStyle = Excel.XlLineStyle.xlContinuous
                                     .Range(.Cells(4, 1), .Cells(5, 5)).Locked = True
-                                    .Range(.Cells(4, 1), .Cells(5, 5)).Interior.Color = frm_PrfGraph_bc
-
+                                    'If FlgPrnBc_enable = True Then
+                                    '.Range(.Cells(4, 1), .Cells(5, 5)).Interior.Color = frm_PrfGraph_bc
+                                    'End If
                                     .Range(.Cells(7, 1), .Cells(8, 1)).MergeCells = True
                                     .Cells(7, 1) = "No."
                                     .Range(.Cells(7, 2), .Cells(7, 3)).MergeCells = True
@@ -10419,7 +10409,9 @@ Rdg8:
                                             .Range(.Cells(11 + s, k + 1), .Cells(11 + s, k + 1)).Font.Color = frm_PrfOldData_color
                                         Next
                                     Next
-                                    .Range(.Cells(7, 1), .Cells(11 + SampleNo, 11)).Interior.Color = frm_PrfGraph_bc
+                                    'If FlgPrnBc_enable = True Then
+                                    '.Range(.Cells(7, 1), .Cells(11 + SampleNo, 11)).Interior.Color = frm_PrfGraph_bc
+                                    'End If
                                     .Range(.Cells(7, 1), .Cells(11 + SampleNo, 11)).Borders.LineStyle = Excel.XlLineStyle.xlContinuous
                                     .Range(.Cells(7, 1), .Cells(11 + SampleNo, 11)).Locked = True
                                 Else
@@ -10432,7 +10424,7 @@ Rdg8:
                             With sheet5
                                 If FlgAvg > 0 Then
                                     .Cells.Locked = False
-                                    If frm_PrfForm_bc <> SystemColors.Control Then
+                                    If frm_PrfForm_bc <> SystemColors.Control And FlgPrnBc_enable = True Then
                                         .Cells.Interior.Color = frm_PrfForm_bc
                                     End If
 
@@ -10454,8 +10446,9 @@ Rdg8:
                                     .Range(.Cells(5, 1), .Cells(5, 5)).Font.Color = frm_PrfAvgData_color
                                     .Range(.Cells(4, 1), .Cells(5, 5)).Borders.LineStyle = Excel.XlLineStyle.xlContinuous
                                     .Range(.Cells(4, 1), .Cells(5, 5)).Locked = True
-                                    .Range(.Cells(4, 1), .Cells(5, 5)).Interior.Color = frm_PrfGraph_bc
-
+                                    'If FlgPrnBc_enable = True Then
+                                    '.Range(.Cells(4, 1), .Cells(5, 5)).Interior.Color = frm_PrfGraph_bc
+                                    'End If
                                     .Range(.Cells(7, 1), .Cells(8, 1)).MergeCells = True
                                     .Cells(7, 1) = "No."
                                     .Range(.Cells(7, 2), .Cells(7, 3)).MergeCells = True
@@ -10520,11 +10513,13 @@ Rdg8:
                                             .Range(.Cells(11 + s, k + 1), .Cells(11 + s, k + 1)).Font.Color = frm_PrfAvgData_color
                                         Next
                                     Next
-                                    .Range(.Cells(7, 1), .Cells(11 + SampleNo, 11)).Interior.Color = frm_PrfGraph_bc
+                                    'If FlgPrnBc_enable = True Then
+                                    '.Range(.Cells(7, 1), .Cells(11 + SampleNo, 11)).Interior.Color = frm_PrfGraph_bc
+                                    'End If
                                     .Range(.Cells(7, 1), .Cells(11 + SampleNo, 11)).Borders.LineStyle = Excel.XlLineStyle.xlContinuous
                                     .Range(.Cells(7, 1), .Cells(11 + SampleNo, 11)).Locked = True
                                 Else
-                                    .Cells(1, 1) = "データ無し"
+                                        .Cells(1, 1) = "データ無し"
                                 End If
 
                                 .Protect()
@@ -10533,7 +10528,7 @@ Rdg8:
                             '管理者モード時
                             With sheet1
                                 .Cells.Locked = False
-                                If frm_PrfForm_bc <> SystemColors.Control Then
+                                If frm_PrfForm_bc <> SystemColors.Control And FlgPrnBc_enable = True Then
                                     .Cells.Interior.Color = frm_PrfForm_bc
                                 End If
 
@@ -10564,8 +10559,9 @@ Rdg8:
                                 .Range(.Cells(7, 1), .Cells(7, 5)).Font.Color = frm_PrfOldData_color
                                 .Range(.Cells(5, 1), .Cells(7, 5)).Borders.LineStyle = Excel.XlLineStyle.xlContinuous
                                 .Range(.Cells(5, 1), .Cells(7, 5)).Locked = True
-                                .Range(.Cells(5, 1), .Cells(7, 5)).Interior.Color = frm_PrfGraph_bc
-
+                                'If FlgPrnBc_enable = True Then
+                                '.Range(.Cells(5, 1), .Cells(7, 5)).Interior.Color = frm_PrfGraph_bc
+                                'End If
                                 '配向角データ グラフ
                                 .Range(.Cells(9, 1), .Cells(9, 5)).MergeCells = True
                                 .Cells(9, 1) = "配向角[deg.]"
@@ -10602,8 +10598,9 @@ Rdg8:
                                 .Range(.Cells(11, 5), .Cells(14, 5)).Font.Color = frm_PrfOldData_color
                                 .Range(.Cells(11, 1), .Cells(14, 5)).Borders.LineStyle = Excel.XlLineStyle.xlContinuous
                                 .Range(.Cells(11, 1), .Cells(14, 5)).Locked = True
-                                .Range(.Cells(9, 1), .Cells(14, 5)).Interior.Color = frm_PrfGraph_bc
-
+                                'If FlgPrnBc_enable = True Then
+                                '.Range(.Cells(9, 1), .Cells(14, 5)).Interior.Color = frm_PrfGraph_bc
+                                'End If
                                 bmp = New Bitmap(PictureBox1.Width, PictureBox1.Height)
                                 'bmp.MakeTransparent(BackColor)
                                 PictureBox1.DrawToBitmap(bmp, New Rectangle(0, 0, bmp.Width, bmp.Height))
@@ -10665,8 +10662,9 @@ Rdg8:
 
                                 .Range(.Cells(ratio_top_row, 1), .Cells(ratio_top_row + 5, 5)).Borders.LineStyle = Excel.XlLineStyle.xlContinuous
                                 .Range(.Cells(ratio_top_row, 1), .Cells(ratio_top_row + 5, 5)).Locked = True
-                                .Range(.Cells(ratio_top_row, 1), .Cells(ratio_top_row + 5, 5)).Interior.Color = frm_PrfGraph_bc
-
+                                'If FlgPrnBc_enable = True Then
+                                '.Range(.Cells(ratio_top_row, 1), .Cells(ratio_top_row + 5, 5)).Interior.Color = frm_PrfGraph_bc
+                                'End If
                                 bmp = New Bitmap(PictureBox2.Width, PictureBox2.Height)
                                 'bmp.MakeTransparent(BackColor)
                                 PictureBox2.DrawToBitmap(bmp, New Rectangle(0, 0, bmp.Width, bmp.Height))
@@ -10689,7 +10687,7 @@ Rdg8:
 
                             With sheet2
                                 .Cells.Locked = False
-                                If frm_MeasForm_bc <> SystemColors.Control Then
+                                If frm_MeasForm_bc <> SystemColors.Control And FlgPrnBc_enable = True Then
                                     .Cells.Interior.Color = frm_MeasForm_bc
                                 End If
 
@@ -10720,8 +10718,9 @@ Rdg8:
                                 .Range(.Cells(7, 1), .Cells(7, 5)).Font.Color = frm_PrfOldData_color
                                 .Range(.Cells(5, 1), .Cells(7, 5)).Borders.LineStyle = Excel.XlLineStyle.xlContinuous
                                 .Range(.Cells(5, 1), .Cells(7, 5)).Locked = True
-                                .Range(.Cells(5, 1), .Cells(7, 5)).Interior.Color = frm_PrfGraph_bc
-
+                                'If FlgPrnBc_enable = True Then
+                                '.Range(.Cells(5, 1), .Cells(7, 5)).Interior.Color = frm_PrfGraph_bc
+                                'End If
                                 '配向角データ　グラフ
                                 .Range(.Cells(9, 1), .Cells(9, 9)).MergeCells = True
                                 .Cells(9, 1) = "伝播速度[Km/S]"
@@ -10785,8 +10784,9 @@ Rdg8:
 
                                 .Range(.Cells(9, 1), .Cells(14, 9)).Borders.LineStyle = Excel.XlLineStyle.xlContinuous
                                 .Range(.Cells(9, 1), .Cells(14, 9)).Locked = True
-                                .Range(.Cells(9, 1), .Cells(14, 9)).Interior.Color = frm_PrfGraph_bc
-
+                                'If FlgPrnBc_enable = True Then
+                                '.Range(.Cells(9, 1), .Cells(14, 9)).Interior.Color = frm_PrfGraph_bc
+                                'End If
                                 bmp = New Bitmap(PictureBox3.Width, PictureBox3.Height)
                                 'bmp.MakeTransparent(BackColor)
                                 PictureBox3.DrawToBitmap(bmp, New Rectangle(0, 0, bmp.Width, bmp.Height))
@@ -10849,8 +10849,9 @@ Rdg8:
 
                                 .Range(.Cells(tsi_top_row + 1, 1), .Cells(tsi_top_row + 1 + 4, 5)).Borders.LineStyle = Excel.XlLineStyle.xlContinuous
                                 .Range(.Cells(tsi_top_row + 1, 1), .Cells(tsi_top_row + 1 + 4, 5)).Locked = True
-                                .Range(.Cells(tsi_top_row + 1, 1), .Cells(tsi_top_row + 1 + 4, 5)).Interior.Color = frm_PrfGraph_bc
-
+                                'If FlgPrnBc_enable = True Then
+                                '.Range(.Cells(tsi_top_row + 1, 1), .Cells(tsi_top_row + 1 + 4, 5)).Interior.Color = frm_PrfGraph_bc
+                                'End If
                                 bmp = New Bitmap(PictureBox4.Width, PictureBox4.Height)
                                 'bmp.MakeTransparent(BackColor)
                                 PictureBox4.DrawToBitmap(bmp, New Rectangle(0, 0, bmp.Width, bmp.Height))
@@ -10894,7 +10895,7 @@ Rdg8:
                             With sheet3
                                 If SampleNo > 0 Then
                                     .Cells.Locked = False
-                                    If frm_PrfForm_bc <> SystemColors.Control Then
+                                    If frm_PrfForm_bc <> SystemColors.Control And FlgPrnBc_enable = True Then
                                         .Cells.Interior.Color = frm_PrfForm_bc
                                     End If
 
@@ -10925,8 +10926,9 @@ Rdg8:
                                     .Range(.Cells(7, 1), .Cells(7, 5)).Font.Color = frm_PrfOldData_color
                                     .Range(.Cells(5, 1), .Cells(7, 5)).Borders.LineStyle = Excel.XlLineStyle.xlContinuous
                                     .Range(.Cells(5, 1), .Cells(7, 5)).Locked = True
-                                    .Range(.Cells(5, 1), .Cells(7, 5)).Interior.Color = frm_PrfGraph_bc
-
+                                    'If FlgPrnBc_enable = True Then
+                                    '.Range(.Cells(5, 1), .Cells(7, 5)).Interior.Color = frm_PrfGraph_bc
+                                    'End If
                                     .Range(.Cells(9, 1), .Cells(10, 1)).MergeCells = True
                                     .Cells(9, 1) = "No."
                                     .Cells(9, 1).font.color = frm_PrfForm_fc
@@ -10997,7 +10999,9 @@ Rdg8:
                                     Next
                                     .Range(.Cells(9, 1), .Cells(13 + SampleNo, 11)).Borders.LineStyle = Excel.XlLineStyle.xlContinuous
                                     .Range(.Cells(9, 1), .Cells(13 + SampleNo, 11)).Locked = True
-                                    .Range(.Cells(9, 1), .Cells(13 + SampleNo, 11)).Interior.Color = frm_PrfGraph_bc
+                                    'If FlgPrnBc_enable = True Then
+                                    '.Range(.Cells(9, 1), .Cells(13 + SampleNo, 11)).Interior.Color = frm_PrfGraph_bc
+                                    'End If
                                 Else
                                     .Cells(1, 1) = "データ無し"
                                 End If
@@ -11008,7 +11012,7 @@ Rdg8:
                             With sheet4
                                 If FileDataMax > 0 Then
                                     .Cells.Locked = False
-                                    If frm_PrfForm_bc <> SystemColors.Control Then
+                                    If frm_PrfForm_bc <> SystemColors.Control And FlgPrnBc_enable = True Then
                                         .Cells.Interior.Color = frm_PrfForm_bc
                                     End If
 
@@ -11039,8 +11043,9 @@ Rdg8:
                                     .Range(.Cells(7, 1), .Cells(7, 5)).Font.Color = frm_PrfOldData_color
                                     .Range(.Cells(5, 1), .Cells(7, 5)).Borders.LineStyle = Excel.XlLineStyle.xlContinuous
                                     .Range(.Cells(5, 1), .Cells(7, 5)).Locked = True
-                                    .Range(.Cells(5, 1), .Cells(7, 5)).Interior.Color = frm_PrfGraph_bc
-
+                                    'If FlgPrnBc_enable = True Then
+                                    '.Range(.Cells(5, 1), .Cells(7, 5)).Interior.Color = frm_PrfGraph_bc
+                                    'End If
                                     .Range(.Cells(9, 1), .Cells(10, 1)).MergeCells = True
                                     .Cells(9, 1) = "No."
                                     .Cells(9, 1).font.color = frm_PrfForm_fc
@@ -11111,7 +11116,9 @@ Rdg8:
                                     Next
                                     .Range(.Cells(9, 1), .Cells(13 + SampleNo, 11)).Borders.LineStyle = Excel.XlLineStyle.xlContinuous
                                     .Range(.Cells(9, 1), .Cells(13 + SampleNo, 11)).Locked = True
-                                    .Range(.Cells(9, 1), .Cells(13 + SampleNo, 11)).Interior.Color = frm_PrfGraph_bc
+                                    'If FlgPrnBc_enable = True Then
+                                    '.Range(.Cells(9, 1), .Cells(13 + SampleNo, 11)).Interior.Color = frm_PrfGraph_bc
+                                    'End If
                                 Else
                                     .Cells(1, 1) = "データ無し"
                                 End If
@@ -11122,7 +11129,7 @@ Rdg8:
                             With sheet5
                                 If FlgAvg > 0 Then
                                     .Cells.Locked = False
-                                    If frm_PrfForm_bc <> SystemColors.Control Then
+                                    If frm_PrfForm_bc <> SystemColors.Control And FlgPrnBc_enable = True Then
                                         .Cells.Interior.Color = frm_PrfForm_bc
                                     End If
 
@@ -11153,8 +11160,9 @@ Rdg8:
                                     .Range(.Cells(7, 1), .Cells(7, 5)).Font.Color = frm_PrfOldData_color
                                     .Range(.Cells(5, 1), .Cells(7, 5)).Borders.LineStyle = Excel.XlLineStyle.xlContinuous
                                     .Range(.Cells(5, 1), .Cells(7, 5)).Locked = True
-                                    .Range(.Cells(5, 1), .Cells(7, 5)).Interior.Color = frm_PrfGraph_bc
-
+                                    'If FlgPrnBc_enable = True Then
+                                    '.Range(.Cells(5, 1), .Cells(7, 5)).Interior.Color = frm_PrfGraph_bc
+                                    'End If
                                     .Range(.Cells(9, 1), .Cells(10, 1)).MergeCells = True
                                     .Cells(9, 1) = "No."
                                     .Cells(9, 1).font.color = frm_PrfForm_fc
@@ -11225,7 +11233,9 @@ Rdg8:
                                     Next
                                     .Range(.Cells(9, 1), .Cells(13 + SampleNo, 11)).Borders.LineStyle = Excel.XlLineStyle.xlContinuous
                                     .Range(.Cells(9, 1), .Cells(13 + SampleNo, 11)).Locked = True
-                                    .Range(.Cells(9, 1), .Cells(13 + SampleNo, 11)).Interior.Color = frm_PrfGraph_bc
+                                    'If FlgPrnBc_enable = True Then
+                                    '.Range(.Cells(9, 1), .Cells(13 + SampleNo, 11)).Interior.Color = frm_PrfGraph_bc
+                                    'End If
                                 Else
                                     .Cells(1, 1) = "データ無し"
                                 End If
