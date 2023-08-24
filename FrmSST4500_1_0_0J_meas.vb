@@ -2893,15 +2893,9 @@ Public Class FrmSST4500_1_0_0J_meas
                                 File.Delete(cur_dir & DEF_RESULT_FILE_FLD & "\xxx.bmp")
 
                                 .Protect()
-
-                                '保存する
-                                excelApp.DisplayAlerts = False
-                                excelBook.SaveAs(FilePath)
-                                excelApp.DisplayAlerts = True
                             End With
                         Else
                             '管理者モード時
-
                             With sheet
                                 .Cells.Locked = False
                                 If frm_MeasForm_bc <> SystemColors.Control And FlgPrnBc_enable = True Then
@@ -3066,12 +3060,16 @@ Public Class FrmSST4500_1_0_0J_meas
                                 bmp.Dispose()
                                 File.Delete(cur_dir & DEF_RESULT_FILE_FLD & "\xxx.bmp")
 
-                                '保存する
-                                excelApp.DisplayAlerts = False
-                                excelBook.SaveAs(FilePath)
-                                excelApp.DisplayAlerts = True
+                                .Protect()
                             End With
                         End If
+
+                        sheet.Activate()
+
+                        '保存する
+                        excelApp.DisplayAlerts = False
+                        excelBook.SaveAs(FilePath)
+                        excelApp.DisplayAlerts = True
                     End If
                 End With
             End Using
@@ -3079,6 +3077,7 @@ Public Class FrmSST4500_1_0_0J_meas
         Catch ex As Exception
             Throw ex
         Finally
+            excelBook.Close()
             excelApp.Quit()
             Marshal.ReleaseComObject(sheet)
             Marshal.ReleaseComObject(excelBook)
