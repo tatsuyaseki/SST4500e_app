@@ -120,9 +120,9 @@ Module Module1
     Public LengthOld As Single
     Public PitchOld As Single
     Public PointsOld As Single
-    Public Length_tmp As Single
-    Public Pitch_tmp As Single
-    Public Points_tmp As Single
+    Public LengthBak As Single
+    Public PitchBak As Single
+    Public PointsBak As Single
     Public MeasNo As Integer
     Public FlgInch As Integer
     Public FlgPrfDisplay As Integer
