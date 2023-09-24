@@ -3891,16 +3891,26 @@ Public Class FrmSST4500_1_0_0J_Profile
 
     Private Sub MeasRun()
         Dim result_tmp As DialogResult
-        Dim AllMeas_num As Long = TxtPoints.Text
+        Dim Points_num As Single
+        Dim Pitch_num As Single
         Dim pitch_unit As String
+
+        If FlgInch = 0 Then
+            pitch_unit = "mm"
+        Else
+            pitch_unit = "inch"
+        End If
 
         If FlgHoldMeas = 0 Then
             '総測定箇所数の確認
             If FlgProfile <> 3 Then
-                AllMeas_num = TxtPoints.Text
-                result_tmp = MessageBox.Show("総測定箇所数に「 " & AllMeas_num & " 」が設定されていますが、" & vbCrLf &
+                Points_num = TxtPoints.Text
+                Pitch_num = TxtPitch.Text
+                result_tmp = MessageBox.Show("総測定箇所数に「 " & Points_num & " 」が、" & vbCrLf &
+                                             "ピッチに「 " & Pitch_num & pitch_unit & " 」が" & vbCrLf &
+                                             "設定されていますが、" & vbCrLf &
                                              "測定を開始しますか？",
-                                             "総測定箇所数確認",
+                                             "総測定箇所数、ピッチ確認",
                                              MessageBoxButtons.YesNo,
                                              MessageBoxIcon.Exclamation)
                 If result_tmp = DialogResult.Yes Then
@@ -3909,12 +3919,6 @@ Public Class FrmSST4500_1_0_0J_Profile
                     FlgMainProfile = 2
                 End If
             Else
-                If FlgInch = 0 Then
-                    pitch_unit = "mm"
-                Else
-                    pitch_unit = "inch"
-                End If
-
                 result_tmp = MessageBox.Show("ピッチに 「" & TxtPitch.Text & pitch_unit & " 」が設定されていますが、" & vbCrLf &
                                              "測定を開始しますか？",
                                              "ピッチ確認",
