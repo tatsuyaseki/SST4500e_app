@@ -6,8 +6,6 @@ Imports Microsoft.Office.Interop
 Imports System.Runtime.InteropServices
 Imports System.ComponentModel
 Imports Microsoft.Office.Core
-Imports System.Security.Policy
-Imports System.Diagnostics.Eventing.Reader
 
 Public Class FrmSST4500_1_0_0J_Profile
     Const Rad = 3.141592654 / 180

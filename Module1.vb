@@ -1,8 +1,5 @@
-﻿Imports System.CodeDom
-Imports System.IO
-Imports System.Reflection
+﻿Imports System.IO
 Imports System.Text
-Imports Microsoft.Office.Interop.Excel
 
 Module Module1
     Public Declare Function FT_ListDevices Lib "FTD2XX.DLL" (ByVal arg1 As Integer, ByVal arg2 As String, ByVal dwFlags As Integer) As Integer
@@ -244,7 +241,6 @@ Module Module1
 
     Public FileNumConst As Integer
     Public FileNumData As Integer
-
 
     Public StrConstFileName As String
     Public StrConstFilePath As String
