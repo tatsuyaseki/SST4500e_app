@@ -649,40 +649,35 @@ Public Class FrmSST4500_1_0_0J_Profile
                     Points_tmp = Math.Round((Length_tmp - LnCmp) / Pitch_tmp, 0, MidpointRounding.AwayFromZero)
                     If Points_tmp <> TxtPoints.Text Then
                         '再計算の結果、入力値と異なっていたら
-                        MessageBox.Show("計算した結果、最小ピッチ" & min_Pitch & "mm未満と" & vbCrLf &
-                                        "なってしまったので、ピッチを" & min_Pitch & "mmに" & vbCrLf &
-                                        "補正しました。" & vbCrLf &
+                        MessageBox.Show("計算した結果、ピッチが最小ピッチ" & min_Pitch & "mm未満と" & vbCrLf &
+                                        "なってしまうので、ピッチを" & min_Pitch & "mmに補正しました。" & vbCrLf &
                                         "また、再計算により総測定個所数を" & Points_tmp & "に" & vbCrLf &
                                         "補正しました。",
                                         "ピッチ、総測定個所数補正",
                                         MessageBoxButtons.OK,
                                         MessageBoxIcon.Exclamation)
                     Else
-                        MessageBox.Show("計算した結果、最小ピッチ" & min_Pitch & "mm未満と" & vbCrLf &
-                                        "なってしまったので、ピッチを" & min_Pitch & "mmに" & vbCrLf &
-                                        "補正しました。",
+                        MessageBox.Show("計算した結果、ピッチが最小ピッチ" & min_Pitch & "mm未満と" & vbCrLf &
+                                        "なってしまうので、ピッチを" & min_Pitch & "mmに補正しました。",
                                         "ピッチ補正",
                                         MessageBoxButtons.OK,
                                         MessageBoxIcon.Exclamation)
                     End If
                 ElseIf Pitch_tmp > max_Pitch Then
-                    'ピッチがmax_Pitch以上の場合、ピッチをmax_Pitchに補正して、Pointsを再計算する
+                    'ピッチがmax_Pitch以上の場合、ピッチをmax_Pitchに補正して、Lengthを戻す
                     Pitch_tmp = max_Pitch
                     Points_tmp = Math.Round((Length_tmp - LnCmp) / Pitch_tmp, 0, MidpointRounding.AwayFromZero)
                     If Points_tmp <> TxtPoints.Text Then
                         '再計算の結果、入力値と異なっていたら
-                        MessageBox.Show("計算した結果、最小ピッチ" & max_Pitch & "mm以上と" & vbCrLf &
-                                        "なってしまったので、ピッチを" & max_Pitch & "mmに" & vbCrLf &
-                                        "補正しました。" & vbCrLf &
-                                        "また、再計算により総測定個所数を" & Points_tmp & "に" & vbCrLf &
-                                        "補正しました。",
+                        MessageBox.Show("計算した結果、ピッチが最大ピッチ" & max_Pitch & "mm以上と" & vbCrLf &
+                                        "なってしまうので、ピッチを" & max_Pitch & "mmに補正しました。" & vbCrLf &
+                                        "また、再計算により総測定個所数を" & Points_tmp & "に補正しました。",
                                         "ピッチ、総測定個所数補正",
                                         MessageBoxButtons.OK,
                                         MessageBoxIcon.Exclamation)
                     Else
-                        MessageBox.Show("計算した結果、最小ピッチ" & max_Pitch & "mm以上と" & vbCrLf &
-                                        "なってしまったので、ピッチを" & max_Pitch & "mmに" & vbCrLf &
-                                        "補正しました。",
+                        MessageBox.Show("計算した結果、ピッチが最小ピッチ" & max_Pitch & "mm以上と" & vbCrLf &
+                                        "なってしまうので、ピッチを" & max_Pitch & "mmに補正しました。",
                                         "ピッチ補正",
                                         MessageBoxButtons.OK,
                                         MessageBoxIcon.Exclamation)
@@ -725,22 +720,28 @@ Public Class FrmSST4500_1_0_0J_Profile
                     Pitch_tmp = min_Pitch
                     Points_tmp = Math.Round((Length - LnCmp) / Pitch_tmp, 0, MidpointRounding.AwayFromZero) + 1
                     If Points_tmp <> TxtPoints.Text Then
-                        MessageBox.Show("計算した結果、最大ピッチ" & min_Pitch & "mm以上と" & vbCrLf &
-                                        "なってしまったので、ピッチを" & min_Pitch & "mmに" & vbCrLf &
-                                        "補正いたしました。" & vbCrLf &
+                        MessageBox.Show("計算した結果、ピッチが最少ピッチ" & min_Pitch & "mm未満と" & vbCrLf &
+                                        "なってしまうので、ピッチを" & min_Pitch & "mmに補正しました。" & vbCrLf &
                                         "また、再計算により総測定個所数を" & Points_tmp & "に" & vbCrLf &
                                         "補正いたしました。",
                                         "ピッチ補正と総測定個所数補正",
                                         MessageBoxButtons.OK,
                                         MessageBoxIcon.Exclamation)
                     Else
-                        MessageBox.Show("計算した結果、最大ピッチ" & min_Pitch & "mm以上と" & vbCrLf &
-                                        "なってしまったので、ピッチを" & min_Pitch & "mmに" & vbCrLf &
-                                        "補正いたしました。",
+                        MessageBox.Show("計算した結果、ピッチが最少ピッチ" & min_Pitch & "mm未満と" & vbCrLf &
+                                        "なってしまうので、ピッチを" & min_Pitch & "mmに補正しました。",
                                         "ピッチ補正",
                                         MessageBoxButtons.OK,
                                         MessageBoxIcon.Exclamation)
                     End If
+                ElseIf Pitch_tmp > max_Pitch Then
+                    Points_tmp = Points
+                    Pitch_tmp = Pitch
+                    MessageBox.Show("計算した結果、ピッチが最大ピッチ" & max_Pitch & "mm以上と" & vbCrLf &
+                                    "超えてしまうので、総測定箇所数を" & Points & "に戻しました。",
+                                    "ピッチ補正",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Exclamation)
                 Else
                     Points_tmp = Math.Round((Length - LnCmp) / Pitch_tmp, 0, MidpointRounding.AwayFromZero) + 1
                 End If
@@ -788,8 +789,17 @@ Public Class FrmSST4500_1_0_0J_Profile
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Exclamation)
                 Else
-                    '計算で出たPitchで再度Pointsを計算する
+                    '計算で出たPointsで再度Pitchを計算する
                     Pitch_tmp = Math.Round((Length - LnCmp) / (Points_tmp - 1), 0, MidpointRounding.AwayFromZero)
+                    If Pitch_tmp > max_Pitch Then
+                        Points_tmp = Points
+                        Pitch_tmp = Pitch
+                        MessageBox.Show("再計算した結果、ピッチが最大ピッチ" & max_Pitch & "mmを" & vbCrLf &
+                                        "なってしまうので、ピッチを" & Pitch & "mmに戻しました。",
+                                        "ピッチ補正",
+                                        MessageBoxButtons.OK,
+                                        MessageBoxIcon.Exclamation)
+                    End If
                 End If
 
                 If Pitch_tmp <> Pitch Then
