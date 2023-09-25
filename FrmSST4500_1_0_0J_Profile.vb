@@ -3685,7 +3685,7 @@ Public Class FrmSST4500_1_0_0J_Profile
                 TxtPitch.Text = Pitch
             Else
                 'inch
-                TxtPitch.Text = Math.Round(Pitch / 25.4, 0, MidpointRounding.AwayFromZero)
+                TxtPitch.Text = Math.Round(Pitch / 25.4, 2, MidpointRounding.AwayFromZero)
             End If
         Else
             If FlgInch = 0 Then
@@ -3701,8 +3701,8 @@ Public Class FrmSST4500_1_0_0J_Profile
 
             If Pitch_tmp < min_Pitch Then
                 '最小ピッチ(10mm)未満は10mmに強制的に設定する
-                MessageBox.Show("設定可能な最小ピッチ(" & min_Pitch & "mm)を下回っています。" & vbCrLf &
-                                "最小ピッチ(" & min_Pitch & "mm)に補正します。",
+                MessageBox.Show("設定可能な最小ピッチ = " & min_Pitch & "mm を下回っています。" & vbCrLf &
+                                "最小ピッチを" & min_Pitch & "mmに補正します。",
                                 "入力値補正",
                                  MessageBoxButtons.OK,
                                  MessageBoxIcon.Exclamation)
@@ -3717,7 +3717,7 @@ Public Class FrmSST4500_1_0_0J_Profile
             ElseIf Pitch_tmp > Length - LnCmp Then
                 '有効長以上の場合、エラーメッセージヲ出して前回データを復元する
                 MessageBox.Show("設定可能なピッチを超えています。" & vbCrLf &
-                                "サンプル長さ(" & Length & "mm) - " & vbCrLf &
+                                "サンプル長さ(" & Length & "mm) - " &
                                 "両端補正値(" & LnCmp & "mm) = " & Length - LnCmp & "mm" & vbCrLf &
                                 "以下の数値を入力してください。",
                                 "入力エラー",
@@ -3784,8 +3784,8 @@ Public Class FrmSST4500_1_0_0J_Profile
         Else
             TxtPoints.Text = Math.Round(Val(TxtPoints.Text), 0, MidpointRounding.AwayFromZero)
             If TxtPoints.Text < min_Points Then
-                MessageBox.Show("設定可能な総測定個所数(" & min_Points & ")を下回っています。" & vbCrLf &
-                                "最小総測定個所数(" & min_Points & ")に補正します。",
+                MessageBox.Show("設定可能な総測定個所数 = " & min_Points & " を下回っています。" & vbCrLf &
+                                "最小総測定個所数を" & min_Points & "に補正します。",
                                 "入力値補正",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Exclamation)
@@ -6515,8 +6515,8 @@ Public Class FrmSST4500_1_0_0J_Profile
         TxtMeasLotBak.Text = FileNo
 
         If FlgInch = 1 Then
-            TxtLengthOld.Text = Math.Round(LengthOld / 25.4)
-            TxtPitchOld.Text = Math.Round(PitchOld / 25.4)
+            TxtLengthOld.Text = Math.Round(LengthOld / 25.4, 2, MidpointRounding.AwayFromZero)
+            TxtPitchOld.Text = Math.Round(PitchOld / 25.4, 2, MidpointRounding.AwayFromZero)
         Else
             TxtLengthOld.Text = LengthOld
             TxtPitchOld.Text = PitchOld
