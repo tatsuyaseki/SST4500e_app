@@ -1781,8 +1781,10 @@ Public Class FrmSST4500_1_0_0J_Profile
         SampleNo = 0
         TxtMeasNumCur.Text = SampleNo
         MeasNo = 0
+        MeasDataNo = 0
         TxtMeasLotCur.Text = MeasNo
         FileNo = 0
+        FileDataNo = 0
 
     End Sub
 
@@ -2822,39 +2824,53 @@ Public Class FrmSST4500_1_0_0J_Profile
         e.Graphics.DrawString(prf_waku_Xlabel_name, fnt_8, Brushes.Black, 4, angle_yaxis_max + 1)
         e.Graphics.DrawString(prf_waku_Xlabel(0), fnt, Brushes.Black, graph_x_sta, angle_yaxis_max)
 
-        If TxtPoints.Text <> "" Then
-            _Points = TxtPoints.Text
+        If MeasDataNo = 0 And FileDataNo = 0 Then
+            If TxtPoints.Text <> "" Then
+                _Points = TxtPoints.Text
+            Else
+                _Points = 0
+            End If
+        ElseIf MeasDataNo = 0 And FileDataNo <> 0 Then
+            If TxtPointsOld.Text <> "" Then
+                _Points = TxtPointsOld.Text
+            Else
+                _Points = 0
+            End If
         Else
-            _Points = 0
+            If TxtPoints.Text <> "" Then
+                _Points = TxtPoints.Text
+            Else
+                _Points = 0
+            End If
         End If
 
         If _Points < 10 Then
-            If _Points > 2 Then
-                e.Graphics.DrawString(prf_waku_Xlabel(1), fnt, Brushes.Black, graph_x_sta + SclX * 1, angle_yaxis_max)
-            End If
-            If _Points > 3 Then
-                e.Graphics.DrawString(prf_waku_Xlabel(2), fnt, Brushes.Black, graph_x_sta + SclX * 2, angle_yaxis_max)
-            End If
-            If _Points > 4 Then
-                e.Graphics.DrawString(prf_waku_Xlabel(3), fnt, Brushes.Black, graph_x_sta + SclX * 3, angle_yaxis_max)
-            End If
-            If _Points > 5 Then
-                e.Graphics.DrawString(prf_waku_Xlabel(4), fnt, Brushes.Black, graph_x_sta + SclX * 4, angle_yaxis_max)
-            End If
-            If _Points > 6 Then
-                e.Graphics.DrawString(prf_waku_Xlabel(5), fnt, Brushes.Black, graph_x_sta + SclX * 5, angle_yaxis_max)
-            End If
-            If _Points > 7 Then
-                e.Graphics.DrawString(prf_waku_Xlabel(6), fnt, Brushes.Black, graph_x_sta + SclX * 6, angle_yaxis_max)
-            End If
-            If _Points > 8 Then
-                e.Graphics.DrawString(prf_waku_Xlabel(7), fnt, Brushes.Black, graph_x_sta + SclX * 7, angle_yaxis_max)
-            End If
-            If _Points > 9 Then
-                e.Graphics.DrawString(prf_waku_Xlabel(8), fnt, Brushes.Black, graph_x_sta + SclX * 8, angle_yaxis_max)
-            End If
-        Else
-            For i = 1 To 4
+                If _Points > 2 Then
+                    e.Graphics.DrawString(prf_waku_Xlabel(1), fnt, Brushes.Black, graph_x_sta + SclX * 1, angle_yaxis_max)
+                End If
+                If _Points > 3 Then
+                    e.Graphics.DrawString(prf_waku_Xlabel(2), fnt, Brushes.Black, graph_x_sta + SclX * 2, angle_yaxis_max)
+                End If
+                If _Points > 4 Then
+                    e.Graphics.DrawString(prf_waku_Xlabel(3), fnt, Brushes.Black, graph_x_sta + SclX * 3, angle_yaxis_max)
+                End If
+                If _Points > 5 Then
+                    e.Graphics.DrawString(prf_waku_Xlabel(4), fnt, Brushes.Black, graph_x_sta + SclX * 4, angle_yaxis_max)
+                End If
+                If _Points > 6 Then
+                    e.Graphics.DrawString(prf_waku_Xlabel(5), fnt, Brushes.Black, graph_x_sta + SclX * 5, angle_yaxis_max)
+                End If
+                If _Points > 7 Then
+                    e.Graphics.DrawString(prf_waku_Xlabel(6), fnt, Brushes.Black, graph_x_sta + SclX * 6, angle_yaxis_max)
+                End If
+                If _Points > 8 Then
+                    e.Graphics.DrawString(prf_waku_Xlabel(7), fnt, Brushes.Black, graph_x_sta + SclX * 7, angle_yaxis_max)
+                End If
+                If _Points > 9 Then
+                    e.Graphics.DrawString(prf_waku_Xlabel(8), fnt, Brushes.Black, graph_x_sta + SclX * 8, angle_yaxis_max)
+                End If
+            Else
+                For i = 1 To 4
                 e.Graphics.DrawString(prf_waku_Xlabel(i), fnt, Brushes.Black, graph_x_sta + SclX * i - StepX, angle_yaxis_max)
             Next
             If _Points - StepScale * 4 > StepScale Then
@@ -3514,10 +3530,24 @@ Public Class FrmSST4500_1_0_0J_Profile
         e.Graphics.DrawString(prf_waku_Xlabel_name, fnt_8, waku_brush, 4, ratio_yaxis_max + 1)
         e.Graphics.DrawString(prf_waku_Xlabel(0), fnt, waku_brush, graph_x_sta, ratio_yaxis_max)
 
-        If TxtPoints.Text <> "" Then
-            _Points = TxtPoints.Text
+        If MeasDataNo = 0 And FileDataNo = 0 Then
+            If TxtPoints.Text <> "" Then
+                _Points = TxtPoints.Text
+            Else
+                _Points = 0
+            End If
+        ElseIf MeasDataNo = 0 And FileDataNo <> 0 Then
+            If TxtPointsOld.Text <> "" Then
+                _Points = TxtPointsOld.Text
+            Else
+                _Points = 0
+            End If
         Else
-            _Points = 0
+            If TxtPoints.Text <> "" Then
+                _Points = TxtPoints.Text
+            Else
+                _Points = 0
+            End If
         End If
 
         If _Points < 10 Then
@@ -3567,10 +3597,24 @@ Public Class FrmSST4500_1_0_0J_Profile
         e.Graphics.DrawString(prf_waku_Xlabel_name, fnt_8, waku_brush, 4, velo_yaxis_max + 1)
         e.Graphics.DrawString(prf_waku_Xlabel(0), fnt, waku_brush, graph_x_sta, velo_yaxis_max)
 
-        If TxtPoints.Text <> "" Then
-            _Points = TxtPoints.Text
+        If MeasDataNo = 0 And FileDataNo = 0 Then
+            If TxtPoints.Text <> "" Then
+                _Points = TxtPoints.Text
+            Else
+                _Points = 0
+            End If
+        ElseIf MeasDataNo = 0 And FileDataNo <> 0 Then
+            If TxtPointsOld.Text <> "" Then
+                _Points = TxtPointsOld.Text
+            Else
+                _Points = 0
+            End If
         Else
-            _Points = 0
+            If TxtPoints.Text <> "" Then
+                _Points = TxtPoints.Text
+            Else
+                _Points = 0
+            End If
         End If
 
         If _Points < 10 Then
@@ -3620,10 +3664,24 @@ Public Class FrmSST4500_1_0_0J_Profile
         e.Graphics.DrawString(prf_waku_Xlabel_name, fnt_8, waku_brush, 4, tsi_yaxis_max + 1)
         e.Graphics.DrawString(prf_waku_Xlabel(0), fnt, waku_brush, graph_x_sta, tsi_yaxis_max)
 
-        If TxtPoints.Text <> "" Then
-            _Points = TxtPoints.Text
+        If MeasDataNo = 0 And FileDataNo = 0 Then
+            If TxtPoints.Text <> "" Then
+                _Points = TxtPoints.Text
+            Else
+                _Points = 0
+            End If
+        ElseIf MeasDataNo = 0 And FileDataNo <> 0 Then
+            If TxtPointsOld.Text <> "" Then
+                _Points = TxtPointsOld.Text
+            Else
+                _Points = 0
+            End If
         Else
-            _Points = 0
+            If TxtPoints.Text <> "" Then
+                _Points = TxtPoints.Text
+            Else
+                _Points = 0
+            End If
         End If
 
         If _Points < 10 Then
@@ -10049,6 +10107,8 @@ Rdg8:
 
                 End If
             End While
+            curPrnPageNumber = 1
+            curPrnDataNumber = 1
             e.HasMorePages = False
             path2.StartFigure()
             path2.AddLine(0, (data_sta_row2 + cell_height25 * curPrnRow), paper_width, (data_sta_row2 + cell_height25 * curPrnRow))
@@ -10193,6 +10253,7 @@ Rdg8:
 
                 If FlgPrfAutoPrn = 0 Then
                     If flgprintpreview = True Then
+                        'PPDOldData.Document = PDOldData
                         PPDOldData.ShowDialog()
                     Else
                         PDOldData.Print()
