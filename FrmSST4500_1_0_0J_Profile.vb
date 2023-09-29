@@ -710,56 +710,62 @@ Public Class FrmSST4500_1_0_0J_Profile
 
             Case 22
                 'Points変更
+
                 TimProfile.Enabled = False
 
                 Points_tmp = TxtPoints.Text
 
-                Pitch_tmp = Math.Round((Length - LnCmp) / (Points_tmp - 1), 0, MidpointRounding.AwayFromZero)
-                'ピッチを計算した結果、min_Pitch未満になった場合、ピッチをmin_Pitchに補正して、Pointsを再計算する
-                If Pitch_tmp < min_Pitch Then
-                    Pitch_tmp = min_Pitch
-                    Points_tmp = Math.Round((Length - LnCmp) / Pitch_tmp, 0, MidpointRounding.AwayFromZero) + 1
-                    If Points_tmp <> TxtPoints.Text Then
-                        MessageBox.Show("計算した結果、ピッチが最少ピッチ" & min_Pitch & "mm未満と" & vbCrLf &
-                                        "なってしまうので、ピッチを" & min_Pitch & "mmに補正しました。" & vbCrLf &
-                                        "また、再計算により総測定個所数を" & Points_tmp & "に" & vbCrLf &
-                                        "補正いたしました。",
-                                        "ピッチ補正と総測定個所数補正",
-                                        MessageBoxButtons.OK,
-                                        MessageBoxIcon.Exclamation)
-                    Else
-                        MessageBox.Show("計算した結果、ピッチが最少ピッチ" & min_Pitch & "mm未満と" & vbCrLf &
-                                        "なってしまうので、ピッチを" & min_Pitch & "mmに補正しました。",
+                If FlgProfile = 1 Then
+
+                    Pitch_tmp = Math.Round((Length - LnCmp) / (Points_tmp - 1), 0, MidpointRounding.AwayFromZero)
+                    'ピッチを計算した結果、min_Pitch未満になった場合、ピッチをmin_Pitchに補正して、Pointsを再計算する
+                    If Pitch_tmp < min_Pitch Then
+                        Pitch_tmp = min_Pitch
+                        Points_tmp = Math.Round((Length - LnCmp) / Pitch_tmp, 0, MidpointRounding.AwayFromZero) + 1
+                        If Points_tmp <> TxtPoints.Text Then
+                            MessageBox.Show("計算した結果、ピッチが最少ピッチ" & min_Pitch & "mm未満と" & vbCrLf &
+                                            "なってしまうので、ピッチを" & min_Pitch & "mmに補正しました。" & vbCrLf &
+                                            "また、再計算により総測定個所数を" & Points_tmp & "に" & vbCrLf &
+                                            "補正いたしました。",
+                                            "ピッチ補正と総測定個所数補正",
+                                            MessageBoxButtons.OK,
+                                            MessageBoxIcon.Exclamation)
+                        Else
+                            MessageBox.Show("計算した結果、ピッチが最少ピッチ" & min_Pitch & "mm未満と" & vbCrLf &
+                                            "なってしまうので、ピッチを" & min_Pitch & "mmに補正しました。",
+                                            "ピッチ補正",
+                                            MessageBoxButtons.OK,
+                                            MessageBoxIcon.Exclamation)
+                        End If
+                    ElseIf Pitch_tmp > max_Pitch Then
+                        Points_tmp = Points
+                        Pitch_tmp = Pitch
+                        MessageBox.Show("計算した結果、ピッチが最大ピッチ" & max_Pitch & "mm以上と" & vbCrLf &
+                                        "超えてしまうので、総測定箇所数を" & Points & "に戻しました。",
                                         "ピッチ補正",
                                         MessageBoxButtons.OK,
                                         MessageBoxIcon.Exclamation)
+                    Else
+                        Points_tmp = Math.Round((Length - LnCmp) / Pitch_tmp, 0, MidpointRounding.AwayFromZero) + 1
                     End If
-                ElseIf Pitch_tmp > max_Pitch Then
-                    Points_tmp = Points
-                    Pitch_tmp = Pitch
-                    MessageBox.Show("計算した結果、ピッチが最大ピッチ" & max_Pitch & "mm以上と" & vbCrLf &
-                                    "超えてしまうので、総測定箇所数を" & Points & "に戻しました。",
-                                    "ピッチ補正",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Exclamation)
-                Else
-                    Points_tmp = Math.Round((Length - LnCmp) / Pitch_tmp, 0, MidpointRounding.AwayFromZero) + 1
+
+                    If Points_tmp <> Points Then
+                        If FlgInitEnd = 1 Then
+                            ConstChangeTrue(Me, title_text)
+                        End If
+                    End If
+
+                    Pitch = Pitch_tmp
+
+                    If FlgInch = 0 Then
+                        TxtPitch.Text = Pitch
+                    Else
+                        TxtPitch.Text = Math.Round(Pitch / 25.4, 2, MidpointRounding.AwayFromZero)
+                    End If
+
                 End If
 
-                If Points_tmp <> Points Then
-                    If FlgInitEnd = 1 Then
-                        ConstChangeTrue(Me, title_text)
-                    End If
-                End If
-
-                Pitch = Pitch_tmp
                 Points = Points_tmp
-
-                If FlgInch = 0 Then
-                    TxtPitch.Text = Pitch
-                Else
-                    TxtPitch.Text = Math.Round(Pitch / 25.4, 2, MidpointRounding.AwayFromZero)
-                End If
                 TxtPoints.Text = Points
 
                 GraphInitPrf()
@@ -771,52 +777,55 @@ Public Class FrmSST4500_1_0_0J_Profile
                 'Pitch変更
                 TimProfile.Enabled = False
 
-                If FlgInch = 0 Then
-                    Pitch_tmp = TxtPitch.Text
-                Else
-                    Pitch_tmp = Math.Round(Val(TxtPitch.Text) * 25.4, 0, MidpointRounding.AwayFromZero)
-                End If
+                If FlgProfile = 1 Then
+                    If FlgInch = 0 Then
+                        Pitch_tmp = TxtPitch.Text
+                    Else
+                        Pitch_tmp = Math.Round(Val(TxtPitch.Text) * 25.4, 0, MidpointRounding.AwayFromZero)
+                    End If
 
-                Points_tmp = Math.Round((Length - LnCmp) / Pitch_tmp, 0, MidpointRounding.AwayFromZero) + 1
-                If Points_tmp < min_Points Then
-                    Points_tmp = min_Points
-                    Pitch_tmp = Length - LnCmp
-                    MessageBox.Show("総測定個所数が" & min_Points & "未満となってしまうので、" & vbCrLf &
-                                    "総測定個所数を" & min_Points & "に補正して、ピッチを" & Pitch & "mmに" & vbCrLf &
-                                    "補正いたしました。" & vbCrLf &
-                                    "また、再計算によりピッチを" & Pitch_tmp & "mmに補正しました。",
-                                    "ピッチ補正",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Exclamation)
-                Else
-                    '計算で出たPointsで再度Pitchを計算する
-                    Pitch_tmp = Math.Round((Length - LnCmp) / (Points_tmp - 1), 0, MidpointRounding.AwayFromZero)
-                    If Pitch_tmp > max_Pitch Then
-                        Points_tmp = Points
-                        Pitch_tmp = Pitch
-                        MessageBox.Show("再計算した結果、ピッチが最大ピッチ" & max_Pitch & "mmを" & vbCrLf &
-                                        "なってしまうので、ピッチを" & Pitch & "mmに戻しました。",
+                    Points_tmp = Math.Round((Length - LnCmp) / Pitch_tmp, 0, MidpointRounding.AwayFromZero) + 1
+                    If Points_tmp < min_Points Then
+                        Points_tmp = min_Points
+                        Pitch_tmp = Length - LnCmp
+                        MessageBox.Show("総測定個所数が" & min_Points & "未満となってしまうので、" & vbCrLf &
+                                        "総測定個所数を" & min_Points & "に補正して、ピッチを" & Pitch & "mmに" & vbCrLf &
+                                        "補正いたしました。" & vbCrLf &
+                                        "また、再計算によりピッチを" & Pitch_tmp & "mmに補正しました。",
                                         "ピッチ補正",
                                         MessageBoxButtons.OK,
                                         MessageBoxIcon.Exclamation)
+                    Else
+                        '計算で出たPointsで再度Pitchを計算する
+                        Pitch_tmp = Math.Round((Length - LnCmp) / (Points_tmp - 1), 0, MidpointRounding.AwayFromZero)
+                        If Pitch_tmp > max_Pitch Then
+                            Points_tmp = Points
+                            Pitch_tmp = Pitch
+                            MessageBox.Show("再計算した結果、ピッチが最大ピッチ" & max_Pitch & "mmを" & vbCrLf &
+                                            "なってしまうので、ピッチを" & Pitch & "mmに戻しました。",
+                                            "ピッチ補正",
+                                            MessageBoxButtons.OK,
+                                            MessageBoxIcon.Exclamation)
+                        End If
                     End If
-                End If
 
-                If Pitch_tmp <> Pitch Then
-                    If FlgInitEnd = 1 Then
-                        ConstChangeTrue(Me, title_text)
+                    If Pitch_tmp <> Pitch Then
+                        If FlgInitEnd = 1 Then
+                            ConstChangeTrue(Me, title_text)
+                        End If
                     End If
-                End If
 
-                Points = Points_tmp
-                Pitch = Pitch_tmp
+                    Points = Points_tmp
+                    Pitch = Pitch_tmp
 
-                If FlgInch = 0 Then
-                    TxtPitch.Text = Pitch
-                Else
-                    TxtPitch.Text = Math.Round(Pitch / 25.4, 2, MidpointRounding.AwayFromZero)
+                    If FlgInch = 0 Then
+                        TxtPitch.Text = Pitch
+                    Else
+                        TxtPitch.Text = Math.Round(Pitch / 25.4, 2, MidpointRounding.AwayFromZero)
+                    End If
+                    TxtPoints.Text = Points
+
                 End If
-                TxtPoints.Text = Points
 
                 GraphInitPrf()
 
@@ -2845,32 +2854,32 @@ Public Class FrmSST4500_1_0_0J_Profile
         End If
 
         If _Points < 10 Then
-                If _Points > 2 Then
-                    e.Graphics.DrawString(prf_waku_Xlabel(1), fnt, Brushes.Black, graph_x_sta + SclX * 1, angle_yaxis_max)
-                End If
-                If _Points > 3 Then
-                    e.Graphics.DrawString(prf_waku_Xlabel(2), fnt, Brushes.Black, graph_x_sta + SclX * 2, angle_yaxis_max)
-                End If
-                If _Points > 4 Then
-                    e.Graphics.DrawString(prf_waku_Xlabel(3), fnt, Brushes.Black, graph_x_sta + SclX * 3, angle_yaxis_max)
-                End If
-                If _Points > 5 Then
-                    e.Graphics.DrawString(prf_waku_Xlabel(4), fnt, Brushes.Black, graph_x_sta + SclX * 4, angle_yaxis_max)
-                End If
-                If _Points > 6 Then
-                    e.Graphics.DrawString(prf_waku_Xlabel(5), fnt, Brushes.Black, graph_x_sta + SclX * 5, angle_yaxis_max)
-                End If
-                If _Points > 7 Then
-                    e.Graphics.DrawString(prf_waku_Xlabel(6), fnt, Brushes.Black, graph_x_sta + SclX * 6, angle_yaxis_max)
-                End If
-                If _Points > 8 Then
-                    e.Graphics.DrawString(prf_waku_Xlabel(7), fnt, Brushes.Black, graph_x_sta + SclX * 7, angle_yaxis_max)
-                End If
-                If _Points > 9 Then
-                    e.Graphics.DrawString(prf_waku_Xlabel(8), fnt, Brushes.Black, graph_x_sta + SclX * 8, angle_yaxis_max)
-                End If
-            Else
-                For i = 1 To 4
+            If _Points > 2 Then
+                e.Graphics.DrawString(prf_waku_Xlabel(1), fnt, Brushes.Black, graph_x_sta + SclX * 1, angle_yaxis_max)
+            End If
+            If _Points > 3 Then
+                e.Graphics.DrawString(prf_waku_Xlabel(2), fnt, Brushes.Black, graph_x_sta + SclX * 2, angle_yaxis_max)
+            End If
+            If _Points > 4 Then
+                e.Graphics.DrawString(prf_waku_Xlabel(3), fnt, Brushes.Black, graph_x_sta + SclX * 3, angle_yaxis_max)
+            End If
+            If _Points > 5 Then
+                e.Graphics.DrawString(prf_waku_Xlabel(4), fnt, Brushes.Black, graph_x_sta + SclX * 4, angle_yaxis_max)
+            End If
+            If _Points > 6 Then
+                e.Graphics.DrawString(prf_waku_Xlabel(5), fnt, Brushes.Black, graph_x_sta + SclX * 5, angle_yaxis_max)
+            End If
+            If _Points > 7 Then
+                e.Graphics.DrawString(prf_waku_Xlabel(6), fnt, Brushes.Black, graph_x_sta + SclX * 6, angle_yaxis_max)
+            End If
+            If _Points > 8 Then
+                e.Graphics.DrawString(prf_waku_Xlabel(7), fnt, Brushes.Black, graph_x_sta + SclX * 7, angle_yaxis_max)
+            End If
+            If _Points > 9 Then
+                e.Graphics.DrawString(prf_waku_Xlabel(8), fnt, Brushes.Black, graph_x_sta + SclX * 8, angle_yaxis_max)
+            End If
+        Else
+            For i = 1 To 4
                 e.Graphics.DrawString(prf_waku_Xlabel(i), fnt, Brushes.Black, graph_x_sta + SclX * i - StepX, angle_yaxis_max)
             Next
             If _Points - StepScale * 4 > StepScale Then
@@ -3740,6 +3749,7 @@ Public Class FrmSST4500_1_0_0J_Profile
 
     Private Sub TxtPitch_Validating(sender As Object, e As CancelEventArgs) Handles TxtPitch.Validating
         Debug.Print("txtPitch.Validating")
+
         Dim pitch_tmp_inch As Single
 
         If IsNumeric(TxtPitch.Text) = False Then
@@ -3767,6 +3777,12 @@ Public Class FrmSST4500_1_0_0J_Profile
                 Pitch_tmp = Math.Round(pitch_tmp_inch * 25.4, 0, MidpointRounding.AwayFromZero)
             End If
 
+            If FlgProfile <> 3 Then
+                Length_tmp = Length
+            Else
+                Length_tmp = (Pitch_tmp * (lg_sample_max - 1)) + LnCmp
+            End If
+
             If Pitch_tmp < min_Pitch Then
                 '最小ピッチ(10mm)未満は10mmに強制的に設定する
                 MessageBox.Show("設定可能な最小ピッチ = " & min_Pitch & "mm を下回っています。" & vbCrLf &
@@ -3782,11 +3798,11 @@ Public Class FrmSST4500_1_0_0J_Profile
                     TxtPitch.Text = Math.Round(min_Pitch / 25.4, 2, MidpointRounding.AwayFromZero)
                 End If
 
-            ElseIf Pitch_tmp > Length - LnCmp Then
+            ElseIf Pitch_tmp > Length_tmp - LnCmp Then
                 '有効長以上の場合、エラーメッセージヲ出して前回データを復元する
                 MessageBox.Show("設定可能なピッチを超えています。" & vbCrLf &
-                                "サンプル長さ(" & Length & "mm) - " &
-                                "両端補正値(" & LnCmp & "mm) = " & Length - LnCmp & "mm" & vbCrLf &
+                                "サンプル長さ(" & Length_tmp & "mm) - " &
+                                "両端補正値(" & LnCmp & "mm) = " & Length_tmp - LnCmp & "mm" & vbCrLf &
                                 "以下の数値を入力してください。",
                                 "入力エラー",
                                 MessageBoxButtons.OK,
@@ -3812,6 +3828,13 @@ Public Class FrmSST4500_1_0_0J_Profile
         End If
 
         'この後Validatedイベントが発生する
+    End Sub
+
+    Private Sub TxtPitch_KeyDown(sender As Object, e As KeyEventArgs) Handles TxtPitch.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            Debug.Print("TxtPitch.KeyDown Enter")
+            Me.SelectNextControl(Me.ActiveControl, True, True, True, True)
+        End If
     End Sub
 
     Private Sub TxtPitch_Validated(sender As Object, e As EventArgs) Handles TxtPitch.Validated
@@ -3853,7 +3876,7 @@ Public Class FrmSST4500_1_0_0J_Profile
             TxtPoints.Text = Math.Round(Val(TxtPoints.Text), 0, MidpointRounding.AwayFromZero)
             If TxtPoints.Text < min_Points Then
                 MessageBox.Show("設定可能な総測定個所数 = " & min_Points & " を下回っています。" & vbCrLf &
-                                "最小総測定個所数を" & min_Points & "に補正します。",
+                                "総測定個所数を" & min_Points & "に補正します。",
                                 "入力値補正",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Exclamation)
@@ -3862,6 +3885,13 @@ Public Class FrmSST4500_1_0_0J_Profile
         End If
 
         'この後Validatedイベントが発生する
+    End Sub
+
+    Private Sub TxtPoints_KeyDown(sender As Object, e As KeyEventArgs) Handles TxtPoints.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            Debug.Print("TxtPoints.KeyDown Enter")
+            Me.SelectNextControl(Me.ActiveControl, True, True, True, True)
+        End If
     End Sub
 
     Private Sub TxtPoints_Validated(sender As Object, e As EventArgs) Handles TxtPoints.Validated
@@ -3928,6 +3958,13 @@ Public Class FrmSST4500_1_0_0J_Profile
         'この後Validatedイベントが発生する
     End Sub
 
+    Private Sub TxtLength_KeyDown(sender As Object, e As KeyEventArgs) Handles TxtLength.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            Debug.Print("TxtLength.KeyDown Enter")
+            Me.SelectNextControl(Me.ActiveControl, True, True, True, True)
+        End If
+    End Sub
+
     Private Sub TxtLength_Validated(sender As Object, e As EventArgs) Handles TxtLength.Validated
         Debug.Print("TxtLength.Validated")
 
@@ -3957,8 +3994,6 @@ Public Class FrmSST4500_1_0_0J_Profile
 
     Private Sub MeasRun()
         Dim result_tmp As DialogResult
-        Dim Points_num As Single
-        Dim Pitch_num As Single
         Dim pitch_unit As String
 
         If FlgInch = 0 Then
@@ -3969,12 +4004,9 @@ Public Class FrmSST4500_1_0_0J_Profile
 
         If FlgHoldMeas = 0 Then
             '総測定箇所数の確認
-            If FlgProfile <> 3 Then
-                Points_num = TxtPoints.Text
-                Pitch_num = TxtPitch.Text
-                result_tmp = MessageBox.Show("総測定箇所数に「 " & Points_num & " 」が、" & vbCrLf &
-                                             "ピッチに「 " & Pitch_num & pitch_unit & " 」が" & vbCrLf &
-                                             "設定されていますが、" & vbCrLf &
+            If FlgProfile = 1 Then
+                result_tmp = MessageBox.Show("総測定箇所数に「 " & TxtPoints.Text & " 」が、" & vbCrLf &
+                                             "ピッチに「 " & TxtPitch.Text & pitch_unit & " 」が、設定されていますが、" & vbCrLf &
                                              "測定を開始しますか？",
                                              "総測定箇所数、ピッチ確認",
                                              MessageBoxButtons.YesNo,
@@ -3982,6 +4014,15 @@ Public Class FrmSST4500_1_0_0J_Profile
                 If result_tmp = DialogResult.Yes Then
                     '最初のクリック
                     '1回目の測定開始へ "PCH"送信
+                    FlgMainProfile = 2
+                End If
+            ElseIf FlgProfile = 2 Then
+                result_tmp = MessageBox.Show("総測定箇所数に「 " & TxtPoints.Text & " 」が、設定されいますが、" & vbCrLf &
+                                             "測定を開始しますか？",
+                                             "総測定箇所数確認",
+                                             MessageBoxButtons.YesNo,
+                                             MessageBoxIcon.Exclamation)
+                If result_tmp = DialogResult.Yes Then
                     FlgMainProfile = 2
                 End If
             Else
