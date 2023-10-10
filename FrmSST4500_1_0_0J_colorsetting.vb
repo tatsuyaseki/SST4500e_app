@@ -88,6 +88,9 @@
         colorsetting_label_init(Main_Enum)
         colorsetting_label_init(Meas_Enum)
         colorsetting_label_init(Profile_Enum)
+
+        Me.CbPrintBc.Checked = My.Settings._printbc
+        FlgPrnBc_enable = Me.CbPrintBc.Checked
     End Sub
 
     Private Sub CbxFrmMainStatusBoderStyle_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CbxFrmMainStatusBoderStyle.SelectedIndexChanged

@@ -325,6 +325,13 @@ Public Class FrmSST4500_1_0_0J_Profile
                         CmdMeasButton_set(_mes)
                         CmdMeas.Text = "測定中"
                         測定開始ToolStripMenuItem.Text = "測定中"
+
+                        'カットシートの場合、2回目以降が4番から始まる
+                        If FlgProfile = 2 Then
+                            CmdQuitProfile.Text = "中断"
+                            終了ToolStripMenuItem.Enabled = False
+                        End If
+
                         timerCount1 = 0
                         FlgMainProfile = 5
                     Else
@@ -596,11 +603,10 @@ Public Class FrmSST4500_1_0_0J_Profile
                 FlgHoldMeas = 0
 
                 If FlgPrfAutoPrn = 1 Then
-                    'FlgMainProfile = 30
                     PrintoutPrf()
-                Else
-                    FlgMainProfile = 0
                 End If
+
+                FlgMainProfile = 0
 
             Case 20
                 ClsNoPrf()
@@ -1672,11 +1678,11 @@ Public Class FrmSST4500_1_0_0J_Profile
                 FlgHoldMeas = 0
 
                 If FlgPrfAutoPrn = 1 Then
-                    'FlgMainProfile = 30
                     PrintoutPrf()
-                Else
-                    FlgMainProfile = 0
                 End If
+
+                FlgMainProfile = 0
+
         End Select
     End Sub
 
@@ -3786,7 +3792,7 @@ Public Class FrmSST4500_1_0_0J_Profile
             If Pitch_tmp < min_Pitch Then
                 '最小ピッチ(10mm)未満は10mmに強制的に設定する
                 MessageBox.Show("設定可能な最小ピッチ = " & min_Pitch & "mm を下回っています。" & vbCrLf &
-                                "最小ピッチを" & min_Pitch & "mmに補正します。",
+                                "ピッチを" & min_Pitch & "mmに補正します。",
                                 "入力値補正",
                                  MessageBoxButtons.OK,
                                  MessageBoxIcon.Exclamation)
@@ -3817,6 +3823,11 @@ Public Class FrmSST4500_1_0_0J_Profile
 
             ElseIf Pitch_tmp > max_Pitch Then
                 '最大ピッチ(9999mm)以上は9999mmに強制的に設定する
+                MessageBox.Show("設定可能な最大ピッチ = " & max_Pitch & "mmを超えています。" & vbCrLf &
+                                "ピッチを" & max_Pitch & "mmに補正します。",
+                                "入力値補正",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Exclamation)
                 If FlgInch = 0 Then
                     'mm
                     TxtPitch.Text = max_Pitch
