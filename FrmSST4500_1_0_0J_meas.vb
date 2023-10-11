@@ -296,7 +296,9 @@ Public Class FrmSST4500_1_0_0J_meas
 
                 '印刷
                 If FlgMeasAutoPrn = 1 Then
+                    TimMeas.Enabled = False
                     PrintoutMeas()
+                    TimMeas.Enabled = True
                 End If
 
                 FlgPkcd = 0

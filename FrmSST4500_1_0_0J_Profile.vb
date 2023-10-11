@@ -605,7 +605,9 @@ Public Class FrmSST4500_1_0_0J_Profile
                 FlgHoldMeas = 0
 
                 If FlgPrfAutoPrn = 1 Then
+                    TimProfile.Enabled = False
                     PrintoutPrf()
+                    TimProfile.Enabled = True
                 End If
 
             Case 20
@@ -1658,6 +1660,8 @@ Public Class FrmSST4500_1_0_0J_Profile
                     ScrollBar_init(SampleNo)
                 End If
 
+                FlgMainProfile = 0
+
                 FlgLongMeas = 1
 
                 CmdMeas.Enabled = True
@@ -1678,10 +1682,10 @@ Public Class FrmSST4500_1_0_0J_Profile
                 FlgHoldMeas = 0
 
                 If FlgPrfAutoPrn = 1 Then
+                    TimProfile.Enabled = False
                     PrintoutPrf()
+                    TimProfile.Enabled = True
                 End If
-
-                FlgMainProfile = 0
 
         End Select
     End Sub
