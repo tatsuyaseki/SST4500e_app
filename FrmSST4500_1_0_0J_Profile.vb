@@ -580,6 +580,8 @@ Public Class FrmSST4500_1_0_0J_Profile
 
                 FlgLongMeas = 1
 
+                FlgMainProfile = 0
+
                 CmdMeas.Enabled = True
                 CmdMeas.Text = "測定開始"
                 'CmdMeas.BackColor = SystemColors.Control
@@ -605,8 +607,6 @@ Public Class FrmSST4500_1_0_0J_Profile
                 If FlgPrfAutoPrn = 1 Then
                     PrintoutPrf()
                 End If
-
-                FlgMainProfile = 0
 
             Case 20
                 ClsNoPrf()
