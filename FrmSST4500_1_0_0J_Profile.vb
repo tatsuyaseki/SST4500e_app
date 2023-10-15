@@ -6,6 +6,7 @@ Imports Microsoft.Office.Interop
 Imports System.Runtime.InteropServices
 Imports System.ComponentModel
 Imports Microsoft.Office.Core
+'Imports Microsoft.Office.Interop.Excel
 
 Public Class FrmSST4500_1_0_0J_Profile
     Const Rad = 3.141592654 / 180
@@ -568,19 +569,22 @@ Public Class FrmSST4500_1_0_0J_Profile
                 End If
 
             Case 10
+                '測定終了処理
                 ToolStripStatusLabel4.Text = "測定完了"
                 CmdQuitProfile.Text = "終　了"
                 CmdQuitProfile.Enabled = True
                 終了ToolStripMenuItem.Enabled = True
                 測定中断ToolStripMenuItem.Enabled = False
 
+                Points = SampleNo
+
                 If FlgProfile = 3 Then
                     ScrollBar_init(SampleNo)
                 End If
 
-                FlgLongMeas = 1
-
                 FlgMainProfile = 0
+
+                FlgLongMeas = 1
 
                 CmdMeas.Enabled = True
                 CmdMeas.Text = "測定開始"
@@ -608,6 +612,19 @@ Public Class FrmSST4500_1_0_0J_Profile
                     TimProfile.Enabled = False
                     PrintoutPrf()
                     TimProfile.Enabled = True
+                End If
+
+                '測定完了時に測定データのファイル名を修正する
+                '測定を既定の回数しなかった場合に、総測定個所数が実際と異なるため
+                '総測定個所数の部分を実際の数に変更する
+                If SampleNo > 0 Then
+                    DataFileRename(FlgProfile,
+                               cur_dir,
+                               SampleNo,
+                               Trim(MachineNo),
+                               Trim(Sample),
+                               FileDate,
+                               FileTime)
                 End If
 
             Case 20
@@ -1038,27 +1055,46 @@ Public Class FrmSST4500_1_0_0J_Profile
                         If SampleNo > 0 Then
                             '測定済みの場合
                             If SampleNo = FileDataMax Then
-                                If Length <> LengthOld Or Pitch <> PitchOld Then
-                                    result = MessageBox.Show("測定データと過去データで" & vbCrLf &
-                                                            "サンプル長又はピッチ数が一致しませんが、" & vbCrLf &
-                                                            "過去データを読み込みしますか？",
-                                                            "サンプル長又はピッチ数不一致エラー",
-                                                            MessageBoxButtons.YesNo,
-                                                            MessageBoxIcon.Exclamation)
-                                    If result = DialogResult.No Then
-                                        SampleNo = Kt2
-                                        FlgMainProfile = 0
-                                        TimProfile.Enabled = True
-                                        Exit Sub
+                                If FlgProfile = 1 Then  'プロファイルモード
+                                    If Length <> LengthOld Or Pitch <> PitchOld Then
+                                        result = MessageBox.Show("測定データのサンプル長 = " & Length & vbCrLf &
+                                                                 "過去データのサンプル長 = " & LengthOld & vbCrLf &
+                                                                 "測定データのピッチ数 = " & Pitch & vbCrLf &
+                                                                 "過去データのピッチ数 = " & PitchOld & vbCrLf &
+                                                                 "サンプル長又はピッチ数が一致しませんが、" & vbCrLf &
+                                                                 "過去データを読み込みしますか？",
+                                                                 "サンプル長又はピッチ数不一致エラー",
+                                                                 MessageBoxButtons.YesNo,
+                                                                 MessageBoxIcon.Exclamation)
+                                        If result = DialogResult.No Then
+                                            SampleNo = Kt2
+                                            FlgMainProfile = 0
+                                            TimProfile.Enabled = True
+                                            Exit Sub
+                                        End If
                                     End If
-
-
+                                ElseIf FlgProfile = 3 Then  'MD長尺
+                                    If Pitch <> PitchOld Then
+                                        result = MessageBox.Show("測定データのピッチ = " & Pitch & vbCrLf &
+                                                                 "過去データのピッチ = " & PitchOld & vbCrLf &
+                                                                 "ピッチ数が一致していませんが、" & vbCrLf &
+                                                                 "過去データを読み込みしますか？",
+                                                                 "ピッチ数不一致エラー",
+                                                                 MessageBoxButtons.YesNo,
+                                                                 MessageBoxIcon.Exclamation)
+                                        If result = DialogResult.No Then
+                                            SampleNo = Kt2
+                                            FlgMainProfile = 0
+                                            TimProfile.Enabled = True
+                                            Exit Sub
+                                        End If
+                                    End If
                                 End If
                             Else
-                                MessageBox.Show("測定データと過去データで" & vbCrLf &
-                                                "測定個所数が一致しません。" & vbCrLf &
-                                                "測定個所数が一致する過去データを" & vbCrLf &
-                                                "読み込ませてください。" & vbCrLf &
+                                MessageBox.Show("測定データの測定個所数 = " & SampleNo & vbCrLf &
+                                                "過去データの測定個所数 = " & FileDataMax & vbCrLf &
+                                                "測定データと過去データの測定個所数が一致しません。" & vbCrLf &
+                                                "測定個所数が一致する過去データを読み込ませてください。" & vbCrLf &
                                                 "一旦読み込み処理を中断します。",
                                                 "測定個所数不一致エラー",
                                                 MessageBoxButtons.OK,
@@ -1154,9 +1190,9 @@ Public Class FrmSST4500_1_0_0J_Profile
                 'ElseIf MeasDataMax = FileDataMax Then
                 'なぜMD長尺で条件なしに平均値ボタンを有効にしているのか不明
                 '測定データのみ、過去データのみで平均値実行は正常動作しない
-                If MeasDataMax = FileDataMax Then
-                    CmdAvg.Enabled = True
-                End If
+                'If MeasDataMax = FileDataMax Then  'ConditionEnableの中で実行している
+                'CmdAvg.Enabled = True
+                'End If
 
                 ConditionEnable()
 
@@ -1220,6 +1256,8 @@ Public Class FrmSST4500_1_0_0J_Profile
                 End If
 
                 ScrollBar_init(Kt1)
+
+                ConditionEnable()
 
                 SampleNo = Kt2
                 FlgMainProfile = 0
@@ -1402,7 +1440,25 @@ Public Class FrmSST4500_1_0_0J_Profile
 
                 TimProfile.Enabled = False
 
+                If FlgProfile = 2 Then
+                    'カットシートで中断ではなく終了で終わらせた場合に
+                    '測定データのファイル名を修正するため
+                    '測定を既定の回数しなかった場合に、総測定個所数が実際と異なるため
+                    '総測定個所数の部分を実際の数に変更する
+                    If SampleNo > 0 Then
+                        DataFileRename(FlgProfile,
+                                   cur_dir,
+                                   SampleNo,
+                                   Trim(MachineNo),
+                                   Trim(Sample),
+                                   FileDate,
+                                   FileTime)
+                    End If
+                End If
+
+
                 ToolStripStatusLabel4.Text = ""
+
                 If FlgTest = 0 Then
                     UsbClose()
                 End If
@@ -1665,12 +1721,12 @@ Public Class FrmSST4500_1_0_0J_Profile
                 FlgLongMeas = 1
 
                 CmdMeas.Enabled = True
+                CmdMeas.Text = "測定開始"
                 'CmdMeas.BackColor = SystemColors.Control
                 'CmdMeas.BackColor = frm_PrfButton_bc
                 'CmdMeas.ForeColor = frm_PrfButton_fc
                 'CmdMeas.FlatStyle = FlatStyle.System
                 CmdMeasButton_set(_rdy)
-                CmdMeas.Text = "測定開始"
                 測定開始ToolStripMenuItem.Enabled = True
                 測定開始ToolStripMenuItem.Text = "測定開始"
                 測定中断ToolStripMenuItem.Enabled = False
@@ -1685,6 +1741,19 @@ Public Class FrmSST4500_1_0_0J_Profile
                     TimProfile.Enabled = False
                     PrintoutPrf()
                     TimProfile.Enabled = True
+                End If
+
+                '測定完了時に測定データのファイル名を修正する
+                '測定を既定の回数しなかった場合に、総測定個所数が実際と異なるため
+                '総測定個所数の部分を実際の数に変更する
+                If SampleNo > 0 Then
+                    DataFileRename(FlgProfile,
+                               cur_dir,
+                               SampleNo,
+                               Trim(MachineNo),
+                               Trim(Sample),
+                               FileDate,
+                               FileTime)
                 End If
 
         End Select

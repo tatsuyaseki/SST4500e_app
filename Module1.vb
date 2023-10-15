@@ -2316,7 +2316,7 @@ Module Module1
             Case 2
                 Sa = "CT_" & Trim(Str(Points)) & "_"
             Case 3
-                Sa = "LG_0_"
+                Sa = "LG_X_"
         End Select
 
         StrDataFileName = Sa & Trim(MachineNo) & "_" & Trim(Sample) & "_" & FileDate & "_" & FileTime & ".csv"
@@ -2326,6 +2326,40 @@ Module Module1
 
         End Using
 
+    End Sub
+
+    Public Sub DataFileRename(ByVal _flgProfile As String,
+                              ByVal _cur_dir As String,
+                              ByVal _points As Long,
+                              ByVal _machineno As String,
+                              ByVal _sample As String,
+                              ByVal _filedate As String,
+                              ByVal _filetime As String)
+        Dim Sa As String = ""
+        Dim NewStrDataFileName As String
+
+
+        Select Case _flgProfile
+            Case 0
+                Sa = "SG_1_"
+            Case 1
+                Sa = "PF_" & _points & "_"
+            Case 2
+                Sa = "CT_" & _points & "_"
+            Case 3
+                Sa = "LG_" & _points & "_"
+        End Select
+
+        NewStrDataFileName = Sa & _machineno & "_" & Sample & "_" & _filedate & "_" & _filetime & ".csv"
+
+        Debug.Print("DataFileRename Run...")
+        Debug.Print("CurFileNmae: " & StrDataFileName)
+        Debug.Print("NewFileName: " & NewStrDataFileName)
+
+        If StrDataFileName <> NewStrDataFileName Then
+            My.Computer.FileSystem.RenameFile(_cur_dir & DEF_DATA_FILE_FLD & StrDataFileName, NewStrDataFileName)
+            StrDataFileName = NewStrDataFileName
+        End If
     End Sub
 
     Public Sub SaveDataTitle()
