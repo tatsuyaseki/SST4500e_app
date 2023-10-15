@@ -2428,22 +2428,38 @@ Module Module1
 
 
         Using sw As New StreamWriter(cur_dir & DEF_DATA_FILE_FLD & StrDataFileName, True, Encoding.UTF8)
-            sw.WriteLine(Ds(1) & "," & Ds(2) & "," &
-                         Ds(3) & "," & Ds(4) & "," &
-                         Ds(5) & "," & Ds(6) & "," &
-                         Ds(7) & "," & Dn(1).ToString & "," &
-                         Dn(2).ToString & "," & Dn(3).ToString & "," &
-                         Ds(8) & "," & Ds(9) & "," &
-                         Dn(6).ToString & "," & Dn(7).ToString & "," &
-                         Dn(8).ToString & "," & Dn(9).ToString & "," &
-                         Dn(10).ToString & "," & Dn(11).ToString & "," &
-                         Dn(12).ToString & "," & Dn(13).ToString & "," &
-                         Dn(14).ToString & "," & Dn(15).ToString & "," &
-                         Dn(16).ToString & "," & Dn(17).ToString & "," &
-                         Dn(18).ToString & "," & Dn(19).ToString & "," &
-                         Dn(20).ToString & "," & Dn(21).ToString & "," &
-                         Dn(22).ToString & "," & Dn(23).ToString & "," &
-                         Dn(24).ToString & "," & Dn(25).ToString)
+            sw.WriteLine(Ds(1) & "," &              'Machine No.
+                         Ds(2) & "," &              'Sample Name
+                         Ds(3) & "," &              'Mark
+                         Ds(4) & "," &              'B/W
+                         Ds(5) & "," &              'No.
+                         Ds(6) & "," &              'Date
+                         Ds(7) & "," &              'Time
+                         Dn(1).ToString & "," &     'Points
+                         Dn(2).ToString & "," &     'MD/CD
+                         Dn(3).ToString & "," &     'Peak/Deep
+                         Ds(8) & "," &              'Angle-Deep
+                         Ds(9) & "," &              'Angle-Peak
+                         Dn(6).ToString & "," &     'Deep
+                         Dn(7).ToString & "," &     'Peak
+                         Dn(8).ToString & "," &     '0
+                         Dn(9).ToString & "," &     '11.25
+                         Dn(10).ToString & "," &    '22.5
+                         Dn(11).ToString & "," &    '37.75
+                         Dn(12).ToString & "," &    '45
+                         Dn(13).ToString & "," &    '56.25
+                         Dn(14).ToString & "," &    '67.5
+                         Dn(15).ToString & "," &    '78.75
+                         Dn(16).ToString & "," &    '90
+                         Dn(17).ToString & "," &    '101.25
+                         Dn(18).ToString & "," &    '112.5
+                         Dn(19).ToString & "," &    '123.75
+                         Dn(20).ToString & "," &    '135
+                         Dn(21).ToString & "," &    '146.25
+                         Dn(22).ToString & "," &    '157.5
+                         Dn(23).ToString & "," &    '168.75
+                         Dn(24).ToString & "," &    'Length
+                         Dn(25).ToString)           'Pitch
         End Using
     End Sub
 
