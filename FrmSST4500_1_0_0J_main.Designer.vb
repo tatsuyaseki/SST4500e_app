@@ -55,6 +55,7 @@ Partial Class FrmSST4500_1_0_0J_main
         Me.SST4500ヘルプToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SST4500についてToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.ToolStripStatusLabel4 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.StatusStrip1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -68,7 +69,7 @@ Partial Class FrmSST4500_1_0_0J_main
         '
         Me.StatusStrip1.Font = New System.Drawing.Font("MS UI Gothic", 9.0!)
         Me.StatusStrip1.ImageScalingSize = New System.Drawing.Size(24, 24)
-        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.ToolStripStatusLabel3, Me.ToolStripStatusLabel2})
+        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.ToolStripStatusLabel3, Me.ToolStripStatusLabel2, Me.ToolStripStatusLabel4})
         Me.StatusStrip1.Location = New System.Drawing.Point(0, 540)
         Me.StatusStrip1.Name = "StatusStrip1"
         Me.StatusStrip1.Size = New System.Drawing.Size(784, 22)
@@ -305,6 +306,12 @@ Partial Class FrmSST4500_1_0_0J_main
         Me.PictureBox1.TabIndex = 12
         Me.PictureBox1.TabStop = False
         '
+        'ToolStripStatusLabel4
+        '
+        Me.ToolStripStatusLabel4.Name = "ToolStripStatusLabel4"
+        Me.ToolStripStatusLabel4.Size = New System.Drawing.Size(35, 17)
+        Me.ToolStripStatusLabel4.Text = "特殊1"
+        '
         'FrmSST4500_1_0_0J_main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(96.0!, 96.0!)
@@ -367,4 +374,5 @@ Partial Class FrmSST4500_1_0_0J_main
     Friend WithEvents ヘルプToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SST4500ヘルプToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SST4500についてToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripStatusLabel4 As ToolStripStatusLabel
 End Class

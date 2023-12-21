@@ -113,9 +113,15 @@ Public Class FrmSST4500_1_0_0J_meas
                     DataDate = Now.ToString("yy/MM/dd")
                     DataDate_cur = DataDate
                     FileDate = Now.ToString("yyMMdd")
-                    DataTime = Now.ToString("HH:mm:ss")
-                    DataTime_cur = DataTime
-                    FileTime = Now.ToString("HHmmss")
+                    If FlgDBF = 0 Then
+                        DataTime = Now.ToString("HH:mm:ss")
+                        DataTime_cur = DataTime
+                        FileTime = Now.ToString("HHmmss")
+                    Else
+                        DataTime = Now.ToString("HH:mm")
+                        DataTime_cur = DataTime
+                        FileTime = Now.ToString("HHmm")
+                    End If
                     MachineNo = TxtMachNoCur.Text
                     Sample = TxtSmplNamCur.Text
 

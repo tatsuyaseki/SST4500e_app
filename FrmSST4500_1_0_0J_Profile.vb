@@ -235,9 +235,15 @@ Public Class FrmSST4500_1_0_0J_Profile
                 DataDate = Now.ToString("yy/MM/dd")
                 DataDate_cur = DataDate
                 FileDate = Now.ToString("yyMMdd")
-                DataTime = Now.ToString("HH:mm:ss")
-                DataTime_cur = DataTime
-                FileTime = Now.ToString("HHmmss")
+                If FlgDBF = 0 Then
+                    DataTime = Now.ToString("HH:mm:ss")
+                    DataTime_cur = DataTime
+                    FileTime = Now.ToString("HHmmss")
+                Else
+                    DataTime = Now.ToString("HH:mm")
+                    DataTime_cur = DataTime
+                    FileTime = Now.ToString("HHmm")
+                End If
                 MachineNo = TxtMachNoCur.Text
                 Sample = TxtSmplNamCur.Text
 
@@ -4249,8 +4255,12 @@ Public Class FrmSST4500_1_0_0J_Profile
         End If
         DataInt2TSI(KdData) += Kt ^ 2
 
-        Ds = DataPrcStr(KdData, SampleNo, 9)    'OrAngle-Peak
-        Kt = Val(Strings.Right(Ds, Len(Ds) - 2))
+        If FlgDBF = 0 Then
+            Ds = DataPrcStr(KdData, SampleNo, 9)    'OrAngle-Peak
+            Kt = Val(Strings.Right(Ds, Len(Ds) - 2))
+        Else
+            Kt = Val(DataPrcStr(KdData, SampleNo, 9))
+        End If
         If DataMax1Angle(KdData) < Kt Then
             DataMax1Angle(KdData) = Kt
         End If
@@ -4259,12 +4269,16 @@ Public Class FrmSST4500_1_0_0J_Profile
         End If
         DataInt1Angle(KdData) += Kt
 
-        Ds = DataPrcStr(KdData, SampleNo, 8)    'OrAngle-Deep
-        Kt = Val(Strings.Right(Ds, Len(Ds) - 2))
-        If DataMax2Angle(KdData) < Kt Then
-            DataMax2Angle(KdData) = Kt
+        If FlgDBF = 0 Then
+            Ds = DataPrcStr(KdData, SampleNo, 8)    'OrAngle-Deep
+            Kt = Val(Strings.Right(Ds, Len(Ds) - 2))
+        Else
+            Kt = Val(DataPrcStr(KdData, SampleNo, 8))
         End If
-        If DataMin2Angle(KdData) > Kt Then
+        If DataMax2Angle(KdData) < Kt Then
+                DataMax2Angle(KdData) = Kt
+            End If
+            If DataMin2Angle(KdData) > Kt Then
             DataMin2Angle(KdData) = Kt
         End If
         DataInt2Angle(KdData) += Kt
@@ -4828,14 +4842,22 @@ Public Class FrmSST4500_1_0_0J_Profile
                         TbRowsCount += 1
                         'DataGridView2.FirstDisplayedScrollingRowIndex = TbRowsCount - 1
                     End If
-                    Ds = DataPrcStr(KdData, SampleNoi, 9)
-                    DataK = Math.Round(Val(Strings.Right(Ds, Len(Ds) - 2)), 1)
+                    If FlgDBF = 0 Then
+                        Ds = DataPrcStr(KdData, SampleNoi, 9)
+                        DataK = Math.Round(Val(Strings.Right(Ds, Len(Ds) - 2)), 1)
+                    Else
+                        DataK = Math.Round(Val(DataPrcStr(KdData, SampleNoi, 9)), 1)
+                    End If
                     DataGridView2.Rows(SampleNoi - 1).Cells(0).Value = SampleNoi
                     DataGridView2.Rows(SampleNoi - 1).Cells(1).Value = Format(DataK, "+0.0;-0.0;0.0")
 
                     'Angle-Deep Table Data
-                    Ds = DataPrcStr(KdData, SampleNoi, 8)
-                    DataK = Math.Round(Val(Strings.Right(Ds, Len(Ds) - 2)), 1)
+                    If FlgDBF = 0 Then
+                        Ds = DataPrcStr(KdData, SampleNoi, 8)
+                        DataK = Math.Round(Val(Strings.Right(Ds, Len(Ds) - 2)), 1)
+                    Else
+                        DataK = Math.Round(Val(DataPrcStr(KdData, SampleNoi, 8)), 1)
+                    End If
                     DataGridView2.Rows(SampleNoi - 1).Cells(2).Value = Format(DataK, "+0.0;-0.0;0.0")
                 Next
             ElseIf KdData = 0 Then
@@ -5433,10 +5455,15 @@ Public Class FrmSST4500_1_0_0J_Profile
         End Select
 
         '---angle peak---
-        Ds = DataPrcStr(KdData, SampleNo - 1, 9)
-        Ky1 = Val(Strings.Right(Ds, Len(Ds) - 2))
-        Ds = DataPrcStr(KdData, SampleNo, 9)
-        Ky2 = Val(Strings.Right(Ds, Len(Ds) - 2))
+        If FlgDBF = 0 Then
+            Ds = DataPrcStr(KdData, SampleNo - 1, 9)
+            Ky1 = Val(Strings.Right(Ds, Len(Ds) - 2))
+            Ds = DataPrcStr(KdData, SampleNo, 9)
+            Ky2 = Val(Strings.Right(Ds, Len(Ds) - 2))
+        Else
+            Ky1 = Val(DataPrcStr(KdData, SampleNo - 1, 9))
+            Ky2 = Val(DataPrcStr(KdData, SampleNo, 9))
+        End If
 
         PosY1 = Graph_angle_Y_center - StepY * Ky1
         If PosY1 < angle_yaxis_min Then
@@ -5455,10 +5482,15 @@ Public Class FrmSST4500_1_0_0J_Profile
         path1.AddLine(graph_x_sta + PosX1(KdData), PosY1, graph_x_sta + PosX1(KdData) + StepX, PosY2)
 
         '---angle deep---
-        Ds = DataPrcStr(KdData, SampleNo - 1, 8)
-        Ky1 = Val(Strings.Right(Ds, Len(Ds) - 2))
-        Ds = DataPrcStr(KdData, SampleNo, 8)
-        Ky2 = Val(Strings.Right(Ds, Len(Ds) - 2))
+        If FlgDBF = 0 Then
+            Ds = DataPrcStr(KdData, SampleNo - 1, 8)
+            Ky1 = Val(Strings.Right(Ds, Len(Ds) - 2))
+            Ds = DataPrcStr(KdData, SampleNo, 8)
+            Ky2 = Val(Strings.Right(Ds, Len(Ds) - 2))
+        Else
+            Ky1 = Val(DataPrcStr(KdData, SampleNo - 1, 8))
+            Ky2 = Val(DataPrcStr(KdData, SampleNo, 8))
+        End If
 
         PosY1 = Graph_angle_Y_center - StepY * Ky1
         If PosY1 < angle_yaxis_min Then

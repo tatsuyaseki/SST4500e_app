@@ -269,5 +269,11 @@
     <Setting Name="_printbc" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="_dbf_chg" Type="System.String" Scope="User">
+      <Value Profile="(Default)">7tpb4/D3hxRym51aU8Kiow==</Value>
+    </Setting>
+    <Setting Name="_flg_dbf" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

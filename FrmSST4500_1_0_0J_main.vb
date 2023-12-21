@@ -125,6 +125,15 @@ Public Class FrmSST4500_1_0_0J_main
         cmd_timeout = My.Settings._cmd_timeout
         feed_timeout = My.Settings._feed_timeout
 
+        FlgDBF = My.Settings._flg_dbf
+        If FlgDBF = 1 Then
+            FrmSST4500_1_1_0J_dbfchg.Rb_custum1.Checked = True
+            ToolStripStatusLabel4.Text = "特殊1"
+        Else
+            FrmSST4500_1_1_0J_dbfchg.Rb_default.Checked = True
+            ToolStripStatusLabel4.Text = ""
+        End If
+
         FlgFTDLLerr = 0
 
         TimerCountS = 0
@@ -142,10 +151,12 @@ Public Class FrmSST4500_1_0_0J_main
         Dim passwd_adm_temp As String
         Dim passwd_adm2_temp As String
         Dim passwd_adm2_chg_temp As String
+        Dim passwd_dbf_chg_temp As String
 
         'Console.WriteLine("passwd_adm     : " & wrapper.EncryptData("SST4500"))
         'Console.WriteLine("passwd_adm2    : " & wrapper.EncryptData("NMR8001"))
         'Console.WriteLine("passwd_adm2_chg: " & wrapper.EncryptData("NMRCHG"))
+        'Console.WriteLine("passwd_dbf_chg : " & wrapper.EncryptData("dbf_chg"))
 
         passwd_adm_temp = My.Settings._passwd_adm
         passwd_adm = wrapper.DecryptData(passwd_adm_temp)
@@ -153,6 +164,8 @@ Public Class FrmSST4500_1_0_0J_main
         passwd_adm2 = wrapper.DecryptData(passwd_adm2_temp)
         passwd_adm2_chg_temp = My.Settings._passwd_adm2_chg
         passwd_adm2_chg = wrapper.DecryptData(passwd_adm2_chg_temp)
+        passwd_dbf_chg_temp = My.Settings._dbf_chg
+        passwd_dbf_chg = wrapper.DecryptData(passwd_dbf_chg_temp)
 
         mainform_color_init()
         mainform_borderstyle_init()
@@ -282,6 +295,10 @@ Public Class FrmSST4500_1_0_0J_main
                         FlgMainSplash = 0
                         TimerCountS = 0
                         FrmSST4500_1_0_0J_passchg.Visible = True
+                    ElseIf strTemp = passwd_dbf_chg Then
+                        FlgMainSplash = 0
+                        timerCount1 = 0
+                        frmSST4500_1_1_0J_dbfchg.Visible = True
                     Else
                         FlgAdmin = 0
                         FlgMainSplash = 0
