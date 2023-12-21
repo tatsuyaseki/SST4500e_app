@@ -13,22 +13,28 @@
     End Sub
 
     Private Sub Rb_default_CheckedChanged(sender As Object, e As EventArgs) Handles Rb_default.CheckedChanged
-        If Rb_default.Checked = True Then
-            FlgDBF = 0
-        ElseIf Rb_custum1.Checked = True Then
-            FlgDBF = 1
-        End If
+        'If Rb_default.Checked = True Then
+        'FlgDBF = 0
+        'ElseIf Rb_custum1.Checked = True Then
+        'FlgDBF = 1
+        'End If
     End Sub
 
     Private Sub Rb_custum1_CheckedChanged(sender As Object, e As EventArgs) Handles Rb_custum1.CheckedChanged
+        'If Rb_default.Checked = True Then
+        'FlgDBF = 0
+        'ElseIf Rb_custum1.Checked = True Then
+        'FlgDBF = 1
+        'End If
+    End Sub
+
+    Private Sub CmdOK_Click(sender As Object, e As EventArgs) Handles CmdOK.Click
         If Rb_default.Checked = True Then
             FlgDBF = 0
         ElseIf Rb_custum1.Checked = True Then
             FlgDBF = 1
         End If
-    End Sub
 
-    Private Sub CmdOK_Click(sender As Object, e As EventArgs) Handles CmdOK.Click
         My.Settings._flg_dbf = FlgDBF
         My.Settings.Save()
         If FlgDBF = 1 Then

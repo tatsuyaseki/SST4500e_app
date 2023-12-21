@@ -4236,6 +4236,7 @@ Public Class FrmSST4500_1_0_0J_Profile
     Private Sub DataMaxMinInt()
         Dim Kt As Double
         Dim Ds As String
+        Dim Ds_1 As String
 
         Kt = DataPrcNum(KdData, SampleNo, 3)    'TSI-MD
         If DataMax1TSI(KdData) < Kt Then
@@ -4255,11 +4256,13 @@ Public Class FrmSST4500_1_0_0J_Profile
         End If
         DataInt2TSI(KdData) += Kt ^ 2
 
-        If FlgDBF = 0 Then
-            Ds = DataPrcStr(KdData, SampleNo, 9)    'OrAngle-Peak
+        'If FlgDBF = 0 Then
+        Ds = DataPrcStr(KdData, SampleNo, 9)    'OrAngle-Peak
+        Ds_1 = Strings.Left(Ds, 1)
+        If Ds_1 = "C" Or Ds_1 = "M" Then
             Kt = Val(Strings.Right(Ds, Len(Ds) - 2))
         Else
-            Kt = Val(DataPrcStr(KdData, SampleNo, 9))
+            Kt = Val(Ds)
         End If
         If DataMax1Angle(KdData) < Kt Then
             DataMax1Angle(KdData) = Kt
@@ -4269,16 +4272,18 @@ Public Class FrmSST4500_1_0_0J_Profile
         End If
         DataInt1Angle(KdData) += Kt
 
-        If FlgDBF = 0 Then
-            Ds = DataPrcStr(KdData, SampleNo, 8)    'OrAngle-Deep
+        'If FlgDBF = 0 Then
+        Ds = DataPrcStr(KdData, SampleNo, 8)    'OrAngle-Deep
+        Ds_1 = Strings.Left(Ds, 1)
+        If Ds_1 = "C" Or Ds_1 = "M" Then
             Kt = Val(Strings.Right(Ds, Len(Ds) - 2))
         Else
-            Kt = Val(DataPrcStr(KdData, SampleNo, 8))
+            Kt = Val(Ds)
         End If
         If DataMax2Angle(KdData) < Kt Then
-                DataMax2Angle(KdData) = Kt
-            End If
-            If DataMin2Angle(KdData) > Kt Then
+            DataMax2Angle(KdData) = Kt
+        End If
+        If DataMin2Angle(KdData) > Kt Then
             DataMin2Angle(KdData) = Kt
         End If
         DataInt2Angle(KdData) += Kt
@@ -4689,6 +4694,7 @@ Public Class FrmSST4500_1_0_0J_Profile
         Dim DataAvgD As Single
         Dim DataK As Single
         Dim Ds As String
+        Dim Ds_1 As String
         Dim TbRowsCount As Integer
         Dim SampleNoi As Integer
 
@@ -4789,25 +4795,29 @@ Public Class FrmSST4500_1_0_0J_Profile
                     DataGridView1.Rows(SampleNo - 1).Cells(0).Value = SampleNo
 
                     'Angle-Peak Table Data
-                    If FlgDBF = 0 Then
-                        Ds = DataPrcStr(KdData, SampleNo, 9)
+                    'If FlgDBF = 0 Then
+                    Ds = DataPrcStr(KdData, SampleNo, 9)
+                    Ds_1 = Strings.Left(Ds, 1)
+                    If Ds_1 = "C" Or Ds_1 = "M" Then
                         DataK = Math.Round(Val(Strings.Right(Ds, Len(Ds) - 2)), 1)
                     Else
-                        DataK = Math.Round(Val(DataPrcStr(KdData, SampleNo, 9)), 1)
+                        DataK = Math.Round(Val(Ds), 1)
                     End If
                     DataGridView1.Rows(SampleNo - 1).Cells(1).Value = Format(DataK, "+0.0;-0.0;0.0")
 
-                    If FlgDBF = 0 Then
-                        'Angle-Deep Table Data
-                        Ds = DataPrcStr(KdData, SampleNo, 8)
+                    'If FlgDBF = 0 Then
+                    'Angle-Deep Table Data
+                    Ds = DataPrcStr(KdData, SampleNo, 8)
+                    Ds_1 = Strings.Left(Ds, 1)
+                    If Ds_1 = "C" Or Ds_1 = "M" Then
                         DataK = Math.Round(Val(Strings.Right(Ds, Len(Ds) - 2)), 1)
                     Else
-                        DataK = Math.Round(Val(DataPrcStr(KdData, SampleNo, 8)), 1)
+                        DataK = Math.Round(Val(Ds), 1)
                     End If
                     DataGridView1.Rows(SampleNo - 1).Cells(2).Value = Format(DataK, "+0.0;-0.0;0.0")
 
-                ElseIf sel = 1 Then
-                    For SampleNoi = 1 To SampleNo
+                    ElseIf sel = 1 Then
+                        For SampleNoi = 1 To SampleNo
                         TbRowsCount = DataGridView1.Rows.Count
                         If SampleNo > TbRowsCount Then
                             DataGridView1.Rows.Add()
@@ -4817,20 +4827,24 @@ Public Class FrmSST4500_1_0_0J_Profile
                         DataGridView1.Rows(SampleNoi - 1).Cells(0).Value = SampleNoi
 
                         'Angle-Peak Table Data
-                        If FlgDBF = 0 Then
-                            Ds = DataPrcStr(KdData, SampleNoi, 9)
+                        'If FlgDBF = 0 Then
+                        Ds = DataPrcStr(KdData, SampleNoi, 9)
+                        Ds_1 = Strings.Left(Ds, 1)
+                        If Ds_1 = "C" Or Ds_1 = "M" Then
                             DataK = Math.Round(Val(Strings.Right(Ds, Len(Ds) - 2)), 1)
                         Else
-                            DataK = Math.Round(Val(DataPrcStr(KdData, SampleNoi, 9)), 1)
+                            DataK = Math.Round(Val(Ds), 1)
                         End If
                         DataGridView1.Rows(SampleNoi - 1).Cells(1).Value = Format(DataK, "+0.0;-0.0;0.0")
 
                         'Angle-Deep Table Data
-                        If FlgDBF = 0 Then
-                            Ds = DataPrcStr(KdData, SampleNoi, 8)
+                        'If FlgDBF = 0 Then
+                        Ds = DataPrcStr(KdData, SampleNoi, 8)
+                        Ds_1 = Strings.Left(Ds, 1)
+                        If Ds_1 = "C" Or Ds_1 = "M" Then
                             DataK = Math.Round(Val(Strings.Right(Ds, Len(Ds) - 2)), 1)
                         Else
-                            DataK = Math.Round(Val(DataPrcStr(KdData, SampleNoi, 8)), 1)
+                            DataK = Math.Round(Val(Ds), 1)
                         End If
                         DataGridView1.Rows(SampleNoi - 1).Cells(2).Value = Format(DataK, "+0.0;-0.0;0.0")
                     Next
@@ -4868,20 +4882,24 @@ Public Class FrmSST4500_1_0_0J_Profile
 
                     DataGridView2.Rows(SampleNoi - 1).Cells(0).Value = SampleNoi
 
-                    If FlgDBF = 0 Then
-                        Ds = DataPrcStr(KdData, SampleNoi, 9)
+                    'If FlgDBF = 0 Then
+                    Ds = DataPrcStr(KdData, SampleNoi, 9)
+                    Ds_1 = Strings.Left(Ds, 1)
+                    If Ds_1 = "C" Or Ds_1 = "M" Then
                         DataK = Math.Round(Val(Strings.Right(Ds, Len(Ds) - 2)), 1)
                     Else
-                        DataK = Math.Round(Val(DataPrcStr(KdData, SampleNoi, 9)), 1)
+                        DataK = Math.Round(Val(Ds), 1)
                     End If
                     DataGridView2.Rows(SampleNoi - 1).Cells(1).Value = Format(DataK, "+0.0;-0.0;0.0")
 
                     'Angle-Deep Table Data
-                    If FlgDBF = 0 Then
-                        Ds = DataPrcStr(KdData, SampleNoi, 8)
+                    'If FlgDBF = 0 Then
+                    Ds = DataPrcStr(KdData, SampleNoi, 8)
+                    Ds_1 = Strings.Left(Ds, 1)
+                    If Ds_1 = "C" Or Ds_1 = "M" Then
                         DataK = Math.Round(Val(Strings.Right(Ds, Len(Ds) - 2)), 1)
                     Else
-                        DataK = Math.Round(Val(DataPrcStr(KdData, SampleNoi, 8)), 1)
+                        DataK = Math.Round(Val(Ds), 1)
                     End If
                     DataGridView2.Rows(SampleNoi - 1).Cells(2).Value = Format(DataK, "+0.0;-0.0;0.0")
                 Next
@@ -4918,20 +4936,24 @@ Public Class FrmSST4500_1_0_0J_Profile
                     DataGridView3.Rows(SampleNoi - 1).Cells(0).Value = SampleNoi
 
                     'Angle-Peak Table Data
-                    If FlgDBF = 0 Then
-                        Ds = DataPrcStr(KdData, SampleNoi, 9)
+                    'If FlgDBF = 0 Then
+                    Ds = DataPrcStr(KdData, SampleNoi, 9)
+                    Ds_1 = Strings.Left(Ds, 1)
+                    If Ds_1 = "C" Or Ds_1 = "M" Then
                         DataK = Math.Round(Val(Strings.Right(Ds, Len(Ds) - 2)), 1)
                     Else
-                        DataK = Math.Round(Val(DataPrcStr(KdData, SampleNoi, 9)), 1)
+                        DataK = Math.Round(Val(Ds), 1)
                     End If
                     DataGridView3.Rows(SampleNoi - 1).Cells(1).Value = Format(DataK, "+0.0;-0.0;0.0")
 
                     'Angle-Deep Table Data
-                    If FlgDBF = 0 Then
-                        Ds = DataPrcStr(KdData, SampleNoi, 8)
+                    'If FlgDBF = 0 Then
+                    Ds = DataPrcStr(KdData, SampleNoi, 8)
+                    Ds_1 = Strings.Left(Ds, 1)
+                    If Ds_1 = "C" Or Ds_1 = "M" Then
                         DataK = Math.Round(Val(Strings.Right(Ds, Len(Ds) - 2)), 1)
                     Else
-                        DataK = Math.Round(Val(DataPrcStr(KdData, SampleNoi, 8)), 1)
+                        DataK = Math.Round(Val(Ds), 1)
                     End If
                     DataGridView3.Rows(SampleNoi - 1).Cells(2).Value = Format(DataK, "+0.0;-0.0;0.0")
                 Next
