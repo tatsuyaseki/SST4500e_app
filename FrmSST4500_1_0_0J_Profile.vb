@@ -4785,15 +4785,27 @@ Public Class FrmSST4500_1_0_0J_Profile
                         TbRowsCount += 1
                         'DataGridView1.FirstDisplayedScrollingRowIndex = TbRowsCount - 1
                     End If
-                    Ds = DataPrcStr(KdData, SampleNo, 9)
-                    DataK = Math.Round(Val(Strings.Right(Ds, Len(Ds) - 2)), 1)
+
                     DataGridView1.Rows(SampleNo - 1).Cells(0).Value = SampleNo
+
+                    'Angle-Peak Table Data
+                    If FlgDBF = 0 Then
+                        Ds = DataPrcStr(KdData, SampleNo, 9)
+                        DataK = Math.Round(Val(Strings.Right(Ds, Len(Ds) - 2)), 1)
+                    Else
+                        DataK = Math.Round(Val(DataPrcStr(KdData, SampleNo, 9)), 1)
+                    End If
                     DataGridView1.Rows(SampleNo - 1).Cells(1).Value = Format(DataK, "+0.0;-0.0;0.0")
 
-                    'Angle-Deep Table Data
-                    Ds = DataPrcStr(KdData, SampleNo, 8)
-                    DataK = Math.Round(Val(Strings.Right(Ds, Len(Ds) - 2)), 1)
+                    If FlgDBF = 0 Then
+                        'Angle-Deep Table Data
+                        Ds = DataPrcStr(KdData, SampleNo, 8)
+                        DataK = Math.Round(Val(Strings.Right(Ds, Len(Ds) - 2)), 1)
+                    Else
+                        DataK = Math.Round(Val(DataPrcStr(KdData, SampleNo, 8)), 1)
+                    End If
                     DataGridView1.Rows(SampleNo - 1).Cells(2).Value = Format(DataK, "+0.0;-0.0;0.0")
+
                 ElseIf sel = 1 Then
                     For SampleNoi = 1 To SampleNo
                         TbRowsCount = DataGridView1.Rows.Count
@@ -4801,14 +4813,25 @@ Public Class FrmSST4500_1_0_0J_Profile
                             DataGridView1.Rows.Add()
                             TbRowsCount += 1
                         End If
-                        Ds = DataPrcStr(KdData, SampleNoi, 9)
-                        DataK = Math.Round(Val(Strings.Right(Ds, Len(Ds) - 2)), 1)
+
                         DataGridView1.Rows(SampleNoi - 1).Cells(0).Value = SampleNoi
+
+                        'Angle-Peak Table Data
+                        If FlgDBF = 0 Then
+                            Ds = DataPrcStr(KdData, SampleNoi, 9)
+                            DataK = Math.Round(Val(Strings.Right(Ds, Len(Ds) - 2)), 1)
+                        Else
+                            DataK = Math.Round(Val(DataPrcStr(KdData, SampleNoi, 9)), 1)
+                        End If
                         DataGridView1.Rows(SampleNoi - 1).Cells(1).Value = Format(DataK, "+0.0;-0.0;0.0")
 
                         'Angle-Deep Table Data
-                        Ds = DataPrcStr(KdData, SampleNoi, 8)
-                        DataK = Math.Round(Val(Strings.Right(Ds, Len(Ds) - 2)), 1)
+                        If FlgDBF = 0 Then
+                            Ds = DataPrcStr(KdData, SampleNoi, 8)
+                            DataK = Math.Round(Val(Strings.Right(Ds, Len(Ds) - 2)), 1)
+                        Else
+                            DataK = Math.Round(Val(DataPrcStr(KdData, SampleNoi, 8)), 1)
+                        End If
                         DataGridView1.Rows(SampleNoi - 1).Cells(2).Value = Format(DataK, "+0.0;-0.0;0.0")
                     Next
                 End If
@@ -4842,13 +4865,15 @@ Public Class FrmSST4500_1_0_0J_Profile
                         TbRowsCount += 1
                         'DataGridView2.FirstDisplayedScrollingRowIndex = TbRowsCount - 1
                     End If
+
+                    DataGridView2.Rows(SampleNoi - 1).Cells(0).Value = SampleNoi
+
                     If FlgDBF = 0 Then
                         Ds = DataPrcStr(KdData, SampleNoi, 9)
                         DataK = Math.Round(Val(Strings.Right(Ds, Len(Ds) - 2)), 1)
                     Else
                         DataK = Math.Round(Val(DataPrcStr(KdData, SampleNoi, 9)), 1)
                     End If
-                    DataGridView2.Rows(SampleNoi - 1).Cells(0).Value = SampleNoi
                     DataGridView2.Rows(SampleNoi - 1).Cells(1).Value = Format(DataK, "+0.0;-0.0;0.0")
 
                     'Angle-Deep Table Data
@@ -4889,14 +4914,25 @@ Public Class FrmSST4500_1_0_0J_Profile
                         TbRowsCount += 1
                         'DataGridView2.FirstDisplayedScrollingRowIndex = TbRowsCount - 1
                     End If
-                    Ds = DataPrcStr(KdData, SampleNoi, 9)
-                    DataK = Math.Round(Val(Strings.Right(Ds, Len(Ds) - 2)), 1)
+
                     DataGridView3.Rows(SampleNoi - 1).Cells(0).Value = SampleNoi
+
+                    'Angle-Peak Table Data
+                    If FlgDBF = 0 Then
+                        Ds = DataPrcStr(KdData, SampleNoi, 9)
+                        DataK = Math.Round(Val(Strings.Right(Ds, Len(Ds) - 2)), 1)
+                    Else
+                        DataK = Math.Round(Val(DataPrcStr(KdData, SampleNoi, 9)), 1)
+                    End If
                     DataGridView3.Rows(SampleNoi - 1).Cells(1).Value = Format(DataK, "+0.0;-0.0;0.0")
 
                     'Angle-Deep Table Data
-                    Ds = DataPrcStr(KdData, SampleNoi, 8)
-                    DataK = Math.Round(Val(Strings.Right(Ds, Len(Ds) - 2)), 1)
+                    If FlgDBF = 0 Then
+                        Ds = DataPrcStr(KdData, SampleNoi, 8)
+                        DataK = Math.Round(Val(Strings.Right(Ds, Len(Ds) - 2)), 1)
+                    Else
+                        DataK = Math.Round(Val(DataPrcStr(KdData, SampleNoi, 8)), 1)
+                    End If
                     DataGridView3.Rows(SampleNoi - 1).Cells(2).Value = Format(DataK, "+0.0;-0.0;0.0")
                 Next
 
