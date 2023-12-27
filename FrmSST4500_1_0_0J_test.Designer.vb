@@ -144,6 +144,7 @@ Partial Class FrmSST4500_1_0_0J_test
         Me.LblRxData = New System.Windows.Forms.Label()
         Me.LblTT1 = New System.Windows.Forms.Label()
         Me.PictureBox5 = New System.Windows.Forms.PictureBox()
+        Me.ToolStripStatusLabel5 = New System.Windows.Forms.ToolStripStatusLabel()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
@@ -1517,7 +1518,7 @@ Partial Class FrmSST4500_1_0_0J_test
         '
         'StatusStrip1
         '
-        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.ToolStripStatusLabel3, Me.ToolStripStatusLabel2, Me.ToolStripStatusLabel4})
+        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.ToolStripStatusLabel3, Me.ToolStripStatusLabel2, Me.ToolStripStatusLabel5, Me.ToolStripStatusLabel4})
         Me.StatusStrip1.Location = New System.Drawing.Point(0, 655)
         Me.StatusStrip1.Name = "StatusStrip1"
         Me.StatusStrip1.Size = New System.Drawing.Size(824, 22)
@@ -1556,7 +1557,7 @@ Partial Class FrmSST4500_1_0_0J_test
         Me.ToolStripStatusLabel4.BorderStyle = System.Windows.Forms.Border3DStyle.Sunken
         Me.ToolStripStatusLabel4.Font = New System.Drawing.Font("MS UI Gothic", 9.0!)
         Me.ToolStripStatusLabel4.Name = "ToolStripStatusLabel4"
-        Me.ToolStripStatusLabel4.Size = New System.Drawing.Size(590, 17)
+        Me.ToolStripStatusLabel4.Size = New System.Drawing.Size(522, 17)
         Me.ToolStripStatusLabel4.Spring = True
         Me.ToolStripStatusLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
@@ -1695,6 +1696,12 @@ Partial Class FrmSST4500_1_0_0J_test
         Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox5.TabIndex = 59
         Me.PictureBox5.TabStop = False
+        '
+        'ToolStripStatusLabel5
+        '
+        Me.ToolStripStatusLabel5.Name = "ToolStripStatusLabel5"
+        Me.ToolStripStatusLabel5.Size = New System.Drawing.Size(37, 17)
+        Me.ToolStripStatusLabel5.Text = "特殊1"
         '
         'FrmSST4500_1_0_0J_test
         '
@@ -1877,4 +1884,5 @@ Partial Class FrmSST4500_1_0_0J_test
     Friend WithEvents LblRxData As Label
     Friend WithEvents LblTT1 As Label
     Friend WithEvents PictureBox5 As PictureBox
+    Friend WithEvents ToolStripStatusLabel5 As ToolStripStatusLabel
 End Class

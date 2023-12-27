@@ -945,6 +945,8 @@ Module Module1
             .TxtMachNoBak.BackColor = frm_MeasTextBox_bc
             .TxtSmplNamCur.BackColor = frm_MeasTextBox_bc
             .TxtSmplNamBak.BackColor = frm_MeasTextBox_bc
+            .TxtMarkCur.BackColor = frm_MeasTextBox_bc
+            .TxtMarkBak.BackColor = frm_MeasTextBox_bc
             '.TxtMeasNumCur.BackColor = frm_MeasTextBox_bc
             '.TxtMeasNumBak.BackColor = frm_MeasTextBox_bc
         End With
@@ -957,6 +959,8 @@ Module Module1
             .TxtMachNoBak.BackColor = frm_PrfTextBox_bc
             .TxtSmplNamCur.BackColor = frm_PrfTextBox_bc
             .TxtSmplNamBak.BackColor = frm_PrfTextBox_bc
+            .TxtMarkCur.BackColor = frm_PrfTextBox_bc
+            .TxtMarkBak.BackColor = frm_PrfTextBox_bc
             '.TxtMeasNumCur.BackColor = frm_PrfTextBox_bc
             '.TxtMeasNumBak.BackColor = frm_PrfTextBox_bc
             '.TxtMeasLotCur.BackColor = frm_PrfTextBox_bc
@@ -1039,6 +1043,7 @@ Module Module1
             .LblMeasSpecBak.ForeColor = frm_MeasOldData_color
             .TxtMachNoBak.ForeColor = frm_MeasOldData_color
             .TxtSmplNamBak.ForeColor = frm_MeasOldData_color
+            .TxtMarkBak.ForeColor = frm_MeasOldData_color
             .TxtMeasNumBak.ForeColor = frm_MeasOldData_color
 
             .Label30.ForeColor = frm_MeasOldData_color          '過去データ
@@ -1079,6 +1084,7 @@ Module Module1
             .LblMeasSpecCur2.ForeColor = frm_PrfCurData_color
             .TxtMachNoCur.ForeColor = frm_PrfCurData_color
             .TxtSmplNamCur.ForeColor = frm_PrfCurData_color
+            .TxtMarkCur.ForeColor = frm_PrfCurData_color
             .TxtMeasNumCur.ForeColor = frm_PrfCurData_color
             .TxtMeasLotCur.ForeColor = frm_PrfCurData_color
             .TxtLength.ForeColor = frm_PrfCurData_color
@@ -1193,6 +1199,7 @@ Module Module1
             .LblMeasSpecBak2.ForeColor = frm_PrfOldData_color
             .TxtMachNoBak.ForeColor = frm_PrfOldData_color
             .TxtSmplNamBak.ForeColor = frm_PrfOldData_color
+            .TxtMarkBak.ForeColor = frm_PrfOldData_color
             .TxtMeasNumBak.ForeColor = frm_PrfOldData_color
             .TxtMeasLotBak.ForeColor = frm_PrfOldData_color
             .TxtLengthOld.ForeColor = frm_PrfOldData_color
@@ -1351,6 +1358,7 @@ Module Module1
             .LblMeasSpecCur.ForeColor = frm_MeasCurData_color
             .TxtMachNoCur.ForeColor = frm_MeasCurData_color
             .TxtSmplNamCur.ForeColor = frm_MeasCurData_color
+            .TxtMarkCur.ForeColor = frm_MeasCurData_color
             .TxtMeasNumCur.ForeColor = frm_MeasCurData_color
 
             .Label91.ForeColor = frm_MeasCurData_color
@@ -2031,6 +2039,7 @@ Module Module1
         Dim Dn(25) As Single
         Dim i As Integer
         Dim data_len As Integer
+        Dim data_len_tmp As Integer
 
         M = 0
 
@@ -2059,12 +2068,13 @@ Module Module1
             splittedResult = txtParser.ReadFields()
 
             If FlgDBF = 0 Then
-                data_len = 29
+                data_len = 29   '30個または32個
             Else
-                data_len = 26
+                data_len = 29   '30個
             End If
 
-            If UBound(splittedResult) < data_len Then
+            data_len_tmp = UBound(splittedResult)   'UBoundは最終要素Indexを示す為データ数-1
+            If data_len_tmp < data_len Then
                 'データ数が揃っていない場合は破損データとして扱う
                 '新データにサンプル長とピッチ数が追加される
                 If M = 1 Then
@@ -2074,16 +2084,28 @@ Module Module1
 
             Else
                 If FlgDBF = 0 Then
+                    '測定データフォーマット通常
                     For i = 0 To 6
+                        'Ds(1) = マシーンNo.
+                        'Ds(2) = Sample Name(サンプル名)
+                        'Ds(3) = マーク
+                        'Ds(4) = BW
+                        'Ds(5) = No.(測定回数)
+                        'Ds(6) = Date(測定日)
+                        'Ds(7) = Time(測定時間)
                         Ds(i + 1) = splittedResult(i)
                     Next
-                    For i = 0 To 2
-                        Dn(i + 1) = Val(splittedResult(i + 7))
-                    Next
-                    Ds(8) = splittedResult(10)
-                    Ds(9) = splittedResult(11)
-                    For i = 0 To 17
-                        Dn(i + 6) = Val(splittedResult(i + 12))
+                    Ds(8) = splittedResult(10)      'Angle-Deep
+                    Ds(9) = splittedResult(11)      'Angle-Peak
+                    Dn(1) = Val(splittedResult(7))  'Points
+                    Dn(2) = Val(splittedResult(8))  'MD/CD
+                    Dn(3) = Val(splittedResult(9))  'Peak/Deep
+
+                    Dn(6) = Val(splittedResult(12)) 'Deep
+                    Dn(7) = Val(splittedResult(13)) 'Peak
+                    For i = 0 To 15
+                        'Dn(8)～Dn(23) = 0deg～168.75deg
+                        Dn(i + 8) = Val(splittedResult(i + 14))
                     Next
 
                     For N = 1 To 9
@@ -2105,7 +2127,7 @@ Module Module1
                     FileDataNo = M
                     FileDataMax = M
 
-                    If UBound(splittedResult) > 29 Then
+                    If data_len_tmp > data_len Then
                         LengthOld = splittedResult(30)
                         PitchOld = splittedResult(31)
                     Else
@@ -2113,17 +2135,25 @@ Module Module1
                         PitchOld = 0
                     End If
                 Else
-                    For i = 0 To 4
-                        Ds(i + 2) = splittedResult(i)
-                    Next
-                    Ds(9) = splittedResult(5)
-                    Ds(8) = splittedResult(6)
-                    For i = 0 To 1
-                        Dn(i + 2) = Val(splittedResult(i + 7))
-                    Next
-                    Dn(7) = Val(splittedResult(9))
-                    Dn(6) = Val(splittedResult(10))
+                    '測定データフォーマット特殊
+                    Ds(1) = splittedResult(29)  'Machine No.
+                    Ds(2) = splittedResult(0)   'Sample Name
+                    Ds(3) = splittedResult(1)   'Mark
+                    Ds(4) = splittedResult(30)  'BW
+                    Ds(5) = Trim(Strings.Right(splittedResult(2), Len(splittedResult(2)) - 2))   'No.
+                    Ds(6) = splittedResult(3)   'Date
+                    Ds(7) = splittedResult(4)   'Time
+
+                    Ds(8) = splittedResult(6)   'Angle-Deep = Or.Angle CD
+                    Ds(9) = splittedResult(5)   'Angle-Peak = Or.Angle MD
+                    Dn(1) = splittedResult(31)  'Points
+                    Dn(2) = Val(splittedResult(7))  'MD/CD
+                    Dn(3) = Val(splittedResult(8))  'Peak/Deep
+
+                    Dn(6) = Val(splittedResult(10)) 'Deep
+                    Dn(7) = Val(splittedResult(9))  'Peak
                     For i = 0 To 15
+                        'Dn(8)～Dn(23) = 0deg～168.75deg
                         Dn(i + 8) = Val(splittedResult(i + 11))
                     Next
 
@@ -2146,8 +2176,13 @@ Module Module1
                     FileDataNo = M
                     FileDataMax = M
 
-                    LengthOld = 0
-                    PitchOld = 0
+                    If data_len_tmp > data_len Then
+                        LengthOld = splittedResult(27)
+                        PitchOld = splittedResult(28)
+                    Else
+                        LengthOld = 0
+                        PitchOld = 0
+                    End If
                 End If
             End If
         End While
@@ -2239,12 +2274,19 @@ Module Module1
             With FrmSST4500_1_0_0J_meas
                 .TxtMachNoCur.Text = MachineNo
 
-                If Mark = "" And BW = "" Then
-                    '新フォーマットファイルはSampleのみ表示
-                    .TxtSmplNamCur.Text = Sample
+                If FlgDBF = 0 Then
+                    If BW = "" Then
+                        '新フォーマットファイルはSampleのみ表示
+                        .TxtSmplNamCur.Text = Sample
+                    Else
+                        '従来のフォーマットファイルはカンマ区切りで表示
+                        .TxtSmplNamCur.Text = Sample & "," & BW
+                    End If
+                    .TxtMarkCur.Text = Mark
                 Else
-                    '従来のフォーマットファイルはカンマ区切りで表示
-                    .TxtSmplNamCur.Text = Sample & "," & Mark & "," & BW
+                    .TxtSmplNamCur.Text = Sample
+                    .TxtMarkCur.Text = Mark
+                    'BWは無視
                 End If
 
                 .TxtMeasNumCur.Text = "0"
@@ -2260,12 +2302,18 @@ Module Module1
             With FrmSST4500_1_0_0J_Profile
                 .TxtMachNoCur.Text = MachineNo
 
-                If Mark = "" And BW = "" Then
-                    '新フォーマットファイルはSampleのみ表示
-                    .TxtSmplNamCur.Text = Sample
+                If FlgDBF = 0 Then
+                    If BW = "" Then
+                        '新フォーマットファイルはSampleのみ表示
+                        .TxtSmplNamCur.Text = Sample
+                    Else
+                        '従来のフォーマットファイルはカンマ区切りで表示
+                        .TxtSmplNamCur.Text = Sample & "," & BW
+                    End If
+                    .TxtMarkCur.Text = Mark
                 Else
-                    '従来のフォーマットファイルはカンマ区切りで表示
-                    .TxtSmplNamCur.Text = Sample & "," & Mark & "," & BW
+                    .TxtSmplNamCur.Text = Sample
+                    .TxtMarkCur.Text = Mark
                 End If
 
                 .TxtMeasNumCur.Text = "0"
@@ -2274,7 +2322,6 @@ Module Module1
                 Else
                     .ChkPrfAutoPrn.Checked = True
                 End If
-
 
                 Select Case FlgProfile
                     Case 1  'プロファイル
@@ -2368,7 +2415,10 @@ Module Module1
         'CurDir = Directory.GetCurrentDirectory
 
         Dim Sa As String = ""
-        Dim Mark As String = ""
+        'Dim Mark As String = ""
+        Dim f_chk As Boolean
+        Dim StrDataFileName_tmp As String
+        Dim file_count As Integer
 
         If FlgDBF = 0 Then
             Select Case FlgProfile
@@ -2391,11 +2441,21 @@ Module Module1
                 Case 2
                     Sa = "C"
                 Case 3
-                    Sa = "P"
+                    Sa = "L"
             End Select
             StrDataFileName = Trim(Sample) & "_" & Mark & "_" & Sa & "_" & FileDate & "_" & FileTime & ".csv"
         End If
 
+        '同名のファイルが存在するかチェックする
+        f_chk = File.Exists(cur_dir & DEF_DATA_FILE_FLD & StrDataFileName)
+        Console.WriteLine(f_chk)
+        file_count = 0
+        StrDataFileName_tmp = IO.Path.GetFileNameWithoutExtension(StrDataFileName)
+        While f_chk = True
+            file_count += 1
+            StrDataFileName = StrDataFileName_tmp & "(" & file_count & ")" & ".csv"
+            f_chk = File.Exists(cur_dir & DEF_DATA_FILE_FLD & StrDataFileName)
+        End While
         '空のファイルを作成する
         Using sw As New StreamWriter(cur_dir & DEF_DATA_FILE_FLD & StrDataFileName, True, Encoding.UTF8)
 
@@ -2508,7 +2568,12 @@ Module Module1
                              "135.00 deg.," &       '23 Dn(20)
                              "146.25 deg.," &       '24 Dn(21)
                              "157.50 deg.," &       '25 Dn(22)
-                             "168.75 deg.")         '26 Dn(23)
+                             "168.75 deg.," &       '26 Dn(23)
+                             "Length," &            '27 Dn(24)
+                             "Pitch," &             '28 Dn(25)
+                             "Machine No.," &       '29 Ds(1)
+                             "B/W," &               '30 Dn(4)
+                             "Points")              '31 Dn(1)
             End If
         End Using
 
@@ -2523,7 +2588,7 @@ Module Module1
 
         Dim N As Integer
         Dim Ds(13) As String
-        Dim Dn(26) As Single
+        Dim Dn(28) As Single
 
         For N = 1 To 5
             Ds(N) = DataPrcStr(1, SampleNo, N)
@@ -2553,7 +2618,6 @@ Module Module1
             Dn(24) = Length
             Dn(25) = Pitch
         End If
-
 
         Using sw As New StreamWriter(cur_dir & DEF_DATA_FILE_FLD & StrDataFileName, True, Encoding.UTF8)
             If FlgDBF = 0 Then
@@ -2598,7 +2662,7 @@ Module Module1
                     Case 2
                         Sa = "C_"
                     Case 3
-                        Sa = "P_"
+                        Sa = "L_"
                 End Select
                 sw.WriteLine(Ds(2) & "," &              'Sample Name
                              Ds(3) & "," &              'Mark
@@ -2626,7 +2690,12 @@ Module Module1
                              Dn(20).ToString & "," &    '135
                              Dn(21).ToString & "," &    '146.25
                              Dn(22).ToString & "," &    '157.5
-                             Dn(23).ToString)           '168.75
+                             Dn(23).ToString & "," &    '168.75
+                             Dn(24).ToString & "," &    'Length
+                             Dn(25).ToString & "," &    'Pitch
+                             Ds(1) & "," &              'Machine No.
+                             Ds(4) & "," &              'B/W
+                             Dn(1).ToString)            'Points
             End If
         End Using
     End Sub
@@ -2641,8 +2710,8 @@ Module Module1
         '※1:Meas Data=[Km/S] ※2:Str(8)=Angle-Deep(Km/S)=Angle-Peak(uS), Str(9)=Angle-Peak(Km/S)=Angle-Deep(uS)
 
         M = 1
-        DataMogiStr(M, 1) = "MachineNo" : DataMogiStr(M, 2) = "SampleName" : DataMogiStr(M, 3) = ""
-        DataMogiStr(M, 4) = "" : DataMogiStr(M, 5) = Str(M) : DataMogiStr(M, 8) = "CD+ 1.14" : DataMogiStr(M, 9) = "MD- 1.68"
+        DataMogiStr(M, 1) = "MachineNo" : DataMogiStr(M, 2) = "SampleName" : DataMogiStr(M, 3) = "Mark"
+        DataMogiStr(M, 4) = "B/W" : DataMogiStr(M, 5) = Str(M) : DataMogiStr(M, 8) = "CD+ 1.14" : DataMogiStr(M, 9) = "MD- 1.68"
         DataMogiNum(M, 1) = 1.6 : DataMogiNum(M, 2) = 1.6 : DataMogiNum(M, 3) = 2.073 : DataMogiNum(M, 4) = 3.209
         DataMogiNum(M, 5) = 3.209 : DataMogiNum(M, 6) = 3.141 : DataMogiNum(M, 7) = 2.913 : DataMogiNum(M, 8) = 2.626
         DataMogiNum(M, 9) = 2.353 : DataMogiNum(M, 10) = 2.178 : DataMogiNum(M, 11) = 2.076 : DataMogiNum(M, 12) = 2.0#
@@ -2650,8 +2719,8 @@ Module Module1
         DataMogiNum(M, 17) = 2.542 : DataMogiNum(M, 18) = 2.752 : DataMogiNum(M, 19) = 2.993 : DataMogiNum(M, 20) = 3.175
 
         M = 2
-        DataMogiStr(M, 1) = "MachineNo" : DataMogiStr(M, 2) = "SampleName" : DataMogiStr(M, 3) = ""
-        DataMogiStr(M, 4) = "" : DataMogiStr(M, 5) = Str(M) : DataMogiStr(M, 8) = "CD- 1.52" : DataMogiStr(M, 9) = "MD- 1.33"
+        DataMogiStr(M, 1) = "MachineNo" : DataMogiStr(M, 2) = "SampleName" : DataMogiStr(M, 3) = "Mark"
+        DataMogiStr(M, 4) = "B/W" : DataMogiStr(M, 5) = Str(M) : DataMogiStr(M, 8) = "CD- 1.52" : DataMogiStr(M, 9) = "MD- 1.33"
         DataMogiNum(M, 1) = 1.6 : DataMogiNum(M, 2) = 1.6 : DataMogiNum(M, 3) = 2.01 : DataMogiNum(M, 4) = 3.217
         DataMogiNum(M, 5) = 3.2 : DataMogiNum(M, 6) = 3.166 : DataMogiNum(M, 7) = 2.927 : DataMogiNum(M, 8) = 2.643
         DataMogiNum(M, 9) = 2.376 : DataMogiNum(M, 10) = 2.198 : DataMogiNum(M, 11) = 2.083 : DataMogiNum(M, 12) = 2.0#
@@ -2659,8 +2728,8 @@ Module Module1
         DataMogiNum(M, 17) = 2.516 : DataMogiNum(M, 18) = 2.721 : DataMogiNum(M, 19) = 2.963 : DataMogiNum(M, 20) = 3.183
 
         M = 3
-        DataMogiStr(M, 1) = "MachineNo" : DataMogiStr(M, 2) = "SampleName" : DataMogiStr(M, 3) = ""
-        DataMogiStr(M, 4) = "" : DataMogiStr(M, 5) = Str(M) : DataMogiStr(M, 8) = "CD- 0.20" : DataMogiStr(M, 9) = "MD- 0.74"
+        DataMogiStr(M, 1) = "MachineNo" : DataMogiStr(M, 2) = "SampleName" : DataMogiStr(M, 3) = "Mark"
+        DataMogiStr(M, 4) = "B/W" : DataMogiStr(M, 5) = Str(M) : DataMogiStr(M, 8) = "CD- 0.20" : DataMogiStr(M, 9) = "MD- 0.74"
         DataMogiNum(M, 1) = 1.6 : DataMogiNum(M, 2) = 1.6 : DataMogiNum(M, 3) = 2.007 : DataMogiNum(M, 4) = 3.217
         DataMogiNum(M, 5) = 3.2 : DataMogiNum(M, 6) = 3.175 : DataMogiNum(M, 7) = 2.956 : DataMogiNum(M, 8) = 2.667
         DataMogiNum(M, 9) = 2.39 : DataMogiNum(M, 10) = 2.21 : DataMogiNum(M, 11) = 2.091 : DataMogiNum(M, 12) = 2.0#
@@ -2668,8 +2737,8 @@ Module Module1
         DataMogiNum(M, 17) = 2.495 : DataMogiNum(M, 18) = 2.697 : DataMogiNum(M, 19) = 2.948 : DataMogiNum(M, 20) = 3.175
 
         M = 4
-        DataMogiStr(M, 1) = "MachineNo" : DataMogiStr(M, 2) = "SampleName" : DataMogiStr(M, 3) = ""
-        DataMogiStr(M, 4) = "" : DataMogiStr(M, 5) = Str(M) : DataMogiStr(M, 8) = "CD- 1.47" : DataMogiStr(M, 9) = "MD+ 0.52"
+        DataMogiStr(M, 1) = "MachineNo" : DataMogiStr(M, 2) = "SampleName" : DataMogiStr(M, 3) = "Mark"
+        DataMogiStr(M, 4) = "B/W" : DataMogiStr(M, 5) = Str(M) : DataMogiStr(M, 8) = "CD- 1.47" : DataMogiStr(M, 9) = "MD+ 0.52"
         DataMogiNum(M, 1) = 1.6 : DataMogiNum(M, 2) = 1.6 : DataMogiNum(M, 3) = 2.007 : DataMogiNum(M, 4) = 3.217
         DataMogiNum(M, 5) = 3.226 : DataMogiNum(M, 6) = 3.209 : DataMogiNum(M, 7) = 2.963 : DataMogiNum(M, 8) = 2.691
         DataMogiNum(M, 9) = 2.414 : DataMogiNum(M, 10) = 2.239 : DataMogiNum(M, 11) = 2.109 : DataMogiNum(M, 12) = 2.003
@@ -2677,8 +2746,8 @@ Module Module1
         DataMogiNum(M, 17) = 2.464 : DataMogiNum(M, 18) = 2.673 : DataMogiNum(M, 19) = 2.927 : DataMogiNum(M, 20) = 3.166
 
         M = 5
-        DataMogiStr(M, 1) = "MachineNo" : DataMogiStr(M, 2) = "SampleName" : DataMogiStr(M, 3) = ""
-        DataMogiStr(M, 4) = "" : DataMogiStr(M, 5) = Str(M) : DataMogiStr(M, 8) = "CD+ 0.17" : DataMogiStr(M, 9) = "MD+ 0.86"
+        DataMogiStr(M, 1) = "MachineNo" : DataMogiStr(M, 2) = "SampleName" : DataMogiStr(M, 3) = "Mark"
+        DataMogiStr(M, 4) = "B/W" : DataMogiStr(M, 5) = Str(M) : DataMogiStr(M, 8) = "CD+ 0.17" : DataMogiStr(M, 9) = "MD+ 0.86"
         DataMogiNum(M, 1) = 1.6 : DataMogiNum(M, 2) = 1.7 : DataMogiNum(M, 3) = 2.003 : DataMogiNum(M, 4) = 3.306
         DataMogiNum(M, 5) = 3.261 : DataMogiNum(M, 6) = 3.235 : DataMogiNum(M, 7) = 3.046 : DataMogiNum(M, 8) = 2.721
         DataMogiNum(M, 9) = 2.449 : DataMogiNum(M, 10) = 2.256 : DataMogiNum(M, 11) = 2.116 : DataMogiNum(M, 12) = 2.02
@@ -2686,8 +2755,8 @@ Module Module1
         DataMogiNum(M, 17) = 2.459 : DataMogiNum(M, 18) = 2.665 : DataMogiNum(M, 19) = 2.913 : DataMogiNum(M, 20) = 3.217
 
         M = 6
-        DataMogiStr(M, 1) = "MachineNo" : DataMogiStr(M, 2) = "SampleName" : DataMogiStr(M, 3) = ""
-        DataMogiStr(M, 4) = "" : DataMogiStr(M, 5) = Str(M) : DataMogiStr(M, 8) = "CD+ 1.48" : DataMogiStr(M, 9) = "MD+ 1.00"
+        DataMogiStr(M, 1) = "MachineNo" : DataMogiStr(M, 2) = "SampleName" : DataMogiStr(M, 3) = "Mark"
+        DataMogiStr(M, 4) = "B/W" : DataMogiStr(M, 5) = Str(M) : DataMogiStr(M, 8) = "CD+ 1.48" : DataMogiStr(M, 9) = "MD+ 1.00"
         DataMogiNum(M, 1) = 1.6 : DataMogiNum(M, 2) = 1.7 : DataMogiNum(M, 3) = 2.01 : DataMogiNum(M, 4) = 3.343
         DataMogiNum(M, 5) = 3.261 : DataMogiNum(M, 6) = 3.252 : DataMogiNum(M, 7) = 3.038 : DataMogiNum(M, 8) = 2.74
         DataMogiNum(M, 9) = 2.474 : DataMogiNum(M, 10) = 2.273 : DataMogiNum(M, 11) = 2.128 : DataMogiNum(M, 12) = 2.027
@@ -2695,8 +2764,8 @@ Module Module1
         DataMogiNum(M, 17) = 2.429 : DataMogiNum(M, 18) = 2.632 : DataMogiNum(M, 19) = 2.892 : DataMogiNum(M, 20) = 3.2
 
         M = 7
-        DataMogiStr(M, 1) = "MachineNo" : DataMogiStr(M, 2) = "SampleName" : DataMogiStr(M, 3) = ""
-        DataMogiStr(M, 4) = "" : DataMogiStr(M, 5) = Str(M) : DataMogiStr(M, 8) = "CD+ 1.49" : DataMogiStr(M, 9) = "MD+ 1.25"
+        DataMogiStr(M, 1) = "MachineNo" : DataMogiStr(M, 2) = "SampleName" : DataMogiStr(M, 3) = "Mark"
+        DataMogiStr(M, 4) = "B/W" : DataMogiStr(M, 5) = Str(M) : DataMogiStr(M, 8) = "CD+ 1.49" : DataMogiStr(M, 9) = "MD+ 1.25"
         DataMogiNum(M, 1) = 1.6 : DataMogiNum(M, 2) = 1.6 : DataMogiNum(M, 3) = 2.01 : DataMogiNum(M, 4) = 3.297
         DataMogiNum(M, 5) = 3.252 : DataMogiNum(M, 6) = 3.252 : DataMogiNum(M, 7) = 2.993 : DataMogiNum(M, 8) = 2.733
         DataMogiNum(M, 9) = 2.469 : DataMogiNum(M, 10) = 2.273 : DataMogiNum(M, 11) = 2.124 : DataMogiNum(M, 12) = 2.027
@@ -2704,8 +2773,8 @@ Module Module1
         DataMogiNum(M, 17) = 2.424 : DataMogiNum(M, 18) = 2.626 : DataMogiNum(M, 19) = 2.899 : DataMogiNum(M, 20) = 3.175
 
         M = 8
-        DataMogiStr(M, 1) = "MachineNo" : DataMogiStr(M, 2) = "SampleName" : DataMogiStr(M, 3) = ""
-        DataMogiStr(M, 4) = "" : DataMogiStr(M, 5) = Str(M) : DataMogiStr(M, 8) = "CD+ 0.97" : DataMogiStr(M, 9) = "MD+ 1.40"
+        DataMogiStr(M, 1) = "MachineNo" : DataMogiStr(M, 2) = "SampleName" : DataMogiStr(M, 3) = "Mark"
+        DataMogiStr(M, 4) = "B/W" : DataMogiStr(M, 5) = Str(M) : DataMogiStr(M, 8) = "CD+ 0.97" : DataMogiStr(M, 9) = "MD+ 1.40"
         DataMogiNum(M, 1) = 1.6 : DataMogiNum(M, 2) = 1.6 : DataMogiNum(M, 3) = 2.01 : DataMogiNum(M, 4) = 3.279
         DataMogiNum(M, 5) = 3.261 : DataMogiNum(M, 6) = 3.235 : DataMogiNum(M, 7) = 3.015 : DataMogiNum(M, 8) = 2.733
         DataMogiNum(M, 9) = 2.464 : DataMogiNum(M, 10) = 2.268 : DataMogiNum(M, 11) = 2.124 : DataMogiNum(M, 12) = 2.024
@@ -2713,8 +2782,8 @@ Module Module1
         DataMogiNum(M, 17) = 2.439 : DataMogiNum(M, 18) = 2.643 : DataMogiNum(M, 19) = 2.906 : DataMogiNum(M, 20) = 3.2
 
         M = 9
-        DataMogiStr(M, 1) = "MachineNo" : DataMogiStr(M, 2) = "SampleName" : DataMogiStr(M, 3) = ""
-        DataMogiStr(M, 4) = "" : DataMogiStr(M, 5) = Str(M) : DataMogiStr(M, 8) = "CD+ 1.62" : DataMogiStr(M, 9) = "MD+ 1.38"
+        DataMogiStr(M, 1) = "MachineNo" : DataMogiStr(M, 2) = "SampleName" : DataMogiStr(M, 3) = "Mark"
+        DataMogiStr(M, 4) = "B/W" : DataMogiStr(M, 5) = Str(M) : DataMogiStr(M, 8) = "CD+ 1.62" : DataMogiStr(M, 9) = "MD+ 1.38"
         DataMogiNum(M, 1) = 1.6 : DataMogiNum(M, 2) = 1.6 : DataMogiNum(M, 3) = 2.013 : DataMogiNum(M, 4) = 3.306
         DataMogiNum(M, 5) = 3.27 : DataMogiNum(M, 6) = 3.27 : DataMogiNum(M, 7) = 3.038 : DataMogiNum(M, 8) = 2.74
         DataMogiNum(M, 9) = 2.474 : DataMogiNum(M, 10) = 2.273 : DataMogiNum(M, 11) = 2.128 : DataMogiNum(M, 12) = 2.03
@@ -2722,8 +2791,8 @@ Module Module1
         DataMogiNum(M, 17) = 2.424 : DataMogiNum(M, 18) = 2.626 : DataMogiNum(M, 19) = 2.892 : DataMogiNum(M, 20) = 3.175
 
         M = 10
-        DataMogiStr(M, 1) = "MachineNo" : DataMogiStr(M, 2) = "SampleName" : DataMogiStr(M, 3) = ""
-        DataMogiStr(M, 4) = "" : DataMogiStr(M, 5) = Str(M) : DataMogiStr(M, 8) = "CD+ 1.40" : DataMogiStr(M, 9) = "MD+ 1.79"
+        DataMogiStr(M, 1) = "MachineNo" : DataMogiStr(M, 2) = "SampleName" : DataMogiStr(M, 3) = "Mark"
+        DataMogiStr(M, 4) = "B/W" : DataMogiStr(M, 5) = Str(M) : DataMogiStr(M, 8) = "CD+ 1.40" : DataMogiStr(M, 9) = "MD+ 1.79"
         DataMogiNum(M, 1) = 1.6 : DataMogiNum(M, 2) = 1.7 : DataMogiNum(M, 3) = 2.01 : DataMogiNum(M, 4) = 3.324
         DataMogiNum(M, 5) = 3.352 : DataMogiNum(M, 6) = 3.315 : DataMogiNum(M, 7) = 3.038 : DataMogiNum(M, 8) = 2.74
         DataMogiNum(M, 9) = 2.469 : DataMogiNum(M, 10) = 2.268 : DataMogiNum(M, 11) = 2.128 : DataMogiNum(M, 12) = 2.027
@@ -2731,8 +2800,8 @@ Module Module1
         DataMogiNum(M, 17) = 2.424 : DataMogiNum(M, 18) = 2.626 : DataMogiNum(M, 19) = 2.892 : DataMogiNum(M, 20) = 3.243
 
         M = 11
-        DataMogiStr(M, 1) = "MachineNo" : DataMogiStr(M, 2) = "SampleName" : DataMogiStr(M, 3) = ""
-        DataMogiStr(M, 4) = "" : DataMogiStr(M, 5) = Str(M) : DataMogiStr(M, 8) = "CD+ 1.55" : DataMogiStr(M, 9) = "MD+ 1.67"
+        DataMogiStr(M, 1) = "MachineNo" : DataMogiStr(M, 2) = "SampleName" : DataMogiStr(M, 3) = "Mark"
+        DataMogiStr(M, 4) = "B/W" : DataMogiStr(M, 5) = Str(M) : DataMogiStr(M, 8) = "CD+ 1.55" : DataMogiStr(M, 9) = "MD+ 1.67"
         DataMogiNum(M, 1) = 1.6 : DataMogiNum(M, 2) = 1.7 : DataMogiNum(M, 3) = 2.01 : DataMogiNum(M, 4) = 3.399
         DataMogiNum(M, 5) = 3.343 : DataMogiNum(M, 6) = 3.324 : DataMogiNum(M, 7) = 3.141 : DataMogiNum(M, 8) = 2.765
         DataMogiNum(M, 9) = 2.495 : DataMogiNum(M, 10) = 2.294 : DataMogiNum(M, 11) = 2.143 : DataMogiNum(M, 12) = 2.034
@@ -2740,8 +2809,8 @@ Module Module1
         DataMogiNum(M, 17) = 2.41 : DataMogiNum(M, 18) = 2.609 : DataMogiNum(M, 19) = 2.92 : DataMogiNum(M, 20) = 3.235
 
         M = 12
-        DataMogiStr(M, 1) = "MachineNo" : DataMogiStr(M, 2) = "SampleName" : DataMogiStr(M, 3) = ""
-        DataMogiStr(M, 4) = "67.8" : DataMogiStr(M, 5) = Str(M) : DataMogiStr(M, 8) = "CD+ 1.49" : DataMogiStr(M, 9) = "MD+ 1.87"
+        DataMogiStr(M, 1) = "MachineNo" : DataMogiStr(M, 2) = "SampleName" : DataMogiStr(M, 3) = "Mark"
+        DataMogiStr(M, 4) = "B/W" : DataMogiStr(M, 5) = Str(M) : DataMogiStr(M, 8) = "CD+ 1.49" : DataMogiStr(M, 9) = "MD+ 1.87"
         DataMogiNum(M, 1) = 1.6 : DataMogiNum(M, 2) = 1.6 : DataMogiNum(M, 3) = 2.01 : DataMogiNum(M, 4) = 3.27
         DataMogiNum(M, 5) = 3.243 : DataMogiNum(M, 6) = 3.261 : DataMogiNum(M, 7) = 3.093 : DataMogiNum(M, 8) = 2.784
         DataMogiNum(M, 9) = 2.51 : DataMogiNum(M, 10) = 2.308 : DataMogiNum(M, 11) = 2.151 : DataMogiNum(M, 12) = 2.037
@@ -2749,8 +2818,8 @@ Module Module1
         DataMogiNum(M, 17) = 2.395 : DataMogiNum(M, 18) = 2.581 : DataMogiNum(M, 19) = 2.85 : DataMogiNum(M, 20) = 3.117
 
         M = 13
-        DataMogiStr(M, 1) = "MachineNo" : DataMogiStr(M, 2) = "SampleName" : DataMogiStr(M, 3) = ""
-        DataMogiStr(M, 4) = "" : DataMogiStr(M, 5) = Str(M) : DataMogiStr(M, 8) = "CD+ 1.72" : DataMogiStr(M, 9) = "MD+ 2.01"
+        DataMogiStr(M, 1) = "MachineNo" : DataMogiStr(M, 2) = "SampleName" : DataMogiStr(M, 3) = "Mark"
+        DataMogiStr(M, 4) = "B/W" : DataMogiStr(M, 5) = Str(M) : DataMogiStr(M, 8) = "CD+ 1.72" : DataMogiStr(M, 9) = "MD+ 2.01"
         DataMogiNum(M, 1) = 1.6 : DataMogiNum(M, 2) = 1.6 : DataMogiNum(M, 3) = 2.01 : DataMogiNum(M, 4) = 3.279
         DataMogiNum(M, 5) = 3.217 : DataMogiNum(M, 6) = 3.235 : DataMogiNum(M, 7) = 3.101 : DataMogiNum(M, 8) = 2.81
         DataMogiNum(M, 9) = 2.532 : DataMogiNum(M, 10) = 2.326 : DataMogiNum(M, 11) = 2.166 : DataMogiNum(M, 12) = 2.048
@@ -2758,8 +2827,8 @@ Module Module1
         DataMogiNum(M, 17) = 2.372 : DataMogiNum(M, 18) = 2.559 : DataMogiNum(M, 19) = 2.824 : DataMogiNum(M, 20) = 3.085
 
         M = 14
-        DataMogiStr(M, 1) = "MachineNo" : DataMogiStr(M, 2) = "SampleName" : DataMogiStr(M, 3) = ""
-        DataMogiStr(M, 4) = "" : DataMogiStr(M, 5) = Str(M) : DataMogiStr(M, 8) = "CD+ 1.89" : DataMogiStr(M, 9) = "MD+ 2.19"
+        DataMogiStr(M, 1) = "MachineNo" : DataMogiStr(M, 2) = "SampleName" : DataMogiStr(M, 3) = "Mark"
+        DataMogiStr(M, 4) = "B/W" : DataMogiStr(M, 5) = Str(M) : DataMogiStr(M, 8) = "CD+ 1.89" : DataMogiStr(M, 9) = "MD+ 2.19"
         DataMogiNum(M, 1) = 1.6 : DataMogiNum(M, 2) = 1.7 : DataMogiNum(M, 3) = 2.01 : DataMogiNum(M, 4) = 3.333
         DataMogiNum(M, 5) = 3.252 : DataMogiNum(M, 6) = 3.288 : DataMogiNum(M, 7) = 3.2 : DataMogiNum(M, 8) = 2.837
         DataMogiNum(M, 9) = 2.559 : DataMogiNum(M, 10) = 2.344 : DataMogiNum(M, 11) = 2.178 : DataMogiNum(M, 12) = 2.055
@@ -2767,8 +2836,8 @@ Module Module1
         DataMogiNum(M, 17) = 2.344 : DataMogiNum(M, 18) = 2.526 : DataMogiNum(M, 19) = 2.804 : DataMogiNum(M, 20) = 3.061
 
         M = 0
-        DataMogiStr(M, 1) = "MachineNo" : DataMogiStr(M, 2) = "SampleName" : DataMogiStr(M, 3) = ""
-        DataMogiStr(M, 4) = "" : DataMogiStr(M, 5) = Str(M) : DataMogiStr(M, 8) = "CD+ 2.10" : DataMogiStr(M, 9) = "MD+ 2.26"
+        DataMogiStr(M, 1) = "MachineNo" : DataMogiStr(M, 2) = "SampleName" : DataMogiStr(M, 3) = "Mark"
+        DataMogiStr(M, 4) = "B/W" : DataMogiStr(M, 5) = Str(M) : DataMogiStr(M, 8) = "CD+ 2.10" : DataMogiStr(M, 9) = "MD+ 2.26"
         DataMogiNum(M, 1) = 1.6 : DataMogiNum(M, 2) = 1.7 : DataMogiNum(M, 3) = 1.99 : DataMogiNum(M, 4) = 3.343
         DataMogiNum(M, 5) = 3.243 : DataMogiNum(M, 6) = 3.279 : DataMogiNum(M, 7) = 3.166 : DataMogiNum(M, 8) = 2.871
         DataMogiNum(M, 9) = 2.586 : DataMogiNum(M, 10) = 2.353 : DataMogiNum(M, 11) = 2.186 : DataMogiNum(M, 12) = 2.055
@@ -2838,6 +2907,26 @@ Module Module1
         RearrangeData()
     End Sub
 
+    Public Sub TxtSetMogi()
+        Dim M As Integer
+        Dim K As Integer
+
+        M = SampleNo
+        K = (SampleNo + (MeasNo - 1) * 1) Mod 15
+
+        Select Case FlgProfile
+            Case 0
+                FrmSST4500_1_0_0J_meas.TxtMachNoCur.Text = DataMogiStr(1, 1)
+                FrmSST4500_1_0_0J_meas.TxtSmplNamCur.Text = DataMogiStr(1, 2)
+                FrmSST4500_1_0_0J_meas.TxtMarkCur.Text = DataMogiStr(1, 3)
+            Case Else
+                FrmSST4500_1_0_0J_Profile.TxtMachNoCur.Text = DataMogiStr(1, 1)
+                FrmSST4500_1_0_0J_Profile.TxtSmplNamCur.Text = DataMogiStr(1, 2)
+                FrmSST4500_1_0_0J_Profile.TxtMarkCur.Text = DataMogiStr(1, 3)
+        End Select
+
+    End Sub
+
     Public Sub SetMogi()
         Dim M As Integer
         Dim N As Integer
@@ -2848,7 +2937,6 @@ Module Module1
 
         For N = 1 To 9
             DataPrcStr(1, M, N) = DataMogiStr(K, N)
-
         Next
 
         DataPrcStr(1, M, 10) = Str(DataMogiNum(K, 5) / DataMogiNum(K, 13))

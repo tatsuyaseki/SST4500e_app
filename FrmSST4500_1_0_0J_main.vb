@@ -133,6 +133,9 @@ Public Class FrmSST4500_1_0_0J_main
             FrmSST4500_1_1_0J_dbfchg.Rb_default.Checked = True
             ToolStripStatusLabel4.Text = ""
         End If
+        FrmSST4500_1_0_0J_meas.ToolStripStatusLabel5 = ToolStripStatusLabel4
+        FrmSST4500_1_0_0J_Profile.ToolStripStatusLabel5 = ToolStripStatusLabel4
+        FrmSST4500_1_0_0J_test.ToolStripStatusLabel5 = ToolStripStatusLabel4
 
         FlgFTDLLerr = 0
 

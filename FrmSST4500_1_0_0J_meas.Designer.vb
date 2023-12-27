@@ -246,6 +246,10 @@ Partial Class FrmSST4500_1_0_0J_meas
         Me.SST4500についてToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.TxtMarkCur = New System.Windows.Forms.TextBox()
+        Me.TxtMarkBak = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.ToolStripStatusLabel5 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.TblMeasInfo_adm.SuspendLayout()
         Me.TblMeasData_adm.SuspendLayout()
         Me.TblMeasInfo_nom.SuspendLayout()
@@ -333,7 +337,7 @@ Partial Class FrmSST4500_1_0_0J_meas
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("MS UI Gothic", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label6.Location = New System.Drawing.Point(200, 64)
+        Me.Label6.Location = New System.Drawing.Point(201, 64)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(69, 14)
         Me.Label6.TabIndex = 7
@@ -342,18 +346,18 @@ Partial Class FrmSST4500_1_0_0J_meas
         'TxtSmplNamCur
         '
         Me.TxtSmplNamCur.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.TxtSmplNamCur.Location = New System.Drawing.Point(200, 83)
+        Me.TxtSmplNamCur.Location = New System.Drawing.Point(201, 83)
         Me.TxtSmplNamCur.Name = "TxtSmplNamCur"
-        Me.TxtSmplNamCur.Size = New System.Drawing.Size(340, 22)
+        Me.TxtSmplNamCur.Size = New System.Drawing.Size(260, 22)
         Me.TxtSmplNamCur.TabIndex = 8
         '
         'TxtSmplNamBak
         '
         Me.TxtSmplNamBak.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.TxtSmplNamBak.ForeColor = System.Drawing.Color.Blue
-        Me.TxtSmplNamBak.Location = New System.Drawing.Point(200, 109)
+        Me.TxtSmplNamBak.Location = New System.Drawing.Point(201, 109)
         Me.TxtSmplNamBak.Name = "TxtSmplNamBak"
-        Me.TxtSmplNamBak.Size = New System.Drawing.Size(340, 22)
+        Me.TxtSmplNamBak.Size = New System.Drawing.Size(260, 22)
         Me.TxtSmplNamBak.TabIndex = 9
         '
         'Label7
@@ -2868,7 +2872,7 @@ Partial Class FrmSST4500_1_0_0J_meas
         '
         Me.StatusStrip1.BackColor = System.Drawing.SystemColors.Control
         Me.StatusStrip1.ImageScalingSize = New System.Drawing.Size(24, 24)
-        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.ToolStripStatusLabel3, Me.ToolStripStatusLabel2, Me.ToolStripStatusLabel4})
+        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.ToolStripStatusLabel3, Me.ToolStripStatusLabel2, Me.ToolStripStatusLabel5, Me.ToolStripStatusLabel4})
         Me.StatusStrip1.Location = New System.Drawing.Point(0, 740)
         Me.StatusStrip1.Name = "StatusStrip1"
         Me.StatusStrip1.Size = New System.Drawing.Size(984, 22)
@@ -3170,6 +3174,38 @@ Partial Class FrmSST4500_1_0_0J_meas
         Me.PictureBox2.TabIndex = 54
         Me.PictureBox2.TabStop = False
         '
+        'TxtMarkCur
+        '
+        Me.TxtMarkCur.Font = New System.Drawing.Font("MS UI Gothic", 11.25!)
+        Me.TxtMarkCur.Location = New System.Drawing.Point(466, 83)
+        Me.TxtMarkCur.Name = "TxtMarkCur"
+        Me.TxtMarkCur.Size = New System.Drawing.Size(71, 22)
+        Me.TxtMarkCur.TabIndex = 60
+        '
+        'TxtMarkBak
+        '
+        Me.TxtMarkBak.Font = New System.Drawing.Font("MS UI Gothic", 11.25!)
+        Me.TxtMarkBak.Location = New System.Drawing.Point(466, 109)
+        Me.TxtMarkBak.Name = "TxtMarkBak"
+        Me.TxtMarkBak.Size = New System.Drawing.Size(71, 22)
+        Me.TxtMarkBak.TabIndex = 61
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("MS UI Gothic", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label1.Location = New System.Drawing.Point(463, 66)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(42, 14)
+        Me.Label1.TabIndex = 62
+        Me.Label1.Text = "マーク"
+        '
+        'ToolStripStatusLabel5
+        '
+        Me.ToolStripStatusLabel5.Name = "ToolStripStatusLabel5"
+        Me.ToolStripStatusLabel5.Size = New System.Drawing.Size(37, 17)
+        Me.ToolStripStatusLabel5.Text = "特殊1"
+        '
         'FrmSST4500_1_0_0J_meas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
@@ -3177,6 +3213,9 @@ Partial Class FrmSST4500_1_0_0J_meas
         Me.AutoScroll = True
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(984, 762)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.TxtMarkBak)
+        Me.Controls.Add(Me.TxtMarkCur)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.TxtMeasNumBak)
         Me.Controls.Add(Me.TxtMeasNumCur)
@@ -3456,4 +3495,8 @@ Partial Class FrmSST4500_1_0_0J_meas
     Friend WithEvents ヘルプToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SST4500ヘルプToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SST4500についてToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents TxtMarkCur As TextBox
+    Friend WithEvents TxtMarkBak As TextBox
+    Friend WithEvents Label1 As Label
+    Friend WithEvents ToolStripStatusLabel5 As ToolStripStatusLabel
 End Class

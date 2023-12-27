@@ -6,6 +6,7 @@ Imports Microsoft.Office.Interop
 Imports System.Runtime.InteropServices
 Imports System.ComponentModel
 Imports Microsoft.Office.Core
+Imports System.Configuration
 'Imports Microsoft.Office.Interop.Excel
 
 Public Class FrmSST4500_1_0_0J_meas
@@ -122,15 +123,19 @@ Public Class FrmSST4500_1_0_0J_meas
                         DataTime_cur = DataTime
                         FileTime = Now.ToString("HHmm")
                     End If
+                    If FlgTest <> 0 Then
+                        TxtSetMogi()
+                    End If
                     MachineNo = TxtMachNoCur.Text
                     Sample = TxtSmplNamCur.Text
+                    Mark = TxtMarkCur.Text
 
                     '自動保存ファイルの準備
                     OpenDataFile()
                     SaveDataTitle()
                 End If
 
-                ConditionDisable()
+                    ConditionDisable()
 
                 DrawGraphCurData_clear()
                 DrawGraphBakData_clear()
@@ -146,9 +151,10 @@ Public Class FrmSST4500_1_0_0J_meas
                 SampleNo += 1
                 MeasDataMax = SampleNo
                 MeasDataNo = SampleNo
-                TxtMeasNumCur.Text = Str(SampleNo)
+                TxtMeasNumCur.Text = SampleNo
                 DataPrcStr(1, SampleNo, 1) = TxtMachNoCur.Text
                 DataPrcStr(1, SampleNo, 2) = TxtSmplNamCur.Text
+                DataPrcStr(1, SampleNo, 3) = TxtMarkCur.Text
                 DataPrcStr(1, SampleNo, 5) = Str(SampleNo)
 
                 If FlgTest = 0 Then
@@ -636,15 +642,26 @@ Public Class FrmSST4500_1_0_0J_meas
     Private Sub WrtOldMeasInfo()
         '過去の測定仕様にデータを展開
         '管理者モードのみ
-        TxtMachNoBak.Text = DataFileStr(FileNo, 1, 1)
-        If DataFileStr(FileNo, 1, 3) = "" And DataFileStr(FileNo, 1, 4) = "" Then
-            TxtSmplNamBak.Text = DataFileStr(FileNo, 1, 2)
+
+        If FlgDBF = 0 Then
+            'データモード通常
+            TxtMachNoBak.Text = DataFileStr(FileNo, 1, 1)
+            If DataFileStr(FileNo, 1, 4) = "" Then
+                TxtSmplNamBak.Text = DataFileStr(FileNo, 1, 2)
+            Else
+                TxtSmplNamBak.Text = DataFileStr(FileNo, 1, 2) & "," &
+                                     DataFileStr(FileNo, 1, 4)
+            End If
+            TxtMarkBak.Text = DataFileStr(FileNo, 1, 3)
+            TxtMeasNumBak.Text = FileDataMax
         Else
-            TxtSmplNamBak.Text = DataFileStr(FileNo, 1, 2) & "," &
-                                 DataFileStr(FileNo, 1, 3) & "," &
-                                 DataFileStr(FileNo, 1, 4)
+            'データモード特殊1
+            TxtMachNoBak.Text = DataFileStr(FileNo, 1, 1)
+            TxtSmplNamBak.Text = DataFileStr(FileNo, 1, 2)
+            TxtMarkBak.Text = DataFileStr(FileNo, 1, 3)
+            '斤量は無視する
+            TxtMeasNumBak.Text = FileDataMax
         End If
-        TxtMeasNumBak.Text = FileDataMax
     End Sub
 
     Private Sub ClsNoMeas()
@@ -695,11 +712,13 @@ Public Class FrmSST4500_1_0_0J_meas
             測定仕様ToolStripMenuItem.Enabled = True
             TxtMachNoCur.Enabled = True
             TxtSmplNamCur.Enabled = True
+            TxtMarkCur.Enabled = True
             ChkMeasAutoPrn.Enabled = True
             印刷ToolStripMenuItem.Enabled = True
             If FlgAdmin <> 0 Then
                 TxtMachNoBak.Enabled = True
                 TxtSmplNamBak.Enabled = True
+                TxtMarkBak.Enabled = True
             End If
             TimMeas.Enabled = True
 
@@ -773,6 +792,7 @@ Public Class FrmSST4500_1_0_0J_meas
         'ClsFConditionMeas()の代わり
         TxtMachNoBak.Text = ""
         TxtSmplNamBak.Text = ""
+        TxtMarkBak.Text = ""
         TxtMeasNumBak.Text = ""
     End Sub
 
@@ -792,6 +812,7 @@ Public Class FrmSST4500_1_0_0J_meas
         LblMeasSpecBak.Visible = sw
         TxtMachNoBak.Visible = sw
         TxtSmplNamBak.Visible = sw
+        TxtMarkBak.Visible = sw
         TxtMeasNumBak.Visible = sw
     End Sub
 
@@ -1085,6 +1106,7 @@ Public Class FrmSST4500_1_0_0J_meas
         Dim DataPeak As Single
         Dim DataDeep As Single
         Dim Ds As String
+        Dim Ds_1 As String
 
         Dim path As New GraphicsPath
         axis_path_cur.Clear()
@@ -1099,7 +1121,12 @@ Public Class FrmSST4500_1_0_0J_meas
         End If
 
         Ds = DataPrcStr(KdData, SampleNo, 9)
-        DataPeak = Val(Strings.Right(Ds, Len(Ds) - 2))
+        Ds_1 = Strings.Left(Ds, 1)
+        If Ds_1 = "C" Or Ds_1 = "M" Then
+            DataPeak = Val(Strings.Right(Ds, Len(Ds) - 2))
+        Else
+            DataPeak = Val(Ds)
+        End If
         MdX = 200 * Math.Sin(DataPeak * Rad)
         MdY = 200 * Math.Cos(DataPeak * Rad)
 
@@ -1107,7 +1134,12 @@ Public Class FrmSST4500_1_0_0J_meas
         path.AddLine(225 + MdX, 225 - MdY, 225 - MdX, 225 + MdY)
 
         Ds = DataPrcStr(KdData, SampleNo, 8)
-        DataDeep = Val(Strings.Right(Ds, Len(Ds) - 2))
+        Ds_1 = Strings.Left(Ds, 1)
+        If Ds_1 = "C" Or Ds_1 = "M" Then
+            DataDeep = Val(Strings.Right(Ds, Len(Ds) - 2))
+        Else
+            DataDeep = Val(Ds)
+        End If
         CdX = 200 * Math.Cos(DataDeep * Rad)
         CdY = 200 * Math.Sin(DataDeep * Rad)
 
@@ -1129,6 +1161,7 @@ Public Class FrmSST4500_1_0_0J_meas
         Dim DataPeak As Single
         Dim DataDeep As Single
         Dim Ds As String
+        Dim Ds_1 As String
 
         Dim path As New GraphicsPath
         axis_path_bak.Clear()
@@ -1143,15 +1176,25 @@ Public Class FrmSST4500_1_0_0J_meas
         End If
 
         Ds = DataPrcStr(KdData, SampleNo, 9)
-        DataPeak = Val(Strings.Right(Ds, Len(Ds) - 2))
+        Ds_1 = Strings.Left(Ds, 1)
+        If Ds_1 = "C" Or Ds_1 = "M" Then
+            DataPeak = Val(Strings.Right(Ds, Len(Ds) - 2))
+        Else
+            DataPeak = Val(Ds)
+        End If
         MdX = 200 * Math.Sin(DataPeak * Rad)
-        MdY = 200 * Math.Cos(DataPeak * Rad)
+            MdY = 200 * Math.Cos(DataPeak * Rad)
 
         path.StartFigure()
         path.AddLine(225 + MdX, 225 - MdY, 225 - MdX, 225 + MdY)
 
         Ds = DataPrcStr(KdData, SampleNo, 8)
-        DataDeep = Val(Strings.Right(Ds, Len(Ds) - 2))
+        Ds_1 = Strings.Left(Ds, 1)
+        If Ds_1 = "C" Or Ds_1 = "M" Then
+            DataDeep = Val(Strings.Right(Ds, Len(Ds) - 2))
+        Else
+            DataDeep = Val(Ds)
+        End If
         CdX = 200 * Math.Cos(DataDeep * Rad)
         CdY = 200 * Math.Sin(DataDeep * Rad)
 
@@ -1172,13 +1215,17 @@ Public Class FrmSST4500_1_0_0J_meas
         Dim DataK4 As Single
         Dim Ds1 As String
         Dim Ds2 As String
+        Dim Ds1_1 As String
+        Dim Ds2_1 As String
 
         If SampleNo = 0 Then
             Exit Sub
         End If
 
         Ds1 = DataPrcStr(KdData, SampleNo, 9)
+        Ds1_1 = Strings.Left(Ds1, 1)
         Ds2 = DataPrcStr(KdData, SampleNo, 8)
+        Ds2_1 = Strings.Left(Ds2, 1)
         DataK1 = Val(DataPrcStr(KdData, SampleNo, 10))
         DataK2 = Val(DataPrcStr(KdData, SampleNo, 11))
         DataK3 = DataPrcNum(KdData, SampleNo, 3) ^ 2
@@ -1187,8 +1234,16 @@ Public Class FrmSST4500_1_0_0J_meas
         If KdData = 1 Then
             If FlgAdmin = 0 Then
                 LblMeasNumCur_nom.Text = SampleNo
-                LblAnglPeakCur_nom.Text = Format(Val(Strings.Right(Ds1, Len(Ds1) - 2)), "0.0")
-                LblAnglDeepCur_nom.Text = Format(Val(Strings.Right(Ds2, Len(Ds2) - 2)), "0.0")
+                If Ds1_1 = "C" Or Ds1_1 = "M" Then
+                    LblAnglPeakCur_nom.Text = Format(Val(Strings.Right(Ds1, Len(Ds1) - 2)), "0.0")
+                Else
+                    LblAnglPeakCur_nom.Text = Format(Val(Ds1), "0.0")
+                End If
+                If Ds2_1 = "C" Or Ds2_1 = "M" Then
+                    LblAnglDeepCur_nom.Text = Format(Val(Strings.Right(Ds2, Len(Ds2) - 2)), "0.0")
+                Else
+                    LblAnglDeepCur_nom.Text = Format(Val(Ds2), "0.0")
+                End If
                 LblratioMDCDCur_nom.Text = Format(DataK1, "0.00")
                 LblratioPKDPCur_nom.Text = Format(DataK2, "0.00")
                 LblSpdMDCur_nom.Text = Format(DataPrcNum(KdData, SampleNo, 3), "0.00")
@@ -1199,8 +1254,16 @@ Public Class FrmSST4500_1_0_0J_meas
                 LblTSICDCur_nom.Text = Format(DataK4, "0.00")
             Else
                 LblMeasNumCur_adm.Text = SampleNo
-                LblAnglPeakCur_adm.Text = Format(Val(Strings.Right(Ds1, Len(Ds1) - 2)), "0.0")
-                LblAnglDeepCur_adm.Text = Format(Val(Strings.Right(Ds2, Len(Ds2) - 2)), "0.0")
+                If Ds1_1 = "C" Or Ds1_1 = "M" Then
+                    LblAnglPeakCur_adm.Text = Format(Val(Strings.Right(Ds1, Len(Ds1) - 2)), "0.0")
+                Else
+                    LblAnglPeakCur_adm.Text = Format(Val(Ds1), "0.0")
+                End If
+                If Ds2_1 = "C" Or Ds2_1 = "M" Then
+                    LblAnglDeepCur_adm.Text = Format(Val(Strings.Right(Ds2, Len(Ds2) - 2)), "0.0")
+                Else
+                    LblAnglDeepCur_adm.Text = Format(Val(Ds2), "0.0")
+                End If
                 LblratioMDCDCur_adm.Text = Format(DataK1, "0.00")
                 LblratioPKDPCur_adm.Text = Format(DataK2, "0.00")
                 LblSpdMDCur_adm.Text = Format(DataPrcNum(KdData, SampleNo, 3), "0.00")
@@ -1210,11 +1273,18 @@ Public Class FrmSST4500_1_0_0J_meas
                 LblTSIMDCur_adm.Text = Format(DataK3, "0.00")
                 LblTSICDCur_adm.Text = Format(DataK4, "0.00")
             End If
-
         Else
             LblMeasNumBak_adm.Text = SampleNo
-            LblAnglPeakBak_adm.Text = Format(Val(Strings.Right(Ds1, Len(Ds1) - 2)), "0.0")
-            LblAnglDeepBak_adm.Text = Format(Val(Strings.Right(Ds2, Len(Ds2) - 2)), "0.0")
+            If Ds1_1 = "C" Or Ds1_1 = "M" Then
+                LblAnglPeakBak_adm.Text = Format(Val(Strings.Right(Ds1, Len(Ds1) - 2)), "0.0")
+            Else
+                LblAnglPeakBak_adm.Text = Format(Val(Ds1), "0.0")
+            End If
+            If Ds2_1 = "C" Or Ds2_1 = "M" Then
+                LblAnglDeepBak_adm.Text = Format(Val(Strings.Right(Ds2, Len(Ds2) - 2)), "0.0")
+            Else
+                LblAnglDeepBak_adm.Text = Format(Val(Ds2), "0.0")
+            End If
             LblratioMDCDBak_adm.Text = Format(DataK1, "0.00")
             LblratioPKDPBak_adm.Text = Format(DataK2, "0.00")
             LblSpdMDBak_adm.Text = Format(DataPrcNum(KdData, SampleNo, 3), "0.00")
@@ -1300,18 +1370,41 @@ Public Class FrmSST4500_1_0_0J_meas
         Dim filter_tmp As String
         Dim chk_filename As String
         Dim chk_filehead As String
+        Dim sample_tmp_len As Integer
 
         MachineNo = TxtMachNoCur.Text
-        sample_tmp = Split(TxtSmplNamCur.Text, ",")
-        For i = 0 To UBound(sample_tmp)
-            If i = 0 Then
-                Sample = sample_tmp(i)
-            ElseIf i = 1 Then
-                Mark = sample_tmp(i)
-            ElseIf i = 2 Then
-                BW = sample_tmp(i)
+        If FlgDBF = 0 Then
+            '測定データフォーマット　通常
+            'データが3つの場合、NAC03までのフォーマット
+            'データが2つの場合、NAC04以降のフォーマット
+            sample_tmp = Split(TxtSmplNamCur.Text, ",")
+            sample_tmp_len = UBound(sample_tmp)
+            If sample_tmp_len = 2 Then
+                For i = 0 To sample_tmp_len
+                    If i = 0 Then
+                        Sample = sample_tmp(i)
+                    ElseIf i = 1 Then
+                        Mark = sample_tmp(i)
+                    ElseIf i = 2 Then
+                        BW = sample_tmp(i)
+                    End If
+                Next
+            Else
+                For i = 0 To sample_tmp_len
+                    If i = 0 Then
+                        Sample = sample_tmp(i)
+                    ElseIf i = 1 Then
+                        BW = sample_tmp(i)
+                    End If
+                Next
+                Mark = TxtMarkCur.Text
             End If
-        Next
+        Else
+            '測定データフォーマット　特殊1
+            Sample = TxtSmplNamCur.Text
+            Mark = TxtMarkCur.Text
+            '斤量は無視する
+        End If
 
         If ChkMeasAutoPrn.Checked = True Then
             FlgMeasAutoPrn = 1
@@ -1444,11 +1537,22 @@ Public Class FrmSST4500_1_0_0J_meas
         FlgMainMeas = 20
     End Sub
 
+    Private Sub TxtMarkCur_TextChanged(sender As Object, e As EventArgs) Handles TxtMarkCur.TextChanged
+        Mark = TxtMarkCur.Text
+        'FlgConstChg = True  '変更有の状態にセットする
+        If flgInitEnd = 1 Then
+            ConstChangeTrue(Me, title_text)
+        End If
+        FlgMainMeas = 20
+    End Sub
+
     Private Sub ConditionDisable()
         TxtMachNoCur.Enabled = False
         TxtSmplNamCur.Enabled = False
+        TxtMarkCur.Enabled = False
         TxtMachNoBak.Enabled = False
         TxtSmplNamBak.Enabled = False
+        TxtMarkBak.Enabled = False
         GbMeasSpec.Enabled = False
         測定仕様ToolStripMenuItem.Enabled = False
         'CmdMeasSpecSel.Enabled = False
@@ -1474,6 +1578,7 @@ Public Class FrmSST4500_1_0_0J_meas
     Private Sub ConditionEnable()
         TxtMachNoCur.Enabled = True
         TxtSmplNamCur.Enabled = True
+        TxtMarkCur.Enabled = True
         GbMeasSpec.Enabled = True
         測定仕様ToolStripMenuItem.Enabled = True
         'CmdMeasSpecSel.Enabled = True
@@ -1496,6 +1601,7 @@ Public Class FrmSST4500_1_0_0J_meas
             読込ToolStripMenuItem.Enabled = True
             TxtMachNoBak.Enabled = True
             TxtSmplNamBak.Enabled = True
+            TxtMarkBak.Enabled = True
             If Val(TxtMeasNumBak.Text) > 0 Then
                 CmdEtcOldMeasData.Enabled = True
                 他の測定データ選択ToolStripMenuItem.Enabled = True
@@ -1626,6 +1732,9 @@ Public Class FrmSST4500_1_0_0J_meas
         path.AddLine(120 + 150, measspec_hyoutop,
                      120 + 150, measspec_hyoutop + (cell_height25 * 3))
         path.StartFigure()
+        path.AddLine(paper_width - (100 + 120), measspec_hyoutop,
+                     paper_width - (100 + 120), measspec_hyoutop + (cell_height25 * 3))
+        path.StartFigure()
         path.AddLine(paper_width - 100, measspec_hyoutop,
                      paper_width - 100, measspec_hyoutop + (cell_height25 * 3))
         path.StartFigure()
@@ -1725,12 +1834,16 @@ Public Class FrmSST4500_1_0_0J_meas
         e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               120 + 150 + cell_padding_left,
                               title_height + gyou_height25 + cell_height25 / 2 - stringSize.Height / 2)
+        string_tmp = "マーク"
+        stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
+        e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
+                              paper_width - (100 + 120) + cell_padding_left,
+                              title_height + gyou_height25 + cell_height25 / 2 - stringSize.Height / 2)
         string_tmp = "測定回数"
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
         e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               paper_width - 100 + cell_padding_left,
                               title_height + gyou_height25 + cell_height25 / 2 - stringSize.Height / 2)
-
         string_tmp = "測定仕様"
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
         e.Graphics.DrawString(string_tmp, fnt_10, print_curdata_brush,
@@ -1865,6 +1978,16 @@ Public Class FrmSST4500_1_0_0J_meas
         e.Graphics.DrawString(string_tmp, fnt_10, print_olddata_brush,
                               120 + 150 + cell_padding_left,
                               measspec_hyoutop + cell_height25 * 2 + cell_height25 / 2 - stringSize.Height / 2)
+        'マーク cur
+        string_tmp = TxtMarkCur.Text
+        e.Graphics.DrawString(string_tmp, fnt_10, print_curdata_brush,
+                              paper_width - (100 + 120) + cell_padding_left,
+                              measspec_hyoutop + cell_height25 * 1 + cell_height25 / 2 - stringSize.Height / 2)
+        'マーク bak
+        string_tmp = TxtMarkBak.Text
+        e.Graphics.DrawString(string_tmp, fnt_10, print_olddata_brush,
+                              paper_width - (100 + 120) + cell_padding_left,
+                              measspec_hyoutop + cell_height25 * 1 + cell_height25 / 2 - stringSize.Height / 2)
         '測定回数 cur
         string_tmp = Trim(TxtMeasNumCur.Text)
         e.Graphics.DrawString(string_tmp, fnt_10, print_curdata_brush,
@@ -2233,11 +2356,17 @@ Public Class FrmSST4500_1_0_0J_meas
         Dim DataPeak As Single
         Dim DataDeep As Single
         Dim Ds As String
+        Dim Ds_1 As String
 
         Dim path As New Drawing2D.GraphicsPath
 
         Ds = DataPrcStr(KdData_tmp, SampleNo_tmp, 9)
-        DataPeak = Val(Strings.Right(Ds, Len(Ds) - 2))
+        Ds_1 = Strings.Left(Ds, 1)
+        If Ds_1 = "C" Or Ds_1 = "M" Then
+            DataPeak = Val(Strings.Right(Ds, Len(Ds) - 2))
+        Else
+            DataPeak = Val(Ds)
+        End If
         MdX = 200 * Math.Sin(DataPeak * Rad)
         MdY = 200 * Math.Cos(DataPeak * Rad)
 
@@ -2245,7 +2374,12 @@ Public Class FrmSST4500_1_0_0J_meas
         path.AddLine(center_x + MdX, center_y - MdY, center_x - MdX, center_y + MdY)
 
         Ds = DataPrcStr(KdData_tmp, SampleNo_tmp, 8)
-        DataDeep = Val(Strings.Right(Ds, Len(Ds) - 2))
+        Ds_1 = Strings.Left(Ds, 1)
+        If Ds_1 = "C" Or Ds_1 = "M" Then
+            DataDeep = Val(Strings.Right(Ds, Len(Ds) - 2))
+        Else
+            DataDeep = Val(Ds)
+        End If
         CdX = 200 * Math.Cos(DataDeep * Rad)
         CdY = 200 * Math.Sin(DataDeep * Rad)
 
@@ -2268,11 +2402,17 @@ Public Class FrmSST4500_1_0_0J_meas
         Dim DataPeak As Single
         Dim DataDeep As Single
         Dim Ds As String
+        Dim Ds_1 As String
 
         Dim path As New Drawing2D.GraphicsPath
 
         Ds = DataPrcStr(KdData_tmp, SampleNo_tmp, 9)
-        DataPeak = Val(Strings.Right(Ds, Len(Ds) - 2))
+        Ds_1 = Strings.Left(Ds, 1)
+        If Ds_1 = "C" Or Ds_1 = "M" Then
+            DataPeak = Val(Strings.Right(Ds, Len(Ds) - 2))
+        Else
+            DataPeak = Val(Ds)
+        End If
         MdX = 200 * Math.Sin(DataPeak * Rad)
         MdY = 200 * Math.Cos(DataPeak * Rad)
 
@@ -2280,7 +2420,12 @@ Public Class FrmSST4500_1_0_0J_meas
         path.AddLine(center_x + MdX, center_y - MdY, center_x - MdX, center_y + MdY)
 
         Ds = DataPrcStr(KdData_tmp, SampleNo_tmp, 8)
-        DataDeep = Val(Strings.Right(Ds, Len(Ds) - 2))
+        Ds_1 = Strings.Left(Ds, 1)
+        If Ds_1 = "C" Or Ds_1 = "M" Then
+            DataDeep = Val(Strings.Right(Ds, Len(Ds) - 2))
+        Else
+            DataDeep = Val(Ds)
+        End If
         CdX = 200 * Math.Cos(DataDeep * Rad)
         CdY = 200 * Math.Sin(DataDeep * Rad)
 
@@ -2373,6 +2518,9 @@ Public Class FrmSST4500_1_0_0J_meas
         path.AddLine(120 + 150, measspec_hyoutop,
                      120 + 150, measspec_hyoutop + (cell_height25 * 2))
         path.StartFigure()
+        path.AddLine(paper_width - (100 + 120), measspec_hyoutop,
+                     paper_width - (100 + 120), measspec_hyoutop + (cell_height25 * 2))
+        path.StartFigure()
         path.AddLine(paper_width - 100, measspec_hyoutop,
                      paper_width - 100, measspec_hyoutop + (cell_height25 * 2))
         path.StartFigure()
@@ -2455,6 +2603,11 @@ Public Class FrmSST4500_1_0_0J_meas
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
         e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               120 + 150 + cell_padding_left,
+                              title_height + gyou_height25 + cell_height25 / 2 - stringSize.Height / 2)
+        string_tmp = "マーク"
+        stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
+        e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
+                              paper_width - (100 + 120) + cell_padding_left,
                               title_height + gyou_height25 + cell_height25 / 2 - stringSize.Height / 2)
         string_tmp = "測定回数"
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
@@ -2570,6 +2723,11 @@ Public Class FrmSST4500_1_0_0J_meas
         string_tmp = TxtSmplNamCur.Text
         e.Graphics.DrawString(string_tmp, fnt_10, print_curdata_brush,
                               120 + 150 + cell_padding_left,
+                              title_height + gyou_height25 + cell_height25 * 1 + cell_height25 / 2 - stringSize.Height / 2)
+        'マーク cur
+        string_tmp = TxtMarkCur.Text
+        e.Graphics.DrawString(string_tmp, fnt_10, print_curdata_brush,
+                              paper_width - (100 + 120) + cell_padding_left,
                               title_height + gyou_height25 + cell_height25 * 1 + cell_height25 / 2 - stringSize.Height / 2)
         '測定回数 cur
         string_tmp = Trim(TxtMeasNumCur.Text)
@@ -2789,15 +2947,17 @@ Public Class FrmSST4500_1_0_0J_meas
 
                                 .Cells(4, 2) = "マシーンNo."
                                 .Cells(4, 3) = "サンプル名"
-                                .Cells(4, 4) = "測定回数"
-                                .Range(.Cells(4, 2), .Cells(4, 4)).Font.Color = frm_MeasForm_fc
+                                .Cells(4, 4) = "マーク"
+                                .Cells(4, 5) = "測定回数"
+                                .Range(.Cells(4, 2), .Cells(4, 5)).Font.Color = frm_MeasForm_fc
                                 .Cells(5, 1) = "測定仕様"
                                 .Cells(5, 2) = TxtMachNoCur.Text
                                 .Cells(5, 3) = TxtSmplNamCur.Text
-                                .Cells(5, 4) = TxtMeasNumCur.Text
-                                .Range(.Cells(5, 1), .Cells(5, 4)).Font.Color = frm_MeasCurData_color
-                                .Range(.Cells(4, 1), .Cells(5, 4)).Borders.LineStyle = Excel.XlLineStyle.xlContinuous
-                                .Range(.Cells(4, 1), .Cells(5, 4)).Locked = True
+                                .Cells(5, 4) = TxtMarkCur.Text
+                                .Cells(5, 5) = TxtMeasNumCur.Text
+                                .Range(.Cells(5, 1), .Cells(5, 5)).Font.Color = frm_MeasCurData_color
+                                .Range(.Cells(4, 1), .Cells(5, 5)).Borders.LineStyle = Excel.XlLineStyle.xlContinuous
+                                .Range(.Cells(4, 1), .Cells(5, 5)).Locked = True
 
                                 .Range(.Cells(7, 1), .Cells(8, 1)).MergeCells = True
                                 .Cells(7, 1) = "データ"
@@ -2920,20 +3080,23 @@ Public Class FrmSST4500_1_0_0J_meas
 
                                 .Cells(5, 2) = "マシーンNo."
                                 .Cells(5, 3) = "サンプル名"
-                                .Cells(5, 4) = "測定回数"
-                                .Range(.Cells(5, 2), .Cells(5, 4)).Font.Color = frm_MeasForm_fc
+                                .Cells(5, 4) = "マーク"
+                                .Cells(5, 5) = "測定回数"
+                                .Range(.Cells(5, 2), .Cells(5, 5)).Font.Color = frm_MeasForm_fc
                                 .Cells(6, 1) = "測定仕様"
                                 .Cells(6, 2) = TxtMachNoCur.Text
                                 .Cells(6, 3) = TxtSmplNamCur.Text
-                                .Cells(6, 4) = TxtMeasNumCur.Text
-                                .Range(.Cells(6, 1), .Cells(6, 4)).Font.Color = frm_MeasCurData_color
+                                .Cells(6, 4) = TxtMarkCur.Text
+                                .Cells(6, 5) = TxtMeasNumCur.Text
+                                .Range(.Cells(6, 1), .Cells(6, 5)).Font.Color = frm_MeasCurData_color
                                 .Cells(7, 1) = "過去の仕様"
                                 .Cells(7, 2) = TxtMachNoBak.Text
                                 .Cells(7, 3) = TxtSmplNamBak.Text
-                                .Cells(7, 4) = TxtMeasNumBak.Text
-                                .Range(.Cells(7, 1), .Cells(7, 4)).Font.Color = frm_MeasOldData_color
-                                .Range(.Cells(5, 1), .Cells(7, 4)).Borders.LineStyle = Excel.XlLineStyle.xlContinuous
-                                .Range(.Cells(5, 1), .Cells(7, 4)).Locked = True
+                                .Cells(7, 4) = TxtMarkBak.Text
+                                .Cells(7, 5) = TxtMeasNumBak.Text
+                                .Range(.Cells(7, 1), .Cells(7, 5)).Font.Color = frm_MeasOldData_color
+                                .Range(.Cells(5, 1), .Cells(7, 5)).Borders.LineStyle = Excel.XlLineStyle.xlContinuous
+                                .Range(.Cells(5, 1), .Cells(7, 5)).Locked = True
 
                                 .Range(.Cells(9, 1), .Cells(10, 1)).MergeCells = True
                                 .Cells(9, 1) = "データ"
@@ -3175,4 +3338,5 @@ Public Class FrmSST4500_1_0_0J_meas
     Private Sub PictureBox2_Click(sender As Object, e As EventArgs) Handles PictureBox2.Click
         FrmSST4500_1_0_0J_helpinfo.ShowDialog()
     End Sub
+
 End Class
