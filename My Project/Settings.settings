@@ -8,7 +8,7 @@
     <Setting Name="_passwd_adm2" Type="System.String" Scope="User">
       <Value Profile="(Default)">LuGAQ7IevCcWdl5ledQ3iw==</Value>
     </Setting>
-    <Setting Name="_passwd_adm2_chg" Type="System.String" Scope="User">
+    <Setting Name="_passwd_adm2chg" Type="System.String" Scope="User">
       <Value Profile="(Default)">+fMH4XpJKNqwdZDUL0gFhg==</Value>
     </Setting>
     <Setting Name="_sgresultsave_path" Type="System.String" Scope="User">
@@ -269,11 +269,14 @@
     <Setting Name="_printbc" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="_dbf_chg" Type="System.String" Scope="User">
-      <Value Profile="(Default)">7tpb4/D3hxRym51aU8Kiow==</Value>
+    <Setting Name="_dbf_setting" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ZefE6qmIJXCUZoW34Jn2SQ==</Value>
     </Setting>
     <Setting Name="_flg_dbf" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="_dbf_settingchg" Type="System.String" Scope="User">
+      <Value Profile="(Default)">UGECfPzvYKIE7YyaMIXvbg==</Value>
     </Setting>
   </Settings>
 </SettingsFile>

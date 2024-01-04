@@ -542,6 +542,8 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.TxtMarkCur = New System.Windows.Forms.TextBox()
         Me.TxtMarkBak = New System.Windows.Forms.TextBox()
         Me.Label51 = New System.Windows.Forms.Label()
+        Me.ChkPitchExp = New System.Windows.Forms.CheckBox()
+        Me.LblPitchExp = New System.Windows.Forms.Label()
         Me.TabControl1.SuspendLayout
         Me.TabAngleratio.SuspendLayout
         Me.TableLayoutPanel4.SuspendLayout
@@ -7798,6 +7800,25 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.Label51.TabIndex = 61
         Me.Label51.Text = "マーク"
         '
+        'ChkPitchExp
+        '
+        Me.ChkPitchExp.AutoSize = True
+        Me.ChkPitchExp.Location = New System.Drawing.Point(783, 79)
+        Me.ChkPitchExp.Name = "ChkPitchExp"
+        Me.ChkPitchExp.Size = New System.Drawing.Size(15, 14)
+        Me.ChkPitchExp.TabIndex = 53
+        Me.ChkPitchExp.UseVisualStyleBackColor = True
+        '
+        'LblPitchExp
+        '
+        Me.LblPitchExp.AutoSize = True
+        Me.LblPitchExp.Font = New System.Drawing.Font("MS UI Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.LblPitchExp.Location = New System.Drawing.Point(748, 79)
+        Me.LblPitchExp.Name = "LblPitchExp"
+        Me.LblPitchExp.Size = New System.Drawing.Size(33, 13)
+        Me.LblPitchExp.TabIndex = 62
+        Me.LblPitchExp.Text = "拡張"
+        '
         'FrmSST4500_1_0_0J_Profile
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
@@ -7805,6 +7826,8 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.AutoScroll = True
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(984, 782)
+        Me.Controls.Add(Me.LblPitchExp)
+        Me.Controls.Add(Me.ChkPitchExp)
         Me.Controls.Add(Me.Label51)
         Me.Controls.Add(Me.TxtMarkBak)
         Me.Controls.Add(Me.TxtMarkCur)
@@ -8419,4 +8442,6 @@ Partial Class FrmSST4500_1_0_0J_Profile
     Friend WithEvents TxtMarkBak As TextBox
     Friend WithEvents Label51 As Label
     Friend WithEvents ToolStripStatusLabel5 As ToolStripStatusLabel
+    Friend WithEvents ChkPitchExp As CheckBox
+    Friend WithEvents LblPitchExp As Label
 End Class

@@ -81,12 +81,12 @@ Namespace My
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.DefaultSettingValueAttribute("+fMH4XpJKNqwdZDUL0gFhg==")>  _
-        Public Property _passwd_adm2_chg() As String
+        Public Property _passwd_adm2chg() As String
             Get
-                Return CType(Me("_passwd_adm2_chg"),String)
+                Return CType(Me("_passwd_adm2chg"),String)
             End Get
             Set
-                Me("_passwd_adm2_chg") = value
+                Me("_passwd_adm2chg") = value
             End Set
         End Property
         
@@ -1124,13 +1124,13 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("7tpb4/D3hxRym51aU8Kiow==")>  _
-        Public Property _dbf_chg() As String
+         Global.System.Configuration.DefaultSettingValueAttribute("ZefE6qmIJXCUZoW34Jn2SQ==")>  _
+        Public Property _dbf_setting() As String
             Get
-                Return CType(Me("_dbf_chg"),String)
+                Return CType(Me("_dbf_setting"),String)
             End Get
             Set
-                Me("_dbf_chg") = value
+                Me("_dbf_setting") = value
             End Set
         End Property
         
@@ -1143,6 +1143,18 @@ Namespace My
             End Get
             Set
                 Me("_flg_dbf") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("UGECfPzvYKIE7YyaMIXvbg==")>  _
+        Public Property _dbf_settingchg() As String
+            Get
+                Return CType(Me("_dbf_settingchg"),String)
+            End Get
+            Set
+                Me("_dbf_settingchg") = value
             End Set
         End Property
     End Class

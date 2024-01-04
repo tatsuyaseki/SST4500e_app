@@ -1,4 +1,4 @@
-﻿Public Class FrmSST4500_1_1_0J_dbfchg
+﻿Public Class FrmSST4500_1_0_0J_dbfchg
     Private Sub FrmSST4500_1_1_0J_dbfchg_VisibleChanged(sender As Object, e As EventArgs) Handles Me.VisibleChanged
         Me.MaximumSize = Me.Size
         Me.MinimumSize = Me.Size

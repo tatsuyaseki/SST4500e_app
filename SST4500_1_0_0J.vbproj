@@ -121,6 +121,12 @@
     <Compile Include="FrmSST4500_1_0_0J_helpinfo.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmSST4500_1_0_0J_pitchsetting.Designer.vb">
+      <DependentUpon>FrmSST4500_1_0_0J_pitchsetting.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSST4500_1_0_0J_pitchsetting.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmSST4500_1_0_0J_setting.Designer.vb">
       <DependentUpon>FrmSST4500_1_0_0J_setting.vb</DependentUpon>
     </Compile>
@@ -164,10 +170,10 @@
     <Compile Include="FrmSST4500_1_0_0J_Profile.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSST4500_1_1_0J_dbfchg.Designer.vb">
-      <DependentUpon>FrmSST4500_1_1_0J_dbfchg.vb</DependentUpon>
+    <Compile Include="FrmSST4500_1_0_0J_dbfchg.Designer.vb">
+      <DependentUpon>FrmSST4500_1_0_0J_dbfchg.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmSST4500_1_1_0J_dbfchg.vb">
+    <Compile Include="FrmSST4500_1_0_0J_dbfchg.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Module1.vb" />
@@ -195,6 +201,9 @@
     <EmbeddedResource Include="FrmSST4500_1_0_0J_helpinfo.resx">
       <DependentUpon>FrmSST4500_1_0_0J_helpinfo.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmSST4500_1_0_0J_pitchsetting.resx">
+      <DependentUpon>FrmSST4500_1_0_0J_pitchsetting.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmSST4500_1_0_0J_setting.resx">
       <DependentUpon>FrmSST4500_1_0_0J_setting.vb</DependentUpon>
     </EmbeddedResource>
@@ -216,8 +225,8 @@
     <EmbeddedResource Include="FrmSST4500_1_0_0J_test.resx">
       <DependentUpon>FrmSST4500_1_0_0J_test.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSST4500_1_1_0J_dbfchg.resx">
-      <DependentUpon>FrmSST4500_1_1_0J_dbfchg.vb</DependentUpon>
+    <EmbeddedResource Include="FrmSST4500_1_0_0J_dbfchg.resx">
+      <DependentUpon>FrmSST4500_1_0_0J_dbfchg.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

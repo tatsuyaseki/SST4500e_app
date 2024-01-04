@@ -70,7 +70,7 @@
                             Dim passwd_temp As String = new_pass
                             Dim wrapper As New Simple3Des(passwd_key)
                             Dim cipherText As String = wrapper.EncryptData(passwd_temp)
-                            My.Settings._passwd_adm2_chg = cipherText
+                            My.Settings._passwd_adm2chg = cipherText
                             My.Settings.Save()
                             FrmSST4500_1_0_0J_login.TxtInputPass.Text = ""
                             Me.Visible = False
@@ -87,10 +87,40 @@
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Exclamation)
                 End If
-                TxtOldPasswd.Text = ""
-                TxtNewPasswd.Text = ""
-                TxtNewPasswd2.Text = ""
+            ElseIf FlgPasswdChg = 3 Then
+                'dbfsettingパスワード変更
+                If old_pass = passwd_dbfsetting Then
+                    If new_pass = new_pass2 Then
+                        ret = MessageBox.Show("測定データフォーマット設定用の" & vbCrLf &
+                                              "パスワードを変更してもよろしいですか？",
+                                              "パスワード変更確認",
+                                              MessageBoxButtons.YesNo,
+                                              MessageBoxIcon.Information)
+                        If ret = vbYes Then
+                            Dim passwd_temp As String = new_pass
+                            Dim wrapper As New Simple3Des(passwd_key)
+                            Dim cipherText As String = wrapper.EncryptData(passwd_temp)
+                            My.Settings._dbf_settingchg = cipherText
+                            My.Settings.Save()
+                            FrmSST4500_1_0_0J_login.TxtInputPass.Text = ""
+                            Me.Visible = False
+                        End If
+                    Else
+                        MessageBox.Show("新しいパスワードが一致しませんでした。",
+                                        "パスワードエラー",
+                                        MessageBoxButtons.OK,
+                                        MessageBoxIcon.Exclamation)
+                    End If
+                Else
+                    MessageBox.Show("古いパスワードが違います。",
+                                    "パスワードエラー",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Exclamation)
+                End If
             End If
+            TxtOldPasswd.Text = ""
+            TxtNewPasswd.Text = ""
+            TxtNewPasswd2.Text = ""
         End If
 
     End Sub
@@ -108,6 +138,8 @@
                 Me.Text = "パスワード変更"
             ElseIf FlgPasswdChg = 2 Then
                 Me.Text = "パスワード変更2"
+            ElseIf FlgPasswdChg = 3 Then
+                Me.Text = "パスワード変更3"
             End If
         End If
     End Sub
