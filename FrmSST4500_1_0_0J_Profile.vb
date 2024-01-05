@@ -1968,8 +1968,10 @@ Public Class FrmSST4500_1_0_0J_Profile
         TxtMachNoBak.Enabled = sw
         TxtSmplNamBak.Visible = sw
         TxtSmplNamBak.Enabled = sw
-        TxtMarkBak.Visible = sw
-        TxtMarkBak.Enabled = sw
+        If FlgDBF = 1 Then
+            TxtMarkBak.Visible = sw
+            TxtMarkBak.Enabled = sw
+        End If
         TxtMeasNumBak.Visible = sw
         TxtMeasNumBak.Enabled = sw
         TxtMeasNumBak.Visible = sw
