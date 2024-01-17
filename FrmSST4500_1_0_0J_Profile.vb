@@ -91,7 +91,8 @@ Public Class FrmSST4500_1_0_0J_Profile
 
     Dim title_text As String
     Dim FlgInitEnd As Integer = 0
-    Dim _pitch_bak As Integer
+    Dim _length_bak As Single
+    Dim _pitch_bak As Single
     Dim _points_bak As Integer
     Dim _ret As Integer
 
@@ -138,6 +139,8 @@ Public Class FrmSST4500_1_0_0J_Profile
                     If FlgPitchExp = 1 Then
                         'ピッチ拡張が有効な場合
                         LoadConstPitch()
+                    Else
+                        FlgPitchExp_Load = 0
                     End If
 
                     '----
@@ -264,10 +267,12 @@ Public Class FrmSST4500_1_0_0J_Profile
                     Pitch = Val(TxtPitch.Text)
                     FlgPchExpMes = 0    'ピッチ拡張無効で測定
                 Else
-                    Points = UBound(PchExp_PchData) + 2
+
+                    Points = UBound(PchExp_PchData) + 2 'ピッチ拡張のデータ数
+                    _length_bak = Val(TxtLength.Text)
                     _pitch_bak = Val(TxtPitch.Text)
                     _points_bak = Val(TxtPoints.Text)
-                    TxtPoints.Text = UBound(PchExp_PchData) + 2
+                    TxtPoints.Text = Points
                     'ピッチはPchExp_PchData()から取得する
                     FlgPchExpMes = 1    'ピッチ拡張有効で測定
                 End If
@@ -664,6 +669,7 @@ Public Class FrmSST4500_1_0_0J_Profile
 
                 'ピッチ拡張時に値を復元
                 If FlgPitchExp <> 0 Then
+                    TxtLength.Text = _length_bak
                     TxtPitch.Text = _pitch_bak
                     TxtPoints.Text = _points_bak
                 End If
@@ -4293,15 +4299,14 @@ Public Class FrmSST4500_1_0_0J_Profile
     End Sub
 
     Private Sub ConditionEnable()
-        TxtLength.Enabled = True
         If FlgPitchExp = 0 Then
+            TxtLength.Enabled = True
             TxtPitch.Enabled = True
             TxtPoints.Enabled = True
+            OptMm.Enabled = True
+            単位ToolStripMenuItem.Enabled = True
+            OptInch.Enabled = True
         End If
-        'TxtPoints.Enabled = True
-        OptMm.Enabled = True
-        単位ToolStripMenuItem.Enabled = True
-        OptInch.Enabled = True
         TxtMachNoCur.Enabled = True
         TxtSmplNamCur.Enabled = True
         TxtMarkCur.Enabled = True

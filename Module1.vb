@@ -473,7 +473,7 @@ Module Module1
     Public FlgPitchExp As Integer   '0=ピッチ拡張無効, 1=ピッチ拡張有効
     Public FlgPitchExp_Load As Integer  '0=ピッチ拡張未ロード, 1=ピッチ拡張ロード済み
     Public PchExp_PchData(0) As Integer
-    Public PchExp_RepeatNum As Integer
+    Public PchExp_Length As Integer
     Public Const StrConstFileName_PchExp = ".pitch"
     Public FlgPchExpMes As Integer  '0=ピッチ拡張無効で測定, 1=ピッチ拡張有効で測定
     Public FlgPchExpMes_old As Integer  '過去データのピッチ拡張有効無効測定フラグ
@@ -2040,14 +2040,15 @@ Module Module1
                     End Select
                 Else
                     Select Case FlgProfile
+                        'プロファイル、MD長尺はCで統一
                         Case 0
                             .Filter = "Meas Data Old File(*_S_*.csv)|*_S_*.csv"
                         Case 1
-                            .Filter = "Meas Data Old File(*_P_*.csv)|*_P_*.csv"
+                            .Filter = "Meas Data Old File(*_C_*.csv)|*_C_*.csv"
                         Case 2
                             .Filter = "Meas Data Old File(*_C_*.csv)|*_C_*.csv"
                         Case 3
-                            .Filter = "Meas Data Old File(*_L_*.csv)|*_L_*.csv"
+                            .Filter = "Meas Data Old File(*_C_*.csv)|*_C_*.csv"
                     End Select
                 End If
 
@@ -2097,7 +2098,7 @@ Module Module1
             If FlgDBF = 0 Then
                 data_len = 29   '30個または32個
             Else
-                data_len = 26   '30個
+                data_len = 26   '従来データ(SST2500)も読み込み出来るようにする為
             End If
 
             data_len_tmp = UBound(splittedResult)   'UBoundは最終要素Indexを示す為データ数-1
@@ -2205,18 +2206,21 @@ Module Module1
                     FileDataNo = M
                     FileDataMax = M
 
-                    If data_len_tmp > data_len Then
-                        LengthOld = splittedResult(27)
-                        PitchOld = splittedResult(28)
-                        Ds(1) = splittedResult(29)
-                        Ds(4) = splittedResult(30)
-                        Dn(1) = splittedResult(31)
-                        FlgPchExpMes_old = splittedResult(32)
-                    Else
-                        LengthOld = 0
-                        PitchOld = 0
-                        FlgPchExpMes_old = 0
-                    End If
+                    'If data_len_tmp > data_len Then
+                    'LengthOld = splittedResult(27)
+                    'PitchOld = splittedResult(28)
+                    'Ds(1) = splittedResult(29)
+                    'Ds(4) = splittedResult(30)
+                    'Dn(1) = splittedResult(31)
+                    'FlgPchExpMes_old = splittedResult(32)
+                    'Else
+                    'LengthOld = 0
+                    'PitchOld = 0
+                    'FlgPchExpMes_old = 0
+                    'End If
+                    LengthOld = 0
+                    PitchOld = 0
+                    FlgPchExpMes_old = 0
                 End If
             End If
         End While
@@ -2336,11 +2340,14 @@ Module Module1
 
             For i = 0 To UBound(splittedResult)
                 If i = 0 Then
-                    ReDim PchExp_PchData(i)
-                    PchExp_PchData(i) = Val(splittedResult(i))
+                    '1つ目はサンプル長
+                    PchExp_Length = Val(splittedResult(i))
+                ElseIf i = 1 Then
+                    ReDim PchExp_PchData(i - 1)
+                    PchExp_PchData(i - 1) = Val(splittedResult(i))
                 Else
                     ReDim Preserve PchExp_PchData(UBound(PchExp_PchData) + 1)
-                    PchExp_PchData(i) = Val(splittedResult(i))
+                    PchExp_PchData(i - 1) = Val(splittedResult(i))
                 End If
             Next
             FlgPitchExp_Load = 1
@@ -2349,6 +2356,7 @@ Module Module1
             '設定を保存せずにファイル作成をキャンセルした場合は、
             '拡張のチェックボックスるをfalseにする
             'ピッチ拡張を無効にする
+            FlgPitchExp_Load = 0
             result_tmp = MessageBox.Show("ピッチ拡張設定ファイルが未作成の様です。" & vbCrLf &
                                          "作成して、ピッチ拡張設定を有効にしますか？" & vbCrLf &
                                          "はい : ピッチ拡張設定画面を開く" & vbCrLf &
@@ -2440,10 +2448,18 @@ Module Module1
                             .ChkPitchExp.Checked = True
                             .TxtPitch.Enabled = False
                             .TxtPoints.Enabled = False
+                            .TxtLength.Enabled = False
+                            .OptMm.Enabled = False
+                            .OptInch.Enabled = False
+                            .単位ToolStripMenuItem.Enabled = False
                         Else
                             .ChkPitchExp.Checked = False
                             .TxtPitch.Enabled = True
                             .TxtPoints.Enabled = True
+                            .TxtLength.Enabled = True
+                            .OptMm.Enabled = True
+                            .OptInch.Enabled = True
+                            .単位ToolStripMenuItem.Enabled = True
                         End If
                         .LblAllMeas_num.Visible = True
                         .TxtPoints.Visible = True
@@ -2530,9 +2546,9 @@ Module Module1
 
         Dim Sa As String = ""
         'Dim Mark As String = ""
-        Dim f_chk As Boolean
-        Dim StrDataFileName_tmp As String
-        Dim file_count As Integer
+        'Dim f_chk As Boolean
+        'Dim StrDataFileName_tmp As String
+        'Dim file_count As Integer
 
         If FlgDBF = 0 Then
             Select Case FlgProfile
@@ -2548,28 +2564,31 @@ Module Module1
             StrDataFileName = Sa & Trim(MachineNo) & "_" & Trim(Sample) & "_" & FileDate & "_" & FileTime & ".csv"
         Else
             Select Case FlgProfile
-                Case 0
+                'プロファイル、MD長尺の認識なしすべてC
+                Case 0  'シングルモード
                     Sa = "S"
-                Case 1
-                    Sa = "P"
-                Case 2
+                Case 1  'プロファイルモード
                     Sa = "C"
-                Case 3
-                    Sa = "L"
+                Case 2  'カットシートモード
+                    Sa = "C"
+                Case 3  'MD長尺モード
+                    Sa = "C"
             End Select
             StrDataFileName = Trim(Sample) & "_" & Mark & "_" & Sa & "_" & FileDate & "_" & FileTime & ".csv"
         End If
 
-        '同名のファイルが存在するかチェックする
-        f_chk = File.Exists(cur_dir & DEF_DATA_FILE_FLD & StrDataFileName)
-        Console.WriteLine(f_chk)
-        file_count = 0
-        StrDataFileName_tmp = IO.Path.GetFileNameWithoutExtension(StrDataFileName)
-        While f_chk = True
-            file_count += 1
-            StrDataFileName = StrDataFileName_tmp & "(" & file_count & ")" & ".csv"
-            f_chk = File.Exists(cur_dir & DEF_DATA_FILE_FLD & StrDataFileName)
-        End While
+        '同名ファイルが作成されるタイミングでは操作しないとのこと。
+        '最悪は追記されるだけなので動作が止まることはない。
+        ''同名のファイルが存在するかチェックする
+        'f_chk = File.Exists(cur_dir & DEF_DATA_FILE_FLD & StrDataFileName)
+        'Console.WriteLine(f_chk)
+        'file_count = 0
+        'StrDataFileName_tmp = IO.Path.GetFileNameWithoutExtension(StrDataFileName)
+        'While f_chk = True
+        'file_count += 1
+        'StrDataFileName = StrDataFileName_tmp & "(" & file_count & ")" & ".csv"
+        'f_chk = File.Exists(cur_dir & DEF_DATA_FILE_FLD & StrDataFileName)
+        'End While
         '空のファイルを作成する
         Using sw As New StreamWriter(cur_dir & DEF_DATA_FILE_FLD & StrDataFileName, True, Encoding.UTF8)
 
@@ -2623,6 +2642,7 @@ Module Module1
 
         Using sw As New StreamWriter(cur_dir & DEF_DATA_FILE_FLD & StrDataFileName, True, Encoding.UTF8)
             If FlgDBF = 0 Then
+                '標準データ仕様
                 sw.WriteLine("Machine No.," &   '0 Ds(1)
                              "Sample Name," &   '1 Ds(2)
                              "Mark," &          '2 Ds(3)
@@ -2640,7 +2660,7 @@ Module Module1
                              "0," &             '14 Dn(8)
                              "11.25," &         '15 Dn(9)
                              "22.5," &          '16 Dn(10)
-                             "37.75," &         '17 Dn(11)
+                             "33.75," &         '17 Dn(11)
                              "45," &            '18 Dn(12)
                              "56.25," &         '19 Dn(13)
                              "67.5," &          '20 Dn(14)
@@ -2657,6 +2677,7 @@ Module Module1
                              "Pitch," &         '31 Dn(25)
                              "PchExp")          '32 Dn(26)   
             Else
+                '特定顧客向けデータ仕様(特殊1)
                 sw.WriteLine("Sample Name," &       '0 Ds(2)
                              "Mark," &              '1 Ds(3)
                              "No.," &               '2 Ds(5)
@@ -2671,7 +2692,7 @@ Module Module1
                              "0 deg.," &            '11 Dn(8)
                              "11.25 deg.," &        '12 Dn(9)
                              "22.50 deg.," &        '13 Dn(10)
-                             "37.75 deg.," &        '14 Dn(11)
+                             "33.75 deg.," &        '14 Dn(11)
                              "45.00 deg.," &        '15 Dn(12)
                              "56.25 deg.," &        '16 Dn(13)
                              "67.50 deg.," &        '17 Dn(14)
@@ -2683,13 +2704,14 @@ Module Module1
                              "135.00 deg.," &       '23 Dn(20)
                              "146.25 deg.," &       '24 Dn(21)
                              "157.50 deg.," &       '25 Dn(22)
-                             "168.75 deg.," &       '26 Dn(23)
-                             "Length," &            '27 Dn(24)
-                             "Pitch," &             '28 Dn(25)
-                             "Machine No.," &       '29 Ds(1)
-                             "B/W," &               '30 Dn(4)
-                             "Points," &            '31 Dn(1)
-                             "PchExp")              '32 Dn(26)
+                             "166.75 deg.")         '26 Dn(22)
+                '"168.75 deg.," &       '26 Dn(23)
+                '"Length," &            '27 Dn(24)
+                '"Pitch," &             '28 Dn(25)
+                '"Machine No.," &       '29 Ds(1)
+                '"B/W," &               '30 Dn(4)
+                '"Points," &            '31 Dn(1)
+                '"PchExp")              '32 Dn(26)
             End If
         End Using
 
@@ -2757,7 +2779,7 @@ Module Module1
                              Dn(8).ToString & "," &     '0
                              Dn(9).ToString & "," &     '11.25
                              Dn(10).ToString & "," &    '22.5
-                             Dn(11).ToString & "," &    '37.75
+                             Dn(11).ToString & "," &    '33.75
                              Dn(12).ToString & "," &    '45
                              Dn(13).ToString & "," &    '56.25
                              Dn(14).ToString & "," &    '67.5
@@ -2798,7 +2820,7 @@ Module Module1
                              Dn(8).ToString & "," &     '0
                              Dn(9).ToString & "," &     '11.25
                              Dn(10).ToString & "," &    '22.5
-                             Dn(11).ToString & "," &    '37.75
+                             Dn(11).ToString & "," &    '33.75
                              Dn(12).ToString & "," &    '45
                              Dn(13).ToString & "," &    '56.25
                              Dn(14).ToString & "," &    '67.5
@@ -2810,13 +2832,14 @@ Module Module1
                              Dn(20).ToString & "," &    '135
                              Dn(21).ToString & "," &    '146.25
                              Dn(22).ToString & "," &    '157.5
-                             Dn(23).ToString & "," &    '168.75
-                             Dn(24).ToString & "," &    'Length
-                             Dn(25).ToString & "," &    'Pitch
-                             Ds(1) & "," &              'Machine No.
-                             Ds(4) & "," &              'B/W
-                             Dn(1).ToString & "," &     'Points
-                             Dn(26).ToString)           'PchExp
+                             Dn(23).ToString)           '168.75
+                'Dn(23).ToString & "," &    '168.75
+                'Dn(24).ToString & "," &    'Length
+                'Dn(25).ToString & "," &    'Pitch
+                'Ds(1) & "," &              'Machine No.
+                'Ds(4) & "," &              'B/W
+                'Dn(1).ToString & "," &     'Points
+                'Dn(26).ToString)           'PchExp
             End If
         End Using
     End Sub
@@ -3245,7 +3268,7 @@ Module Module1
         End If
     End Sub
 
-    Public Sub SaveConst_PchExp(ByRef pch_data() As Integer)
+    Public Sub SaveConst_PchExp(ByRef pch_data() As Integer, ByVal length As Integer)
         Dim _filename_const As String
         Dim _pathname_const As String
         Dim _filename_pchexp_full As String
@@ -3257,6 +3280,7 @@ Module Module1
 
         Dim datalen As Integer = UBound(pch_data)
 
+        _writedata = length.ToString
         For i = 0 To datalen - 1
             _writedata &= pch_data(i).ToString & ","
         Next

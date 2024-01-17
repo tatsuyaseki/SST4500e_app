@@ -1,4 +1,5 @@
-﻿Imports System.IO
+﻿Imports System.ComponentModel
+Imports System.IO
 Imports System.Text
 Imports Microsoft.Office.Interop.Excel
 
@@ -51,7 +52,7 @@ Public Class FrmSST4500_1_0_0J_pitchsetting
             Label5.Text = "※サンプル長 - 両端補正値(" & LnCmp & "mm)以下になる" & vbCrLf &
                           "　様に設定して下さい。"
 
-            TxtLength.Text = Length
+            'TxtLength.Text = Length
 
             'ピッチ拡張設定の有効無効は関係ない
             If FlgPitchExp_Load = 1 Then
@@ -59,8 +60,10 @@ Public Class FrmSST4500_1_0_0J_pitchsetting
                 SetConstPitch()
             Else
                 '未ロードの場合新規作成状態
+                TxtLength.Text = Length 'とりあえず測定画面のサンプル長をセットする
                 TxtPitchNum.Text = 0
                 TxtPoints.Text = 0
+                DataGridView1.Rows.Clear()
                 'MessageBox.Show("ピッチ拡張設定がされていません。" & vbCrLf &
                 '                "ピッチ拡張設定を有効にするためには、" & vbCrLf &
                 '                "ピッチ拡張設定を行って下さい。",
@@ -83,6 +86,7 @@ Public Class FrmSST4500_1_0_0J_pitchsetting
         _pitchnum = UBound(PchExp_PchData) + 1
         TxtPitchNum.Text = _pitchnum
         TxtPoints.Text = _pitchnum + 1
+        TxtLength.Text = PchExp_Length
 
         For Each _pitch_sum_tmp In PchExp_PchData
             _pitch_sum += _pitch_sum_tmp
@@ -96,7 +100,7 @@ Public Class FrmSST4500_1_0_0J_pitchsetting
             DataGridView1.Rows(i).Cells(1).Value = PchExp_PchData(i)
         Next
 
-        data_chk()
+        Data_chk()
     End Sub
 
     Private Sub DataGridView1_CellEndEdit(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellEndEdit
@@ -108,7 +112,7 @@ Public Class FrmSST4500_1_0_0J_pitchsetting
         _pitch_sum = Data_sum()
         TxtLengthSum.Text = _pitch_sum
 
-        data_chk()
+        Data_chk()
     End Sub
 
     Function Data_sum() As Integer
@@ -359,7 +363,7 @@ Public Class FrmSST4500_1_0_0J_pitchsetting
                 End If
             Next
 
-            SaveConst_PchExp(_data_array)
+            SaveConst_PchExp(_data_array, Val(TxtLength.Text))
         End If
     End Sub
 
@@ -412,6 +416,21 @@ Public Class FrmSST4500_1_0_0J_pitchsetting
         ElseIf curValue > max_Pitch Then
             e.Value = max_Pitch
             e.ParsingApplied = True
+        End If
+    End Sub
+
+    Private Sub TxtLength_Validated(sender As Object, e As EventArgs) Handles TxtLength.Validated
+
+    End Sub
+
+    Private Sub TxtLength_Validating(sender As Object, e As CancelEventArgs) Handles TxtLength.Validating
+
+    End Sub
+
+    Private Sub TxtLength_KeyDown(sender As Object, e As KeyEventArgs) Handles TxtLength.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            Console.WriteLine("TxtLength.KeyDown Enter")
+            Me.SelectNextControl(Me.ActiveControl, True, True, True, True)
         End If
     End Sub
 End Class

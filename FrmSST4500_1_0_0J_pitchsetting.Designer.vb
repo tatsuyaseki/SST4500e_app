@@ -170,7 +170,6 @@ Partial Class FrmSST4500_1_0_0J_pitchsetting
         '
         'TxtLength
         '
-        Me.TxtLength.Enabled = False
         Me.TxtLength.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.TxtLength.Location = New System.Drawing.Point(124, 8)
         Me.TxtLength.Name = "TxtLength"
