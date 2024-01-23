@@ -138,7 +138,7 @@ Public Class FrmSST4500_1_0_0J_Profile
 
                     If FlgPitchExp = 1 Then
                         'ピッチ拡張が有効な場合
-                        LoadConstPitch()
+                        LoadConstPitch(PchExpSettingFile_FullPath)
                     Else
                         FlgPitchExp_Load = 0
                     End If
@@ -4251,7 +4251,7 @@ Public Class FrmSST4500_1_0_0J_Profile
                                                  MessageBoxIcon.Exclamation)
                 Else
                     result_tmp = MessageBox.Show("ピッチ拡張設定が有効になっています。" & vbCrLf &
-                                                 "ピッチ設定が、「" & UBound(PchExp_PchData) + 2 & "」個設定されていますが、" & vbCrLf &
+                                                 "ピッチ設定が、「" & UBound(PchExp_PchData) + 1 & "」個設定されていますが、" & vbCrLf &
                                                  "測定を開始してよろしいですか？",
                                                  "ピッチ確認設定",
                                                  MessageBoxButtons.YesNo,
@@ -7401,16 +7401,31 @@ Public Class FrmSST4500_1_0_0J_Profile
                     StrConstFileName = Path.GetFileName(FilePath)
                     StrConstFilePath = FilePath
                     Using sw As New StreamWriter(FilePath, False, Encoding.UTF8)
-                        sw.WriteLine(MachineNo & "," & Sample & "," &
-                                     Mark & "," & BW & "," &
-                                     DataDate & "," & DataTime & "," &
-                                     FlgProfile & "," & Length & "," &
-                                     Pitch & "," & Points & "," &
-                                     FlgInch & "," & FlgPrfDisplay & "," &
-                                     FlgMeasAutoPrn & "," & FlgPrfAutoPrn & "," &
-                                     FlgPrfPrint & "," & FlgAlternate & "," &
-                                     FlgVelocityRange & "," & FlgAngleRange & "," &
-                                     FlgPkCenterAngle & "," & FlgDpCenterAngle)
+                        If FlgProfile = 1 Then
+                            sw.WriteLine(MachineNo & "," & Sample & "," &
+                                         Mark & "," & BW & "," &
+                                         DataDate & "," & DataTime & "," &
+                                         FlgProfile & "," & Length & "," &
+                                         Pitch & "," & Points & "," &
+                                         FlgInch & "," & FlgPrfDisplay & "," &
+                                         FlgMeasAutoPrn & "," & FlgPrfAutoPrn & "," &
+                                         FlgPrfPrint & "," & FlgAlternate & "," &
+                                         FlgVelocityRange & "," & FlgAngleRange & "," &
+                                         FlgPkCenterAngle & "," & FlgDpCenterAngle & "," &
+                                         FlgPitchExp & "," & PchExpSettingFile_FullPath)
+                        Else
+                            sw.WriteLine(MachineNo & "," & Sample & "," &
+                                         Mark & "," & BW & "," &
+                                         DataDate & "," & DataTime & "," &
+                                         FlgProfile & "," & Length & "," &
+                                         Pitch & "," & Points & "," &
+                                         FlgInch & "," & FlgPrfDisplay & "," &
+                                         FlgMeasAutoPrn & "," & FlgPrfAutoPrn & "," &
+                                         FlgPrfPrint & "," & FlgAlternate & "," &
+                                         FlgVelocityRange & "," & FlgAngleRange & "," &
+                                         FlgPkCenterAngle & "," & FlgDpCenterAngle & "," &
+                                         FlgPitchExp)
+                        End If
                     End Using
 
                     Dim _filename2 As String
@@ -10944,14 +10959,16 @@ Rdg8:
     Private Sub ChkPitchExp_CheckedChanged(sender As Object, e As EventArgs) Handles ChkPitchExp.CheckedChanged
         If ChkPitchExp.Checked = True Then
             FlgPitchExp = 1
+            TxtLength.Enabled = False
             TxtPitch.Enabled = False
             TxtPoints.Enabled = False
             If FlgInitEnd = 1 And FlgPitchExp_Load = 0 Then
                 'FrmSST4500_1_0_0J_pitchsetting.Visible = True
-                LoadConstPitch()
+                LoadConstPitch(PchExpSettingFile_FullPath)
             End If
         Else
-                FlgPitchExp = 0
+            FlgPitchExp = 0
+            TxtLength.Enabled = True
             TxtPitch.Enabled = True
             TxtPoints.Enabled = True
         End If

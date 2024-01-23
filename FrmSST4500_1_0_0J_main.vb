@@ -133,9 +133,21 @@ Public Class FrmSST4500_1_0_0J_main
             FrmSST4500_1_0_0J_dbfchg.Rb_default.Checked = True
             ToolStripStatusLabel4.Text = ""
         End If
-        FrmSST4500_1_0_0J_meas.ToolStripStatusLabel5 = ToolStripStatusLabel4
-        FrmSST4500_1_0_0J_Profile.ToolStripStatusLabel5 = ToolStripStatusLabel4
-        FrmSST4500_1_0_0J_test.ToolStripStatusLabel5 = ToolStripStatusLabel4
+        FrmSST4500_1_0_0J_meas.ToolStripStatusLabel5.Text = ToolStripStatusLabel4.Text
+        FrmSST4500_1_0_0J_Profile.ToolStripStatusLabel5.Text = ToolStripStatusLabel4.Text
+        FrmSST4500_1_0_0J_test.ToolStripStatusLabel5.Text = ToolStripStatusLabel4.Text
+
+        FlgPchExp_Visible = My.Settings._flg_pchexp_visible
+        With FrmSST4500_1_0_0J_Profile
+            If FlgPchExp_Visible = 1 Then
+                .ChkPitchExp.Visible = True
+                .LblPitchExp.Visible = True
+            Else
+                .ChkPitchExp.Visible = False
+                .LblPitchExp.Visible = False
+                FlgPitchExp = 0     '無効時は強制的にピッチ拡張OFF
+            End If
+        End With
 
         FlgFTDLLerr = 0
 
@@ -156,12 +168,16 @@ Public Class FrmSST4500_1_0_0J_main
         Dim passwd_adm2_chg_temp As String
         Dim passwd_dbfsetting_temp As String
         Dim passwd_dbfsetting_chg_temp As String
+        Dim passwd_pchexpsetting_temp As String
+        Dim passwd_pchexpsetting_chg_temp As String
 
         'Console.WriteLine("passwd_adm : " & wrapper.EncryptData("SST4500"))
         'Console.WriteLine("passwd_adm2 : " & wrapper.EncryptData("NMR8001"))
         'Console.WriteLine("passwd_adm2_chg : " & wrapper.EncryptData("NMRCHG"))
         'Console.WriteLine("passwd_dbfsetting : " & wrapper.EncryptData("DBFSET"))
         'Console.WriteLine("passwd_dbfsetting_chg : " & wrapper.EncryptData("DBFCHG"))
+        'Console.WriteLine("passwd_pchexp_setting : " & wrapper.EncryptData("PCHSET"))
+        'Console.WriteLine("passwd_pchexp_setting_chg : " & wrapper.EncryptData("PCHCHG"))
 
         passwd_adm_temp = My.Settings._passwd_adm
         passwd_adm = wrapper.DecryptData(passwd_adm_temp)
@@ -173,6 +189,10 @@ Public Class FrmSST4500_1_0_0J_main
         passwd_dbfsetting = wrapper.DecryptData(passwd_dbfsetting_temp)
         passwd_dbfsetting_chg_temp = My.Settings._dbf_settingchg
         passwd_dbfsetting_chg = wrapper.DecryptData(passwd_dbfsetting_chg_temp)
+        passwd_pchexpsetting_temp = My.Settings._pchexp_setting
+        passwd_pchexpsetting = wrapper.DecryptData(passwd_pchexpsetting_temp)
+        passwd_pchexpsetting_chg_temp = My.Settings._pchexp_settingchg
+        passwd_pchexpsetting_chg = wrapper.DecryptData(passwd_pchexpsetting_chg_temp)
 
         mainform_color_init()
         mainform_borderstyle_init()
@@ -309,6 +329,15 @@ Public Class FrmSST4500_1_0_0J_main
                         FrmSST4500_1_0_0J_dbfchg.Visible = True
                     ElseIf strTemp = passwd_dbfsetting_chg Then
                         FlgPasswdChg = 3
+                        FlgMainSplash = 0
+                        TimerCountS = 0
+                        FrmSST4500_1_0_0J_passchg.Visible = True
+                    ElseIf strTemp = passwd_pchexpsetting Then
+                        FlgMainSplash = 0
+                        TimerCountS = 0
+                        FrmSST4500_1_0_0J_pchchg.Visible = True
+                    ElseIf strTemp = passwd_pchexpsetting_chg Then
+                        FlgPasswdChg = 4
                         FlgMainSplash = 0
                         TimerCountS = 0
                         FrmSST4500_1_0_0J_passchg.Visible = True

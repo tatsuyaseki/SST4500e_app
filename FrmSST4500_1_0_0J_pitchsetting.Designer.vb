@@ -43,6 +43,9 @@ Partial Class FrmSST4500_1_0_0J_pitchsetting
         Me.TxtPitchNum = New System.Windows.Forms.TextBox()
         Me.CmdAllRowsDel = New System.Windows.Forms.Button()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.CmdLoad = New System.Windows.Forms.Button()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.TxtPchExpLoadedFile = New System.Windows.Forms.TextBox()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -76,7 +79,7 @@ Partial Class FrmSST4500_1_0_0J_pitchsetting
         '
         'CmdRowsAdd
         '
-        Me.CmdRowsAdd.Location = New System.Drawing.Point(209, 164)
+        Me.CmdRowsAdd.Location = New System.Drawing.Point(213, 164)
         Me.CmdRowsAdd.Name = "CmdRowsAdd"
         Me.CmdRowsAdd.Size = New System.Drawing.Size(75, 23)
         Me.CmdRowsAdd.TabIndex = 1
@@ -85,7 +88,7 @@ Partial Class FrmSST4500_1_0_0J_pitchsetting
         '
         'CmdRowsDel
         '
-        Me.CmdRowsDel.Location = New System.Drawing.Point(209, 193)
+        Me.CmdRowsDel.Location = New System.Drawing.Point(213, 193)
         Me.CmdRowsDel.Name = "CmdRowsDel"
         Me.CmdRowsDel.Size = New System.Drawing.Size(75, 23)
         Me.CmdRowsDel.TabIndex = 2
@@ -94,7 +97,7 @@ Partial Class FrmSST4500_1_0_0J_pitchsetting
         '
         'CmdRowsMvUp
         '
-        Me.CmdRowsMvUp.Location = New System.Drawing.Point(209, 222)
+        Me.CmdRowsMvUp.Location = New System.Drawing.Point(213, 222)
         Me.CmdRowsMvUp.Name = "CmdRowsMvUp"
         Me.CmdRowsMvUp.Size = New System.Drawing.Size(75, 23)
         Me.CmdRowsMvUp.TabIndex = 3
@@ -103,7 +106,7 @@ Partial Class FrmSST4500_1_0_0J_pitchsetting
         '
         'CmdRowsMvDn
         '
-        Me.CmdRowsMvDn.Location = New System.Drawing.Point(209, 251)
+        Me.CmdRowsMvDn.Location = New System.Drawing.Point(213, 251)
         Me.CmdRowsMvDn.Name = "CmdRowsMvDn"
         Me.CmdRowsMvDn.Size = New System.Drawing.Size(75, 23)
         Me.CmdRowsMvDn.TabIndex = 4
@@ -112,7 +115,7 @@ Partial Class FrmSST4500_1_0_0J_pitchsetting
         '
         'CmdSave
         '
-        Me.CmdSave.Location = New System.Drawing.Point(209, 309)
+        Me.CmdSave.Location = New System.Drawing.Point(109, 309)
         Me.CmdSave.Name = "CmdSave"
         Me.CmdSave.Size = New System.Drawing.Size(75, 23)
         Me.CmdSave.TabIndex = 5
@@ -121,7 +124,7 @@ Partial Class FrmSST4500_1_0_0J_pitchsetting
         '
         'CmdClose
         '
-        Me.CmdClose.Location = New System.Drawing.Point(117, 309)
+        Me.CmdClose.Location = New System.Drawing.Point(213, 309)
         Me.CmdClose.Name = "CmdClose"
         Me.CmdClose.Size = New System.Drawing.Size(75, 23)
         Me.CmdClose.TabIndex = 6
@@ -216,7 +219,7 @@ Partial Class FrmSST4500_1_0_0J_pitchsetting
         '
         'CmdAllRowsDel
         '
-        Me.CmdAllRowsDel.Location = New System.Drawing.Point(209, 280)
+        Me.CmdAllRowsDel.Location = New System.Drawing.Point(213, 280)
         Me.CmdAllRowsDel.Name = "CmdAllRowsDel"
         Me.CmdAllRowsDel.Size = New System.Drawing.Size(75, 23)
         Me.CmdAllRowsDel.TabIndex = 17
@@ -232,12 +235,41 @@ Partial Class FrmSST4500_1_0_0J_pitchsetting
         Me.Label5.TabIndex = 18
         Me.Label5.Text = "※サンプル長 - 両端補正値(420mm)以下となる" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "　様に設定してください。"
         '
+        'CmdLoad
+        '
+        Me.CmdLoad.Location = New System.Drawing.Point(12, 309)
+        Me.CmdLoad.Name = "CmdLoad"
+        Me.CmdLoad.Size = New System.Drawing.Size(75, 23)
+        Me.CmdLoad.TabIndex = 19
+        Me.CmdLoad.Text = "読込"
+        Me.CmdLoad.UseVisualStyleBackColor = True
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label6.Location = New System.Drawing.Point(10, 344)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(163, 12)
+        Me.Label6.TabIndex = 20
+        Me.Label6.Text = "読み込み済みピッチ拡張ファイル："
+        '
+        'TxtPchExpLoadedFile
+        '
+        Me.TxtPchExpLoadedFile.Location = New System.Drawing.Point(11, 360)
+        Me.TxtPchExpLoadedFile.Name = "TxtPchExpLoadedFile"
+        Me.TxtPchExpLoadedFile.Size = New System.Drawing.Size(276, 19)
+        Me.TxtPchExpLoadedFile.TabIndex = 21
+        '
         'FrmSST4500_1_0_0J_pitchsetting
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(300, 342)
+        Me.ClientSize = New System.Drawing.Size(300, 389)
         Me.ControlBox = False
+        Me.Controls.Add(Me.TxtPchExpLoadedFile)
+        Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.CmdLoad)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.CmdAllRowsDel)
         Me.Controls.Add(Me.TxtPitchNum)
@@ -285,4 +317,7 @@ Partial Class FrmSST4500_1_0_0J_pitchsetting
     Friend WithEvents TxtPitchNum As TextBox
     Friend WithEvents CmdAllRowsDel As Button
     Friend WithEvents Label5 As Label
+    Friend WithEvents CmdLoad As Button
+    Friend WithEvents Label6 As Label
+    Friend WithEvents TxtPchExpLoadedFile As TextBox
 End Class

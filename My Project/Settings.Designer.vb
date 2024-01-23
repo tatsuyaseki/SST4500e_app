@@ -15,7 +15,7 @@ Option Explicit On
 Namespace My
     
     <Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute(),  _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.7.0.0"),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.8.0.0"),  _
      Global.System.ComponentModel.EditorBrowsableAttribute(Global.System.ComponentModel.EditorBrowsableState.Advanced)>  _
     Partial Friend NotInheritable Class MySettings
         Inherits Global.System.Configuration.ApplicationSettingsBase
@@ -1155,6 +1155,42 @@ Namespace My
             End Get
             Set
                 Me("_dbf_settingchg") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
+        Public Property _flg_pchexp_visible() As Integer
+            Get
+                Return CType(Me("_flg_pchexp_visible"),Integer)
+            End Get
+            Set
+                Me("_flg_pchexp_visible") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("lYyv/I1d8q8P9GOs/9wUpQ==")>  _
+        Public Property _pchexp_setting() As String
+            Get
+                Return CType(Me("_pchexp_setting"),String)
+            End Get
+            Set
+                Me("_pchexp_setting") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("L7qLA50XDjncGIiixtxvkQ==")>  _
+        Public Property _pchexp_settingchg() As String
+            Get
+                Return CType(Me("_pchexp_settingchg"),String)
+            End Get
+            Set
+                Me("_pchexp_settingchg") = value
             End Set
         End Property
     End Class

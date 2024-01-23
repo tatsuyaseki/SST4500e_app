@@ -1473,7 +1473,8 @@ Public Class FrmSST4500_1_0_0J_meas
                                      FlgMeasAutoPrn & "," & FlgPrfAutoPrn & "," &
                                      FlgPrfPrint & "," & FlgAlternate & "," &
                                      FlgVelocityRange & "," & FlgAngleRange & "," &
-                                     FlgPkCenterAngle & "," & FlgDpCenterAngle)
+                                     FlgPkCenterAngle & "," & FlgDpCenterAngle & "," &
+                                     FlgPitchExp)
                     End Using
 
                     Dim _filename2 As String

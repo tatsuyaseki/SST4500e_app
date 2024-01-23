@@ -37,11 +37,16 @@
 
         My.Settings._flg_dbf = FlgDBF
         My.Settings.Save()
-        If FlgDBF = 1 Then
-            FrmSST4500_1_0_0J_main.ToolStripStatusLabel4.Text = "特殊1"
-        Else
-            FrmSST4500_1_0_0J_main.ToolStripStatusLabel4.Text = ""
-        End If
+        With FrmSST4500_1_0_0J_main
+            If FlgDBF = 1 Then
+                .ToolStripStatusLabel4.Text = "特殊1"
+            Else
+                .ToolStripStatusLabel4.Text = ""
+            End If
+            FrmSST4500_1_0_0J_meas.ToolStripStatusLabel5.Text = .ToolStripStatusLabel4.Text
+            FrmSST4500_1_0_0J_Profile.ToolStripStatusLabel5.Text = .ToolStripStatusLabel4.Text
+            FrmSST4500_1_0_0J_test.ToolStripStatusLabel5.Text = .ToolStripStatusLabel4.Text
+        End With
         Me.Visible = False
         'Console.WriteLine(FlgDBF)
     End Sub

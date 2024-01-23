@@ -118,6 +118,8 @@ Module Module1
     Public passwd_adm2_chg As String        'PASSWD ADM2のパスワード変更用
     Public passwd_dbfsetting As String      'Data Backup Format Setting
     Public passwd_dbfsetting_chg As String  'PASSWD DBFSETTINGのパスワード変更用
+    Public passwd_pchexpsetting As String       'Pitch Exp Setting Visible
+    Public passwd_pchexpsetting_chg As String   'Pitch exp Setting Visibleのパスワード変更用1
     Public FlgDBF As Integer
     Public Const passwd_key = "MpX7BmKM"    '暗号化キー
     Public FlgPasswdChg As Integer          '1:adm, 2:adm2
@@ -472,11 +474,16 @@ Module Module1
 
     Public FlgPitchExp As Integer   '0=ピッチ拡張無効, 1=ピッチ拡張有効
     Public FlgPitchExp_Load As Integer  '0=ピッチ拡張未ロード, 1=ピッチ拡張ロード済み
-    Public PchExp_PchData(0) As Integer
-    Public PchExp_Length As Integer
+    Public PchExp_PchData(0) As Single
+    Public PchExp_Length As Single
     Public Const StrConstFileName_PchExp = ".pitch"
     Public FlgPchExpMes As Integer  '0=ピッチ拡張無効で測定, 1=ピッチ拡張有効で測定
     Public FlgPchExpMes_old As Integer  '過去データのピッチ拡張有効無効測定フラグ
+    Public FlgPchExp_Visible As Integer 'ピッチ拡張表示非表示 0=非表示(強制的に無効), 1=表示
+    Public PchExpSettingFile As String
+    Public PchExpSettingFile_FullPath As String
+
+    Public Const Dbf_add_filename = "_adddata"
 
     Public Sub CmdMeasButton_set(ByVal meas_status As Integer)
         If FlgProfile = 0 Then
@@ -2022,7 +2029,7 @@ Module Module1
 
         Using dialog As New OpenFileDialog
             With dialog
-                .InitialDirectory = CurDir() & DEF_DATA_FILE_FLD
+                .InitialDirectory = cur_dir & DEF_DATA_FILE_FLD
 
                 .Title = "過去の測定データ選択"
                 .CheckFileExists = True
@@ -2218,9 +2225,10 @@ Module Module1
                     'PitchOld = 0
                     'FlgPchExpMes_old = 0
                     'End If
-                    LengthOld = 0
-                    PitchOld = 0
-                    FlgPchExpMes_old = 0
+                    'LengthOld = 0
+                    'PitchOld = 0
+                    'FlgPchExpMes_old = 0
+                    LoadData_tokusyu()
                 End If
             End If
         End While
@@ -2229,19 +2237,70 @@ Module Module1
 
     End Function
 
+    Public Sub LoadData_tokusyu()
+        Dim _add_filename As String
+        Dim _StrFileName_tmp As String
+        Dim splittedResult As String()
+        Dim ret As Boolean
+
+        _StrFileName_tmp = Path.GetFileNameWithoutExtension(StrFileName)
+
+        _add_filename = cur_dir & DEF_DATA_FILE_FLD & _StrFileName_tmp & ".add"
+        ret = File.Exists(_add_filename)
+
+        If ret = True Then
+            Dim txtParser As FileIO.TextFieldParser =
+            New FileIO.TextFieldParser(_add_filename, Encoding.GetEncoding("Shift_jis"))
+
+            txtParser.TextFieldType = FileIO.FieldType.Delimited
+            txtParser.SetDelimiters(",")
+
+            splittedResult = txtParser.ReadFields()
+            Dim i As Integer
+            i = 0
+
+            While Not txtParser.EndOfData
+                i += 1
+                splittedResult = txtParser.ReadFields()
+                LengthOld = splittedResult(2)
+                PitchOld = splittedResult(3)
+                FlgPchExpMes_old = splittedResult(4)
+            End While
+
+        Else
+            LengthOld = 0
+            PitchOld = 0
+            FlgPchExpMes_old = 0
+        End If
+    End Sub
+
     Public Sub SaveConst(ByVal fpath As String)
         Using sw As New StreamWriter(fpath, False, Encoding.UTF8)
-            sw.WriteLine(MachineNo & "," & Sample & "," &
-                         Mark & "," & BW & "," &
-                         DataDate & "," & DataTime & "," &
-                         FlgProfile & "," & Length & "," &
-                         Pitch & "," & Points & "," &
-                         FlgInch & "," & FlgPrfDisplay & "," &
-                         FlgMeasAutoPrn & "," & FlgPrfAutoPrn & "," &
-                         FlgPrfPrint & "," & FlgAlternate & "," &
-                         FlgVelocityRange & "," & FlgAngleRange & "," &
-                         FlgPkCenterAngle & "," & FlgDpCenterAngle & "," &
-                         FlgPitchExp)
+            If FlgProfile = 1 Then
+                sw.WriteLine(MachineNo & "," & Sample & "," &
+                             Mark & "," & BW & "," &
+                             DataDate & "," & DataTime & "," &
+                             FlgProfile & "," & Length & "," &
+                             Pitch & "," & Points & "," &
+                             FlgInch & "," & FlgPrfDisplay & "," &
+                             FlgMeasAutoPrn & "," & FlgPrfAutoPrn & "," &
+                             FlgPrfPrint & "," & FlgAlternate & "," &
+                             FlgVelocityRange & "," & FlgAngleRange & "," &
+                             FlgPkCenterAngle & "," & FlgDpCenterAngle & "," &
+                             FlgPitchExp & "," & PchExpSettingFile_FullPath)
+            Else
+                sw.WriteLine(MachineNo & "," & Sample & "," &
+                             Mark & "," & BW & "," &
+                             DataDate & "," & DataTime & "," &
+                             FlgProfile & "," & Length & "," &
+                             Pitch & "," & Points & "," &
+                             FlgInch & "," & FlgPrfDisplay & "," &
+                             FlgMeasAutoPrn & "," & FlgPrfAutoPrn & "," &
+                             FlgPrfPrint & "," & FlgAlternate & "," &
+                             FlgVelocityRange & "," & FlgAngleRange & "," &
+                             FlgPkCenterAngle & "," & FlgDpCenterAngle & "," &
+                             FlgPitchExp)
+            End If
         End Using
     End Sub
 
@@ -2306,15 +2365,29 @@ Module Module1
         FlgAngleRange = splittedResult(17)
         FlgPkCenterAngle = splittedResult(18)
         FlgDpCenterAngle = splittedResult(19)
-        If const_len = 20 Then
-            FlgPitchExp = splittedResult(20)
+        If const_len >= 20 Then
+            If FlgPchExp_Visible = 1 Then
+                FlgPitchExp = splittedResult(20)
+            Else
+                FlgPitchExp = 0
+            End If
+
+            If const_len = 20 Then
+                PchExpSettingFile_FullPath = ""
+                PchExpSettingFile = ""
+            ElseIf const_len = 21 Then
+                PchExpSettingFile_FullPath = splittedResult(21)
+                PchExpSettingFile = Path.GetFileName(PchExpSettingFile_FullPath)
+            End If
         Else
             FlgPitchExp = 0
+            PchExpSettingFile_FullPath = ""
+            PchExpSettingFile = ""
         End If
         SetConst()
     End Sub
 
-    Public Sub LoadConstPitch()
+    Public Sub LoadConstPitch(ByVal _filepath As String)
         'ファイルの有無を調べてなければ保存を実行したときに新規に作成する
         'constファイルのファイル名+ "_pitch"とする
         Dim _filename_const As String
@@ -2325,11 +2398,23 @@ Module Module1
         Dim splittedResult As String()
         Dim result_tmp As DialogResult
 
-        _filename_const = Path.GetFileNameWithoutExtension(StrConstFileName)
-        _pathname_const = Path.GetDirectoryName(StrConstFileName)
-        _filename_pchexp_full = _pathname_const & "\" & _filename_const & StrConstFileName_PchExp
+        If _filepath = "" Then
+            'ファイル名が空欄だったら
+            '古い形式のconsファイルの可能性でconsファイル名.pitchの場合が
+            'あるため、それで調べる
+            _filename_const = Path.GetFileNameWithoutExtension(StrConstFileName)
+            _pathname_const = Path.GetDirectoryName(StrConstFileName)
+            _filename_pchexp_full = _pathname_const & "\" & _filename_const & StrConstFileName_PchExp
+            PchExpSettingFile = Path.GetFileName(_filename_pchexp_full)
+            PchExpSettingFile_FullPath = _filename_pchexp_full
+            ret = File.Exists(_filename_pchexp_full)
 
-        ret = File.Exists(_filename_pchexp_full)
+        Else
+            'ファイル名が空欄でなければ
+            _filename_pchexp_full = _filepath
+            ret = File.Exists(_filename_pchexp_full)
+
+        End If
 
         If ret = True Then
             'ファイルが存在するときのみ読み込みを実行する
@@ -2467,8 +2552,13 @@ Module Module1
                         .TxtLength.Text = Length
                         .TxtPitch.Text = Pitch
                         .TxtPoints.Text = Points
-                        .ChkPitchExp.Visible = True
-                        .LblPitchExp.Visible = True
+                        If FlgPchExp_Visible = 1 Then
+                            .ChkPitchExp.Visible = True
+                            .LblPitchExp.Visible = True
+                        Else
+                            .ChkPitchExp.Visible = False
+                            .LblPitchExp.Visible = False
+                        End If
                         If FlgAdmin <> 0 Then
                             .TxtLengthOld.Visible = True
                             .TxtPitchOld.Visible = True
@@ -2594,6 +2684,11 @@ Module Module1
 
         End Using
 
+        If FlgDBF = 1 Then
+            Using sw As New StreamWriter(cur_dir & DEF_CONST_FILE_FLD & StrDataFileName & Dbf_add_filename, True, Encoding.UTF8)
+
+            End Using
+        End If
     End Sub
 
     Public Sub DataFileRename(ByVal _flgProfile As String,
@@ -2714,6 +2809,17 @@ Module Module1
                 '"PchExp")              '32 Dn(26)
             End If
         End Using
+
+        If FlgDBF = 1 Then
+            '測定データフォーマット特殊仕様時の未格納データの追加保存
+            Using sw As New StreamWriter(cur_dir & DEF_DATA_FILE_FLD & Path.GetFileNameWithoutExtension(StrDataFileName) & ".add", True, Encoding.UTF8)
+                sw.WriteLine("Sample Name," &
+                             "Mark," &
+                             "Length," &
+                             "Pitch," &
+                             "PchExp")
+            End Using
+        End If
 
     End Sub
 
@@ -2842,6 +2948,18 @@ Module Module1
                 'Dn(26).ToString)           'PchExp
             End If
         End Using
+
+        If FlgDBF = 1 Then
+            Using sw As New StreamWriter(cur_dir & DEF_DATA_FILE_FLD &
+                                         Path.GetFileNameWithoutExtension(StrDataFileName) &
+                                         ".add", True, Encoding.UTF8)
+                sw.WriteLine(Ds(2) & "," &
+                             Ds(3) & "," &
+                             Dn(24) & "," &
+                             Dn(25) & "," &
+                             Dn(26))
+            End Using
+        End If
     End Sub
 
     Public Sub S_MogiData()
@@ -3268,29 +3386,30 @@ Module Module1
         End If
     End Sub
 
-    Public Sub SaveConst_PchExp(ByRef pch_data() As Integer, ByVal length As Integer)
-        Dim _filename_const As String
-        Dim _pathname_const As String
-        Dim _filename_pchexp_full As String
+    Public Sub SaveConst_PchExp(ByRef pch_data() As Single, ByVal length As Integer, ByVal _filepath As String)
+        'Dim _filename_const As String
+        'Dim _pathname_const As String
+        'Dim _filename_pchexp_full As String
         Dim _writedata As String = ""
 
-        _filename_const = Path.GetFileNameWithoutExtension(StrConstFileName)
-        _pathname_const = Path.GetDirectoryName(StrConstFileName)
-        _filename_pchexp_full = _pathname_const & "\" & _filename_const & StrConstFileName_PchExp
+        '_filename_const = Path.GetFileNameWithoutExtension(StrConstFileName)
+        '_pathname_const = Path.GetDirectoryName(StrConstFileName)
+        '_filename_pchexp_full = _pathname_const & "\" & _filename_const & StrConstFileName_PchExp
 
         Dim datalen As Integer = UBound(pch_data)
 
-        _writedata = length.ToString
+        _writedata = length.ToString & ","
         For i = 0 To datalen - 1
             _writedata &= pch_data(i).ToString & ","
         Next
         _writedata &= pch_data(datalen).ToString
 
-        Using sw As New StreamWriter(_filename_pchexp_full, False, Encoding.UTF8)
+        'Using sw As New StreamWriter(_filename_pchexp_full, False, Encoding.UTF8)
+        Using sw As New StreamWriter(_filepath, False, Encoding.UTF8)
 
             sw.WriteLine(_writedata)
         End Using
 
-        LoadConstPitch()
+        LoadConstPitch(_filepath)
     End Sub
 End Module

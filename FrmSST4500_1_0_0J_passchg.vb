@@ -111,6 +111,31 @@
                                         MessageBoxButtons.OK,
                                         MessageBoxIcon.Exclamation)
                     End If
+                End If
+            ElseIf FlgPasswdChg = 4 Then
+                'PchExpSettingパスワード変更
+                If old_pass = passwd_pchexpsetting Then
+                    If new_pass = new_pass2 Then
+                        ret = MessageBox.Show("ピッチ拡張設定用の" & vbCrLf &
+                                              "パスワードを変更してもよろしいですか？",
+                                              "パスワード変更確認",
+                                              MessageBoxButtons.YesNo,
+                                              MessageBoxIcon.Information)
+                        If ret = vbYes Then
+                            Dim passwd_temp As String = new_pass
+                            Dim wrapper As New Simple3Des(passwd_key)
+                            Dim cipherText As String = wrapper.EncryptData(passwd_temp)
+                            My.Settings._pchexp_setting = cipherText
+                            My.Settings.Save()
+                            FrmSST4500_1_0_0J_login.TxtInputPass.Text = ""
+                            Me.Visible = False
+                        End If
+                    Else
+                        MessageBox.Show("新しいパスワードが一致しませんでした。",
+                                        "パスワードエラー",
+                                        MessageBoxButtons.OK,
+                                        MessageBoxIcon.Exclamation)
+                    End If
                 Else
                     MessageBox.Show("古いパスワードが違います。",
                                     "パスワードエラー",
@@ -118,6 +143,7 @@
                                     MessageBoxIcon.Exclamation)
                 End If
             End If
+
             TxtOldPasswd.Text = ""
             TxtNewPasswd.Text = ""
             TxtNewPasswd2.Text = ""

@@ -121,6 +121,12 @@
     <Compile Include="FrmSST4500_1_0_0J_helpinfo.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmSST4500_1_0_0J_pchchg.Designer.vb">
+      <DependentUpon>FrmSST4500_1_0_0J_pchchg.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSST4500_1_0_0J_pchchg.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmSST4500_1_0_0J_pitchsetting.Designer.vb">
       <DependentUpon>FrmSST4500_1_0_0J_pitchsetting.vb</DependentUpon>
     </Compile>
@@ -200,6 +206,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSST4500_1_0_0J_helpinfo.resx">
       <DependentUpon>FrmSST4500_1_0_0J_helpinfo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSST4500_1_0_0J_pchchg.resx">
+      <DependentUpon>FrmSST4500_1_0_0J_pchchg.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSST4500_1_0_0J_pitchsetting.resx">
       <DependentUpon>FrmSST4500_1_0_0J_pitchsetting.vb</DependentUpon>

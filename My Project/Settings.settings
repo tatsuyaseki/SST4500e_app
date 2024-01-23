@@ -278,5 +278,14 @@
     <Setting Name="_dbf_settingchg" Type="System.String" Scope="User">
       <Value Profile="(Default)">UGECfPzvYKIE7YyaMIXvbg==</Value>
     </Setting>
+    <Setting Name="_flg_pchexp_visible" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="_pchexp_setting" Type="System.String" Scope="User">
+      <Value Profile="(Default)">lYyv/I1d8q8P9GOs/9wUpQ==</Value>
+    </Setting>
+    <Setting Name="_pchexp_settingchg" Type="System.String" Scope="User">
+      <Value Profile="(Default)">L7qLA50XDjncGIiixtxvkQ==</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

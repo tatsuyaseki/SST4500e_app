@@ -6,6 +6,7 @@ Imports Microsoft.Office.Interop.Excel
 Public Class FrmSST4500_1_0_0J_pitchsetting
     Dim _flg_init As Integer
     Dim changed_row As Integer
+
     Private Sub CmdRowsAdd_Click(sender As Object, e As EventArgs) Handles CmdRowsAdd.Click
         '選択行の下に追加する
 
@@ -58,6 +59,8 @@ Public Class FrmSST4500_1_0_0J_pitchsetting
             If FlgPitchExp_Load = 1 Then
                 'ロード済みの場合セットする
                 SetConstPitch()
+
+                TxtPchExpLoadedFile.Text = PchExpSettingFile
             Else
                 '未ロードの場合新規作成状態
                 TxtLength.Text = Length 'とりあえず測定画面のサンプル長をセットする
@@ -70,6 +73,8 @@ Public Class FrmSST4500_1_0_0J_pitchsetting
                 '                "確認",
                 'MessageBoxButtons.OK,
                 'MessageBoxIcon.Information)
+                PchExpSettingFile = ""
+                PchExpSettingFile_FullPath = ""
             End If
             _pitch_sum = Data_sum()
             TxtLengthSum.Text = _pitch_sum
@@ -81,7 +86,7 @@ Public Class FrmSST4500_1_0_0J_pitchsetting
 
     Private Sub SetConstPitch()
         Dim _pitchnum As Integer
-        Dim _pitch_sum As Integer
+        Dim _pitch_sum As Single
 
         _pitchnum = UBound(PchExp_PchData) + 1
         TxtPitchNum.Text = _pitchnum
@@ -340,31 +345,65 @@ Public Class FrmSST4500_1_0_0J_pitchsetting
 
     Private Sub CmdSave_Click(sender As Object, e As EventArgs) Handles CmdSave.Click
         Dim _rows_count As Integer
-        Dim _data_array(0) As Integer
+        Dim _data_array(0) As single
         Dim result_tmp As DialogResult
+        Dim _filename_const As String
+        Dim _filepath As String
 
-        If FlgPitchExp_Load = 1 Then
-            result_tmp = MessageBox.Show("上書きされますがよろしいですか？",
-                                         "保存確認",
-                                         MessageBoxButtons.YesNo,
-                                         MessageBoxIcon.Warning)
-        Else
-            '新規作成の場合は強制的に保存する
-            result_tmp = vbYes
-        End If
-        If result_tmp = vbYes Then
-            _rows_count = DataGridView1.Rows.Count
-            For i = 0 To _rows_count - 2
-                If i = 0 Then
-                    _data_array(i) = DataGridView1.Rows(i).Cells(1).Value
-                Else
-                    ReDim Preserve _data_array(i)
-                    _data_array(i) = DataGridView1.Rows(i).Cells(1).Value
+        _filename_const = Path.GetFileNameWithoutExtension(StrConstFileName)
+
+        Using dialog As New SaveFileDialog
+            With dialog
+                .InitialDirectory = cur_dir & DEF_CONST_FILE_FLD
+                .Title = "ピッチ拡張設定ファイルの保存"
+                .Filter = "Pitch Exp File(*.pitch)|*.pitch"
+                .FileName = _filename_const & StrConstFileName_PchExp
+
+                result_tmp = .ShowDialog
+
+                If result_tmp = DialogResult.OK Then
+                    _filepath = .FileName
+
+                    _rows_count = DataGridView1.Rows.Count
+                    For i = 0 To _rows_count - 2
+                        If i = 0 Then
+                            _data_array(i) = DataGridView1.Rows(i).Cells(1).Value
+                        Else
+                            ReDim Preserve _data_array(i)
+                            _data_array(i) = DataGridView1.Rows(i).Cells(1).Value
+                        End If
+                    Next
+
+                    SaveConst_PchExp(_data_array, Val(TxtLength.Text), _filepath)
+                    PchExpSettingFile = Path.GetFileName(_filepath)
+                    TxtPchExpLoadedFile.Text = PchExpSettingFile
                 End If
-            Next
 
-            SaveConst_PchExp(_data_array, Val(TxtLength.Text))
-        End If
+            End With
+        End Using
+
+        'If FlgPitchExp_Load = 1 Then
+        'result_tmp = MessageBox.Show("上書きされますがよろしいですか？",
+        '                                 "保存確認",
+        'MessageBoxButtons.YesNo,
+        'MessageBoxIcon.Warning)
+        'Else
+        ''新規作成の場合は強制的に保存する
+        'result_tmp = vbYes
+        'End If
+        'If result_tmp = vbYes Then
+        '_rows_count = DataGridView1.Rows.Count
+        'For i = 0 To _rows_count - 2
+        'If i = 0 Then
+        '_data_array(i) = DataGridView1.Rows(i).Cells(1).Value
+        'Else
+        'ReDim Preserve _data_array(i)
+        '_data_array(i) = DataGridView1.Rows(i).Cells(1).Value
+        'End If
+        'Next
+
+        'SaveConst_PchExp(_data_array, Val(TxtLength.Text))
+        'End If
     End Sub
 
     Private Sub DataGridView1_CellValidated(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellValidated
@@ -420,10 +459,35 @@ Public Class FrmSST4500_1_0_0J_pitchsetting
     End Sub
 
     Private Sub TxtLength_Validated(sender As Object, e As EventArgs) Handles TxtLength.Validated
+        Console.WriteLine("Pitch Ext TexLenght.Validated")
 
+        '特に何もしない
     End Sub
 
     Private Sub TxtLength_Validating(sender As Object, e As CancelEventArgs) Handles TxtLength.Validating
+        Console.WriteLine("Pitch Ext TextLength.Validating")
+        If IsNumeric(TxtLength.Text) = False Then
+            MessageBox.Show("数値を入力して下さい。",
+                            "入力値エラー",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Exclamation)
+            TxtLength.Text = Length
+        Else
+            Length_tmp = Math.Truncate(Val(TxtLength.Text))
+            TxtLength.Text = Length_tmp
+
+        End If
+
+        If Length_tmp < LnCmp + min_Pitch Then
+            MessageBox.Show("設定可能な最小サンプル長さを下回っています。" & vbCrLf &
+                                "両端補正値(" & LnCmp & "mm) + 最小ピッチ(" & min_Pitch & "mm)" &
+                                " = " & LnCmp + min_Pitch & "mm" & vbCrLf &
+                                "以上の数値を入力してください。",
+                                "入力値エラー",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Exclamation)
+            TxtLength.Text = Length
+        End If
 
     End Sub
 
@@ -432,5 +496,31 @@ Public Class FrmSST4500_1_0_0J_pitchsetting
             Console.WriteLine("TxtLength.KeyDown Enter")
             Me.SelectNextControl(Me.ActiveControl, True, True, True, True)
         End If
+    End Sub
+
+    Private Sub CmdLoad_Click(sender As Object, e As EventArgs) Handles CmdLoad.Click
+        Dim result_tmp As DialogResult
+
+        Using dialog As New OpenFileDialog
+            With dialog
+                .InitialDirectory = cur_dir & DEF_CONST_FILE_FLD
+                .Title = "ピッチ拡張設定ファイルの読込"
+                .CheckFileExists = True
+                .Filter = "Pitch Exp File(*.pitch)|*.pitch"
+                .FileName = PchExpSettingFile
+
+                result_tmp = .ShowDialog
+
+                If result_tmp = DialogResult.OK Then
+                    LoadConstPitch(.FileName)
+                    PchExpSettingFile_FullPath = .FileName
+                    PchExpSettingFile = Path.GetFileName(.FileName)
+                    TxtPchExpLoadedFile.Text = PchExpSettingFile
+
+                    SetConstPitch()
+                End If
+
+            End With
+        End Using
     End Sub
 End Class
