@@ -46,7 +46,17 @@ Partial Class FrmSST4500_1_0_0J_pitchsetting
         Me.CmdLoad = New System.Windows.Forms.Button()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.TxtPchExpLoadedFile = New System.Windows.Forms.TextBox()
+        Me.TabControl1 = New System.Windows.Forms.TabControl()
+        Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabControl1.SuspendLayout()
+        Me.TabPage1.SuspendLayout()
+        Me.TabPage2.SuspendLayout()
+        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'DataGridView1
@@ -55,7 +65,7 @@ Partial Class FrmSST4500_1_0_0J_pitchsetting
         Me.DataGridView1.AllowUserToResizeRows = False
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2})
-        Me.DataGridView1.Location = New System.Drawing.Point(21, 155)
+        Me.DataGridView1.Location = New System.Drawing.Point(3, 3)
         Me.DataGridView1.MultiSelect = False
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowHeadersVisible = False
@@ -79,7 +89,7 @@ Partial Class FrmSST4500_1_0_0J_pitchsetting
         '
         'CmdRowsAdd
         '
-        Me.CmdRowsAdd.Location = New System.Drawing.Point(213, 164)
+        Me.CmdRowsAdd.Location = New System.Drawing.Point(213, 184)
         Me.CmdRowsAdd.Name = "CmdRowsAdd"
         Me.CmdRowsAdd.Size = New System.Drawing.Size(75, 23)
         Me.CmdRowsAdd.TabIndex = 1
@@ -88,7 +98,7 @@ Partial Class FrmSST4500_1_0_0J_pitchsetting
         '
         'CmdRowsDel
         '
-        Me.CmdRowsDel.Location = New System.Drawing.Point(213, 193)
+        Me.CmdRowsDel.Location = New System.Drawing.Point(213, 213)
         Me.CmdRowsDel.Name = "CmdRowsDel"
         Me.CmdRowsDel.Size = New System.Drawing.Size(75, 23)
         Me.CmdRowsDel.TabIndex = 2
@@ -97,7 +107,7 @@ Partial Class FrmSST4500_1_0_0J_pitchsetting
         '
         'CmdRowsMvUp
         '
-        Me.CmdRowsMvUp.Location = New System.Drawing.Point(213, 222)
+        Me.CmdRowsMvUp.Location = New System.Drawing.Point(213, 242)
         Me.CmdRowsMvUp.Name = "CmdRowsMvUp"
         Me.CmdRowsMvUp.Size = New System.Drawing.Size(75, 23)
         Me.CmdRowsMvUp.TabIndex = 3
@@ -106,7 +116,7 @@ Partial Class FrmSST4500_1_0_0J_pitchsetting
         '
         'CmdRowsMvDn
         '
-        Me.CmdRowsMvDn.Location = New System.Drawing.Point(213, 251)
+        Me.CmdRowsMvDn.Location = New System.Drawing.Point(213, 271)
         Me.CmdRowsMvDn.Name = "CmdRowsMvDn"
         Me.CmdRowsMvDn.Size = New System.Drawing.Size(75, 23)
         Me.CmdRowsMvDn.TabIndex = 4
@@ -115,7 +125,7 @@ Partial Class FrmSST4500_1_0_0J_pitchsetting
         '
         'CmdSave
         '
-        Me.CmdSave.Location = New System.Drawing.Point(109, 309)
+        Me.CmdSave.Location = New System.Drawing.Point(109, 336)
         Me.CmdSave.Name = "CmdSave"
         Me.CmdSave.Size = New System.Drawing.Size(75, 23)
         Me.CmdSave.TabIndex = 5
@@ -124,7 +134,7 @@ Partial Class FrmSST4500_1_0_0J_pitchsetting
         '
         'CmdClose
         '
-        Me.CmdClose.Location = New System.Drawing.Point(213, 309)
+        Me.CmdClose.Location = New System.Drawing.Point(213, 336)
         Me.CmdClose.Name = "CmdClose"
         Me.CmdClose.Size = New System.Drawing.Size(75, 23)
         Me.CmdClose.TabIndex = 6
@@ -219,7 +229,7 @@ Partial Class FrmSST4500_1_0_0J_pitchsetting
         '
         'CmdAllRowsDel
         '
-        Me.CmdAllRowsDel.Location = New System.Drawing.Point(213, 280)
+        Me.CmdAllRowsDel.Location = New System.Drawing.Point(213, 300)
         Me.CmdAllRowsDel.Name = "CmdAllRowsDel"
         Me.CmdAllRowsDel.Size = New System.Drawing.Size(75, 23)
         Me.CmdAllRowsDel.TabIndex = 17
@@ -237,7 +247,7 @@ Partial Class FrmSST4500_1_0_0J_pitchsetting
         '
         'CmdLoad
         '
-        Me.CmdLoad.Location = New System.Drawing.Point(12, 309)
+        Me.CmdLoad.Location = New System.Drawing.Point(12, 336)
         Me.CmdLoad.Name = "CmdLoad"
         Me.CmdLoad.Size = New System.Drawing.Size(75, 23)
         Me.CmdLoad.TabIndex = 19
@@ -248,7 +258,7 @@ Partial Class FrmSST4500_1_0_0J_pitchsetting
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label6.Location = New System.Drawing.Point(10, 344)
+        Me.Label6.Location = New System.Drawing.Point(10, 371)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(163, 12)
         Me.Label6.TabIndex = 20
@@ -256,17 +266,79 @@ Partial Class FrmSST4500_1_0_0J_pitchsetting
         '
         'TxtPchExpLoadedFile
         '
-        Me.TxtPchExpLoadedFile.Location = New System.Drawing.Point(11, 360)
+        Me.TxtPchExpLoadedFile.Location = New System.Drawing.Point(11, 387)
         Me.TxtPchExpLoadedFile.Name = "TxtPchExpLoadedFile"
         Me.TxtPchExpLoadedFile.Size = New System.Drawing.Size(276, 19)
         Me.TxtPchExpLoadedFile.TabIndex = 21
+        '
+        'TabControl1
+        '
+        Me.TabControl1.Controls.Add(Me.TabPage1)
+        Me.TabControl1.Controls.Add(Me.TabPage2)
+        Me.TabControl1.Location = New System.Drawing.Point(11, 151)
+        Me.TabControl1.Name = "TabControl1"
+        Me.TabControl1.SelectedIndex = 0
+        Me.TabControl1.Size = New System.Drawing.Size(185, 180)
+        Me.TabControl1.TabIndex = 22
+        '
+        'TabPage1
+        '
+        Me.TabPage1.Controls.Add(Me.DataGridView1)
+        Me.TabPage1.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage1.Name = "TabPage1"
+        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage1.Size = New System.Drawing.Size(177, 154)
+        Me.TabPage1.TabIndex = 0
+        Me.TabPage1.Text = "測定仕様"
+        Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'TabPage2
+        '
+        Me.TabPage2.Controls.Add(Me.DataGridView2)
+        Me.TabPage2.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage2.Name = "TabPage2"
+        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage2.Size = New System.Drawing.Size(177, 154)
+        Me.TabPage2.TabIndex = 1
+        Me.TabPage2.Text = "過去の仕様"
+        Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'DataGridView2
+        '
+        Me.DataGridView2.AllowUserToOrderColumns = True
+        Me.DataGridView2.AllowUserToResizeRows = False
+        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2})
+        Me.DataGridView2.Location = New System.Drawing.Point(3, 3)
+        Me.DataGridView2.MultiSelect = False
+        Me.DataGridView2.Name = "DataGridView2"
+        Me.DataGridView2.RowHeadersVisible = False
+        Me.DataGridView2.RowTemplate.Height = 21
+        Me.DataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
+        Me.DataGridView2.Size = New System.Drawing.Size(171, 148)
+        Me.DataGridView2.TabIndex = 1
+        '
+        'DataGridViewTextBoxColumn1
+        '
+        Me.DataGridViewTextBoxColumn1.HeaderText = "No."
+        Me.DataGridViewTextBoxColumn1.MinimumWidth = 50
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.Width = 50
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.HeaderText = "ピッチ(mm)"
+        Me.DataGridViewTextBoxColumn2.MinimumWidth = 100
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
         '
         'FrmSST4500_1_0_0J_pitchsetting
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(300, 389)
+        Me.ClientSize = New System.Drawing.Size(302, 416)
         Me.ControlBox = False
+        Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.TxtPchExpLoadedFile)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.CmdLoad)
@@ -287,11 +359,14 @@ Partial Class FrmSST4500_1_0_0J_pitchsetting
         Me.Controls.Add(Me.CmdRowsMvUp)
         Me.Controls.Add(Me.CmdRowsDel)
         Me.Controls.Add(Me.CmdRowsAdd)
-        Me.Controls.Add(Me.DataGridView1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FrmSST4500_1_0_0J_pitchsetting"
         Me.Text = "ピッチ拡張設定"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabControl1.ResumeLayout(False)
+        Me.TabPage1.ResumeLayout(False)
+        Me.TabPage2.ResumeLayout(False)
+        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -320,4 +395,10 @@ Partial Class FrmSST4500_1_0_0J_pitchsetting
     Friend WithEvents CmdLoad As Button
     Friend WithEvents Label6 As Label
     Friend WithEvents TxtPchExpLoadedFile As TextBox
+    Friend WithEvents TabControl1 As TabControl
+    Friend WithEvents TabPage1 As TabPage
+    Friend WithEvents TabPage2 As TabPage
+    Friend WithEvents DataGridView2 As DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
 End Class

@@ -6210,6 +6210,11 @@ Public Class FrmSST4500_1_0_0J_Profile
         ClsNoPrf()
         GraphInitPrf()
 
+        '過去のピッチ拡張設定関連のクリア
+        PchExp_Length_old = 0
+        ReDim PchExp_PchData_old(0)
+        FlgPitchExp_Load_old = 0
+
     End Sub
 
     Private Sub RedrawGraphAngle()

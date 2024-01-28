@@ -7,6 +7,55 @@ Public Class FrmSST4500_1_0_0J_pitchsetting
     Dim _flg_init As Integer
     Dim changed_row As Integer
 
+    Dim _Length_cur_bak As String
+    Dim _PitchNum_cur_bak As String
+    Dim _PointsNum_cur_bak As String
+    Dim _LengthSum_cur_bak As String
+    Dim _PchExpFile_cur_bak As String
+
+    Dim _Length_old_bak As String
+    Dim _PitchNum_old_bak As String
+    Dim _PointsNum_old_bak As String
+    Dim _LengthSum_old_bak As String
+    Dim _PchExpFile_old_bak As String
+
+    Private Sub data_backup(ByVal sel As Integer)
+        Select Case sel
+            Case 0
+                _Length_cur_bak = TxtLength.Text
+                _PointsNum_cur_bak = TxtPoints.Text
+                _LengthSum_cur_bak = TxtLengthSum.Text
+                _PitchNum_cur_bak = TxtPitchNum.Text
+                _PchExpFile_cur_bak = TxtPchExpLoadedFile.Text
+            Case 1
+                _Length_old_bak = TxtLength.Text
+                _PointsNum_old_bak = TxtPoints.Text
+                _LengthSum_old_bak = TxtLengthSum.Text
+                _PitchNum_old_bak = TxtPitchNum.Text
+                _PchExpFile_old_bak = TxtPchExpLoadedFile.Text
+        End Select
+    End Sub
+
+    Private Sub restore_backup(ByVal sel As Integer)
+        Select Case sel
+            Case 0
+                TxtLength.Text = _Length_cur_bak
+                TxtPoints.Text = _PointsNum_cur_bak
+                TxtLengthSum.Text = _LengthSum_cur_bak
+                TxtPitchNum.Text = _PitchNum_cur_bak
+                TxtPchExpLoadedFile.Text = _PchExpFile_cur_bak
+                Data_chk()
+            Case 1
+                TxtLength.Text = _Length_old_bak
+                TxtPoints.Text = _PointsNum_old_bak
+                TxtLengthSum.Text = _LengthSum_old_bak
+                TxtPitchNum.Text = _PitchNum_old_bak
+                TxtPchExpLoadedFile.Text = _PchExpFile_old_bak
+                LblResult.Text = ""
+        End Select
+
+    End Sub
+
     Private Sub CmdRowsAdd_Click(sender As Object, e As EventArgs) Handles CmdRowsAdd.Click
         '選択行の下に追加する
 
@@ -46,66 +95,112 @@ Public Class FrmSST4500_1_0_0J_pitchsetting
     End Sub
 
     Private Sub FrmSST4500_1_0_0J_pitchsetting_VisibleChanged(sender As Object, e As EventArgs) Handles Me.VisibleChanged
-        Dim _pitch_sum As Integer
+        TabControl1.SelectedIndex = 0   '現在地タブ選択
 
         _flg_init = 0
         If Me.Visible = True Then
             Label5.Text = "※サンプル長 - 両端補正値(" & LnCmp & "mm)以下になる" & vbCrLf &
                           "　様に設定して下さい。"
 
-            'TxtLength.Text = Length
+            'If FlgPitchExp_Load = 1 Then
+            'ロード済みの場合セットする
+            'SetConstPitch()
 
-            'ピッチ拡張設定の有効無効は関係ない
-            If FlgPitchExp_Load = 1 Then
-                'ロード済みの場合セットする
-                SetConstPitch()
+            'TxtPchExpLoadedFile.Text = PchExpSettingFile
+            'Else
+            '未ロードの場合新規作成状態
+            'TxtLength.Text = Length 'とりあえず測定画面のサンプル長をセットする
+            'TxtPitchNum.Text = 0
+            'TxtPoints.Text = 0
+            'DataGridView1.Rows.Clear()
+            'PchExpSettingFile = ""
+            'PchExpSettingFile_FullPath = ""
+            'End If
 
-                TxtPchExpLoadedFile.Text = PchExpSettingFile
-            Else
-                '未ロードの場合新規作成状態
-                TxtLength.Text = Length 'とりあえず測定画面のサンプル長をセットする
-                TxtPitchNum.Text = 0
-                TxtPoints.Text = 0
-                DataGridView1.Rows.Clear()
-                'MessageBox.Show("ピッチ拡張設定がされていません。" & vbCrLf &
-                '                "ピッチ拡張設定を有効にするためには、" & vbCrLf &
-                '                "ピッチ拡張設定を行って下さい。",
-                '                "確認",
-                'MessageBoxButtons.OK,
-                'MessageBoxIcon.Information)
-                PchExpSettingFile = ""
-                PchExpSettingFile_FullPath = ""
-            End If
-            _pitch_sum = Data_sum()
-            TxtLengthSum.Text = _pitch_sum
+            'TxtLengthSum.Text = Data_sum()
+            SetConstPitch()
+
             Data_chk()
             cmd_enadis()
+
+            'data_backup(TabControl1.SelectedIndex)
         End If
-        _flg_init = 1
+
+        _flg_init = 1   '初期化完了
     End Sub
 
     Private Sub SetConstPitch()
         Dim _pitchnum As Integer
+
+        If FlgPitchExp_Load = 1 Then
+            _pitchnum = UBound(PchExp_PchData) + 1
+            TxtPitchNum.Text = _pitchnum
+            TxtPoints.Text = _pitchnum + 1
+            TxtLength.Text = PchExp_Length
+
+            With DataGridView1
+                .Rows.Clear()
+                For i = 0 To _pitchnum - 1
+                    .Rows.Add()
+                    .Rows(i).Cells(0).Value = i + 1
+                    .Rows(i).Cells(1).Value = PchExp_PchData(i)
+                Next
+            End With
+        Else
+            '未ロードの場合新規作成状態
+            TxtLength.Text = Length 'とりあえず測定画面のサンプル長をセットする
+            TxtPitchNum.Text = 0
+            TxtPoints.Text = 0
+            DataGridView1.Rows.Clear()
+            PchExpSettingFile = ""
+            PchExpSettingFile_FullPath = ""
+
+        End If
+
+        TxtPchExpLoadedFile.Text = PchExpSettingFile
+        TxtLengthSum.Text = Data_sum()
+    End Sub
+
+    Private Sub SetPchExpOld()
+        Dim _pitchnum As Integer
         Dim _pitch_sum As Single
 
-        _pitchnum = UBound(PchExp_PchData) + 1
-        TxtPitchNum.Text = _pitchnum
-        TxtPoints.Text = _pitchnum + 1
-        TxtLength.Text = PchExp_Length
+        If FlgPitchExp_Load_old = 1 Then
+            _pitchnum = UBound(PchExp_PchData_old) + 1
+            TxtPitchNum.Text = _pitchnum
+            TxtPoints.Text = _pitchnum + 1
+            TxtLength.Text = PchExp_Length_old
 
-        For Each _pitch_sum_tmp In PchExp_PchData
-            _pitch_sum += _pitch_sum_tmp
-        Next
-        TxtLengthSum.Text = _pitch_sum
+            For Each _pitch_sum_tmp In PchExp_PchData_old
+                _pitch_sum += _pitch_sum_tmp
+            Next
+            TxtLengthSum.Text = _pitch_sum
 
-        DataGridView1.Rows.Clear()
-        For i = 0 To _pitchnum - 1
-            DataGridView1.Rows.Add()
-            DataGridView1.Rows(i).Cells(0).Value = i + 1
-            DataGridView1.Rows(i).Cells(1).Value = PchExp_PchData(i)
-        Next
+            TxtPchExpLoadedFile.Text = Path.GetFileName(PchExpSettingFile_FullPath_old)
 
-        Data_chk()
+            With DataGridView2
+                .Rows.Clear()
+                For i = 0 To _pitchnum - 1
+                    .Rows.Add()
+                    .Rows(i).Cells(0).Value = i + 1
+                    .Rows(i).Cells(1).Value = PchExp_PchData_old(i)
+                Next
+            End With
+
+        Else
+            TxtLength.Text = 0
+            TxtPitchNum.Text = 0
+            TxtPoints.Text = 0
+            TxtLengthSum.Text = 0
+            DataGridView2.Rows.Clear()
+            If FlgPitchExp_Load_old = 2 Then
+                TxtPchExpLoadedFile.Text = "ピッチ設定ファイルが開けません"
+            Else
+                TxtPchExpLoadedFile.Text = ""
+            End If
+        End If
+
+        LblResult.Text = ""
     End Sub
 
     Private Sub DataGridView1_CellEndEdit(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellEndEdit
@@ -199,44 +294,58 @@ Public Class FrmSST4500_1_0_0J_pitchsetting
         End If
         Console.WriteLine("sel : " & _sel_row & ", rows_count : " & _rows_count)
 
-        If _rows_count = 1 Then
-            '1行のみの場合
+        If TabControl1.SelectedIndex = 0 Then
+            TxtLength.Enabled = True
+            CmdRowsAdd.Enabled = True
+            CmdLoad.Enabled = True
+            If _rows_count = 1 Then
+                '1行のみの場合
+                CmdRowsDel.Enabled = False
+                CmdRowsMvUp.Enabled = False
+                CmdRowsMvDn.Enabled = False
+                CmdAllRowsDel.Enabled = False
+            ElseIf _rows_count = 2 Then
+                '2行の場合
+                If _sel_row = 0 Then
+                    '1行目選択時はOK
+                    CmdRowsDel.Enabled = True
+                Else
+                    '2行目(最終行)選択時はNG
+                    CmdRowsDel.Enabled = False
+                End If
+                CmdRowsMvUp.Enabled = False
+                CmdRowsMvDn.Enabled = False
+                CmdAllRowsDel.Enabled = True
+            Else
+                CmdAllRowsDel.Enabled = True
+                If _sel_row = 0 Then
+                    CmdRowsDel.Enabled = True
+                    CmdRowsMvUp.Enabled = False
+                    CmdRowsMvDn.Enabled = True
+                ElseIf _sel_row = _rows_count - 1 Then
+                    CmdRowsDel.Enabled = False
+                    CmdRowsMvUp.Enabled = False
+                    CmdRowsMvDn.Enabled = False
+                ElseIf _sel_row = _rows_count - 2 Then
+                    CmdRowsDel.Enabled = True
+                    CmdRowsMvUp.Enabled = True
+                    CmdRowsMvDn.Enabled = False
+                Else
+                    CmdRowsDel.Enabled = True
+                    CmdRowsMvUp.Enabled = True
+                    CmdRowsMvDn.Enabled = True
+                End If
+
+            End If
+        Else
+            TxtLength.Enabled = False
+            CmdRowsAdd.Enabled = False
             CmdRowsDel.Enabled = False
             CmdRowsMvUp.Enabled = False
             CmdRowsMvDn.Enabled = False
             CmdAllRowsDel.Enabled = False
-        ElseIf _rows_count = 2 Then
-            '2行の場合
-            If _sel_row = 0 Then
-                '1行目選択時はOK
-                CmdRowsDel.Enabled = True
-            Else
-                '2行目(最終行)選択時はNG
-                CmdRowsDel.Enabled = False
-            End If
-            CmdRowsMvUp.Enabled = False
-            CmdRowsMvDn.Enabled = False
-            CmdAllRowsDel.Enabled = True
-        Else
-            CmdAllRowsDel.Enabled = True
-            If _sel_row = 0 Then
-                CmdRowsDel.Enabled = True
-                CmdRowsMvUp.Enabled = False
-                CmdRowsMvDn.Enabled = True
-            ElseIf _sel_row = _rows_count - 1 Then
-                CmdRowsDel.Enabled = False
-                CmdRowsMvUp.Enabled = False
-                CmdRowsMvDn.Enabled = False
-            ElseIf _sel_row = _rows_count - 2 Then
-                CmdRowsDel.Enabled = True
-                CmdRowsMvUp.Enabled = True
-                CmdRowsMvDn.Enabled = False
-            Else
-                CmdRowsDel.Enabled = True
-                CmdRowsMvUp.Enabled = True
-                CmdRowsMvDn.Enabled = True
-            End If
-
+            CmdLoad.Enabled = False
+            CmdSave.Enabled = False
         End If
     End Sub
 
@@ -345,7 +454,7 @@ Public Class FrmSST4500_1_0_0J_pitchsetting
 
     Private Sub CmdSave_Click(sender As Object, e As EventArgs) Handles CmdSave.Click
         Dim _rows_count As Integer
-        Dim _data_array(0) As single
+        Dim _data_array(0) As Single
         Dim result_tmp As DialogResult
         Dim _filename_const As String
         Dim _filepath As String
@@ -518,9 +627,28 @@ Public Class FrmSST4500_1_0_0J_pitchsetting
                     TxtPchExpLoadedFile.Text = PchExpSettingFile
 
                     SetConstPitch()
+
+                    Data_chk()
+                    cmd_enadis()
                 End If
 
             End With
         End Using
     End Sub
+
+    Private Sub TabControl1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles TabControl1.SelectedIndexChanged
+        cmd_enadis()
+
+        Select Case TabControl1.SelectedIndex
+            Case 0
+                'data_backup(1)
+                SetConstPitch()
+            Case 1
+                'data_backup(0)
+                SetPchExpOld()
+        End Select
+        'restore_backup(TabControl1.SelectedIndex)
+
+    End Sub
+
 End Class

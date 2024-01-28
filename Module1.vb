@@ -474,14 +474,18 @@ Module Module1
 
     Public FlgPitchExp As Integer   '0=ピッチ拡張無効, 1=ピッチ拡張有効
     Public FlgPitchExp_Load As Integer  '0=ピッチ拡張未ロード, 1=ピッチ拡張ロード済み
+    Public FlgPitchExp_Load_old As Integer
     Public PchExp_PchData(0) As Single
+    Public PchExp_PchData_old(0) As Single
     Public PchExp_Length As Single
+    Public PchExp_Length_old As Single
     Public Const StrConstFileName_PchExp = ".pitch"
     Public FlgPchExpMes As Integer  '0=ピッチ拡張無効で測定, 1=ピッチ拡張有効で測定
     Public FlgPchExpMes_old As Integer  '過去データのピッチ拡張有効無効測定フラグ
     Public FlgPchExp_Visible As Integer 'ピッチ拡張表示非表示 0=非表示(強制的に無効), 1=表示
     Public PchExpSettingFile As String
     Public PchExpSettingFile_FullPath As String
+    Public PchExpSettingFile_FullPath_old As String
 
     Public Const Dbf_add_filename = "_adddata"
 
@@ -2166,10 +2170,12 @@ Module Module1
                         LengthOld = splittedResult(30)
                         PitchOld = splittedResult(31)
                         FlgPchExpMes_old = splittedResult(32)
+                        PchExpSettingFile_FullPath_old = splittedResult(33)
                     Else
                         LengthOld = 0
                         PitchOld = 0
                         FlgPchExpMes_old = 0
+                        PchExpSettingFile_FullPath_old = ""
                     End If
                 Else
                     '測定データフォーマット特殊
@@ -2233,6 +2239,12 @@ Module Module1
             End If
         End While
 
+        If PchExpSettingFile_FullPath_old <> "" Then
+            LoadPitchOldData()
+        Else
+            FlgPitchExp_Load_old = 0
+        End If
+
         LoadData = M
 
     End Function
@@ -2265,13 +2277,47 @@ Module Module1
                 LengthOld = splittedResult(2)
                 PitchOld = splittedResult(3)
                 FlgPchExpMes_old = splittedResult(4)
+                PchExpSettingFile_FullPath_old = splittedResult(5)
             End While
 
         Else
             LengthOld = 0
             PitchOld = 0
             FlgPchExpMes_old = 0
+            PchExpSettingFile_FullPath_old = ""
         End If
+    End Sub
+
+    Public Sub LoadPitchOldData()
+        '_pchexpfilepathは空欄ではない(事前に""を除去する)
+        'ただしファイルがない可能性はあり得る
+        Dim txtParser As FileIO.TextFieldParser
+        Dim splittedResult As String()
+        Dim ret As Boolean
+        ret = File.Exists(PchExpSettingFile_FullPath_old)
+
+        If ret = True Then
+            txtParser = New FileIO.TextFieldParser(PchExpSettingFile_FullPath_old, Encoding.GetEncoding("Shift_jis"))
+            txtParser.TextFieldType = FileIO.FieldType.Delimited
+            txtParser.SetDelimiters(",")
+            splittedResult = txtParser.ReadFields()
+
+            For i = 0 To UBound(splittedResult)
+                If i = 0 Then
+                    PchExp_Length_old = Val(splittedResult(i))
+                ElseIf i = 1 Then
+                    ReDim PchExp_PchData_old(i - 1)
+                    PchExp_PchData_old(i - 1) = Val(splittedResult(i))
+                Else
+                    ReDim Preserve PchExp_PchData_old(i - 1)
+                    PchExp_PchData_old(i - 1) = Val(splittedResult(i))
+                End If
+            Next
+            FlgPitchExp_Load_old = 1
+        Else
+            FlgPitchExp_Load_old = 2
+        End If
+
     End Sub
 
     Public Sub SaveConst(ByVal fpath As String)
@@ -2389,7 +2435,7 @@ Module Module1
 
     Public Sub LoadConstPitch(ByVal _filepath As String)
         'ファイルの有無を調べてなければ保存を実行したときに新規に作成する
-        'constファイルのファイル名+ "_pitch"とする
+        'constファイルのファイル名+ ".pitch"とする
         Dim _filename_const As String
         Dim _pathname_const As String
         Dim _filename_pchexp_full As String
@@ -2431,7 +2477,7 @@ Module Module1
                     ReDim PchExp_PchData(i - 1)
                     PchExp_PchData(i - 1) = Val(splittedResult(i))
                 Else
-                    ReDim Preserve PchExp_PchData(UBound(PchExp_PchData) + 1)
+                    ReDim Preserve PchExp_PchData(i - 1)
                     PchExp_PchData(i - 1) = Val(splittedResult(i))
                 End If
             Next
@@ -2770,7 +2816,8 @@ Module Module1
                              "168.75," &        '29 Dn(23)
                              "Length," &        '30 Dn(24)
                              "Pitch," &         '31 Dn(25)
-                             "PchExp")          '32 Dn(26)   
+                             "PchExp," &        '32 Dn(26)
+                             "PchExpFilePath")  '33 Ds(10)   
             Else
                 '特定顧客向けデータ仕様(特殊1)
                 sw.WriteLine("Sample Name," &       '0 Ds(2)
@@ -2817,7 +2864,8 @@ Module Module1
                              "Mark," &
                              "Length," &
                              "Pitch," &
-                             "PchExp")
+                             "PchExp," &
+                             "PchExpFilePath")
             End Using
         End If
 
@@ -2865,6 +2913,13 @@ Module Module1
 
         'ピッチ拡張有無　測定フラグ
         Dn(26) = FlgPchExpMes
+        'ピッチ拡張設定ファイル(フルパス)
+        If FlgProfile = 1 Then
+            'プロファイルモードの時のみ
+            Ds(10) = PchExpSettingFile_FullPath
+        Else
+            Ds(10) = ""
+        End If
 
         Using sw As New StreamWriter(cur_dir & DEF_DATA_FILE_FLD & StrDataFileName, True, Encoding.UTF8)
             If FlgDBF = 0 Then
@@ -2900,7 +2955,8 @@ Module Module1
                              Dn(23).ToString & "," &    '168.75
                              Dn(24).ToString & "," &    'Length
                              Dn(25).ToString & "," &    'Pitch
-                             Dn(26).ToString)           'PchExp
+                             Dn(26).ToString & "," &    'PchExp
+                             Ds(10))                    'PchExpFilePath
             Else
                 Select Case FlgProfile
                     Case 0
@@ -2953,11 +3009,12 @@ Module Module1
             Using sw As New StreamWriter(cur_dir & DEF_DATA_FILE_FLD &
                                          Path.GetFileNameWithoutExtension(StrDataFileName) &
                                          ".add", True, Encoding.UTF8)
-                sw.WriteLine(Ds(2) & "," &
-                             Ds(3) & "," &
-                             Dn(24) & "," &
-                             Dn(25) & "," &
-                             Dn(26))
+                sw.WriteLine(Ds(2) & "," &      'Sample Name
+                             Ds(3) & "," &      'Mark
+                             Dn(24) & "," &     'Length
+                             Dn(25) & "," &     'Pitch
+                             Dn(26) & "," &     'PchExp
+                             Ds(10))            'PchExpFilePath
             End Using
         End If
     End Sub
