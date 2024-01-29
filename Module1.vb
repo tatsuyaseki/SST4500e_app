@@ -489,6 +489,7 @@ Module Module1
 
     Public Const Dbf_add_filename = "_adddata"
 
+
     Public Sub CmdMeasButton_set(ByVal meas_status As Integer)
         If FlgProfile = 0 Then
             'シングルモード
@@ -2726,12 +2727,15 @@ Module Module1
         'f_chk = File.Exists(cur_dir & DEF_DATA_FILE_FLD & StrDataFileName)
         'End While
         '空のファイルを作成する
-        Using sw As New StreamWriter(cur_dir & DEF_DATA_FILE_FLD & StrDataFileName, True, Encoding.UTF8)
+        Using sw As New StreamWriter(cur_dir & DEF_DATA_FILE_FLD &
+                                     StrDataFileName, True, Encoding.UTF8)
 
         End Using
 
         If FlgDBF = 1 Then
-            Using sw As New StreamWriter(cur_dir & DEF_CONST_FILE_FLD & StrDataFileName & Dbf_add_filename, True, Encoding.UTF8)
+            Using sw As New StreamWriter(cur_dir & DEF_DATA_FILE_FLD &
+                                         Path.GetFileNameWithoutExtension(StrDataFileName) &
+                                         ".add", True, Encoding.UTF8)
 
             End Using
         End If
@@ -2781,7 +2785,8 @@ Module Module1
         'Dim curdir As String
         'CurDir = Directory.GetCurrentDirectory
 
-        Using sw As New StreamWriter(cur_dir & DEF_DATA_FILE_FLD & StrDataFileName, True, Encoding.UTF8)
+        Using sw As New StreamWriter(cur_dir & DEF_DATA_FILE_FLD &
+                                     StrDataFileName, True, Encoding.UTF8)
             If FlgDBF = 0 Then
                 '標準データ仕様
                 sw.WriteLine("Machine No.," &   '0 Ds(1)
@@ -2859,7 +2864,9 @@ Module Module1
 
         If FlgDBF = 1 Then
             '測定データフォーマット特殊仕様時の未格納データの追加保存
-            Using sw As New StreamWriter(cur_dir & DEF_DATA_FILE_FLD & Path.GetFileNameWithoutExtension(StrDataFileName) & ".add", True, Encoding.UTF8)
+            Using sw As New StreamWriter(cur_dir & DEF_DATA_FILE_FLD &
+                                         Path.GetFileNameWithoutExtension(StrDataFileName) &
+                                         ".add", True, Encoding.UTF8)
                 sw.WriteLine("Sample Name," &
                              "Mark," &
                              "Length," &
@@ -2921,7 +2928,8 @@ Module Module1
             Ds(10) = ""
         End If
 
-        Using sw As New StreamWriter(cur_dir & DEF_DATA_FILE_FLD & StrDataFileName, True, Encoding.UTF8)
+        Using sw As New StreamWriter(cur_dir & DEF_DATA_FILE_FLD &
+                                     StrDataFileName, True, Encoding.UTF8)
             If FlgDBF = 0 Then
                 sw.WriteLine(Ds(1) & "," &              'Machine No.
                              Ds(2) & "," &              'Sample Name
