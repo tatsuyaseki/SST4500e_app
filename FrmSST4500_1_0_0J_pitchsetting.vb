@@ -487,6 +487,7 @@ Public Class FrmSST4500_1_0_0J_pitchsetting
                     Next
 
                     SaveConst_PchExp(_data_array, Val(TxtLength.Text), _filepath)
+                    PchExpSettingFile_FullPath = _filepath
                     PchExpSettingFile = Path.GetFileName(_filepath)
                     TxtPchExpLoadedFile.Text = PchExpSettingFile
                 End If
