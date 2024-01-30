@@ -99,6 +99,7 @@ Public Class FrmSST4500_1_0_0J_pitchsetting
 
         _flg_init = 0
         If Me.Visible = True Then
+
             Label5.Text = "※サンプル長 - 両端補正値(" & LnCmp & "mm)以下になる" & vbCrLf &
                           "　様に設定して下さい。"
 
@@ -458,8 +459,10 @@ Public Class FrmSST4500_1_0_0J_pitchsetting
         Dim result_tmp As DialogResult
         Dim _filename_const As String
         Dim _filepath As String
+        Dim pitchfile_bak As String
 
         _filename_const = Path.GetFileNameWithoutExtension(StrConstFileName)
+        pitchfile_bak = PchExpSettingFile_FullPath
 
         Using dialog As New SaveFileDialog
             With dialog
@@ -513,6 +516,10 @@ Public Class FrmSST4500_1_0_0J_pitchsetting
 
         'SaveConst_PchExp(_data_array, Val(TxtLength.Text))
         'End If
+        If pitchfile_bak <> PchExpSettingFile_FullPath Then
+            ConstChangeTrue(FrmSST4500_1_0_0J_Profile, title_text2)
+        End If
+
     End Sub
 
     Private Sub DataGridView1_CellValidated(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellValidated
@@ -609,6 +616,9 @@ Public Class FrmSST4500_1_0_0J_pitchsetting
 
     Private Sub CmdLoad_Click(sender As Object, e As EventArgs) Handles CmdLoad.Click
         Dim result_tmp As DialogResult
+        Dim pitchfile_bak As String
+
+        pitchfile_bak = PchExpSettingFile_FullPath
 
         Using dialog As New OpenFileDialog
             With dialog
@@ -634,6 +644,10 @@ Public Class FrmSST4500_1_0_0J_pitchsetting
 
             End With
         End Using
+
+        If pitchfile_bak <> PchExpSettingFile_FullPath Then
+            ConstChangeTrue(FrmSST4500_1_0_0J_Profile, title_text2)
+        End If
     End Sub
 
     Private Sub TabControl1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles TabControl1.SelectedIndexChanged

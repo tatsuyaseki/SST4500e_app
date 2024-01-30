@@ -487,8 +487,14 @@ Module Module1
     Public PchExpSettingFile_FullPath As String
     Public PchExpSettingFile_FullPath_old As String
 
-    Public Const Dbf_add_filename = "_adddata"
+    Public title_text1 As String
+    Public title_text2 As String
 
+    Public Sub frmClose()
+        FrmSST4500_1_0_0J_pitchsetting.Visible = False
+        FrmSST4500_1_0_0J_setting.Visible = False
+        FrmSST4500_1_0_0J_colorsetting.Visible = False
+    End Sub
 
     Public Sub CmdMeasButton_set(ByVal meas_status As Integer)
         If FlgProfile = 0 Then

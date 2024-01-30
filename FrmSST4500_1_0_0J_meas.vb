@@ -22,7 +22,7 @@ Public Class FrmSST4500_1_0_0J_meas
     'Dim Es As Object
     Dim result2 As Integer
     Dim Menu_AutoPrn As ToolStripMenuItem
-    Dim title_text As String
+    'Dim title_text As String
     Dim flgInitEnd As Integer = 0
 
     Private Sub FrmSST4500_1_0_0J_meas_Load(sender As Object, e As EventArgs) Handles Me.Load
@@ -31,7 +31,7 @@ Public Class FrmSST4500_1_0_0J_meas
         Menu_AutoPrn = DirectCast(印刷ToolStripMenuItem, ToolStripMenuItem)
 
         Me.Text = My.Application.Info.ProductName & " Single Sheet (Ver:" & My.Application.Info.Version.ToString & ")"
-        title_text = Me.Text
+        title_text1 = Me.Text
         Me.LblProductNameMeas.Text = My.Application.Info.ProductName
 
     End Sub
@@ -57,7 +57,7 @@ Public Class FrmSST4500_1_0_0J_meas
                 If result = DialogResult.OK Then
                     StrConstFileName = fname
 
-                    LoadConst(Me, title_text)
+                    LoadConst(Me, title_text1)
 
                     If FlgMeasAutoPrn = True Then
                         Menu_AutoPrn.Checked = True
@@ -601,10 +601,9 @@ Public Class FrmSST4500_1_0_0J_meas
 
                 End If
 
+                frmClose()
                 Visible = False
-
                 timerCount1 = 0
-
                 FlgMainMeas = 91
 
                 TimMeas.Enabled = True
@@ -689,7 +688,7 @@ Public Class FrmSST4500_1_0_0J_meas
             End If
         End If
         If flgInitEnd = 1 Then
-            ConstChangeTrue(Me, title_text)
+            ConstChangeTrue(Me, title_text1)
         End If
     End Sub
 
@@ -1479,7 +1478,7 @@ Public Class FrmSST4500_1_0_0J_meas
 
                     Dim _filename2 As String
                     _filename2 = Path.GetFileNameWithoutExtension(StrConstFileName)
-                    Me.Text = title_text & " (" & _filename2 & ")"
+                    Me.Text = title_text1 & " (" & _filename2 & ")"
                     FlgConstChg = False '変更無し状態に初期化
                 End If
             End With
@@ -1499,7 +1498,7 @@ Public Class FrmSST4500_1_0_0J_meas
         If result = DialogResult.OK Then
             StrConstFileName = fname
 
-            LoadConst(Me, title_text)
+            LoadConst(Me, title_text1)
 
             'ClsNoMeas()    'FlgMainMeas = 20 で実行される
             ClsData()
@@ -1528,7 +1527,7 @@ Public Class FrmSST4500_1_0_0J_meas
         MachineNo = TxtMachNoCur.Text
         'FlgConstChg = True  '変更有の状態にセットする
         If flgInitEnd = 1 Then
-            ConstChangeTrue(Me, title_text)
+            ConstChangeTrue(Me, title_text1)
         End If
         FlgMainMeas = 20
     End Sub
@@ -1537,7 +1536,7 @@ Public Class FrmSST4500_1_0_0J_meas
         Sample = TxtSmplNamCur.Text
         'FlgConstChg = True  '変更有の状態にセットする
         If flgInitEnd = 1 Then
-            ConstChangeTrue(Me, title_text)
+            ConstChangeTrue(Me, title_text1)
         End If
         FlgMainMeas = 20
     End Sub
@@ -1546,7 +1545,7 @@ Public Class FrmSST4500_1_0_0J_meas
         Mark = TxtMarkCur.Text
         'FlgConstChg = True  '変更有の状態にセットする
         If flgInitEnd = 1 Then
-            ConstChangeTrue(Me, title_text)
+            ConstChangeTrue(Me, title_text1)
         End If
         FlgMainMeas = 20
     End Sub

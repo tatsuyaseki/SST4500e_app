@@ -89,7 +89,7 @@ Public Class FrmSST4500_1_0_0J_Profile
     Dim MenuPrn_OldData As ToolStripMenuItem
     Dim MenuPrn_AvgData As ToolStripMenuItem
 
-    Dim title_text As String
+    'Dim title_text As String
     Dim FlgInitEnd As Integer = 0
     Dim _length_bak As Single
     Dim _pitch_bak As Single
@@ -122,7 +122,7 @@ Public Class FrmSST4500_1_0_0J_Profile
                         Me.Text = My.Application.Info.ProductName & " Profile (Ver:" & My.Application.Info.Version.ToString & ")"
                         LblPrfTitle.Text = "プロファイル"
                 End Select
-                title_text = Me.Text
+                title_text2 = Me.Text
                 LblProductNamePrf.Text = My.Application.Info.ProductName
 
                 '一旦タイマーを止める ※ファイル選択ダイアログが出続けてしまう為
@@ -134,7 +134,7 @@ Public Class FrmSST4500_1_0_0J_Profile
                 If result = DialogResult.OK Then
                     StrConstFileName = fname
 
-                    LoadConst(Me, title_text)
+                    LoadConst(Me, title_text2)
 
                     If FlgPitchExp = 1 Then
                         'ピッチ拡張が有効な場合
@@ -756,7 +756,7 @@ Public Class FrmSST4500_1_0_0J_Profile
 
                 If Length <> Length_tmp Then
                     If FlgInitEnd = 1 Then
-                        ConstChangeTrue(Me, title_text)
+                        ConstChangeTrue(Me, title_text2)
                     End If
                 End If
 
@@ -819,7 +819,7 @@ Public Class FrmSST4500_1_0_0J_Profile
 
                     If Points_tmp <> Points Then
                         If FlgInitEnd = 1 Then
-                            ConstChangeTrue(Me, title_text)
+                            ConstChangeTrue(Me, title_text2)
                         End If
                     End If
 
@@ -879,7 +879,7 @@ Public Class FrmSST4500_1_0_0J_Profile
 
                     If Pitch_tmp <> Pitch Then
                         If FlgInitEnd = 1 Then
-                            ConstChangeTrue(Me, title_text)
+                            ConstChangeTrue(Me, title_text2)
                         End If
                     End If
 
@@ -1572,6 +1572,7 @@ Public Class FrmSST4500_1_0_0J_Profile
 
                 End If
 
+                frmClose()
                 Me.Visible = False
                 FlgHoldMeas = 0
                 FlgMainProfile = 91
@@ -3958,7 +3959,7 @@ Public Class FrmSST4500_1_0_0J_Profile
     Private Sub TxtMachNoCur_TextChanged(sender As Object, e As EventArgs) Handles TxtMachNoCur.TextChanged
         MachineNo = TxtMachNoCur.Text
         If FlgInitEnd = 1 Then
-            ConstChangeTrue(Me, title_text)
+            ConstChangeTrue(Me, title_text2)
         End If
         FlgMainProfile = 20
     End Sub
@@ -3966,7 +3967,7 @@ Public Class FrmSST4500_1_0_0J_Profile
     Private Sub TxtSmplNamCur_TextChanged(sender As Object, e As EventArgs) Handles TxtSmplNamCur.TextChanged
         Sample = TxtSmplNamCur.Text
         If FlgInitEnd = 1 Then
-            ConstChangeTrue(Me, title_text)
+            ConstChangeTrue(Me, title_text2)
         End If
         FlgMainProfile = 20
     End Sub
@@ -3974,7 +3975,7 @@ Public Class FrmSST4500_1_0_0J_Profile
     Private Sub TxtMarkCur_TextChanged(sender As Object, e As EventArgs) Handles TxtMarkCur.TextChanged
         Mark = TxtMarkCur.Text
         If FlgInitEnd = 1 Then
-            ConstChangeTrue(Me, title_text)
+            ConstChangeTrue(Me, title_text2)
         End If
         FlgMainProfile = 20
     End Sub
@@ -4090,7 +4091,7 @@ Public Class FrmSST4500_1_0_0J_Profile
             FlgMainProfile = 0
         Else
             If FlgInitEnd = 1 Then
-                ConstChangeTrue(Me, title_text)
+                ConstChangeTrue(Me, title_text2)
             End If
             FlgMainProfile = 23
         End If
@@ -4138,7 +4139,7 @@ Public Class FrmSST4500_1_0_0J_Profile
             FlgMainProfile = 0
         Else
             If FlgInitEnd = 1 Then
-                ConstChangeTrue(Me, title_text)
+                ConstChangeTrue(Me, title_text2)
             End If
             FlgMainProfile = 22
         End If
@@ -4218,7 +4219,7 @@ Public Class FrmSST4500_1_0_0J_Profile
             FlgMainProfile = 0
         Else
             If FlgInitEnd = 1 Then
-                ConstChangeTrue(Me, title_text)
+                ConstChangeTrue(Me, title_text2)
             End If
             FlgMainProfile = 21
         End If
@@ -6923,7 +6924,7 @@ Public Class FrmSST4500_1_0_0J_Profile
                       chkPrnOldData * 8 +
                       chkPrnAvgData * 16
         If FlgInitEnd = 1 Then
-            ConstChangeTrue(Me, title_text)
+            ConstChangeTrue(Me, title_text2)
         End If
     End Sub
 
@@ -6945,7 +6946,7 @@ Public Class FrmSST4500_1_0_0J_Profile
                       chkPrnOldData * 8 +
                       chkPrnAvgData * 16
         If FlgInitEnd = 1 Then
-            ConstChangeTrue(Me, title_text)
+            ConstChangeTrue(Me, title_text2)
         End If
     End Sub
 
@@ -6967,7 +6968,7 @@ Public Class FrmSST4500_1_0_0J_Profile
                       chkPrnOldData * 8 +
                       chkPrnAvgData * 16
         If FlgInitEnd = 1 Then
-            ConstChangeTrue(Me, title_text)
+            ConstChangeTrue(Me, title_text2)
         End If
     End Sub
 
@@ -6989,7 +6990,7 @@ Public Class FrmSST4500_1_0_0J_Profile
                       chkPrnOldData * 8 +
                       chkPrnAvgData * 16
         If FlgInitEnd = 1 Then
-            ConstChangeTrue(Me, title_text)
+            ConstChangeTrue(Me, title_text2)
         End If
     End Sub
 
@@ -7011,7 +7012,7 @@ Public Class FrmSST4500_1_0_0J_Profile
                       chkPrnOldData * 8 +
                       chkPrnAvgData * 16
         If FlgInitEnd = 1 Then
-            ConstChangeTrue(Me, title_text)
+            ConstChangeTrue(Me, title_text2)
         End If
     End Sub
 
@@ -7024,7 +7025,7 @@ Public Class FrmSST4500_1_0_0J_Profile
         If result = DialogResult.OK Then
             StrConstFileName = fname
 
-            LoadConst(Me, title_text)
+            LoadConst(Me, title_text2)
 
             'ClsNoPrf()
             'GraphInitPrf()
@@ -7435,7 +7436,7 @@ Public Class FrmSST4500_1_0_0J_Profile
 
                     Dim _filename2 As String
                     _filename2 = Path.GetFileNameWithoutExtension(StrConstFileName)
-                    Me.Text = title_text & " (" & _filename2 & ")"
+                    Me.Text = title_text2 & " (" & _filename2 & ")"
                     FlgConstChg = False '変更無し状態に初期化
                 End If
             End With
@@ -10957,7 +10958,7 @@ Rdg8:
             End If
         End If
         If FlgInitEnd = 1 Then
-            ConstChangeTrue(Me, title_text)
+            ConstChangeTrue(Me, title_text2)
         End If
     End Sub
 
@@ -10978,7 +10979,7 @@ Rdg8:
             TxtPoints.Enabled = True
         End If
         If FlgInitEnd = 1 Then
-            ConstChangeTrue(Me, title_text)
+            ConstChangeTrue(Me, title_text2)
         End If
     End Sub
 
@@ -12613,7 +12614,7 @@ Rdg8:
         If result = DialogResult.OK Then
             StrConstFileName = fname
 
-            LoadConst(Me, title_text)
+            LoadConst(Me, title_text2)
 
             'ClsNoPrf()
             'GraphInitPrf()
@@ -12834,5 +12835,9 @@ Rdg8:
 
     Private Sub LblPitchExp_Click(sender As Object, e As EventArgs) Handles LblPitchExp.Click
         FrmSST4500_1_0_0J_pitchsetting.Visible = True
+    End Sub
+
+    Private Sub TxtMachNoCur_Validating(sender As Object, e As CancelEventArgs) Handles TxtMachNoCur.Validating
+
     End Sub
 End Class
