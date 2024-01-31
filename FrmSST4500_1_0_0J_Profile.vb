@@ -1844,6 +1844,7 @@ Public Class FrmSST4500_1_0_0J_Profile
 
                 'ピッチ拡張時に値を復元
                 If FlgPitchExp <> 0 Then
+                    TxtLength.Text = _length_bak
                     TxtPitch.Text = _pitch_bak
                     TxtPoints.Text = _points_bak
                 End If
