@@ -658,6 +658,7 @@ Public Class FrmSST4500_1_0_0J_pitchsetting
             Case 0
                 'data_backup(1)
                 SetConstPitch()
+                Data_chk()
             Case 1
                 'data_backup(0)
                 SetPchExpOld()
