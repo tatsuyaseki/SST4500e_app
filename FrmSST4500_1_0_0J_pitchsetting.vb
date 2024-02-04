@@ -6,55 +6,7 @@ Imports Microsoft.Office.Interop.Excel
 Public Class FrmSST4500_1_0_0J_pitchsetting
     Dim _flg_init As Integer
     Dim changed_row As Integer
-
-    Dim _Length_cur_bak As String
-    Dim _PitchNum_cur_bak As String
-    Dim _PointsNum_cur_bak As String
-    Dim _LengthSum_cur_bak As String
-    Dim _PchExpFile_cur_bak As String
-
-    Dim _Length_old_bak As String
-    Dim _PitchNum_old_bak As String
-    Dim _PointsNum_old_bak As String
-    Dim _LengthSum_old_bak As String
-    Dim _PchExpFile_old_bak As String
-
-    Private Sub data_backup(ByVal sel As Integer)
-        Select Case sel
-            Case 0
-                _Length_cur_bak = TxtLength.Text
-                _PointsNum_cur_bak = TxtPoints.Text
-                _LengthSum_cur_bak = TxtLengthSum.Text
-                _PitchNum_cur_bak = TxtPitchNum.Text
-                _PchExpFile_cur_bak = TxtPchExpLoadedFile.Text
-            Case 1
-                _Length_old_bak = TxtLength.Text
-                _PointsNum_old_bak = TxtPoints.Text
-                _LengthSum_old_bak = TxtLengthSum.Text
-                _PitchNum_old_bak = TxtPitchNum.Text
-                _PchExpFile_old_bak = TxtPchExpLoadedFile.Text
-        End Select
-    End Sub
-
-    Private Sub restore_backup(ByVal sel As Integer)
-        Select Case sel
-            Case 0
-                TxtLength.Text = _Length_cur_bak
-                TxtPoints.Text = _PointsNum_cur_bak
-                TxtLengthSum.Text = _LengthSum_cur_bak
-                TxtPitchNum.Text = _PitchNum_cur_bak
-                TxtPchExpLoadedFile.Text = _PchExpFile_cur_bak
-                Data_chk()
-            Case 1
-                TxtLength.Text = _Length_old_bak
-                TxtPoints.Text = _PointsNum_old_bak
-                TxtLengthSum.Text = _LengthSum_old_bak
-                TxtPitchNum.Text = _PitchNum_old_bak
-                TxtPchExpLoadedFile.Text = _PchExpFile_old_bak
-                LblResult.Text = ""
-        End Select
-
-    End Sub
+    Dim _flg_ng As Integer  '2=OKで保存済み、1=OKで未保存、0=NG
 
     Private Sub CmdRowsAdd_Click(sender As Object, e As EventArgs) Handles CmdRowsAdd.Click
         '選択行の下に追加する
@@ -103,6 +55,7 @@ Public Class FrmSST4500_1_0_0J_pitchsetting
             Label5.Text = "※サンプル長 - 両端補正値(" & LnCmp & "mm)以下になる" & vbCrLf &
                           "　様に設定して下さい。"
 
+            _flg_ng = 1 '一旦OKにする
             'If FlgPitchExp_Load = 1 Then
             'ロード済みの場合セットする
             'SetConstPitch()
@@ -146,6 +99,13 @@ Public Class FrmSST4500_1_0_0J_pitchsetting
                     .Rows(i).Cells(0).Value = i + 1
                     .Rows(i).Cells(1).Value = PchExp_PchData(i)
                 Next
+            End With
+
+            'プロファイル測定画面にも適用する
+            With FrmSST4500_1_0_0J_Profile
+                .TxtLength.Text = PchExp_Length
+                .TxtPitch.Text = PchExp_PchData(0)
+                .TxtPoints.Text = _pitchnum + 1
             End With
         Else
             '未ロードの場合新規作成状態
@@ -207,7 +167,7 @@ Public Class FrmSST4500_1_0_0J_pitchsetting
     Private Sub DataGridView1_CellEndEdit(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellEndEdit
         Console.WriteLine("CellEndEdit : ")
         Dim _sel_row As Integer
-        Dim _pitch_sum As Integer
+        Dim _pitch_sum As Single
         _sel_row = DataGridView1.SelectedCells(0).RowIndex
         Console.WriteLine("SelectedRowsIndex : " & _sel_row)
         _pitch_sum = Data_sum()
@@ -216,9 +176,9 @@ Public Class FrmSST4500_1_0_0J_pitchsetting
         Data_chk()
     End Sub
 
-    Function Data_sum() As Integer
+    Function Data_sum() As Single
         Dim _rows_count As Integer
-        Dim _pitch_sum As Integer
+        Dim _pitch_sum As Single
 
         _rows_count = DataGridView1.Rows.Count
         For i = 0 To _rows_count - 2
@@ -230,8 +190,8 @@ Public Class FrmSST4500_1_0_0J_pitchsetting
     End Function
 
     Private Sub Data_chk()
-        Dim _length As Integer
-        Dim _pitch_sum As Integer
+        Dim _length As Single
+        Dim _pitch_sum As Single
         Dim _rows_count As Integer
 
         _length = TxtLength.Text
@@ -243,17 +203,24 @@ Public Class FrmSST4500_1_0_0J_pitchsetting
             LblResult.Text = "NG"
             LblResult.ForeColor = Color.Red
             CmdSave.Enabled = False
+            _flg_ng = 0
         Else
             If _pitch_sum > _length - LnCmp Then
                 'NG
                 LblResult.Text = "NG"
                 LblResult.ForeColor = Color.Red
                 CmdSave.Enabled = False
+                _flg_ng = 0
             Else
                 'OK
                 LblResult.Text = "OK"
                 LblResult.ForeColor = Color.Green
                 CmdSave.Enabled = True
+                If _flg_ng = 0 Then
+                    _flg_ng = 1
+                Else
+                    _flg_ng = 2
+                End If
             End If
         End If
     End Sub
@@ -261,7 +228,7 @@ Public Class FrmSST4500_1_0_0J_pitchsetting
     Private Sub CmdRowsDel_Click(sender As Object, e As EventArgs) Handles CmdRowsDel.Click
         Dim _sel_row As Integer
         Dim _rows_count As Integer
-        Dim _pitch_sum As Integer
+        Dim _pitch_sum As Single
         _sel_row = DataGridView1.SelectedCells(0).RowIndex
         _rows_count = DataGridView1.Rows.Count
 
@@ -373,15 +340,29 @@ Public Class FrmSST4500_1_0_0J_pitchsetting
             FrmSST4500_1_0_0J_Profile.ChkPitchExp.Checked = False
             Me.Visible = False
         Else
-            'ロード済みの場合
-            _result = MessageBox.Show("変更済みで未保存の場合、変更内容が破棄されますが、" & vbCrLf &
+            If _flg_ng = 0 Then
+                MessageBox.Show("合計長がサンプル長 - 両端補正値(" & LnCmp &
+                                "mm)を超えています。修正して下さい。",
+                                "合計長エラー",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error)
+            ElseIf _flg_ng = 1 Then
+                MessageBox.Show("合計長NG修正後の保存がされていません。" & vbCrLf &
+                                "保存を行ってください。",
+                                "未保存",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning)
+            Else
+                'ロード済みの場合
+                _result = MessageBox.Show("変更済みで未保存の場合、変更内容が破棄されますが、" & vbCrLf &
                                       "閉じてよろしいですか？",
                                       "確認",
                                       MessageBoxButtons.YesNo,
                                       MessageBoxIcon.Warning)
-            If _result = vbYes Then
-                Me.Visible = False
+                If _result = vbYes Then
+                    Me.Visible = False
 
+                End If
             End If
         End If
     End Sub
@@ -389,7 +370,7 @@ Public Class FrmSST4500_1_0_0J_pitchsetting
     Private Sub CmdAllRowsDel_Click(sender As Object, e As EventArgs) Handles CmdAllRowsDel.Click
         Dim result_tmp As DialogResult
         Dim _rows_count As Integer
-        Dim _pitch_sum As Integer
+        Dim _pitch_sum As Single
 
         result_tmp = MessageBox.Show("削除してよろしいですか？",
                                      "削除確認",
@@ -490,6 +471,8 @@ Public Class FrmSST4500_1_0_0J_pitchsetting
                     PchExpSettingFile_FullPath = _filepath
                     PchExpSettingFile = Path.GetFileName(_filepath)
                     TxtPchExpLoadedFile.Text = PchExpSettingFile
+
+                    _flg_ng = 2
                 End If
 
             End With

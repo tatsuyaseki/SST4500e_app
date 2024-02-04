@@ -269,6 +269,7 @@ Module Module1
 
     Public StrConstFileName As String
     Public StrConstFilePath As String
+    Public StrConstFilePath_old As String
     Public FlgConstChg As Boolean
     Public StrDataFileName As String
     Public StrFileName As String
@@ -2114,7 +2115,7 @@ Module Module1
             splittedResult = txtParser.ReadFields()
 
             If FlgDBF = 0 Then
-                data_len = 29   '30個または32個
+                data_len = 29   '30個または33個
             Else
                 data_len = 26   '従来データ(SST2500)も読み込み出来るようにする為
             End If
@@ -2173,16 +2174,20 @@ Module Module1
                     FileDataNo = M
                     FileDataMax = M
 
-                    If data_len_tmp > data_len Then
-                        LengthOld = splittedResult(30)
-                        PitchOld = splittedResult(31)
-                        FlgPchExpMes_old = splittedResult(32)
-                        PchExpSettingFile_FullPath_old = splittedResult(33)
-                    Else
-                        LengthOld = 0
-                        PitchOld = 0
-                        FlgPchExpMes_old = 0
-                        PchExpSettingFile_FullPath_old = ""
+                    If M = 1 Then
+                        If data_len_tmp > data_len Then
+                            LengthOld = splittedResult(30)
+                            PitchOld = splittedResult(31)
+                            FlgPchExpMes_old = splittedResult(32)
+                            'PchExpSettingFile_FullPath_old = splittedResult(33)
+                            StrConstFilePath_old = splittedResult(33)
+                        Else
+                            LengthOld = 0
+                            PitchOld = 0
+                            FlgPchExpMes_old = 0
+                            'PchExpSettingFile_FullPath_old = ""
+                            StrConstFilePath_old = ""
+                        End If
                     End If
                 Else
                     '測定データフォーマット特殊
@@ -2241,13 +2246,21 @@ Module Module1
                     'LengthOld = 0
                     'PitchOld = 0
                     'FlgPchExpMes_old = 0
-                    LoadData_tokusyu()
+                    If M = 1 Then
+                        LoadData_tokusyu()
+                    End If
                 End If
             End If
         End While
 
-        If PchExpSettingFile_FullPath_old <> "" Then
-            LoadPitchOldData()
+        'If PchExpSettingFile_FullPath_old <> "" Then
+        'LoadPitchOldData()
+        'Else
+        'FlgPitchExp_Load_old = 0
+        'End If
+
+        If StrConstFilePath_old <> "" Then
+            LoadPitchOldData2()
         Else
             FlgPitchExp_Load_old = 0
         End If
@@ -2281,18 +2294,44 @@ Module Module1
             While Not txtParser.EndOfData
                 i += 1
                 splittedResult = txtParser.ReadFields()
-                LengthOld = splittedResult(2)
-                PitchOld = splittedResult(3)
-                FlgPchExpMes_old = splittedResult(4)
-                PchExpSettingFile_FullPath_old = splittedResult(5)
+                If i = 1 Then
+                    '最初のデータだけ
+                    LengthOld = splittedResult(3)
+                    PitchOld = splittedResult(4)
+                    FlgPchExpMes_old = splittedResult(5)
+                    StrConstFilePath_old = splittedResult(6)
+                End If
             End While
 
         Else
             LengthOld = 0
             PitchOld = 0
-            FlgPchExpMes_old = 0
-            PchExpSettingFile_FullPath_old = ""
+            StrConstFilePath_old = ""
         End If
+    End Sub
+
+    Public Sub LoadPitchOldData2()
+        'constファイルのpitchファイルパスをみてLoadPitchOldData()を実行する
+        Dim txtParser As FileIO.TextFieldParser
+        Dim splittedResult As String()
+        Dim ret As Boolean
+        ret = File.Exists(StrConstFilePath_old)
+
+        If ret = True Then
+            txtParser = New FileIO.TextFieldParser(StrConstFilePath_old, Encoding.GetEncoding("Shift_jis"))
+            txtParser.TextFieldType = FileIO.FieldType.Delimited
+            txtParser.SetDelimiters(",")
+            splittedResult = txtParser.ReadFields()
+
+            'FlgPchExpMes_old = splittedResult(20)
+            PchExpSettingFile_FullPath_old = splittedResult(21)
+
+        End If
+
+        'ピッチ設定ファイルパスが取得できなければLoadPitchOldData()で
+        'ファイルが見つからない処理がされる
+        LoadPitchOldData()
+
     End Sub
 
     Public Sub LoadPitchOldData()
@@ -2351,8 +2390,7 @@ Module Module1
                              FlgMeasAutoPrn & "," & FlgPrfAutoPrn & "," &
                              FlgPrfPrint & "," & FlgAlternate & "," &
                              FlgVelocityRange & "," & FlgAngleRange & "," &
-                             FlgPkCenterAngle & "," & FlgDpCenterAngle & "," &
-                             FlgPitchExp)
+                             FlgPkCenterAngle & "," & FlgDpCenterAngle)
             End If
         End Using
     End Sub
@@ -2450,6 +2488,7 @@ Module Module1
         Dim txtParser As FileIO.TextFieldParser
         Dim splittedResult As String()
         Dim result_tmp As DialogResult
+        Dim _pitch_sum As Single
 
         If _filepath = "" Then
             'ファイル名が空欄だったら
@@ -2483,12 +2522,24 @@ Module Module1
                 ElseIf i = 1 Then
                     ReDim PchExp_PchData(i - 1)
                     PchExp_PchData(i - 1) = Val(splittedResult(i))
+                    _pitch_sum += PchExp_PchData(i - 1)
                 Else
                     ReDim Preserve PchExp_PchData(i - 1)
                     PchExp_PchData(i - 1) = Val(splittedResult(i))
+                    _pitch_sum += PchExp_PchData(i - 1)
                 End If
             Next
             FlgPitchExp_Load = 1
+
+            '合計長のチェックをする
+            If _pitch_sum > PchExp_Length - LnCmp Then
+                MessageBox.Show("合計長がサンプル長 - 両端補正値(" & LnCmp &
+                                "mm)を超えています。修正して下さい。",
+                                "合計長エラー",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error)
+                FrmSST4500_1_0_0J_pitchsetting.Visible = True
+            End If
         Else
             'ファイルがない場合はピッチ拡張設定画面を開く
             '設定を保存せずにファイル作成をキャンセルした場合は、
@@ -2828,7 +2879,8 @@ Module Module1
                              "Length," &        '30 Dn(24)
                              "Pitch," &         '31 Dn(25)
                              "PchExp," &        '32 Dn(26)
-                             "PchExpFilePath")  '33 Ds(10)   
+                             "cnsFilePath")     '32 Ds(10)
+                '"PchExpFilePath")  '33 Ds(10)   
             Else
                 '特定顧客向けデータ仕様(特殊1)
                 sw.WriteLine("Sample Name," &       '0 Ds(2)
@@ -2875,10 +2927,12 @@ Module Module1
                                          ".add", True, Encoding.UTF8)
                 sw.WriteLine("Sample Name," &
                              "Mark," &
+                             "No.," &
                              "Length," &
                              "Pitch," &
                              "PchExp," &
-                             "PchExpFilePath")
+                             "cnsFilePath")
+                '"PchExpFilePath")
             End Using
         End If
 
@@ -2916,11 +2970,16 @@ Module Module1
             Dn(N + 5) = DataPrcNum(1, SampleNo, N)
         Next
 
-        If FlgInch = 1 Then
-            Dn(24) = Math.Round(Length / 25.4)
-            Dn(25) = Math.Round(Pitch / 25.4)
+        If FlgPchExpMes = 0 Then
+            If FlgInch = 1 Then
+                Dn(24) = Math.Round(Length / 25.4)
+                Dn(25) = Math.Round(Pitch / 25.4)
+            Else
+                Dn(24) = Length
+                Dn(25) = Pitch
+            End If
         Else
-            Dn(24) = Length
+            Dn(24) = PchExp_Length
             Dn(25) = Pitch
         End If
 
@@ -2929,7 +2988,8 @@ Module Module1
         'ピッチ拡張設定ファイル(フルパス)
         If FlgProfile = 1 Then
             'プロファイルモードの時のみ
-            Ds(10) = PchExpSettingFile_FullPath
+            'Ds(10) = PchExpSettingFile_FullPath
+            Ds(10) = StrConstFilePath
         Else
             Ds(10) = ""
         End If
@@ -2969,8 +3029,8 @@ Module Module1
                              Dn(23).ToString & "," &    '168.75
                              Dn(24).ToString & "," &    'Length
                              Dn(25).ToString & "," &    'Pitch
-                             Dn(26).ToString & "," &    'PchExp
-                             Ds(10))                    'PchExpFilePath
+                             Dn(26).ToString & "," &    'PchExpMes
+                             Ds(10))                    'ConstFilePath
             Else
                 Select Case FlgProfile
                     Case 0
@@ -3009,13 +3069,6 @@ Module Module1
                              Dn(21).ToString & "," &    '146.25
                              Dn(22).ToString & "," &    '157.5
                              Dn(23).ToString)           '168.75
-                'Dn(23).ToString & "," &    '168.75
-                'Dn(24).ToString & "," &    'Length
-                'Dn(25).ToString & "," &    'Pitch
-                'Ds(1) & "," &              'Machine No.
-                'Ds(4) & "," &              'B/W
-                'Dn(1).ToString & "," &     'Points
-                'Dn(26).ToString)           'PchExp
             End If
         End Using
 
@@ -3025,10 +3078,11 @@ Module Module1
                                          ".add", True, Encoding.UTF8)
                 sw.WriteLine(Ds(2) & "," &      'Sample Name
                              Ds(3) & "," &      'Mark
+                             Trim(Ds(5)) & "," &      'No.
                              Dn(24) & "," &     'Length
                              Dn(25) & "," &     'Pitch
-                             Dn(26) & "," &     'PchExp
-                             Ds(10))            'PchExpFilePath
+                             Dn(26) & "," &     'PchExpMes
+                             Ds(10))            'ConstFilePath
             End Using
         End If
     End Sub

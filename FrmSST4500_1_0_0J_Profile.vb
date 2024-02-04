@@ -139,6 +139,9 @@ Public Class FrmSST4500_1_0_0J_Profile
                     If FlgPitchExp = 1 Then
                         'ピッチ拡張が有効な場合
                         LoadConstPitch(PchExpSettingFile_FullPath)
+                        TxtLength.Text = PchExp_Length
+                        TxtPitch.Text = PchExp_PchData(0)
+                        TxtPoints.Text = UBound(PchExp_PchData) + 2
                     Else
                         FlgPitchExp_Load = 0
                     End If
@@ -161,13 +164,14 @@ Public Class FrmSST4500_1_0_0J_Profile
                     LblAngCenter.Text = PkAngCent
                     LblAngCenter.Visible = True
 
-                    CmdMeas.Enabled = True
-                    CmdMeasButton_set(_rdy)
-                    CmdMeas.Text = "測定開始"
-                    測定開始ToolStripMenuItem.Enabled = True
-                    測定開始ToolStripMenuItem.Text = "測定開始"
-                    測定中断ToolStripMenuItem.Enabled = False
-                    終了ToolStripMenuItem.Enabled = True
+                    'CmdMeas.Enabled = True
+                    'CmdMeasButton_set(_rdy)
+                    'CmdMeas.Text = "測定開始"
+                    '測定開始ToolStripMenuItem.Enabled = True
+                    '測定開始ToolStripMenuItem.Text = "測定開始"
+                    '測定中断ToolStripMenuItem.Enabled = False
+                    '終了ToolStripMenuItem.Enabled = True
+                    MeasStartInit()
 
                     If FlgAdmin <> 0 Then
                         過去データToolStripMenuItem.Enabled = True
@@ -263,16 +267,18 @@ Public Class FrmSST4500_1_0_0J_Profile
                 SaveDataTitle()
 
                 If FlgPitchExp = 0 Then
-                    Points = Val(TxtPoints.Text)
-                    Pitch = Val(TxtPitch.Text)
+                    'Points = Val(TxtPoints.Text)
+                    'Pitch = Val(TxtPitch.Text)
                     FlgPchExpMes = 0    'ピッチ拡張無効で測定
                 Else
 
                     Points = UBound(PchExp_PchData) + 2 'ピッチ拡張のデータ数
-                    _length_bak = Val(TxtLength.Text)
-                    _pitch_bak = Val(TxtPitch.Text)
-                    _points_bak = Val(TxtPoints.Text)
-                    TxtPoints.Text = Points
+                    '測定開始時は、サンプル長さ、ピッチ、測定個所数はピッチ拡張設定の内容に変わっているので
+                    'バックアップは別の場所でする必要がある
+                    '_length_bak = Val(TxtLength.Text)
+                    '_pitch_bak = Val(TxtPitch.Text)
+                    '_points_bak = Val(TxtPoints.Text)
+                    'TxtPoints.Text = Points
                     'ピッチはPchExp_PchData()から取得する
                     FlgPchExpMes = 1    'ピッチ拡張有効で測定
                 End If
@@ -473,13 +479,15 @@ Public Class FrmSST4500_1_0_0J_Profile
                             FlgMainProfile = 10
                         Else
                             ToolStripStatusLabel4.Text = "次のサンプルを"
-                            CmdMeas.Enabled = True
-                            CmdMeas.Text = "測定開始"
-                            CmdMeasButton_set(_rdy)
-                            測定開始ToolStripMenuItem.Enabled = True
-                            測定開始ToolStripMenuItem.Text = "測定開始"
-                            測定中断ToolStripMenuItem.Enabled = False
-                            終了ToolStripMenuItem.Enabled = True
+                            'CmdMeas.Enabled = True
+                            'CmdMeas.Text = "測定開始"
+                            'CmdMeasButton_set(_rdy)
+                            '測定開始ToolStripMenuItem.Enabled = True
+                            '測定開始ToolStripMenuItem.Text = "測定開始"
+                            '測定中断ToolStripMenuItem.Enabled = False
+                            '終了ToolStripMenuItem.Enabled = True
+                            MeasStartInit()
+
                             CmdQuitProfile.Text = "終　了"
                             FlgHoldMeas = 2
                             FlgMainProfile = 0
@@ -630,13 +638,14 @@ Public Class FrmSST4500_1_0_0J_Profile
 
                 FlgLongMeas = 1
 
-                CmdMeas.Enabled = True
-                CmdMeas.Text = "測定開始"
-                CmdMeasButton_set(_rdy)
-                測定開始ToolStripMenuItem.Enabled = True
-                測定開始ToolStripMenuItem.Text = "測定開始"
-                測定中断ToolStripMenuItem.Enabled = False
-                終了ToolStripMenuItem.Enabled = True
+                'CmdMeas.Enabled = True
+                'CmdMeas.Text = "測定開始"
+                'CmdMeasButton_set(_rdy)
+                '測定開始ToolStripMenuItem.Enabled = True
+                '測定開始ToolStripMenuItem.Text = "測定開始"
+                '測定中断ToolStripMenuItem.Enabled = False
+                '終了ToolStripMenuItem.Enabled = True
+                MeasStartInit()
 
                 ConditionEnable()
 
@@ -668,11 +677,17 @@ Public Class FrmSST4500_1_0_0J_Profile
                 End If
 
                 'ピッチ拡張時に値を復元
+                'If FlgPitchExp <> 0 Then
+                'TxtLength.Text = _length_bak
+                'TxtPitch.Text = _pitch_bak
+                'TxtPoints.Text = _points_bak
+                'End If
+
+                'ピッチ拡張時にピッチを最初の値にする
                 If FlgPitchExp <> 0 Then
-                    TxtLength.Text = _length_bak
-                    TxtPitch.Text = _pitch_bak
-                    TxtPoints.Text = _points_bak
+                    TxtPitch.Text = PchExp_PchData(0)
                 End If
+
 
             Case 20
                 ClsNoPrf()
@@ -683,13 +698,14 @@ Public Class FrmSST4500_1_0_0J_Profile
                 DrawTableData_init()
                 GraphInitPrf()
 
-                CmdMeas.Enabled = True
-                CmdMeasButton_set(_rdy)
-                CmdMeas.Text = "測定開始"
-                測定開始ToolStripMenuItem.Enabled = True
-                測定開始ToolStripMenuItem.Text = "測定開始"
-                測定中断ToolStripMenuItem.Enabled = False
-                終了ToolStripMenuItem.Enabled = True
+                'CmdMeas.Enabled = True
+                'CmdMeasButton_set(_rdy)
+                'CmdMeas.Text = "測定開始"
+                '測定開始ToolStripMenuItem.Enabled = True
+                '測定開始ToolStripMenuItem.Text = "測定開始"
+                '測定中断ToolStripMenuItem.Enabled = False
+                '終了ToolStripMenuItem.Enabled = True
+                MeasStartInit()
 
                 SetPrintChk()
 
@@ -1099,7 +1115,21 @@ Public Class FrmSST4500_1_0_0J_Profile
                             '測定済みの場合
                             If SampleNo = FileDataMax Then
                                 If FlgProfile = 1 Then  'プロファイルモード
-                                    If Length <> LengthOld Or Pitch <> PitchOld Then
+                                    'ピッチ拡張有効の確認を最初にする
+                                    If FlgPchExpMes = 1 Or FlgPchExpMes_old = 1 Then
+                                        result = MessageBox.Show("ピッチ拡張設定有効で測定されたデータです。" & vbCrLf &
+                                                                 "ピッチ設定の一致はチェックしていません。" & vbCrLf &
+                                                                 "過去データを読み込みしますか？",
+                                                                 "ピッチ拡張設定データ確認",
+                                                                 MessageBoxButtons.YesNo,
+                                                                 MessageBoxIcon.Warning)
+                                        If result = DialogResult.No Then
+                                            SampleNo = Kt2
+                                            FlgMainProfile = 0
+                                            TimProfile.Enabled = True
+                                            Exit Sub
+                                        End If
+                                    ElseIf Length <> LengthOld Or Pitch <> PitchOld Then
                                         result = MessageBox.Show("測定データのサンプル長 = " & Length & vbCrLf &
                                                                  "過去データのサンプル長 = " & LengthOld & vbCrLf &
                                                                  "測定データのピッチ数 = " & Pitch & vbCrLf &
@@ -1115,13 +1145,6 @@ Public Class FrmSST4500_1_0_0J_Profile
                                             TimProfile.Enabled = True
                                             Exit Sub
                                         End If
-                                    ElseIf FlgPchExpMes = 1 Or FlgPchExpMes_old = 1 Then
-                                        result = MessageBox.Show("ピッチ拡張設定有効で測定されたデータです。" & vbCrLf &
-                                                                 "ピッチ設定の一致はチェックしていません。" & vbCrLf &
-                                                                 "過去データを読み込みしますか？",
-                                                                 "ピッチ拡張設定データ確認",
-                                                                 MessageBoxButtons.YesNo,
-                                                                 MessageBoxIcon.Warning)
                                     End If
                                 ElseIf FlgProfile = 3 Then  'MD長尺
                                     If Pitch <> PitchOld Then
@@ -1610,9 +1633,9 @@ Public Class FrmSST4500_1_0_0J_Profile
                 測定中断ToolStripMenuItem.Enabled = True
 
                 If FlgPitchExp <> 0 Then
-                    If SampleNo <> Points - 1 Then
-                        Pitch = PchExp_PchData(SampleNo)
-                    End If
+                    'If SampleNo <> Points - 1 Then
+                    Pitch = PchExp_PchData(SampleNo)
+                    'End If
                     TxtPitch.Text = Pitch
                 End If
 
@@ -1724,13 +1747,15 @@ Public Class FrmSST4500_1_0_0J_Profile
                             FlgMainProfile = 150
                         Else
                             ToolStripStatusLabel4.Text = "次のサンプルを"
-                            CmdMeas.Enabled = True
-                            CmdMeas.Text = "測定開始"
-                            CmdMeasButton_set(_rdy)
-                            測定開始ToolStripMenuItem.Enabled = True
-                            測定開始ToolStripMenuItem.Text = "測定開始"
-                            測定中断ToolStripMenuItem.Enabled = False
-                            終了ToolStripMenuItem.Enabled = True
+                            'CmdMeas.Enabled = True
+                            'CmdMeas.Text = "測定開始"
+                            'CmdMeasButton_set(_rdy)
+                            '測定開始ToolStripMenuItem.Enabled = True
+                            '測定開始ToolStripMenuItem.Text = "測定開始"
+                            '測定中断ToolStripMenuItem.Enabled = False
+                            '終了ToolStripMenuItem.Enabled = True
+                            MeasStartInit()
+
                             CmdQuitProfile.Text = "終　了"
                             FlgHoldMeas = 2
                             FlgMainProfile = 0
@@ -1810,13 +1835,14 @@ Public Class FrmSST4500_1_0_0J_Profile
 
                 FlgLongMeas = 1
 
-                CmdMeas.Enabled = True
-                CmdMeas.Text = "測定開始"
-                CmdMeasButton_set(_rdy)
-                測定開始ToolStripMenuItem.Enabled = True
-                測定開始ToolStripMenuItem.Text = "測定開始"
-                測定中断ToolStripMenuItem.Enabled = False
-                終了ToolStripMenuItem.Enabled = True
+                'CmdMeas.Enabled = True
+                'CmdMeas.Text = "測定開始"
+                'CmdMeasButton_set(_rdy)
+                '測定開始ToolStripMenuItem.Enabled = True
+                '測定開始ToolStripMenuItem.Text = "測定開始"
+                '測定中断ToolStripMenuItem.Enabled = False
+                '終了ToolStripMenuItem.Enabled = True
+                MeasStartInit()
 
                 ConditionEnable()
 
@@ -1843,13 +1869,28 @@ Public Class FrmSST4500_1_0_0J_Profile
                 End If
 
                 'ピッチ拡張時に値を復元
+                'If FlgPitchExp <> 0 Then
+                'TxtLength.Text = _length_bak
+                'TxtPitch.Text = _pitch_bak
+                'TxtPoints.Text = _points_bak
+                'End If
+
+                'ピッチ拡張時にピッチを最初の値にする
                 If FlgPitchExp <> 0 Then
-                    TxtLength.Text = _length_bak
-                    TxtPitch.Text = _pitch_bak
-                    TxtPoints.Text = _points_bak
+                    TxtPitch.Text = PchExp_PchData(0)
                 End If
 
         End Select
+    End Sub
+
+    Private Sub MeasStartInit()
+        CmdMeas.Enabled = True
+        CmdMeasButton_set(_rdy)
+        CmdMeas.Text = "測定開始"
+        測定開始ToolStripMenuItem.Enabled = True
+        測定開始ToolStripMenuItem.Text = "測定開始"
+        測定中断ToolStripMenuItem.Enabled = False
+        終了ToolStripMenuItem.Enabled = True
     End Sub
 
     Private Sub ScrollBar_init(ByVal sampleno As Integer)
@@ -7028,6 +7069,15 @@ Public Class FrmSST4500_1_0_0J_Profile
 
             LoadConst(Me, title_text2)
 
+            If FlgPitchExp = 1 Then
+                LoadConstPitch(PchExpSettingFile_FullPath)
+                TxtLength.Text = PchExp_Length
+                TxtPitch.Text = PchExp_PchData(0)
+                TxtPoints.Text = UBound(PchExp_PchData) + 2
+            Else
+                FlgPitchExp_Load = 0
+            End If
+
             'ClsNoPrf()
             'GraphInitPrf()
 
@@ -10969,15 +11019,22 @@ Rdg8:
             TxtLength.Enabled = False
             TxtPitch.Enabled = False
             TxtPoints.Enabled = False
+
             If FlgInitEnd = 1 And FlgPitchExp_Load = 0 Then
                 'FrmSST4500_1_0_0J_pitchsetting.Visible = True
                 LoadConstPitch(PchExpSettingFile_FullPath)
             End If
+            TxtLength.Text = PchExp_Length
+            TxtPitch.Text = PchExp_PchData(0)
+            TxtPoints.Text = UBound(PchExp_PchData) + 2
         Else
             FlgPitchExp = 0
             TxtLength.Enabled = True
             TxtPitch.Enabled = True
             TxtPoints.Enabled = True
+            TxtLength.Text = Length
+            TxtPitch.Text = Pitch
+            TxtPoints.Text = Points
         End If
         If FlgInitEnd = 1 Then
             ConstChangeTrue(Me, title_text2)
