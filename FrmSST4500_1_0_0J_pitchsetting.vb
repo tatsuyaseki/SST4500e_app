@@ -338,6 +338,7 @@ Public Class FrmSST4500_1_0_0J_pitchsetting
         If FlgPitchExp_Load = 0 Then
             '未ロードの場合
             FrmSST4500_1_0_0J_Profile.ChkPitchExp.Checked = False
+            LoadConstPitch_FileErr_Run = 0
             Me.Visible = False
         Else
             If _flg_ng = 0 Then
@@ -360,6 +361,7 @@ Public Class FrmSST4500_1_0_0J_pitchsetting
                                       MessageBoxButtons.YesNo,
                                       MessageBoxIcon.Warning)
                 If _result = vbYes Then
+                    LoadConstPitch_FileErr_Run = 0
                     Me.Visible = False
 
                 End If

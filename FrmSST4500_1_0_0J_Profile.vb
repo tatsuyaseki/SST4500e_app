@@ -2797,6 +2797,8 @@ Public Class FrmSST4500_1_0_0J_Profile
 
             timerCount1 = 0
 
+            LoadConstPitch_FileErr_Run = 0
+
             prf_dbf_chg(FlgDBF)
         End If
     End Sub
@@ -7066,6 +7068,7 @@ Public Class FrmSST4500_1_0_0J_Profile
 
         If result = DialogResult.OK Then
             StrConstFileName = fname
+            LoadConstPitch_FileErr_Run = 0
 
             LoadConst(Me, title_text2)
 
@@ -11020,13 +11023,16 @@ Rdg8:
             TxtPitch.Enabled = False
             TxtPoints.Enabled = False
 
-            If FlgInitEnd = 1 And FlgPitchExp_Load = 0 Then
-                'FrmSST4500_1_0_0J_pitchsetting.Visible = True
-                LoadConstPitch(PchExpSettingFile_FullPath)
+            If FlgInitEnd = 1 Then
+                If FlgPitchExp_Load = 0 Then
+                    'FrmSST4500_1_0_0J_pitchsetting.Visible = True
+                    LoadConstPitch(PchExpSettingFile_FullPath)
+                Else
+                    TxtLength.Text = PchExp_Length
+                    TxtPitch.Text = PchExp_PchData(0)
+                    TxtPoints.Text = UBound(PchExp_PchData) + 2
+                End If
             End If
-            TxtLength.Text = PchExp_Length
-            TxtPitch.Text = PchExp_PchData(0)
-            TxtPoints.Text = UBound(PchExp_PchData) + 2
         Else
             FlgPitchExp = 0
             TxtLength.Enabled = True

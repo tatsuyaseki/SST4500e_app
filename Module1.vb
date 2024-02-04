@@ -491,6 +491,8 @@ Module Module1
     Public title_text1 As String
     Public title_text2 As String
 
+    Public LoadConstPitch_FileErr_Run As Integer
+
     Public Sub frmClose()
         FrmSST4500_1_0_0J_pitchsetting.Visible = False
         FrmSST4500_1_0_0J_setting.Visible = False
@@ -2476,6 +2478,18 @@ Module Module1
             PchExpSettingFile = ""
         End If
         SetConst()
+
+        With FrmSST4500_1_0_0J_Profile
+            If FlgPitchExp = 1 Then
+                .TxtLength.Enabled = False
+                .TxtPitch.Enabled = False
+                .TxtPoints.Enabled = False
+            Else
+                .TxtLength.Enabled = True
+                .TxtPitch.Enabled = True
+                .TxtPoints.Enabled = True
+            End If
+        End With
     End Sub
 
     Public Sub LoadConstPitch(ByVal _filepath As String)
@@ -2546,19 +2560,29 @@ Module Module1
             '拡張のチェックボックスるをfalseにする
             'ピッチ拡張を無効にする
             FlgPitchExp_Load = 0
-            result_tmp = MessageBox.Show("ピッチ拡張設定ファイルが未作成の様です。" & vbCrLf &
+            If LoadConstPitch_FileErr_Run = 0 Then
+                result_tmp = MessageBox.Show("ピッチ拡張設定ファイルが未作成の様です。" & vbCrLf &
                                          "作成して、ピッチ拡張設定を有効にしますか？" & vbCrLf &
                                          "はい : ピッチ拡張設定画面を開く" & vbCrLf &
                                          "いいえ : ピッチ拡張設定を無効にする",
                                          "確認",
                                          MessageBoxButtons.YesNo,
                                          MessageBoxIcon.Information)
-            If result_tmp = vbYes Then
-                'FlgPitchExp = 1
-                FrmSST4500_1_0_0J_pitchsetting.Visible = True
+                If result_tmp = vbYes Then
+                    'FlgPitchExp = 1
+                    LoadConstPitch_FileErr_Run = 1
+                    FrmSST4500_1_0_0J_pitchsetting.Visible = True
+                Else
+                    FlgPitchExp = 0
+                    With FrmSST4500_1_0_0J_Profile
+                        .TxtLength.Text = Length
+                        .TxtPitch.Text = Pitch
+                        .TxtPoints.Text = Points
+                    End With
+                    FrmSST4500_1_0_0J_Profile.ChkPitchExp.Checked = False
+                End If
             Else
-                FlgPitchExp = 0
-                FrmSST4500_1_0_0J_Profile.ChkPitchExp.Checked = False
+                FrmSST4500_1_0_0J_pitchsetting.Visible = True
             End If
         End If
     End Sub
