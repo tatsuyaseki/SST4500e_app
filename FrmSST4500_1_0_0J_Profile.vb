@@ -1633,9 +1633,11 @@ Public Class FrmSST4500_1_0_0J_Profile
                 測定中断ToolStripMenuItem.Enabled = True
 
                 If FlgPitchExp <> 0 Then
-                    'If SampleNo <> Points - 1 Then
-                    Pitch = PchExp_PchData(SampleNo)
-                    'End If
+                    'テストモードの時のみ下記if文が必要
+                    '通常測定時は別の方法で回避している
+                    If SampleNo <> Points - 1 Then
+                        Pitch = PchExp_PchData(SampleNo)
+                    End If
                     TxtPitch.Text = Pitch
                 End If
 

@@ -168,10 +168,20 @@ Public Class FrmSST4500_1_0_0J_pitchsetting
         Console.WriteLine("CellEndEdit : ")
         Dim _sel_row As Integer
         Dim _pitch_sum As Single
+        Dim _rows_count As Integer
+
         _sel_row = DataGridView1.SelectedCells(0).RowIndex
         Console.WriteLine("SelectedRowsIndex : " & _sel_row)
         _pitch_sum = Data_sum()
         TxtLengthSum.Text = _pitch_sum
+        _rows_count = DataGridView1.Rows.Count
+        If _rows_count > 1 Then
+            TxtPitchNum.Text = _rows_count - 1
+            TxtPoints.Text = _rows_count
+        Else
+            TxtPitchNum.Text = 0
+            TxtPoints.Text = 0
+        End If
 
         Data_chk()
     End Sub
@@ -474,6 +484,14 @@ Public Class FrmSST4500_1_0_0J_pitchsetting
                     PchExpSettingFile = Path.GetFileName(_filepath)
                     TxtPchExpLoadedFile.Text = PchExpSettingFile
 
+                    If FlgPitchExp = 1 Then
+                        With FrmSST4500_1_0_0J_Profile
+                            .TxtLength.Text = PchExp_Length
+                            .TxtPitch.Text = _data_array(0)
+                            .TxtPoints.Text = _rows_count
+                        End With
+                    End If
+
                     _flg_ng = 2
                 End If
 
@@ -626,6 +644,8 @@ Public Class FrmSST4500_1_0_0J_pitchsetting
 
                     Data_chk()
                     cmd_enadis()
+
+                    _flg_ng = 2
                 End If
 
             End With
