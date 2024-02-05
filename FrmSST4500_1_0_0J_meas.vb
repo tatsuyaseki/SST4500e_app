@@ -737,6 +737,18 @@ Public Class FrmSST4500_1_0_0J_meas
             meas_dbf_chg(FlgDBF)
 
             'FlgMainMeas = 1
+        Else
+            DrawGraphCurData_clear()
+            DrawGraphBakData_clear()
+            DrawGraph_init()
+            DrawCalcCurData_init()
+            DrawMeasCurData_init()
+            DrawCalcBakData_init()
+            DrawMeasBakData_init()
+            GraphInitMeas()
+
+            ClsCurInfoMeas()
+            ClsBakInfoMeas()
         End If
     End Sub
 
@@ -786,6 +798,13 @@ Public Class FrmSST4500_1_0_0J_meas
         xright2_label = "=90 deg."
 
         PictureBox1.Refresh()
+    End Sub
+
+    Private Sub ClsCurInfoMeas()
+        TxtMachNoCur.Text = ""
+        TxtSmplNamCur.Text = ""
+        TxtMarkCur.Text = ""
+        TxtMeasNumCur.Text = ""
     End Sub
 
     Private Sub ClsBakInfoMeas()
@@ -1374,6 +1393,7 @@ Public Class FrmSST4500_1_0_0J_meas
         Dim chk_filename As String
         Dim chk_filehead As String
         Dim sample_tmp_len As Integer
+        Dim _points As Integer
 
         MachineNo = TxtMachNoCur.Text
         If FlgDBF = 0 Then
@@ -1421,8 +1441,13 @@ Public Class FrmSST4500_1_0_0J_meas
                 StrFileName = "SG_0_" & Trim(MachineNo) & "_" & Trim(Sample) & ".cns"
                 chk_filehead = "SG"
             Case 1
+                If FlgPitchExp = 0 Then
+                    _points = Trim(Str(Points))
+                Else
+                    _points = UBound(PchExp_PchData) + 2
+                End If
                 filter_tmp = "Constant File(PF*.cns)|PF*.cns"
-                StrFileName = "PF_" & Trim(Str(Points)) & "_" & Trim(MachineNo) & "_" & Trim(Sample) & ".cns"
+                StrFileName = "PF_" & _points & "_" & Trim(MachineNo) & "_" & Trim(Sample) & ".cns"
                 chk_filehead = "PF"
             Case 2
                 filter_tmp = "Constant File(CT*.cns)|CT*.cns"
@@ -1463,17 +1488,30 @@ Public Class FrmSST4500_1_0_0J_meas
                     StrConstFileName = Path.GetFileName(FilePath)
                     StrConstFilePath = FilePath
                     Using sw As New StreamWriter(FilePath, False, Encoding.UTF8)
-                        sw.WriteLine(MachineNo & "," & Sample & "," &
-                                     Mark & "," & BW & "," &
-                                     DataDate & "," & DataTime & "," &
-                                     FlgProfile & "," & Length & "," &
-                                     Pitch & "," & Points & "," &
-                                     FlgInch & "," & FlgPrfDisplay & "," &
-                                     FlgMeasAutoPrn & "," & FlgPrfAutoPrn & "," &
-                                     FlgPrfPrint & "," & FlgAlternate & "," &
-                                     FlgVelocityRange & "," & FlgAngleRange & "," &
-                                     FlgPkCenterAngle & "," & FlgDpCenterAngle & "," &
-                                     FlgPitchExp)
+                        If FlgProfile = 1 Then
+                            sw.WriteLine(MachineNo & "," & Sample & "," &
+                                         Mark & "," & BW & "," &
+                                         DataDate & "," & DataTime & "," &
+                                         FlgProfile & "," & Length & "," &
+                                         Pitch & "," & Points & "," &
+                                         FlgInch & "," & FlgPrfDisplay & "," &
+                                         FlgMeasAutoPrn & "," & FlgPrfAutoPrn & "," &
+                                         FlgPrfPrint & "," & FlgAlternate & "," &
+                                         FlgVelocityRange & "," & FlgAngleRange & "," &
+                                         FlgPkCenterAngle & "," & FlgDpCenterAngle & "," &
+                                         FlgPitchExp & "," & PchExpSettingFile_FullPath)
+                        Else
+                            sw.WriteLine(MachineNo & "," & Sample & "," &
+                                         Mark & "," & BW & "," &
+                                         DataDate & "," & DataTime & "," &
+                                         FlgProfile & "," & Length & "," &
+                                         Pitch & "," & Points & "," &
+                                         FlgInch & "," & FlgPrfDisplay & "," &
+                                         FlgMeasAutoPrn & "," & FlgPrfAutoPrn & "," &
+                                         FlgPrfPrint & "," & FlgAlternate & "," &
+                                         FlgVelocityRange & "," & FlgAngleRange & "," &
+                                         FlgPkCenterAngle & "," & FlgDpCenterAngle)
+                        End If
                     End Using
 
                     Dim _filename2 As String

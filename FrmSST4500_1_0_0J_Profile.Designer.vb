@@ -7780,7 +7780,6 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.TxtMarkCur.Name = "TxtMarkCur"
         Me.TxtMarkCur.Size = New System.Drawing.Size(71, 22)
         Me.TxtMarkCur.TabIndex = 59
-        Me.TxtMarkCur.Text = "50XXXX"
         '
         'TxtMarkBak
         '

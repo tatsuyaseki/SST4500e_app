@@ -2693,6 +2693,18 @@ Public Class FrmSST4500_1_0_0J_Profile
         Next
     End Sub
 
+    Private Sub ClsCurInfoPrf()
+        TxtMachNoCur.Text = ""
+        TxtSmplNamCur.Text = ""
+        TxtMarkCur.Text = ""
+        TxtMeasNumCur.Text = ""
+        TxtMeasLotCur.Text = ""
+
+        TxtLength.Text = ""
+        TxtPitch.Text = ""
+        TxtPoints.Text = ""
+    End Sub
+
     Private Sub ClsBakInfoPrf()
         '過去データのテキストボックスをクリアする
         'ClsFConditionMeas()の代わり
@@ -2802,6 +2814,13 @@ Public Class FrmSST4500_1_0_0J_Profile
             LoadConstPitch_FileErr_Run = 0
 
             prf_dbf_chg(FlgDBF)
+        Else
+            '画面非表示になるとき
+            ClsNoPrf()
+            GraphInitPrf()
+
+            ClsCurInfoPrf()
+            'ClsBakInfoPrn()はGraphInitPrf()内で実行済み
         End If
     End Sub
 
@@ -7374,6 +7393,7 @@ Public Class FrmSST4500_1_0_0J_Profile
         Dim chk_filename As String
         Dim chk_filehead As String
         Dim sample_tmp_len As Integer
+        Dim _points As Integer
 
         MachineNo = TxtMachNoCur.Text
         If FlgDBF = 0 Then
@@ -7421,8 +7441,15 @@ Public Class FrmSST4500_1_0_0J_Profile
                 StrFileName = "SG_0_" & Trim(MachineNo) & "_" & Trim(Sample) & ".cns"
                 chk_filehead = "SG"
             Case 1
+                If FlgPitchExp = 0 Then
+                    'ピッチ拡張無効時
+                    _points = Trim(Str(Points))
+                Else
+                    'ピッチ拡張有効時
+                    _points = UBound(PchExp_PchData) + 2
+                End If
                 filter_tmp = "Constant File(PF*.cns)|PF*.cns"
-                StrFileName = "PF_" & Trim(Str(Points)) & "_" & Trim(MachineNo) & "_" & Trim(Sample) & ".cns"
+                StrFileName = "PF_" & _points & "_" & Trim(MachineNo) & "_" & Trim(Sample) & ".cns"
                 chk_filehead = "PF"
             Case 2
                 filter_tmp = "Constant File(CT*.cns)|CT*.cns"
@@ -7485,8 +7512,7 @@ Public Class FrmSST4500_1_0_0J_Profile
                                          FlgMeasAutoPrn & "," & FlgPrfAutoPrn & "," &
                                          FlgPrfPrint & "," & FlgAlternate & "," &
                                          FlgVelocityRange & "," & FlgAngleRange & "," &
-                                         FlgPkCenterAngle & "," & FlgDpCenterAngle & "," &
-                                         FlgPitchExp)
+                                         FlgPkCenterAngle & "," & FlgDpCenterAngle)
                         End If
                     End Using
 

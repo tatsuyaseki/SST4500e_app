@@ -2180,9 +2180,14 @@ Module Module1
                         If data_len_tmp > data_len Then
                             LengthOld = splittedResult(30)
                             PitchOld = splittedResult(31)
-                            FlgPchExpMes_old = splittedResult(32)
-                            'PchExpSettingFile_FullPath_old = splittedResult(33)
-                            StrConstFilePath_old = splittedResult(33)
+                            If data_len_tmp > data_len + 2 Then
+                                FlgPchExpMes_old = splittedResult(32)
+                                'PchExpSettingFile_FullPath_old = splittedResult(33)
+                                StrConstFilePath_old = splittedResult(33)
+                            Else
+                                FlgPchExpMes_old = 0
+                                StrConstFilePath_old = ""
+                            End If
                         Else
                             LengthOld = 0
                             PitchOld = 0
@@ -2870,7 +2875,8 @@ Module Module1
                                      StrDataFileName, True, Encoding.UTF8)
             If FlgDBF = 0 Then
                 '標準データ仕様
-                sw.WriteLine("Machine No.," &   '0 Ds(1)
+                If FlgProfile = 1 Then
+                    sw.WriteLine("Machine No.," &   '0 Ds(1)
                              "Sample Name," &   '1 Ds(2)
                              "Mark," &          '2 Ds(3)
                              "B/W," &           '3 Ds(4)
@@ -2904,7 +2910,39 @@ Module Module1
                              "Pitch," &         '31 Dn(25)
                              "PchExp," &        '32 Dn(26)
                              "cnsFilePath")     '32 Ds(10)
-                '"PchExpFilePath")  '33 Ds(10)   
+                    '"PchExpFilePath")  '33 Ds(10)   
+                Else
+                    sw.WriteLine("Machine No.," &   '0 Ds(1)
+                             "Sample Name," &   '1 Ds(2)
+                             "Mark," &          '2 Ds(3)
+                             "B/W," &           '3 Ds(4)
+                             "No.," &           '4 Ds(5)
+                             "Date," &          '5 Ds(6)
+                             "Time," &          '6 Ds(7)
+                             "Points," &        '7 Dn(1)
+                             "MD/CD," &         '8 Dn(2)
+                             "Peak/Deep," &     '9 Dn(3)
+                             "Angle-Deep," &    '10 Ds(8)
+                             "Angle-Peak," &    '11 Ds(9)
+                             "Deep," &          '12 Dn(6)
+                             "Peak," &          '13 Dn(7)
+                             "0," &             '14 Dn(8)
+                             "11.25," &         '15 Dn(9)
+                             "22.5," &          '16 Dn(10)
+                             "33.75," &         '17 Dn(11)
+                             "45," &            '18 Dn(12)
+                             "56.25," &         '19 Dn(13)
+                             "67.5," &          '20 Dn(14)
+                             "78.75," &         '21 Dn(15)
+                             "90," &            '22 Dn(16)
+                             "101.25," &        '23 Dn(17)
+                             "112.5," &         '24 Dn(18)
+                             "123.75," &        '25 Dn(19)
+                             "135," &           '26 Dn(20)
+                             "146.25," &        '27 Dn(21)
+                             "157.5," &         '28 Dn(22)
+                             "168.75")          '29 Ds(10)
+                End If
             Else
                 '特定顧客向けデータ仕様(特殊1)
                 sw.WriteLine("Sample Name," &       '0 Ds(2)
@@ -3021,50 +3059,83 @@ Module Module1
         Using sw As New StreamWriter(cur_dir & DEF_DATA_FILE_FLD &
                                      StrDataFileName, True, Encoding.UTF8)
             If FlgDBF = 0 Then
-                sw.WriteLine(Ds(1) & "," &              'Machine No.
-                             Ds(2) & "," &              'Sample Name
-                             Ds(3) & "," &              'Mark
-                             Ds(4) & "," &              'B/W
-                             Ds(5) & "," &              'No.
-                             Ds(6) & "," &              'Date
-                             Ds(7) & "," &              'Time
-                             Dn(1).ToString & "," &     'Points
-                             Dn(2).ToString & "," &     'MD/CD
-                             Dn(3).ToString & "," &     'Peak/Deep
-                             Ds(8) & "," &              'Angle-Deep
-                             Ds(9) & "," &              'Angle-Peak
-                             Dn(6).ToString & "," &     'Deep
-                             Dn(7).ToString & "," &     'Peak
-                             Dn(8).ToString & "," &     '0
-                             Dn(9).ToString & "," &     '11.25
-                             Dn(10).ToString & "," &    '22.5
-                             Dn(11).ToString & "," &    '33.75
-                             Dn(12).ToString & "," &    '45
-                             Dn(13).ToString & "," &    '56.25
-                             Dn(14).ToString & "," &    '67.5
-                             Dn(15).ToString & "," &    '78.75
-                             Dn(16).ToString & "," &    '90
-                             Dn(17).ToString & "," &    '101.25
-                             Dn(18).ToString & "," &    '112.5
-                             Dn(19).ToString & "," &    '123.75
-                             Dn(20).ToString & "," &    '135
-                             Dn(21).ToString & "," &    '146.25
-                             Dn(22).ToString & "," &    '157.5
-                             Dn(23).ToString & "," &    '168.75
-                             Dn(24).ToString & "," &    'Length
-                             Dn(25).ToString & "," &    'Pitch
-                             Dn(26).ToString & "," &    'PchExpMes
-                             Ds(10))                    'ConstFilePath
+                If FlgProfile = 1 Then
+                    sw.WriteLine(Ds(1) & "," &              '0 Machine No.
+                                 Ds(2) & "," &              '1 Sample Name
+                                 Ds(3) & "," &              '2 Mark
+                                 Ds(4) & "," &              '3 B/W
+                                 Ds(5) & "," &              '4 No.
+                                 Ds(6) & "," &              '5 Date
+                                 Ds(7) & "," &              '6 Time
+                                 Dn(1).ToString & "," &     '7 Points
+                                 Dn(2).ToString & "," &     '8 MD/CD
+                                 Dn(3).ToString & "," &     '9 Peak/Deep
+                                 Ds(8) & "," &              '10 Angle-Deep
+                                 Ds(9) & "," &              '11 Angle-Peak
+                                 Dn(6).ToString & "," &     '12 Deep
+                                 Dn(7).ToString & "," &     '13 Peak
+                                 Dn(8).ToString & "," &     '14 0 
+                                 Dn(9).ToString & "," &     '15 11.25
+                                 Dn(10).ToString & "," &    '16 22.5
+                                 Dn(11).ToString & "," &    '17 33.75
+                                 Dn(12).ToString & "," &    '18 45
+                                 Dn(13).ToString & "," &    '19 56.25
+                                 Dn(14).ToString & "," &    '20 67.5
+                                 Dn(15).ToString & "," &    '21 78.75
+                                 Dn(16).ToString & "," &    '22 90
+                                 Dn(17).ToString & "," &    '23 101.25
+                                 Dn(18).ToString & "," &    '24 112.5
+                                 Dn(19).ToString & "," &    '25 123.75
+                                 Dn(20).ToString & "," &    '26 135
+                                 Dn(21).ToString & "," &    '27 146.25
+                                 Dn(22).ToString & "," &    '28 157.5
+                                 Dn(23).ToString & "," &    '29 168.75
+                                 Dn(24).ToString & "," &    '30 Length
+                                 Dn(25).ToString & "," &    '31 Pitch
+                                 Dn(26).ToString & "," &    '32 PchExpMes
+                                 Ds(10))                    '33 ConstFilePath
+                Else
+                    sw.WriteLine(Ds(1) & "," &              '0 Machine No.
+                                 Ds(2) & "," &              '1 Sample Name
+                                 Ds(3) & "," &              '2 Mark
+                                 Ds(4) & "," &              '3 B/W
+                                 Ds(5) & "," &              '4 No.
+                                 Ds(6) & "," &              '5 Date
+                                 Ds(7) & "," &              '6 Time
+                                 Dn(1).ToString & "," &     '7 Points
+                                 Dn(2).ToString & "," &     '8 MD/CD
+                                 Dn(3).ToString & "," &     '9 Peak/Deep
+                                 Ds(8) & "," &              '10 Angle-Deep
+                                 Ds(9) & "," &              '11 Angle-Peak
+                                 Dn(6).ToString & "," &     '12 Deep
+                                 Dn(7).ToString & "," &     '13 Peak
+                                 Dn(8).ToString & "," &     '14 0 
+                                 Dn(9).ToString & "," &     '15 11.25
+                                 Dn(10).ToString & "," &    '16 22.5
+                                 Dn(11).ToString & "," &    '17 33.75
+                                 Dn(12).ToString & "," &    '18 45
+                                 Dn(13).ToString & "," &    '19 56.25
+                                 Dn(14).ToString & "," &    '20 67.5
+                                 Dn(15).ToString & "," &    '21 78.75
+                                 Dn(16).ToString & "," &    '22 90
+                                 Dn(17).ToString & "," &    '23 101.25
+                                 Dn(18).ToString & "," &    '24 112.5
+                                 Dn(19).ToString & "," &    '25 123.75
+                                 Dn(20).ToString & "," &    '26 135
+                                 Dn(21).ToString & "," &    '27 146.25
+                                 Dn(22).ToString & "," &    '28 157.5
+                                 Dn(23).ToString)           '29 168.75
+                End If
             Else
                 Select Case FlgProfile
                     Case 0
                         Sa = "S_"
                     Case 1
-                        Sa = "P_"
+                        Sa = "C_"
                     Case 2
                         Sa = "C_"
                     Case 3
-                        Sa = "L_"
+                        Sa = "C_"
                 End Select
                 sw.WriteLine(Ds(2) & "," &              'Sample Name
                              Ds(3) & "," &              'Mark
