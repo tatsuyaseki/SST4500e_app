@@ -2836,6 +2836,7 @@ Public Class FrmSST4500_1_0_0J_Profile
             終了ToolStripMenuItem.Enabled = False
             FlgStop = 1
         Else
+            Cls_PchExpOld()
             FlgMainProfile = 90
         End If
     End Sub
@@ -6276,11 +6277,15 @@ Public Class FrmSST4500_1_0_0J_Profile
         ClsNoPrf()
         GraphInitPrf()
 
+        Cls_PchExpOld()
+
+    End Sub
+
+    Private Sub Cls_PchExpOld()
         '過去のピッチ拡張設定関連のクリア
         PchExp_Length_old = 0
         ReDim PchExp_PchData_old(0)
         FlgPitchExp_Load_old = 0
-
     End Sub
 
     Private Sub RedrawGraphAngle()

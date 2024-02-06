@@ -453,6 +453,10 @@ Public Class FrmSST4500_1_0_0J_pitchsetting
         Dim _filename_const As String
         Dim _filepath As String
         Dim pitchfile_bak As String
+        Dim chk_filename As String
+        Dim chk_filehead As String
+
+        chk_filehead = "PF"
 
         _filename_const = Path.GetFileNameWithoutExtension(StrConstFileName)
         pitchfile_bak = PchExpSettingFile_FullPath
@@ -461,13 +465,27 @@ Public Class FrmSST4500_1_0_0J_pitchsetting
             With dialog
                 .InitialDirectory = cur_dir & DEF_CONST_FILE_FLD
                 .Title = "ピッチ拡張設定ファイルの保存"
-                .Filter = "Pitch Exp File(*.pitch)|*.pitch"
-                .FileName = _filename_const & StrConstFileName_PchExp
+                .Filter = "Pitch Exp File(PF*.pitch)|PF*.pitch"
+                If pitchfile_bak = "" Then
+                    .FileName = _filename_const & StrConstFileName_PchExp
+                Else
+                    .FileName = Path.GetFileNameWithoutExtension(pitchfile_bak) & StrConstFileName_PchExp
+                End If
 
                 result_tmp = .ShowDialog
 
                 If result_tmp = DialogResult.OK Then
                     _filepath = .FileName
+
+                    chk_filename = Strings.Left(Path.GetFileName(_filepath), 2)
+                    If chk_filename <> chk_filehead Then
+                        MessageBox.Show("ファイル名の先頭は、必ず「" & chk_filehead & "」として下さい。" & vbCrLf &
+                                        "一旦保存処理を終了します。",
+                                        "ファイル名エラー",
+                                        MessageBoxButtons.OK,
+                                        MessageBoxIcon.Error)
+                        Exit Sub
+                    End If
 
                     _rows_count = DataGridView1.Rows.Count
                     For i = 0 To _rows_count - 2
@@ -600,12 +618,12 @@ Public Class FrmSST4500_1_0_0J_pitchsetting
 
         If Length_tmp < LnCmp + min_Pitch Then
             MessageBox.Show("設定可能な最小サンプル長さを下回っています。" & vbCrLf &
-                                "両端補正値(" & LnCmp & "mm) + 最小ピッチ(" & min_Pitch & "mm)" &
-                                " = " & LnCmp + min_Pitch & "mm" & vbCrLf &
-                                "以上の数値を入力してください。",
-                                "入力値エラー",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Exclamation)
+                            "両端補正値(" & LnCmp & "mm) + 最小ピッチ(" & min_Pitch & "mm)" &
+                            " = " & LnCmp + min_Pitch & "mm" & vbCrLf &
+                            "以上の数値を入力してください。",
+                            "入力値エラー",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Exclamation)
             TxtLength.Text = Length
         End If
 
@@ -629,7 +647,7 @@ Public Class FrmSST4500_1_0_0J_pitchsetting
                 .InitialDirectory = cur_dir & DEF_CONST_FILE_FLD
                 .Title = "ピッチ拡張設定ファイルの読込"
                 .CheckFileExists = True
-                .Filter = "Pitch Exp File(*.pitch)|*.pitch"
+                .Filter = "Pitch Exp File(PF*.pitch)|PF*.pitch"
                 .FileName = PchExpSettingFile
 
                 result_tmp = .ShowDialog
