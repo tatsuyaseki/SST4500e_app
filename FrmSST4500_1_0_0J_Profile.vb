@@ -96,6 +96,8 @@ Public Class FrmSST4500_1_0_0J_Profile
     Dim _points_bak As Integer
     Dim _ret As Integer
 
+    Dim _points As Single
+
     Private Sub TimProfile_Tick(sender As Object, e As EventArgs) Handles TimProfile.Tick
 
         Select Case FlgMainProfile
@@ -141,7 +143,9 @@ Public Class FrmSST4500_1_0_0J_Profile
                         LoadConstPitch(PchExpSettingFile_FullPath)
                         TxtLength.Text = PchExp_Length
                         TxtPitch.Text = PchExp_PchData(0)
-                        TxtPoints.Text = UBound(PchExp_PchData) + 2
+                        _points = UBound(PchExp_PchData) + 2
+                        TxtPoints.Text = _points
+                        'TxtPoints.Text = UBound(PchExp_PchData) + 2
                     Else
                         FlgPitchExp_Load = 0
                     End If
@@ -159,7 +163,11 @@ Public Class FrmSST4500_1_0_0J_Profile
                         TxtPoints.Text = Points
                     End If
 
-                    GraphInitPrf()
+                    If FlgPitchExp = 1 Then
+                        GraphInitPrf(_points)
+                    Else
+                        GraphInitPrf(Points)
+                    End If
 
                     LblAngCenter.Text = PkAngCent
                     LblAngCenter.Visible = True
@@ -223,7 +231,7 @@ Public Class FrmSST4500_1_0_0J_Profile
                 DrawCalcBakData_init()
                 DrawCalcAvgData_init()
                 DrawTableData_init()
-                GraphInitPrf()
+                'GraphInitPrf(Points)
 
                 KdData = 1
                 SampleNo = 0
@@ -283,7 +291,7 @@ Public Class FrmSST4500_1_0_0J_Profile
                     FlgPchExpMes = 1    'ピッチ拡張有効で測定
                 End If
 
-                GraphInitPrf()
+                GraphInitPrf(Points)
 
                 KdData = 1
                 InitializeMaxMinInt()
@@ -696,7 +704,11 @@ Public Class FrmSST4500_1_0_0J_Profile
                 DrawCalcBakData_init()
                 DrawCalcAvgData_init()
                 DrawTableData_init()
-                GraphInitPrf()
+                If FlgPitchExp = 1 Then
+                    GraphInitPrf(PchExp_Points)
+                Else
+                    GraphInitPrf(Points)
+                End If
 
                 'CmdMeas.Enabled = True
                 'CmdMeasButton_set(_rdy)
@@ -787,7 +799,7 @@ Public Class FrmSST4500_1_0_0J_Profile
                 End If
                 TxtPoints.Text = Points
 
-                GraphInitPrf()
+                GraphInitPrf(Points)
 
                 FlgMainProfile = 0
                 TimProfile.Enabled = True
@@ -852,7 +864,7 @@ Public Class FrmSST4500_1_0_0J_Profile
                 Points = Points_tmp
                 TxtPoints.Text = Points
 
-                GraphInitPrf()
+                GraphInitPrf(Points)
 
                 FlgMainProfile = 0
                 TimProfile.Enabled = True
@@ -911,7 +923,7 @@ Public Class FrmSST4500_1_0_0J_Profile
 
                 End If
 
-                GraphInitPrf()
+                GraphInitPrf(Points)
 
                 FlgMainProfile = 0
                 TimProfile.Enabled = True
@@ -1238,7 +1250,7 @@ Public Class FrmSST4500_1_0_0J_Profile
                 prf_waku_ratio_Xpath.Clear()
                 prf_waku_velo_Xpath.Clear()
                 prf_waku_tsi_Xpath.Clear()
-                XScale()
+                XScale(Points)
 
                 For SampleNo = 1 To Kt1
                     PrfGraphAngleRatioOld()
@@ -1308,7 +1320,7 @@ Public Class FrmSST4500_1_0_0J_Profile
                     End If
 
                     SampleNo = Kt1
-                    XScale()
+                    XScale(Points)
                 Else
                     Kt1 = FileDataMax
                     If Kt1 > DspPointx + lg_graph_max Then
@@ -2142,7 +2154,7 @@ Public Class FrmSST4500_1_0_0J_Profile
             TxtPoints.Text = Points
         End If
 
-        XScale()
+        XScale(Points)
 
         PictureBox1.Refresh()
         PictureBox2.Refresh()
@@ -2150,7 +2162,7 @@ Public Class FrmSST4500_1_0_0J_Profile
         PictureBox4.Refresh()
     End Sub
 
-    Private Sub GraphInitPrf()
+    Public Sub GraphInitPrf(ByVal _points As Single)
         'cmdClsGraph_Clickの代わり?
         PictureBox1.CreateGraphics.Clear(BackColor)
         PictureBox2.CreateGraphics.Clear(BackColor)
@@ -2261,7 +2273,7 @@ Public Class FrmSST4500_1_0_0J_Profile
             HScrollBar2.Enabled = False
         End If
 
-        XScale()
+        XScale(_points)
 
         PictureBox1.Refresh()
         PictureBox2.Refresh()
@@ -2448,7 +2460,7 @@ Public Class FrmSST4500_1_0_0J_Profile
         prf_waku_ratio_Ylabel(3) = "0.5"
     End Sub
 
-    Private Sub XScale()
+    Private Sub XScale(ByVal _points As Single)
         Dim i As Integer
         Dim graph_width As Integer
 
@@ -2475,12 +2487,15 @@ Public Class FrmSST4500_1_0_0J_Profile
 
             SclX = ((graph_width) / (lg_graph_max - 1)) * lg_stepscale
         Else
-            StepX = (graph_width) / (Points - 1)
-            StepScale = Int((Points) / 5)
+            'StepX = (graph_width) / (Points - 1)
+            StepX = (graph_width) / (_points - 1)
+            'StepScale = Int((Points) / 5)
+            StepScale = Int((_points) / 5)
             ShiftXNum = 0
 
             SclX = StepX * StepScale
-            If Points < 5 Then
+            'If Points < 5 Then
+            If _points < 5 Then
                 SclX = StepX
                 StepScale = 1
             End If
@@ -2510,8 +2525,10 @@ Public Class FrmSST4500_1_0_0J_Profile
 
         prf_waku_Xlabel(0) = 1 + ShiftXNum
 
-        If Points < 10 Then
-            If Points > 2 Then
+        'If Points < 10 Then
+        If _points < 10 Then
+            'If Points > 2 Then
+            If _points > 2 Then
                 path1.StartFigure()
                 path1.AddLine(graph_x_sta + SclX * 1, angle_yaxis_max, graph_x_sta + SclX * 1, angle_yaxis_min)
                 path2.StartFigure()
@@ -2522,7 +2539,8 @@ Public Class FrmSST4500_1_0_0J_Profile
                 path4.AddLine(graph_x_sta + SclX * 1, tsi_yaxis_max, graph_x_sta + SclX * 1, tsi_yaxis_min)
                 prf_waku_Xlabel(1) = StepScale * 2 + ShiftXNum
             End If
-            If Points > 3 Then
+            'If Points > 3 Then
+            If _points > 3 Then
                 path1.StartFigure()
                 path1.AddLine(graph_x_sta + SclX * 2, angle_yaxis_max, graph_x_sta + SclX * 2, angle_yaxis_min)
                 path2.StartFigure()
@@ -2533,7 +2551,8 @@ Public Class FrmSST4500_1_0_0J_Profile
                 path4.AddLine(graph_x_sta + SclX * 2, tsi_yaxis_max, graph_x_sta + SclX * 2, tsi_yaxis_min)
                 prf_waku_Xlabel(2) = StepScale * 3 + ShiftXNum
             End If
-            If Points > 4 Then
+            'If Points > 4 Then
+            If _points > 4 Then
                 path1.StartFigure()
                 path1.AddLine(graph_x_sta + SclX * 3, angle_yaxis_max, graph_x_sta + SclX * 3, angle_yaxis_min)
                 path2.StartFigure()
@@ -2544,7 +2563,8 @@ Public Class FrmSST4500_1_0_0J_Profile
                 path4.AddLine(graph_x_sta + SclX * 3, tsi_yaxis_max, graph_x_sta + SclX * 3, tsi_yaxis_min)
                 prf_waku_Xlabel(3) = StepScale * 4 + ShiftXNum
             End If
-            If Points > 5 Then
+            'If Points > 5 Then
+            If _points > 5 Then
                 path1.StartFigure()
                 path1.AddLine(graph_x_sta + SclX * 4, angle_yaxis_max, graph_x_sta + SclX * 4, angle_yaxis_min)
                 path2.StartFigure()
@@ -2555,7 +2575,8 @@ Public Class FrmSST4500_1_0_0J_Profile
                 path4.AddLine(graph_x_sta + SclX * 4, tsi_yaxis_max, graph_x_sta + SclX * 4, tsi_yaxis_min)
                 prf_waku_Xlabel(4) = StepScale * 5 + ShiftXNum
             End If
-            If Points > 6 Then
+            'If Points > 6 Then
+            If _points > 6 Then
                 path1.StartFigure()
                 path1.AddLine(graph_x_sta + SclX * 5, angle_yaxis_max, graph_x_sta + SclX * 5, angle_yaxis_min)
                 path2.StartFigure()
@@ -2566,7 +2587,8 @@ Public Class FrmSST4500_1_0_0J_Profile
                 path4.AddLine(graph_x_sta + SclX * 5, tsi_yaxis_max, graph_x_sta + SclX * 5, tsi_yaxis_min)
                 prf_waku_Xlabel(5) = StepScale * 6 + ShiftXNum
             End If
-            If Points > 7 Then
+            'If Points > 7 Then
+            If _points > 7 Then
                 path1.StartFigure()
                 path1.AddLine(graph_x_sta + SclX * 6, angle_yaxis_max, graph_x_sta + SclX * 6, angle_yaxis_min)
                 path2.StartFigure()
@@ -2577,7 +2599,8 @@ Public Class FrmSST4500_1_0_0J_Profile
                 path4.AddLine(graph_x_sta + SclX * 6, tsi_yaxis_max, graph_x_sta + SclX * 6, tsi_yaxis_min)
                 prf_waku_Xlabel(6) = StepScale * 7 + ShiftXNum
             End If
-            If Points > 8 Then
+            'If Points > 8 Then
+            If _points > 8 Then
                 path1.StartFigure()
                 path1.AddLine(graph_x_sta + SclX * 7, angle_yaxis_max, graph_x_sta + SclX * 7, angle_yaxis_min)
                 path2.StartFigure()
@@ -2588,7 +2611,8 @@ Public Class FrmSST4500_1_0_0J_Profile
                 path4.AddLine(graph_x_sta + SclX * 7, tsi_yaxis_max, graph_x_sta + SclX * 7, tsi_yaxis_min)
                 prf_waku_Xlabel(7) = StepScale * 8 + ShiftXNum
             End If
-            If Points > 9 Then
+            'If Points > 9 Then
+            If _points > 9 Then
                 path1.StartFigure()
                 path1.AddLine(graph_x_sta + SclX * 8, angle_yaxis_max, graph_x_sta + SclX * 8, angle_yaxis_min)
                 path2.StartFigure()
@@ -2611,7 +2635,8 @@ Public Class FrmSST4500_1_0_0J_Profile
                 path4.AddLine(graph_x_sta + SclX * i - StepX, tsi_yaxis_max, graph_x_sta + SclX * i - StepX, tsi_yaxis_min)
                 prf_waku_Xlabel(i) = StepScale * i + ShiftXNum
             Next
-            If Points - StepScale * 4 > StepScale Then
+            'If Points - StepScale * 4 > StepScale Then
+            If _points - StepScale * 4 > StepScale Then
                 path1.StartFigure()
                 path1.AddLine(graph_x_sta + SclX * 5 - StepX, angle_yaxis_max, graph_x_sta + SclX * 5 - StepX, angle_yaxis_min)
                 path2.StartFigure()
@@ -2622,7 +2647,8 @@ Public Class FrmSST4500_1_0_0J_Profile
                 path4.AddLine(graph_x_sta + SclX * 5 - StepX, tsi_yaxis_max, graph_x_sta + SclX * 5 - StepX, tsi_yaxis_min)
                 prf_waku_Xlabel(5) = StepScale * 5 + ShiftXNum
             End If
-            If Points - StepScale * 5 > StepScale And FlgProfile <> 3 Then
+            'If Points - StepScale * 5 > StepScale And FlgProfile <> 3 Then
+            If _points - StepScale * 5 > StepScale And FlgProfile <> 3 Then
                 path1.StartFigure()
                 path1.AddLine(graph_x_sta + SclX * 6 - StepX, angle_yaxis_max, graph_x_sta + SclX * 6 - StepX, angle_yaxis_min)
                 path2.StartFigure()
@@ -2817,7 +2843,7 @@ Public Class FrmSST4500_1_0_0J_Profile
         Else
             '画面非表示になるとき
             ClsNoPrf()
-            GraphInitPrf()
+            GraphInitPrf(Points)
 
             ClsCurInfoPrf()
             'ClsBakInfoPrn()はGraphInitPrf()内で実行済み
@@ -4293,6 +4319,17 @@ Public Class FrmSST4500_1_0_0J_Profile
     End Sub
 
     Private Sub CmdMeas_Click(sender As Object, e As EventArgs) Handles CmdMeas.Click
+        '測定仕様未保存時は測定を開始しない。
+        If FlgConstChg = True Then
+            MessageBox.Show("測定仕様が保存されていません。" & vbCrLf &
+                            "測定仕様の保存をしてから、" & vbCrLf &
+                            "測定開始を実行して下さい。",
+                            "測定開始エラー",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning)
+            Exit Sub
+        End If
+
         MeasRun()
     End Sub
 
@@ -6275,7 +6312,7 @@ Public Class FrmSST4500_1_0_0J_Profile
         DrawTableData_init()
 
         ClsNoPrf()
-        GraphInitPrf()
+        GraphInitPrf(Points)
 
         Cls_PchExpOld()
 
@@ -7102,7 +7139,8 @@ Public Class FrmSST4500_1_0_0J_Profile
                 LoadConstPitch(PchExpSettingFile_FullPath)
                 TxtLength.Text = PchExp_Length
                 TxtPitch.Text = PchExp_PchData(0)
-                TxtPoints.Text = UBound(PchExp_PchData) + 2
+                PchExp_Points = UBound(PchExp_PchData) + 2
+                TxtPoints.Text = PchExp_Points
             Else
                 FlgPitchExp_Load = 0
             End If
@@ -11050,6 +11088,8 @@ Rdg8:
     End Sub
 
     Private Sub ChkPitchExp_CheckedChanged(sender As Object, e As EventArgs) Handles ChkPitchExp.CheckedChanged
+
+
         If ChkPitchExp.Checked = True Then
             FlgPitchExp = 1
             TxtLength.Enabled = False
@@ -11064,6 +11104,8 @@ Rdg8:
                     TxtLength.Text = PchExp_Length
                     TxtPitch.Text = PchExp_PchData(0)
                     TxtPoints.Text = UBound(PchExp_PchData) + 2
+
+                    GraphInitPrf(UBound(PchExp_PchData) + 2)
                 End If
             End If
         Else
@@ -11074,6 +11116,8 @@ Rdg8:
             TxtLength.Text = Length
             TxtPitch.Text = Pitch
             TxtPoints.Text = Points
+
+            GraphInitPrf(Points)
         End If
         If FlgInitEnd = 1 Then
             ConstChangeTrue(Me, title_text2)
@@ -12736,7 +12780,7 @@ Rdg8:
         DrawTableData_init()
 
         ClsNoPrf()
-        GraphInitPrf()
+        GraphInitPrf(Points)
     End Sub
 
     Private Sub 平均値ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles 平均値ToolStripMenuItem.Click
@@ -12934,7 +12978,4 @@ Rdg8:
         FrmSST4500_1_0_0J_pitchsetting.Visible = True
     End Sub
 
-    Private Sub TxtMachNoCur_Validating(sender As Object, e As CancelEventArgs) Handles TxtMachNoCur.Validating
-
-    End Sub
 End Class

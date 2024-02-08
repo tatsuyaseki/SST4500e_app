@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FrmSST4500_1_0_0J_setting
     Inherits System.Windows.Forms.Form
 
     'フォームがコンポーネントの一覧をクリーンアップするために dispose をオーバーライドします。
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class FrmSST4500_1_0_0J_setting
     'メモ: 以下のプロシージャは Windows フォーム デザイナーで必要です。
     'Windows フォーム デザイナーを使用して変更できます。  
     'コード エディターを使って変更しないでください。
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmSST4500_1_0_0J_setting))
         Me.LblAngPkColor = New System.Windows.Forms.Label()
@@ -95,6 +95,8 @@ Partial Class FrmSST4500_1_0_0J_setting
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.CmdSettingQuit = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.GroupBox6 = New System.Windows.Forms.GroupBox()
+        Me.txtUserconf = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
@@ -106,6 +108,7 @@ Partial Class FrmSST4500_1_0_0J_setting
         CType(Me.NupPrnMarginTop, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
+        Me.GroupBox6.SuspendLayout()
         Me.SuspendLayout()
         '
         'LblAngPkColor
@@ -678,7 +681,7 @@ Partial Class FrmSST4500_1_0_0J_setting
         '
         'CmdSettingReset
         '
-        Me.CmdSettingReset.Location = New System.Drawing.Point(12, 399)
+        Me.CmdSettingReset.Location = New System.Drawing.Point(12, 460)
         Me.CmdSettingReset.Name = "CmdSettingReset"
         Me.CmdSettingReset.Size = New System.Drawing.Size(75, 23)
         Me.CmdSettingReset.TabIndex = 4
@@ -956,7 +959,7 @@ Partial Class FrmSST4500_1_0_0J_setting
         '
         'CmdSettingQuit
         '
-        Me.CmdSettingQuit.Location = New System.Drawing.Point(447, 399)
+        Me.CmdSettingQuit.Location = New System.Drawing.Point(448, 460)
         Me.CmdSettingQuit.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.CmdSettingQuit.Name = "CmdSettingQuit"
         Me.CmdSettingQuit.Size = New System.Drawing.Size(75, 23)
@@ -973,11 +976,31 @@ Partial Class FrmSST4500_1_0_0J_setting
         Me.Button1.Text = "画面文字色設定"
         Me.Button1.UseVisualStyleBackColor = True
         '
+        'GroupBox6
+        '
+        Me.GroupBox6.Controls.Add(Me.txtUserconf)
+        Me.GroupBox6.Location = New System.Drawing.Point(12, 398)
+        Me.GroupBox6.Name = "GroupBox6"
+        Me.GroupBox6.Size = New System.Drawing.Size(510, 56)
+        Me.GroupBox6.TabIndex = 11
+        Me.GroupBox6.TabStop = False
+        Me.GroupBox6.Text = "ユーザー設定ファイルパス(アンインストール時に設定をリセットする場合は下記ファイルを削除して下さい)"
+        '
+        'txtUserconf
+        '
+        Me.txtUserconf.Location = New System.Drawing.Point(6, 18)
+        Me.txtUserconf.Multiline = True
+        Me.txtUserconf.Name = "txtUserconf"
+        Me.txtUserconf.ReadOnly = True
+        Me.txtUserconf.Size = New System.Drawing.Size(498, 30)
+        Me.txtUserconf.TabIndex = 0
+        '
         'FrmSST4500_1_0_0J_setting
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(534, 431)
+        Me.ClientSize = New System.Drawing.Size(535, 491)
+        Me.Controls.Add(Me.GroupBox6)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.CmdSettingQuit)
         Me.Controls.Add(Me.GroupBox5)
@@ -1002,6 +1025,8 @@ Partial Class FrmSST4500_1_0_0J_setting
         Me.GroupBox3.PerformLayout()
         Me.GroupBox5.ResumeLayout(False)
         Me.GroupBox5.PerformLayout()
+        Me.GroupBox6.ResumeLayout(False)
+        Me.GroupBox6.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1077,4 +1102,6 @@ Partial Class FrmSST4500_1_0_0J_setting
     Friend WithEvents CmdMarginApply As Button
     Friend WithEvents CmdSettingQuit As Button
     Friend WithEvents Button1 As Button
+    Friend WithEvents GroupBox6 As GroupBox
+    Friend WithEvents txtUserconf As TextBox
 End Class

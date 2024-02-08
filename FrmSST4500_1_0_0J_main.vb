@@ -40,6 +40,12 @@ Public Class FrmSST4500_1_0_0J_main
 
     Private Sub Form1_Load_1(ByVal sender As System.Object, ByVale As System.EventArgs) Handles MyBase.Load
         'Me.MaximumSize = Me.Size
+        Dim config As System.Configuration.Configuration =
+            System.Configuration.ConfigurationManager.OpenExeConfiguration(
+            System.Configuration.ConfigurationUserLevel.PerUserRoamingAndLocal)
+        FrmSST4500_1_0_0J_setting.txtUserconf.Text = config.FilePath
+        Console.WriteLine(config.FilePath)
+
         Me.MinimumSize = Me.Size
 
         cur_dir = Directory.GetCurrentDirectory

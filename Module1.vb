@@ -487,6 +487,7 @@ Module Module1
     Public PchExpSettingFile As String
     Public PchExpSettingFile_FullPath As String
     Public PchExpSettingFile_FullPath_old As String
+    Public PchExp_Points As Single
 
     Public title_text1 As String
     Public title_text2 As String

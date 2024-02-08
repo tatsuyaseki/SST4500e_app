@@ -85,6 +85,7 @@ Public Class FrmSST4500_1_0_0J_pitchsetting
 
     Private Sub SetConstPitch()
         Dim _pitchnum As Integer
+        Dim _points As Single
 
         If FlgPitchExp_Load = 1 Then
             _pitchnum = UBound(PchExp_PchData) + 1
@@ -102,11 +103,16 @@ Public Class FrmSST4500_1_0_0J_pitchsetting
             End With
 
             'プロファイル測定画面にも適用する
-            With FrmSST4500_1_0_0J_Profile
-                .TxtLength.Text = PchExp_Length
-                .TxtPitch.Text = PchExp_PchData(0)
-                .TxtPoints.Text = _pitchnum + 1
-            End With
+            If FlgPitchExp = 1 Then
+                With FrmSST4500_1_0_0J_Profile
+                    .TxtLength.Text = PchExp_Length
+                    .TxtPitch.Text = PchExp_PchData(0)
+                    _points = _pitchnum + 1
+                    .TxtPoints.Text = _points
+
+                    .GraphInitPrf(_points)
+                End With
+            End If
         Else
             '未ロードの場合新規作成状態
             TxtLength.Text = Length 'とりあえず測定画面のサンプル長をセットする
@@ -455,6 +461,7 @@ Public Class FrmSST4500_1_0_0J_pitchsetting
         Dim pitchfile_bak As String
         Dim chk_filename As String
         Dim chk_filehead As String
+        Dim _points As Single
 
         chk_filehead = "PF"
 
@@ -506,7 +513,10 @@ Public Class FrmSST4500_1_0_0J_pitchsetting
                         With FrmSST4500_1_0_0J_Profile
                             .TxtLength.Text = PchExp_Length
                             .TxtPitch.Text = _data_array(0)
-                            .TxtPoints.Text = _rows_count
+                            _points = _rows_count
+                            .TxtPoints.Text = _points
+
+                            .GraphInitPrf(_points)
                         End With
                     End If
 
