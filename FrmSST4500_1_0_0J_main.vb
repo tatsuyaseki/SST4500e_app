@@ -146,11 +146,17 @@ Public Class FrmSST4500_1_0_0J_main
         FlgPchExp_Visible = My.Settings._flg_pchexp_visible
         With FrmSST4500_1_0_0J_Profile
             If FlgPchExp_Visible = 1 Then
-                .ChkPitchExp.Visible = True
+                'ピッチ拡張表示蒔
+                .ChkPitchExp_Ena.Visible = True
+                .ChkPitchExp_Dis.Visible = True
                 .LblPitchExp.Visible = True
+                .LblPitch.Visible = False
             Else
-                .ChkPitchExp.Visible = False
-                .LblPitchExp.Visible = False
+                'ピッチ拡張非表示蒔
+                .ChkPitchExp_Ena.Visible = False
+                .ChkPitchExp_Dis.Visible = False
+                .LblPitch.Visible = False
+                .LblPitchExp.Visible = True
                 FlgPitchExp = 0     '無効時は強制的にピッチ拡張OFF
             End If
         End With

@@ -110,7 +110,13 @@ Public Class FrmSST4500_1_0_0J_pitchsetting
                     _points = _pitchnum + 1
                     .TxtPoints.Text = _points
 
-                    .GraphInitPrf(_points)
+                    If SampleNo = 0 And FileDataMax = 0 Then
+                        .DrawCalcCurData_init()
+                        .DrawCalcBakData_init()
+                        .DrawCalcAvgData_init()
+                        .DrawTableData_init()
+                        .GraphInitPrf(_points)
+                    End If
                 End With
             End If
         Else
@@ -353,7 +359,14 @@ Public Class FrmSST4500_1_0_0J_pitchsetting
 
         If FlgPitchExp_Load = 0 Then
             '未ロードの場合
-            FrmSST4500_1_0_0J_Profile.ChkPitchExp.Checked = False
+            With FrmSST4500_1_0_0J_Profile
+                RemoveHandler .ChkPitchExp_Ena.CheckedChanged, AddressOf .ChkPitchExp_Ena_CheckedChanged
+                RemoveHandler .ChkPitchExp_Dis.CheckedChanged, AddressOf .ChkPitchExp_Dis_CheckedChanged
+                .ChkPitchExp_Ena.Checked = False
+                .ChkPitchExp_Dis.Checked = True
+                AddHandler .ChkPitchExp_Ena.CheckedChanged, AddressOf .ChkPitchExp_Ena_CheckedChanged
+                AddHandler .ChkPitchExp_Dis.CheckedChanged, AddressOf .ChkPitchExp_Dis_CheckedChanged
+            End With
             LoadConstPitch_FileErr_Run = 0
             Me.Visible = False
         Else
@@ -516,6 +529,10 @@ Public Class FrmSST4500_1_0_0J_pitchsetting
                             _points = _rows_count
                             .TxtPoints.Text = _points
 
+                            .DrawCalcCurData_init()
+                            .DrawCalcBakData_init()
+                            .DrawCalcAvgData_init()
+                            .DrawTableData_init()
                             .GraphInitPrf(_points)
                         End With
                     End If

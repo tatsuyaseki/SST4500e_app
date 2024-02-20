@@ -163,6 +163,10 @@ Public Class FrmSST4500_1_0_0J_Profile
                         TxtPoints.Text = Points
                     End If
 
+                    DrawCalcCurData_init()
+                    DrawCalcBakData_init()
+                    DrawCalcAvgData_init()
+                    DrawTableData_init()
                     If FlgPitchExp = 1 Then
                         GraphInitPrf(_points)
                     Else
@@ -227,12 +231,6 @@ Public Class FrmSST4500_1_0_0J_Profile
                 HScrollBar2.Visible = False
                 HScrollBar2.Enabled = False
 
-                DrawCalcCurData_init()
-                DrawCalcBakData_init()
-                DrawCalcAvgData_init()
-                DrawTableData_init()
-                'GraphInitPrf(Points)
-
                 KdData = 1
                 SampleNo = 0
                 FileNo = 0
@@ -291,7 +289,12 @@ Public Class FrmSST4500_1_0_0J_Profile
                     FlgPchExpMes = 1    'ピッチ拡張有効で測定
                 End If
 
+                DrawCalcCurData_init()
+                DrawCalcBakData_init()
+                DrawCalcAvgData_init()
+                DrawTableData_init()
                 GraphInitPrf(Points)
+                Cls_PchExpOld()
 
                 KdData = 1
                 InitializeMaxMinInt()
@@ -799,6 +802,10 @@ Public Class FrmSST4500_1_0_0J_Profile
                 End If
                 TxtPoints.Text = Points
 
+                DrawCalcCurData_init()
+                DrawCalcBakData_init()
+                DrawCalcAvgData_init()
+                DrawTableData_init()
                 GraphInitPrf(Points)
 
                 FlgMainProfile = 0
@@ -864,6 +871,10 @@ Public Class FrmSST4500_1_0_0J_Profile
                 Points = Points_tmp
                 TxtPoints.Text = Points
 
+                DrawCalcCurData_init()
+                DrawCalcBakData_init()
+                DrawCalcAvgData_init()
+                DrawTableData_init()
                 GraphInitPrf(Points)
 
                 FlgMainProfile = 0
@@ -923,6 +934,10 @@ Public Class FrmSST4500_1_0_0J_Profile
 
                 End If
 
+                DrawCalcCurData_init()
+                DrawCalcBakData_init()
+                DrawCalcAvgData_init()
+                DrawTableData_init()
                 GraphInitPrf(Points)
 
                 FlgMainProfile = 0
@@ -2843,6 +2858,10 @@ Public Class FrmSST4500_1_0_0J_Profile
         Else
             '画面非表示になるとき
             ClsNoPrf()
+            DrawCalcCurData_init()
+            DrawCalcBakData_init()
+            DrawCalcAvgData_init()
+            DrawTableData_init()
             GraphInitPrf(Points)
 
             ClsCurInfoPrf()
@@ -2867,7 +2886,7 @@ Public Class FrmSST4500_1_0_0J_Profile
         End If
     End Sub
 
-    Private Sub DrawCalcCurData_init()
+    Public Sub DrawCalcCurData_init()
         LblAnglePkMaxCur_adm.Text = ""
         LblAnglePkAvgCur_adm.Text = ""
         LblAnglePkMinCur_adm.Text = ""
@@ -2931,7 +2950,7 @@ Public Class FrmSST4500_1_0_0J_Profile
         LblTSICDMin_nom.Text = ""
     End Sub
 
-    Private Sub DrawCalcBakData_init()
+    Public Sub DrawCalcBakData_init()
         LblAnglePkMaxBak_adm.Text = ""
         LblAnglePkAvgBak_adm.Text = ""
         LblAnglePkMinBak_adm.Text = ""
@@ -2966,7 +2985,7 @@ Public Class FrmSST4500_1_0_0J_Profile
 
     End Sub
 
-    Private Sub DrawCalcAvgData_init()
+    Public Sub DrawCalcAvgData_init()
         LblAnglePkMaxAvg_adm.Text = ""
         LblAnglePkAvgAvg_adm.Text = ""
         LblAnglePkMinAvg_adm.Text = ""
@@ -2999,7 +3018,7 @@ Public Class FrmSST4500_1_0_0J_Profile
         LblTSICDMinAvg_adm.Text = ""
     End Sub
 
-    Private Sub DrawTableData_init()
+    Public Sub DrawTableData_init()
         LblAnglePkMax_TB.Text = ""
         LblAnglePkAvg_TB.Text = ""
         LblAnglePkMin_TB.Text = ""
@@ -4319,18 +4338,25 @@ Public Class FrmSST4500_1_0_0J_Profile
     End Sub
 
     Private Sub CmdMeas_Click(sender As Object, e As EventArgs) Handles CmdMeas.Click
-        '測定仕様未保存時は測定を開始しない。
+        '測定仕様未保存時は測定を開始しないのが望ましいが、
+        '要望によりyes,noで未保存でも測定開始できるようにする
+        Dim ret As DialogResult
+
         If FlgConstChg = True Then
-            MessageBox.Show("測定仕様が保存されていません。" & vbCrLf &
-                            "測定仕様の保存をしてから、" & vbCrLf &
-                            "測定開始を実行して下さい。",
-                            "測定開始エラー",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Warning)
-            Exit Sub
+            ret = MessageBox.Show("測定仕様が保存されていませんが、" & vbCrLf &
+                                  "測定を開始しますか？",
+                                  "測定開始確認",
+                                  MessageBoxButtons.YesNo,
+                                  MessageBoxIcon.Warning)
+            If ret = vbYes Then
+                MeasRun()
+            Else
+                Exit Sub
+            End If
+
         End If
 
-        MeasRun()
+
     End Sub
 
     Private Sub MeasRun()
@@ -11087,10 +11113,11 @@ Rdg8:
         End If
     End Sub
 
-    Private Sub ChkPitchExp_CheckedChanged(sender As Object, e As EventArgs) Handles ChkPitchExp.CheckedChanged
-
-
-        If ChkPitchExp.Checked = True Then
+    Public Sub ChkPitchExp_Ena_CheckedChanged(sender As Object, e As EventArgs) Handles ChkPitchExp_Ena.CheckedChanged
+        If ChkPitchExp_Ena.Checked = True Then
+            RemoveHandler ChkPitchExp_Dis.CheckedChanged, AddressOf ChkPitchExp_Dis_CheckedChanged
+            ChkPitchExp_Dis.Checked = False
+            AddHandler ChkPitchExp_Dis.CheckedChanged, AddressOf ChkPitchExp_Dis_CheckedChanged
             FlgPitchExp = 1
             TxtLength.Enabled = False
             TxtPitch.Enabled = False
@@ -11105,10 +11132,21 @@ Rdg8:
                     TxtPitch.Text = PchExp_PchData(0)
                     TxtPoints.Text = UBound(PchExp_PchData) + 2
 
-                    GraphInitPrf(UBound(PchExp_PchData) + 2)
+                    If MeasDataNo = 0 And FileDataNo = 0 Then
+                        MeasDataNo = 0
+                        FileDataNo = 0
+                        DrawCalcCurData_init()
+                        DrawCalcBakData_init()
+                        DrawCalcAvgData_init()
+                        DrawTableData_init()
+                        GraphInitPrf(UBound(PchExp_PchData) + 2)
+                    End If
                 End If
             End If
         Else
+            RemoveHandler ChkPitchExp_Dis.CheckedChanged, AddressOf ChkPitchExp_Dis_CheckedChanged
+            ChkPitchExp_Dis.Checked = True
+            AddHandler ChkPitchExp_Dis.CheckedChanged, AddressOf ChkPitchExp_Dis_CheckedChanged
             FlgPitchExp = 0
             TxtLength.Enabled = True
             TxtPitch.Enabled = True
@@ -11117,7 +11155,72 @@ Rdg8:
             TxtPitch.Text = Pitch
             TxtPoints.Text = Points
 
-            GraphInitPrf(Points)
+            If MeasDataNo = 0 And FileDataNo = 0 Then
+                MeasDataNo = 0
+                FileDataNo = 0
+                DrawCalcCurData_init()
+                DrawCalcBakData_init()
+                DrawCalcAvgData_init()
+                DrawTableData_init()
+                GraphInitPrf(Points)
+            End If
+        End If
+        If FlgInitEnd = 1 Then
+            ConstChangeTrue(Me, title_text2)
+        End If
+    End Sub
+
+    Public Sub ChkPitchExp_Dis_CheckedChanged(sender As Object, e As EventArgs) Handles ChkPitchExp_Dis.CheckedChanged
+        If ChkPitchExp_Dis.Checked = False Then
+            RemoveHandler ChkPitchExp_Ena.CheckedChanged, AddressOf ChkPitchExp_Ena_CheckedChanged
+            ChkPitchExp_Ena.Checked = True
+            AddHandler ChkPitchExp_Ena.CheckedChanged, AddressOf ChkPitchExp_Ena_CheckedChanged
+            FlgPitchExp = 1
+            TxtLength.Enabled = False
+            TxtPitch.Enabled = False
+            TxtPoints.Enabled = False
+
+            If FlgInitEnd = 1 Then
+                If FlgPitchExp_Load = 0 Then
+                    'FrmSST4500_1_0_0J_pitchsetting.Visible = True
+                    LoadConstPitch(PchExpSettingFile_FullPath)
+                Else
+                    TxtLength.Text = PchExp_Length
+                    TxtPitch.Text = PchExp_PchData(0)
+                    TxtPoints.Text = UBound(PchExp_PchData) + 2
+
+                    If MeasDataNo = 0 And FileDataNo = 0 Then
+                        MeasDataNo = 0
+                        FileDataNo = 0
+                        DrawCalcCurData_init()
+                        DrawCalcBakData_init()
+                        DrawCalcAvgData_init()
+                        DrawTableData_init()
+                        GraphInitPrf(UBound(PchExp_PchData) + 2)
+                    End If
+                End If
+            End If
+        Else
+            RemoveHandler ChkPitchExp_Ena.CheckedChanged, AddressOf ChkPitchExp_Ena_CheckedChanged
+            ChkPitchExp_Ena.Checked = False
+            AddHandler ChkPitchExp_Ena.CheckedChanged, AddressOf ChkPitchExp_Ena_CheckedChanged
+            FlgPitchExp = 0
+            TxtLength.Enabled = True
+            TxtPitch.Enabled = True
+            TxtPoints.Enabled = True
+            TxtLength.Text = Length
+            TxtPitch.Text = Pitch
+            TxtPoints.Text = Points
+
+            If MeasDataNo = 0 And FileDataNo = 0 Then
+                MeasDataNo = 0
+                FileDataNo = 0
+                DrawCalcCurData_init()
+                DrawCalcBakData_init()
+                DrawCalcAvgData_init()
+                DrawTableData_init()
+                GraphInitPrf(Points)
+            End If
         End If
         If FlgInitEnd = 1 Then
             ConstChangeTrue(Me, title_text2)
@@ -12975,7 +13078,9 @@ Rdg8:
     End Sub
 
     Private Sub LblPitchExp_Click(sender As Object, e As EventArgs) Handles LblPitchExp.Click
+
         FrmSST4500_1_0_0J_pitchsetting.Visible = True
+
     End Sub
 
 End Class

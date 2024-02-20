@@ -468,7 +468,7 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.LblSmp_len = New System.Windows.Forms.Label()
         Me.TxtLength = New System.Windows.Forms.TextBox()
         Me.TxtPitch = New System.Windows.Forms.TextBox()
-        Me.LblPitch_num = New System.Windows.Forms.Label()
+        Me.LblPitchExp = New System.Windows.Forms.Label()
         Me.OptMm = New System.Windows.Forms.RadioButton()
         Me.OptInch = New System.Windows.Forms.RadioButton()
         Me.TimProfile = New System.Windows.Forms.Timer(Me.components)
@@ -542,8 +542,9 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.TxtMarkCur = New System.Windows.Forms.TextBox()
         Me.TxtMarkBak = New System.Windows.Forms.TextBox()
         Me.Label51 = New System.Windows.Forms.Label()
-        Me.ChkPitchExp = New System.Windows.Forms.CheckBox()
-        Me.LblPitchExp = New System.Windows.Forms.Label()
+        Me.ChkPitchExp_Ena = New System.Windows.Forms.CheckBox()
+        Me.LblPitch = New System.Windows.Forms.Label()
+        Me.ChkPitchExp_Dis = New System.Windows.Forms.CheckBox()
         Me.TabControl1.SuspendLayout
         Me.TabAngleratio.SuspendLayout
         Me.TableLayoutPanel4.SuspendLayout
@@ -607,10 +608,10 @@ Partial Class FrmSST4500_1_0_0J_Profile
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("MS UI Gothic", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label7.Location = New System.Drawing.Point(593, 62)
+        Me.Label7.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.Label7.Location = New System.Drawing.Point(584, 62)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(67, 14)
+        Me.Label7.Size = New System.Drawing.Size(57, 12)
         Me.Label7.TabIndex = 15
         Me.Label7.Text = "測定回数"
         '
@@ -618,7 +619,7 @@ Partial Class FrmSST4500_1_0_0J_Profile
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("MS UI Gothic", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label6.Location = New System.Drawing.Point(200, 62)
+        Me.Label6.Location = New System.Drawing.Point(197, 62)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(69, 14)
         Me.Label6.TabIndex = 14
@@ -676,7 +677,7 @@ Partial Class FrmSST4500_1_0_0J_Profile
         '
         Me.TxtSmplNamBak.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.TxtSmplNamBak.ForeColor = System.Drawing.Color.Blue
-        Me.TxtSmplNamBak.Location = New System.Drawing.Point(203, 102)
+        Me.TxtSmplNamBak.Location = New System.Drawing.Point(200, 102)
         Me.TxtSmplNamBak.Name = "TxtSmplNamBak"
         Me.TxtSmplNamBak.Size = New System.Drawing.Size(310, 22)
         Me.TxtSmplNamBak.TabIndex = 19
@@ -684,7 +685,7 @@ Partial Class FrmSST4500_1_0_0J_Profile
         'TxtSmplNamCur
         '
         Me.TxtSmplNamCur.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.TxtSmplNamCur.Location = New System.Drawing.Point(203, 78)
+        Me.TxtSmplNamCur.Location = New System.Drawing.Point(200, 78)
         Me.TxtSmplNamCur.Name = "TxtSmplNamCur"
         Me.TxtSmplNamCur.Size = New System.Drawing.Size(310, 22)
         Me.TxtSmplNamCur.TabIndex = 18
@@ -692,10 +693,10 @@ Partial Class FrmSST4500_1_0_0J_Profile
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("MS UI Gothic", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label3.Location = New System.Drawing.Point(663, 62)
+        Me.Label3.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.Label3.Location = New System.Drawing.Point(643, 62)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(83, 14)
+        Me.Label3.Size = New System.Drawing.Size(71, 12)
         Me.Label3.TabIndex = 24
         Me.Label3.Text = "測定ロット数"
         '
@@ -7153,62 +7154,62 @@ Partial Class FrmSST4500_1_0_0J_Profile
         'TxtPoints
         '
         Me.TxtPoints.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.TxtPoints.Location = New System.Drawing.Point(852, 96)
+        Me.TxtPoints.Location = New System.Drawing.Point(868, 96)
         Me.TxtPoints.Name = "TxtPoints"
-        Me.TxtPoints.Size = New System.Drawing.Size(55, 22)
+        Me.TxtPoints.Size = New System.Drawing.Size(50, 22)
         Me.TxtPoints.TabIndex = 40
         '
         'LblAllMeas_num
         '
         Me.LblAllMeas_num.AutoSize = True
-        Me.LblAllMeas_num.Font = New System.Drawing.Font("MS UI Gothic", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.LblAllMeas_num.Location = New System.Drawing.Point(746, 101)
+        Me.LblAllMeas_num.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.LblAllMeas_num.Location = New System.Drawing.Point(780, 101)
         Me.LblAllMeas_num.Name = "LblAllMeas_num"
-        Me.LblAllMeas_num.Size = New System.Drawing.Size(97, 14)
+        Me.LblAllMeas_num.Size = New System.Drawing.Size(83, 12)
         Me.LblAllMeas_num.TabIndex = 35
         Me.LblAllMeas_num.Text = "総測定箇所数"
         '
         'LblSmp_len
         '
         Me.LblSmp_len.AutoSize = True
-        Me.LblSmp_len.Font = New System.Drawing.Font("MS UI Gothic", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.LblSmp_len.Location = New System.Drawing.Point(763, 55)
+        Me.LblSmp_len.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.LblSmp_len.Location = New System.Drawing.Point(793, 55)
         Me.LblSmp_len.Name = "LblSmp_len"
-        Me.LblSmp_len.Size = New System.Drawing.Size(80, 14)
+        Me.LblSmp_len.Size = New System.Drawing.Size(69, 12)
         Me.LblSmp_len.TabIndex = 37
         Me.LblSmp_len.Text = "サンプル長さ"
         '
         'TxtLength
         '
         Me.TxtLength.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.TxtLength.Location = New System.Drawing.Point(852, 50)
+        Me.TxtLength.Location = New System.Drawing.Point(868, 50)
         Me.TxtLength.Name = "TxtLength"
-        Me.TxtLength.Size = New System.Drawing.Size(55, 22)
+        Me.TxtLength.Size = New System.Drawing.Size(50, 22)
         Me.TxtLength.TabIndex = 38
         '
         'TxtPitch
         '
         Me.TxtPitch.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.TxtPitch.Location = New System.Drawing.Point(852, 73)
+        Me.TxtPitch.Location = New System.Drawing.Point(868, 73)
         Me.TxtPitch.Name = "TxtPitch"
-        Me.TxtPitch.Size = New System.Drawing.Size(55, 22)
+        Me.TxtPitch.Size = New System.Drawing.Size(50, 22)
         Me.TxtPitch.TabIndex = 39
         '
-        'LblPitch_num
+        'LblPitchExp
         '
-        Me.LblPitch_num.AutoSize = True
-        Me.LblPitch_num.Font = New System.Drawing.Font("MS UI Gothic", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.LblPitch_num.Location = New System.Drawing.Point(804, 78)
-        Me.LblPitch_num.Name = "LblPitch_num"
-        Me.LblPitch_num.Size = New System.Drawing.Size(39, 14)
-        Me.LblPitch_num.TabIndex = 40
-        Me.LblPitch_num.Text = "ピッチ"
+        Me.LblPitchExp.AutoSize = True
+        Me.LblPitchExp.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.LblPitchExp.Location = New System.Drawing.Point(715, 77)
+        Me.LblPitchExp.Name = "LblPitchExp"
+        Me.LblPitchExp.Size = New System.Drawing.Size(147, 12)
+        Me.LblPitchExp.TabIndex = 40
+        Me.LblPitchExp.Text = "ピッチ(可変    / 固定    )"
         '
         'OptMm
         '
         Me.OptMm.AutoSize = True
         Me.OptMm.Checked = True
-        Me.OptMm.Location = New System.Drawing.Point(751, 34)
+        Me.OptMm.Location = New System.Drawing.Point(764, 34)
         Me.OptMm.Name = "OptMm"
         Me.OptMm.Size = New System.Drawing.Size(41, 16)
         Me.OptMm.TabIndex = 41
@@ -7219,7 +7220,7 @@ Partial Class FrmSST4500_1_0_0J_Profile
         'OptInch
         '
         Me.OptInch.AutoSize = True
-        Me.OptInch.Location = New System.Drawing.Point(800, 34)
+        Me.OptInch.Location = New System.Drawing.Point(815, 34)
         Me.OptInch.Name = "OptInch"
         Me.OptInch.Size = New System.Drawing.Size(44, 16)
         Me.OptInch.TabIndex = 42
@@ -7448,7 +7449,7 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.TxtMeasNumBak.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.TxtMeasNumBak.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.TxtMeasNumBak.ForeColor = System.Drawing.Color.Blue
-        Me.TxtMeasNumBak.Location = New System.Drawing.Point(596, 102)
+        Me.TxtMeasNumBak.Location = New System.Drawing.Point(587, 102)
         Me.TxtMeasNumBak.Margin = New System.Windows.Forms.Padding(0)
         Me.TxtMeasNumBak.Name = "TxtMeasNumBak"
         Me.TxtMeasNumBak.Size = New System.Drawing.Size(55, 22)
@@ -7460,7 +7461,7 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.TxtMeasNumCur.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.TxtMeasNumCur.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.TxtMeasNumCur.ForeColor = System.Drawing.Color.Black
-        Me.TxtMeasNumCur.Location = New System.Drawing.Point(596, 78)
+        Me.TxtMeasNumCur.Location = New System.Drawing.Point(587, 78)
         Me.TxtMeasNumCur.Margin = New System.Windows.Forms.Padding(0)
         Me.TxtMeasNumCur.Name = "TxtMeasNumCur"
         Me.TxtMeasNumCur.Size = New System.Drawing.Size(55, 22)
@@ -7472,7 +7473,7 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.TxtMeasLotCur.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.TxtMeasLotCur.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.TxtMeasLotCur.ForeColor = System.Drawing.Color.Black
-        Me.TxtMeasLotCur.Location = New System.Drawing.Point(666, 78)
+        Me.TxtMeasLotCur.Location = New System.Drawing.Point(646, 78)
         Me.TxtMeasLotCur.Margin = New System.Windows.Forms.Padding(0)
         Me.TxtMeasLotCur.Name = "TxtMeasLotCur"
         Me.TxtMeasLotCur.Size = New System.Drawing.Size(55, 22)
@@ -7484,7 +7485,7 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.TxtMeasLotBak.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.TxtMeasLotBak.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.TxtMeasLotBak.ForeColor = System.Drawing.Color.Blue
-        Me.TxtMeasLotBak.Location = New System.Drawing.Point(666, 102)
+        Me.TxtMeasLotBak.Location = New System.Drawing.Point(646, 102)
         Me.TxtMeasLotBak.Margin = New System.Windows.Forms.Padding(0)
         Me.TxtMeasLotBak.Name = "TxtMeasLotBak"
         Me.TxtMeasLotBak.Size = New System.Drawing.Size(55, 22)
@@ -7496,9 +7497,9 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.TxtLengthOld.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.TxtLengthOld.Font = New System.Drawing.Font("MS UI Gothic", 11.25!)
         Me.TxtLengthOld.ForeColor = System.Drawing.Color.Blue
-        Me.TxtLengthOld.Location = New System.Drawing.Point(917, 50)
+        Me.TxtLengthOld.Location = New System.Drawing.Point(921, 50)
         Me.TxtLengthOld.Name = "TxtLengthOld"
-        Me.TxtLengthOld.Size = New System.Drawing.Size(55, 22)
+        Me.TxtLengthOld.Size = New System.Drawing.Size(50, 22)
         Me.TxtLengthOld.TabIndex = 52
         Me.TxtLengthOld.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
@@ -7507,9 +7508,9 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.TxtPitchOld.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.TxtPitchOld.Font = New System.Drawing.Font("MS UI Gothic", 11.25!)
         Me.TxtPitchOld.ForeColor = System.Drawing.Color.Blue
-        Me.TxtPitchOld.Location = New System.Drawing.Point(917, 73)
+        Me.TxtPitchOld.Location = New System.Drawing.Point(921, 73)
         Me.TxtPitchOld.Name = "TxtPitchOld"
-        Me.TxtPitchOld.Size = New System.Drawing.Size(55, 22)
+        Me.TxtPitchOld.Size = New System.Drawing.Size(50, 22)
         Me.TxtPitchOld.TabIndex = 53
         Me.TxtPitchOld.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
@@ -7518,9 +7519,9 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.TxtPointsOld.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.TxtPointsOld.Font = New System.Drawing.Font("MS UI Gothic", 11.25!)
         Me.TxtPointsOld.ForeColor = System.Drawing.Color.Blue
-        Me.TxtPointsOld.Location = New System.Drawing.Point(917, 96)
+        Me.TxtPointsOld.Location = New System.Drawing.Point(921, 96)
         Me.TxtPointsOld.Name = "TxtPointsOld"
-        Me.TxtPointsOld.Size = New System.Drawing.Size(55, 22)
+        Me.TxtPointsOld.Size = New System.Drawing.Size(50, 22)
         Me.TxtPointsOld.TabIndex = 54
         Me.TxtPointsOld.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
@@ -7528,7 +7529,7 @@ Partial Class FrmSST4500_1_0_0J_Profile
         '
         Me.LblMeasSpecCur2.AutoSize = True
         Me.LblMeasSpecCur2.Font = New System.Drawing.Font("MS UI Gothic", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.LblMeasSpecCur2.Location = New System.Drawing.Point(852, 37)
+        Me.LblMeasSpecCur2.Location = New System.Drawing.Point(868, 37)
         Me.LblMeasSpecCur2.Name = "LblMeasSpecCur2"
         Me.LblMeasSpecCur2.Size = New System.Drawing.Size(49, 11)
         Me.LblMeasSpecCur2.TabIndex = 55
@@ -7539,7 +7540,7 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.LblMeasSpecBak2.AutoSize = True
         Me.LblMeasSpecBak2.Font = New System.Drawing.Font("MS UI Gothic", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.LblMeasSpecBak2.ForeColor = System.Drawing.Color.Blue
-        Me.LblMeasSpecBak2.Location = New System.Drawing.Point(915, 37)
+        Me.LblMeasSpecBak2.Location = New System.Drawing.Point(920, 37)
         Me.LblMeasSpecBak2.Name = "LblMeasSpecBak2"
         Me.LblMeasSpecBak2.Size = New System.Drawing.Size(58, 11)
         Me.LblMeasSpecBak2.TabIndex = 56
@@ -7776,7 +7777,7 @@ Partial Class FrmSST4500_1_0_0J_Profile
         'TxtMarkCur
         '
         Me.TxtMarkCur.Font = New System.Drawing.Font("MS UI Gothic", 11.25!)
-        Me.TxtMarkCur.Location = New System.Drawing.Point(518, 78)
+        Me.TxtMarkCur.Location = New System.Drawing.Point(513, 78)
         Me.TxtMarkCur.Name = "TxtMarkCur"
         Me.TxtMarkCur.Size = New System.Drawing.Size(71, 22)
         Me.TxtMarkCur.TabIndex = 59
@@ -7784,7 +7785,7 @@ Partial Class FrmSST4500_1_0_0J_Profile
         'TxtMarkBak
         '
         Me.TxtMarkBak.Font = New System.Drawing.Font("MS UI Gothic", 11.25!)
-        Me.TxtMarkBak.Location = New System.Drawing.Point(518, 102)
+        Me.TxtMarkBak.Location = New System.Drawing.Point(513, 102)
         Me.TxtMarkBak.Name = "TxtMarkBak"
         Me.TxtMarkBak.Size = New System.Drawing.Size(71, 22)
         Me.TxtMarkBak.TabIndex = 60
@@ -7793,30 +7794,42 @@ Partial Class FrmSST4500_1_0_0J_Profile
         '
         Me.Label51.AutoSize = True
         Me.Label51.Font = New System.Drawing.Font("MS UI Gothic", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label51.Location = New System.Drawing.Point(518, 62)
+        Me.Label51.Location = New System.Drawing.Point(513, 62)
         Me.Label51.Name = "Label51"
         Me.Label51.Size = New System.Drawing.Size(42, 14)
         Me.Label51.TabIndex = 61
         Me.Label51.Text = "マーク"
         '
-        'ChkPitchExp
+        'ChkPitchExp_Ena
         '
-        Me.ChkPitchExp.AutoSize = True
-        Me.ChkPitchExp.Location = New System.Drawing.Point(783, 79)
-        Me.ChkPitchExp.Name = "ChkPitchExp"
-        Me.ChkPitchExp.Size = New System.Drawing.Size(15, 14)
-        Me.ChkPitchExp.TabIndex = 53
-        Me.ChkPitchExp.UseVisualStyleBackColor = True
+        Me.ChkPitchExp_Ena.AutoSize = True
+        Me.ChkPitchExp_Ena.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.ChkPitchExp_Ena.Location = New System.Drawing.Point(778, 76)
+        Me.ChkPitchExp_Ena.Margin = New System.Windows.Forms.Padding(0)
+        Me.ChkPitchExp_Ena.Name = "ChkPitchExp_Ena"
+        Me.ChkPitchExp_Ena.Size = New System.Drawing.Size(15, 14)
+        Me.ChkPitchExp_Ena.TabIndex = 53
+        Me.ChkPitchExp_Ena.UseVisualStyleBackColor = True
         '
-        'LblPitchExp
+        'LblPitch
         '
-        Me.LblPitchExp.AutoSize = True
-        Me.LblPitchExp.Font = New System.Drawing.Font("MS UI Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.LblPitchExp.Location = New System.Drawing.Point(748, 79)
-        Me.LblPitchExp.Name = "LblPitchExp"
-        Me.LblPitchExp.Size = New System.Drawing.Size(33, 13)
-        Me.LblPitchExp.TabIndex = 62
-        Me.LblPitchExp.Text = "拡張"
+        Me.LblPitch.AutoSize = True
+        Me.LblPitch.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.LblPitch.Location = New System.Drawing.Point(829, 77)
+        Me.LblPitch.Name = "LblPitch"
+        Me.LblPitch.Size = New System.Drawing.Size(33, 12)
+        Me.LblPitch.TabIndex = 62
+        Me.LblPitch.Text = "ピッチ"
+        '
+        'ChkPitchExp_Dis
+        '
+        Me.ChkPitchExp_Dis.AutoSize = True
+        Me.ChkPitchExp_Dis.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.ChkPitchExp_Dis.Location = New System.Drawing.Point(836, 76)
+        Me.ChkPitchExp_Dis.Name = "ChkPitchExp_Dis"
+        Me.ChkPitchExp_Dis.Size = New System.Drawing.Size(15, 14)
+        Me.ChkPitchExp_Dis.TabIndex = 63
+        Me.ChkPitchExp_Dis.UseVisualStyleBackColor = True
         '
         'FrmSST4500_1_0_0J_Profile
         '
@@ -7825,8 +7838,9 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.AutoScroll = True
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(984, 782)
-        Me.Controls.Add(Me.LblPitchExp)
-        Me.Controls.Add(Me.ChkPitchExp)
+        Me.Controls.Add(Me.ChkPitchExp_Dis)
+        Me.Controls.Add(Me.LblPitch)
+        Me.Controls.Add(Me.ChkPitchExp_Ena)
         Me.Controls.Add(Me.Label51)
         Me.Controls.Add(Me.TxtMarkBak)
         Me.Controls.Add(Me.TxtMarkCur)
@@ -7846,7 +7860,7 @@ Partial Class FrmSST4500_1_0_0J_Profile
         Me.Controls.Add(Me.CmdClsGraph)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.MenuStrip1)
-        Me.Controls.Add(Me.LblPitch_num)
+        Me.Controls.Add(Me.LblPitchExp)
         Me.Controls.Add(Me.TxtPitch)
         Me.Controls.Add(Me.TxtLength)
         Me.Controls.Add(Me.LblSmp_len)
@@ -7972,7 +7986,7 @@ Partial Class FrmSST4500_1_0_0J_Profile
     Friend WithEvents LblSmp_len As Label
     Friend WithEvents TxtLength As TextBox
     Friend WithEvents TxtPitch As TextBox
-    Friend WithEvents LblPitch_num As Label
+    Friend WithEvents LblPitchExp As Label
     Friend WithEvents TblVeloPkDp_adm As TableLayoutPanel
     Friend WithEvents LblVeloDpMinBak_adm As Label
     Friend WithEvents LblVeloPkMinBak_adm As Label
@@ -8441,6 +8455,7 @@ Partial Class FrmSST4500_1_0_0J_Profile
     Friend WithEvents TxtMarkBak As TextBox
     Friend WithEvents Label51 As Label
     Friend WithEvents ToolStripStatusLabel5 As ToolStripStatusLabel
-    Friend WithEvents ChkPitchExp As CheckBox
-    Friend WithEvents LblPitchExp As Label
+    Friend WithEvents ChkPitchExp_Ena As CheckBox
+    Friend WithEvents LblPitch As Label
+    Friend WithEvents ChkPitchExp_Dis As CheckBox
 End Class

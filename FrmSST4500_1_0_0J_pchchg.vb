@@ -23,11 +23,11 @@
 
         With FrmSST4500_1_0_0J_Profile
             If FlgPchExp_Visible = 1 Then
-                .ChkPitchExp.Visible = True
-                .LblPitchExp.Visible = True
+                .ChkPitchExp_Ena.Visible = True
+                .LblPitch.Visible = True
             Else
-                .ChkPitchExp.Visible = False
-                .LblPitchExp.Visible = False
+                .ChkPitchExp_Ena.Visible = False
+                .LblPitch.Visible = False
                 FlgPitchExp = 0     '無効時は強制的にピッチ拡張OFF
             End If
         End With

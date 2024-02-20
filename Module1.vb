@@ -1489,7 +1489,7 @@ Module Module1
             .Label7.ForeColor = frm_PrfForm_fc
             .Label3.ForeColor = frm_PrfForm_fc
             .LblSmp_len.ForeColor = frm_PrfForm_fc
-            .LblPitch_num.ForeColor = frm_PrfForm_fc
+            .LblPitchExp.ForeColor = frm_PrfForm_fc
             .LblAllMeas_num.ForeColor = frm_PrfForm_fc
             .OptMm.ForeColor = frm_PrfForm_fc
             .OptInch.ForeColor = frm_PrfForm_fc
@@ -2268,7 +2268,11 @@ Module Module1
         'End If
 
         If StrConstFilePath_old <> "" Then
-            LoadPitchOldData2()
+            If FlgPchExpMes_old = 1 Then
+                LoadPitchOldData2()
+            Else
+                FlgPitchExp_Load_old = 0
+            End If
         Else
             FlgPitchExp_Load_old = 0
         End If
@@ -2579,13 +2583,14 @@ Module Module1
                     LoadConstPitch_FileErr_Run = 1
                     FrmSST4500_1_0_0J_pitchsetting.Visible = True
                 Else
-                    FlgPitchExp = 0
                     With FrmSST4500_1_0_0J_Profile
-                        .TxtLength.Text = Length
-                        .TxtPitch.Text = Pitch
-                        .TxtPoints.Text = Points
+                        RemoveHandler .ChkPitchExp_Ena.CheckedChanged, AddressOf .ChkPitchExp_Ena_CheckedChanged
+                        RemoveHandler .ChkPitchExp_Dis.CheckedChanged, AddressOf .ChkPitchExp_Dis_CheckedChanged
+                        .ChkPitchExp_Ena.Checked = False
+                        .ChkPitchExp_Dis.Checked = True
+                        AddHandler .ChkPitchExp_Ena.CheckedChanged, AddressOf .ChkPitchExp_Ena_CheckedChanged
+                        AddHandler .ChkPitchExp_Dis.CheckedChanged, AddressOf .ChkPitchExp_Dis_CheckedChanged
                     End With
-                    FrmSST4500_1_0_0J_Profile.ChkPitchExp.Checked = False
                 End If
             Else
                 FrmSST4500_1_0_0J_pitchsetting.Visible = True
@@ -2624,6 +2629,8 @@ Module Module1
             PkAngCent = FlgPkCenterAngle
 
             With FrmSST4500_1_0_0J_Profile
+                RemoveHandler .ChkPitchExp_Ena.CheckedChanged, AddressOf .ChkPitchExp_Ena_CheckedChanged
+                RemoveHandler .ChkPitchExp_Dis.CheckedChanged, AddressOf .ChkPitchExp_Dis_CheckedChanged
                 .TxtMachNoCur.Text = MachineNo
 
                 If FlgDBF = 0 Then
@@ -2661,10 +2668,11 @@ Module Module1
                         .LblSmp_len.Visible = True
                         .TxtLength.Visible = True
                         .TxtLength.Enabled = True
-                        .LblPitch_num.Visible = True
+                        '.LblPitchExp.Visible = True
                         .TxtPitch.Visible = True
                         If FlgPitchExp = 1 Then
-                            .ChkPitchExp.Checked = True
+                            .ChkPitchExp_Ena.Checked = True
+                            .ChkPitchExp_Dis.Checked = False
                             .TxtPitch.Enabled = False
                             .TxtPoints.Enabled = False
                             .TxtLength.Enabled = False
@@ -2672,7 +2680,8 @@ Module Module1
                             .OptInch.Enabled = False
                             .単位ToolStripMenuItem.Enabled = False
                         Else
-                            .ChkPitchExp.Checked = False
+                            .ChkPitchExp_Ena.Checked = False
+                            .ChkPitchExp_Dis.Checked = True
                             .TxtPitch.Enabled = True
                             .TxtPoints.Enabled = True
                             .TxtLength.Enabled = True
@@ -2687,11 +2696,15 @@ Module Module1
                         .TxtPitch.Text = Pitch
                         .TxtPoints.Text = Points
                         If FlgPchExp_Visible = 1 Then
-                            .ChkPitchExp.Visible = True
+                            .ChkPitchExp_Ena.Visible = True
+                            .ChkPitchExp_Dis.Visible = True
                             .LblPitchExp.Visible = True
+                            .LblPitch.Visible = False
                         Else
-                            .ChkPitchExp.Visible = False
+                            .ChkPitchExp_Ena.Visible = False
+                            .ChkPitchExp_Dis.Visible = False
                             .LblPitchExp.Visible = False
+                            .LblPitch.Visible = True
                         End If
                         If FlgAdmin <> 0 Then
                             .TxtLengthOld.Visible = True
@@ -2706,14 +2719,15 @@ Module Module1
                         .LblSmp_len.Visible = False
                         .TxtLength.Visible = False
                         .TxtLengthOld.Visible = False
-                        .LblPitch_num.Visible = False
                         .TxtPitch.Visible = False
                         .TxtPitchOld.Visible = False
                         .LblAllMeas_num.Visible = True
                         .TxtPoints.Visible = True
                         .TxtPoints.Visible = True
                         .TxtPoints.Text = Points
-                        .ChkPitchExp.Visible = False
+                        .ChkPitchExp_Ena.Visible = False
+                        .ChkPitchExp_Dis.Visible = False
+                        .LblPitch.Visible = False
                         .LblPitchExp.Visible = False
                         FlgInch = 0
                     Case 3  'MD長尺サンプル
@@ -2729,18 +2743,22 @@ Module Module1
                         .LblSmp_len.Visible = False
                         .TxtLength.Visible = False
                         .TxtLengthOld.Visible = False
-                        .LblPitch_num.Visible = True
+                        .LblPitchExp.Visible = False
+                        .LblPitch.Visible = True
                         .TxtPitch.Visible = True
                         .LblAllMeas_num.Visible = False
                         .TxtPoints.Visible = False
                         .TxtPointsOld.Visible = False
                         .TxtPitch.Text = Pitch
-                        .ChkPitchExp.Visible = False
-                        .LblPitchExp.Visible = False
+                        .ChkPitchExp_Ena.Visible = False
+                        .ChkPitchExp_Dis.Visible = False
+                        .LblPitch.Visible = False
                         If FlgAdmin <> 0 Then
                             .TxtPitchOld.Visible = True
                         End If
                 End Select
+                AddHandler .ChkPitchExp_Ena.CheckedChanged, AddressOf .ChkPitchExp_Ena_CheckedChanged
+                AddHandler .ChkPitchExp_Dis.CheckedChanged, AddressOf .ChkPitchExp_Dis_CheckedChanged
             End With
         End If
 
