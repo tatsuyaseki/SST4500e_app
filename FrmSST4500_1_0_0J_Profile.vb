@@ -639,7 +639,10 @@ Public Class FrmSST4500_1_0_0J_Profile
                 終了ToolStripMenuItem.Enabled = True
                 測定中断ToolStripMenuItem.Enabled = False
 
-                Points = SampleNo
+                'Points = SampleNo
+                '中断で測定を終了した場合、Pointsが中断した時の測定回数に更新すると
+                '測定仕様を変更した際にPointsでグラフが初期化されるので不都合が生じるため
+                'コメントアウトする
 
                 If FlgProfile = 3 Then
                     ScrollBar_init(SampleNo)
@@ -698,7 +701,6 @@ Public Class FrmSST4500_1_0_0J_Profile
                 If FlgPitchExp <> 0 Then
                     TxtPitch.Text = PchExp_PchData(0)
                 End If
-
 
             Case 20
                 ClsNoPrf()
@@ -923,16 +925,17 @@ Public Class FrmSST4500_1_0_0J_Profile
                     End If
 
                     Points = Points_tmp
-                    Pitch = Pitch_tmp
-
-                    If FlgInch = 0 Then
-                        TxtPitch.Text = Pitch
-                    Else
-                        TxtPitch.Text = Math.Round(Pitch / 25.4, 2, MidpointRounding.AwayFromZero)
-                    End If
                     TxtPoints.Text = Points
 
                 End If
+
+                Pitch = Pitch_tmp
+                If FlgInch = 0 Then
+                    TxtPitch.Text = Pitch
+                Else
+                    TxtPitch.Text = Math.Round(Pitch / 25.4, 2, MidpointRounding.AwayFromZero)
+                End If
+
 
                 DrawCalcCurData_init()
                 DrawCalcBakData_init()
@@ -1854,7 +1857,10 @@ Public Class FrmSST4500_1_0_0J_Profile
                 終了ToolStripMenuItem.Enabled = True
                 測定中断ToolStripMenuItem.Enabled = False
 
-                Points = SampleNo
+                'Points = SampleNo
+                '中断で測定を終了した場合、Pointsが中断した時の測定回数に更新すると
+                '測定仕様を変更した際にPointsでグラフが初期化されるので不都合が生じるため
+                'コメントアウトする
 
                 If FlgProfile = 3 Then
                     ScrollBar_init(SampleNo)
@@ -2825,6 +2831,7 @@ Public Class FrmSST4500_1_0_0J_Profile
             過去データ表ToolStripMenuItem.Enabled = True
             平均値データ表ToolStripMenuItem.Enabled = True
             TxtMachNoCur.Enabled = True
+            TxtSmplNamCur.Enabled = True
             TxtMarkCur.Enabled = True
             LblAngCenter.Enabled = True
             CmdAngleRange.Enabled = True
@@ -4343,17 +4350,24 @@ Public Class FrmSST4500_1_0_0J_Profile
         Dim ret As DialogResult
 
         If FlgConstChg = True Then
-            ret = MessageBox.Show("測定仕様が保存されていませんが、" & vbCrLf &
+            If FlgConstChg_MeasStart = False Then
+                ret = MessageBox.Show("測定仕様が保存されていませんが、" & vbCrLf &
                                   "測定を開始しますか？",
                                   "測定開始確認",
                                   MessageBoxButtons.YesNo,
                                   MessageBoxIcon.Warning)
-            If ret = vbYes Then
-                MeasRun()
+                If ret = vbYes Then
+                    FlgConstChg_MeasStart = True
+                    MeasRun()
+                Else
+                    FlgConstChg_MeasStart = False
+                    Exit Sub
+                End If
             Else
-                Exit Sub
+                MeasRun()
             End If
-
+        Else
+            MeasRun()
         End If
 
 
@@ -7589,6 +7603,7 @@ Public Class FrmSST4500_1_0_0J_Profile
                     _filename2 = Path.GetFileNameWithoutExtension(StrConstFileName)
                     Me.Text = title_text2 & " (" & _filename2 & ")"
                     FlgConstChg = False '変更無し状態に初期化
+                    FlgConstChg_MeasStart = False
                 End If
             End With
         End Using
