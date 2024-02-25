@@ -90,7 +90,7 @@ Public Class FrmSST4500_1_0_0J_Profile
     Dim MenuPrn_AvgData As ToolStripMenuItem
 
     'Dim title_text As String
-    Dim FlgInitEnd As Integer = 0
+    Public FlgInitEnd As Integer = 0
     Dim _length_bak As Single
     Dim _pitch_bak As Single
     Dim _points_bak As Integer
@@ -141,11 +141,13 @@ Public Class FrmSST4500_1_0_0J_Profile
                     If FlgPitchExp = 1 Then
                         'ピッチ拡張が有効な場合
                         LoadConstPitch(PchExpSettingFile_FullPath)
-                        TxtLength.Text = PchExp_Length
-                        TxtPitch.Text = PchExp_PchData(0)
-                        _points = UBound(PchExp_PchData) + 2
-                        TxtPoints.Text = _points
-                        'TxtPoints.Text = UBound(PchExp_PchData) + 2
+                        If FlgPitchExp_Load = 1 Then
+                            TxtLength.Text = PchExp_Length
+                            TxtPitch.Text = PchExp_PchData(0)
+                            _points = UBound(PchExp_PchData) + 2
+                            TxtPoints.Text = _points
+                            'TxtPoints.Text = UBound(PchExp_PchData) + 2
+                        End If
                     Else
                         FlgPitchExp_Load = 0
                     End If
@@ -1136,6 +1138,7 @@ Public Class FrmSST4500_1_0_0J_Profile
                                             MessageBoxButtons.OK,
                                             MessageBoxIcon.Error)
                         End If
+                        FileNo -= 1
                         FlgMainProfile = 0
                     Else
                         '測定データと過去データの測定個所数をチェックする
@@ -1155,6 +1158,7 @@ Public Class FrmSST4500_1_0_0J_Profile
                                                                  MessageBoxIcon.Warning)
                                         If result = DialogResult.No Then
                                             SampleNo = Kt2
+                                            FileNo -= 1
                                             FlgMainProfile = 0
                                             TimProfile.Enabled = True
                                             Exit Sub
@@ -1171,6 +1175,7 @@ Public Class FrmSST4500_1_0_0J_Profile
                                                                  MessageBoxIcon.Exclamation)
                                         If result = DialogResult.No Then
                                             SampleNo = Kt2
+                                            FileNo -= 1
                                             FlgMainProfile = 0
                                             TimProfile.Enabled = True
                                             Exit Sub
@@ -1187,6 +1192,7 @@ Public Class FrmSST4500_1_0_0J_Profile
                                                                  MessageBoxIcon.Exclamation)
                                         If result = DialogResult.No Then
                                             SampleNo = Kt2
+                                            FileNo -= 1
                                             FlgMainProfile = 0
                                             TimProfile.Enabled = True
                                             Exit Sub
@@ -1203,6 +1209,7 @@ Public Class FrmSST4500_1_0_0J_Profile
                                                 MessageBoxButtons.OK,
                                                 MessageBoxIcon.Error)
                                 SampleNo = Kt2
+                                FileNo -= 1
                                 FlgMainProfile = 0
                                 TimProfile.Enabled = True
                                 Exit Sub
@@ -1212,7 +1219,7 @@ Public Class FrmSST4500_1_0_0J_Profile
                         WrtOldMeasInfo()
                         Kt1 = SampleNo
 
-                        SampleNo = FileDataMax
+                        'SampleNo = FileDataMax
                         MakeDisplayData()
 
                         SampleNo = FileDataMax
@@ -1939,13 +1946,17 @@ Public Class FrmSST4500_1_0_0J_Profile
             HScrollBar1.SmallChange = lg_stepscale
             HScrollBar1.LargeChange = lg_stepscale
             HScrollBar1.Maximum = HsbHold + HScrollBar1.LargeChange - 1
+            RemoveHandler HScrollBar1.ValueChanged, AddressOf HScrollBar1_ValueChanged
             HScrollBar1.Value = HsbHold
+            AddHandler HScrollBar1.ValueChanged, AddressOf HScrollBar1_ValueChanged
             HScrollBar1.Visible = True
             HScrollBar1.Enabled = True
             HScrollBar2.SmallChange = lg_stepscale
             HScrollBar2.LargeChange = lg_stepscale
             HScrollBar2.Maximum = HsbHold + HScrollBar2.LargeChange - 1
+            RemoveHandler HScrollBar2.ValueChanged, AddressOf HScrollBar2_ValueChanged
             HScrollBar2.Value = HsbHold
+            AddHandler HScrollBar2.ValueChanged, AddressOf HScrollBar2_ValueChanged
             HScrollBar2.Visible = True
             HScrollBar2.Enabled = True
 
@@ -1967,7 +1978,6 @@ Public Class FrmSST4500_1_0_0J_Profile
         X = 0
         Do
             X += 1
-
         Loop Until X = 30000
 
         'If pitch > 5000 Then
@@ -2002,7 +2012,6 @@ Public Class FrmSST4500_1_0_0J_Profile
 
         timerCount1 = 0
         Return 1
-
     End Function
 
     Private Sub SendPch()
@@ -2033,56 +2042,59 @@ Public Class FrmSST4500_1_0_0J_Profile
         End Select
 
         UsbWrite(strWdata)
-
     End Sub
 
     Private Sub AdmVisible_onoff(ByVal sw As Boolean)
         CmdOldDataLoad.Visible = sw
         CmdOldDataLoad.Enabled = sw
-        読込ToolStripMenuItem.Enabled = sw
         CmdClsGraph.Visible = sw
         CmdClsGraph.Enabled = sw
-        グラフ消去ToolStripMenuItem.Enabled = sw
         CmdAvg.Visible = sw
-        平均値データ表ToolStripMenuItem.Enabled = sw
         'CmdAvg.Enabled = sw
-        'CmdAvg.Enabled = False  '機能していない為一旦
-        LblMeasSpecBak.Visible = sw
-        TxtMachNoBak.Visible = sw
-        TxtMachNoBak.Enabled = sw
-        TxtSmplNamBak.Visible = sw
-        TxtSmplNamBak.Enabled = sw
+
         If FlgDBF = 1 Then
             TxtMarkBak.Visible = sw
             TxtMarkBak.Enabled = sw
         End If
-        TxtMeasNumBak.Visible = sw
-        TxtMeasNumBak.Enabled = sw
+        TxtMachNoBak.Visible = sw
+        TxtMachNoBak.Enabled = sw
+        TxtSmplNamBak.Visible = sw
+        TxtSmplNamBak.Enabled = sw
         TxtMeasNumBak.Visible = sw
         TxtMeasNumBak.Enabled = sw
         TxtMeasLotBak.Visible = sw
         TxtMeasLotBak.Enabled = sw
-        TblAngle_adm.Visible = sw
-        TblAngle_nom.Visible = Not sw
-        TblPDMCratio_adm.Visible = sw
-        TblPDMCratio_nom.Visible = Not sw
-        TblVeloPkDp_adm.Visible = sw
-        TblVeloPkDp_nom.Visible = Not sw
-        TblVeloMDCD_adm.Visible = sw
-        TblVeloMDCD_nom.Visible = Not sw
-        TblTSI_adm.Visible = sw
-        TblTSI_nom.Visible = Not sw
-        ChkPrn_OldData.Enabled = sw
-        過去データ表ToolStripMenuItem.Enabled = sw
-        ChkPrn_AvgData.Enabled = sw
-        平均値データ表ToolStripMenuItem.Enabled = sw
         TxtLengthOld.Visible = sw
         TxtPitchOld.Visible = sw
         TxtPointsOld.Visible = sw
+
+        TblAngle_nom.Visible = Not sw
+        TblPDMCratio_nom.Visible = Not sw
+        TblVeloMDCD_adm.Visible = sw
+        TblVeloMDCD_nom.Visible = Not sw
+        TblTSI_nom.Visible = Not sw
+
+        TblAngle_adm.Visible = sw
+        TblPDMCratio_adm.Visible = sw
+        TblVeloPkDp_adm.Visible = sw
+        TblVeloMDCD_adm.Visible = sw
+        TblTSI_adm.Visible = sw
+
+        ChkPrn_OldData.Enabled = sw
+        ChkPrn_AvgData.Enabled = sw
+
+        LblMeasSpecBak.Visible = sw
         LblMeasSpecBak2.Visible = sw
         LblMeasSpecCur2.Visible = sw
+
         TableLayoutPanel4.Visible = sw
         TableLayoutPanel5.Visible = sw
+
+        読込ToolStripMenuItem.Enabled = sw
+        グラフ消去ToolStripMenuItem.Enabled = sw
+        平均値データ表ToolStripMenuItem.Enabled = sw
+        過去データ表ToolStripMenuItem.Enabled = sw
+        平均値データ表ToolStripMenuItem.Enabled = sw
     End Sub
 
     Private Sub ClsNoPrf()
@@ -2093,7 +2105,6 @@ Public Class FrmSST4500_1_0_0J_Profile
         TxtMeasLotCur.Text = MeasNo
         FileNo = 0
         FileDataNo = 0
-
     End Sub
 
     Private Sub ClsGraph()
@@ -2366,7 +2377,6 @@ Public Class FrmSST4500_1_0_0J_Profile
         velo_deep_old_path.Clear()      'velocity-deep-graph clear
         tsi_md_old_path.Clear()         'tsi-md-graph clear
         tsi_cd_old_path.Clear()         'tsi-cd=graph clear
-
     End Sub
 
     Private Sub angle_yaxis_label(ByVal _FlgAngleRange As Integer)
@@ -2488,6 +2498,10 @@ Public Class FrmSST4500_1_0_0J_Profile
         graph_width = graph_x_end - graph_x_sta
 
         If FlgProfile = 3 Then
+            If _points < lg_graph_max Then
+                _points = lg_graph_max
+            End If
+
             StepX = graph_width / (lg_graph_max - 1)
             StepScale = lg_stepscale
 
@@ -2499,9 +2513,7 @@ Public Class FrmSST4500_1_0_0J_Profile
                 Else
                     ShiftXNum = Int((SampleNo - lg_graph_max) / lg_def_shiftxnum) * lg_def_shiftxnum + lg_def_shiftxnum
                 End If
-
                 DspPointx = ShiftXNum + 1
-
             Else
                 ShiftXNum = DspPointx - 1
             End If
@@ -2679,14 +2691,12 @@ Public Class FrmSST4500_1_0_0J_Profile
                 path4.StartFigure()
                 path4.AddLine(graph_x_sta + SclX * 6 - StepX, tsi_yaxis_max, graph_x_sta + SclX * 6 - StepX, tsi_yaxis_min)
                 prf_waku_Xlabel(6) = StepScale * 6
-
             End If
         End If
         prf_waku_angle_Xpath.Add(path1)
         prf_waku_ratio_Xpath.Add(path2)
         prf_waku_velo_Xpath.Add(path3)
         prf_waku_tsi_Xpath.Add(path4)
-
     End Sub
 
     Private Sub ClsMeasDataPrf()
@@ -2988,8 +2998,6 @@ Public Class FrmSST4500_1_0_0J_Profile
         LblTSICDMaxBak_adm.Text = ""
         LblTSICDAvgBak_adm.Text = ""
         LblTSICDMinBak_adm.Text = ""
-
-
     End Sub
 
     Public Sub DrawCalcAvgData_init()
@@ -3185,6 +3193,11 @@ Public Class FrmSST4500_1_0_0J_Profile
         ElseIf MeasDataNo = 0 And FileDataNo <> 0 Then
             If TxtPointsOld.Text <> "" Then
                 _Points = TxtPointsOld.Text
+                If FlgProfile = 3 Then
+                    If _Points < lg_graph_max Then
+                        _Points = lg_graph_max
+                    End If
+                End If
             Else
                 _Points = 0
             End If
@@ -3828,7 +3841,6 @@ Public Class FrmSST4500_1_0_0J_Profile
                 e.Graphics.DrawPath(tsicdgraph_color_1, path)
             End If
         Next
-
     End Sub
 
     Private Sub draw_prf_waku_tsi_Ylabel(ByVal e As PaintEventArgs)
@@ -3875,7 +3887,6 @@ Public Class FrmSST4500_1_0_0J_Profile
 
     Private Sub draw_prf_waku_ratio_Xlabel(ByVal e As PaintEventArgs)
         Dim _Points As Single
-
         Dim fnt As New Font("MS UI Gothic", 9)
         Dim fnt_8 As New Font("MS UI Gothic", 8)
         Dim waku_brush As Brush = New SolidBrush(frm_PrfGraphWaku_color)
@@ -3891,6 +3902,11 @@ Public Class FrmSST4500_1_0_0J_Profile
         ElseIf MeasDataNo = 0 And FileDataNo <> 0 Then
             If TxtPointsOld.Text <> "" Then
                 _Points = TxtPointsOld.Text
+                If FlgProfile = 3 Then
+                    If _Points < lg_graph_max Then
+                        _Points = lg_graph_max
+                    End If
+                End If
             Else
                 _Points = 0
             End If
@@ -3942,7 +3958,6 @@ Public Class FrmSST4500_1_0_0J_Profile
 
     Private Sub draw_prf_waku_velo_Xlabel(ByVal e As PaintEventArgs)
         Dim _Points As Single
-
         Dim fnt As New Font("MS UI Gothic", 9)
         Dim fnt_8 As New Font("MS UI Gothic", 8)
         Dim waku_brush As Brush = New SolidBrush(frm_PrfGraphWaku_color)
@@ -3958,6 +3973,11 @@ Public Class FrmSST4500_1_0_0J_Profile
         ElseIf MeasDataNo = 0 And FileDataNo <> 0 Then
             If TxtPointsOld.Text <> "" Then
                 _Points = TxtPointsOld.Text
+                If FlgProfile = 3 Then
+                    If _Points < lg_graph_max Then
+                        _Points = lg_graph_max
+                    End If
+                End If
             Else
                 _Points = 0
             End If
@@ -4009,7 +4029,6 @@ Public Class FrmSST4500_1_0_0J_Profile
 
     Private Sub draw_prf_waku_tsi_Xlabel(ByVal e As PaintEventArgs)
         Dim _Points As Single
-
         Dim fnt As New Font("MS UI Gothic", 9)
         Dim fnt_8 As New Font("MS UI Gothic", 8)
         Dim waku_brush As Brush = New SolidBrush(frm_PrfGraphWaku_color)
@@ -4025,6 +4044,11 @@ Public Class FrmSST4500_1_0_0J_Profile
         ElseIf MeasDataNo = 0 And FileDataNo <> 0 Then
             If TxtPointsOld.Text <> "" Then
                 _Points = TxtPointsOld.Text
+                If FlgProfile = 3 Then
+                    If _Points < lg_graph_max Then
+                        _Points = lg_graph_max
+                    End If
+                End If
             Else
                 _Points = 0
             End If
@@ -4100,7 +4124,6 @@ Public Class FrmSST4500_1_0_0J_Profile
 
     Private Sub TxtPitch_Validating(sender As Object, e As CancelEventArgs) Handles TxtPitch.Validating
         Debug.Print("txtPitch.Validating")
-
         Dim pitch_tmp_inch As Single
 
         If IsNumeric(TxtPitch.Text) = False Then
@@ -4148,7 +4171,6 @@ Public Class FrmSST4500_1_0_0J_Profile
                     'inch
                     TxtPitch.Text = Math.Round(min_Pitch / 25.4, 2, MidpointRounding.AwayFromZero)
                 End If
-
             ElseIf Pitch_tmp > Length_tmp - LnCmp Then
                 '有効長以上の場合、エラーメッセージヲ出して前回データを復元する
                 MessageBox.Show("設定可能なピッチを超えています。" & vbCrLf &
@@ -4165,7 +4187,6 @@ Public Class FrmSST4500_1_0_0J_Profile
                     'inch
                     TxtPitch.Text = Math.Round(Pitch / 25.4, 2, MidpointRounding.AwayFromZero)
                 End If
-
             ElseIf Pitch_tmp > max_Pitch Then
                 '最大ピッチ(9999mm)以上は9999mmに強制的に設定する
                 MessageBox.Show("設定可能な最大ピッチ = " & max_Pitch & "mmを超えています。" & vbCrLf &
@@ -4182,7 +4203,6 @@ Public Class FrmSST4500_1_0_0J_Profile
                 End If
             End If
         End If
-
         'この後Validatedイベントが発生する
     End Sub
 
@@ -4213,7 +4233,6 @@ Public Class FrmSST4500_1_0_0J_Profile
             End If
             FlgMainProfile = 23
         End If
-
     End Sub
 
     Private Sub TxtPoints_Validating(sender As Object, e As CancelEventArgs) Handles TxtPoints.Validating
@@ -4239,7 +4258,6 @@ Public Class FrmSST4500_1_0_0J_Profile
                 TxtPoints.Text = min_Points
             End If
         End If
-
         'この後Validatedイベントが発生する
     End Sub
 
@@ -4310,7 +4328,6 @@ Public Class FrmSST4500_1_0_0J_Profile
                 End If
             End If
         End If
-
         'この後Validatedイベントが発生する
     End Sub
 
@@ -4341,7 +4358,6 @@ Public Class FrmSST4500_1_0_0J_Profile
             End If
             FlgMainProfile = 21
         End If
-
     End Sub
 
     Private Sub CmdMeas_Click(sender As Object, e As EventArgs) Handles CmdMeas.Click
@@ -4369,8 +4385,6 @@ Public Class FrmSST4500_1_0_0J_Profile
         Else
             MeasRun()
         End If
-
-
     End Sub
 
     Private Sub MeasRun()
@@ -4448,39 +4462,40 @@ Public Class FrmSST4500_1_0_0J_Profile
             TxtPitch.Enabled = True
             TxtPoints.Enabled = True
             OptMm.Enabled = True
-            単位ToolStripMenuItem.Enabled = True
             OptInch.Enabled = True
+            単位ToolStripMenuItem.Enabled = True
         End If
         TxtMachNoCur.Enabled = True
         TxtSmplNamCur.Enabled = True
         TxtMarkCur.Enabled = True
+
         GbPrfSpec.Enabled = True
+        CmdPrfPrint.Enabled = True
+        CmdPrfResultSave.Enabled = True
+        ChkPrfAutoPrn.Enabled = True
+
         配向角配向比ToolStripMenuItem.Enabled = True
         伝播速度TSIToolStripMenuItem.Enabled = True
         測定データ表ToolStripMenuItem.Enabled = True
-        If FlgAdmin <> 0 Then
-            過去データ表ToolStripMenuItem.Enabled = True
-            平均値データ表ToolStripMenuItem.Enabled = True
-        End If
-        CmdPrfPrint.Enabled = True
         手動印刷ToolStripMenuItem.Enabled = True
-        CmdPrfResultSave.Enabled = True
         保存ToolStripMenuItem1.Enabled = True
-        ChkPrfAutoPrn.Enabled = True
         自動印刷ToolStripMenuItem.Enabled = True
+        設定ToolStripMenuItem1.Enabled = True
         CmdAngleRange.Enabled = True
         CmdVeloRange.Enabled = True
         CmdTSIRange.Enabled = True
         LblAngCenter.Enabled = True
         If FlgAdmin <> 0 Then
             '管理者モード
-            CmdOldDataLoad.Enabled = True
-            読込ToolStripMenuItem.Enabled = True
-            CmdClsGraph.Enabled = True
-            グラフ消去ToolStripMenuItem.Enabled = True
             TxtMachNoBak.Enabled = True
             TxtSmplNamBak.Enabled = True
             TxtMarkBak.Enabled = True
+            CmdOldDataLoad.Enabled = True
+            CmdClsGraph.Enabled = True
+            読込ToolStripMenuItem.Enabled = True
+            グラフ消去ToolStripMenuItem.Enabled = True
+            過去データ表ToolStripMenuItem.Enabled = True
+            平均値データ表ToolStripMenuItem.Enabled = True
             '            If FlgProfile = 3 Then
             '           CmdAvg.Enabled = True   'なぜ過去データの有無にかかわらず有効にしているのか？
             'ElseIf MeasDataMax = FileDataMax Then
@@ -4491,51 +4506,54 @@ Public Class FrmSST4500_1_0_0J_Profile
         Else
             'AdmVisible_onofでコントロールされている
             CmdOldDataLoad.Enabled = False
-            読込ToolStripMenuItem.Enabled = False
             CmdAvg.Enabled = False
-            平均値ToolStripMenuItem.Enabled = False
             CmdClsGraph.Enabled = False
+            読込ToolStripMenuItem.Enabled = False
+            平均値ToolStripMenuItem.Enabled = False
             グラフ消去ToolStripMenuItem.Enabled = False
         End If
-        設定ToolStripMenuItem1.Enabled = True
     End Sub
 
     Private Sub ConditionDisable()
-        TxtLength.Enabled = False
-        TxtPitch.Enabled = False
-        TxtPoints.Enabled = False
-        単位ToolStripMenuItem.Enabled = False
-        OptMm.Enabled = False
-        OptInch.Enabled = False
         TxtMachNoCur.Enabled = False
         TxtSmplNamCur.Enabled = False
         TxtMarkCur.Enabled = False
         TxtMachNoBak.Enabled = False
         TxtSmplNamBak.Enabled = False
         TxtMarkBak.Enabled = False
-        CmdOldDataLoad.Enabled = False
+        TxtLength.Enabled = False
+        TxtPitch.Enabled = False
+        TxtPoints.Enabled = False
+
+        単位ToolStripMenuItem.Enabled = False
         読込ToolStripMenuItem.Enabled = False
-        CmdClsGraph.Enabled = False
         グラフ消去ToolStripMenuItem.Enabled = False
-        CmdAvg.Enabled = False
         平均値ToolStripMenuItem.Enabled = False
-        GbPrfSpec.Enabled = False
         配向角配向比ToolStripMenuItem.Enabled = False
         伝播速度TSIToolStripMenuItem.Enabled = False
         測定データ表ToolStripMenuItem.Enabled = False
         過去データ表ToolStripMenuItem.Enabled = False
         平均値データ表ToolStripMenuItem.Enabled = False
-        CmdPrfResultSave.Enabled = False
         保存ToolStripMenuItem1.Enabled = False
-        CmdPrfPrint.Enabled = False
         手動印刷ToolStripMenuItem.Enabled = False
-        ChkPrfAutoPrn.Enabled = False
         自動印刷ToolStripMenuItem.Enabled = False
+        設定ToolStripMenuItem1.Enabled = False
+
+        OptMm.Enabled = False
+        OptInch.Enabled = False
+
+        CmdOldDataLoad.Enabled = False
+        CmdClsGraph.Enabled = False
+        CmdAvg.Enabled = False
+
+        GbPrfSpec.Enabled = False
+        CmdPrfResultSave.Enabled = False
+        CmdPrfPrint.Enabled = False
+        ChkPrfAutoPrn.Enabled = False
         CmdAngleRange.Enabled = False
         CmdVeloRange.Enabled = False
         CmdTSIRange.Enabled = False
         LblAngCenter.Enabled = False
-        設定ToolStripMenuItem1.Enabled = False
     End Sub
 
     Private Sub DataMaxMinInt()
@@ -7173,14 +7191,20 @@ Public Class FrmSST4500_1_0_0J_Profile
             StrConstFileName = fname
             LoadConstPitch_FileErr_Run = 0
 
+            FlgInitEnd = 0
+
             LoadConst(Me, title_text2)
+
+            FlgInitEnd = 1
 
             If FlgPitchExp = 1 Then
                 LoadConstPitch(PchExpSettingFile_FullPath)
-                TxtLength.Text = PchExp_Length
-                TxtPitch.Text = PchExp_PchData(0)
-                PchExp_Points = UBound(PchExp_PchData) + 2
-                TxtPoints.Text = PchExp_Points
+                If FlgPitchExp_Load = 1 Then
+                    TxtLength.Text = PchExp_Length
+                    TxtPitch.Text = PchExp_PchData(0)
+                    PchExp_Points = UBound(PchExp_PchData) + 2
+                    TxtPoints.Text = PchExp_Points
+                End If
             Else
                 FlgPitchExp_Load = 0
             End If

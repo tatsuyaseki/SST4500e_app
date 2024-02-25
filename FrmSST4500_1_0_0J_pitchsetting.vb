@@ -361,11 +361,10 @@ Public Class FrmSST4500_1_0_0J_pitchsetting
             '未ロードの場合
             With FrmSST4500_1_0_0J_Profile
                 RemoveHandler .ChkPitchExp_Ena.CheckedChanged, AddressOf .ChkPitchExp_Ena_CheckedChanged
-                RemoveHandler .ChkPitchExp_Dis.CheckedChanged, AddressOf .ChkPitchExp_Dis_CheckedChanged
                 .ChkPitchExp_Ena.Checked = False
-                .ChkPitchExp_Dis.Checked = True
                 AddHandler .ChkPitchExp_Ena.CheckedChanged, AddressOf .ChkPitchExp_Ena_CheckedChanged
-                AddHandler .ChkPitchExp_Dis.CheckedChanged, AddressOf .ChkPitchExp_Dis_CheckedChanged
+
+                .ChkPitchExp_Dis.Checked = True
             End With
             LoadConstPitch_FileErr_Run = 0
             Me.Visible = False

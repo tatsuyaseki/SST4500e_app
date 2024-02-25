@@ -271,6 +271,7 @@ Module Module1
     Public StrConstFilePath As String
     Public StrConstFilePath_old As String
     Public FlgConstChg As Boolean
+    Public FlgConstChg_MeasStart As Boolean
     Public StrDataFileName As String
     Public StrFileName As String
 
@@ -2426,6 +2427,7 @@ Module Module1
         Dim _filename2 As String
 
         FlgConstChg = True
+        FlgConstChg_MeasStart = False
         '変更があった事を示すためにタイトルに"*"をつける
         _filename2 = Path.GetFileNameWithoutExtension(StrConstFileName)
         this_form.Text = title_text & " (" & _filename2 & " *)"
@@ -2583,13 +2585,14 @@ Module Module1
                     LoadConstPitch_FileErr_Run = 1
                     FrmSST4500_1_0_0J_pitchsetting.Visible = True
                 Else
+                    FlgPitchExp = 0
                     With FrmSST4500_1_0_0J_Profile
                         RemoveHandler .ChkPitchExp_Ena.CheckedChanged, AddressOf .ChkPitchExp_Ena_CheckedChanged
-                        RemoveHandler .ChkPitchExp_Dis.CheckedChanged, AddressOf .ChkPitchExp_Dis_CheckedChanged
                         .ChkPitchExp_Ena.Checked = False
-                        .ChkPitchExp_Dis.Checked = True
                         AddHandler .ChkPitchExp_Ena.CheckedChanged, AddressOf .ChkPitchExp_Ena_CheckedChanged
-                        AddHandler .ChkPitchExp_Dis.CheckedChanged, AddressOf .ChkPitchExp_Dis_CheckedChanged
+
+                        .FlgInitEnd = 1
+                        .ChkPitchExp_Dis.Checked = True
                     End With
                 End If
             Else
@@ -2752,7 +2755,8 @@ Module Module1
                         .TxtPitch.Text = Pitch
                         .ChkPitchExp_Ena.Visible = False
                         .ChkPitchExp_Dis.Visible = False
-                        .LblPitch.Visible = False
+                        .LblPitch.Visible = True
+                        .LblPitchExp.Visible = False
                         If FlgAdmin <> 0 Then
                             .TxtPitchOld.Visible = True
                         End If
