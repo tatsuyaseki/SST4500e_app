@@ -744,6 +744,7 @@ Module Module1
                 .CmdQuitSinglesheet.UseVisualStyleBackColor = True
                 .CmdMeasPrint.UseVisualStyleBackColor = True
                 .CmdMeasResultSave.UseVisualStyleBackColor = True
+                .CmdClsGraph.UseVisualStyleBackColor = True
             End If
 
             set_measformfc()
@@ -1033,6 +1034,7 @@ Module Module1
             .CmdQuitSinglesheet.BackColor = frm_MeasButton_bc
             .CmdMeasPrint.BackColor = frm_MeasButton_bc
             .CmdMeasResultSave.BackColor = frm_MeasButton_bc
+            .CmdClsGraph.BackColor = frm_MeasButton_bc
         End With
     End Sub
 
@@ -1084,6 +1086,7 @@ Module Module1
             .CmdQuitSinglesheet.ForeColor = frm_MeasButton_fc
             .CmdMeasPrint.ForeColor = frm_MeasButton_fc
             .CmdMeasResultSave.ForeColor = frm_MeasButton_fc
+            .CmdClsGraph.ForeColor = frm_MeasButton_fc
         End With
     End Sub
 

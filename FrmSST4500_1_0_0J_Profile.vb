@@ -391,10 +391,12 @@ Public Class FrmSST4500_1_0_0J_Profile
 
                 If _flgRx = 0 Then
                     If strRxdata = "MEAS" & vbCr Then
+                        TimProfile.Enabled = False
                         ToolStripStatusLabel4.Text = "測定中 "
                         CmdMeasButton_set(_mes)
                         CmdMeas.Text = "測定中"
                         測定開始ToolStripMenuItem.Text = "測定中"
+                        TimProfile.Enabled = True
 
                         'カットシートの場合、2回目以降が4番から始まる
                         If FlgProfile = 2 Then
@@ -1678,10 +1680,12 @@ Public Class FrmSST4500_1_0_0J_Profile
                     TxtPitch.Text = Pitch
                 End If
 
+                TimProfile.Enabled = False
                 ToolStripStatusLabel4.Text = "測定中 "
                 CmdMeasButton_set(_mes)
                 CmdMeas.Text = "測定中"
                 測定開始ToolStripMenuItem.Text = "測定中"
+                TimProfile.Enabled = True
 
                 'カットシートの場合、2回目以降が100番から始まる
                 If FlgProfile = 2 Then
@@ -4368,10 +4372,10 @@ Public Class FrmSST4500_1_0_0J_Profile
         If FlgConstChg = True Then
             If FlgConstChg_MeasStart = False Then
                 ret = MessageBox.Show("測定仕様が保存されていませんが、" & vbCrLf &
-                                  "測定を開始しますか？",
-                                  "測定開始確認",
-                                  MessageBoxButtons.YesNo,
-                                  MessageBoxIcon.Warning)
+                                      "測定を開始しますか？",
+                                      "測定開始確認",
+                                      MessageBoxButtons.YesNo,
+                                      MessageBoxIcon.Warning)
                 If ret = vbYes Then
                     FlgConstChg_MeasStart = True
                     MeasRun()
@@ -4421,7 +4425,7 @@ Public Class FrmSST4500_1_0_0J_Profile
                     FlgMainProfile = 2
                 End If
             ElseIf FlgProfile = 2 Then
-                result_tmp = MessageBox.Show("総測定箇所数に「 " & TxtPoints.Text & " 」が、設定されいますが、" & vbCrLf &
+                result_tmp = MessageBox.Show("総測定箇所数に「 " & TxtPoints.Text & " 」が、設定されていますが、" & vbCrLf &
                                              "測定を開始しますか？",
                                              "総測定箇所数確認",
                                              MessageBoxButtons.YesNo,

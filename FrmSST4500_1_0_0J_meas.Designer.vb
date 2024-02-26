@@ -212,6 +212,7 @@ Partial Class FrmSST4500_1_0_0J_meas
         Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel3 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel2 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.ToolStripStatusLabel5 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel4 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.PrintDocument_adm = New System.Drawing.Printing.PrintDocument()
         Me.PPD_amd = New System.Windows.Forms.PrintPreviewDialog()
@@ -249,7 +250,7 @@ Partial Class FrmSST4500_1_0_0J_meas
         Me.TxtMarkCur = New System.Windows.Forms.TextBox()
         Me.TxtMarkBak = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.ToolStripStatusLabel5 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.CmdClsGraph = New System.Windows.Forms.Button()
         Me.TblMeasInfo_adm.SuspendLayout()
         Me.TblMeasData_adm.SuspendLayout()
         Me.TblMeasInfo_nom.SuspendLayout()
@@ -1041,7 +1042,7 @@ Partial Class FrmSST4500_1_0_0J_meas
         'CmdQuitSinglesheet
         '
         Me.CmdQuitSinglesheet.Font = New System.Drawing.Font("MS UI Gothic", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.CmdQuitSinglesheet.Location = New System.Drawing.Point(847, 458)
+        Me.CmdQuitSinglesheet.Location = New System.Drawing.Point(847, 506)
         Me.CmdQuitSinglesheet.Name = "CmdQuitSinglesheet"
         Me.CmdQuitSinglesheet.Size = New System.Drawing.Size(120, 35)
         Me.CmdQuitSinglesheet.TabIndex = 20
@@ -2903,6 +2904,12 @@ Partial Class FrmSST4500_1_0_0J_meas
         Me.ToolStripStatusLabel2.Size = New System.Drawing.Size(61, 17)
         Me.ToolStripStatusLabel2.Text = "通常モード"
         '
+        'ToolStripStatusLabel5
+        '
+        Me.ToolStripStatusLabel5.Name = "ToolStripStatusLabel5"
+        Me.ToolStripStatusLabel5.Size = New System.Drawing.Size(37, 17)
+        Me.ToolStripStatusLabel5.Text = "特殊1"
+        '
         'ToolStripStatusLabel4
         '
         Me.ToolStripStatusLabel4.BorderSides = CType((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left Or System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) _
@@ -2911,7 +2918,7 @@ Partial Class FrmSST4500_1_0_0J_meas
         Me.ToolStripStatusLabel4.BorderStyle = System.Windows.Forms.Border3DStyle.Sunken
         Me.ToolStripStatusLabel4.Font = New System.Drawing.Font("MS UI Gothic", 9.0!)
         Me.ToolStripStatusLabel4.Name = "ToolStripStatusLabel4"
-        Me.ToolStripStatusLabel4.Size = New System.Drawing.Size(750, 17)
+        Me.ToolStripStatusLabel4.Size = New System.Drawing.Size(713, 17)
         Me.ToolStripStatusLabel4.Spring = True
         Me.ToolStripStatusLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
@@ -3200,11 +3207,15 @@ Partial Class FrmSST4500_1_0_0J_meas
         Me.Label1.TabIndex = 62
         Me.Label1.Text = "マーク"
         '
-        'ToolStripStatusLabel5
+        'CmdClsGraph
         '
-        Me.ToolStripStatusLabel5.Name = "ToolStripStatusLabel5"
-        Me.ToolStripStatusLabel5.Size = New System.Drawing.Size(37, 17)
-        Me.ToolStripStatusLabel5.Text = "特殊1"
+        Me.CmdClsGraph.Font = New System.Drawing.Font("MS UI Gothic", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.CmdClsGraph.Location = New System.Drawing.Point(847, 465)
+        Me.CmdClsGraph.Name = "CmdClsGraph"
+        Me.CmdClsGraph.Size = New System.Drawing.Size(120, 35)
+        Me.CmdClsGraph.TabIndex = 63
+        Me.CmdClsGraph.Text = "グラフ消去"
+        Me.CmdClsGraph.UseVisualStyleBackColor = True
         '
         'FrmSST4500_1_0_0J_meas
         '
@@ -3213,6 +3224,7 @@ Partial Class FrmSST4500_1_0_0J_meas
         Me.AutoScroll = True
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(984, 762)
+        Me.Controls.Add(Me.CmdClsGraph)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.TxtMarkBak)
         Me.Controls.Add(Me.TxtMarkCur)
@@ -3499,4 +3511,5 @@ Partial Class FrmSST4500_1_0_0J_meas
     Friend WithEvents TxtMarkBak As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents ToolStripStatusLabel5 As ToolStripStatusLabel
+    Friend WithEvents CmdClsGraph As Button
 End Class
