@@ -188,9 +188,6 @@
     <Setting Name="_frm_MeasuringButton_bc" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">Yellow</Value>
     </Setting>
-    <Setting Name="_frm_MeasuringButton_fc" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">ControlText</Value>
-    </Setting>
     <Setting Name="_frm_MeasOldData_color" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">Blue</Value>
     </Setting>
@@ -220,9 +217,6 @@
     </Setting>
     <Setting Name="_frm_PrfMeasuringButton_bc" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">Yellow</Value>
-    </Setting>
-    <Setting Name="_frm_PrfMeasuringButton_fc" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">ControlText</Value>
     </Setting>
     <Setting Name="_frm_PrfOldData_color" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">Blue</Value>

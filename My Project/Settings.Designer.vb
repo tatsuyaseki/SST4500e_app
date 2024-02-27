@@ -800,18 +800,6 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("ControlText")>  _
-        Public Property _frm_MeasuringButton_fc() As Global.System.Drawing.Color
-            Get
-                Return CType(Me("_frm_MeasuringButton_fc"),Global.System.Drawing.Color)
-            End Get
-            Set
-                Me("_frm_MeasuringButton_fc") = value
-            End Set
-        End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.DefaultSettingValueAttribute("Blue")>  _
         Public Property _frm_MeasOldData_color() As Global.System.Drawing.Color
             Get
@@ -927,18 +915,6 @@ Namespace My
             End Get
             Set
                 Me("_frm_PrfMeasuringButton_bc") = value
-            End Set
-        End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("ControlText")>  _
-        Public Property _frm_PrfMeasuringButton_fc() As Global.System.Drawing.Color
-            Get
-                Return CType(Me("_frm_PrfMeasuringButton_fc"),Global.System.Drawing.Color)
-            End Get
-            Set
-                Me("_frm_PrfMeasuringButton_fc") = value
             End Set
         End Property
         

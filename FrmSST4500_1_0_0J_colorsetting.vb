@@ -511,24 +511,6 @@
         End Using
     End Sub
 
-    Private Sub LblFrmMeasuringButtonFC_Click(sender As Object, e As EventArgs) Handles LblFrmMeasuringButtonFC.Click
-        Using Dialog As New ColorDialog
-            With Dialog
-                .AllowFullOpen = True
-                .FullOpen = True
-                .Color = frm_MeasuringButton_fc
-            End With
-
-            If Dialog.ShowDialog = DialogResult.OK Then
-                LblFrmMeasuringButtonFC.BackColor = Dialog.Color
-                frm_MeasuringButton_fc = Dialog.Color
-
-                My.Settings._frm_MeasuringButton_fc = frm_MeasuringButton_fc
-                My.Settings.Save()
-            End If
-        End Using
-    End Sub
-
     Private Sub LblFrmMeasTextBoxBC_Click(sender As Object, e As EventArgs) Handles LblFrmMeasTextBoxBC.Click
         Using Dialog As New ColorDialog
             With Dialog
@@ -803,24 +785,6 @@
                 frm_PrfMeasuringButton_bc = Dialog.Color
 
                 My.Settings._frm_PrfMeasuringButton_bc = frm_PrfMeasuringButton_bc
-                My.Settings.Save()
-            End If
-        End Using
-    End Sub
-
-    Private Sub LblFrmPrfMeasuringButtonFC_Click(sender As Object, e As EventArgs) Handles LblFrmPrfMeasuringButtonFC.Click
-        Using Dialog As New ColorDialog
-            With Dialog
-                .AllowFullOpen = True
-                .FullOpen = True
-                .Color = frm_PrfMeasuringButton_fc
-            End With
-
-            If Dialog.ShowDialog = DialogResult.OK Then
-                LblFrmPrfMeasuringButtonFC.BackColor = Dialog.Color
-                frm_PrfMeasuringButton_fc = Dialog.Color
-
-                My.Settings._frm_PrfMeasuringButton_fc = frm_PrfMeasuringButton_fc
                 My.Settings.Save()
             End If
         End Using

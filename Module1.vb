@@ -576,7 +576,7 @@ Module Module1
             frm_MeasStatus_fc = ._frm_MeasStatus_fc
             frm_MeasButton_fc = ._frm_MeasButton_fc
             frm_MeasMeasButton_fc = ._frm_MeasMeasButton_fc
-            frm_MeasuringButton_fc = ._frm_MeasuringButton_fc
+            'frm_MeasuringButton_fc = ._frm_MeasuringButton_fc
 
             frm_MeasStatusBorder_stl = ._frm_MeasStatusBorder_stl
         End With
@@ -603,7 +603,7 @@ Module Module1
             frm_PrfStatus_fc = ._frm_PrfStatus_fc
             frm_PrfButton_fc = ._frm_PrfButton_fc
             frm_PrfMeasButton_fc = ._frm_PrfMeasButton_fc
-            frm_PrfMeasuringButton_fc = ._frm_PrfMeasuringButton_fc
+            'frm_PrfMeasuringButton_fc = ._frm_PrfMeasuringButton_fc
 
             frm_PrfStatusBorder_stl = ._frm_PrfStatusBorder_stl
 
@@ -643,7 +643,7 @@ Module Module1
                     .LblFrmMeasStatusFC.BackColor = frm_MeasStatus_fc
                     .LblFrmMeasButtonFC.BackColor = frm_MeasButton_fc
                     .LblFrmMeasMeasButtonFC.BackColor = frm_MeasMeasButton_fc
-                    .LblFrmMeasuringButtonFC.BackColor = frm_MeasuringButton_fc
+                    '.LblFrmMeasuringButtonFC.BackColor = frm_MeasuringButton_fc
                     .LblFrmMeasOldDataColor.BackColor = frm_MeasOldData_color
                     .LblFrmMeasCurDataColor.BackColor = frm_MeasCurData_color
                     .LblFrmMeasGraphWakuColor.BackColor = frm_MeasGraphWaku_color
@@ -666,7 +666,7 @@ Module Module1
                     .LblFrmPrfStatusFC.BackColor = frm_PrfStatus_fc
                     .LblFrmPrfButtonFC.BackColor = frm_PrfButton_fc
                     .LblFrmPrfMeasButtonFC.BackColor = frm_PrfMeasButton_fc
-                    .LblFrmPrfMeasuringButtonFC.BackColor = frm_PrfMeasuringButton_fc
+                    '.LblFrmPrfMeasuringButtonFC.BackColor = frm_PrfMeasuringButton_fc
                     .LblFrmPrfOldDataColor.BackColor = frm_PrfOldData_color
                     .LblFrmPrfCurDataColor.BackColor = frm_PrfCurData_color
                     .LblFrmPrfAvgDataColor.BackColor = frm_PrfAvgData_color
