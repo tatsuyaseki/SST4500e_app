@@ -1571,7 +1571,11 @@ Public Class FrmSST4500_1_0_0J_meas
         If result = DialogResult.OK Then
             StrConstFileName = fname
 
+            flgInitEnd = 0
+
             LoadConst(Me, title_text1)
+
+            flgInitEnd = 1
 
             'ClsNoMeas()    'FlgMainMeas = 20 で実行される
             ClsData()
