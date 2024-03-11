@@ -166,6 +166,10 @@
                 Me.Text = "パスワード変更2"
             ElseIf FlgPasswdChg = 3 Then
                 Me.Text = "パスワード変更3"
+            ElseIf FlgPasswdChg = 4 Then
+                Me.Text = "パスワード変更4"
+            Else
+                Me.Text = "パスワード変更"
             End If
         End If
     End Sub
