@@ -584,7 +584,7 @@ Public Class FrmSST4500_1_0_0J_test
         Dim _flgTx As Integer
         'Dim sw As New System.Diagnostics.Stopwatch
 
-        TxtPitch.Text = InputBox("Pitchを入力する")
+        TxtPitch.Text = InputBox("Pitchを入力する", "Pitch Input")
 
         strWdata = "PCH" & vbCr
         _flgTx = UsbWrite(strWdata)

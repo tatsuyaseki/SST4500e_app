@@ -3175,7 +3175,7 @@ Public Class FrmSST4500_1_0_0J_meas
                                     .Cells.Interior.Color = frm_MeasForm_bc
                                 End If
 
-                                .Cells(1, 1) = "SST-4000 シングルシート"
+                                .Cells(1, 1) = My.Application.Info.ProductName & " シングルシート"
                                 .Range(.Cells(1, 1), .Cells(1, 1)).Font.Color = frm_MeasForm_fc
                                 .Cells(2, 1) = "測定データ 測定　日付：" & DataDate_cur & "  時間：" & DataTime_cur
                                 .Range(.Cells(2, 1), .Cells(2, 1)).Font.Color = frm_MeasCurData_color

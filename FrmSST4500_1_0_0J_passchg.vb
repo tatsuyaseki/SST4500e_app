@@ -30,7 +30,7 @@
                 'admパスワード変更
                 If old_pass = passwd_adm Then
                     If new_pass = new_pass2 Then
-                        ret = MessageBox.Show("管理者モード2のパスワードを" & vbCrLf &
+                        ret = MessageBox.Show("管理者モードのパスワードを" & vbCrLf &
                                               "変更してもよろしいですか？",
                                               "パスワード変更確認",
                                               MessageBoxButtons.YesNo,
@@ -111,6 +111,11 @@
                                         MessageBoxButtons.OK,
                                         MessageBoxIcon.Exclamation)
                     End If
+                Else
+                    MessageBox.Show("古いパスワードが違います。",
+                                    "パスワードエラー",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Exclamation)
                 End If
             ElseIf FlgPasswdChg = 4 Then
                 'PchExpSettingパスワード変更
