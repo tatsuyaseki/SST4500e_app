@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class FrmSST4500_1_0_0J_meas
+Partial Class FrmSST4500_1_0_0E_meas
     Inherits System.Windows.Forms.Form
 
     'フォームがコンポーネントの一覧をクリーンアップするために dispose をオーバーライドします。
@@ -23,7 +23,7 @@ Partial Class FrmSST4500_1_0_0J_meas
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmSST4500_1_0_0J_meas))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmSST4500_1_0_0E_meas))
         Me.LblProductNameMeas = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.LblMeasSpecCur = New System.Windows.Forms.Label()
@@ -225,14 +225,14 @@ Partial Class FrmSST4500_1_0_0J_meas
         Me.TxtMeasNumCur = New System.Windows.Forms.Label()
         Me.TxtMeasNumBak = New System.Windows.Forms.Label()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
-        Me.ファイルToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.測定仕様ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.選択ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.保存ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.過去データToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.読込ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.他の測定データ選択ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.終了ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MeasSpecToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ChoiceToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SaveToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OldDataToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LoadToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AnotherMeasDataSelToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.QuitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.測定ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.測定開始ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.他の測定データ選択ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
@@ -3024,63 +3024,63 @@ Partial Class FrmSST4500_1_0_0J_meas
         '
         Me.MenuStrip1.BackColor = System.Drawing.SystemColors.Control
         Me.MenuStrip1.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ファイルToolStripMenuItem, Me.測定ToolStripMenuItem, Me.結果ToolStripMenuItem, Me.設定ToolStripMenuItem, Me.ヘルプToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.測定ToolStripMenuItem, Me.結果ToolStripMenuItem, Me.設定ToolStripMenuItem, Me.ヘルプToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(984, 24)
         Me.MenuStrip1.TabIndex = 53
         Me.MenuStrip1.Text = "MenuStrip1"
         '
-        'ファイルToolStripMenuItem
+        'FileToolStripMenuItem
         '
-        Me.ファイルToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.測定仕様ToolStripMenuItem, Me.過去データToolStripMenuItem, Me.終了ToolStripMenuItem})
-        Me.ファイルToolStripMenuItem.Name = "ファイルToolStripMenuItem"
-        Me.ファイルToolStripMenuItem.Size = New System.Drawing.Size(51, 20)
-        Me.ファイルToolStripMenuItem.Text = "ファイル"
+        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MeasSpecToolStripMenuItem, Me.OldDataToolStripMenuItem, Me.QuitToolStripMenuItem})
+        Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
+        Me.FileToolStripMenuItem.Size = New System.Drawing.Size(51, 20)
+        Me.FileToolStripMenuItem.Text = "ファイル"
         '
-        '測定仕様ToolStripMenuItem
+        'MeasSpecToolStripMenuItem
         '
-        Me.測定仕様ToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.選択ToolStripMenuItem, Me.保存ToolStripMenuItem})
-        Me.測定仕様ToolStripMenuItem.Name = "測定仕様ToolStripMenuItem"
-        Me.測定仕様ToolStripMenuItem.Size = New System.Drawing.Size(122, 22)
-        Me.測定仕様ToolStripMenuItem.Text = "測定仕様"
+        Me.MeasSpecToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ChoiceToolStripMenuItem, Me.SaveToolStripMenuItem})
+        Me.MeasSpecToolStripMenuItem.Name = "MeasSpecToolStripMenuItem"
+        Me.MeasSpecToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.MeasSpecToolStripMenuItem.Text = "測定仕様"
         '
-        '選択ToolStripMenuItem
+        'ChoiceToolStripMenuItem
         '
-        Me.選択ToolStripMenuItem.Name = "選択ToolStripMenuItem"
-        Me.選択ToolStripMenuItem.Size = New System.Drawing.Size(94, 22)
-        Me.選択ToolStripMenuItem.Text = "選択"
+        Me.ChoiceToolStripMenuItem.Name = "ChoiceToolStripMenuItem"
+        Me.ChoiceToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ChoiceToolStripMenuItem.Text = "選択"
         '
-        '保存ToolStripMenuItem
+        'SaveToolStripMenuItem
         '
-        Me.保存ToolStripMenuItem.Name = "保存ToolStripMenuItem"
-        Me.保存ToolStripMenuItem.Size = New System.Drawing.Size(94, 22)
-        Me.保存ToolStripMenuItem.Text = "保存"
+        Me.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem"
+        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SaveToolStripMenuItem.Text = "保存"
         '
-        '過去データToolStripMenuItem
+        'OldDataToolStripMenuItem
         '
-        Me.過去データToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.読込ToolStripMenuItem, Me.他の測定データ選択ToolStripMenuItem})
-        Me.過去データToolStripMenuItem.Name = "過去データToolStripMenuItem"
-        Me.過去データToolStripMenuItem.Size = New System.Drawing.Size(122, 22)
-        Me.過去データToolStripMenuItem.Text = "過去データ"
+        Me.OldDataToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LoadToolStripMenuItem, Me.AnotherMeasDataSelToolStripMenuItem})
+        Me.OldDataToolStripMenuItem.Name = "OldDataToolStripMenuItem"
+        Me.OldDataToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.OldDataToolStripMenuItem.Text = "過去データ"
         '
-        '読込ToolStripMenuItem
+        'LoadToolStripMenuItem
         '
-        Me.読込ToolStripMenuItem.Name = "読込ToolStripMenuItem"
-        Me.読込ToolStripMenuItem.Size = New System.Drawing.Size(168, 22)
-        Me.読込ToolStripMenuItem.Text = "読込"
+        Me.LoadToolStripMenuItem.Name = "LoadToolStripMenuItem"
+        Me.LoadToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.LoadToolStripMenuItem.Text = "読込"
         '
-        '他の測定データ選択ToolStripMenuItem
+        'AnotherMeasDataSelToolStripMenuItem
         '
-        Me.他の測定データ選択ToolStripMenuItem.Name = "他の測定データ選択ToolStripMenuItem"
-        Me.他の測定データ選択ToolStripMenuItem.Size = New System.Drawing.Size(168, 22)
-        Me.他の測定データ選択ToolStripMenuItem.Text = "他の測定データ選択"
+        Me.AnotherMeasDataSelToolStripMenuItem.Name = "AnotherMeasDataSelToolStripMenuItem"
+        Me.AnotherMeasDataSelToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.AnotherMeasDataSelToolStripMenuItem.Text = "他の測定データ選択"
         '
-        '終了ToolStripMenuItem
+        'QuitToolStripMenuItem
         '
-        Me.終了ToolStripMenuItem.Name = "終了ToolStripMenuItem"
-        Me.終了ToolStripMenuItem.Size = New System.Drawing.Size(122, 22)
-        Me.終了ToolStripMenuItem.Text = "終了"
+        Me.QuitToolStripMenuItem.Name = "QuitToolStripMenuItem"
+        Me.QuitToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.QuitToolStripMenuItem.Text = "終了"
         '
         '測定ToolStripMenuItem
         '
@@ -3217,7 +3217,7 @@ Partial Class FrmSST4500_1_0_0J_meas
         Me.CmdClsGraph.Text = "グラフ消去"
         Me.CmdClsGraph.UseVisualStyleBackColor = True
         '
-        'FrmSST4500_1_0_0J_meas
+        'FrmSST4500_1_0_0E_meas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -3258,7 +3258,7 @@ Partial Class FrmSST4500_1_0_0J_meas
         Me.Font = New System.Drawing.Font("MS UI Gothic", 9.0!)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MenuStrip1
-        Me.Name = "FrmSST4500_1_0_0J_meas"
+        Me.Name = "FrmSST4500_1_0_0E_meas"
         Me.Text = "SST-4500 Single Sheet"
         Me.TblMeasInfo_adm.ResumeLayout(False)
         Me.TblMeasInfo_adm.PerformLayout()
@@ -3486,14 +3486,14 @@ Partial Class FrmSST4500_1_0_0J_meas
     Friend WithEvents TxtMeasNumCur As Label
     Friend WithEvents TxtMeasNumBak As Label
     Friend WithEvents MenuStrip1 As MenuStrip
-    Friend WithEvents ファイルToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents 測定仕様ToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents 選択ToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents 保存ToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents 過去データToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents 読込ToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents 他の測定データ選択ToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents 終了ToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents FileToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents MeasSpecToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ChoiceToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SaveToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents OldDataToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents LoadToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents AnotherMeasDataSelToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents QuitToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents 測定ToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents 測定開始ToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents 他の測定データ選択ToolStripMenuItem1 As ToolStripMenuItem

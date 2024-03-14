@@ -1,4 +1,4 @@
-﻿Public Class FrmSST4500_1_0_0J_helpinfo
+﻿Public Class FrmSST4500_1_0_0E_helpinfo
     Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
         Process.Start("mailto:nomurashoji@nomurashoji.com")
     End Sub
@@ -7,7 +7,7 @@
         Process.Start("https://www.nomurashoji.com")
     End Sub
 
-    Private Sub FrmSST4500_1_0_0J_helpinfo_Load(sender As Object, e As EventArgs) Handles Me.Load
+    Private Sub FrmSST4500_1_0_0E_helpinfo_Load(sender As Object, e As EventArgs) Handles Me.Load
         MinimumSize = Size
         MaximumSize = Size
 

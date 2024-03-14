@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class FrmSST4500_1_0_0J_main
+Partial Class FrmSST4500_1_0_0E_main
     Inherits System.Windows.Forms.Form
 
     'フォームがコンポーネントの一覧をクリーンアップするために dispose をオーバーライドします。
@@ -23,12 +23,13 @@ Partial Class FrmSST4500_1_0_0J_main
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmSST4500_1_0_0J_main))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmSST4500_1_0_0E_main))
         Me.TimSplash = New System.Windows.Forms.Timer(Me.components)
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel3 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel2 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.ToolStripStatusLabel4 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.LblProductNameMenu = New System.Windows.Forms.Label()
         Me.CmdAdmin = New System.Windows.Forms.Button()
         Me.CmdMDlong = New System.Windows.Forms.Button()
@@ -41,21 +42,20 @@ Partial Class FrmSST4500_1_0_0J_main
         Me.CmdSinglesheet = New System.Windows.Forms.Button()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.シングルシートToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.カットシートToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.プロファイルToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.終了ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.設定ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.管理者ログインToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.設定ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.管理者モードToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.MD長尺測定ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.試験調整ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ヘルプToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SST4500ヘルプToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SST4500についてToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SingleSheetToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CutSheetToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ProfileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.QuitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SettingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AdmLoginToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SettingToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AdmModeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MDLongToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TestToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SST4500HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SST4500InfoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.ToolStripStatusLabel4 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.StatusStrip1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -99,6 +99,12 @@ Partial Class FrmSST4500_1_0_0J_main
         Me.ToolStripStatusLabel2.Name = "ToolStripStatusLabel2"
         Me.ToolStripStatusLabel2.Size = New System.Drawing.Size(61, 17)
         Me.ToolStripStatusLabel2.Text = "通常モード"
+        '
+        'ToolStripStatusLabel4
+        '
+        Me.ToolStripStatusLabel4.Name = "ToolStripStatusLabel4"
+        Me.ToolStripStatusLabel4.Size = New System.Drawing.Size(35, 17)
+        Me.ToolStripStatusLabel4.Text = "特殊1"
         '
         'LblProductNameMenu
         '
@@ -197,7 +203,7 @@ Partial Class FrmSST4500_1_0_0J_main
         'MenuStrip1
         '
         Me.MenuStrip1.Font = New System.Drawing.Font("MS UI Gothic", 9.0!)
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1, Me.設定ToolStripMenuItem, Me.管理者モードToolStripMenuItem, Me.ヘルプToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1, Me.SettingToolStripMenuItem, Me.AdmModeToolStripMenuItem, Me.HelpToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(784, 24)
@@ -206,95 +212,95 @@ Partial Class FrmSST4500_1_0_0J_main
         '
         'ToolStripMenuItem1
         '
-        Me.ToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.シングルシートToolStripMenuItem, Me.カットシートToolStripMenuItem, Me.プロファイルToolStripMenuItem, Me.終了ToolStripMenuItem})
+        Me.ToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SingleSheetToolStripMenuItem, Me.CutSheetToolStripMenuItem, Me.ProfileToolStripMenuItem, Me.QuitToolStripMenuItem})
         Me.ToolStripMenuItem1.Font = New System.Drawing.Font("MS UI Gothic", 9.0!)
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
         Me.ToolStripMenuItem1.Size = New System.Drawing.Size(41, 20)
         Me.ToolStripMenuItem1.Text = "測定"
         '
-        'シングルシートToolStripMenuItem
+        'SingleSheetToolStripMenuItem
         '
-        Me.シングルシートToolStripMenuItem.Name = "シングルシートToolStripMenuItem"
-        Me.シングルシートToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
-        Me.シングルシートToolStripMenuItem.Text = "シングルシート"
+        Me.SingleSheetToolStripMenuItem.Name = "SingleSheetToolStripMenuItem"
+        Me.SingleSheetToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SingleSheetToolStripMenuItem.Text = "シングルシート"
         '
-        'カットシートToolStripMenuItem
+        'CutSheetToolStripMenuItem
         '
-        Me.カットシートToolStripMenuItem.Name = "カットシートToolStripMenuItem"
-        Me.カットシートToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
-        Me.カットシートToolStripMenuItem.Text = "カットシート"
+        Me.CutSheetToolStripMenuItem.Name = "CutSheetToolStripMenuItem"
+        Me.CutSheetToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.CutSheetToolStripMenuItem.Text = "カットシート"
         '
-        'プロファイルToolStripMenuItem
+        'ProfileToolStripMenuItem
         '
-        Me.プロファイルToolStripMenuItem.Name = "プロファイルToolStripMenuItem"
-        Me.プロファイルToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
-        Me.プロファイルToolStripMenuItem.Text = "プロファイル"
+        Me.ProfileToolStripMenuItem.Name = "ProfileToolStripMenuItem"
+        Me.ProfileToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ProfileToolStripMenuItem.Text = "プロファイル"
         '
-        '終了ToolStripMenuItem
+        'QuitToolStripMenuItem
         '
-        Me.終了ToolStripMenuItem.Name = "終了ToolStripMenuItem"
-        Me.終了ToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
-        Me.終了ToolStripMenuItem.Text = "終了"
+        Me.QuitToolStripMenuItem.Name = "QuitToolStripMenuItem"
+        Me.QuitToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.QuitToolStripMenuItem.Text = "終了"
         '
-        '設定ToolStripMenuItem
+        'SettingToolStripMenuItem
         '
-        Me.設定ToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.管理者ログインToolStripMenuItem, Me.設定ToolStripMenuItem1})
-        Me.設定ToolStripMenuItem.Font = New System.Drawing.Font("MS UI Gothic", 9.0!)
-        Me.設定ToolStripMenuItem.Name = "設定ToolStripMenuItem"
-        Me.設定ToolStripMenuItem.Size = New System.Drawing.Size(41, 20)
-        Me.設定ToolStripMenuItem.Text = "設定"
+        Me.SettingToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AdmLoginToolStripMenuItem, Me.SettingToolStripMenuItem1})
+        Me.SettingToolStripMenuItem.Font = New System.Drawing.Font("MS UI Gothic", 9.0!)
+        Me.SettingToolStripMenuItem.Name = "SettingToolStripMenuItem"
+        Me.SettingToolStripMenuItem.Size = New System.Drawing.Size(41, 20)
+        Me.SettingToolStripMenuItem.Text = "設定"
         '
-        '管理者ログインToolStripMenuItem
+        'AdmLoginToolStripMenuItem
         '
-        Me.管理者ログインToolStripMenuItem.Name = "管理者ログインToolStripMenuItem"
-        Me.管理者ログインToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
-        Me.管理者ログインToolStripMenuItem.Text = "管理者ログイン"
+        Me.AdmLoginToolStripMenuItem.Name = "AdmLoginToolStripMenuItem"
+        Me.AdmLoginToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.AdmLoginToolStripMenuItem.Text = "管理者ログイン"
         '
-        '設定ToolStripMenuItem1
+        'SettingToolStripMenuItem1
         '
-        Me.設定ToolStripMenuItem1.Name = "設定ToolStripMenuItem1"
-        Me.設定ToolStripMenuItem1.Size = New System.Drawing.Size(142, 22)
-        Me.設定ToolStripMenuItem1.Text = "設定"
+        Me.SettingToolStripMenuItem1.Name = "SettingToolStripMenuItem1"
+        Me.SettingToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
+        Me.SettingToolStripMenuItem1.Text = "設定"
         '
-        '管理者モードToolStripMenuItem
+        'AdmModeToolStripMenuItem
         '
-        Me.管理者モードToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MD長尺測定ToolStripMenuItem1, Me.試験調整ToolStripMenuItem})
-        Me.管理者モードToolStripMenuItem.Font = New System.Drawing.Font("MS UI Gothic", 9.0!)
-        Me.管理者モードToolStripMenuItem.Name = "管理者モードToolStripMenuItem"
-        Me.管理者モードToolStripMenuItem.Size = New System.Drawing.Size(81, 20)
-        Me.管理者モードToolStripMenuItem.Text = "管理者モード"
+        Me.AdmModeToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MDLongToolStripMenuItem1, Me.TestToolStripMenuItem})
+        Me.AdmModeToolStripMenuItem.Font = New System.Drawing.Font("MS UI Gothic", 9.0!)
+        Me.AdmModeToolStripMenuItem.Name = "AdmModeToolStripMenuItem"
+        Me.AdmModeToolStripMenuItem.Size = New System.Drawing.Size(81, 20)
+        Me.AdmModeToolStripMenuItem.Text = "管理者モード"
         '
-        'MD長尺測定ToolStripMenuItem1
+        'MDLongToolStripMenuItem1
         '
-        Me.MD長尺測定ToolStripMenuItem1.Name = "MD長尺測定ToolStripMenuItem1"
-        Me.MD長尺測定ToolStripMenuItem1.Size = New System.Drawing.Size(135, 22)
-        Me.MD長尺測定ToolStripMenuItem1.Text = "MD長尺測定"
+        Me.MDLongToolStripMenuItem1.Name = "MDLongToolStripMenuItem1"
+        Me.MDLongToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
+        Me.MDLongToolStripMenuItem1.Text = "MD長尺測定"
         '
-        '試験調整ToolStripMenuItem
+        'TestToolStripMenuItem
         '
-        Me.試験調整ToolStripMenuItem.Name = "試験調整ToolStripMenuItem"
-        Me.試験調整ToolStripMenuItem.Size = New System.Drawing.Size(135, 22)
-        Me.試験調整ToolStripMenuItem.Text = "試験・調整"
+        Me.TestToolStripMenuItem.Name = "TestToolStripMenuItem"
+        Me.TestToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.TestToolStripMenuItem.Text = "試験・調整"
         '
-        'ヘルプToolStripMenuItem
+        'HelpToolStripMenuItem
         '
-        Me.ヘルプToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SST4500ヘルプToolStripMenuItem, Me.SST4500についてToolStripMenuItem})
-        Me.ヘルプToolStripMenuItem.Name = "ヘルプToolStripMenuItem"
-        Me.ヘルプToolStripMenuItem.Size = New System.Drawing.Size(46, 20)
-        Me.ヘルプToolStripMenuItem.Text = "ヘルプ"
+        Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SST4500HelpToolStripMenuItem, Me.SST4500InfoToolStripMenuItem})
+        Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
+        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(46, 20)
+        Me.HelpToolStripMenuItem.Text = "ヘルプ"
         '
-        'SST4500ヘルプToolStripMenuItem
+        'SST4500HelpToolStripMenuItem
         '
-        Me.SST4500ヘルプToolStripMenuItem.Enabled = False
-        Me.SST4500ヘルプToolStripMenuItem.Name = "SST4500ヘルプToolStripMenuItem"
-        Me.SST4500ヘルプToolStripMenuItem.Size = New System.Drawing.Size(158, 22)
-        Me.SST4500ヘルプToolStripMenuItem.Text = "SST-4500ヘルプ"
+        Me.SST4500HelpToolStripMenuItem.Enabled = False
+        Me.SST4500HelpToolStripMenuItem.Name = "SST4500HelpToolStripMenuItem"
+        Me.SST4500HelpToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SST4500HelpToolStripMenuItem.Text = "SST-4500ヘルプ"
         '
-        'SST4500についてToolStripMenuItem
+        'SST4500InfoToolStripMenuItem
         '
-        Me.SST4500についてToolStripMenuItem.Name = "SST4500についてToolStripMenuItem"
-        Me.SST4500についてToolStripMenuItem.Size = New System.Drawing.Size(158, 22)
-        Me.SST4500についてToolStripMenuItem.Text = "SST-4500について"
+        Me.SST4500InfoToolStripMenuItem.Name = "SST4500InfoToolStripMenuItem"
+        Me.SST4500InfoToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SST4500InfoToolStripMenuItem.Text = "SST-4500について"
         '
         'PictureBox1
         '
@@ -306,13 +312,7 @@ Partial Class FrmSST4500_1_0_0J_main
         Me.PictureBox1.TabIndex = 12
         Me.PictureBox1.TabStop = False
         '
-        'ToolStripStatusLabel4
-        '
-        Me.ToolStripStatusLabel4.Name = "ToolStripStatusLabel4"
-        Me.ToolStripStatusLabel4.Size = New System.Drawing.Size(35, 17)
-        Me.ToolStripStatusLabel4.Text = "特殊1"
-        '
-        'FrmSST4500_1_0_0J_main
+        'FrmSST4500_1_0_0E_main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(96.0!, 96.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi
@@ -332,7 +332,7 @@ Partial Class FrmSST4500_1_0_0J_main
         Me.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MenuStrip1
-        Me.Name = "FrmSST4500_1_0_0J_main"
+        Me.Name = "FrmSST4500_1_0_0E_main"
         Me.Text = "SST-4500 Menu"
         Me.StatusStrip1.ResumeLayout(False)
         Me.StatusStrip1.PerformLayout()
@@ -360,19 +360,19 @@ Partial Class FrmSST4500_1_0_0J_main
     Friend WithEvents CmdSinglesheet As Button
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents ToolStripMenuItem1 As ToolStripMenuItem
-    Friend WithEvents シングルシートToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents カットシートToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents プロファイルToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents 終了ToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents 設定ToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents 管理者ログインToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents 設定ToolStripMenuItem1 As ToolStripMenuItem
-    Friend WithEvents 管理者モードToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents MD長尺測定ToolStripMenuItem1 As ToolStripMenuItem
-    Friend WithEvents 試験調整ToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SingleSheetToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents CutSheetToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ProfileToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents QuitToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SettingToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents AdmLoginToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SettingToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents AdmModeToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents MDLongToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents TestToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents ヘルプToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents SST4500ヘルプToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents SST4500についてToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents HelpToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SST4500HelpToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SST4500InfoToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripStatusLabel4 As ToolStripStatusLabel
 End Class

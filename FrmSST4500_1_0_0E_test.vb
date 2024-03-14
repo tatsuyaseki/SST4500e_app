@@ -4,7 +4,7 @@ Imports System.Drawing.Drawing2D
 Imports System.IO
 Imports System.Runtime.CompilerServices
 
-Public Class FrmSST4500_1_0_0J_test
+Public Class FrmSST4500_1_0_0E_test
     Const test_graph_x_sta = 50
     Const test_graph_x_end = 698
     Const test_graph_yaxis_max = 370    'picturebox.height - 30
@@ -30,7 +30,7 @@ Public Class FrmSST4500_1_0_0J_test
     Dim Kt As Long
     Dim Kp As Integer
 
-    Private Sub FrmSST4500_1_0_0J_test_Load(sender As Object, e As EventArgs) Handles Me.Load
+    Private Sub FrmSST4500_1_0_0E_test_Load(sender As Object, e As EventArgs) Handles Me.Load
         'Me.MaximumSize = Me.Size
         Me.MinimumSize = Me.Size
 
@@ -39,7 +39,7 @@ Public Class FrmSST4500_1_0_0J_test
 
     End Sub
 
-    Private Sub FrmSST4500_1_0_0J_test_VisibleChanged(sender As Object, e As EventArgs) Handles Me.VisibleChanged
+    Private Sub FrmSST4500_1_0_0E_test_VisibleChanged(sender As Object, e As EventArgs) Handles Me.VisibleChanged
         If Me.Visible = True Then
             UsbOpen()
 
@@ -361,7 +361,7 @@ Public Class FrmSST4500_1_0_0J_test
                 If timerCount1 = 10 Then
                     TimTest.Enabled = False
 
-                    FrmSST4500_1_0_0J_main.Visible = True
+                    FrmSST4500_1_0_0E_main.Visible = True
                     FlgMainSplash = 11
                     FlgMainTest = 0
 
@@ -1208,7 +1208,7 @@ Public Class FrmSST4500_1_0_0J_test
         FlgMainTest = 0
     End Sub
 
-    Private Sub FrmSST4500_1_0_0J_test_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+    Private Sub FrmSST4500_1_0_0E_test_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
         e.Cancel = True
         FlgMainTest = 90
     End Sub

@@ -1,4 +1,4 @@
-﻿Public Class FrmSST4500_1_0_0J_setting
+﻿Public Class FrmSST4500_1_0_0E_setting
 
     Private Sub LblAngPkColor_Click(sender As Object, e As EventArgs) Handles LblAngPkColor.Click
         Using dialog As New ColorDialog
@@ -85,7 +85,7 @@
         LblTSIMDColorLG.BackColor = tsimdgraph3_color
         LblTSICDColorLG.BackColor = tsicdgraph3_color
 
-        With FrmSST4500_1_0_0J_Profile
+        With FrmSST4500_1_0_0E_Profile
             .PictureBox1.Refresh()
             .PictureBox2.Refresh()
             .PictureBox3.Refresh()
@@ -93,7 +93,7 @@
         End With
     End Sub
 
-    Private Sub FrmSST4500_1_0_0J_setting_VisibleChanged(sender As Object, e As EventArgs) Handles Me.VisibleChanged
+    Private Sub FrmSST4500_1_0_0E_setting_VisibleChanged(sender As Object, e As EventArgs) Handles Me.VisibleChanged
         If Me.Visible = True Then
             CmdMarginApply.Text = "適用"
 
@@ -445,13 +445,13 @@
         Me.Visible = False
     End Sub
 
-    Private Sub FrmSST4500_1_0_0J_setting_Load(sender As Object, e As EventArgs) Handles Me.Load
+    Private Sub FrmSST4500_1_0_0E_setting_Load(sender As Object, e As EventArgs) Handles Me.Load
         Me.MaximumSize = Me.Size
         Me.MinimumSize = Me.Size
 
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        FrmSST4500_1_0_0J_colorsetting.Visible = True
+        FrmSST4500_1_0_0E_colorsetting.Visible = True
     End Sub
 End Class

@@ -496,16 +496,16 @@ Module Module1
     Public LoadConstPitch_FileErr_Run As Integer
 
     Public Sub frmClose()
-        FrmSST4500_1_0_0J_pitchsetting.Visible = False
-        FrmSST4500_1_0_0J_setting.Visible = False
-        FrmSST4500_1_0_0J_colorsetting.Visible = False
+        FrmSST4500_1_0_0E_pitchsetting.Visible = False
+        FrmSST4500_1_0_0E_setting.Visible = False
+        FrmSST4500_1_0_0E_colorsetting.Visible = False
     End Sub
 
     Public Sub CmdMeasButton_set(ByVal meas_status As Integer)
         If FlgProfile = 0 Then
             'シングルモード
             If meas_status = _rdy Then
-                With FrmSST4500_1_0_0J_meas
+                With FrmSST4500_1_0_0E_meas
                     .CmdMeas.BackColor = frm_MeasMeasButton_bc
                     .CmdMeas.ForeColor = frm_MeasMeasButton_fc
                     .CmdMeas.FlatStyle = FlatStyle.Standard
@@ -514,7 +514,7 @@ Module Module1
                     End If
                 End With
             ElseIf meas_status = _mes Then
-                With FrmSST4500_1_0_0J_meas
+                With FrmSST4500_1_0_0E_meas
                     .CmdMeas.BackColor = frm_MeasuringButton_bc
                     .CmdMeas.ForeColor = frm_MeasuringButton_fc
                 End With
@@ -522,7 +522,7 @@ Module Module1
         Else
             'プロファイルモード
             If meas_status = _rdy Then
-                With FrmSST4500_1_0_0J_Profile
+                With FrmSST4500_1_0_0E_Profile
                     .CmdMeas.BackColor = frm_PrfMeasButton_bc
                     .CmdMeas.ForeColor = frm_PrfMeasButton_fc
                     .CmdMeas.FlatStyle = FlatStyle.Standard
@@ -531,7 +531,7 @@ Module Module1
                     End If
                 End With
             ElseIf meas_status = _mes Then
-                With FrmSST4500_1_0_0J_Profile
+                With FrmSST4500_1_0_0E_Profile
                     .CmdMeas.BackColor = frm_PrfMeasuringButton_bc
                     .CmdMeas.ForeColor = frm_PrfMeasuringButton_fc
                 End With
@@ -613,7 +613,7 @@ Module Module1
     Public Sub colorsetting_label_init(ByVal sel As Integer)
         Select Case sel
             Case Main_Enum
-                With FrmSST4500_1_0_0J_colorsetting
+                With FrmSST4500_1_0_0E_colorsetting
                     .LblFrmMainFormBC.BackColor = frm_MainForm_bc
                     .LblFrmMainMenuBC.BackColor = frm_MainMenu_bc
                     .LblFrmMainStatusBC.BackColor = frm_MainStatus_bc
@@ -628,7 +628,7 @@ Module Module1
                 mainform_borderstyle_init()
 
             Case Meas_Enum
-                With FrmSST4500_1_0_0J_colorsetting
+                With FrmSST4500_1_0_0E_colorsetting
                     .LblFrmMeasFormBC.BackColor = frm_MeasForm_bc
                     .LblFrmMeasMenuBC.BackColor = frm_MeasMenu_bc
                     .LblFrmMeasStatusBC.BackColor = frm_MeasStatus_bc
@@ -651,7 +651,7 @@ Module Module1
                 measform_borderstyle_init()
 
             Case Profile_Enum
-                With FrmSST4500_1_0_0J_colorsetting
+                With FrmSST4500_1_0_0E_colorsetting
                     .LblFrmPrfFormBC.BackColor = frm_PrfForm_bc
                     .LblFrmPrfMenuBC.BackColor = frm_PrfMenu_bc
                     .LblFrmPrfStatusBC.BackColor = frm_PrfStatus_bc
@@ -677,7 +677,7 @@ Module Module1
     End Sub
 
     Public Sub prfform_color_init()
-        With FrmSST4500_1_0_0J_Profile
+        With FrmSST4500_1_0_0E_Profile
             set_prfformbc()
             .MenuStrip1.BackColor = frm_PrfMenu_bc
             .StatusStrip1.BackColor = frm_PrfStatus_bc
@@ -716,7 +716,7 @@ Module Module1
     Public Sub measform_color_init()
         'colorsetting_label_init(Meas_Enum)
 
-        With FrmSST4500_1_0_0J_meas
+        With FrmSST4500_1_0_0E_meas
 
             set_measformbc()
 
@@ -759,7 +759,7 @@ Module Module1
     End Sub
 
     Public Sub set_prfgraphbc()
-        With FrmSST4500_1_0_0J_Profile
+        With FrmSST4500_1_0_0E_Profile
             .PictureBox1.BackColor = frm_PrfGraph_bc
             .PictureBox2.BackColor = frm_PrfGraph_bc
             .PictureBox3.BackColor = frm_PrfGraph_bc
@@ -866,7 +866,7 @@ Module Module1
     End Sub
 
     Public Sub set_measformbc()
-        With FrmSST4500_1_0_0J_meas
+        With FrmSST4500_1_0_0E_meas
             'MeasFormBC
             .BackColor = frm_MeasForm_bc
             .Label8.BackColor = frm_MeasForm_bc
@@ -882,7 +882,7 @@ Module Module1
     End Sub
 
     Public Sub set_prfformbc()
-        With FrmSST4500_1_0_0J_Profile
+        With FrmSST4500_1_0_0E_Profile
             .BackColor = frm_PrfForm_bc
             .GbPrfSpec.BackColor = frm_PrfForm_bc
             .GroupBox1.BackColor = frm_PrfForm_bc
@@ -990,7 +990,7 @@ Module Module1
     End Sub
 
     Public Sub set_meastextboxbc()
-        With FrmSST4500_1_0_0J_meas
+        With FrmSST4500_1_0_0E_meas
             'Meas TextBoxBC
             .TxtMachNoCur.BackColor = frm_MeasTextBox_bc
             .TxtMachNoBak.BackColor = frm_MeasTextBox_bc
@@ -1004,7 +1004,7 @@ Module Module1
     End Sub
 
     Public Sub set_prftextboxbc()
-        With FrmSST4500_1_0_0J_Profile
+        With FrmSST4500_1_0_0E_Profile
             'Meas TextBoxBC
             .TxtMachNoCur.BackColor = frm_PrfTextBox_bc
             .TxtMachNoBak.BackColor = frm_PrfTextBox_bc
@@ -1023,7 +1023,7 @@ Module Module1
     End Sub
 
     Public Sub set_meascmdbc()
-        With FrmSST4500_1_0_0J_meas
+        With FrmSST4500_1_0_0E_meas
             '.CmdMeas.BackColor = frm_MeasButton_bc
             .CmdMeas.BackColor = frm_MeasMeasButton_bc
             .CmdEtcMeasData.BackColor = frm_MeasButton_bc
@@ -1039,7 +1039,7 @@ Module Module1
     End Sub
 
     Public Sub set_prfcmdbc()
-        With FrmSST4500_1_0_0J_Profile
+        With FrmSST4500_1_0_0E_Profile
             '.CmdMeas.BackColor = frm_PrfButton_bc
             .CmdMeas.BackColor = frm_PrfMeasButton_bc
             .CmdMeasSpecSel.BackColor = frm_PrfButton_bc
@@ -1057,7 +1057,7 @@ Module Module1
     End Sub
 
     Public Sub set_prfcmdfc()
-        With FrmSST4500_1_0_0J_Profile
+        With FrmSST4500_1_0_0E_Profile
             '.CmdMeas.ForeColor = frm_PrfButton_fc
             .CmdMeas.ForeColor = frm_PrfMeasButton_fc
             .CmdMeasSpecSel.ForeColor = frm_PrfButton_fc
@@ -1075,7 +1075,7 @@ Module Module1
     End Sub
 
     Public Sub set_meascmdfc()
-        With FrmSST4500_1_0_0J_meas
+        With FrmSST4500_1_0_0E_meas
             '.CmdMeas.ForeColor = frm_MeasButton_fc
             .CmdMeas.ForeColor = frm_MeasMeasButton_fc
             .CmdEtcMeasData.ForeColor = frm_MeasButton_fc
@@ -1091,7 +1091,7 @@ Module Module1
     End Sub
 
     Public Sub set_measolddatacolor()
-        With FrmSST4500_1_0_0J_meas
+        With FrmSST4500_1_0_0E_meas
             '過去データ色
             .LblMeasSpecBak.ForeColor = frm_MeasOldData_color
             .TxtMachNoBak.ForeColor = frm_MeasOldData_color
@@ -1132,7 +1132,7 @@ Module Module1
     End Sub
 
     Public Sub set_prfcurdatacolor()
-        With FrmSST4500_1_0_0J_Profile
+        With FrmSST4500_1_0_0E_Profile
             .LblMeasSpecCur.ForeColor = frm_PrfCurData_color
             .LblMeasSpecCur2.ForeColor = frm_PrfCurData_color
             .TxtMachNoCur.ForeColor = frm_PrfCurData_color
@@ -1237,7 +1237,7 @@ Module Module1
             .Label1.ForeColor = frm_PrfCurData_color
             .Label28.ForeColor = frm_PrfCurData_color
 
-            With FrmSST4500_1_0_0J_Profile.DataGridView1
+            With FrmSST4500_1_0_0E_Profile.DataGridView1
                 For i = 1 To 10
                     .Columns(i).DefaultCellStyle.ForeColor = frm_PrfCurData_color
                 Next
@@ -1247,7 +1247,7 @@ Module Module1
     End Sub
 
     Public Sub set_prfolddatacolor()
-        With FrmSST4500_1_0_0J_Profile
+        With FrmSST4500_1_0_0E_Profile
             .LblMeasSpecBak.ForeColor = frm_PrfOldData_color
             .LblMeasSpecBak2.ForeColor = frm_PrfOldData_color
             .TxtMachNoBak.ForeColor = frm_PrfOldData_color
@@ -1322,7 +1322,7 @@ Module Module1
             .Label27.ForeColor = frm_PrfOldData_color
             .Label2.ForeColor = frm_PrfOldData_color
 
-            With FrmSST4500_1_0_0J_Profile.DataGridView2
+            With FrmSST4500_1_0_0E_Profile.DataGridView2
                 For i = 1 To 10
                     .Columns(i).DefaultCellStyle.ForeColor = frm_PrfOldData_color
                 Next
@@ -1332,7 +1332,7 @@ Module Module1
     End Sub
 
     Public Sub set_prfavgdatacolor()
-        With FrmSST4500_1_0_0J_Profile
+        With FrmSST4500_1_0_0E_Profile
             .LblAnglePkMaxAvg_adm.ForeColor = frm_PrfAvgData_color
             .LblAnglePkMaxAvg_TB.ForeColor = frm_PrfAvgData_color
             .LblAnglePkAvgAvg_adm.ForeColor = frm_PrfAvgData_color
@@ -1397,7 +1397,7 @@ Module Module1
             .Label25.ForeColor = frm_PrfAvgData_color
             .Label26.ForeColor = frm_PrfAvgData_color
 
-            With FrmSST4500_1_0_0J_Profile.DataGridView3
+            With FrmSST4500_1_0_0E_Profile.DataGridView3
                 For i = 1 To 10
                     .Columns(i).DefaultCellStyle.ForeColor = frm_PrfAvgData_color
                 Next
@@ -1407,7 +1407,7 @@ Module Module1
     End Sub
 
     Public Sub set_meascurdatacolor()
-        With FrmSST4500_1_0_0J_meas
+        With FrmSST4500_1_0_0E_meas
             .LblMeasSpecCur.ForeColor = frm_MeasCurData_color
             .TxtMachNoCur.ForeColor = frm_MeasCurData_color
             .TxtSmplNamCur.ForeColor = frm_MeasCurData_color
@@ -1479,7 +1479,7 @@ Module Module1
     End Sub
 
     Public Sub set_prfformfc()
-        With FrmSST4500_1_0_0J_Profile
+        With FrmSST4500_1_0_0E_Profile
             .GbPrfSpec.ForeColor = frm_PrfForm_fc
             .GroupBox1.ForeColor = frm_PrfForm_fc
             .GbPrint.ForeColor = frm_PrfForm_fc
@@ -1502,7 +1502,7 @@ Module Module1
     End Sub
 
     Public Sub set_measformfc()
-        With FrmSST4500_1_0_0J_meas
+        With FrmSST4500_1_0_0E_meas
 
             .GbMeasSpec.ForeColor = frm_MeasForm_fc
             .GroupBox5.ForeColor = frm_MeasForm_fc
@@ -1593,7 +1593,7 @@ Module Module1
 
     Public Sub mainform_color_init()
 
-        With FrmSST4500_1_0_0J_main
+        With FrmSST4500_1_0_0E_main
             .BackColor = frm_MainForm_bc
 
             .MenuStrip1.BackColor = frm_MainMenu_bc
@@ -1624,7 +1624,7 @@ Module Module1
     End Sub
 
     Public Sub set_maincmdbc()
-        With FrmSST4500_1_0_0J_main
+        With FrmSST4500_1_0_0E_main
             .CmdSinglesheet.BackColor = frm_MainButton_bc
             .CmdCutSheetProfile.BackColor = frm_MainButton_bc
             .CmdProfile.BackColor = frm_MainButton_bc
@@ -1636,7 +1636,7 @@ Module Module1
     End Sub
 
     Public Sub set_maincmdfc()
-        With FrmSST4500_1_0_0J_main
+        With FrmSST4500_1_0_0E_main
             .CmdSinglesheet.ForeColor = frm_MainButton_fc
             .CmdCutSheetProfile.ForeColor = frm_MainButton_fc
             .CmdProfile.ForeColor = frm_MainButton_fc
@@ -1648,15 +1648,15 @@ Module Module1
     End Sub
 
     Public Sub set_measmenufc()
-        With FrmSST4500_1_0_0J_meas
+        With FrmSST4500_1_0_0E_meas
             .MenuStrip1.ForeColor = frm_MeasMenu_fc
-            .測定仕様ToolStripMenuItem.ForeColor = frm_MeasMenu_fc
-            .選択ToolStripMenuItem.ForeColor = frm_MeasMenu_fc
-            .保存ToolStripMenuItem.ForeColor = frm_MeasMenu_fc
-            .過去データToolStripMenuItem.ForeColor = frm_MeasMenu_fc
-            .読込ToolStripMenuItem.ForeColor = frm_MeasMenu_fc
-            .他の測定データ選択ToolStripMenuItem.ForeColor = frm_MeasMenu_fc
-            .終了ToolStripMenuItem.ForeColor = frm_MeasMenu_fc
+            .MeasSpecToolStripMenuItem.ForeColor = frm_MeasMenu_fc
+            .ChoiceToolStripMenuItem.ForeColor = frm_MeasMenu_fc
+            .SaveToolStripMenuItem.ForeColor = frm_MeasMenu_fc
+            .OldDataToolStripMenuItem.ForeColor = frm_MeasMenu_fc
+            .LoadToolStripMenuItem.ForeColor = frm_MeasMenu_fc
+            .AnotherMeasDataSelToolStripMenuItem.ForeColor = frm_MeasMenu_fc
+            .QuitToolStripMenuItem.ForeColor = frm_MeasMenu_fc
             .測定開始ToolStripMenuItem.ForeColor = frm_MeasMenu_fc
             .他の測定データ選択ToolStripMenuItem1.ForeColor = frm_MeasMenu_fc
             .印刷ToolStripMenuItem.ForeColor = frm_MeasMenu_fc
@@ -1667,7 +1667,7 @@ Module Module1
     End Sub
 
     Public Sub set_prfmenufc()
-        With FrmSST4500_1_0_0J_Profile
+        With FrmSST4500_1_0_0E_Profile
             .MenuStrip1.ForeColor = frm_PrfMenu_fc
             .測定仕様ToolStripMenuItem.ForeColor = frm_PrfMenu_fc
             .選択ToolStripMenuItem.ForeColor = frm_PrfMenu_fc
@@ -1696,22 +1696,22 @@ Module Module1
     End Sub
 
     Public Sub set_mainmenufc()
-        With FrmSST4500_1_0_0J_main
+        With FrmSST4500_1_0_0E_main
             .MenuStrip1.ForeColor = frm_MainMenu_fc
-            .シングルシートToolStripMenuItem.ForeColor = frm_MainMenu_fc
-            .カットシートToolStripMenuItem.ForeColor = frm_MainMenu_fc
-            .プロファイルToolStripMenuItem.ForeColor = frm_MainMenu_fc
-            .終了ToolStripMenuItem.ForeColor = frm_MainMenu_fc
-            .管理者ログインToolStripMenuItem.ForeColor = frm_MainMenu_fc
-            .設定ToolStripMenuItem1.ForeColor = frm_MainMenu_fc
-            .MD長尺測定ToolStripMenuItem1.ForeColor = frm_MainMenu_fc
-            .試験調整ToolStripMenuItem.ForeColor = frm_MainMenu_fc
+            .SingleSheetToolStripMenuItem.ForeColor = frm_MainMenu_fc
+            .CutSheetToolStripMenuItem.ForeColor = frm_MainMenu_fc
+            .ProfileToolStripMenuItem.ForeColor = frm_MainMenu_fc
+            .QuitToolStripMenuItem.ForeColor = frm_MainMenu_fc
+            .AdmLoginToolStripMenuItem.ForeColor = frm_MainMenu_fc
+            .SettingToolStripMenuItem1.ForeColor = frm_MainMenu_fc
+            .MDLongToolStripMenuItem1.ForeColor = frm_MainMenu_fc
+            .TestToolStripMenuItem.ForeColor = frm_MainMenu_fc
         End With
     End Sub
 
     Public Sub mainform_borderstyle_init()
 
-        With FrmSST4500_1_0_0J_colorsetting
+        With FrmSST4500_1_0_0E_colorsetting
             With .CbxFrmMainStatusBoderStyle
                 'テキストボックス部分を編集不可にする
                 .DropDownStyle = ComboBoxStyle.DropDownList
@@ -1754,7 +1754,7 @@ Module Module1
             End Select
         End With
 
-        With FrmSST4500_1_0_0J_main
+        With FrmSST4500_1_0_0E_main
             .ToolStripStatusLabel1.BorderStyle = frm_MainStatusBorder_stl
             .ToolStripStatusLabel2.BorderStyle = frm_MainStatusBorder_stl
             .ToolStripStatusLabel3.BorderStyle = frm_MainStatusBorder_stl
@@ -1763,7 +1763,7 @@ Module Module1
 
     Public Sub measform_borderstyle_init()
 
-        With FrmSST4500_1_0_0J_colorsetting
+        With FrmSST4500_1_0_0E_colorsetting
             With .CbxFrmMeasStatusBoderStyle
                 'テキストボックス部分を編集不可にする
                 .DropDownStyle = ComboBoxStyle.DropDownList
@@ -1806,7 +1806,7 @@ Module Module1
             End Select
         End With
 
-        With FrmSST4500_1_0_0J_meas
+        With FrmSST4500_1_0_0E_meas
             .ToolStripStatusLabel1.BorderStyle = frm_MeasStatusBorder_stl
             .ToolStripStatusLabel2.BorderStyle = frm_MeasStatusBorder_stl
             .ToolStripStatusLabel3.BorderStyle = frm_MeasStatusBorder_stl
@@ -1815,7 +1815,7 @@ Module Module1
 
     Public Sub prfform_borderstyle_init()
 
-        With FrmSST4500_1_0_0J_colorsetting
+        With FrmSST4500_1_0_0E_colorsetting
             With .CbxFrmPrfStatusBoderStyle
                 'テキストボックス部分を編集不可にする
                 .DropDownStyle = ComboBoxStyle.DropDownList
@@ -1858,7 +1858,7 @@ Module Module1
             End Select
         End With
 
-        With FrmSST4500_1_0_0J_Profile
+        With FrmSST4500_1_0_0E_Profile
             .ToolStripStatusLabel1.BorderStyle = frm_PrfStatusBorder_stl
             .ToolStripStatusLabel2.BorderStyle = frm_PrfStatusBorder_stl
             .ToolStripStatusLabel3.BorderStyle = frm_PrfStatusBorder_stl
@@ -2494,7 +2494,7 @@ Module Module1
         End If
         SetConst()
 
-        With FrmSST4500_1_0_0J_Profile
+        With FrmSST4500_1_0_0E_Profile
             If FlgPitchExp = 1 Then
                 .TxtLength.Enabled = False
                 .TxtPitch.Enabled = False
@@ -2567,7 +2567,7 @@ Module Module1
                                 "合計長エラー",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Error)
-                FrmSST4500_1_0_0J_pitchsetting.Visible = True
+                FrmSST4500_1_0_0E_pitchsetting.Visible = True
             End If
         Else
             'ファイルがない場合はピッチ拡張設定画面を開く
@@ -2586,10 +2586,10 @@ Module Module1
                 If result_tmp = vbYes Then
                     'FlgPitchExp = 1
                     LoadConstPitch_FileErr_Run = 1
-                    FrmSST4500_1_0_0J_pitchsetting.Visible = True
+                    FrmSST4500_1_0_0E_pitchsetting.Visible = True
                 Else
                     FlgPitchExp = 0
-                    With FrmSST4500_1_0_0J_Profile
+                    With FrmSST4500_1_0_0E_Profile
                         RemoveHandler .ChkPitchExp_Ena.CheckedChanged, AddressOf .ChkPitchExp_Ena_CheckedChanged
                         .ChkPitchExp_Ena.Checked = False
                         AddHandler .ChkPitchExp_Ena.CheckedChanged, AddressOf .ChkPitchExp_Ena_CheckedChanged
@@ -2599,14 +2599,14 @@ Module Module1
                     End With
                 End If
             Else
-                FrmSST4500_1_0_0J_pitchsetting.Visible = True
+                FrmSST4500_1_0_0E_pitchsetting.Visible = True
             End If
         End If
     End Sub
 
     Public Sub SetConst()
         If FlgProfile = 0 Then
-            With FrmSST4500_1_0_0J_meas
+            With FrmSST4500_1_0_0E_meas
                 .TxtMachNoCur.Text = MachineNo
 
                 If FlgDBF = 0 Then
@@ -2634,7 +2634,7 @@ Module Module1
         Else
             PkAngCent = FlgPkCenterAngle
 
-            With FrmSST4500_1_0_0J_Profile
+            With FrmSST4500_1_0_0E_Profile
                 RemoveHandler .ChkPitchExp_Ena.CheckedChanged, AddressOf .ChkPitchExp_Ena_CheckedChanged
                 RemoveHandler .ChkPitchExp_Dis.CheckedChanged, AddressOf .ChkPitchExp_Dis_CheckedChanged
                 .TxtMachNoCur.Text = MachineNo
@@ -3424,13 +3424,13 @@ Module Module1
 
         Select Case FlgProfile
             Case 0
-                FrmSST4500_1_0_0J_meas.TxtMachNoCur.Text = DataMogiStr(1, 1)
-                FrmSST4500_1_0_0J_meas.TxtSmplNamCur.Text = DataMogiStr(1, 2)
-                FrmSST4500_1_0_0J_meas.TxtMarkCur.Text = DataMogiStr(1, 3)
+                FrmSST4500_1_0_0E_meas.TxtMachNoCur.Text = DataMogiStr(1, 1)
+                FrmSST4500_1_0_0E_meas.TxtSmplNamCur.Text = DataMogiStr(1, 2)
+                FrmSST4500_1_0_0E_meas.TxtMarkCur.Text = DataMogiStr(1, 3)
             Case Else
-                FrmSST4500_1_0_0J_Profile.TxtMachNoCur.Text = DataMogiStr(1, 1)
-                FrmSST4500_1_0_0J_Profile.TxtSmplNamCur.Text = DataMogiStr(1, 2)
-                FrmSST4500_1_0_0J_Profile.TxtMarkCur.Text = DataMogiStr(1, 3)
+                FrmSST4500_1_0_0E_Profile.TxtMachNoCur.Text = DataMogiStr(1, 1)
+                FrmSST4500_1_0_0E_Profile.TxtSmplNamCur.Text = DataMogiStr(1, 2)
+                FrmSST4500_1_0_0E_Profile.TxtMarkCur.Text = DataMogiStr(1, 3)
         End Select
 
     End Sub

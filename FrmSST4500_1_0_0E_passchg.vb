@@ -1,4 +1,4 @@
-﻿Public Class FrmSST4500_1_0_0J_passchg
+﻿Public Class FrmSST4500_1_0_0E_passchg
 
     Private Sub CmdPasswdSave_Click(sender As Object, e As EventArgs) Handles CmdPasswdSave.Click
         Dim old_pass As String = TxtOldPasswd.Text
@@ -42,7 +42,7 @@
                             Dim cipherText As String = wrapper.EncryptData(passwd_temp)
                             My.Settings._passwd_adm = cipherText
                             My.Settings.Save()
-                            FrmSST4500_1_0_0J_login.TxtInputPass.Text = ""
+                            FrmSST4500_1_0_0E_login.TxtInputPass.Text = ""
                             Me.Visible = False
                         End If
                     Else
@@ -72,7 +72,7 @@
                             Dim cipherText As String = wrapper.EncryptData(passwd_temp)
                             My.Settings._passwd_adm2chg = cipherText
                             My.Settings.Save()
-                            FrmSST4500_1_0_0J_login.TxtInputPass.Text = ""
+                            FrmSST4500_1_0_0E_login.TxtInputPass.Text = ""
                             Me.Visible = False
                         End If
                     Else
@@ -102,7 +102,7 @@
                             Dim cipherText As String = wrapper.EncryptData(passwd_temp)
                             My.Settings._dbf_settingchg = cipherText
                             My.Settings.Save()
-                            FrmSST4500_1_0_0J_login.TxtInputPass.Text = ""
+                            FrmSST4500_1_0_0E_login.TxtInputPass.Text = ""
                             Me.Visible = False
                         End If
                     Else
@@ -132,7 +132,7 @@
                             Dim cipherText As String = wrapper.EncryptData(passwd_temp)
                             My.Settings._pchexp_setting = cipherText
                             My.Settings.Save()
-                            FrmSST4500_1_0_0J_login.TxtInputPass.Text = ""
+                            FrmSST4500_1_0_0E_login.TxtInputPass.Text = ""
                             Me.Visible = False
                         End If
                     Else
@@ -160,7 +160,7 @@
         Me.Visible = False
     End Sub
 
-    Private Sub FrmSST4500_1_0_0J_passchg_VisibleChanged(sender As Object, e As EventArgs) Handles Me.VisibleChanged
+    Private Sub FrmSST4500_1_0_0E_passchg_VisibleChanged(sender As Object, e As EventArgs) Handles Me.VisibleChanged
         Me.MaximumSize = Me.Size
         Me.MinimumSize = Me.Size
 

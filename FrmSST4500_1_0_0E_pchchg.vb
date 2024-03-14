@@ -1,5 +1,5 @@
-﻿Public Class FrmSST4500_1_0_0J_pchchg
-    Private Sub FrmSST4500_1_0_0J_pchchg_VisibleChanged(sender As Object, e As EventArgs) Handles Me.VisibleChanged
+﻿Public Class FrmSST4500_1_0_0E_pchchg
+    Private Sub FrmSST4500_1_0_0E_pchchg_VisibleChanged(sender As Object, e As EventArgs) Handles Me.VisibleChanged
         Me.MaximumSize = Me.Size
         Me.MinimumSize = Me.Size
 
@@ -21,7 +21,7 @@
         My.Settings._flg_pchexp_visible = FlgPchExp_Visible
         My.Settings.Save()
 
-        With FrmSST4500_1_0_0J_Profile
+        With FrmSST4500_1_0_0E_Profile
             If FlgPchExp_Visible = 1 Then
                 .ChkPitchExp_Ena.Visible = True
                 .LblPitch.Visible = True

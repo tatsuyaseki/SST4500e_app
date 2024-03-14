@@ -1,4 +1,4 @@
-﻿Public Class FrmSST4500_1_0_0J_dbfchg
+﻿Public Class FrmSST4500_1_0_0E_dbfchg
     Private Sub FrmSST4500_1_1_0J_dbfchg_VisibleChanged(sender As Object, e As EventArgs) Handles Me.VisibleChanged
         Me.MaximumSize = Me.Size
         Me.MinimumSize = Me.Size
@@ -37,15 +37,15 @@
 
         My.Settings._flg_dbf = FlgDBF
         My.Settings.Save()
-        With FrmSST4500_1_0_0J_main
+        With FrmSST4500_1_0_0E_main
             If FlgDBF = 1 Then
                 .ToolStripStatusLabel4.Text = "特殊1"
             Else
                 .ToolStripStatusLabel4.Text = ""
             End If
-            FrmSST4500_1_0_0J_meas.ToolStripStatusLabel5.Text = .ToolStripStatusLabel4.Text
-            FrmSST4500_1_0_0J_Profile.ToolStripStatusLabel5.Text = .ToolStripStatusLabel4.Text
-            FrmSST4500_1_0_0J_test.ToolStripStatusLabel5.Text = .ToolStripStatusLabel4.Text
+            FrmSST4500_1_0_0E_meas.ToolStripStatusLabel5.Text = .ToolStripStatusLabel4.Text
+            FrmSST4500_1_0_0E_Profile.ToolStripStatusLabel5.Text = .ToolStripStatusLabel4.Text
+            FrmSST4500_1_0_0E_test.ToolStripStatusLabel5.Text = .ToolStripStatusLabel4.Text
         End With
         Me.Visible = False
         'Console.WriteLine(FlgDBF)

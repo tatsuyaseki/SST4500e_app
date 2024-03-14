@@ -1,4 +1,4 @@
-﻿Public Class FrmSST4500_1_0_0J_colorsetting
+﻿Public Class FrmSST4500_1_0_0E_colorsetting
     Private Sub CmdColorSettingReset_Click(sender As Object, e As EventArgs) Handles CmdColorSettingReset.Click
         My.Settings.Reset()
 
@@ -21,7 +21,7 @@
         Me.CbPrintBc.Checked = My.Settings._printbc
         FlgPrnBc_enable = Me.CbPrintBc.Checked
 
-        FrmSST4500_1_0_0J_main.Refresh()
+        FrmSST4500_1_0_0E_main.Refresh()
     End Sub
 
     Private Sub LblFrmMainFormBC_Click(sender As Object, e As EventArgs) Handles LblFrmMainFormBC.Click
@@ -35,7 +35,7 @@
             If Dialog.ShowDialog = DialogResult.OK Then
                 LblFrmMainFormBC.BackColor = Dialog.Color
                 frm_MainForm_bc = Dialog.Color
-                FrmSST4500_1_0_0J_main.BackColor = frm_MainForm_bc
+                FrmSST4500_1_0_0E_main.BackColor = frm_MainForm_bc
                 My.Settings._frm_MainForm_bc = frm_MainForm_bc
                 My.Settings.Save()
             End If
@@ -53,7 +53,7 @@
             If Dialog.ShowDialog = DialogResult.OK Then
                 LblFrmMainMenuBC.BackColor = Dialog.Color
                 frm_MainMenu_bc = Dialog.Color
-                FrmSST4500_1_0_0J_main.MenuStrip1.BackColor = frm_MainMenu_bc
+                FrmSST4500_1_0_0E_main.MenuStrip1.BackColor = frm_MainMenu_bc
                 My.Settings._frm_MainMenu_bc = frm_MainMenu_bc
                 My.Settings.Save()
             End If
@@ -71,18 +71,18 @@
             If Dialog.ShowDialog = DialogResult.OK Then
                 LblFrmMainStatusBC.BackColor = Dialog.Color
                 frm_MainStatus_bc = Dialog.Color
-                FrmSST4500_1_0_0J_main.StatusStrip1.BackColor = frm_MainStatus_bc
+                FrmSST4500_1_0_0E_main.StatusStrip1.BackColor = frm_MainStatus_bc
                 My.Settings._frm_MainStatus_bc = frm_MainStatus_bc
                 My.Settings.Save()
             End If
         End Using
     End Sub
 
-    Private Sub FrmSST4500_1_0_0J_colorsetting_VisibleChanged(sender As Object, e As EventArgs) Handles Me.VisibleChanged
+    Private Sub FrmSST4500_1_0_0E_colorsetting_VisibleChanged(sender As Object, e As EventArgs) Handles Me.VisibleChanged
 
     End Sub
 
-    Private Sub FrmSST4500_1_0_0J_colorsetting_Load(sender As Object, e As EventArgs) Handles Me.Load
+    Private Sub FrmSST4500_1_0_0E_colorsetting_Load(sender As Object, e As EventArgs) Handles Me.Load
         Me.MinimumSize = Me.Size
 
         colorsetting_label_init(Main_Enum)
@@ -118,7 +118,7 @@
                 frm_MainStatusBorder_stl = Border3DStyle.SunkenOuter
         End Select
 
-        With FrmSST4500_1_0_0J_main
+        With FrmSST4500_1_0_0E_main
             .ToolStripStatusLabel1.BorderStyle = frm_MainStatusBorder_stl
             .ToolStripStatusLabel2.BorderStyle = frm_MainStatusBorder_stl
             .ToolStripStatusLabel3.BorderStyle = frm_MainStatusBorder_stl
@@ -200,7 +200,7 @@
             If Dialog.ShowDialog = DialogResult.OK Then
                 LblFrmMainFormFC.BackColor = Dialog.Color
                 frm_MainForm_fc = Dialog.Color
-                With FrmSST4500_1_0_0J_main
+                With FrmSST4500_1_0_0E_main
                     .LblProductNameMenu.ForeColor = frm_MainForm_fc
 
                     .Refresh()
@@ -222,7 +222,7 @@
             If Dialog.ShowDialog = DialogResult.OK Then
                 LblFrmMainStatusFC.BackColor = Dialog.Color
                 frm_MainStatus_fc = Dialog.Color
-                With FrmSST4500_1_0_0J_main
+                With FrmSST4500_1_0_0E_main
                     .ToolStripStatusLabel1.ForeColor = frm_MainStatus_fc
                     .ToolStripStatusLabel2.ForeColor = frm_MainStatus_fc
                     .ToolStripStatusLabel3.ForeColor = frm_MainStatus_fc
@@ -244,7 +244,7 @@
             If Dialog.ShowDialog = DialogResult.OK Then
                 LblFrmMainLineColor.BackColor = Dialog.Color
                 frm_MainLine_color = Dialog.Color
-                With FrmSST4500_1_0_0J_main
+                With FrmSST4500_1_0_0E_main
                     .Refresh()
                 End With
                 My.Settings._frm_MainLine_color = frm_MainLine_color
@@ -284,7 +284,7 @@
             If Dialog.ShowDialog = DialogResult.OK Then
                 LblFrmMeasMenuBC.BackColor = Dialog.Color
                 frm_MeasMenu_bc = Dialog.Color
-                With FrmSST4500_1_0_0J_meas
+                With FrmSST4500_1_0_0E_meas
                     .MenuStrip1.BackColor = frm_MeasMenu_bc
                 End With
                 My.Settings._frm_MeasMenu_bc = frm_MeasMenu_bc
@@ -304,7 +304,7 @@
             If Dialog.ShowDialog = DialogResult.OK Then
                 LblFrmMeasStatusBC.BackColor = Dialog.Color
                 frm_MeasStatus_bc = Dialog.Color
-                With FrmSST4500_1_0_0J_meas
+                With FrmSST4500_1_0_0E_meas
                     .StatusStrip1.BackColor = frm_MeasStatus_bc
                 End With
                 My.Settings._frm_MeasStatus_bc = frm_MeasStatus_bc
@@ -324,7 +324,7 @@
             If Dialog.ShowDialog = DialogResult.OK Then
                 LblFrmMeasGraphBC.BackColor = Dialog.Color
                 frm_MeasGraph_bc = Dialog.Color
-                With FrmSST4500_1_0_0J_meas
+                With FrmSST4500_1_0_0E_meas
                     .PictureBox1.BackColor = frm_MeasGraph_bc
                 End With
                 My.Settings._frm_MeasGraph_bc = frm_MeasGraph_bc
@@ -358,7 +358,7 @@
                 frm_MeasStatusBorder_stl = Border3DStyle.SunkenOuter
         End Select
 
-        With FrmSST4500_1_0_0J_meas
+        With FrmSST4500_1_0_0E_meas
             .ToolStripStatusLabel1.BorderStyle = frm_MeasStatusBorder_stl
             .ToolStripStatusLabel2.BorderStyle = frm_MeasStatusBorder_stl
             .ToolStripStatusLabel3.BorderStyle = frm_MeasStatusBorder_stl
@@ -402,7 +402,7 @@
 
                 set_measolddatacolor()
 
-                FrmSST4500_1_0_0J_meas.PictureBox1.Refresh()
+                FrmSST4500_1_0_0E_meas.PictureBox1.Refresh()
                 My.Settings._frm_MeasOldData_color = frm_MeasOldData_color
                 My.Settings.Save()
             End If
@@ -441,7 +441,7 @@
                 LblFrmMeasStatusFC.BackColor = Dialog.Color
                 frm_MeasStatus_fc = Dialog.Color
 
-                With FrmSST4500_1_0_0J_meas
+                With FrmSST4500_1_0_0E_meas
                     .ToolStripStatusLabel1.ForeColor = frm_MainStatus_fc
                     .ToolStripStatusLabel2.ForeColor = frm_MainStatus_fc
                     .ToolStripStatusLabel3.ForeColor = frm_MainStatus_fc
@@ -545,7 +545,7 @@
 
                 set_meascurdatacolor()
 
-                FrmSST4500_1_0_0J_meas.PictureBox1.Refresh()
+                FrmSST4500_1_0_0E_meas.PictureBox1.Refresh()
 
                 My.Settings._frm_MeasCurData_color = frm_MeasCurData_color
                 My.Settings.Save()
@@ -565,7 +565,7 @@
                 LblFrmMeasGraphWakuColor.BackColor = Dialog.Color
                 frm_MeasGraphWaku_color = Dialog.Color
 
-                FrmSST4500_1_0_0J_meas.PictureBox1.Refresh()
+                FrmSST4500_1_0_0E_meas.PictureBox1.Refresh()
 
                 My.Settings._frm_MeasGraphWaku_color = frm_MeasGraphWaku_color
                 My.Settings.Save()
@@ -624,7 +624,7 @@
             If Dialog.ShowDialog = DialogResult.OK Then
                 LblFrmPrfMenuBC.BackColor = Dialog.Color
                 frm_PrfMenu_bc = Dialog.Color
-                With FrmSST4500_1_0_0J_Profile
+                With FrmSST4500_1_0_0E_Profile
                     .MenuStrip1.BackColor = frm_PrfMenu_bc
                 End With
                 My.Settings._frm_PrfMenu_bc = frm_PrfMenu_bc
@@ -664,7 +664,7 @@
             If Dialog.ShowDialog = DialogResult.OK Then
                 LblFrmPrfStatusBC.BackColor = Dialog.Color
                 frm_PrfStatus_bc = Dialog.Color
-                With FrmSST4500_1_0_0J_Profile
+                With FrmSST4500_1_0_0E_Profile
                     .StatusStrip1.BackColor = frm_PrfStatus_bc
                 End With
                 My.Settings._frm_PrfStatus_bc = frm_PrfStatus_bc
@@ -685,7 +685,7 @@
                 LblFrmPrfStatusFC.BackColor = Dialog.Color
                 frm_PrfStatus_fc = Dialog.Color
 
-                With FrmSST4500_1_0_0J_Profile
+                With FrmSST4500_1_0_0E_Profile
                     .ToolStripStatusLabel1.ForeColor = frm_PrfStatus_fc
                     .ToolStripStatusLabel2.ForeColor = frm_PrfStatus_fc
                     .ToolStripStatusLabel3.ForeColor = frm_PrfStatus_fc
@@ -722,7 +722,7 @@
                 frm_PrfStatusBorder_stl = Border3DStyle.SunkenOuter
         End Select
 
-        With FrmSST4500_1_0_0J_Profile
+        With FrmSST4500_1_0_0E_Profile
             .ToolStripStatusLabel1.BorderStyle = frm_PrfStatusBorder_stl
             .ToolStripStatusLabel2.BorderStyle = frm_PrfStatusBorder_stl
             .ToolStripStatusLabel3.BorderStyle = frm_PrfStatusBorder_stl
@@ -842,7 +842,7 @@
                 LblFrmPrfGraphWakuColor.BackColor = Dialog.Color
                 frm_PrfGraphWaku_color = Dialog.Color
 
-                With FrmSST4500_1_0_0J_Profile
+                With FrmSST4500_1_0_0E_Profile
                     .PictureBox1.Refresh()
                     .PictureBox2.Refresh()
                     .PictureBox3.Refresh()

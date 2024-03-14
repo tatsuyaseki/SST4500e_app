@@ -109,77 +109,77 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FrmSST4500_1_0_0J_colorsetting.Designer.vb">
-      <DependentUpon>FrmSST4500_1_0_0J_colorsetting.vb</DependentUpon>
+    <Compile Include="FrmSST4500_1_0_0E_colorsetting.Designer.vb">
+      <DependentUpon>FrmSST4500_1_0_0E_colorsetting.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmSST4500_1_0_0J_colorsetting.vb">
+    <Compile Include="FrmSST4500_1_0_0E_colorsetting.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSST4500_1_0_0J_helpinfo.Designer.vb">
-      <DependentUpon>FrmSST4500_1_0_0J_helpinfo.vb</DependentUpon>
+    <Compile Include="FrmSST4500_1_0_0E_helpinfo.Designer.vb">
+      <DependentUpon>FrmSST4500_1_0_0E_helpinfo.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmSST4500_1_0_0J_helpinfo.vb">
+    <Compile Include="FrmSST4500_1_0_0E_helpinfo.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSST4500_1_0_0J_pchchg.Designer.vb">
-      <DependentUpon>FrmSST4500_1_0_0J_pchchg.vb</DependentUpon>
+    <Compile Include="FrmSST4500_1_0_0E_pchchg.Designer.vb">
+      <DependentUpon>FrmSST4500_1_0_0E_pchchg.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmSST4500_1_0_0J_pchchg.vb">
+    <Compile Include="FrmSST4500_1_0_0E_pchchg.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSST4500_1_0_0J_pitchsetting.Designer.vb">
-      <DependentUpon>FrmSST4500_1_0_0J_pitchsetting.vb</DependentUpon>
+    <Compile Include="FrmSST4500_1_0_0E_pitchsetting.Designer.vb">
+      <DependentUpon>FrmSST4500_1_0_0E_pitchsetting.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmSST4500_1_0_0J_pitchsetting.vb">
+    <Compile Include="FrmSST4500_1_0_0E_pitchsetting.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSST4500_1_0_0J_setting.Designer.vb">
-      <DependentUpon>FrmSST4500_1_0_0J_setting.vb</DependentUpon>
+    <Compile Include="FrmSST4500_1_0_0E_setting.Designer.vb">
+      <DependentUpon>FrmSST4500_1_0_0E_setting.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmSST4500_1_0_0J_setting.vb">
+    <Compile Include="FrmSST4500_1_0_0E_setting.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSST4500_1_0_0J_test.Designer.vb">
-      <DependentUpon>FrmSST4500_1_0_0J_test.vb</DependentUpon>
+    <Compile Include="FrmSST4500_1_0_0E_test.Designer.vb">
+      <DependentUpon>FrmSST4500_1_0_0E_test.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmSST4500_1_0_0J_test.vb">
+    <Compile Include="FrmSST4500_1_0_0E_test.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSST4500_1_0_0J_passchg.Designer.vb">
-      <DependentUpon>FrmSST4500_1_0_0J_passchg.vb</DependentUpon>
+    <Compile Include="FrmSST4500_1_0_0E_passchg.Designer.vb">
+      <DependentUpon>FrmSST4500_1_0_0E_passchg.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmSST4500_1_0_0J_passchg.vb">
+    <Compile Include="FrmSST4500_1_0_0E_passchg.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSST4500_1_0_0J_meas.Designer.vb">
-      <DependentUpon>FrmSST4500_1_0_0J_meas.vb</DependentUpon>
+    <Compile Include="FrmSST4500_1_0_0E_meas.Designer.vb">
+      <DependentUpon>FrmSST4500_1_0_0E_meas.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmSST4500_1_0_0J_meas.vb">
+    <Compile Include="FrmSST4500_1_0_0E_meas.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSST4500_1_0_0J_main.vb">
+    <Compile Include="FrmSST4500_1_0_0E_main.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSST4500_1_0_0J_main.Designer.vb">
-      <DependentUpon>FrmSST4500_1_0_0J_main.vb</DependentUpon>
+    <Compile Include="FrmSST4500_1_0_0E_main.Designer.vb">
+      <DependentUpon>FrmSST4500_1_0_0E_main.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSST4500_1_0_0J_login.Designer.vb">
-      <DependentUpon>FrmSST4500_1_0_0J_login.vb</DependentUpon>
+    <Compile Include="FrmSST4500_1_0_0E_login.Designer.vb">
+      <DependentUpon>FrmSST4500_1_0_0E_login.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmSST4500_1_0_0J_login.vb">
+    <Compile Include="FrmSST4500_1_0_0E_login.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSST4500_1_0_0J_Profile.Designer.vb">
-      <DependentUpon>FrmSST4500_1_0_0J_Profile.vb</DependentUpon>
+    <Compile Include="FrmSST4500_1_0_0E_Profile.Designer.vb">
+      <DependentUpon>FrmSST4500_1_0_0E_Profile.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmSST4500_1_0_0J_Profile.vb">
+    <Compile Include="FrmSST4500_1_0_0E_Profile.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSST4500_1_0_0J_dbfchg.Designer.vb">
-      <DependentUpon>FrmSST4500_1_0_0J_dbfchg.vb</DependentUpon>
+    <Compile Include="FrmSST4500_1_0_0E_dbfchg.Designer.vb">
+      <DependentUpon>FrmSST4500_1_0_0E_dbfchg.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmSST4500_1_0_0J_dbfchg.vb">
+    <Compile Include="FrmSST4500_1_0_0E_dbfchg.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Module1.vb" />
@@ -201,41 +201,41 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="FrmSST4500_1_0_0J_colorsetting.resx">
-      <DependentUpon>FrmSST4500_1_0_0J_colorsetting.vb</DependentUpon>
+    <EmbeddedResource Include="FrmSST4500_1_0_0E_colorsetting.resx">
+      <DependentUpon>FrmSST4500_1_0_0E_colorsetting.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSST4500_1_0_0J_helpinfo.resx">
-      <DependentUpon>FrmSST4500_1_0_0J_helpinfo.vb</DependentUpon>
+    <EmbeddedResource Include="FrmSST4500_1_0_0E_helpinfo.resx">
+      <DependentUpon>FrmSST4500_1_0_0E_helpinfo.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSST4500_1_0_0J_pchchg.resx">
-      <DependentUpon>FrmSST4500_1_0_0J_pchchg.vb</DependentUpon>
+    <EmbeddedResource Include="FrmSST4500_1_0_0E_pchchg.resx">
+      <DependentUpon>FrmSST4500_1_0_0E_pchchg.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSST4500_1_0_0J_pitchsetting.resx">
-      <DependentUpon>FrmSST4500_1_0_0J_pitchsetting.vb</DependentUpon>
+    <EmbeddedResource Include="FrmSST4500_1_0_0E_pitchsetting.resx">
+      <DependentUpon>FrmSST4500_1_0_0E_pitchsetting.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSST4500_1_0_0J_setting.resx">
-      <DependentUpon>FrmSST4500_1_0_0J_setting.vb</DependentUpon>
+    <EmbeddedResource Include="FrmSST4500_1_0_0E_setting.resx">
+      <DependentUpon>FrmSST4500_1_0_0E_setting.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSST4500_1_0_0J_main.resx">
-      <DependentUpon>FrmSST4500_1_0_0J_main.vb</DependentUpon>
+    <EmbeddedResource Include="FrmSST4500_1_0_0E_main.resx">
+      <DependentUpon>FrmSST4500_1_0_0E_main.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSST4500_1_0_0J_login.resx">
-      <DependentUpon>FrmSST4500_1_0_0J_login.vb</DependentUpon>
+    <EmbeddedResource Include="FrmSST4500_1_0_0E_login.resx">
+      <DependentUpon>FrmSST4500_1_0_0E_login.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSST4500_1_0_0J_meas.resx">
-      <DependentUpon>FrmSST4500_1_0_0J_meas.vb</DependentUpon>
+    <EmbeddedResource Include="FrmSST4500_1_0_0E_meas.resx">
+      <DependentUpon>FrmSST4500_1_0_0E_meas.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSST4500_1_0_0J_passchg.resx">
-      <DependentUpon>FrmSST4500_1_0_0J_passchg.vb</DependentUpon>
+    <EmbeddedResource Include="FrmSST4500_1_0_0E_passchg.resx">
+      <DependentUpon>FrmSST4500_1_0_0E_passchg.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSST4500_1_0_0J_Profile.resx">
-      <DependentUpon>FrmSST4500_1_0_0J_Profile.vb</DependentUpon>
+    <EmbeddedResource Include="FrmSST4500_1_0_0E_Profile.resx">
+      <DependentUpon>FrmSST4500_1_0_0E_Profile.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSST4500_1_0_0J_test.resx">
-      <DependentUpon>FrmSST4500_1_0_0J_test.vb</DependentUpon>
+    <EmbeddedResource Include="FrmSST4500_1_0_0E_test.resx">
+      <DependentUpon>FrmSST4500_1_0_0E_test.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSST4500_1_0_0J_dbfchg.resx">
-      <DependentUpon>FrmSST4500_1_0_0J_dbfchg.vb</DependentUpon>
+    <EmbeddedResource Include="FrmSST4500_1_0_0E_dbfchg.resx">
+      <DependentUpon>FrmSST4500_1_0_0E_dbfchg.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

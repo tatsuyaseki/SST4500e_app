@@ -3,7 +3,7 @@ Imports System.IO
 Imports System.Text
 Imports Microsoft.Office.Interop.Excel
 
-Public Class FrmSST4500_1_0_0J_pitchsetting
+Public Class FrmSST4500_1_0_0E_pitchsetting
     Dim _flg_init As Integer
     Dim changed_row As Integer
     Dim _flg_ng As Integer  '2=OKで保存済み、1=OKで未保存、0=NG
@@ -46,7 +46,7 @@ Public Class FrmSST4500_1_0_0J_pitchsetting
         cmd_enadis()
     End Sub
 
-    Private Sub FrmSST4500_1_0_0J_pitchsetting_VisibleChanged(sender As Object, e As EventArgs) Handles Me.VisibleChanged
+    Private Sub FrmSST4500_1_0_0E_pitchsetting_VisibleChanged(sender As Object, e As EventArgs) Handles Me.VisibleChanged
         TabControl1.SelectedIndex = 0   '現在地タブ選択
 
         _flg_init = 0
@@ -104,7 +104,7 @@ Public Class FrmSST4500_1_0_0J_pitchsetting
 
             'プロファイル測定画面にも適用する
             If FlgPitchExp = 1 Then
-                With FrmSST4500_1_0_0J_Profile
+                With FrmSST4500_1_0_0E_Profile
                     .TxtLength.Text = PchExp_Length
                     .TxtPitch.Text = PchExp_PchData(0)
                     _points = _pitchnum + 1
@@ -359,7 +359,7 @@ Public Class FrmSST4500_1_0_0J_pitchsetting
 
         If FlgPitchExp_Load = 0 Then
             '未ロードの場合
-            With FrmSST4500_1_0_0J_Profile
+            With FrmSST4500_1_0_0E_Profile
                 RemoveHandler .ChkPitchExp_Ena.CheckedChanged, AddressOf .ChkPitchExp_Ena_CheckedChanged
                 .ChkPitchExp_Ena.Checked = False
                 AddHandler .ChkPitchExp_Ena.CheckedChanged, AddressOf .ChkPitchExp_Ena_CheckedChanged
@@ -522,7 +522,7 @@ Public Class FrmSST4500_1_0_0J_pitchsetting
                     TxtPchExpLoadedFile.Text = PchExpSettingFile
 
                     If FlgPitchExp = 1 Then
-                        With FrmSST4500_1_0_0J_Profile
+                        With FrmSST4500_1_0_0E_Profile
                             .TxtLength.Text = PchExp_Length
                             .TxtPitch.Text = _data_array(0)
                             _points = _rows_count
@@ -565,7 +565,7 @@ Public Class FrmSST4500_1_0_0J_pitchsetting
         'SaveConst_PchExp(_data_array, Val(TxtLength.Text))
         'End If
         If pitchfile_bak <> PchExpSettingFile_FullPath Then
-            ConstChangeTrue(FrmSST4500_1_0_0J_Profile, title_text2)
+            ConstChangeTrue(FrmSST4500_1_0_0E_Profile, title_text2)
         End If
 
     End Sub
@@ -696,7 +696,7 @@ Public Class FrmSST4500_1_0_0J_pitchsetting
         End Using
 
         If pitchfile_bak <> PchExpSettingFile_FullPath Then
-            ConstChangeTrue(FrmSST4500_1_0_0J_Profile, title_text2)
+            ConstChangeTrue(FrmSST4500_1_0_0E_Profile, title_text2)
         End If
     End Sub
 

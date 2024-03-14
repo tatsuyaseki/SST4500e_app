@@ -1,6 +1,6 @@
 ﻿Imports System.ComponentModel
 
-Public Class FrmSST4500_1_0_0J_login
+Public Class FrmSST4500_1_0_0E_login
     Private Sub CmdLogin_Click(sender As Object, e As EventArgs) Handles CmdLogin.Click
         'OKボタン
         Dim inputtext = TxtInputPass.Text
@@ -24,6 +24,6 @@ Public Class FrmSST4500_1_0_0J_login
 
     Private Sub CmdPasswdChg_Click(sender As Object, e As EventArgs) Handles CmdPasswdChg.Click
         FlgPasswdChg = 1
-        FrmSST4500_1_0_0J_passchg.Visible = True
+        FrmSST4500_1_0_0E_passchg.Visible = True
     End Sub
 End Class

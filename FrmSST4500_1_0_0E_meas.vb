@@ -9,7 +9,7 @@ Imports Microsoft.Office.Core
 Imports System.Configuration
 'Imports Microsoft.Office.Interop.Excel
 
-Public Class FrmSST4500_1_0_0J_meas
+Public Class FrmSST4500_1_0_0E_meas
     Const Rad = 3.141592654 / 180
 
     Dim Kt As Long = 0
@@ -25,7 +25,7 @@ Public Class FrmSST4500_1_0_0J_meas
     'Dim title_text As String
     Dim flgInitEnd As Integer = 0
 
-    Private Sub FrmSST4500_1_0_0J_meas_Load(sender As Object, e As EventArgs) Handles Me.Load
+    Private Sub FrmSST4500_1_0_0E_meas_Load(sender As Object, e As EventArgs) Handles Me.Load
         'Me.MaximumSize = Me.Size
         Me.MinimumSize = Me.Size
         Menu_AutoPrn = DirectCast(印刷ToolStripMenuItem, ToolStripMenuItem)
@@ -82,9 +82,9 @@ Public Class FrmSST4500_1_0_0J_meas
                     測定開始ToolStripMenuItem.Text = "測定開始"
 
                     If FlgAdmin <> 0 Then
-                        過去データToolStripMenuItem.Enabled = True
+                        OldDataToolStripMenuItem.Enabled = True
                         CmdOldDataLoad.Enabled = True
-                        読込ToolStripMenuItem.Enabled = True
+                        LoadToolStripMenuItem.Enabled = True
                     End If
 
                     'CmdEtcOldMeasData.Enabled = True
@@ -99,7 +99,7 @@ Public Class FrmSST4500_1_0_0J_meas
                     Visible = False
                     FlgMainSplash = 0
                     FlgMainMeas = 0
-                    FrmSST4500_1_0_0J_main.Visible = True
+                    FrmSST4500_1_0_0E_main.Visible = True
                 End If
 
                 timerCount1 = 0
@@ -135,7 +135,7 @@ Public Class FrmSST4500_1_0_0J_meas
                     SaveDataTitle()
                 End If
 
-                    ConditionDisable()
+                ConditionDisable()
 
                 DrawGraphCurData_clear()
                 DrawGraphBakData_clear()
@@ -621,7 +621,7 @@ Public Class FrmSST4500_1_0_0J_meas
                     CmdMeas.Text = "測定開始"
                     測定開始ToolStripMenuItem.Text = "測定開始"
 
-                    FrmSST4500_1_0_0J_main.Visible = True
+                    FrmSST4500_1_0_0E_main.Visible = True
 
                     FlgMainSplash = 11
                     FlgMainMeas = 0
@@ -692,7 +692,7 @@ Public Class FrmSST4500_1_0_0J_meas
         End If
     End Sub
 
-    Private Sub FrmSST4500_1_0_0J_meas_VisibleChanged(sender As Object, e As EventArgs) Handles Me.VisibleChanged
+    Private Sub FrmSST4500_1_0_0E_meas_VisibleChanged(sender As Object, e As EventArgs) Handles Me.VisibleChanged
         If Me.Visible = True Then
             CmdMeas.Enabled = False
             CmdEtcMeasData.Enabled = False
@@ -705,12 +705,12 @@ Public Class FrmSST4500_1_0_0J_meas
 
             測定開始ToolStripMenuItem.Enabled = False
             他の測定データ選択ToolStripMenuItem1.Enabled = False
-            過去データToolStripMenuItem.Enabled = False
-            読込ToolStripMenuItem.Enabled = False
-            他の測定データ選択ToolStripMenuItem.Enabled = False
+            OldDataToolStripMenuItem.Enabled = False
+            LoadToolStripMenuItem.Enabled = False
+            AnotherMeasDataSelToolStripMenuItem.Enabled = False
             手動印刷ToolStripMenuItem.Enabled = False
             保存ToolStripMenuItem1.Enabled = False
-            測定仕様ToolStripMenuItem.Enabled = True
+            MeasSpecToolStripMenuItem.Enabled = True
             印刷ToolStripMenuItem.Enabled = True
 
             TxtMachNoCur.Enabled = True
@@ -853,12 +853,12 @@ Public Class FrmSST4500_1_0_0J_meas
         CmdOldDataLoad.Enabled = sw
         CmdClsGraph.Visible = sw
         CmdClsGraph.Enabled = sw
-        読込ToolStripMenuItem.Enabled = sw
+        LoadToolStripMenuItem.Enabled = sw
         CmdEtcOldMeasData.Visible = sw
         CmdEtcOldMeasData.Enabled = sw
-        他の測定データ選択ToolStripMenuItem.Enabled = sw
+        AnotherMeasDataSelToolStripMenuItem.Enabled = sw
         GroupBox5.Visible = sw
-        過去データToolStripMenuItem.Enabled = sw
+        OldDataToolStripMenuItem.Enabled = sw
         TblMeasInfo_adm.Visible = sw
         TblMeasInfo_nom.Visible = Not sw
         TblMeasData_adm.Visible = sw
@@ -1239,7 +1239,7 @@ Public Class FrmSST4500_1_0_0J_meas
             DataPeak = Val(Ds)
         End If
         MdX = 200 * Math.Sin(DataPeak * Rad)
-            MdY = 200 * Math.Cos(DataPeak * Rad)
+        MdY = 200 * Math.Cos(DataPeak * Rad)
 
         path.StartFigure()
         path.AddLine(225 + MdX, 225 - MdY, 225 - MdX, 225 + MdY)
@@ -1635,7 +1635,7 @@ Public Class FrmSST4500_1_0_0J_meas
         TxtSmplNamBak.Enabled = False
         TxtMarkBak.Enabled = False
         GbMeasSpec.Enabled = False
-        測定仕様ToolStripMenuItem.Enabled = False
+        MeasSpecToolStripMenuItem.Enabled = False
         'CmdMeasSpecSel.Enabled = False
         'CmdMeasSpecSave.Enabled = False
         'GbPrint.Enabled = False
@@ -1649,9 +1649,9 @@ Public Class FrmSST4500_1_0_0J_meas
         他の測定データ選択ToolStripMenuItem1.Enabled = False
         CmdOldDataLoad.Enabled = False
         CmdEtcOldMeasData.Enabled = False
-        過去データToolStripMenuItem.Enabled = False
-        読込ToolStripMenuItem.Enabled = False
-        他の測定データ選択ToolStripMenuItem.Enabled = False
+        OldDataToolStripMenuItem.Enabled = False
+        LoadToolStripMenuItem.Enabled = False
+        AnotherMeasDataSelToolStripMenuItem.Enabled = False
         'CmdQuitSinglesheet.Enabled = False
         設定ToolStripMenuItem1.Enabled = False
         CmdClsGraph.Enabled = False
@@ -1662,7 +1662,7 @@ Public Class FrmSST4500_1_0_0J_meas
         TxtSmplNamCur.Enabled = True
         TxtMarkCur.Enabled = True
         GbMeasSpec.Enabled = True
-        測定仕様ToolStripMenuItem.Enabled = True
+        MeasSpecToolStripMenuItem.Enabled = True
         'CmdMeasSpecSel.Enabled = True
         'CmdMeasSpecSave.Enabled = True
         If Val(TxtMeasNumCur.Text) > 0 Then
@@ -1678,16 +1678,16 @@ Public Class FrmSST4500_1_0_0J_meas
         印刷ToolStripMenuItem.Enabled = True
         'CmdQuitSinglesheet.Enabled = True
         If FlgAdmin <> 0 Then
-            過去データToolStripMenuItem.Enabled = True
+            OldDataToolStripMenuItem.Enabled = True
             CmdOldDataLoad.Enabled = True
-            読込ToolStripMenuItem.Enabled = True
+            LoadToolStripMenuItem.Enabled = True
             CmdClsGraph.Enabled = True
             TxtMachNoBak.Enabled = True
             TxtSmplNamBak.Enabled = True
             TxtMarkBak.Enabled = True
             If Val(TxtMeasNumBak.Text) > 0 Then
                 CmdEtcOldMeasData.Enabled = True
-                他の測定データ選択ToolStripMenuItem.Enabled = True
+                AnotherMeasDataSelToolStripMenuItem.Enabled = True
             End If
         End If
         設定ToolStripMenuItem1.Enabled = True
@@ -3380,28 +3380,28 @@ Public Class FrmSST4500_1_0_0J_meas
         MeasResultSave()
     End Sub
 
-    Private Sub FrmSST4500_1_0_0J_meas_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+    Private Sub FrmSST4500_1_0_0E_meas_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
         e.Cancel = True
         FlgMainMeas = 90
     End Sub
 
-    Private Sub 選択ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles 選択ToolStripMenuItem.Click
+    Private Sub 選択ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ChoiceToolStripMenuItem.Click
         SelConstMeas()
     End Sub
 
-    Private Sub 保存ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles 保存ToolStripMenuItem.Click
+    Private Sub 保存ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SaveToolStripMenuItem.Click
         SaveConstMeas()
     End Sub
 
-    Private Sub 読込ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles 読込ToolStripMenuItem.Click
+    Private Sub 読込ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LoadToolStripMenuItem.Click
         FlgMainMeas = 40
     End Sub
 
-    Private Sub 他の測定データ選択ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles 他の測定データ選択ToolStripMenuItem.Click
+    Private Sub 他の測定データ選択ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AnotherMeasDataSelToolStripMenuItem.Click
         FlgMainMeas = 41
     End Sub
 
-    Private Sub 終了ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles 終了ToolStripMenuItem.Click
+    Private Sub 終了ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles QuitToolStripMenuItem.Click
         FlgMainMeas = 90
     End Sub
 
@@ -3439,19 +3439,19 @@ Public Class FrmSST4500_1_0_0J_meas
     End Sub
 
     Private Sub 設定ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles 設定ToolStripMenuItem1.Click
-        FrmSST4500_1_0_0J_setting.Visible = True
+        FrmSST4500_1_0_0E_setting.Visible = True
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs)
-        FrmSST4500_1_0_0J_colorsetting.Visible = True
+        FrmSST4500_1_0_0E_colorsetting.Visible = True
     End Sub
 
     Private Sub SST4500についてToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SST4500についてToolStripMenuItem.Click
-        FrmSST4500_1_0_0J_helpinfo.ShowDialog()
+        FrmSST4500_1_0_0E_helpinfo.ShowDialog()
     End Sub
 
     Private Sub PictureBox2_Click(sender As Object, e As EventArgs) Handles PictureBox2.Click
-        FrmSST4500_1_0_0J_helpinfo.ShowDialog()
+        FrmSST4500_1_0_0E_helpinfo.ShowDialog()
     End Sub
 
     Private Sub meas_dbf_chg(ByVal sw As Integer)

@@ -8,7 +8,7 @@ Imports System.ComponentModel
 Imports Microsoft.Office.Core
 'Imports Microsoft.Office.Interop.Excel
 
-Public Class FrmSST4500_1_0_0J_Profile
+Public Class FrmSST4500_1_0_0E_Profile
     Const Rad = 3.141592654 / 180
     'Const LnCmp = 420    '両端補正値
     'Const min_Pitch = 10    '最小ピッチ
@@ -213,7 +213,7 @@ Public Class FrmSST4500_1_0_0J_Profile
                     Visible = False
                     FlgMainSplash = 0
                     FlgMainProfile = 0
-                    FrmSST4500_1_0_0J_main.Visible = True
+                    FrmSST4500_1_0_0E_main.Visible = True
                 End If
 
                 timerCount1 = 0
@@ -1651,7 +1651,7 @@ Public Class FrmSST4500_1_0_0J_Profile
                     CmdMeas.Text = "測定開始"
                     測定開始ToolStripMenuItem.Text = "測定開始"
 
-                    FrmSST4500_1_0_0J_main.Visible = True
+                    FrmSST4500_1_0_0E_main.Visible = True
                     FlgMainSplash = 11
                     FlgMainProfile = 0
                     FlgInitEnd = 0
@@ -2816,7 +2816,7 @@ Public Class FrmSST4500_1_0_0J_Profile
         DataInt1RatioP(KdData) = 0
     End Sub
 
-    Private Sub FrmSST4500_1_0_0J_profile_VisibleChanged(sender As Object, e As EventArgs) Handles Me.VisibleChanged
+    Private Sub FrmSST4500_1_0_0E_profile_VisibleChanged(sender As Object, e As EventArgs) Handles Me.VisibleChanged
         If Me.Visible = True Then
             CmdMeas.Enabled = False
             測定開始ToolStripMenuItem.Enabled = False
@@ -7262,7 +7262,7 @@ Public Class FrmSST4500_1_0_0J_Profile
         FlgAvg = 0
     End Sub
 
-    Private Sub FrmSST4500_1_0_0J_Profile_Load(sender As Object, e As EventArgs) Handles Me.Load
+    Private Sub FrmSST4500_1_0_0E_Profile_Load(sender As Object, e As EventArgs) Handles Me.Load
         'Me.MaximumSize = Me.Size
         Me.MinimumSize = Me.Size
 
@@ -10986,7 +10986,7 @@ Rdg8:
 
     End Sub
 
-    Private Sub FrmSST4500_1_0_0J_Profile_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+    Private Sub FrmSST4500_1_0_0E_Profile_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
         e.Cancel = True
         FlgMainProfile = 90
     End Sub
@@ -11168,7 +11168,7 @@ Rdg8:
 
             If FlgInitEnd = 1 Then
                 If FlgPitchExp_Load = 0 Then
-                    'FrmSST4500_1_0_0J_pitchsetting.Visible = True
+                    'FrmSST4500_1_0_0E_pitchsetting.Visible = True
                     LoadConstPitch(PchExpSettingFile_FullPath)
                 Else
                     TxtLength.Text = PchExp_Length
@@ -11225,7 +11225,7 @@ Rdg8:
 
             If FlgInitEnd = 1 Then
                 If FlgPitchExp_Load = 0 Then
-                    'FrmSST4500_1_0_0J_pitchsetting.Visible = True
+                    'FrmSST4500_1_0_0E_pitchsetting.Visible = True
                     LoadConstPitch(PchExpSettingFile_FullPath)
                 Else
                     TxtLength.Text = PchExp_Length
@@ -13059,7 +13059,7 @@ Rdg8:
     End Sub
 
     Private Sub 設定ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles 設定ToolStripMenuItem1.Click
-        FrmSST4500_1_0_0J_setting.Visible = True
+        FrmSST4500_1_0_0E_setting.Visible = True
     End Sub
 
     Private Sub SetConst_Menu()
@@ -13096,11 +13096,11 @@ Rdg8:
     End Sub
 
     Private Sub SST4500についてToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SST4500についてToolStripMenuItem.Click
-        FrmSST4500_1_0_0J_helpinfo.ShowDialog()
+        FrmSST4500_1_0_0E_helpinfo.ShowDialog()
     End Sub
 
     Private Sub PictureBox5_Click(sender As Object, e As EventArgs) Handles PictureBox5.Click
-        FrmSST4500_1_0_0J_helpinfo.ShowDialog()
+        FrmSST4500_1_0_0E_helpinfo.ShowDialog()
     End Sub
 
     Private Sub prf_dbf_chg(ByVal sw As Integer)
@@ -13122,7 +13122,7 @@ Rdg8:
 
     Private Sub LblPitchExp_Click(sender As Object, e As EventArgs) Handles LblPitchExp.Click
 
-        FrmSST4500_1_0_0J_pitchsetting.Visible = True
+        FrmSST4500_1_0_0E_pitchsetting.Visible = True
 
     End Sub
 

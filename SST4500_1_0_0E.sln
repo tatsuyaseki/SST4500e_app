@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "SST4500_1_0_0J", "SST4500_1_0_0J.vbproj", "{5D667461-D287-4FE4-83AC-8FB143DD5CE6}"
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "SST4500_1_0_0E", "SST4500_1_0_0E.vbproj", "{5D667461-D287-4FE4-83AC-8FB143DD5CE6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ソリューション項目", "ソリューション項目", "{239916C8-59CD-45A4-A9A3-DBA4DA7756F3}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SST4500_Installer", "..\SST4500_Installer\SST4000_Installer.vdproj", "{89166436-282D-4068-ADC8-AF1A5C63B7E8}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SST4500E_Installer", "..\SST4500_Installer\SST4000_Installer.vdproj", "{89166436-282D-4068-ADC8-AF1A5C63B7E8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

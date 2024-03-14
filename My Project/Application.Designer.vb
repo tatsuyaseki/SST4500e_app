@@ -32,7 +32,13 @@ Namespace My
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = Global.SST4500_1_0_0J.FrmSST4500_1_0_0J_main
+            Me.MainForm = Global.SST4500_1_0_0J.FrmSST4500_1_0_0E_main
         End Sub
+        
+        <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
+        Protected Overrides Function OnInitialize(ByVal commandLineArgs As System.Collections.ObjectModel.ReadOnlyCollection(Of String)) As Boolean
+            Me.MinimumSplashScreenDisplayTime = 0
+            Return MyBase.OnInitialize(commandLineArgs)
+        End Function
     End Class
 End Namespace
