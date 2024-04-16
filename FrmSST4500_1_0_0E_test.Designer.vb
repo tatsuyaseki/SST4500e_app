@@ -130,6 +130,7 @@ Partial Class FrmSST4500_1_0_0E_test
         Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel3 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel2 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.ToolStripStatusLabel5 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel4 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.LblTime = New System.Windows.Forms.Label()
         Me.LblDFMax = New System.Windows.Forms.Label()
@@ -144,7 +145,6 @@ Partial Class FrmSST4500_1_0_0E_test
         Me.LblRxData = New System.Windows.Forms.Label()
         Me.LblTT1 = New System.Windows.Forms.Label()
         Me.PictureBox5 = New System.Windows.Forms.PictureBox()
-        Me.ToolStripStatusLabel5 = New System.Windows.Forms.ToolStripStatusLabel()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
@@ -221,7 +221,7 @@ Partial Class FrmSST4500_1_0_0E_test
         Me.CmdQuitTest.Name = "CmdQuitTest"
         Me.CmdQuitTest.Size = New System.Drawing.Size(80, 35)
         Me.CmdQuitTest.TabIndex = 8
-        Me.CmdQuitTest.Text = "終　了"
+        Me.CmdQuitTest.Text = "Quit"
         Me.CmdQuitTest.UseVisualStyleBackColor = False
         '
         'CmdSendReady
@@ -310,7 +310,7 @@ Partial Class FrmSST4500_1_0_0E_test
         Me.TableLayoutPanel1.Controls.Add(Me.Label9, 0, 5)
         Me.TableLayoutPanel1.Controls.Add(Me.Label10, 0, 7)
         Me.TableLayoutPanel1.Controls.Add(Me.LblMD, 0, 2)
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(728, 102)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(721, 102)
         Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(0)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 9
@@ -323,7 +323,7 @@ Partial Class FrmSST4500_1_0_0E_test
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(80, 236)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(94, 236)
         Me.TableLayoutPanel1.TabIndex = 17
         '
         'LblCDAvg
@@ -333,7 +333,7 @@ Partial Class FrmSST4500_1_0_0E_test
         Me.LblCDAvg.Font = New System.Drawing.Font("MS UI Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.LblCDAvg.Location = New System.Drawing.Point(4, 209)
         Me.LblCDAvg.Name = "LblCDAvg"
-        Me.LblCDAvg.Size = New System.Drawing.Size(72, 26)
+        Me.LblCDAvg.Size = New System.Drawing.Size(86, 26)
         Me.LblCDAvg.TabIndex = 8
         Me.LblCDAvg.Text = "Label14"
         Me.LblCDAvg.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -345,7 +345,7 @@ Partial Class FrmSST4500_1_0_0E_test
         Me.LblCD.Font = New System.Drawing.Font("MS UI Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.LblCD.Location = New System.Drawing.Point(4, 157)
         Me.LblCD.Name = "LblCD"
-        Me.LblCD.Size = New System.Drawing.Size(72, 25)
+        Me.LblCD.Size = New System.Drawing.Size(86, 25)
         Me.LblCD.TabIndex = 7
         Me.LblCD.Text = "Label13"
         Me.LblCD.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -357,7 +357,7 @@ Partial Class FrmSST4500_1_0_0E_test
         Me.LblMDAvg.Font = New System.Drawing.Font("MS UI Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.LblMDAvg.Location = New System.Drawing.Point(4, 105)
         Me.LblMDAvg.Name = "LblMDAvg"
-        Me.LblMDAvg.Size = New System.Drawing.Size(72, 25)
+        Me.LblMDAvg.Size = New System.Drawing.Size(86, 25)
         Me.LblMDAvg.TabIndex = 6
         Me.LblMDAvg.Text = "Label12"
         Me.LblMDAvg.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -367,10 +367,9 @@ Partial Class FrmSST4500_1_0_0E_test
         Me.Label6.AutoSize = True
         Me.Label6.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label6.Font = New System.Drawing.Font("MS UI Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label6.Location = New System.Drawing.Point(1, 1)
-        Me.Label6.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label6.Location = New System.Drawing.Point(4, 1)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(78, 25)
+        Me.Label6.Size = New System.Drawing.Size(86, 25)
         Me.Label6.TabIndex = 0
         Me.Label6.Text = "Angle"
         Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -380,10 +379,9 @@ Partial Class FrmSST4500_1_0_0E_test
         Me.Label7.AutoSize = True
         Me.Label7.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label7.Font = New System.Drawing.Font("MS UI Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label7.Location = New System.Drawing.Point(1, 27)
-        Me.Label7.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label7.Location = New System.Drawing.Point(4, 27)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(78, 25)
+        Me.Label7.Size = New System.Drawing.Size(86, 25)
         Me.Label7.TabIndex = 1
         Me.Label7.Text = "MD"
         Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -395,9 +393,9 @@ Partial Class FrmSST4500_1_0_0E_test
         Me.Label8.Font = New System.Drawing.Font("MS UI Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Label8.Location = New System.Drawing.Point(4, 79)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(72, 25)
+        Me.Label8.Size = New System.Drawing.Size(86, 25)
         Me.Label8.TabIndex = 2
-        Me.Label8.Text = "MD 偏差"
+        Me.Label8.Text = "MD Deviation"
         Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'Label9
@@ -405,10 +403,9 @@ Partial Class FrmSST4500_1_0_0E_test
         Me.Label9.AutoSize = True
         Me.Label9.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label9.Font = New System.Drawing.Font("MS UI Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label9.Location = New System.Drawing.Point(1, 131)
-        Me.Label9.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label9.Location = New System.Drawing.Point(4, 131)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(78, 25)
+        Me.Label9.Size = New System.Drawing.Size(86, 25)
         Me.Label9.TabIndex = 3
         Me.Label9.Text = "CD"
         Me.Label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -419,10 +416,11 @@ Partial Class FrmSST4500_1_0_0E_test
         Me.Label10.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label10.Font = New System.Drawing.Font("MS UI Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Label10.Location = New System.Drawing.Point(4, 183)
+        Me.Label10.Margin = New System.Windows.Forms.Padding(3, 0, 0, 0)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(72, 25)
+        Me.Label10.Size = New System.Drawing.Size(89, 25)
         Me.Label10.TabIndex = 4
-        Me.Label10.Text = "CD 偏差"
+        Me.Label10.Text = "CD Deviation"
         Me.Label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'LblMD
@@ -432,7 +430,7 @@ Partial Class FrmSST4500_1_0_0E_test
         Me.LblMD.Font = New System.Drawing.Font("MS UI Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.LblMD.Location = New System.Drawing.Point(4, 53)
         Me.LblMD.Name = "LblMD"
-        Me.LblMD.Size = New System.Drawing.Size(72, 25)
+        Me.LblMD.Size = New System.Drawing.Size(86, 25)
         Me.LblMD.TabIndex = 5
         Me.LblMD.Text = "Label11"
         Me.LblMD.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1530,24 +1528,30 @@ Partial Class FrmSST4500_1_0_0E_test
         Me.ToolStripStatusLabel1.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right
         Me.ToolStripStatusLabel1.Font = New System.Drawing.Font("MS UI Gothic", 9.0!)
         Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
-        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(80, 17)
-        Me.ToolStripStatusLabel1.Text = "USB接続状態"
+        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(130, 17)
+        Me.ToolStripStatusLabel1.Text = "USB Connection Status"
         '
         'ToolStripStatusLabel3
         '
         Me.ToolStripStatusLabel3.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right
         Me.ToolStripStatusLabel3.Font = New System.Drawing.Font("MS UI Gothic", 9.0!)
         Me.ToolStripStatusLabel3.Name = "ToolStripStatusLabel3"
-        Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(78, 17)
-        Me.ToolStripStatusLabel3.Text = "SST接続状態"
+        Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(103, 17)
+        Me.ToolStripStatusLabel3.Text = "Connection Status"
         '
         'ToolStripStatusLabel2
         '
         Me.ToolStripStatusLabel2.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right
         Me.ToolStripStatusLabel2.Font = New System.Drawing.Font("MS UI Gothic", 9.0!)
         Me.ToolStripStatusLabel2.Name = "ToolStripStatusLabel2"
-        Me.ToolStripStatusLabel2.Size = New System.Drawing.Size(61, 17)
-        Me.ToolStripStatusLabel2.Text = "通常モード"
+        Me.ToolStripStatusLabel2.Size = New System.Drawing.Size(84, 17)
+        Me.ToolStripStatusLabel2.Text = "Operator Mode"
+        '
+        'ToolStripStatusLabel5
+        '
+        Me.ToolStripStatusLabel5.Name = "ToolStripStatusLabel5"
+        Me.ToolStripStatusLabel5.Size = New System.Drawing.Size(53, 17)
+        Me.ToolStripStatusLabel5.Text = "Special 1"
         '
         'ToolStripStatusLabel4
         '
@@ -1557,7 +1561,7 @@ Partial Class FrmSST4500_1_0_0E_test
         Me.ToolStripStatusLabel4.BorderStyle = System.Windows.Forms.Border3DStyle.Sunken
         Me.ToolStripStatusLabel4.Font = New System.Drawing.Font("MS UI Gothic", 9.0!)
         Me.ToolStripStatusLabel4.Name = "ToolStripStatusLabel4"
-        Me.ToolStripStatusLabel4.Size = New System.Drawing.Size(522, 17)
+        Me.ToolStripStatusLabel4.Size = New System.Drawing.Size(439, 17)
         Me.ToolStripStatusLabel4.Spring = True
         Me.ToolStripStatusLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
@@ -1592,7 +1596,7 @@ Partial Class FrmSST4500_1_0_0E_test
         Me.GroupBox1.Size = New System.Drawing.Size(85, 35)
         Me.GroupBox1.TabIndex = 32
         Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Df. Max. "
+        Me.GroupBox1.Text = "Df.Max. "
         '
         'GroupBox2
         '
@@ -1604,7 +1608,7 @@ Partial Class FrmSST4500_1_0_0E_test
         Me.GroupBox2.Size = New System.Drawing.Size(85, 35)
         Me.GroupBox2.TabIndex = 33
         Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Df. Min. "
+        Me.GroupBox2.Text = "Df.Min. "
         '
         'LblDFMin
         '
@@ -1623,9 +1627,9 @@ Partial Class FrmSST4500_1_0_0E_test
         Me.Label11.Font = New System.Drawing.Font("Yu Gothic UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Label11.Location = New System.Drawing.Point(213, 622)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(92, 15)
+        Me.Label11.Size = New System.Drawing.Size(149, 15)
         Me.Label11.TabIndex = 34
-        Me.Label11.Text = "許容値 <±3.0 %"
+        Me.Label11.Text = "Permissible Value <±3.0 %"
         '
         'Label12
         '
@@ -1641,17 +1645,17 @@ Partial Class FrmSST4500_1_0_0E_test
         Me.Label13.AutoSize = True
         Me.Label13.Location = New System.Drawing.Point(206, 8)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(63, 12)
+        Me.Label13.Size = New System.Drawing.Size(86, 12)
         Me.Label13.TabIndex = 36
-        Me.Label13.Text = "送信データ："
+        Me.Label13.Text = "Received Data："
         '
         'LblTxData
         '
         Me.LblTxData.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.LblTxData.Location = New System.Drawing.Point(272, 4)
+        Me.LblTxData.Location = New System.Drawing.Point(295, 4)
         Me.LblTxData.Margin = New System.Windows.Forms.Padding(0)
         Me.LblTxData.Name = "LblTxData"
-        Me.LblTxData.Size = New System.Drawing.Size(299, 20)
+        Me.LblTxData.Size = New System.Drawing.Size(276, 20)
         Me.LblTxData.TabIndex = 37
         Me.LblTxData.Text = "1111"
         Me.LblTxData.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -1661,17 +1665,17 @@ Partial Class FrmSST4500_1_0_0E_test
         Me.Label15.AutoSize = True
         Me.Label15.Location = New System.Drawing.Point(206, 29)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(63, 12)
+        Me.Label15.Size = New System.Drawing.Size(64, 12)
         Me.Label15.TabIndex = 38
-        Me.Label15.Text = "受信データ："
+        Me.Label15.Text = "Send Data："
         '
         'LblRxData
         '
         Me.LblRxData.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.LblRxData.Location = New System.Drawing.Point(272, 25)
+        Me.LblRxData.Location = New System.Drawing.Point(295, 25)
         Me.LblRxData.Margin = New System.Windows.Forms.Padding(0)
         Me.LblRxData.Name = "LblRxData"
-        Me.LblRxData.Size = New System.Drawing.Size(299, 20)
+        Me.LblRxData.Size = New System.Drawing.Size(276, 20)
         Me.LblRxData.TabIndex = 39
         Me.LblRxData.Text = "111"
         Me.LblRxData.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -1689,7 +1693,7 @@ Partial Class FrmSST4500_1_0_0E_test
         '
         'PictureBox5
         '
-        Me.PictureBox5.Image = Global.SST4500_1_0_0J.My.Resources.Resources.nomura_logo1
+        Me.PictureBox5.Image = Global.SST4500_1_0_0E.My.Resources.Resources.nomura_logo1e
         Me.PictureBox5.Location = New System.Drawing.Point(664, 0)
         Me.PictureBox5.Name = "PictureBox5"
         Me.PictureBox5.Size = New System.Drawing.Size(160, 50)
@@ -1697,13 +1701,7 @@ Partial Class FrmSST4500_1_0_0E_test
         Me.PictureBox5.TabIndex = 59
         Me.PictureBox5.TabStop = False
         '
-        'ToolStripStatusLabel5
-        '
-        Me.ToolStripStatusLabel5.Name = "ToolStripStatusLabel5"
-        Me.ToolStripStatusLabel5.Size = New System.Drawing.Size(37, 17)
-        Me.ToolStripStatusLabel5.Text = "特殊1"
-        '
-        'FrmSST4500_1_0_0J_test
+        'FrmSST4500_1_0_0E_test
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -1747,7 +1745,7 @@ Partial Class FrmSST4500_1_0_0E_test
         Me.Controls.Add(Me.Label1)
         Me.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Name = "FrmSST4500_1_0_0J_test"
+        Me.Name = "FrmSST4500_1_0_0E_test"
         Me.Text = "SST-4500 Test"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel1.ResumeLayout(False)

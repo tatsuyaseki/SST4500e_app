@@ -16,7 +16,7 @@ Public Class FrmSST4500_1_0_0E_test
     Dim test_waku_xpath As New List(Of GraphicsPath)
     Dim test_waku_xlabel(12) As String
     Dim test_waku_ylabel(4) As String
-    Dim test_waku_Yaxis_label As String = "伝播時間(us)"
+    Dim test_waku_Yaxis_label As String = "Propagation Time (us)"
 
     Dim graph_path_cur As New List(Of GraphicsPath)
     Dim graph_path_old As New List(Of GraphicsPath)
@@ -184,18 +184,18 @@ Public Class FrmSST4500_1_0_0E_test
 
                     If result2 < 1 Then
                         If result2 = 0 Then
-                            MessageBox.Show("データがありませんでした。",
-                                            "ファイルエラー",
+                            MessageBox.Show(StrNoData,
+                                            StrFileErr,
                                             MessageBoxButtons.OK,
                                             MessageBoxIcon.Error)
                         ElseIf result2 = -2 Then
-                            MessageBox.Show("ファイルフォーマットが異なります。",
-                                            "ファイルエラー",
+                            MessageBox.Show(StrIncorrectFileFormat,
+                                            StrFileErr,
                                             MessageBoxButtons.OK,
                                             MessageBoxIcon.Error)
                         ElseIf result2 = -1 Then
-                            MessageBox.Show("データが破損しています。",
-                                            "ファイルエラー",
+                            MessageBox.Show(StrDataCorrupted,
+                                            StrFileErr,
                                             MessageBoxButtons.OK,
                                             MessageBoxIcon.Error)
                         End If
@@ -224,22 +224,22 @@ Public Class FrmSST4500_1_0_0E_test
 
                 TimTest.Enabled = False
 
-                input_ret = InputBox("測定No.入力", "測定No.選択", Str(FileDataMax))
+                input_ret = InputBox(StrInputMeasNo, StrSelMeasNo, Str(FileDataMax))
                 '↑valするとキャンセルした時に0が返ってくる
                 '  valしないと""になる
 
                 'ここではキャンセルも空データも許さない
                 If input_ret = "" Then
-                    MessageBox.Show("測定No.を入力してください。",
-                                    "入力値エラー",
+                    MessageBox.Show(StrEntMeasNo,
+                                    StrInputErr,
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Exclamation)
                 Else
                     If IsNumeric(input_ret) Then
 
                         If input_ret = 0 Or input_ret > FileDataMax Then
-                            MessageBox.Show("入力値に誤りがあります。",
-                                            "入力値エラー",
+                            MessageBox.Show(StrIncorrectNo,
+                                            StrInputErr,
                                             MessageBoxButtons.OK,
                                             MessageBoxIcon.Exclamation)
                         Else
@@ -257,8 +257,8 @@ Public Class FrmSST4500_1_0_0E_test
                             FlgMainTest = 0
                         End If
                     Else
-                        MessageBox.Show("数値で入力してください。",
-                                        "入力値エラー",
+                        MessageBox.Show(StrEntNo,
+                                        StrInputErr,
                                         MessageBoxButtons.OK,
                                         MessageBoxIcon.Exclamation)
                     End If
@@ -275,14 +275,14 @@ Public Class FrmSST4500_1_0_0E_test
 
                 TimTest.Enabled = False
 
-                input_ret = InputBox("測定No.入力", "測定No.選択", Str(Kp))
+                input_ret = InputBox(StrInputMeasNo, StrSelMeasNo, Str(Kp))
 
                 If input_ret = String.Empty Then
                     'たぶんキャンセル
                     'キャンセルなら何もしない
                 ElseIf input_ret = "" Then
-                    MessageBox.Show("測定No.を入力してください。",
-                                    "入力値エラー",
+                    MessageBox.Show(StrEntMeasNo,
+                                    StrInputErr,
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Exclamation)
                 Else
@@ -290,8 +290,8 @@ Public Class FrmSST4500_1_0_0E_test
                         SampleNo = input_ret
 
                         If SampleNo = 0 Or SampleNo > Kp Then
-                            MessageBox.Show("入力値に誤りがあります。",
-                                            "入力値エラー",
+                            MessageBox.Show(StrIncorrectNo,
+                                            StrInputErr,
                                             MessageBoxButtons.OK,
                                             MessageBoxIcon.Exclamation)
                         Else
@@ -303,8 +303,8 @@ Public Class FrmSST4500_1_0_0E_test
                             Exit Sub
                         End If
                     Else
-                        MessageBox.Show("数値で入力してください。",
-                                        "入力値エラー",
+                        MessageBox.Show(StrEntNo,
+                                        StrInputErr,
                                         MessageBoxButtons.OK,
                                         MessageBoxIcon.Exclamation)
                     End If
@@ -335,8 +335,8 @@ Public Class FrmSST4500_1_0_0E_test
             Case 39
                 TimTest.Enabled = False
 
-                MessageBox.Show("File Dataを10個以上読み込む事は出来ません。",
-                                "過去データ読込エラー",
+                MessageBox.Show("Can not read more than 10 files",
+                                StrErrPastDataRead,
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Exclamation)
 
@@ -584,7 +584,7 @@ Public Class FrmSST4500_1_0_0E_test
         Dim _flgTx As Integer
         'Dim sw As New System.Diagnostics.Stopwatch
 
-        TxtPitch.Text = InputBox("Pitchを入力する", "Pitch Input")
+        TxtPitch.Text = InputBox(StrInputPitch, StrInputPitch)
 
         strWdata = "PCH" & vbCr
         _flgTx = UsbWrite(strWdata)

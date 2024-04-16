@@ -33,10 +33,10 @@ Partial Class FrmSST4500_1_0_0E_dbfchg
         Me.Rb_default.AutoSize = True
         Me.Rb_default.Location = New System.Drawing.Point(12, 12)
         Me.Rb_default.Name = "Rb_default"
-        Me.Rb_default.Size = New System.Drawing.Size(47, 16)
+        Me.Rb_default.Size = New System.Drawing.Size(59, 16)
         Me.Rb_default.TabIndex = 0
         Me.Rb_default.TabStop = True
-        Me.Rb_default.Text = "標準"
+        Me.Rb_default.Text = "Normal"
         Me.Rb_default.UseVisualStyleBackColor = True
         '
         'Rb_custum1
@@ -44,10 +44,10 @@ Partial Class FrmSST4500_1_0_0E_dbfchg
         Me.Rb_custum1.AutoSize = True
         Me.Rb_custum1.Location = New System.Drawing.Point(124, 12)
         Me.Rb_custum1.Name = "Rb_custum1"
-        Me.Rb_custum1.Size = New System.Drawing.Size(53, 16)
+        Me.Rb_custum1.Size = New System.Drawing.Size(70, 16)
         Me.Rb_custum1.TabIndex = 1
         Me.Rb_custum1.TabStop = True
-        Me.Rb_custum1.Text = "特殊1"
+        Me.Rb_custum1.Text = "Special 1"
         Me.Rb_custum1.UseVisualStyleBackColor = True
         '
         'CmdCancel
@@ -56,7 +56,7 @@ Partial Class FrmSST4500_1_0_0E_dbfchg
         Me.CmdCancel.Name = "CmdCancel"
         Me.CmdCancel.Size = New System.Drawing.Size(75, 23)
         Me.CmdCancel.TabIndex = 2
-        Me.CmdCancel.Text = "キャンセル"
+        Me.CmdCancel.Text = "Cancel"
         Me.CmdCancel.UseVisualStyleBackColor = True
         '
         'CmdOK
@@ -68,7 +68,7 @@ Partial Class FrmSST4500_1_0_0E_dbfchg
         Me.CmdOK.Text = "OK"
         Me.CmdOK.UseVisualStyleBackColor = True
         '
-        'FrmSST4500_1_1_0J_dbfchg
+        'FrmSST4500_1_0_0E_dbfchg
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -78,8 +78,8 @@ Partial Class FrmSST4500_1_0_0E_dbfchg
         Me.Controls.Add(Me.CmdCancel)
         Me.Controls.Add(Me.Rb_custum1)
         Me.Controls.Add(Me.Rb_default)
-        Me.Name = "FrmSST4500_1_1_0J_dbfchg"
-        Me.Text = "測定データフォーマット切り替え"
+        Me.Name = "FrmSST4500_1_0_0E_dbfchg"
+        Me.Text = "Switch Meas.Dataformat"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

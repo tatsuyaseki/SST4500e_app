@@ -81,30 +81,30 @@ Partial Class FrmSST4500_1_0_0E_main
         Me.ToolStripStatusLabel1.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right
         Me.ToolStripStatusLabel1.Font = New System.Drawing.Font("MS UI Gothic", 9.0!)
         Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
-        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(80, 17)
-        Me.ToolStripStatusLabel1.Text = "USB接続状態"
+        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(130, 17)
+        Me.ToolStripStatusLabel1.Text = "USB Connection Status"
         '
         'ToolStripStatusLabel3
         '
         Me.ToolStripStatusLabel3.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right
         Me.ToolStripStatusLabel3.Font = New System.Drawing.Font("MS UI Gothic", 9.0!)
         Me.ToolStripStatusLabel3.Name = "ToolStripStatusLabel3"
-        Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(78, 17)
-        Me.ToolStripStatusLabel3.Text = "SST接続状態"
+        Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(103, 17)
+        Me.ToolStripStatusLabel3.Text = "Connection Status"
         '
         'ToolStripStatusLabel2
         '
         Me.ToolStripStatusLabel2.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right
         Me.ToolStripStatusLabel2.Font = New System.Drawing.Font("MS UI Gothic", 9.0!)
         Me.ToolStripStatusLabel2.Name = "ToolStripStatusLabel2"
-        Me.ToolStripStatusLabel2.Size = New System.Drawing.Size(61, 17)
-        Me.ToolStripStatusLabel2.Text = "通常モード"
+        Me.ToolStripStatusLabel2.Size = New System.Drawing.Size(84, 17)
+        Me.ToolStripStatusLabel2.Text = "Operator Mode"
         '
         'ToolStripStatusLabel4
         '
         Me.ToolStripStatusLabel4.Name = "ToolStripStatusLabel4"
-        Me.ToolStripStatusLabel4.Size = New System.Drawing.Size(35, 17)
-        Me.ToolStripStatusLabel4.Text = "特殊1"
+        Me.ToolStripStatusLabel4.Size = New System.Drawing.Size(52, 17)
+        Me.ToolStripStatusLabel4.Text = "Special 1"
         '
         'LblProductNameMenu
         '
@@ -123,7 +123,7 @@ Partial Class FrmSST4500_1_0_0E_main
         Me.CmdAdmin.Name = "CmdAdmin"
         Me.CmdAdmin.Size = New System.Drawing.Size(240, 130)
         Me.CmdAdmin.TabIndex = 6
-        Me.CmdAdmin.Text = "管理者ログイン"
+        Me.CmdAdmin.Text = "Admin. Login"
         Me.CmdAdmin.UseVisualStyleBackColor = True
         '
         'CmdMDlong
@@ -133,7 +133,7 @@ Partial Class FrmSST4500_1_0_0E_main
         Me.CmdMDlong.Name = "CmdMDlong"
         Me.CmdMDlong.Size = New System.Drawing.Size(240, 130)
         Me.CmdMDlong.TabIndex = 7
-        Me.CmdMDlong.Text = "MD長尺測定"
+        Me.CmdMDlong.Text = "Meas.MD Long Sample"
         Me.CmdMDlong.UseVisualStyleBackColor = True
         '
         'CmdQuitSplash
@@ -143,7 +143,7 @@ Partial Class FrmSST4500_1_0_0E_main
         Me.CmdQuitSplash.Name = "CmdQuitSplash"
         Me.CmdQuitSplash.Size = New System.Drawing.Size(120, 35)
         Me.CmdQuitSplash.TabIndex = 8
-        Me.CmdQuitSplash.Text = "終 了"
+        Me.CmdQuitSplash.Text = "Close"
         Me.CmdQuitSplash.UseVisualStyleBackColor = True
         '
         'CmdTest
@@ -153,7 +153,7 @@ Partial Class FrmSST4500_1_0_0E_main
         Me.CmdTest.Name = "CmdTest"
         Me.CmdTest.Size = New System.Drawing.Size(240, 130)
         Me.CmdTest.TabIndex = 9
-        Me.CmdTest.Text = "試験・調整"
+        Me.CmdTest.Text = "Test・Adjust"
         Me.CmdTest.UseVisualStyleBackColor = True
         '
         'PrintDocument1
@@ -177,7 +177,7 @@ Partial Class FrmSST4500_1_0_0E_main
         Me.CmdCutSheetProfile.Name = "CmdCutSheetProfile"
         Me.CmdCutSheetProfile.Size = New System.Drawing.Size(240, 130)
         Me.CmdCutSheetProfile.TabIndex = 4
-        Me.CmdCutSheetProfile.Text = "カットシート" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.CmdCutSheetProfile.Text = "Cut Sheet"
         Me.CmdCutSheetProfile.UseVisualStyleBackColor = True
         '
         'CmdProfile
@@ -187,7 +187,7 @@ Partial Class FrmSST4500_1_0_0E_main
         Me.CmdProfile.Name = "CmdProfile"
         Me.CmdProfile.Size = New System.Drawing.Size(240, 130)
         Me.CmdProfile.TabIndex = 5
-        Me.CmdProfile.Text = "プロファイル" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.CmdProfile.Text = "Profile"
         Me.CmdProfile.UseVisualStyleBackColor = True
         '
         'CmdSinglesheet
@@ -197,7 +197,7 @@ Partial Class FrmSST4500_1_0_0E_main
         Me.CmdSinglesheet.Name = "CmdSinglesheet"
         Me.CmdSinglesheet.Size = New System.Drawing.Size(240, 130)
         Me.CmdSinglesheet.TabIndex = 3
-        Me.CmdSinglesheet.Text = "シングルシート" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.CmdSinglesheet.Text = "Single Sheet"
         Me.CmdSinglesheet.UseVisualStyleBackColor = True
         '
         'MenuStrip1
@@ -215,96 +215,96 @@ Partial Class FrmSST4500_1_0_0E_main
         Me.ToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SingleSheetToolStripMenuItem, Me.CutSheetToolStripMenuItem, Me.ProfileToolStripMenuItem, Me.QuitToolStripMenuItem})
         Me.ToolStripMenuItem1.Font = New System.Drawing.Font("MS UI Gothic", 9.0!)
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(41, 20)
-        Me.ToolStripMenuItem1.Text = "測定"
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(46, 20)
+        Me.ToolStripMenuItem1.Text = "Meas."
         '
         'SingleSheetToolStripMenuItem
         '
         Me.SingleSheetToolStripMenuItem.Name = "SingleSheetToolStripMenuItem"
-        Me.SingleSheetToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.SingleSheetToolStripMenuItem.Text = "シングルシート"
+        Me.SingleSheetToolStripMenuItem.Size = New System.Drawing.Size(134, 22)
+        Me.SingleSheetToolStripMenuItem.Text = "Single Sheet"
         '
         'CutSheetToolStripMenuItem
         '
         Me.CutSheetToolStripMenuItem.Name = "CutSheetToolStripMenuItem"
-        Me.CutSheetToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.CutSheetToolStripMenuItem.Text = "カットシート"
+        Me.CutSheetToolStripMenuItem.Size = New System.Drawing.Size(134, 22)
+        Me.CutSheetToolStripMenuItem.Text = "Cut Sheet"
         '
         'ProfileToolStripMenuItem
         '
         Me.ProfileToolStripMenuItem.Name = "ProfileToolStripMenuItem"
-        Me.ProfileToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.ProfileToolStripMenuItem.Text = "プロファイル"
+        Me.ProfileToolStripMenuItem.Size = New System.Drawing.Size(134, 22)
+        Me.ProfileToolStripMenuItem.Text = "Profile"
         '
         'QuitToolStripMenuItem
         '
         Me.QuitToolStripMenuItem.Name = "QuitToolStripMenuItem"
-        Me.QuitToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.QuitToolStripMenuItem.Text = "終了"
+        Me.QuitToolStripMenuItem.Size = New System.Drawing.Size(134, 22)
+        Me.QuitToolStripMenuItem.Text = "Close"
         '
         'SettingToolStripMenuItem
         '
         Me.SettingToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AdmLoginToolStripMenuItem, Me.SettingToolStripMenuItem1})
         Me.SettingToolStripMenuItem.Font = New System.Drawing.Font("MS UI Gothic", 9.0!)
         Me.SettingToolStripMenuItem.Name = "SettingToolStripMenuItem"
-        Me.SettingToolStripMenuItem.Size = New System.Drawing.Size(41, 20)
-        Me.SettingToolStripMenuItem.Text = "設定"
+        Me.SettingToolStripMenuItem.Size = New System.Drawing.Size(53, 20)
+        Me.SettingToolStripMenuItem.Text = "Setting"
         '
         'AdmLoginToolStripMenuItem
         '
         Me.AdmLoginToolStripMenuItem.Name = "AdmLoginToolStripMenuItem"
-        Me.AdmLoginToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.AdmLoginToolStripMenuItem.Text = "管理者ログイン"
+        Me.AdmLoginToolStripMenuItem.Size = New System.Drawing.Size(135, 22)
+        Me.AdmLoginToolStripMenuItem.Text = "Admin. Login"
         '
         'SettingToolStripMenuItem1
         '
         Me.SettingToolStripMenuItem1.Name = "SettingToolStripMenuItem1"
-        Me.SettingToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
-        Me.SettingToolStripMenuItem1.Text = "設定"
+        Me.SettingToolStripMenuItem1.Size = New System.Drawing.Size(135, 22)
+        Me.SettingToolStripMenuItem1.Text = "Setting"
         '
         'AdmModeToolStripMenuItem
         '
         Me.AdmModeToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MDLongToolStripMenuItem1, Me.TestToolStripMenuItem})
         Me.AdmModeToolStripMenuItem.Font = New System.Drawing.Font("MS UI Gothic", 9.0!)
         Me.AdmModeToolStripMenuItem.Name = "AdmModeToolStripMenuItem"
-        Me.AdmModeToolStripMenuItem.Size = New System.Drawing.Size(81, 20)
-        Me.AdmModeToolStripMenuItem.Text = "管理者モード"
+        Me.AdmModeToolStripMenuItem.Size = New System.Drawing.Size(82, 20)
+        Me.AdmModeToolStripMenuItem.Text = "Admin.Mode"
         '
         'MDLongToolStripMenuItem1
         '
         Me.MDLongToolStripMenuItem1.Name = "MDLongToolStripMenuItem1"
-        Me.MDLongToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
-        Me.MDLongToolStripMenuItem1.Text = "MD長尺測定"
+        Me.MDLongToolStripMenuItem1.Size = New System.Drawing.Size(189, 22)
+        Me.MDLongToolStripMenuItem1.Text = "Meas.MD Long Sample"
         '
         'TestToolStripMenuItem
         '
         Me.TestToolStripMenuItem.Name = "TestToolStripMenuItem"
-        Me.TestToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.TestToolStripMenuItem.Text = "試験・調整"
+        Me.TestToolStripMenuItem.Size = New System.Drawing.Size(189, 22)
+        Me.TestToolStripMenuItem.Text = "Test・Adjust"
         '
         'HelpToolStripMenuItem
         '
         Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SST4500HelpToolStripMenuItem, Me.SST4500InfoToolStripMenuItem})
         Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
-        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(46, 20)
-        Me.HelpToolStripMenuItem.Text = "ヘルプ"
+        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(40, 20)
+        Me.HelpToolStripMenuItem.Text = "Help"
         '
         'SST4500HelpToolStripMenuItem
         '
         Me.SST4500HelpToolStripMenuItem.Enabled = False
         Me.SST4500HelpToolStripMenuItem.Name = "SST4500HelpToolStripMenuItem"
-        Me.SST4500HelpToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.SST4500HelpToolStripMenuItem.Text = "SST-4500ヘルプ"
+        Me.SST4500HelpToolStripMenuItem.Size = New System.Drawing.Size(155, 22)
+        Me.SST4500HelpToolStripMenuItem.Text = "SST-4500 Help"
         '
         'SST4500InfoToolStripMenuItem
         '
         Me.SST4500InfoToolStripMenuItem.Name = "SST4500InfoToolStripMenuItem"
-        Me.SST4500InfoToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.SST4500InfoToolStripMenuItem.Text = "SST-4500について"
+        Me.SST4500InfoToolStripMenuItem.Size = New System.Drawing.Size(155, 22)
+        Me.SST4500InfoToolStripMenuItem.Text = "About SST-4500"
         '
         'PictureBox1
         '
-        Me.PictureBox1.Image = Global.SST4500_1_0_0J.My.Resources.Resources.nomura_logo1
+        Me.PictureBox1.Image = Global.SST4500_1_0_0E.My.Resources.Resources.nomura_logo1e
         Me.PictureBox1.Location = New System.Drawing.Point(621, 25)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(160, 50)

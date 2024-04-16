@@ -52,8 +52,9 @@ Public Class FrmSST4500_1_0_0E_pitchsetting
         _flg_init = 0
         If Me.Visible = True Then
 
-            Label5.Text = "※サンプル長 - 両端補正値(" & LnCmp & "mm)以下になる" & vbCrLf &
-                          "　様に設定して下さい。"
+            Label5.Text = "*Total pitch should be less than" & vbCrLf &
+                          "  Sample length - 420mm" & vbCrLf &
+                          "  (both edge length correction)"
 
             _flg_ng = 1 '一旦OKにする
             'If FlgPitchExp_Load = 1 Then
@@ -167,7 +168,7 @@ Public Class FrmSST4500_1_0_0E_pitchsetting
             TxtLengthSum.Text = 0
             DataGridView2.Rows.Clear()
             If FlgPitchExp_Load_old = 2 Then
-                TxtPchExpLoadedFile.Text = "ピッチ設定ファイルが開けません"
+                TxtPchExpLoadedFile.Text = "Unable to Open Pitch Setting File"
             Else
                 TxtPchExpLoadedFile.Text = ""
             End If
@@ -370,24 +371,23 @@ Public Class FrmSST4500_1_0_0E_pitchsetting
             Me.Visible = False
         Else
             If _flg_ng = 0 Then
-                MessageBox.Show("合計長がサンプル長 - 両端補正値(" & LnCmp &
-                                "mm)を超えています。修正して下さい。",
-                                "合計長エラー",
+                MessageBox.Show("Total pitch should be less than" & vbCrLf &
+                                "Sample length - " & LnCmp & "mm (both edge length correction)",
+                                "Total length Error",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Error)
             ElseIf _flg_ng = 1 Then
-                MessageBox.Show("合計長NG修正後の保存がされていません。" & vbCrLf &
-                                "保存を行ってください。",
-                                "未保存",
+                MessageBox.Show("Save the total length after correction",
+                                "Unsaved",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Warning)
             Else
                 'ロード済みの場合
-                _result = MessageBox.Show("変更済みで未保存の場合、変更内容が破棄されますが、" & vbCrLf &
-                                      "閉じてよろしいですか？",
-                                      "確認",
-                                      MessageBoxButtons.YesNo,
-                                      MessageBoxIcon.Warning)
+                _result = MessageBox.Show("Unsaved changes will be discarded," & vbCrLf &
+                                          "are you sure to close?",
+                                          "Confirm",
+                                          MessageBoxButtons.YesNo,
+                                          MessageBoxIcon.Warning)
                 If _result = vbYes Then
                     LoadConstPitch_FileErr_Run = 0
                     Me.Visible = False
@@ -402,8 +402,8 @@ Public Class FrmSST4500_1_0_0E_pitchsetting
         Dim _rows_count As Integer
         Dim _pitch_sum As Single
 
-        result_tmp = MessageBox.Show("削除してよろしいですか？",
-                                     "削除確認",
+        result_tmp = MessageBox.Show("Are you sure you want to delete?",
+                                     "Confirm Delete",
                                      MessageBoxButtons.YesNo,
                                      MessageBoxIcon.Warning)
         If result_tmp = vbYes Then
@@ -483,7 +483,7 @@ Public Class FrmSST4500_1_0_0E_pitchsetting
         Using dialog As New SaveFileDialog
             With dialog
                 .InitialDirectory = cur_dir & DEF_CONST_FILE_FLD
-                .Title = "ピッチ拡張設定ファイルの保存"
+                .Title = StrSavePchSetFile
                 .Filter = "Pitch Exp File(PF*.pitch)|PF*.pitch"
                 If pitchfile_bak = "" Then
                     .FileName = _filename_const & StrConstFileName_PchExp
@@ -498,9 +498,9 @@ Public Class FrmSST4500_1_0_0E_pitchsetting
 
                     chk_filename = Strings.Left(Path.GetFileName(_filepath), 2)
                     If chk_filename <> chk_filehead Then
-                        MessageBox.Show("ファイル名の先頭は、必ず「" & chk_filehead & "」として下さい。" & vbCrLf &
-                                        "一旦保存処理を終了します。",
-                                        "ファイル名エラー",
+                        MessageBox.Show("File Name must start with """ & chk_filehead & """" & vbCrLf &
+                                        "Cancel the save process",
+                                        StrFileNameErr,
                                         MessageBoxButtons.OK,
                                         MessageBoxIcon.Error)
                         Exit Sub
@@ -542,28 +542,6 @@ Public Class FrmSST4500_1_0_0E_pitchsetting
             End With
         End Using
 
-        'If FlgPitchExp_Load = 1 Then
-        'result_tmp = MessageBox.Show("上書きされますがよろしいですか？",
-        '                                 "保存確認",
-        'MessageBoxButtons.YesNo,
-        'MessageBoxIcon.Warning)
-        'Else
-        ''新規作成の場合は強制的に保存する
-        'result_tmp = vbYes
-        'End If
-        'If result_tmp = vbYes Then
-        '_rows_count = DataGridView1.Rows.Count
-        'For i = 0 To _rows_count - 2
-        'If i = 0 Then
-        '_data_array(i) = DataGridView1.Rows(i).Cells(1).Value
-        'Else
-        'ReDim Preserve _data_array(i)
-        '_data_array(i) = DataGridView1.Rows(i).Cells(1).Value
-        'End If
-        'Next
-
-        'SaveConst_PchExp(_data_array, Val(TxtLength.Text))
-        'End If
         If pitchfile_bak <> PchExpSettingFile_FullPath Then
             ConstChangeTrue(FrmSST4500_1_0_0E_Profile, title_text2)
         End If
@@ -595,8 +573,8 @@ Public Class FrmSST4500_1_0_0E_pitchsetting
         Console.WriteLine("newValue : " & newValue)
 
         If IsNumeric(newValue) = False Then
-            MessageBox.Show("数値を入力して下さい。",
-                            "入力 値エラー",
+            MessageBox.Show(StrInputPitch,
+                            StrInputErr,
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Warning)
 
@@ -631,8 +609,8 @@ Public Class FrmSST4500_1_0_0E_pitchsetting
     Private Sub TxtLength_Validating(sender As Object, e As CancelEventArgs) Handles TxtLength.Validating
         Console.WriteLine("Pitch Ext TextLength.Validating")
         If IsNumeric(TxtLength.Text) = False Then
-            MessageBox.Show("数値を入力して下さい。",
-                            "入力値エラー",
+            MessageBox.Show(StrInputPitch,
+                            StrInputErr,
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Exclamation)
             TxtLength.Text = Length
@@ -643,11 +621,8 @@ Public Class FrmSST4500_1_0_0E_pitchsetting
         End If
 
         If Length_tmp < LnCmp + min_Pitch Then
-            MessageBox.Show("設定可能な最小サンプル長さを下回っています。" & vbCrLf &
-                            "両端補正値(" & LnCmp & "mm) + 最小ピッチ(" & min_Pitch & "mm)" &
-                            " = " & LnCmp + min_Pitch & "mm" & vbCrLf &
-                            "以上の数値を入力してください。",
-                            "入力値エラー",
+            MessageBox.Show("Input More Than " & LnCmp + min_Pitch & "mm",
+                            StrInputErr,
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Exclamation)
             TxtLength.Text = Length
@@ -671,7 +646,7 @@ Public Class FrmSST4500_1_0_0E_pitchsetting
         Using dialog As New OpenFileDialog
             With dialog
                 .InitialDirectory = cur_dir & DEF_CONST_FILE_FLD
-                .Title = "ピッチ拡張設定ファイルの読込"
+                .Title = StrLoadPchSetFile
                 .CheckFileExists = True
                 .Filter = "Pitch Exp File(PF*.pitch)|PF*.pitch"
                 .FileName = PchExpSettingFile

@@ -5,8 +5,8 @@ Public Class FrmSST4500_1_0_0E_login
         'OKボタン
         Dim inputtext = TxtInputPass.Text
         If inputtext = "" Then
-            MessageBox.Show("パスワードを入力してください。",
-                            "パスワード入力",
+            MessageBox.Show("Enter the password",
+                            "Enter the password",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Exclamation)
         Else

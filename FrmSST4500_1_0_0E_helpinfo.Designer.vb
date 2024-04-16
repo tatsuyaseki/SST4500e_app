@@ -31,6 +31,8 @@ Partial Class FrmSST4500_1_0_0E_helpinfo
         Me.LinkLabel2 = New System.Windows.Forms.LinkLabel()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -38,7 +40,7 @@ Partial Class FrmSST4500_1_0_0E_helpinfo
         '
         Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.PictureBox1.Image = Global.SST4500_1_0_0J.My.Resources.Resources.nomura_logo2
+        Me.PictureBox1.Image = Global.SST4500_1_0_0E.My.Resources.Resources.nomura_logo2e
         Me.PictureBox1.Location = New System.Drawing.Point(12, 12)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(219, 55)
@@ -51,14 +53,14 @@ Partial Class FrmSST4500_1_0_0E_helpinfo
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(30, 70)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(213, 12)
+        Me.Label1.Size = New System.Drawing.Size(226, 12)
         Me.Label1.TabIndex = 1
-        Me.Label1.Text = "〒103-0027 東京都中央区日本橋3-15-2"
+        Me.Label1.Text = "3-15-2, Nihonbashi, Chuo-Ku, Tokyo Japan"
         '
         'LinkLabel1
         '
         Me.LinkLabel1.AutoSize = True
-        Me.LinkLabel1.Location = New System.Drawing.Point(30, 96)
+        Me.LinkLabel1.Location = New System.Drawing.Point(30, 108)
         Me.LinkLabel1.Name = "LinkLabel1"
         Me.LinkLabel1.Size = New System.Drawing.Size(158, 12)
         Me.LinkLabel1.TabIndex = 2
@@ -70,23 +72,23 @@ Partial Class FrmSST4500_1_0_0E_helpinfo
         Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(30, 84)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(103, 12)
+        Me.Label2.Size = New System.Drawing.Size(25, 12)
         Me.Label2.TabIndex = 3
-        Me.Label2.Text = "TEL：03-3275-8001"
+        Me.Label2.Text = "TEL"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(154, 84)
+        Me.Label3.Location = New System.Drawing.Point(30, 97)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(105, 12)
+        Me.Label3.Size = New System.Drawing.Size(27, 12)
         Me.Label3.TabIndex = 4
-        Me.Label3.Text = "FAX：03-3275-8005"
+        Me.Label3.Text = "FAX"
         '
         'LinkLabel2
         '
         Me.LinkLabel2.AutoSize = True
-        Me.LinkLabel2.Location = New System.Drawing.Point(30, 110)
+        Me.LinkLabel2.Location = New System.Drawing.Point(30, 122)
         Me.LinkLabel2.Name = "LinkLabel2"
         Me.LinkLabel2.Size = New System.Drawing.Size(155, 12)
         Me.LinkLabel2.TabIndex = 5
@@ -96,7 +98,7 @@ Partial Class FrmSST4500_1_0_0E_helpinfo
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(30, 125)
+        Me.Label4.Location = New System.Drawing.Point(30, 137)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(38, 12)
         Me.Label4.TabIndex = 6
@@ -111,13 +113,33 @@ Partial Class FrmSST4500_1_0_0E_helpinfo
         Me.Button1.Text = "OK"
         Me.Button1.UseVisualStyleBackColor = True
         '
-        'FrmSST4500_1_0_0J_helpinfo
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(56, 83)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(109, 12)
+        Me.Label5.TabIndex = 8
+        Me.Label5.Text = "：+81(0)3-3275-8001"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(56, 96)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(109, 12)
+        Me.Label6.TabIndex = 9
+        Me.Label6.Text = "：+81(0)3-3275-8005"
+        '
+        'FrmSST4500_1_0_0E_helpinfo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(284, 181)
         Me.ControlBox = False
+        Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.LinkLabel2)
@@ -127,7 +149,7 @@ Partial Class FrmSST4500_1_0_0E_helpinfo
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.PictureBox1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Name = "FrmSST4500_1_0_0J_helpinfo"
+        Me.Name = "FrmSST4500_1_0_0E_helpinfo"
         Me.Text = "SST-4500 Info"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -143,4 +165,6 @@ Partial Class FrmSST4500_1_0_0E_helpinfo
     Friend WithEvents LinkLabel2 As LinkLabel
     Friend WithEvents Label4 As Label
     Friend WithEvents Button1 As Button
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label6 As Label
 End Class

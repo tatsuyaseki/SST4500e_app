@@ -115,10 +115,10 @@ Partial Class FrmSST4500_1_0_0E_setting
         '
         Me.LblAngPkColor.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.LblAngPkColor.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LblAngPkColor.Location = New System.Drawing.Point(110, 2)
+        Me.LblAngPkColor.Location = New System.Drawing.Point(156, 2)
         Me.LblAngPkColor.Margin = New System.Windows.Forms.Padding(2)
         Me.LblAngPkColor.Name = "LblAngPkColor"
-        Me.LblAngPkColor.Size = New System.Drawing.Size(32, 14)
+        Me.LblAngPkColor.Size = New System.Drawing.Size(31, 14)
         Me.LblAngPkColor.TabIndex = 1
         Me.LblAngPkColor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -129,9 +129,9 @@ Partial Class FrmSST4500_1_0_0E_setting
         Me.Label2.Location = New System.Drawing.Point(0, 0)
         Me.Label2.Margin = New System.Windows.Forms.Padding(0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(108, 18)
+        Me.Label2.Size = New System.Drawing.Size(154, 18)
         Me.Label2.TabIndex = 2
-        Me.Label2.Text = "配向角 Peak"
+        Me.Label2.Text = "Orientation Angle Peak"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'GroupBox1
@@ -141,28 +141,28 @@ Partial Class FrmSST4500_1_0_0E_setting
         Me.GroupBox1.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(312, 220)
+        Me.GroupBox1.Size = New System.Drawing.Size(410, 220)
         Me.GroupBox1.TabIndex = 3
         Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "グラフ線色設定"
+        Me.GroupBox1.Text = "Setting Line Color of Graph"
         '
         'GroupBox4
         '
         Me.GroupBox4.Controls.Add(Me.TableLayoutPanel2)
-        Me.GroupBox4.Location = New System.Drawing.Point(160, 10)
+        Me.GroupBox4.Location = New System.Drawing.Point(205, 11)
         Me.GroupBox4.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.GroupBox4.Size = New System.Drawing.Size(146, 204)
+        Me.GroupBox4.Size = New System.Drawing.Size(199, 204)
         Me.GroupBox4.TabIndex = 20
         Me.GroupBox4.TabStop = False
-        Me.GroupBox4.Text = "MD長尺"
+        Me.GroupBox4.Text = "MD Long"
         '
         'TableLayoutPanel2
         '
         Me.TableLayoutPanel2.ColumnCount = 2
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75.0!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 81.48148!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.51852!))
         Me.TableLayoutPanel2.Controls.Add(Me.LblTSICDColorLG, 1, 9)
         Me.TableLayoutPanel2.Controls.Add(Me.Label22, 0, 8)
         Me.TableLayoutPanel2.Controls.Add(Me.LblTSIMDColorLG, 1, 8)
@@ -197,14 +197,14 @@ Partial Class FrmSST4500_1_0_0E_setting
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(138, 181)
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(189, 181)
         Me.TableLayoutPanel2.TabIndex = 20
         '
         'LblTSICDColorLG
         '
         Me.LblTSICDColorLG.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.LblTSICDColorLG.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LblTSICDColorLG.Location = New System.Drawing.Point(105, 164)
+        Me.LblTSICDColorLG.Location = New System.Drawing.Point(156, 164)
         Me.LblTSICDColorLG.Margin = New System.Windows.Forms.Padding(2)
         Me.LblTSICDColorLG.Name = "LblTSICDColorLG"
         Me.LblTSICDColorLG.Size = New System.Drawing.Size(31, 15)
@@ -218,7 +218,7 @@ Partial Class FrmSST4500_1_0_0E_setting
         Me.Label22.Location = New System.Drawing.Point(0, 144)
         Me.Label22.Margin = New System.Windows.Forms.Padding(0)
         Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(103, 18)
+        Me.Label22.Size = New System.Drawing.Size(154, 18)
         Me.Label22.TabIndex = 17
         Me.Label22.Text = "TSI MD"
         Me.Label22.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -227,7 +227,7 @@ Partial Class FrmSST4500_1_0_0E_setting
         '
         Me.LblTSIMDColorLG.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.LblTSIMDColorLG.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LblTSIMDColorLG.Location = New System.Drawing.Point(105, 146)
+        Me.LblTSIMDColorLG.Location = New System.Drawing.Point(156, 146)
         Me.LblTSIMDColorLG.Margin = New System.Windows.Forms.Padding(2)
         Me.LblTSIMDColorLG.Name = "LblTSIMDColorLG"
         Me.LblTSIMDColorLG.Size = New System.Drawing.Size(31, 14)
@@ -241,16 +241,16 @@ Partial Class FrmSST4500_1_0_0E_setting
         Me.Label24.Location = New System.Drawing.Point(0, 36)
         Me.Label24.Margin = New System.Windows.Forms.Padding(0)
         Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(103, 18)
+        Me.Label24.Size = New System.Drawing.Size(154, 18)
         Me.Label24.TabIndex = 5
-        Me.Label24.Text = "配向比 Peak/Deep"
+        Me.Label24.Text = "Orientation Ratio Peak/Deep"
         Me.Label24.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'LblVeloCDColorLG
         '
         Me.LblVeloCDColorLG.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.LblVeloCDColorLG.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LblVeloCDColorLG.Location = New System.Drawing.Point(105, 128)
+        Me.LblVeloCDColorLG.Location = New System.Drawing.Point(156, 128)
         Me.LblVeloCDColorLG.Margin = New System.Windows.Forms.Padding(2)
         Me.LblVeloCDColorLG.Name = "LblVeloCDColorLG"
         Me.LblVeloCDColorLG.Size = New System.Drawing.Size(31, 14)
@@ -264,16 +264,16 @@ Partial Class FrmSST4500_1_0_0E_setting
         Me.Label26.Location = New System.Drawing.Point(0, 54)
         Me.Label26.Margin = New System.Windows.Forms.Padding(0)
         Me.Label26.Name = "Label26"
-        Me.Label26.Size = New System.Drawing.Size(103, 18)
+        Me.Label26.Size = New System.Drawing.Size(154, 18)
         Me.Label26.TabIndex = 7
-        Me.Label26.Text = "配向比 MD/CD"
+        Me.Label26.Text = "Orientation Ratio MD/CD"
         Me.Label26.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'LblVeloMDColorLG
         '
         Me.LblVeloMDColorLG.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.LblVeloMDColorLG.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LblVeloMDColorLG.Location = New System.Drawing.Point(105, 110)
+        Me.LblVeloMDColorLG.Location = New System.Drawing.Point(156, 110)
         Me.LblVeloMDColorLG.Margin = New System.Windows.Forms.Padding(2)
         Me.LblVeloMDColorLG.Name = "LblVeloMDColorLG"
         Me.LblVeloMDColorLG.Size = New System.Drawing.Size(31, 14)
@@ -287,16 +287,16 @@ Partial Class FrmSST4500_1_0_0E_setting
         Me.Label28.Location = New System.Drawing.Point(0, 126)
         Me.Label28.Margin = New System.Windows.Forms.Padding(0)
         Me.Label28.Name = "Label28"
-        Me.Label28.Size = New System.Drawing.Size(103, 18)
+        Me.Label28.Size = New System.Drawing.Size(154, 18)
         Me.Label28.TabIndex = 15
-        Me.Label28.Text = "伝播速度 CD"
+        Me.Label28.Text = "Propagation Velocity CD"
         Me.Label28.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'LblVeloDpColorLG
         '
         Me.LblVeloDpColorLG.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.LblVeloDpColorLG.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LblVeloDpColorLG.Location = New System.Drawing.Point(105, 92)
+        Me.LblVeloDpColorLG.Location = New System.Drawing.Point(156, 92)
         Me.LblVeloDpColorLG.Margin = New System.Windows.Forms.Padding(2)
         Me.LblVeloDpColorLG.Name = "LblVeloDpColorLG"
         Me.LblVeloDpColorLG.Size = New System.Drawing.Size(31, 14)
@@ -310,16 +310,16 @@ Partial Class FrmSST4500_1_0_0E_setting
         Me.Label30.Location = New System.Drawing.Point(0, 72)
         Me.Label30.Margin = New System.Windows.Forms.Padding(0)
         Me.Label30.Name = "Label30"
-        Me.Label30.Size = New System.Drawing.Size(103, 18)
+        Me.Label30.Size = New System.Drawing.Size(154, 18)
         Me.Label30.TabIndex = 9
-        Me.Label30.Text = "伝播速度 Peak"
+        Me.Label30.Text = "Propagation Velocity Peak"
         Me.Label30.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'LblVeloPkColorLG
         '
         Me.LblVeloPkColorLG.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.LblVeloPkColorLG.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LblVeloPkColorLG.Location = New System.Drawing.Point(105, 74)
+        Me.LblVeloPkColorLG.Location = New System.Drawing.Point(156, 74)
         Me.LblVeloPkColorLG.Margin = New System.Windows.Forms.Padding(2)
         Me.LblVeloPkColorLG.Name = "LblVeloPkColorLG"
         Me.LblVeloPkColorLG.Size = New System.Drawing.Size(31, 14)
@@ -333,16 +333,16 @@ Partial Class FrmSST4500_1_0_0E_setting
         Me.Label32.Location = New System.Drawing.Point(0, 90)
         Me.Label32.Margin = New System.Windows.Forms.Padding(0)
         Me.Label32.Name = "Label32"
-        Me.Label32.Size = New System.Drawing.Size(103, 18)
+        Me.Label32.Size = New System.Drawing.Size(154, 18)
         Me.Label32.TabIndex = 11
-        Me.Label32.Text = "伝播速度 Deep"
+        Me.Label32.Text = "Propagation Velocity Deep"
         Me.Label32.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'LblRatMDCDColorLG
         '
         Me.LblRatMDCDColorLG.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.LblRatMDCDColorLG.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LblRatMDCDColorLG.Location = New System.Drawing.Point(105, 56)
+        Me.LblRatMDCDColorLG.Location = New System.Drawing.Point(156, 56)
         Me.LblRatMDCDColorLG.Margin = New System.Windows.Forms.Padding(2)
         Me.LblRatMDCDColorLG.Name = "LblRatMDCDColorLG"
         Me.LblRatMDCDColorLG.Size = New System.Drawing.Size(31, 14)
@@ -356,16 +356,16 @@ Partial Class FrmSST4500_1_0_0E_setting
         Me.Label34.Location = New System.Drawing.Point(0, 108)
         Me.Label34.Margin = New System.Windows.Forms.Padding(0)
         Me.Label34.Name = "Label34"
-        Me.Label34.Size = New System.Drawing.Size(103, 18)
+        Me.Label34.Size = New System.Drawing.Size(154, 18)
         Me.Label34.TabIndex = 13
-        Me.Label34.Text = "伝播速度 MD"
+        Me.Label34.Text = "Propagation Velocity MD"
         Me.Label34.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'LblRatPkDpColorLG
         '
         Me.LblRatPkDpColorLG.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.LblRatPkDpColorLG.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LblRatPkDpColorLG.Location = New System.Drawing.Point(105, 38)
+        Me.LblRatPkDpColorLG.Location = New System.Drawing.Point(156, 38)
         Me.LblRatPkDpColorLG.Margin = New System.Windows.Forms.Padding(2)
         Me.LblRatPkDpColorLG.Name = "LblRatPkDpColorLG"
         Me.LblRatPkDpColorLG.Size = New System.Drawing.Size(31, 14)
@@ -379,7 +379,7 @@ Partial Class FrmSST4500_1_0_0E_setting
         Me.Label36.Location = New System.Drawing.Point(0, 162)
         Me.Label36.Margin = New System.Windows.Forms.Padding(0)
         Me.Label36.Name = "Label36"
-        Me.Label36.Size = New System.Drawing.Size(103, 19)
+        Me.Label36.Size = New System.Drawing.Size(154, 19)
         Me.Label36.TabIndex = 18
         Me.Label36.Text = "TSI CD"
         Me.Label36.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -388,7 +388,7 @@ Partial Class FrmSST4500_1_0_0E_setting
         '
         Me.LblAngDpColorLG.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.LblAngDpColorLG.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LblAngDpColorLG.Location = New System.Drawing.Point(105, 20)
+        Me.LblAngDpColorLG.Location = New System.Drawing.Point(156, 20)
         Me.LblAngDpColorLG.Margin = New System.Windows.Forms.Padding(2)
         Me.LblAngDpColorLG.Name = "LblAngDpColorLG"
         Me.LblAngDpColorLG.Size = New System.Drawing.Size(31, 14)
@@ -402,16 +402,16 @@ Partial Class FrmSST4500_1_0_0E_setting
         Me.Label38.Location = New System.Drawing.Point(0, 0)
         Me.Label38.Margin = New System.Windows.Forms.Padding(0)
         Me.Label38.Name = "Label38"
-        Me.Label38.Size = New System.Drawing.Size(103, 18)
+        Me.Label38.Size = New System.Drawing.Size(154, 18)
         Me.Label38.TabIndex = 2
-        Me.Label38.Text = "配向角 Peak"
+        Me.Label38.Text = "Orientation Angle Peak"
         Me.Label38.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'LblAngPkColorLG
         '
         Me.LblAngPkColorLG.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.LblAngPkColorLG.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LblAngPkColorLG.Location = New System.Drawing.Point(105, 2)
+        Me.LblAngPkColorLG.Location = New System.Drawing.Point(156, 2)
         Me.LblAngPkColorLG.Margin = New System.Windows.Forms.Padding(2)
         Me.LblAngPkColorLG.Name = "LblAngPkColorLG"
         Me.LblAngPkColorLG.Size = New System.Drawing.Size(31, 14)
@@ -425,16 +425,16 @@ Partial Class FrmSST4500_1_0_0E_setting
         Me.Label40.Location = New System.Drawing.Point(0, 18)
         Me.Label40.Margin = New System.Windows.Forms.Padding(0)
         Me.Label40.Name = "Label40"
-        Me.Label40.Size = New System.Drawing.Size(103, 18)
+        Me.Label40.Size = New System.Drawing.Size(154, 18)
         Me.Label40.TabIndex = 3
-        Me.Label40.Text = "配向角 Deep"
+        Me.Label40.Text = "Orientation Angle Deep"
         Me.Label40.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'TableLayoutPanel1
         '
         Me.TableLayoutPanel1.ColumnCount = 2
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 81.48148!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.51852!))
         Me.TableLayoutPanel1.Controls.Add(Me.LblTSICDColor, 1, 9)
         Me.TableLayoutPanel1.Controls.Add(Me.Label18, 0, 8)
         Me.TableLayoutPanel1.Controls.Add(Me.LblTSIMDColor, 1, 8)
@@ -469,17 +469,17 @@ Partial Class FrmSST4500_1_0_0E_setting
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(144, 181)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(189, 181)
         Me.TableLayoutPanel1.TabIndex = 19
         '
         'LblTSICDColor
         '
         Me.LblTSICDColor.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.LblTSICDColor.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LblTSICDColor.Location = New System.Drawing.Point(110, 164)
+        Me.LblTSICDColor.Location = New System.Drawing.Point(156, 164)
         Me.LblTSICDColor.Margin = New System.Windows.Forms.Padding(2)
         Me.LblTSICDColor.Name = "LblTSICDColor"
-        Me.LblTSICDColor.Size = New System.Drawing.Size(32, 15)
+        Me.LblTSICDColor.Size = New System.Drawing.Size(31, 15)
         Me.LblTSICDColor.TabIndex = 19
         Me.LblTSICDColor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -490,7 +490,7 @@ Partial Class FrmSST4500_1_0_0E_setting
         Me.Label18.Location = New System.Drawing.Point(0, 144)
         Me.Label18.Margin = New System.Windows.Forms.Padding(0)
         Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(108, 18)
+        Me.Label18.Size = New System.Drawing.Size(154, 18)
         Me.Label18.TabIndex = 17
         Me.Label18.Text = "TSI MD"
         Me.Label18.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -499,10 +499,10 @@ Partial Class FrmSST4500_1_0_0E_setting
         '
         Me.LblTSIMDColor.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.LblTSIMDColor.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LblTSIMDColor.Location = New System.Drawing.Point(110, 146)
+        Me.LblTSIMDColor.Location = New System.Drawing.Point(156, 146)
         Me.LblTSIMDColor.Margin = New System.Windows.Forms.Padding(2)
         Me.LblTSIMDColor.Name = "LblTSIMDColor"
-        Me.LblTSIMDColor.Size = New System.Drawing.Size(32, 14)
+        Me.LblTSIMDColor.Size = New System.Drawing.Size(31, 14)
         Me.LblTSIMDColor.TabIndex = 18
         Me.LblTSIMDColor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -513,19 +513,19 @@ Partial Class FrmSST4500_1_0_0E_setting
         Me.Label5.Location = New System.Drawing.Point(0, 36)
         Me.Label5.Margin = New System.Windows.Forms.Padding(0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(108, 18)
+        Me.Label5.Size = New System.Drawing.Size(154, 18)
         Me.Label5.TabIndex = 5
-        Me.Label5.Text = "配向比 Peak/Deep"
+        Me.Label5.Text = "Orientation Ratio Peak/Deep"
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'LblVeloCDColor
         '
         Me.LblVeloCDColor.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.LblVeloCDColor.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LblVeloCDColor.Location = New System.Drawing.Point(110, 128)
+        Me.LblVeloCDColor.Location = New System.Drawing.Point(156, 128)
         Me.LblVeloCDColor.Margin = New System.Windows.Forms.Padding(2)
         Me.LblVeloCDColor.Name = "LblVeloCDColor"
-        Me.LblVeloCDColor.Size = New System.Drawing.Size(32, 14)
+        Me.LblVeloCDColor.Size = New System.Drawing.Size(31, 14)
         Me.LblVeloCDColor.TabIndex = 16
         Me.LblVeloCDColor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -536,19 +536,19 @@ Partial Class FrmSST4500_1_0_0E_setting
         Me.Label8.Location = New System.Drawing.Point(0, 54)
         Me.Label8.Margin = New System.Windows.Forms.Padding(0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(108, 18)
+        Me.Label8.Size = New System.Drawing.Size(154, 18)
         Me.Label8.TabIndex = 7
-        Me.Label8.Text = "配向比 MD/CD"
+        Me.Label8.Text = "Orientation Ratio MD/CD"
         Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'LblVeloMDColor
         '
         Me.LblVeloMDColor.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.LblVeloMDColor.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LblVeloMDColor.Location = New System.Drawing.Point(110, 110)
+        Me.LblVeloMDColor.Location = New System.Drawing.Point(156, 110)
         Me.LblVeloMDColor.Margin = New System.Windows.Forms.Padding(2)
         Me.LblVeloMDColor.Name = "LblVeloMDColor"
-        Me.LblVeloMDColor.Size = New System.Drawing.Size(32, 14)
+        Me.LblVeloMDColor.Size = New System.Drawing.Size(31, 14)
         Me.LblVeloMDColor.TabIndex = 14
         Me.LblVeloMDColor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -559,19 +559,19 @@ Partial Class FrmSST4500_1_0_0E_setting
         Me.Label16.Location = New System.Drawing.Point(0, 126)
         Me.Label16.Margin = New System.Windows.Forms.Padding(0)
         Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(108, 18)
+        Me.Label16.Size = New System.Drawing.Size(154, 18)
         Me.Label16.TabIndex = 15
-        Me.Label16.Text = "伝播速度 CD"
+        Me.Label16.Text = "Propagation Velocity CD"
         Me.Label16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'LblVeloDpColor
         '
         Me.LblVeloDpColor.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.LblVeloDpColor.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LblVeloDpColor.Location = New System.Drawing.Point(110, 92)
+        Me.LblVeloDpColor.Location = New System.Drawing.Point(156, 92)
         Me.LblVeloDpColor.Margin = New System.Windows.Forms.Padding(2)
         Me.LblVeloDpColor.Name = "LblVeloDpColor"
-        Me.LblVeloDpColor.Size = New System.Drawing.Size(32, 14)
+        Me.LblVeloDpColor.Size = New System.Drawing.Size(31, 14)
         Me.LblVeloDpColor.TabIndex = 12
         Me.LblVeloDpColor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -582,19 +582,19 @@ Partial Class FrmSST4500_1_0_0E_setting
         Me.Label10.Location = New System.Drawing.Point(0, 72)
         Me.Label10.Margin = New System.Windows.Forms.Padding(0)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(108, 18)
+        Me.Label10.Size = New System.Drawing.Size(154, 18)
         Me.Label10.TabIndex = 9
-        Me.Label10.Text = "伝播速度 Peak"
+        Me.Label10.Text = "Propagation Velocity Peak"
         Me.Label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'LblVeloPkColor
         '
         Me.LblVeloPkColor.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.LblVeloPkColor.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LblVeloPkColor.Location = New System.Drawing.Point(110, 74)
+        Me.LblVeloPkColor.Location = New System.Drawing.Point(156, 74)
         Me.LblVeloPkColor.Margin = New System.Windows.Forms.Padding(2)
         Me.LblVeloPkColor.Name = "LblVeloPkColor"
-        Me.LblVeloPkColor.Size = New System.Drawing.Size(32, 14)
+        Me.LblVeloPkColor.Size = New System.Drawing.Size(31, 14)
         Me.LblVeloPkColor.TabIndex = 10
         Me.LblVeloPkColor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -605,19 +605,19 @@ Partial Class FrmSST4500_1_0_0E_setting
         Me.Label12.Location = New System.Drawing.Point(0, 90)
         Me.Label12.Margin = New System.Windows.Forms.Padding(0)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(108, 18)
+        Me.Label12.Size = New System.Drawing.Size(154, 18)
         Me.Label12.TabIndex = 11
-        Me.Label12.Text = "伝播速度 Deep"
+        Me.Label12.Text = "Propagation Velocity Deep"
         Me.Label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'LblRatMDCDColor
         '
         Me.LblRatMDCDColor.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.LblRatMDCDColor.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LblRatMDCDColor.Location = New System.Drawing.Point(110, 56)
+        Me.LblRatMDCDColor.Location = New System.Drawing.Point(156, 56)
         Me.LblRatMDCDColor.Margin = New System.Windows.Forms.Padding(2)
         Me.LblRatMDCDColor.Name = "LblRatMDCDColor"
-        Me.LblRatMDCDColor.Size = New System.Drawing.Size(32, 14)
+        Me.LblRatMDCDColor.Size = New System.Drawing.Size(31, 14)
         Me.LblRatMDCDColor.TabIndex = 8
         Me.LblRatMDCDColor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -628,19 +628,19 @@ Partial Class FrmSST4500_1_0_0E_setting
         Me.Label14.Location = New System.Drawing.Point(0, 108)
         Me.Label14.Margin = New System.Windows.Forms.Padding(0)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(108, 18)
+        Me.Label14.Size = New System.Drawing.Size(154, 18)
         Me.Label14.TabIndex = 13
-        Me.Label14.Text = "伝播速度 MD"
+        Me.Label14.Text = "Propagation Velocity MD"
         Me.Label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'LblRatPkDpColor
         '
         Me.LblRatPkDpColor.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.LblRatPkDpColor.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LblRatPkDpColor.Location = New System.Drawing.Point(110, 38)
+        Me.LblRatPkDpColor.Location = New System.Drawing.Point(156, 38)
         Me.LblRatPkDpColor.Margin = New System.Windows.Forms.Padding(2)
         Me.LblRatPkDpColor.Name = "LblRatPkDpColor"
-        Me.LblRatPkDpColor.Size = New System.Drawing.Size(32, 14)
+        Me.LblRatPkDpColor.Size = New System.Drawing.Size(31, 14)
         Me.LblRatPkDpColor.TabIndex = 6
         Me.LblRatPkDpColor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -651,7 +651,7 @@ Partial Class FrmSST4500_1_0_0E_setting
         Me.Label19.Location = New System.Drawing.Point(0, 162)
         Me.Label19.Margin = New System.Windows.Forms.Padding(0)
         Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(108, 19)
+        Me.Label19.Size = New System.Drawing.Size(154, 19)
         Me.Label19.TabIndex = 18
         Me.Label19.Text = "TSI CD"
         Me.Label19.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -660,10 +660,10 @@ Partial Class FrmSST4500_1_0_0E_setting
         '
         Me.LblAngDpColor.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.LblAngDpColor.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LblAngDpColor.Location = New System.Drawing.Point(110, 20)
+        Me.LblAngDpColor.Location = New System.Drawing.Point(156, 20)
         Me.LblAngDpColor.Margin = New System.Windows.Forms.Padding(2)
         Me.LblAngDpColor.Name = "LblAngDpColor"
-        Me.LblAngDpColor.Size = New System.Drawing.Size(32, 14)
+        Me.LblAngDpColor.Size = New System.Drawing.Size(31, 14)
         Me.LblAngDpColor.TabIndex = 4
         Me.LblAngDpColor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -674,9 +674,9 @@ Partial Class FrmSST4500_1_0_0E_setting
         Me.Label3.Location = New System.Drawing.Point(0, 18)
         Me.Label3.Margin = New System.Windows.Forms.Padding(0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(108, 18)
+        Me.Label3.Size = New System.Drawing.Size(154, 18)
         Me.Label3.TabIndex = 3
-        Me.Label3.Text = "配向角 Deep"
+        Me.Label3.Text = "Orientation Angle Deep"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'CmdSettingReset
@@ -685,7 +685,7 @@ Partial Class FrmSST4500_1_0_0E_setting
         Me.CmdSettingReset.Name = "CmdSettingReset"
         Me.CmdSettingReset.Size = New System.Drawing.Size(75, 23)
         Me.CmdSettingReset.TabIndex = 4
-        Me.CmdSettingReset.Text = "リセット"
+        Me.CmdSettingReset.Text = "Reset"
         Me.CmdSettingReset.UseVisualStyleBackColor = True
         '
         'GroupBox2
@@ -701,45 +701,45 @@ Partial Class FrmSST4500_1_0_0E_setting
         Me.GroupBox2.Controls.Add(Me.NupPrnMarginTop)
         Me.GroupBox2.Location = New System.Drawing.Point(6, 15)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(180, 106)
+        Me.GroupBox2.Size = New System.Drawing.Size(192, 106)
         Me.GroupBox2.TabIndex = 5
         Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "余白設定(1/100インチ)"
+        Me.GroupBox2.Text = "Blank Spacde Setting (1/100 in.)"
         '
         'CmdMarginApply
         '
         Me.CmdMarginApply.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.CmdMarginApply.Location = New System.Drawing.Point(129, 79)
+        Me.CmdMarginApply.Location = New System.Drawing.Point(141, 79)
         Me.CmdMarginApply.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.CmdMarginApply.Name = "CmdMarginApply"
         Me.CmdMarginApply.Size = New System.Drawing.Size(45, 20)
         Me.CmdMarginApply.TabIndex = 8
-        Me.CmdMarginApply.Text = "適用"
+        Me.CmdMarginApply.Text = "Apply"
         Me.CmdMarginApply.UseVisualStyleBackColor = True
         '
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(55, 76)
+        Me.Label9.Location = New System.Drawing.Point(41, 78)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(19, 12)
+        Me.Label9.Size = New System.Drawing.Size(44, 12)
         Me.Label9.TabIndex = 7
-        Me.Label9.Text = "下:"
+        Me.Label9.Text = "Bottom:"
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(108, 47)
+        Me.Label7.Location = New System.Drawing.Point(105, 48)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(19, 12)
+        Me.Label7.Size = New System.Drawing.Size(34, 12)
         Me.Label7.TabIndex = 5
-        Me.Label7.Text = "右:"
+        Me.Label7.Text = "Right:"
         '
         'NupPrnMarginRight
         '
         Me.NupPrnMarginRight.DecimalPlaces = 1
         Me.NupPrnMarginRight.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
-        Me.NupPrnMarginRight.Location = New System.Drawing.Point(131, 45)
+        Me.NupPrnMarginRight.Location = New System.Drawing.Point(140, 45)
         Me.NupPrnMarginRight.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.NupPrnMarginRight.Maximum = New Decimal(New Integer() {200, 0, 0, 0})
         Me.NupPrnMarginRight.Name = "NupPrnMarginRight"
@@ -750,7 +750,7 @@ Partial Class FrmSST4500_1_0_0E_setting
         '
         Me.NupPrnMarginBottom.DecimalPlaces = 1
         Me.NupPrnMarginBottom.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
-        Me.NupPrnMarginBottom.Location = New System.Drawing.Point(77, 75)
+        Me.NupPrnMarginBottom.Location = New System.Drawing.Point(86, 75)
         Me.NupPrnMarginBottom.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.NupPrnMarginBottom.Maximum = New Decimal(New Integer() {200, 0, 0, 0})
         Me.NupPrnMarginBottom.Name = "NupPrnMarginBottom"
@@ -760,17 +760,17 @@ Partial Class FrmSST4500_1_0_0E_setting
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(6, 47)
+        Me.Label6.Location = New System.Drawing.Point(6, 49)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(19, 12)
+        Me.Label6.Size = New System.Drawing.Size(27, 12)
         Me.Label6.TabIndex = 3
-        Me.Label6.Text = "左:"
+        Me.Label6.Text = "Left:"
         '
         'NupPrnMarginLeft
         '
         Me.NupPrnMarginLeft.DecimalPlaces = 1
         Me.NupPrnMarginLeft.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
-        Me.NupPrnMarginLeft.Location = New System.Drawing.Point(27, 46)
+        Me.NupPrnMarginLeft.Location = New System.Drawing.Point(34, 46)
         Me.NupPrnMarginLeft.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.NupPrnMarginLeft.Maximum = New Decimal(New Integer() {200, 0, 0, 0})
         Me.NupPrnMarginLeft.Name = "NupPrnMarginLeft"
@@ -780,17 +780,17 @@ Partial Class FrmSST4500_1_0_0E_setting
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(55, 20)
+        Me.Label4.Location = New System.Drawing.Point(59, 21)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(19, 12)
+        Me.Label4.Size = New System.Drawing.Size(26, 12)
         Me.Label4.TabIndex = 1
-        Me.Label4.Text = "上:"
+        Me.Label4.Text = "Top:"
         '
         'NupPrnMarginTop
         '
         Me.NupPrnMarginTop.DecimalPlaces = 1
         Me.NupPrnMarginTop.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
-        Me.NupPrnMarginTop.Location = New System.Drawing.Point(77, 18)
+        Me.NupPrnMarginTop.Location = New System.Drawing.Point(86, 18)
         Me.NupPrnMarginTop.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.NupPrnMarginTop.Maximum = New Decimal(New Integer() {200, 0, 0, 0})
         Me.NupPrnMarginTop.Name = "NupPrnMarginTop"
@@ -802,9 +802,9 @@ Partial Class FrmSST4500_1_0_0E_setting
         Me.CbxPrintPreview.AutoSize = True
         Me.CbxPrintPreview.Location = New System.Drawing.Point(6, 127)
         Me.CbxPrintPreview.Name = "CbxPrintPreview"
-        Me.CbxPrintPreview.Size = New System.Drawing.Size(152, 16)
+        Me.CbxPrintPreview.Size = New System.Drawing.Size(172, 16)
         Me.CbxPrintPreview.TabIndex = 6
-        Me.CbxPrintPreview.Text = "手動印刷プレビューOn/Off"
+        Me.CbxPrintPreview.Text = "Manual Print Preview On/Off"
         Me.CbxPrintPreview.UseVisualStyleBackColor = True
         '
         'GroupBox3
@@ -823,10 +823,10 @@ Partial Class FrmSST4500_1_0_0E_setting
         Me.GroupBox3.Controls.Add(Me.Label1)
         Me.GroupBox3.Location = New System.Drawing.Point(12, 238)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(510, 154)
+        Me.GroupBox3.Size = New System.Drawing.Size(620, 154)
         Me.GroupBox3.TabIndex = 7
         Me.GroupBox3.TabStop = False
-        Me.GroupBox3.Text = "測定結果保存フォルダ"
+        Me.GroupBox3.Text = "Meas.Result Storage Folder"
         '
         'TxtMDLongFolder
         '
@@ -835,13 +835,13 @@ Partial Class FrmSST4500_1_0_0E_setting
         Me.TxtMDLongFolder.Multiline = True
         Me.TxtMDLongFolder.Name = "TxtMDLongFolder"
         Me.TxtMDLongFolder.ReadOnly = True
-        Me.TxtMDLongFolder.Size = New System.Drawing.Size(379, 30)
+        Me.TxtMDLongFolder.Size = New System.Drawing.Size(485, 30)
         Me.TxtMDLongFolder.TabIndex = 12
         Me.TxtMDLongFolder.Text = "111" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "111"
         '
         'CmdLGPath
         '
-        Me.CmdLGPath.Location = New System.Drawing.Point(473, 121)
+        Me.CmdLGPath.Location = New System.Drawing.Point(582, 121)
         Me.CmdLGPath.Name = "CmdLGPath"
         Me.CmdLGPath.Size = New System.Drawing.Size(27, 18)
         Me.CmdLGPath.TabIndex = 11
@@ -854,7 +854,7 @@ Partial Class FrmSST4500_1_0_0E_setting
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(74, 21)
         Me.Label15.TabIndex = 10
-        Me.Label15.Text = "MD長尺"
+        Me.Label15.Text = "MD Long"
         Me.Label15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'TxtCutSheetFolder
@@ -864,13 +864,13 @@ Partial Class FrmSST4500_1_0_0E_setting
         Me.TxtCutSheetFolder.Multiline = True
         Me.TxtCutSheetFolder.Name = "TxtCutSheetFolder"
         Me.TxtCutSheetFolder.ReadOnly = True
-        Me.TxtCutSheetFolder.Size = New System.Drawing.Size(379, 30)
+        Me.TxtCutSheetFolder.Size = New System.Drawing.Size(485, 30)
         Me.TxtCutSheetFolder.TabIndex = 9
         Me.TxtCutSheetFolder.Text = "111" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "111"
         '
         'CmdCTPath
         '
-        Me.CmdCTPath.Location = New System.Drawing.Point(473, 87)
+        Me.CmdCTPath.Location = New System.Drawing.Point(582, 87)
         Me.CmdCTPath.Name = "CmdCTPath"
         Me.CmdCTPath.Size = New System.Drawing.Size(27, 18)
         Me.CmdCTPath.TabIndex = 8
@@ -883,7 +883,7 @@ Partial Class FrmSST4500_1_0_0E_setting
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(74, 21)
         Me.Label13.TabIndex = 7
-        Me.Label13.Text = "カットシート"
+        Me.Label13.Text = "Cut Sheet"
         Me.Label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'TxtProfileFolder
@@ -893,13 +893,13 @@ Partial Class FrmSST4500_1_0_0E_setting
         Me.TxtProfileFolder.Multiline = True
         Me.TxtProfileFolder.Name = "TxtProfileFolder"
         Me.TxtProfileFolder.ReadOnly = True
-        Me.TxtProfileFolder.Size = New System.Drawing.Size(379, 30)
+        Me.TxtProfileFolder.Size = New System.Drawing.Size(485, 30)
         Me.TxtProfileFolder.TabIndex = 6
         Me.TxtProfileFolder.Text = "111" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "111"
         '
         'CmdPFPath
         '
-        Me.CmdPFPath.Location = New System.Drawing.Point(473, 54)
+        Me.CmdPFPath.Location = New System.Drawing.Point(582, 54)
         Me.CmdPFPath.Name = "CmdPFPath"
         Me.CmdPFPath.Size = New System.Drawing.Size(27, 18)
         Me.CmdPFPath.TabIndex = 5
@@ -912,7 +912,7 @@ Partial Class FrmSST4500_1_0_0E_setting
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(74, 21)
         Me.Label11.TabIndex = 4
-        Me.Label11.Text = "プロファイル"
+        Me.Label11.Text = "Profile"
         Me.Label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'TxtSingleSheetFolder
@@ -922,13 +922,13 @@ Partial Class FrmSST4500_1_0_0E_setting
         Me.TxtSingleSheetFolder.Multiline = True
         Me.TxtSingleSheetFolder.Name = "TxtSingleSheetFolder"
         Me.TxtSingleSheetFolder.ReadOnly = True
-        Me.TxtSingleSheetFolder.Size = New System.Drawing.Size(379, 30)
+        Me.TxtSingleSheetFolder.Size = New System.Drawing.Size(485, 30)
         Me.TxtSingleSheetFolder.TabIndex = 3
         Me.TxtSingleSheetFolder.Text = "111" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "111"
         '
         'CmdSGPath
         '
-        Me.CmdSGPath.Location = New System.Drawing.Point(473, 20)
+        Me.CmdSGPath.Location = New System.Drawing.Point(582, 20)
         Me.CmdSGPath.Name = "CmdSGPath"
         Me.CmdSGPath.Size = New System.Drawing.Size(27, 18)
         Me.CmdSGPath.TabIndex = 2
@@ -941,39 +941,39 @@ Partial Class FrmSST4500_1_0_0E_setting
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(74, 21)
         Me.Label1.TabIndex = 0
-        Me.Label1.Text = "シングルシート"
+        Me.Label1.Text = "Single Sheet"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'GroupBox5
         '
         Me.GroupBox5.Controls.Add(Me.GroupBox2)
         Me.GroupBox5.Controls.Add(Me.CbxPrintPreview)
-        Me.GroupBox5.Location = New System.Drawing.Point(330, 12)
+        Me.GroupBox5.Location = New System.Drawing.Point(428, 12)
         Me.GroupBox5.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox5.Name = "GroupBox5"
         Me.GroupBox5.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.GroupBox5.Size = New System.Drawing.Size(192, 148)
+        Me.GroupBox5.Size = New System.Drawing.Size(204, 148)
         Me.GroupBox5.TabIndex = 8
         Me.GroupBox5.TabStop = False
-        Me.GroupBox5.Text = "プリンタ設定"
+        Me.GroupBox5.Text = "Setting Printer"
         '
         'CmdSettingQuit
         '
-        Me.CmdSettingQuit.Location = New System.Drawing.Point(448, 460)
+        Me.CmdSettingQuit.Location = New System.Drawing.Point(556, 460)
         Me.CmdSettingQuit.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.CmdSettingQuit.Name = "CmdSettingQuit"
         Me.CmdSettingQuit.Size = New System.Drawing.Size(75, 23)
         Me.CmdSettingQuit.TabIndex = 9
-        Me.CmdSettingQuit.Text = "閉じる"
+        Me.CmdSettingQuit.Text = "Close"
         Me.CmdSettingQuit.UseVisualStyleBackColor = True
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(402, 197)
+        Me.Button1.Location = New System.Drawing.Point(512, 197)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(120, 35)
         Me.Button1.TabIndex = 10
-        Me.Button1.Text = "画面文字色設定"
+        Me.Button1.Text = "Setting of Color"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'GroupBox6
@@ -981,10 +981,11 @@ Partial Class FrmSST4500_1_0_0E_setting
         Me.GroupBox6.Controls.Add(Me.txtUserconf)
         Me.GroupBox6.Location = New System.Drawing.Point(12, 398)
         Me.GroupBox6.Name = "GroupBox6"
-        Me.GroupBox6.Size = New System.Drawing.Size(510, 56)
+        Me.GroupBox6.Size = New System.Drawing.Size(619, 56)
         Me.GroupBox6.TabIndex = 11
         Me.GroupBox6.TabStop = False
-        Me.GroupBox6.Text = "ユーザー設定ファイルパス(アンインストール時に設定をリセットする場合は下記ファイルを削除して下さい)"
+        Me.GroupBox6.Text = "if you want to reset settings after uninstallation of SST-4500, please delete the" &
+    " following files"
         '
         'txtUserconf
         '
@@ -992,14 +993,14 @@ Partial Class FrmSST4500_1_0_0E_setting
         Me.txtUserconf.Multiline = True
         Me.txtUserconf.Name = "txtUserconf"
         Me.txtUserconf.ReadOnly = True
-        Me.txtUserconf.Size = New System.Drawing.Size(498, 30)
+        Me.txtUserconf.Size = New System.Drawing.Size(607, 30)
         Me.txtUserconf.TabIndex = 0
         '
-        'FrmSST4500_1_0_0J_setting
+        'FrmSST4500_1_0_0E_setting
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(535, 491)
+        Me.ClientSize = New System.Drawing.Size(643, 491)
         Me.Controls.Add(Me.GroupBox6)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.CmdSettingQuit)
@@ -1009,8 +1010,8 @@ Partial Class FrmSST4500_1_0_0E_setting
         Me.Controls.Add(Me.GroupBox1)
         Me.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Name = "FrmSST4500_1_0_0J_setting"
-        Me.Text = "設定"
+        Me.Name = "FrmSST4500_1_0_0E_setting"
+        Me.Text = "Setting"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox4.ResumeLayout(False)
         Me.TableLayoutPanel2.ResumeLayout(False)

@@ -83,44 +83,46 @@ Partial Class FrmSST4500_1_0_0E_pitchsetting
         '
         'Column2
         '
-        Me.Column2.HeaderText = "ピッチ(mm)"
+        Me.Column2.HeaderText = "Pitch (mm)"
         Me.Column2.MinimumWidth = 100
         Me.Column2.Name = "Column2"
         '
         'CmdRowsAdd
         '
-        Me.CmdRowsAdd.Location = New System.Drawing.Point(213, 184)
+        Me.CmdRowsAdd.Font = New System.Drawing.Font("MS UI Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.CmdRowsAdd.Location = New System.Drawing.Point(213, 178)
         Me.CmdRowsAdd.Name = "CmdRowsAdd"
         Me.CmdRowsAdd.Size = New System.Drawing.Size(75, 23)
         Me.CmdRowsAdd.TabIndex = 1
-        Me.CmdRowsAdd.Text = "行追加"
+        Me.CmdRowsAdd.Text = "Add Pitch"
         Me.CmdRowsAdd.UseVisualStyleBackColor = True
         '
         'CmdRowsDel
         '
-        Me.CmdRowsDel.Location = New System.Drawing.Point(213, 213)
+        Me.CmdRowsDel.Font = New System.Drawing.Font("MS UI Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.CmdRowsDel.Location = New System.Drawing.Point(213, 207)
         Me.CmdRowsDel.Name = "CmdRowsDel"
         Me.CmdRowsDel.Size = New System.Drawing.Size(75, 23)
         Me.CmdRowsDel.TabIndex = 2
-        Me.CmdRowsDel.Text = "行削除"
+        Me.CmdRowsDel.Text = "Delete Pitch"
         Me.CmdRowsDel.UseVisualStyleBackColor = True
         '
         'CmdRowsMvUp
         '
-        Me.CmdRowsMvUp.Location = New System.Drawing.Point(213, 242)
+        Me.CmdRowsMvUp.Image = Global.SST4500_1_0_0E.My.Resources.Resources.up_arrow
+        Me.CmdRowsMvUp.Location = New System.Drawing.Point(213, 236)
         Me.CmdRowsMvUp.Name = "CmdRowsMvUp"
         Me.CmdRowsMvUp.Size = New System.Drawing.Size(75, 23)
         Me.CmdRowsMvUp.TabIndex = 3
-        Me.CmdRowsMvUp.Text = "↑"
         Me.CmdRowsMvUp.UseVisualStyleBackColor = True
         '
         'CmdRowsMvDn
         '
-        Me.CmdRowsMvDn.Location = New System.Drawing.Point(213, 271)
+        Me.CmdRowsMvDn.Image = Global.SST4500_1_0_0E.My.Resources.Resources.down_arrow
+        Me.CmdRowsMvDn.Location = New System.Drawing.Point(213, 265)
         Me.CmdRowsMvDn.Name = "CmdRowsMvDn"
         Me.CmdRowsMvDn.Size = New System.Drawing.Size(75, 23)
         Me.CmdRowsMvDn.TabIndex = 4
-        Me.CmdRowsMvDn.Text = "↓"
         Me.CmdRowsMvDn.UseVisualStyleBackColor = True
         '
         'CmdSave
@@ -129,7 +131,7 @@ Partial Class FrmSST4500_1_0_0E_pitchsetting
         Me.CmdSave.Name = "CmdSave"
         Me.CmdSave.Size = New System.Drawing.Size(75, 23)
         Me.CmdSave.TabIndex = 5
-        Me.CmdSave.Text = "保存"
+        Me.CmdSave.Text = "Save"
         Me.CmdSave.UseVisualStyleBackColor = True
         '
         'CmdClose
@@ -138,53 +140,53 @@ Partial Class FrmSST4500_1_0_0E_pitchsetting
         Me.CmdClose.Name = "CmdClose"
         Me.CmdClose.Size = New System.Drawing.Size(75, 23)
         Me.CmdClose.TabIndex = 6
-        Me.CmdClose.Text = "閉じる"
+        Me.CmdClose.Text = "Close"
         Me.CmdClose.UseVisualStyleBackColor = True
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("MS UI Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label1.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Label1.Location = New System.Drawing.Point(19, 13)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(71, 13)
+        Me.Label1.Size = New System.Drawing.Size(80, 12)
         Me.Label1.TabIndex = 7
-        Me.Label1.Text = "サンプル長さ"
+        Me.Label1.Text = "Sample Length"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("MS UI Gothic", 10.0!)
+        Me.Label2.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Label2.Location = New System.Drawing.Point(19, 41)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(91, 14)
+        Me.Label2.Size = New System.Drawing.Size(151, 12)
         Me.Label2.TabIndex = 8
-        Me.Label2.Text = "総測定個所数"
+        Me.Label2.Text = "Total Number of Meas.Point"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("MS UI Gothic", 10.0!)
+        Me.Label3.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Label3.Location = New System.Drawing.Point(18, 69)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(49, 14)
+        Me.Label3.Size = New System.Drawing.Size(69, 12)
         Me.Label3.TabIndex = 9
-        Me.Label3.Text = "合計長"
+        Me.Label3.Text = "Total Length"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("MS UI Gothic", 10.0!)
-        Me.Label4.Location = New System.Drawing.Point(19, 128)
+        Me.Label4.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label4.Location = New System.Drawing.Point(19, 132)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(49, 14)
+        Me.Label4.Size = New System.Drawing.Size(121, 12)
         Me.Label4.TabIndex = 10
-        Me.Label4.Text = "設定数"
+        Me.Label4.Text = "Number of Set Pitches"
         '
         'TxtLength
         '
         Me.TxtLength.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.TxtLength.Location = New System.Drawing.Point(124, 8)
+        Me.TxtLength.Location = New System.Drawing.Point(173, 8)
         Me.TxtLength.Name = "TxtLength"
         Me.TxtLength.Size = New System.Drawing.Size(60, 22)
         Me.TxtLength.TabIndex = 12
@@ -193,7 +195,7 @@ Partial Class FrmSST4500_1_0_0E_pitchsetting
         '
         Me.TxtPoints.Enabled = False
         Me.TxtPoints.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.TxtPoints.Location = New System.Drawing.Point(124, 36)
+        Me.TxtPoints.Location = New System.Drawing.Point(173, 36)
         Me.TxtPoints.Name = "TxtPoints"
         Me.TxtPoints.Size = New System.Drawing.Size(60, 22)
         Me.TxtPoints.TabIndex = 13
@@ -202,7 +204,7 @@ Partial Class FrmSST4500_1_0_0E_pitchsetting
         '
         Me.TxtLengthSum.Enabled = False
         Me.TxtLengthSum.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.TxtLengthSum.Location = New System.Drawing.Point(124, 64)
+        Me.TxtLengthSum.Location = New System.Drawing.Point(173, 64)
         Me.TxtLengthSum.Name = "TxtLengthSum"
         Me.TxtLengthSum.Size = New System.Drawing.Size(60, 22)
         Me.TxtLengthSum.TabIndex = 14
@@ -212,7 +214,7 @@ Partial Class FrmSST4500_1_0_0E_pitchsetting
         Me.LblResult.AutoSize = True
         Me.LblResult.Font = New System.Drawing.Font("MS UI Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.LblResult.ForeColor = System.Drawing.Color.Green
-        Me.LblResult.Location = New System.Drawing.Point(190, 69)
+        Me.LblResult.Location = New System.Drawing.Point(239, 69)
         Me.LblResult.Name = "LblResult"
         Me.LblResult.Size = New System.Drawing.Size(26, 13)
         Me.LblResult.TabIndex = 15
@@ -222,28 +224,31 @@ Partial Class FrmSST4500_1_0_0E_pitchsetting
         '
         Me.TxtPitchNum.Enabled = False
         Me.TxtPitchNum.Font = New System.Drawing.Font("MS UI Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.TxtPitchNum.Location = New System.Drawing.Point(124, 123)
+        Me.TxtPitchNum.Location = New System.Drawing.Point(173, 127)
         Me.TxtPitchNum.Name = "TxtPitchNum"
         Me.TxtPitchNum.Size = New System.Drawing.Size(60, 22)
         Me.TxtPitchNum.TabIndex = 16
         '
         'CmdAllRowsDel
         '
-        Me.CmdAllRowsDel.Location = New System.Drawing.Point(213, 300)
+        Me.CmdAllRowsDel.Font = New System.Drawing.Font("MS UI Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.CmdAllRowsDel.Location = New System.Drawing.Point(213, 295)
         Me.CmdAllRowsDel.Name = "CmdAllRowsDel"
-        Me.CmdAllRowsDel.Size = New System.Drawing.Size(75, 23)
+        Me.CmdAllRowsDel.Size = New System.Drawing.Size(74, 30)
         Me.CmdAllRowsDel.TabIndex = 17
-        Me.CmdAllRowsDel.Text = "全行削除"
+        Me.CmdAllRowsDel.Text = "Delete" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "All Pitches"
         Me.CmdAllRowsDel.UseVisualStyleBackColor = True
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(34, 91)
+        Me.Label5.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.Label5.Location = New System.Drawing.Point(34, 88)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(236, 24)
+        Me.Label5.Size = New System.Drawing.Size(170, 36)
         Me.Label5.TabIndex = 18
-        Me.Label5.Text = "※サンプル長 - 両端補正値(420mm)以下となる" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "　様に設定してください。"
+        Me.Label5.Text = "*Total pitch should be less than" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "  Sample length - 420mm" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "  (both edge length co" &
+    "rrection)"
         '
         'CmdLoad
         '
@@ -251,7 +256,7 @@ Partial Class FrmSST4500_1_0_0E_pitchsetting
         Me.CmdLoad.Name = "CmdLoad"
         Me.CmdLoad.Size = New System.Drawing.Size(75, 23)
         Me.CmdLoad.TabIndex = 19
-        Me.CmdLoad.Text = "読込"
+        Me.CmdLoad.Text = "Load"
         Me.CmdLoad.UseVisualStyleBackColor = True
         '
         'Label6
@@ -260,9 +265,9 @@ Partial Class FrmSST4500_1_0_0E_pitchsetting
         Me.Label6.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Label6.Location = New System.Drawing.Point(10, 371)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(163, 12)
+        Me.Label6.Size = New System.Drawing.Size(100, 12)
         Me.Label6.TabIndex = 20
-        Me.Label6.Text = "読み込み済みピッチ拡張ファイル："
+        Me.Label6.Text = "Loaded Pitch File："
         '
         'TxtPchExpLoadedFile
         '
@@ -289,7 +294,7 @@ Partial Class FrmSST4500_1_0_0E_pitchsetting
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage1.Size = New System.Drawing.Size(177, 154)
         Me.TabPage1.TabIndex = 0
-        Me.TabPage1.Text = "測定仕様"
+        Me.TabPage1.Text = "Meas.Spec."
         Me.TabPage1.UseVisualStyleBackColor = True
         '
         'TabPage2
@@ -301,7 +306,7 @@ Partial Class FrmSST4500_1_0_0E_pitchsetting
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage2.Size = New System.Drawing.Size(177, 154)
         Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "過去の仕様"
+        Me.TabPage2.Text = "Past Spec."
         Me.TabPage2.UseVisualStyleBackColor = True
         '
         'DataGridView2
@@ -328,11 +333,11 @@ Partial Class FrmSST4500_1_0_0E_pitchsetting
         '
         'DataGridViewTextBoxColumn2
         '
-        Me.DataGridViewTextBoxColumn2.HeaderText = "ピッチ(mm)"
+        Me.DataGridViewTextBoxColumn2.HeaderText = "Pitch (mm)"
         Me.DataGridViewTextBoxColumn2.MinimumWidth = 100
         Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
         '
-        'FrmSST4500_1_0_0J_pitchsetting
+        'FrmSST4500_1_0_0E_pitchsetting
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -360,8 +365,8 @@ Partial Class FrmSST4500_1_0_0E_pitchsetting
         Me.Controls.Add(Me.CmdRowsDel)
         Me.Controls.Add(Me.CmdRowsAdd)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Name = "FrmSST4500_1_0_0J_pitchsetting"
-        Me.Text = "ピッチ拡張設定"
+        Me.Name = "FrmSST4500_1_0_0E_pitchsetting"
+        Me.Text = "Setting Pitch"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
@@ -379,8 +384,6 @@ Partial Class FrmSST4500_1_0_0E_pitchsetting
     Friend WithEvents CmdRowsMvDn As Button
     Friend WithEvents CmdSave As Button
     Friend WithEvents CmdClose As Button
-    Friend WithEvents Column1 As DataGridViewTextBoxColumn
-    Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
@@ -399,6 +402,8 @@ Partial Class FrmSST4500_1_0_0E_pitchsetting
     Friend WithEvents TabPage1 As TabPage
     Friend WithEvents TabPage2 As TabPage
     Friend WithEvents DataGridView2 As DataGridView
+    Friend WithEvents Column1 As DataGridViewTextBoxColumn
+    Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
 End Class

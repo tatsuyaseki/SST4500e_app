@@ -43,7 +43,7 @@ Partial Class FrmSST4500_1_0_0E_pchchg
         Me.CmdCancel.Name = "CmdCancel"
         Me.CmdCancel.Size = New System.Drawing.Size(75, 23)
         Me.CmdCancel.TabIndex = 6
-        Me.CmdCancel.Text = "キャンセル"
+        Me.CmdCancel.Text = "Cancel"
         Me.CmdCancel.UseVisualStyleBackColor = True
         '
         'Rb_Disable
@@ -51,10 +51,10 @@ Partial Class FrmSST4500_1_0_0E_pchchg
         Me.Rb_Disable.AutoSize = True
         Me.Rb_Disable.Location = New System.Drawing.Point(12, 12)
         Me.Rb_Disable.Name = "Rb_Disable"
-        Me.Rb_Disable.Size = New System.Drawing.Size(59, 16)
+        Me.Rb_Disable.Size = New System.Drawing.Size(73, 16)
         Me.Rb_Disable.TabIndex = 5
         Me.Rb_Disable.TabStop = True
-        Me.Rb_Disable.Text = "非表示"
+        Me.Rb_Disable.Text = "Inactivate"
         Me.Rb_Disable.UseVisualStyleBackColor = True
         '
         'Rb_Enable
@@ -62,13 +62,13 @@ Partial Class FrmSST4500_1_0_0E_pchchg
         Me.Rb_Enable.AutoSize = True
         Me.Rb_Enable.Location = New System.Drawing.Point(116, 12)
         Me.Rb_Enable.Name = "Rb_Enable"
-        Me.Rb_Enable.Size = New System.Drawing.Size(47, 16)
+        Me.Rb_Enable.Size = New System.Drawing.Size(66, 16)
         Me.Rb_Enable.TabIndex = 4
         Me.Rb_Enable.TabStop = True
-        Me.Rb_Enable.Text = "表示"
+        Me.Rb_Enable.Text = "Activate"
         Me.Rb_Enable.UseVisualStyleBackColor = True
         '
-        'FrmSST4500_1_0_0J_pchchg
+        'FrmSST4500_1_0_0E_pchchg
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -78,8 +78,8 @@ Partial Class FrmSST4500_1_0_0E_pchchg
         Me.Controls.Add(Me.CmdCancel)
         Me.Controls.Add(Me.Rb_Disable)
         Me.Controls.Add(Me.Rb_Enable)
-        Me.Name = "FrmSST4500_1_0_0J_pchchg"
-        Me.Text = "ピッチ拡張設定切り替え"
+        Me.Name = "FrmSST4500_1_0_0E_pchchg"
+        Me.Text = "Activate Setting Pitch"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

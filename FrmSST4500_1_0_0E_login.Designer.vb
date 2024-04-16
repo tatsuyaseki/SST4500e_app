@@ -36,9 +36,9 @@ Partial Class FrmSST4500_1_0_0E_login
         Me.Label1.Font = New System.Drawing.Font("MS UI Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Label1.Location = New System.Drawing.Point(12, 9)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(146, 13)
+        Me.Label1.Size = New System.Drawing.Size(94, 13)
         Me.Label1.TabIndex = 0
-        Me.Label1.Text = "パスワードを入力して下さい"
+        Me.Label1.Text = "Enter Password"
         '
         'TxtInputPass
         '
@@ -54,7 +54,7 @@ Partial Class FrmSST4500_1_0_0E_login
         Me.CmdLogin.Name = "CmdLogin"
         Me.CmdLogin.Size = New System.Drawing.Size(75, 23)
         Me.CmdLogin.TabIndex = 2
-        Me.CmdLogin.Text = "ログイン"
+        Me.CmdLogin.Text = "Login"
         Me.CmdLogin.UseVisualStyleBackColor = True
         '
         'CmdCancel
@@ -63,7 +63,7 @@ Partial Class FrmSST4500_1_0_0E_login
         Me.CmdCancel.Name = "CmdCancel"
         Me.CmdCancel.Size = New System.Drawing.Size(75, 23)
         Me.CmdCancel.TabIndex = 3
-        Me.CmdCancel.Text = "キャンセル"
+        Me.CmdCancel.Text = "Cancel"
         Me.CmdCancel.UseVisualStyleBackColor = True
         '
         'CmdPasswdChg
@@ -72,10 +72,10 @@ Partial Class FrmSST4500_1_0_0E_login
         Me.CmdPasswdChg.Name = "CmdPasswdChg"
         Me.CmdPasswdChg.Size = New System.Drawing.Size(75, 23)
         Me.CmdPasswdChg.TabIndex = 4
-        Me.CmdPasswdChg.Text = "変更"
+        Me.CmdPasswdChg.Text = "Change"
         Me.CmdPasswdChg.UseVisualStyleBackColor = True
         '
-        'FrmSST4500_1_0_0J_login
+        'FrmSST4500_1_0_0E_login
         '
         Me.AcceptButton = Me.CmdLogin
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
@@ -91,8 +91,8 @@ Partial Class FrmSST4500_1_0_0E_login
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "FrmSST4500_1_0_0J_login"
-        Me.Text = "管理者モードログイン"
+        Me.Name = "FrmSST4500_1_0_0E_login"
+        Me.Text = "Admin. Login"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

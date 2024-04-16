@@ -84,10 +84,10 @@ Module Module1
     Public Const FT_FLOW_DTR_DSR = &H200
     Public Const FT_FLOW_XON_XOFF = &H400
 
-    Public Const DEF_CONST_FILE_NAME_SG = "SG_フリー測定モード.cns"
-    Public Const DEF_CONST_FILE_NAME_PF = "PF_フリー測定モード.cns"
-    Public Const DEF_CONST_FILE_NAME_CT = "CT_フリー測定モード.cns"
-    Public Const DEF_CONST_FILE_NAME_LG = "LG_フリー測定モード.cns"
+    Public Const DEF_CONST_FILE_NAME_SG = "SG_DefaultMeasMode.cns"
+    Public Const DEF_CONST_FILE_NAME_PF = "PF_DefaultMeasMode.cns"
+    Public Const DEF_CONST_FILE_NAME_CT = "CT_DefaultMeasMode.cns"
+    Public Const DEF_CONST_FILE_NAME_LG = "LG_DefaultMeasMode.cns"
     Public Const DEF_CONST_FILE_FLD = "\Const"
     Public Const DEF_RESULT_FILE_FLD = "\Result"
     Public Const DEF_DATA_FILE_FLD = "\Data\"
@@ -110,6 +110,67 @@ Module Module1
     Public Const min_Pitch = 10 '最小ピッチ(mm)
     Public Const min_Points = 2
     Public Const max_Pitch = 9999
+
+    Public Const Xlabel_padding = 20
+
+    Public Const StrMeasStart = "Start Meas."
+    Public Const StrMeasuring = "Measuring"
+    Public Const StrMeasuringSpace = "Measuring "
+    Public Const StrMeasInterrupt = "Interrupt"
+    Public Const StrMeasStop = "STOP"
+    Public Const StrNextSample = "Next Sample"
+    Public Const StrQuit = "Quit"
+    Public Const StrFeedingSample = "Feeding Sample "
+    Public Const StrMeasCompleted = "Meas.Completed"
+    Public Const StrSelMeasNo = "Select Meas.No."
+    Public Const StrInputMeasNo = "Input Meas.No."
+    Public Const StrOriAngCentValSet = "Set the Orientation Angle Center Value"
+    Public Const StrOriAngCentValInput = "Input the Orientation Angle Center Value"
+    Public Const StrInputPitch = "Input Pitch"
+    Public Const StrSaveMeasSpecFile = "Save Meas.Spec.File"
+    Public Const StrSaveMeasResult = "Save Meas.Result"
+    Public Const StrSavePchSetFile = "Save Pitch Setting File"
+    Public Const StrLoadPchSetFile = "Load Pitch Setting File"
+    Public Const StrSelMeasSpecFile = "Select Meas.Spec.File"
+    Public Const StrSelPastMeasData = "Select Past Meas.Data"
+    Public Const StrEntMeasNo = "Enter Meas.No."    '測定No.を入力して下さい
+    Public Const StrInputErr = "Input Error"    '入力値エラー
+    Public Const StrIncorrectNo = "Incorrect Number"    '入力値に誤りがあります
+    Public Const StrEntNo = "Enter Number"      '数値で入力して下さい
+    Public Const StrFileErr = "File Error"      'ファイルエラー
+    Public Const StrErrPastDataRead = "Error of Past Data Reading"  '過去データ読込エラー
+    Public Const StrNoData = "No Data"  'データがありませんでした
+    Public Const StrIncorrectFileFormat = "Incorrect File Format"   'ファイルフォーマットが異なります
+    Public Const StrDataCorrupted = "Data Corrupted"    'データが破損しています
+    Public Const StrMeasStartMsg = "Meas.Spec. is not saved." & vbCrLf & "do you want to start Meas.?"
+    Public Const StrConfirmStartMeas = "Confirm Start Meas."
+    Public Const StrFileNameErr = "File Name Error"
+    Public Const StrConfirmMeasSpecChg = "Confirm Meas.Spec.Changes"
+    Public Const StrPassErr = "Password Error"
+    Public Const StrConfirmPassChg = "Confirm Password Change"
+    Public Const StrMeasDataDate = "Meas.Data Meas.Date : "
+    Public Const StrPastDataDate = "Past Data Meas.Date : "
+    Public Const StrMeasTime = "   Time : "
+    Public Const StrMachNo = "Machine No."
+    Public Const StrSampleName = "Sample Name"
+    Public Const StrMark = "Mark"
+    Public Const StrMeasNumber = "Meas.Number"
+    Public Const StrMeasSpec = "Meas.Spec."
+    Public Const StrPastMeasSpec = "Past Meas.Spec."
+    Public Const StrData = "Data"
+    Public Const StrMeas = "Meas."
+    Public Const StrOrientAng = "Orientation Angle[deg.]"
+    Public Const StrOrientRat = "Orientation Ratio"
+    Public Const StrPropVelo = "Propagation Velocity[Km/S]"
+    Public Const StrPropVelo_nounit = "Propagation Velocity"
+    Public Const StrMeasData = "Meas.Data"
+    Public Const StrPastData = "Past Data"
+    Public Const StrAvgValue = "Ave.Value"
+    Public Const StrAngle = "Angle[deg.]"
+    Public Const StrSaving = "Saving"
+    Public Const StrMeasNo = "Meas.No."
+    Public Const StrMeasLot = "Number of Meas.lot"
+    Public Const StrCurData = "Current Data"
 
     Public lngHandle As Long
 
@@ -1651,45 +1712,45 @@ Module Module1
         With FrmSST4500_1_0_0E_meas
             .MenuStrip1.ForeColor = frm_MeasMenu_fc
             .MeasSpecToolStripMenuItem.ForeColor = frm_MeasMenu_fc
-            .ChoiceToolStripMenuItem.ForeColor = frm_MeasMenu_fc
+            .SelectToolStripMenuItem.ForeColor = frm_MeasMenu_fc
             .SaveToolStripMenuItem.ForeColor = frm_MeasMenu_fc
             .OldDataToolStripMenuItem.ForeColor = frm_MeasMenu_fc
             .LoadToolStripMenuItem.ForeColor = frm_MeasMenu_fc
             .AnotherMeasDataSelToolStripMenuItem.ForeColor = frm_MeasMenu_fc
             .QuitToolStripMenuItem.ForeColor = frm_MeasMenu_fc
-            .測定開始ToolStripMenuItem.ForeColor = frm_MeasMenu_fc
-            .他の測定データ選択ToolStripMenuItem1.ForeColor = frm_MeasMenu_fc
-            .印刷ToolStripMenuItem.ForeColor = frm_MeasMenu_fc
-            .手動印刷ToolStripMenuItem.ForeColor = frm_MeasMenu_fc
-            .保存ToolStripMenuItem1.ForeColor = frm_MeasMenu_fc
-            .設定ToolStripMenuItem1.ForeColor = frm_MeasMenu_fc
+            .MeasStartToolStripMenuItem.ForeColor = frm_MeasMenu_fc
+            .AnotherMeasDataSelToolStripMenuItem1.ForeColor = frm_MeasMenu_fc
+            .PrintToolStripMenuItem.ForeColor = frm_MeasMenu_fc
+            .ManualPrintToolStripMenuItem.ForeColor = frm_MeasMenu_fc
+            .SaveToolStripMenuItem1.ForeColor = frm_MeasMenu_fc
+            .SettingToolStripMenuItem1.ForeColor = frm_MeasMenu_fc
         End With
     End Sub
 
     Public Sub set_prfmenufc()
         With FrmSST4500_1_0_0E_Profile
             .MenuStrip1.ForeColor = frm_PrfMenu_fc
-            .測定仕様ToolStripMenuItem.ForeColor = frm_PrfMenu_fc
-            .選択ToolStripMenuItem.ForeColor = frm_PrfMenu_fc
+            .MeasSpecToolStripMenuItem.ForeColor = frm_PrfMenu_fc
+            .SelectToolStripMenuItem.ForeColor = frm_PrfMenu_fc
             .保存ToolStripMenuItem.ForeColor = frm_PrfMenu_fc
-            .過去データToolStripMenuItem.ForeColor = frm_PrfMenu_fc
-            .読込ToolStripMenuItem.ForeColor = frm_PrfMenu_fc
-            .終了ToolStripMenuItem.ForeColor = frm_PrfMenu_fc
-            .測定開始ToolStripMenuItem.ForeColor = frm_PrfMenu_fc
-            .測定中断ToolStripMenuItem.ForeColor = frm_PrfMenu_fc
-            .グラフ消去ToolStripMenuItem.ForeColor = frm_PrfMenu_fc
-            .平均値ToolStripMenuItem.ForeColor = frm_PrfMenu_fc
-            .自動印刷ToolStripMenuItem.ForeColor = frm_PrfMenu_fc
-            .印刷項目ToolStripMenuItem.ForeColor = frm_PrfMenu_fc
-            .配向角配向比ToolStripMenuItem.ForeColor = frm_PrfMenu_fc
-            .伝播速度TSIToolStripMenuItem.ForeColor = frm_PrfMenu_fc
-            .測定データ表ToolStripMenuItem.ForeColor = frm_PrfMenu_fc
-            .過去データ表ToolStripMenuItem.ForeColor = frm_PrfMenu_fc
-            .平均値データ表ToolStripMenuItem.ForeColor = frm_PrfMenu_fc
-            .手動印刷ToolStripMenuItem.ForeColor = frm_PrfMenu_fc
-            .保存ToolStripMenuItem1.ForeColor = frm_PrfMenu_fc
-            .設定ToolStripMenuItem1.ForeColor = frm_PrfMenu_fc
-            .単位ToolStripMenuItem.ForeColor = frm_PrfMenu_fc
+            .OldDataToolStripMenuItem.ForeColor = frm_PrfMenu_fc
+            .LoadToolStripMenuItem.ForeColor = frm_PrfMenu_fc
+            .QuitToolStripMenuItem.ForeColor = frm_PrfMenu_fc
+            .MeasStartToolStripMenuItem.ForeColor = frm_PrfMenu_fc
+            .MeasStopToolStripMenuItem.ForeColor = frm_PrfMenu_fc
+            .GraphDelToolStripMenuItem.ForeColor = frm_PrfMenu_fc
+            .AvgToolStripMenuItem.ForeColor = frm_PrfMenu_fc
+            .AutoPrintToolStripMenuItem.ForeColor = frm_PrfMenu_fc
+            .PrintItemToolStripMenuItem.ForeColor = frm_PrfMenu_fc
+            .AngRatToolStripMenuItem.ForeColor = frm_PrfMenu_fc
+            .VeloTSIToolStripMenuItem.ForeColor = frm_PrfMenu_fc
+            .MeasDataTableToolStripMenuItem.ForeColor = frm_PrfMenu_fc
+            .OldDataTableToolStripMenuItem.ForeColor = frm_PrfMenu_fc
+            .AvgDataTableToolStripMenuItem.ForeColor = frm_PrfMenu_fc
+            .ManualPrintToolStripMenuItem.ForeColor = frm_PrfMenu_fc
+            .SaveExcelToolStripMenuItem1.ForeColor = frm_PrfMenu_fc
+            .SettingToolStripMenuItem1.ForeColor = frm_PrfMenu_fc
+            .UnitToolStripMenuItem.ForeColor = frm_PrfMenu_fc
             .MmToolStripMenuItem.ForeColor = frm_PrfMenu_fc
             .InchToolStripMenuItem.ForeColor = frm_PrfMenu_fc
         End With
@@ -1870,10 +1931,10 @@ Module Module1
             FT_Close(lngHandle)
         Catch ex As System.DllNotFoundException
             FlgFTDLLerr = 1
-            MessageBox.Show("FTD2XX.DLLが読み込めませんでした。" & vbCrLf &
-                            "D2XX Driverがインストールされているか確認して下さい。" & vbCrLf &
-                            "TESTモードで起動します。",
-                            "USBエラー",
+            MessageBox.Show("FTD2XX.DLL couldn't be read" & vbCrLf &
+                            "Confirm D2XX Driver is installed" & vbCrLf &
+                            "Boot in Test Mode",
+                            "USB Error",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Error)
         End Try
@@ -1990,7 +2051,7 @@ Module Module1
         Using Dialog As New OpenFileDialog
             With Dialog
                 .InitialDirectory = cur_dir & DEF_CONST_FILE_FLD
-                .Title = "測定仕様ファイルの選択"
+                .Title = StrSelMeasSpecFile
                 .CheckFileExists = True
 
                 Select Case FlgProfile
@@ -2050,7 +2111,7 @@ Module Module1
             With dialog
                 .InitialDirectory = cur_dir & DEF_DATA_FILE_FLD
 
-                .Title = "過去の測定データ選択"
+                .Title = StrSelPastMeasData
                 .CheckFileExists = True
 
                 If FlgDBF = 0 Then
@@ -2562,9 +2623,9 @@ Module Module1
 
             '合計長のチェックをする
             If _pitch_sum > PchExp_Length - LnCmp Then
-                MessageBox.Show("合計長がサンプル長 - 両端補正値(" & LnCmp &
-                                "mm)を超えています。修正して下さい。",
-                                "合計長エラー",
+                MessageBox.Show("Total pitch should be less than" & vbCrLf &
+                                "Sample length - " & LnCmp & "mm (both edge length correction)",
+                                "Total length Error",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Error)
                 FrmSST4500_1_0_0E_pitchsetting.Visible = True
@@ -2576,11 +2637,11 @@ Module Module1
             'ピッチ拡張を無効にする
             FlgPitchExp_Load = 0
             If LoadConstPitch_FileErr_Run = 0 Then
-                result_tmp = MessageBox.Show("ピッチ拡張設定ファイルが未作成の様です。" & vbCrLf &
-                                         "作成して、ピッチ拡張設定を有効にしますか？" & vbCrLf &
-                                         "はい : ピッチ拡張設定画面を開く" & vbCrLf &
-                                         "いいえ : ピッチ拡張設定を無効にする",
-                                         "確認",
+                result_tmp = MessageBox.Show("The pitch settings file is not completed" & vbCrLf &
+                                         "Will you complete the file and make it activated ?" & vbCrLf &
+                                         "Yes : Open the pitch setting screen" & vbCrLf &
+                                         "No : Disavle Pitch Setting",
+                                         "Confirm",
                                          MessageBoxButtons.YesNo,
                                          MessageBoxIcon.Information)
                 If result_tmp = vbYes Then
@@ -2684,7 +2745,7 @@ Module Module1
                             .TxtLength.Enabled = False
                             .OptMm.Enabled = False
                             .OptInch.Enabled = False
-                            .単位ToolStripMenuItem.Enabled = False
+                            .UnitToolStripMenuItem.Enabled = False
                         Else
                             .ChkPitchExp_Ena.Checked = False
                             .ChkPitchExp_Dis.Checked = True
@@ -2693,7 +2754,7 @@ Module Module1
                             .TxtLength.Enabled = True
                             .OptMm.Enabled = True
                             .OptInch.Enabled = True
-                            .単位ToolStripMenuItem.Enabled = True
+                            .UnitToolStripMenuItem.Enabled = True
                         End If
                         .LblAllMeas_num.Visible = True
                         .TxtPoints.Visible = True

@@ -113,16 +113,16 @@ Public Class FrmSST4500_1_0_0E_Profile
                 Select Case FlgProfile
                     Case 1
                         Me.Text = My.Application.Info.ProductName & " Profile (Ver:" & My.Application.Info.Version.ToString & ")"
-                        LblPrfTitle.Text = "プロファイル"
+                        LblPrfTitle.Text = "Profile"
                     Case 2
                         Me.Text = My.Application.Info.ProductName & " Cut Sheet (Ver:" & My.Application.Info.Version.ToString & ")"
-                        LblPrfTitle.Text = "カットシート"
+                        LblPrfTitle.Text = "Cut Sheet"
                     Case 3
                         Me.Text = My.Application.Info.ProductName & " MD Long Sample (Ver:" & My.Application.Info.Version.ToString & ")"
-                        LblPrfTitle.Text = "MD長尺サンプル"
+                        LblPrfTitle.Text = "MD Long Sample"
                     Case Else
                         Me.Text = My.Application.Info.ProductName & " Profile (Ver:" & My.Application.Info.Version.ToString & ")"
-                        LblPrfTitle.Text = "プロファイル"
+                        LblPrfTitle.Text = "Profile"
                 End Select
                 title_text2 = Me.Text
                 LblProductNamePrf.Text = My.Application.Info.ProductName
@@ -188,9 +188,9 @@ Public Class FrmSST4500_1_0_0E_Profile
                     MeasStartInit()
 
                     If FlgAdmin <> 0 Then
-                        過去データToolStripMenuItem.Enabled = True
+                        OldDataToolStripMenuItem.Enabled = True
                         CmdOldDataLoad.Enabled = True
-                        読込ToolStripMenuItem.Enabled = True
+                        LoadToolStripMenuItem.Enabled = True
                     End If
 
                     ToolStripStatusLabel4.Text = "Ready "
@@ -224,8 +224,8 @@ Public Class FrmSST4500_1_0_0E_Profile
                 '測定開始
                 FlgHoldMeas = 1
                 CmdMeas.Enabled = False
-                測定開始ToolStripMenuItem.Enabled = False
-                測定中断ToolStripMenuItem.Enabled = True
+                MeasStartToolStripMenuItem.Enabled = False
+                MeasStopToolStripMenuItem.Enabled = True
                 ConditionDisable()
 
                 HScrollBar1.Visible = False
@@ -242,13 +242,13 @@ Public Class FrmSST4500_1_0_0E_Profile
                 FlgDpmd = 0
 
                 If FlgProfile = 3 Then
-                    CmdQuitProfile.Text = "STOP"
+                    CmdQuitProfile.Text = StrMeasStop
                 ElseIf FlgProfile = 1 Then
-                    CmdQuitProfile.Text = "中断"
+                    CmdQuitProfile.Text = StrMeasInterrupt
                 ElseIf FlgProfile = 2 Then
-                    CmdQuitProfile.Text = "中断"
+                    CmdQuitProfile.Text = StrMeasInterrupt
                 End If
-                終了ToolStripMenuItem.Enabled = False
+                QuitToolStripMenuItem.Enabled = False
 
                 DataDate = Now.ToString("yy/MM/dd")
                 DataDate_cur = DataDate
@@ -392,16 +392,16 @@ Public Class FrmSST4500_1_0_0E_Profile
                 If _flgRx = 0 Then
                     If strRxdata = "MEAS" & vbCr Then
                         TimProfile.Enabled = False
-                        ToolStripStatusLabel4.Text = "測定中 "
+                        ToolStripStatusLabel4.Text = StrMeasuring
                         CmdMeasButton_set(_mes)
-                        CmdMeas.Text = "測定中"
-                        測定開始ToolStripMenuItem.Text = "測定中"
+                        CmdMeas.Text = StrMeasuring
+                        MeasStartToolStripMenuItem.Text = StrMeasuring
                         TimProfile.Enabled = True
 
                         'カットシートの場合、2回目以降が4番から始まる
                         If FlgProfile = 2 Then
-                            CmdQuitProfile.Text = "中断"
-                            終了ToolStripMenuItem.Enabled = False
+                            CmdQuitProfile.Text = StrMeasInterrupt
+                            QuitToolStripMenuItem.Enabled = False
                         End If
 
                         timerCount1 = 0
@@ -493,7 +493,7 @@ Public Class FrmSST4500_1_0_0E_Profile
                         ElseIf FlgStop = 1 Then
                             FlgMainProfile = 10
                         Else
-                            ToolStripStatusLabel4.Text = "次のサンプルを"
+                            ToolStripStatusLabel4.Text = StrNextSample
                             'CmdMeas.Enabled = True
                             'CmdMeas.Text = "測定開始"
                             'CmdMeasButton_set(_rdy)
@@ -503,7 +503,7 @@ Public Class FrmSST4500_1_0_0E_Profile
                             '終了ToolStripMenuItem.Enabled = True
                             MeasStartInit()
 
-                            CmdQuitProfile.Text = "終　了"
+                            CmdQuitProfile.Text = StrQuit
                             FlgHoldMeas = 2
                             FlgMainProfile = 0
                         End If
@@ -539,7 +539,7 @@ Public Class FrmSST4500_1_0_0E_Profile
 
                 If _flgRx = 0 Then
                     If strRxdata = "FEED" & vbCr Then
-                        ToolStripStatusLabel4.Text = "サンプル送り中"
+                        ToolStripStatusLabel4.Text = StrFeedingSample
                         timerCount1 = 0
                         FlgMainProfile = 9
                     Else
@@ -565,7 +565,7 @@ Public Class FrmSST4500_1_0_0E_Profile
 
                 If _flgRx = 0 Then
                     If strRxdata = "FEED" & vbCr Then
-                        ToolStripStatusLabel4.Text = "サンプル送り中"
+                        ToolStripStatusLabel4.Text = StrFeedingSample
                         timerCount1 = 0
                         FlgMainProfile = 9
                     Else
@@ -637,11 +637,11 @@ Public Class FrmSST4500_1_0_0E_Profile
 
             Case 10
                 '測定終了処理
-                ToolStripStatusLabel4.Text = "測定完了"
-                CmdQuitProfile.Text = "終　了"
+                ToolStripStatusLabel4.Text = StrMeasCompleted
+                CmdQuitProfile.Text = StrQuit
                 CmdQuitProfile.Enabled = True
-                終了ToolStripMenuItem.Enabled = True
-                測定中断ToolStripMenuItem.Enabled = False
+                QuitToolStripMenuItem.Enabled = True
+                MeasStopToolStripMenuItem.Enabled = False
 
                 'Points = SampleNo
                 '中断で測定を終了した場合、Pointsが中断した時の測定回数に更新すると
@@ -754,17 +754,16 @@ Public Class FrmSST4500_1_0_0E_Profile
                     Points_tmp = Math.Round((Length_tmp - LnCmp) / Pitch_tmp, 0, MidpointRounding.AwayFromZero)
                     If Points_tmp <> TxtPoints.Text Then
                         '再計算の結果、入力値と異なっていたら
-                        MessageBox.Show("計算した結果、ピッチが最小ピッチ" & min_Pitch & "mm未満と" & vbCrLf &
-                                        "なってしまうので、ピッチを" & min_Pitch & "mmに補正しました。" & vbCrLf &
-                                        "また、再計算により総測定個所数を" & Points_tmp & "に" & vbCrLf &
-                                        "補正しました。",
-                                        "ピッチ、総測定個所数補正",
+                        MessageBox.Show("As the pitch must be more than " & min_Pitch & "mm," & vbCrLf &
+                                        "the pitch was corrected to " & min_Pitch & "mm" & vbCrLf &
+                                        "Accordingly the total number of meas.points were corrected to " & Points_tmp,
+                                        "Correct Pitch and Total Meas.Number of Position",
                                         MessageBoxButtons.OK,
                                         MessageBoxIcon.Exclamation)
                     Else
-                        MessageBox.Show("計算した結果、ピッチが最小ピッチ" & min_Pitch & "mm未満と" & vbCrLf &
-                                        "なってしまうので、ピッチを" & min_Pitch & "mmに補正しました。",
-                                        "ピッチ補正",
+                        MessageBox.Show("As the pitch must be more than " & min_Pitch & "mm," & vbCrLf &
+                                        "the pitch was corrected to " & min_Pitch & "mm",
+                                        "Correct Pitch",
                                         MessageBoxButtons.OK,
                                         MessageBoxIcon.Exclamation)
                     End If
@@ -774,16 +773,16 @@ Public Class FrmSST4500_1_0_0E_Profile
                     Points_tmp = Math.Round((Length_tmp - LnCmp) / Pitch_tmp, 0, MidpointRounding.AwayFromZero)
                     If Points_tmp <> TxtPoints.Text Then
                         '再計算の結果、入力値と異なっていたら
-                        MessageBox.Show("計算した結果、ピッチが最大ピッチ" & max_Pitch & "mm以上と" & vbCrLf &
-                                        "なってしまうので、ピッチを" & max_Pitch & "mmに補正しました。" & vbCrLf &
-                                        "また、再計算により総測定個所数を" & Points_tmp & "に補正しました。",
-                                        "ピッチ、総測定個所数補正",
+                        MessageBox.Show("As the pitch must be less than " & max_Pitch & "mm," & vbCrLf &
+                                        "the pitch was corrected to " & max_Pitch & "mm" & vbCrLf &
+                                        "Accordingly the total number of meas.points were corrected to " & Points_tmp,
+                                        "Correct Pitch and Total Meas.Number of Position",
                                         MessageBoxButtons.OK,
                                         MessageBoxIcon.Exclamation)
                     Else
-                        MessageBox.Show("計算した結果、ピッチが最小ピッチ" & max_Pitch & "mm以上と" & vbCrLf &
-                                        "なってしまうので、ピッチを" & max_Pitch & "mmに補正しました。",
-                                        "ピッチ補正",
+                        MessageBox.Show("As the pitch must be more than " & min_Pitch & "mm," & vbCrLf &
+                                        "the pitch was corrected to " & min_Pitch & "mm",
+                                        "Correct Pitch",
                                         MessageBoxButtons.OK,
                                         MessageBoxIcon.Exclamation)
                     End If
@@ -832,26 +831,25 @@ Public Class FrmSST4500_1_0_0E_Profile
                         Pitch_tmp = min_Pitch
                         Points_tmp = Math.Round((Length - LnCmp) / Pitch_tmp, 0, MidpointRounding.AwayFromZero) + 1
                         If Points_tmp <> TxtPoints.Text Then
-                            MessageBox.Show("計算した結果、ピッチが最少ピッチ" & min_Pitch & "mm未満と" & vbCrLf &
-                                            "なってしまうので、ピッチを" & min_Pitch & "mmに補正しました。" & vbCrLf &
-                                            "また、再計算により総測定個所数を" & Points_tmp & "に" & vbCrLf &
-                                            "補正いたしました。",
-                                            "ピッチ補正と総測定個所数補正",
+                            MessageBox.Show("As the pitch must be more than " & min_Pitch & "mm," & vbCrLf &
+                                            "the pitch was corrected to " & min_Pitch & "mm" & vbCrLf &
+                                            "Accordingly the total number of meas.points were corrected to " & Points_tmp,
+                                            "Correct Pitch and Total Meas.Number of Position",
                                             MessageBoxButtons.OK,
                                             MessageBoxIcon.Exclamation)
                         Else
-                            MessageBox.Show("計算した結果、ピッチが最少ピッチ" & min_Pitch & "mm未満と" & vbCrLf &
-                                            "なってしまうので、ピッチを" & min_Pitch & "mmに補正しました。",
-                                            "ピッチ補正",
+                            MessageBox.Show("As the pitch must be more than " & min_Pitch & "mm," & vbCrLf &
+                                            "the pitch was corrected to " & min_Pitch & "mm",
+                                            "Correct Pitch",
                                             MessageBoxButtons.OK,
                                             MessageBoxIcon.Exclamation)
                         End If
                     ElseIf Pitch_tmp > max_Pitch Then
                         Points_tmp = Points
                         Pitch_tmp = Pitch
-                        MessageBox.Show("計算した結果、ピッチが最大ピッチ" & max_Pitch & "mm以上と" & vbCrLf &
-                                        "超えてしまうので、総測定箇所数を" & Points & "に戻しました。",
-                                        "ピッチ補正",
+                        MessageBox.Show("As the pitch must be less than " & max_Pitch & "mm," & vbCrLf &
+                                        "the total number of meas.points was corrected to " & Points,
+                                        "Correct Pitch",
                                         MessageBoxButtons.OK,
                                         MessageBoxIcon.Exclamation)
                     Else
@@ -901,11 +899,10 @@ Public Class FrmSST4500_1_0_0E_Profile
                     If Points_tmp < min_Points Then
                         Points_tmp = min_Points
                         Pitch_tmp = Length - LnCmp
-                        MessageBox.Show("総測定個所数が" & min_Points & "未満となってしまうので、" & vbCrLf &
-                                        "総測定個所数を" & min_Points & "に補正して、ピッチを" & Pitch & "mmに" & vbCrLf &
-                                        "補正いたしました。" & vbCrLf &
-                                        "また、再計算によりピッチを" & Pitch_tmp & "mmに補正しました。",
-                                        "ピッチ補正",
+                        MessageBox.Show("As the total meas.points must be more than " & min_Points & "," & vbCrLf &
+                                        "the points was corrected to " & min_Points & " and the pitch was corrected to" & Pitch & "mm." & vbCrLf &
+                                        "Further, the pitch ws corrected to " & Pitch_tmp & "mm by recalculation.",
+                                        "Correct Pitch",
                                         MessageBoxButtons.OK,
                                         MessageBoxIcon.Exclamation)
                     Else
@@ -914,9 +911,9 @@ Public Class FrmSST4500_1_0_0E_Profile
                         If Pitch_tmp > max_Pitch Then
                             Points_tmp = Points
                             Pitch_tmp = Pitch
-                            MessageBox.Show("再計算した結果、ピッチが最大ピッチ" & max_Pitch & "mmを" & vbCrLf &
-                                            "なってしまうので、ピッチを" & Pitch & "mmに戻しました。",
-                                            "ピッチ補正",
+                            MessageBox.Show("As the pitch must be more than " & min_Pitch & "mm," & vbCrLf &
+                                            "the pitch was corrected to " & min_Pitch & "mm",
+                                            "Correct Pitch",
                                             MessageBoxButtons.OK,
                                             MessageBoxIcon.Exclamation)
                         End If
@@ -1002,7 +999,7 @@ Public Class FrmSST4500_1_0_0E_Profile
 
                 TimProfile.Enabled = False
 
-                input_ret = InputBox("配向角Center値を入力", "配向角Center値設定", PkAngCent)
+                input_ret = InputBox(StrOriAngCentValInput, StrOriAngCentValSet, PkAngCent)
 
                 If input_ret = String.Empty Then
                     '多分キャンセル
@@ -1039,8 +1036,8 @@ Public Class FrmSST4500_1_0_0E_Profile
                             Points = Kt2
                         End If
                     Else
-                        MessageBox.Show("数値で入力してください。",
-                                        "入力値エラー",
+                        MessageBox.Show(StrEntNo,
+                                        StrIncorrectNo,
                                         MessageBoxButtons.OK,
                                         MessageBoxIcon.Exclamation)
                     End If
@@ -1125,18 +1122,18 @@ Public Class FrmSST4500_1_0_0E_Profile
 
                     If result2 < 1 Then
                         If result2 = 0 Then
-                            MessageBox.Show("データがありませんでした。",
-                                            "ファイルエラー",
+                            MessageBox.Show(StrNoData,
+                                            StrFileErr,
                                             MessageBoxButtons.OK,
                                             MessageBoxIcon.Error)
                         ElseIf result2 = -2 Then
-                            MessageBox.Show("ファイルフォーマットが異なります。",
-                                            "ファイルエラー",
+                            MessageBox.Show(StrIncorrectFileFormat,
+                                            StrFileErr,
                                             MessageBoxButtons.OK,
                                             MessageBoxIcon.Error)
                         ElseIf result2 = -1 Then
-                            MessageBox.Show("データが破損しています。",
-                                            "ファイルエラー",
+                            MessageBox.Show(StrDataCorrupted,
+                                            StrFileErr,
                                             MessageBoxButtons.OK,
                                             MessageBoxIcon.Error)
                         End If
@@ -1152,10 +1149,10 @@ Public Class FrmSST4500_1_0_0E_Profile
                                 If FlgProfile = 1 Then  'プロファイルモード
                                     'ピッチ拡張有効の確認を最初にする
                                     If FlgPchExpMes = 1 Or FlgPchExpMes_old = 1 Then
-                                        result = MessageBox.Show("ピッチ拡張設定有効で測定されたデータです。" & vbCrLf &
-                                                                 "ピッチ設定の一致はチェックしていません。" & vbCrLf &
-                                                                 "過去データを読み込みしますか？",
-                                                                 "ピッチ拡張設定データ確認",
+                                        result = MessageBox.Show("Data measured with activated pitch setting" & vbCrLf &
+                                                                 "Matching of pitch setings is not checked" & vbCrLf &
+                                                                 "Do ou want to load past data ?",
+                                                                 "Confirm of Pitch Setting",
                                                                  MessageBoxButtons.YesNo,
                                                                  MessageBoxIcon.Warning)
                                         If result = DialogResult.No Then
@@ -1166,13 +1163,13 @@ Public Class FrmSST4500_1_0_0E_Profile
                                             Exit Sub
                                         End If
                                     ElseIf Length <> LengthOld Or Pitch <> PitchOld Then
-                                        result = MessageBox.Show("測定データのサンプル長 = " & Length & vbCrLf &
-                                                                 "過去データのサンプル長 = " & LengthOld & vbCrLf &
-                                                                 "測定データのピッチ数 = " & Pitch & vbCrLf &
-                                                                 "過去データのピッチ数 = " & PitchOld & vbCrLf &
-                                                                 "サンプル長又はピッチ数が一致しませんが、" & vbCrLf &
-                                                                 "過去データを読み込みしますか？",
-                                                                 "サンプル長又はピッチ数不一致エラー",
+                                        result = MessageBox.Show("Sample Length of Meas.Data = " & Length & vbCrLf &
+                                                                 "Past Data Sample Length = " & LengthOld & vbCrLf &
+                                                                 "Number of pitches in meas.data = " & Pitch & vbCrLf &
+                                                                 "Number of pitches in past data = " & PitchOld & vbCrLf &
+                                                                 "The sample length or pitch didn't match," & vbCrLf &
+                                                                 "are you sureto load past data?",
+                                                                 "Error of Sample Length or Pitch Number Mismatch",
                                                                  MessageBoxButtons.YesNo,
                                                                  MessageBoxIcon.Exclamation)
                                         If result = DialogResult.No Then
@@ -1185,11 +1182,11 @@ Public Class FrmSST4500_1_0_0E_Profile
                                     End If
                                 ElseIf FlgProfile = 3 Then  'MD長尺
                                     If Pitch <> PitchOld Then
-                                        result = MessageBox.Show("測定データのピッチ = " & Pitch & vbCrLf &
-                                                                 "過去データのピッチ = " & PitchOld & vbCrLf &
-                                                                 "ピッチ数が一致していませんが、" & vbCrLf &
-                                                                 "過去データを読み込みしますか？",
-                                                                 "ピッチ数不一致エラー",
+                                        result = MessageBox.Show("Pitch of Meas.data = " & Pitch & vbCrLf &
+                                                                 "Past data pitch = " & PitchOld & vbCrLf &
+                                                                 "Although the number of pitches does not match," & vbCrLf &
+                                                                 "are you sure want to load past data?",
+                                                                 "Error of Number of Pitch Mismatch",
                                                                  MessageBoxButtons.YesNo,
                                                                  MessageBoxIcon.Exclamation)
                                         If result = DialogResult.No Then
@@ -1202,12 +1199,12 @@ Public Class FrmSST4500_1_0_0E_Profile
                                     End If
                                 End If
                             Else
-                                MessageBox.Show("測定データの測定個所数 = " & SampleNo & vbCrLf &
-                                                "過去データの測定個所数 = " & FileDataMax & vbCrLf &
-                                                "測定データと過去データの測定個所数が一致しません。" & vbCrLf &
-                                                "測定個所数が一致する過去データを読み込ませてください。" & vbCrLf &
-                                                "一旦読み込み処理を中断します。",
-                                                "測定個所数不一致エラー",
+                                MessageBox.Show("Number of meas.points of meas.data = " & SampleNo & vbCrLf &
+                                                "Number of past meas.points = " & FileDataMax & vbCrLf &
+                                                "The number of meas.points in the meas.data and past data didn't match" & vbCrLf &
+                                                "Please load past data that matches the number of meas.points" & vbCrLf &
+                                                "The loading process will be temporarily interrupted",
+                                                "Error of Number of Point Mismatch",
                                                 MessageBoxButtons.OK,
                                                 MessageBoxIcon.Error)
                                 SampleNo = Kt2
@@ -1378,14 +1375,14 @@ Public Class FrmSST4500_1_0_0E_Profile
                 TimProfile.Enabled = False
 
                 If FlgProfile = 3 Then
-                    MessageBox.Show("MD長尺サンプルモードの時は、" & vbCrLf &
-                                    "過去のデータを2個以上読み込む事は出来ません。",
-                                    "過去データ読込エラー",
+                    MessageBox.Show("When in MD long sample mode," & vbCrLf &
+                                    "it is not possible to read two or more past data",
+                                    "Error of Past Data Reading",
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Exclamation)
                 Else
-                    MessageBox.Show("過去のデータを10個以上読み込む事は出来ません。",
-                                    "過去データ読込エラー",
+                    MessageBox.Show("It is not possible to read more then 10 pieces of past data",
+                                    "Error of Past Data Reading",
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Exclamation)
                 End If
@@ -1615,12 +1612,12 @@ Public Class FrmSST4500_1_0_0E_Profile
 
                 '測定仕様ファイルの保存処理
                 If FlgConstChg = True Then
-                    result = MessageBox.Show("測定仕様が変更されています。" & vbCrLf &
-                                             "変更内容を保存しますか？" & vbCrLf &
-                                             "はい : 上書き" & vbCrLf &
-                                             "いいえ : 名前を付けて保存" & vbCrLf &
-                                             "キャンセル : 保存しないで終了",
-                                             "測定仕様変更確認",
+                    result = MessageBox.Show("Meas.Spec. has changed" & vbCrLf &
+                                             "Do you want to save the changes?" & vbCrLf &
+                                             "Yes : Overwrite" & vbCrLf &
+                                             "No : Save as" & vbCrLf &
+                                             "Cancel : Exit without saving",
+                                             StrConfirmMeasSpecChg,
                                              MessageBoxButtons.YesNoCancel,
                                              MessageBoxIcon.Information)
                     Select Case result
@@ -1648,8 +1645,8 @@ Public Class FrmSST4500_1_0_0E_Profile
                     TimProfile.Enabled = False
 
                     CmdMeasButton_set(_rdy)
-                    CmdMeas.Text = "測定開始"
-                    測定開始ToolStripMenuItem.Text = "測定開始"
+                    CmdMeas.Text = StrMeasStart
+                    MeasStartToolStripMenuItem.Text = StrMeasStart
 
                     FrmSST4500_1_0_0E_main.Visible = True
                     FlgMainSplash = 11
@@ -1668,8 +1665,8 @@ Public Class FrmSST4500_1_0_0E_Profile
             'テストモード
             Case 100
                 CmdMeas.Enabled = False
-                測定開始ToolStripMenuItem.Enabled = False
-                測定中断ToolStripMenuItem.Enabled = True
+                MeasStartToolStripMenuItem.Enabled = False
+                MeasStopToolStripMenuItem.Enabled = True
 
                 If FlgPitchExp <> 0 Then
                     'テストモードの時のみ下記if文が必要
@@ -1681,16 +1678,16 @@ Public Class FrmSST4500_1_0_0E_Profile
                 End If
 
                 TimProfile.Enabled = False
-                ToolStripStatusLabel4.Text = "測定中 "
+                ToolStripStatusLabel4.Text = StrMeasuringSpace
                 CmdMeasButton_set(_mes)
-                CmdMeas.Text = "測定中"
-                測定開始ToolStripMenuItem.Text = "測定中"
+                CmdMeas.Text = StrMeasuring
+                MeasStartToolStripMenuItem.Text = StrMeasuring
                 TimProfile.Enabled = True
 
                 'カットシートの場合、2回目以降が100番から始まる
                 If FlgProfile = 2 Then
-                    CmdQuitProfile.Text = "中断"
-                    終了ToolStripMenuItem.Enabled = False
+                    CmdQuitProfile.Text = StrMeasInterrupt
+                    QuitToolStripMenuItem.Enabled = False
                 End If
 
                 timerCount1 = 0
@@ -1789,7 +1786,7 @@ Public Class FrmSST4500_1_0_0E_Profile
                         ElseIf FlgStop = 1 Then
                             FlgMainProfile = 150
                         Else
-                            ToolStripStatusLabel4.Text = "次のサンプルを"
+                            ToolStripStatusLabel4.Text = StrNextSample
                             'CmdMeas.Enabled = True
                             'CmdMeas.Text = "測定開始"
                             'CmdMeasButton_set(_rdy)
@@ -1799,7 +1796,7 @@ Public Class FrmSST4500_1_0_0E_Profile
                             '終了ToolStripMenuItem.Enabled = True
                             MeasStartInit()
 
-                            CmdQuitProfile.Text = "終　了"
+                            CmdQuitProfile.Text = StrQuit
                             FlgHoldMeas = 2
                             FlgMainProfile = 0
                         End If
@@ -1828,7 +1825,7 @@ Public Class FrmSST4500_1_0_0E_Profile
                     End If
                 End If
 
-                ToolStripStatusLabel4.Text = "サンプル送り中 "
+                ToolStripStatusLabel4.Text = StrFeedingSample
                 timerCount1 = 0
                 FlgMainProfile = 111
 
@@ -1862,11 +1859,11 @@ Public Class FrmSST4500_1_0_0E_Profile
                 End If
 
             Case 150
-                ToolStripStatusLabel4.Text = "測定完了"
-                CmdQuitProfile.Text = "終　了"
+                ToolStripStatusLabel4.Text = StrMeasCompleted
+                CmdQuitProfile.Text = StrQuit
                 CmdQuitProfile.Enabled = True
-                終了ToolStripMenuItem.Enabled = True
-                測定中断ToolStripMenuItem.Enabled = False
+                QuitToolStripMenuItem.Enabled = True
+                MeasStopToolStripMenuItem.Enabled = False
 
                 'Points = SampleNo
                 '中断で測定を終了した場合、Pointsが中断した時の測定回数に更新すると
@@ -1932,11 +1929,11 @@ Public Class FrmSST4500_1_0_0E_Profile
     Private Sub MeasStartInit()
         CmdMeas.Enabled = True
         CmdMeasButton_set(_rdy)
-        CmdMeas.Text = "測定開始"
-        測定開始ToolStripMenuItem.Enabled = True
-        測定開始ToolStripMenuItem.Text = "測定開始"
-        測定中断ToolStripMenuItem.Enabled = False
-        終了ToolStripMenuItem.Enabled = True
+        CmdMeas.Text = StrMeasStart
+        MeasStartToolStripMenuItem.Enabled = True
+        MeasStartToolStripMenuItem.Text = StrMeasStart
+        MeasStopToolStripMenuItem.Enabled = False
+        QuitToolStripMenuItem.Enabled = True
     End Sub
 
     Private Sub ScrollBar_init(ByVal sampleno As Integer)
@@ -2074,7 +2071,7 @@ Public Class FrmSST4500_1_0_0E_Profile
 
         TblAngle_nom.Visible = Not sw
         TblPDMCratio_nom.Visible = Not sw
-        TblVeloMDCD_adm.Visible = sw
+        TblVeloPkDp_nom.Visible = Not sw
         TblVeloMDCD_nom.Visible = Not sw
         TblTSI_nom.Visible = Not sw
 
@@ -2094,11 +2091,11 @@ Public Class FrmSST4500_1_0_0E_Profile
         TableLayoutPanel4.Visible = sw
         TableLayoutPanel5.Visible = sw
 
-        読込ToolStripMenuItem.Enabled = sw
-        グラフ消去ToolStripMenuItem.Enabled = sw
-        平均値データ表ToolStripMenuItem.Enabled = sw
-        過去データ表ToolStripMenuItem.Enabled = sw
-        平均値データ表ToolStripMenuItem.Enabled = sw
+        LoadToolStripMenuItem.Enabled = sw
+        GraphDelToolStripMenuItem.Enabled = sw
+        AvgDataTableToolStripMenuItem.Enabled = sw
+        OldDataTableToolStripMenuItem.Enabled = sw
+        AvgDataTableToolStripMenuItem.Enabled = sw
     End Sub
 
     Private Sub ClsNoPrf()
@@ -2120,13 +2117,13 @@ Public Class FrmSST4500_1_0_0E_Profile
         DrawGraph_init()
 
         prf_waku_Xlabel_name = "Point"
-        prf_waku_angle_Yaxis_label = "配向角 [deg.]"
+        prf_waku_angle_Yaxis_label = "Orientation Angle [deg.]"
         prf_waku_angle_Pklabel_name = "Peak"
         prf_waku_angle_Dplabel_name = "Deep"
-        prf_waku_ratio_Yaxis_label = "配向比"
+        prf_waku_ratio_Yaxis_label = "Orientation Ratio"
         prf_waku_ratio_MDCDlabel_name = "MD/CD"
         prf_waku_ratio_PkDplabel_name = "Peak/Deep"
-        prf_waku_velo_Yaxis_label = "伝播速度 [Km/S]"
+        prf_waku_velo_Yaxis_label = "Propagation Velocity [Km/S]"
         prf_waku_velo_VMDlabel_name = "MD"
         prf_waku_velo_VCDlabel_name = "CD"
         prf_waku_velo_VPklabel_name = "Peak"
@@ -2233,14 +2230,14 @@ Public Class FrmSST4500_1_0_0E_Profile
         FlgAvg = 0
         FlgLongMeas = 0
         FlgHoldMeas = 0
-        prf_waku_Xlabel_name = "測定箇所"
-        prf_waku_angle_Yaxis_label = "配向角 [deg.]"
+        prf_waku_Xlabel_name = "Point"
+        prf_waku_angle_Yaxis_label = "Orientation Angle [deg.]"
         prf_waku_angle_Pklabel_name = "Peak"
         prf_waku_angle_Dplabel_name = "Deep"
-        prf_waku_ratio_Yaxis_label = "配向比"
+        prf_waku_ratio_Yaxis_label = "Orientation Ratio"
         prf_waku_ratio_MDCDlabel_name = "MD/CD"
         prf_waku_ratio_PkDplabel_name = "Peak/Deep"
-        prf_waku_velo_Yaxis_label = "伝播速度 [Km/S]"
+        prf_waku_velo_Yaxis_label = "Propagation Velocity [Km/S]"
         prf_waku_velo_VMDlabel_name = "MD"
         prf_waku_velo_VCDlabel_name = "CD"
         prf_waku_velo_VPklabel_name = "Peak"
@@ -2819,31 +2816,31 @@ Public Class FrmSST4500_1_0_0E_Profile
     Private Sub FrmSST4500_1_0_0E_profile_VisibleChanged(sender As Object, e As EventArgs) Handles Me.VisibleChanged
         If Me.Visible = True Then
             CmdMeas.Enabled = False
-            測定開始ToolStripMenuItem.Enabled = False
-            測定中断ToolStripMenuItem.Enabled = False
+            MeasStartToolStripMenuItem.Enabled = False
+            MeasStopToolStripMenuItem.Enabled = False
             CmdAvg.Enabled = False
-            平均値ToolStripMenuItem.Enabled = False
+            AvgToolStripMenuItem.Enabled = False
 
-            過去データToolStripMenuItem.Enabled = False
+            OldDataToolStripMenuItem.Enabled = False
             CmdOldDataLoad.Enabled = False
-            読込ToolStripMenuItem.Enabled = False
+            LoadToolStripMenuItem.Enabled = False
 
             CmdPrfPrint.Enabled = False
-            手動印刷ToolStripMenuItem.Enabled = False
+            ManualPrintToolStripMenuItem.Enabled = False
             CmdPrfResultSave.Enabled = False
-            保存ToolStripMenuItem1.Enabled = False
+            SaveExcelToolStripMenuItem1.Enabled = False
             CmdMeasSpecSave.Enabled = True
             保存ToolStripMenuItem.Enabled = True
             CmdMeasSpecSel.Enabled = True
-            選択ToolStripMenuItem.Enabled = True
+            SelectToolStripMenuItem.Enabled = True
             CmdQuitProfile.Enabled = True
-            終了ToolStripMenuItem.Enabled = True
+            QuitToolStripMenuItem.Enabled = True
             GbPrfSpec.Enabled = True
-            配向角配向比ToolStripMenuItem.Enabled = True
-            伝播速度TSIToolStripMenuItem.Enabled = True
-            測定データ表ToolStripMenuItem.Enabled = True
-            過去データ表ToolStripMenuItem.Enabled = True
-            平均値データ表ToolStripMenuItem.Enabled = True
+            AngRatToolStripMenuItem.Enabled = True
+            VeloTSIToolStripMenuItem.Enabled = True
+            MeasDataTableToolStripMenuItem.Enabled = True
+            OldDataTableToolStripMenuItem.Enabled = True
+            AvgDataTableToolStripMenuItem.Enabled = True
             TxtMachNoCur.Enabled = True
             TxtSmplNamCur.Enabled = True
             TxtMarkCur.Enabled = True
@@ -2891,15 +2888,15 @@ Public Class FrmSST4500_1_0_0E_Profile
     End Sub
 
     Private Sub CmdQuitProfile_Click(sender As Object, e As EventArgs) Handles CmdQuitProfile.Click
-        If CmdQuitProfile.Text = "STOP" Then
+        If CmdQuitProfile.Text = StrMeasStop Then
             'FlgProfile = 3のとき(MD長尺サンプル)
             CmdQuitProfile.Enabled = False
-            終了ToolStripMenuItem.Enabled = False
+            QuitToolStripMenuItem.Enabled = False
             FlgStop = 1
             FlgLongMeas = 0
-        ElseIf CmdQuitProfile.Text = "中断" Then
+        ElseIf CmdQuitProfile.Text = StrMeasInterrupt Then
             CmdQuitProfile.Enabled = False
-            終了ToolStripMenuItem.Enabled = False
+            QuitToolStripMenuItem.Enabled = False
             FlgStop = 1
         Else
             Cls_PchExpOld()
@@ -3153,6 +3150,7 @@ Public Class FrmSST4500_1_0_0E_Profile
         'Const padding_x2 = 17
         Const padding_x = 0.5
         Const font_Yoffset = 5
+        Dim waku_brush As Brush = New SolidBrush(frm_PrfGraphWaku_color)
         Dim string_tmp As String
         Dim stringSize As SizeF
 
@@ -3162,11 +3160,11 @@ Public Class FrmSST4500_1_0_0E_Profile
                 string_tmp = LblAngCenter.Text
                 stringSize = e.Graphics.MeasureString(string_tmp, fnt)
 
-                e.Graphics.DrawString(string_tmp, fnt, Brushes.Black, graph_x_sta - padding_x - stringSize.Width, angle_yaxis_min + (angle_SclY * (i + 1)) - font_Yoffset)
+                e.Graphics.DrawString(string_tmp, fnt, waku_brush, graph_x_sta - padding_x - stringSize.Width, angle_yaxis_min + (angle_SclY * (i + 1)) - font_Yoffset)
             Else
                 string_tmp = prf_waku_angle_Ylabel(i)
                 stringSize = e.Graphics.MeasureString(string_tmp, fnt)
-                e.Graphics.DrawString(string_tmp, fnt, Brushes.Black, graph_x_sta - padding_x - stringSize.Width, angle_yaxis_min + (angle_SclY * (i + 1)) - font_Yoffset)
+                e.Graphics.DrawString(string_tmp, fnt, waku_brush, graph_x_sta - padding_x - stringSize.Width, angle_yaxis_min + (angle_SclY * (i + 1)) - font_Yoffset)
             End If
         Next
         'Else
@@ -3185,8 +3183,9 @@ Public Class FrmSST4500_1_0_0E_Profile
 
         Dim fnt As New Font("MS UI Gothic", 9)
         Dim fnt_8 As New Font("MS UI Gothic", 8)
-        e.Graphics.DrawString(prf_waku_Xlabel_name, fnt_8, Brushes.Black, 4, angle_yaxis_max + 1)
-        e.Graphics.DrawString(prf_waku_Xlabel(0), fnt, Brushes.Black, graph_x_sta, angle_yaxis_max)
+        Dim waku_brush As Brush = New SolidBrush(frm_PrfGraphWaku_color)
+        e.Graphics.DrawString(prf_waku_Xlabel_name, fnt_8, waku_brush, Xlabel_padding, angle_yaxis_max + 1)
+        e.Graphics.DrawString(prf_waku_Xlabel(0), fnt, waku_brush, graph_x_sta, angle_yaxis_max)
 
         If MeasDataNo = 0 And FileDataNo = 0 Then
             If TxtPoints.Text <> "" Then
@@ -3215,38 +3214,38 @@ Public Class FrmSST4500_1_0_0E_Profile
 
         If _Points < 10 Then
             If _Points > 2 Then
-                e.Graphics.DrawString(prf_waku_Xlabel(1), fnt, Brushes.Black, graph_x_sta + SclX * 1, angle_yaxis_max)
+                e.Graphics.DrawString(prf_waku_Xlabel(1), fnt, waku_brush, graph_x_sta + SclX * 1, angle_yaxis_max)
             End If
             If _Points > 3 Then
-                e.Graphics.DrawString(prf_waku_Xlabel(2), fnt, Brushes.Black, graph_x_sta + SclX * 2, angle_yaxis_max)
+                e.Graphics.DrawString(prf_waku_Xlabel(2), fnt, waku_brush, graph_x_sta + SclX * 2, angle_yaxis_max)
             End If
             If _Points > 4 Then
-                e.Graphics.DrawString(prf_waku_Xlabel(3), fnt, Brushes.Black, graph_x_sta + SclX * 3, angle_yaxis_max)
+                e.Graphics.DrawString(prf_waku_Xlabel(3), fnt, waku_brush, graph_x_sta + SclX * 3, angle_yaxis_max)
             End If
             If _Points > 5 Then
-                e.Graphics.DrawString(prf_waku_Xlabel(4), fnt, Brushes.Black, graph_x_sta + SclX * 4, angle_yaxis_max)
+                e.Graphics.DrawString(prf_waku_Xlabel(4), fnt, waku_brush, graph_x_sta + SclX * 4, angle_yaxis_max)
             End If
             If _Points > 6 Then
-                e.Graphics.DrawString(prf_waku_Xlabel(5), fnt, Brushes.Black, graph_x_sta + SclX * 5, angle_yaxis_max)
+                e.Graphics.DrawString(prf_waku_Xlabel(5), fnt, waku_brush, graph_x_sta + SclX * 5, angle_yaxis_max)
             End If
             If _Points > 7 Then
-                e.Graphics.DrawString(prf_waku_Xlabel(6), fnt, Brushes.Black, graph_x_sta + SclX * 6, angle_yaxis_max)
+                e.Graphics.DrawString(prf_waku_Xlabel(6), fnt, waku_brush, graph_x_sta + SclX * 6, angle_yaxis_max)
             End If
             If _Points > 8 Then
-                e.Graphics.DrawString(prf_waku_Xlabel(7), fnt, Brushes.Black, graph_x_sta + SclX * 7, angle_yaxis_max)
+                e.Graphics.DrawString(prf_waku_Xlabel(7), fnt, waku_brush, graph_x_sta + SclX * 7, angle_yaxis_max)
             End If
             If _Points > 9 Then
-                e.Graphics.DrawString(prf_waku_Xlabel(8), fnt, Brushes.Black, graph_x_sta + SclX * 8, angle_yaxis_max)
+                e.Graphics.DrawString(prf_waku_Xlabel(8), fnt, waku_brush, graph_x_sta + SclX * 8, angle_yaxis_max)
             End If
         Else
             For i = 1 To 4
-                e.Graphics.DrawString(prf_waku_Xlabel(i), fnt, Brushes.Black, graph_x_sta + SclX * i - StepX, angle_yaxis_max)
+                e.Graphics.DrawString(prf_waku_Xlabel(i), fnt, waku_brush, graph_x_sta + SclX * i - StepX, angle_yaxis_max)
             Next
             If _Points - StepScale * 4 > StepScale Then
-                e.Graphics.DrawString(prf_waku_Xlabel(5), fnt, Brushes.Black, graph_x_sta + SclX * 5 - StepX, angle_yaxis_max)
+                e.Graphics.DrawString(prf_waku_Xlabel(5), fnt, waku_brush, graph_x_sta + SclX * 5 - StepX, angle_yaxis_max)
             End If
             If _Points - StepScale * 5 > StepScale And FlgProfile <> 3 Then
-                e.Graphics.DrawString(prf_waku_Xlabel(6), fnt, Brushes.Black, graph_x_sta + SclX * 6 - StepX, angle_yaxis_max)
+                e.Graphics.DrawString(prf_waku_Xlabel(6), fnt, waku_brush, graph_x_sta + SclX * 6 - StepX, angle_yaxis_max)
             End If
         End If
     End Sub
@@ -3306,7 +3305,7 @@ Public Class FrmSST4500_1_0_0E_Profile
 
         Dim fnt1 As New Font("MS UI Gothic", 9)
         e.Graphics.RotateTransform(-90.0F)
-        e.Graphics.DrawString(prf_waku_angle_Yaxis_label, fnt1, waku_brush, -180, 7)
+        e.Graphics.DrawString(prf_waku_angle_Yaxis_label, fnt1, waku_brush, -200, 7)
         e.Graphics.RotateTransform(+90.0F)
 
         draw_prf_waku_angle_Ylabel(e)
@@ -3429,7 +3428,7 @@ Public Class FrmSST4500_1_0_0E_Profile
 
         Dim fnt1 As New Font("MS UI Gothic", 9)
         e.Graphics.RotateTransform(-90.0F)
-        e.Graphics.DrawString(prf_waku_ratio_Yaxis_label, fnt1, waku_brush, -165, 7)
+        e.Graphics.DrawString(prf_waku_ratio_Yaxis_label, fnt1, waku_brush, -185, 7)
         e.Graphics.RotateTransform(+90.0F)
 
         draw_prf_waku_ratio_Ylabel(e)
@@ -3581,7 +3580,7 @@ Public Class FrmSST4500_1_0_0E_Profile
 
         Dim fnt1 As New Font("MS UI Gothic", 9)
         e.Graphics.RotateTransform(-90.0F)
-        e.Graphics.DrawString(prf_waku_velo_Yaxis_label, fnt1, waku_brush, -180, 7)
+        e.Graphics.DrawString(prf_waku_velo_Yaxis_label, fnt1, waku_brush, -210, 7)
         e.Graphics.RotateTransform(+90.0F)
 
         draw_prf_waku_velo_Ylabel(e)
@@ -3894,7 +3893,7 @@ Public Class FrmSST4500_1_0_0E_Profile
         Dim fnt As New Font("MS UI Gothic", 9)
         Dim fnt_8 As New Font("MS UI Gothic", 8)
         Dim waku_brush As Brush = New SolidBrush(frm_PrfGraphWaku_color)
-        e.Graphics.DrawString(prf_waku_Xlabel_name, fnt_8, waku_brush, 4, ratio_yaxis_max + 1)
+        e.Graphics.DrawString(prf_waku_Xlabel_name, fnt_8, waku_brush, Xlabel_padding, ratio_yaxis_max + 1)
         e.Graphics.DrawString(prf_waku_Xlabel(0), fnt, waku_brush, graph_x_sta, ratio_yaxis_max)
 
         If MeasDataNo = 0 And FileDataNo = 0 Then
@@ -3965,7 +3964,7 @@ Public Class FrmSST4500_1_0_0E_Profile
         Dim fnt As New Font("MS UI Gothic", 9)
         Dim fnt_8 As New Font("MS UI Gothic", 8)
         Dim waku_brush As Brush = New SolidBrush(frm_PrfGraphWaku_color)
-        e.Graphics.DrawString(prf_waku_Xlabel_name, fnt_8, waku_brush, 4, velo_yaxis_max + 1)
+        e.Graphics.DrawString(prf_waku_Xlabel_name, fnt_8, waku_brush, Xlabel_padding, velo_yaxis_max + 1)
         e.Graphics.DrawString(prf_waku_Xlabel(0), fnt, waku_brush, graph_x_sta, velo_yaxis_max)
 
         If MeasDataNo = 0 And FileDataNo = 0 Then
@@ -4036,7 +4035,7 @@ Public Class FrmSST4500_1_0_0E_Profile
         Dim fnt As New Font("MS UI Gothic", 9)
         Dim fnt_8 As New Font("MS UI Gothic", 8)
         Dim waku_brush As Brush = New SolidBrush(frm_PrfGraphWaku_color)
-        e.Graphics.DrawString(prf_waku_Xlabel_name, fnt_8, waku_brush, 4, tsi_yaxis_max + 1)
+        e.Graphics.DrawString(prf_waku_Xlabel_name, fnt_8, waku_brush, Xlabel_padding, tsi_yaxis_max + 1)
         e.Graphics.DrawString(prf_waku_Xlabel(0), fnt, waku_brush, graph_x_sta, tsi_yaxis_max)
 
         If MeasDataNo = 0 And FileDataNo = 0 Then
@@ -4131,8 +4130,8 @@ Public Class FrmSST4500_1_0_0E_Profile
         Dim pitch_tmp_inch As Single
 
         If IsNumeric(TxtPitch.Text) = False Then
-            MessageBox.Show("数値を入力して下さい。",
-                            "入力値エラー",
+            MessageBox.Show("Enter Pitch",
+                            StrInputErr,
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Exclamation)
             '数値でない場合、エラーメッセージを出して前回データを復元
@@ -4163,9 +4162,9 @@ Public Class FrmSST4500_1_0_0E_Profile
 
             If Pitch_tmp < min_Pitch Then
                 '最小ピッチ(10mm)未満は10mmに強制的に設定する
-                MessageBox.Show("設定可能な最小ピッチ = " & min_Pitch & "mm を下回っています。" & vbCrLf &
-                                "ピッチを" & min_Pitch & "mmに補正します。",
-                                "入力値補正",
+                MessageBox.Show("As the pitch must be more than " & min_Pitch & "mm," & vbCrLf &
+                                "the pitch was corrected to " & min_Pitch & "mm",
+                                "Correct Pitch",
                                  MessageBoxButtons.OK,
                                  MessageBoxIcon.Exclamation)
                 If FlgInch = 0 Then
@@ -4177,11 +4176,9 @@ Public Class FrmSST4500_1_0_0E_Profile
                 End If
             ElseIf Pitch_tmp > Length_tmp - LnCmp Then
                 '有効長以上の場合、エラーメッセージヲ出して前回データを復元する
-                MessageBox.Show("設定可能なピッチを超えています。" & vbCrLf &
-                                "サンプル長さ(" & Length_tmp & "mm) - " &
-                                "両端補正値(" & LnCmp & "mm) = " & Length_tmp - LnCmp & "mm" & vbCrLf &
-                                "以下の数値を入力してください。",
-                                "入力エラー",
+                MessageBox.Show("Total pitch should be less than" & vbCrLf &
+                                "Sample length - " & LnCmp & "mm (both edge length correction)",
+                                StrInputErr,
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Exclamation)
                 If FlgInch = 0 Then
@@ -4193,9 +4190,9 @@ Public Class FrmSST4500_1_0_0E_Profile
                 End If
             ElseIf Pitch_tmp > max_Pitch Then
                 '最大ピッチ(9999mm)以上は9999mmに強制的に設定する
-                MessageBox.Show("設定可能な最大ピッチ = " & max_Pitch & "mmを超えています。" & vbCrLf &
-                                "ピッチを" & max_Pitch & "mmに補正します。",
-                                "入力値補正",
+                MessageBox.Show("As the pitch must be less than " & max_Pitch & "mm," & vbCrLf &
+                                "the pitch was corrected to " & max_Pitch & "mm",
+                                "Correct Pitch",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Exclamation)
                 If FlgInch = 0 Then
@@ -4245,8 +4242,8 @@ Public Class FrmSST4500_1_0_0E_Profile
         Debug.Print("TxtPoints.Validating")
 
         If IsNumeric(TxtPoints.Text) = False Then
-            MessageBox.Show("数値を入力して下さい。",
-                            "入力値エラー",
+            MessageBox.Show("Enter Number of Meas.Position",
+                            StrInputErr,
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Exclamation)
             '前回データを復元
@@ -4254,9 +4251,9 @@ Public Class FrmSST4500_1_0_0E_Profile
         Else
             TxtPoints.Text = Math.Round(Val(TxtPoints.Text), 0, MidpointRounding.AwayFromZero)
             If TxtPoints.Text < min_Points Then
-                MessageBox.Show("設定可能な総測定個所数 = " & min_Points & " を下回っています。" & vbCrLf &
-                                "総測定個所数を" & min_Points & "に補正します。",
-                                "入力値補正",
+                MessageBox.Show("As the number of total meas.point must be than " & min_Points & "," & vbCrLf &
+                                "the number of point is corrected to " & min_Points & ".",
+                                "Correct Number",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Exclamation)
                 TxtPoints.Text = min_Points
@@ -4290,8 +4287,8 @@ Public Class FrmSST4500_1_0_0E_Profile
         Dim length_tmp_inch As Single
 
         If IsNumeric(TxtLength.Text) = False Then
-            MessageBox.Show("数値を入力して下さい。",
-                            "入力値エラー",
+            MessageBox.Show(StrEntNo,
+                            StrInputErr,
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Exclamation)
             '前回データを復元
@@ -4315,11 +4312,8 @@ Public Class FrmSST4500_1_0_0E_Profile
             End If
 
             If Length_tmp < LnCmp + min_Pitch Then
-                MessageBox.Show("設定可能な最小サンプル長さを下回っています。" & vbCrLf &
-                                "両端補正値(" & LnCmp & "mm) + 最小ピッチ(" & min_Pitch & "mm)" &
-                                " = " & LnCmp + min_Pitch & "mm" & vbCrLf &
-                                "以上の数値を入力してください。",
-                                "入力値エラー",
+                MessageBox.Show("Input More Than " & LnCmp + min_Pitch & "mm",
+                                StrInputErr,
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Exclamation)
                 '前回データを復元
@@ -4371,9 +4365,8 @@ Public Class FrmSST4500_1_0_0E_Profile
 
         If FlgConstChg = True Then
             If FlgConstChg_MeasStart = False Then
-                ret = MessageBox.Show("測定仕様が保存されていませんが、" & vbCrLf &
-                                      "測定を開始しますか？",
-                                      "測定開始確認",
+                ret = MessageBox.Show(StrMeasStartMsg,
+                                      StrConfirmStartMeas,
                                       MessageBoxButtons.YesNo,
                                       MessageBoxIcon.Warning)
                 If ret = vbYes Then
@@ -4405,17 +4398,15 @@ Public Class FrmSST4500_1_0_0E_Profile
             '総測定箇所数の確認
             If FlgProfile = 1 Then
                 If FlgPitchExp = 0 Then
-                    result_tmp = MessageBox.Show("総測定箇所数に「 " & TxtPoints.Text & " 」が、" & vbCrLf &
-                                                 "ピッチに「 " & TxtPitch.Text & pitch_unit & " 」が、設定されていますが、" & vbCrLf &
-                                                 "測定を開始しますか？",
-                                                 "総測定箇所数、ピッチ確認",
+                    result_tmp = MessageBox.Show("Do you want to start meas. with" & vbCrLf &
+                                                 TxtPoints.Text & " total meas.point and this pitch and" & vbCrLf &
+                                                 TxtPitch.Text & pitch_unit & " pitches ?",
+                                                 "Confirm Total number of Meas.Position and Pitch",
                                                  MessageBoxButtons.YesNo,
                                                  MessageBoxIcon.Exclamation)
                 Else
-                    result_tmp = MessageBox.Show("ピッチ拡張設定が有効になっています。" & vbCrLf &
-                                                 "ピッチ設定が、「" & UBound(PchExp_PchData) + 1 & "」個設定されていますが、" & vbCrLf &
-                                                 "測定を開始してよろしいですか？",
-                                                 "ピッチ確認設定",
+                    result_tmp = MessageBox.Show("Do you want to start meas.with " & UBound(PchExp_PchData) + 1 & " meas.pitches ?",
+                                                 "Confirm Pitch Setting",
                                                  MessageBoxButtons.YesNo,
                                                  MessageBoxIcon.Exclamation)
                 End If
@@ -4425,18 +4416,16 @@ Public Class FrmSST4500_1_0_0E_Profile
                     FlgMainProfile = 2
                 End If
             ElseIf FlgProfile = 2 Then
-                result_tmp = MessageBox.Show("総測定箇所数に「 " & TxtPoints.Text & " 」が、設定されていますが、" & vbCrLf &
-                                             "測定を開始しますか？",
-                                             "総測定箇所数確認",
+                result_tmp = MessageBox.Show("Do you want to start with " & TxtPoints.Text & " total point",
+                                             "Confirm Total Meas.Position",
                                              MessageBoxButtons.YesNo,
                                              MessageBoxIcon.Exclamation)
                 If result_tmp = DialogResult.Yes Then
                     FlgMainProfile = 2
                 End If
             Else
-                result_tmp = MessageBox.Show("ピッチに 「" & TxtPitch.Text & pitch_unit & " 」が設定されていますが、" & vbCrLf &
-                                             "測定を開始しますか？",
-                                             "ピッチ確認",
+                result_tmp = MessageBox.Show("Do you want to start meas. with " & TxtPitch.Text & pitch_unit & " pitches ?",
+                                             "Confirm Pitch Setting",
                                              MessageBoxButtons.YesNo,
                                              MessageBoxIcon.Exclamation)
                 If result_tmp = DialogResult.Yes Then
@@ -4467,7 +4456,7 @@ Public Class FrmSST4500_1_0_0E_Profile
             TxtPoints.Enabled = True
             OptMm.Enabled = True
             OptInch.Enabled = True
-            単位ToolStripMenuItem.Enabled = True
+            UnitToolStripMenuItem.Enabled = True
         End If
         TxtMachNoCur.Enabled = True
         TxtSmplNamCur.Enabled = True
@@ -4478,13 +4467,13 @@ Public Class FrmSST4500_1_0_0E_Profile
         CmdPrfResultSave.Enabled = True
         ChkPrfAutoPrn.Enabled = True
 
-        配向角配向比ToolStripMenuItem.Enabled = True
-        伝播速度TSIToolStripMenuItem.Enabled = True
-        測定データ表ToolStripMenuItem.Enabled = True
-        手動印刷ToolStripMenuItem.Enabled = True
-        保存ToolStripMenuItem1.Enabled = True
-        自動印刷ToolStripMenuItem.Enabled = True
-        設定ToolStripMenuItem1.Enabled = True
+        AngRatToolStripMenuItem.Enabled = True
+        VeloTSIToolStripMenuItem.Enabled = True
+        MeasDataTableToolStripMenuItem.Enabled = True
+        ManualPrintToolStripMenuItem.Enabled = True
+        SaveExcelToolStripMenuItem1.Enabled = True
+        AutoPrintToolStripMenuItem.Enabled = True
+        SettingToolStripMenuItem1.Enabled = True
         CmdAngleRange.Enabled = True
         CmdVeloRange.Enabled = True
         CmdTSIRange.Enabled = True
@@ -4496,25 +4485,25 @@ Public Class FrmSST4500_1_0_0E_Profile
             TxtMarkBak.Enabled = True
             CmdOldDataLoad.Enabled = True
             CmdClsGraph.Enabled = True
-            読込ToolStripMenuItem.Enabled = True
-            グラフ消去ToolStripMenuItem.Enabled = True
-            過去データ表ToolStripMenuItem.Enabled = True
-            平均値データ表ToolStripMenuItem.Enabled = True
+            LoadToolStripMenuItem.Enabled = True
+            GraphDelToolStripMenuItem.Enabled = True
+            OldDataTableToolStripMenuItem.Enabled = True
+            AvgDataTableToolStripMenuItem.Enabled = True
             '            If FlgProfile = 3 Then
             '           CmdAvg.Enabled = True   'なぜ過去データの有無にかかわらず有効にしているのか？
             'ElseIf MeasDataMax = FileDataMax Then
             If MeasDataMax = FileDataMax Then
                 CmdAvg.Enabled = True
-                平均値ToolStripMenuItem.Enabled = True
+                AvgToolStripMenuItem.Enabled = True
             End If
         Else
             'AdmVisible_onofでコントロールされている
             CmdOldDataLoad.Enabled = False
             CmdAvg.Enabled = False
             CmdClsGraph.Enabled = False
-            読込ToolStripMenuItem.Enabled = False
-            平均値ToolStripMenuItem.Enabled = False
-            グラフ消去ToolStripMenuItem.Enabled = False
+            LoadToolStripMenuItem.Enabled = False
+            AvgToolStripMenuItem.Enabled = False
+            GraphDelToolStripMenuItem.Enabled = False
         End If
     End Sub
 
@@ -4529,19 +4518,19 @@ Public Class FrmSST4500_1_0_0E_Profile
         TxtPitch.Enabled = False
         TxtPoints.Enabled = False
 
-        単位ToolStripMenuItem.Enabled = False
-        読込ToolStripMenuItem.Enabled = False
-        グラフ消去ToolStripMenuItem.Enabled = False
-        平均値ToolStripMenuItem.Enabled = False
-        配向角配向比ToolStripMenuItem.Enabled = False
-        伝播速度TSIToolStripMenuItem.Enabled = False
-        測定データ表ToolStripMenuItem.Enabled = False
-        過去データ表ToolStripMenuItem.Enabled = False
-        平均値データ表ToolStripMenuItem.Enabled = False
-        保存ToolStripMenuItem1.Enabled = False
-        手動印刷ToolStripMenuItem.Enabled = False
-        自動印刷ToolStripMenuItem.Enabled = False
-        設定ToolStripMenuItem1.Enabled = False
+        UnitToolStripMenuItem.Enabled = False
+        LoadToolStripMenuItem.Enabled = False
+        GraphDelToolStripMenuItem.Enabled = False
+        AvgToolStripMenuItem.Enabled = False
+        AngRatToolStripMenuItem.Enabled = False
+        VeloTSIToolStripMenuItem.Enabled = False
+        MeasDataTableToolStripMenuItem.Enabled = False
+        OldDataTableToolStripMenuItem.Enabled = False
+        AvgDataTableToolStripMenuItem.Enabled = False
+        SaveExcelToolStripMenuItem1.Enabled = False
+        ManualPrintToolStripMenuItem.Enabled = False
+        AutoPrintToolStripMenuItem.Enabled = False
+        SettingToolStripMenuItem1.Enabled = False
 
         OptMm.Enabled = False
         OptInch.Enabled = False
@@ -6359,12 +6348,12 @@ Public Class FrmSST4500_1_0_0E_Profile
 
     Private Sub CmdClsGraph_Click(sender As Object, e As EventArgs) Handles CmdClsGraph.Click
         CmdAvg.Enabled = False
-        平均値ToolStripMenuItem.Enabled = False
+        AvgToolStripMenuItem.Enabled = False
 
         CmdPrfPrint.Enabled = False
-        手動印刷ToolStripMenuItem.Enabled = False
+        ManualPrintToolStripMenuItem.Enabled = False
         CmdPrfResultSave.Enabled = False
-        保存ToolStripMenuItem1.Enabled = False
+        SaveExcelToolStripMenuItem1.Enabled = False
 
         Points = TxtPoints.Text
 
@@ -7270,12 +7259,12 @@ Public Class FrmSST4500_1_0_0E_Profile
             {Me.MmToolStripMenuItem,
              Me.InchToolStripMenuItem}
 
-        Menu_AutoPrn = DirectCast(自動印刷ToolStripMenuItem, ToolStripMenuItem)
-        MenuPrn_AngleRatio = DirectCast(配向角配向比ToolStripMenuItem, ToolStripMenuItem)
-        MenuPrn_VeloTSI = DirectCast(伝播速度TSIToolStripMenuItem, ToolStripMenuItem)
-        MenuPrn_measData = DirectCast(測定データ表ToolStripMenuItem, ToolStripMenuItem)
-        MenuPrn_OldData = DirectCast(過去データ表ToolStripMenuItem, ToolStripMenuItem)
-        MenuPrn_AvgData = DirectCast(平均値データ表ToolStripMenuItem, ToolStripMenuItem)
+        Menu_AutoPrn = DirectCast(AutoPrintToolStripMenuItem, ToolStripMenuItem)
+        MenuPrn_AngleRatio = DirectCast(AngRatToolStripMenuItem, ToolStripMenuItem)
+        MenuPrn_VeloTSI = DirectCast(VeloTSIToolStripMenuItem, ToolStripMenuItem)
+        MenuPrn_measData = DirectCast(MeasDataTableToolStripMenuItem, ToolStripMenuItem)
+        MenuPrn_OldData = DirectCast(OldDataTableToolStripMenuItem, ToolStripMenuItem)
+        MenuPrn_AvgData = DirectCast(AvgDataTableToolStripMenuItem, ToolStripMenuItem)
     End Sub
 
     Private Sub SetPrintChk()
@@ -7579,7 +7568,7 @@ Public Class FrmSST4500_1_0_0E_Profile
         Using dialog As New SaveFileDialog
             With dialog
                 .InitialDirectory = cur_dir & DEF_CONST_FILE_FLD
-                .Title = "測定仕様ファイルの保存"
+                .Title = StrSaveMeasSpecFile
                 .Filter = filter_tmp
                 .FileName = StrFileName
 
@@ -7590,9 +7579,9 @@ Public Class FrmSST4500_1_0_0E_Profile
 
                     chk_filename = Strings.Left(Path.GetFileName(FilePath), 2)
                     If chk_filename <> chk_filehead Then
-                        MessageBox.Show("ファイル名の先頭は、必ず「" & chk_filehead & "」として下さい。" & vbCrLf &
-                                        "一旦保存処理を終了します。",
-                                        "ファイル名エラー",
+                        MessageBox.Show("File Nmae must start with """ & chk_filehead & """" & vbCrLf &
+                                        "Cancel the save process",
+                                        StrFileName,
                                         MessageBoxButtons.OK,
                                         MessageBoxIcon.Error)
                         Exit Sub
@@ -8168,7 +8157,7 @@ Rdg8:
 
         Dim MeasDataNum_cur As Integer = Val(TxtMeasNumCur.Text)
         If MeasDataNum_cur > 0 Then
-            string_tmp = "測定データ  測定　日付：" & DataDate_cur & "　 時間：" & DataTime_cur
+            string_tmp = StrMeasDataDate & DataDate_cur & StrMeasTime & DataTime_cur
             stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
             e.Graphics.DrawString(string_tmp, fnt_10, print_curdata_brush,
                                   paper_width - stringSize.Width, 0)
@@ -8207,32 +8196,32 @@ Rdg8:
                      paper_width, prfspec_hyoutop + (cell_height25 * 2))
 
         '測定仕様　タイトル
-        string_tmp = "マシーンNo."
+        string_tmp = StrMachNo
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
         e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               machno_width + cell_padding_left,
                               title_height + gyou_height25 + cell_height25 / 2 - stringSize.Height / 2)
-        string_tmp = "サンプル名"
+        string_tmp = StrSampleName
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
         e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               machno_width + 150 + cell_padding_left,
                               title_height + gyou_height25 + cell_height25 / 2 - stringSize.Height / 2)
-        string_tmp = "マーク"
+        string_tmp = StrMark
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
         e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               paper_width - (100 + 100 + 100) + cell_padding_left,
                               title_height + gyou_height25 + cell_height25 / 2 - stringSize.Height / 2)
-        string_tmp = "測定回数"
+        string_tmp = StrMeasNumber
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
         e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               paper_width - 100 - 100 + cell_padding_left,
                               title_height + gyou_height25 + cell_height25 / 2 - stringSize.Height / 2)
-        string_tmp = "測定ロット数"
+        string_tmp = StrMeasLot
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
         e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               paper_width - 100 + cell_padding_left,
                               title_height + gyou_height25 + cell_height25 / 2 - stringSize.Height / 2)
-        string_tmp = "測定仕様"
+        string_tmp = StrMeasSpec
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
         e.Graphics.DrawString(string_tmp, fnt_10, print_curdata_brush,
                               cell_padding_left,
@@ -8290,7 +8279,7 @@ Rdg8:
         path.AddLine(datahyou_width, angle_hyou_top,
                      datahyou_width, angle_hyou_top + cell_height25 * 5)
 
-        string_tmp = "配向角[deg.]"
+        string_tmp = StrOrientAng
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
         e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               datahyou_width / 2 - stringSize.Width / 2,
@@ -8310,7 +8299,7 @@ Rdg8:
         e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               datacell_width * 0 + datacell_width / 2 - stringSize.Width / 2,
                               angle_hyou_top + cell_height25 * 2 + cell_height25 / 2 - stringSize.Height / 2)
-        string_tmp = "Avg."
+        string_tmp = "Ave."
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
         e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               datacell_width * 0 + datacell_width / 2 - stringSize.Width / 2,
@@ -8388,7 +8377,7 @@ Rdg8:
         path.AddLine(datahyou_width, ratio_hyou_top,
                      datahyou_width, ratio_hyou_top + cell_height25 * 5)
 
-        string_tmp = "配向比"
+        string_tmp = StrOrientRat
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
         e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               datahyou_width / 2 - stringSize.Width / 2,
@@ -8408,7 +8397,7 @@ Rdg8:
         e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               datacell_width * 0 + datacell_width / 2 - stringSize.Width / 2,
                               ratio_hyou_top + cell_height25 * 2 + cell_height25 / 2 - stringSize.Height / 2)
-        string_tmp = "Avg."
+        string_tmp = "Ave."
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
         e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               datacell_width * 0 + datacell_width / 2 - stringSize.Width / 2,
@@ -8520,7 +8509,7 @@ Rdg8:
         '測定データの測定日時
         Dim MeasDataNum_cur As Integer = Val(TxtMeasNumCur.Text)
         If MeasDataNum_cur > 0 Then
-            string_tmp = "測定データ  測定　日付：" & DataDate_cur & "　 時間：" & DataTime_cur
+            string_tmp = StrMeasDataDate & DataDate_cur & StrMeasTime & DataTime_cur
             stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
             e.Graphics.DrawString(string_tmp, fnt_10, print_curdata_brush,
                                   paper_width - stringSize.Width, 0)
@@ -8529,7 +8518,7 @@ Rdg8:
         '過去データの測定日時
         Dim MeasDataNo_bak As Integer = Val(TxtMeasNumBak.Text)
         If MeasDataNo_bak > 0 Then
-            string_tmp = "過去データ  測定　日付：" & DataDate_bak & "   時間：" & DataTime_bak
+            string_tmp = StrPastDataDate & DataDate_bak & StrMeasTime & DataTime_bak
             stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
             e.Graphics.DrawString(string_tmp, fnt_10, print_olddata_brush,
                                   paper_width - stringSize.Width, stringSize.Height + 5)
@@ -8571,39 +8560,39 @@ Rdg8:
                      paper_width, prfspec_hyoutop + (cell_height25 * 3))
 
         '測定仕様　タイトル
-        string_tmp = "マシーンNo."
+        string_tmp = StrMachNo
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
         e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               machno_width + cell_padding_left,
                               prfspec_hyoutop + cell_height25 / 2 - stringSize.Height / 2)
-        string_tmp = "サンプル名"
+        string_tmp = StrSampleName
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
         e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               machno_width + 150 + cell_padding_left,
                               prfspec_hyoutop + cell_height25 / 2 - stringSize.Height / 2)
         If FlgDBF = 1 Then
-            string_tmp = "マーク"
+            string_tmp = StrMark
             stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
             e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                                   paper_width - (100 + 100 + 100) + cell_padding_left,
                                   prfspec_hyoutop + cell_height25 / 2 - stringSize.Height / 2)
         End If
-        string_tmp = "測定回数"
+        string_tmp = StrMeasNumber
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
         e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               paper_width - (100 + 100) + cell_padding_left,
                               prfspec_hyoutop + cell_height25 / 2 - stringSize.Height / 2)
-        string_tmp = "測定ロット数"
+        string_tmp = StrMeasLot
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
         e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               paper_width - 100 + cell_padding_left,
                               prfspec_hyoutop + cell_height25 / 2 - stringSize.Height / 2)
-        string_tmp = "測定仕様"
+        string_tmp = StrMeasSpec
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
         e.Graphics.DrawString(string_tmp, fnt_10, print_curdata_brush,
                               cell_padding_left,
                               prfspec_hyoutop + (cell_height25 * 1) + cell_height25 / 2 - stringSize.Height / 2)
-        string_tmp = "過去の仕様"
+        string_tmp = StrPastMeasSpec
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
         e.Graphics.DrawString(string_tmp, fnt_10, print_olddata_brush,
                               cell_padding_left,
@@ -8705,7 +8694,7 @@ Rdg8:
         path.AddLine(datahyou_width, angle_hyou_top,
                      datahyou_width, angle_hyou_top + cell_height25 * 6)
 
-        string_tmp = "配向角[deg.]"
+        string_tmp = StrOrientAng
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
         e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               datahyou_width / 2 - stringSize.Width / 2,
@@ -8720,7 +8709,7 @@ Rdg8:
         e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               datacell_width * 4 - stringSize.Width / 2,
                               angle_hyou_top + cell_height25 + cell_height25 / 2 - stringSize.Height / 2)
-        string_tmp = "測定データ"
+        string_tmp = StrMeasData
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
         e.Graphics.DrawString(string_tmp, fnt_10, print_curdata_brush,
                               datacell_width * 1 + datacell_width / 2 - stringSize.Width / 2,
@@ -8728,7 +8717,7 @@ Rdg8:
         e.Graphics.DrawString(string_tmp, fnt_10, print_curdata_brush,
                               datacell_width * 3 + datacell_width / 2 - stringSize.Width / 2,
                               angle_hyou_top + cell_height25 * 2 + cell_height25 / 2 - stringSize.Height / 2)
-        string_tmp = "過去データ"
+        string_tmp = StrPastData
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
         e.Graphics.DrawString(string_tmp, fnt_10, print_olddata_brush,
                               datacell_width * 2 + datacell_width / 2 - stringSize.Width / 2,
@@ -8741,7 +8730,7 @@ Rdg8:
         e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               datacell_width / 2 - stringSize.Width / 2,
                               angle_hyou_top + cell_height25 * 3 + cell_height25 / 2 - stringSize.Height / 2)
-        string_tmp = "Avg."
+        string_tmp = "Ave."
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
         e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               datacell_width / 2 - stringSize.Width / 2,
@@ -8855,7 +8844,7 @@ Rdg8:
         path.AddLine(datahyou_width, ratio_hyou_top,
                      datahyou_width, ratio_hyou_top + cell_height25 * 6)
 
-        string_tmp = "配向比"
+        string_tmp = StrOrientRat
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
         e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               datahyou_width / 2 - stringSize.Width / 2,
@@ -8870,7 +8859,7 @@ Rdg8:
         e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               datacell_width * 4 - stringSize.Width / 2,
                               ratio_hyou_top + cell_height25 + cell_height25 / 2 - stringSize.Height / 2)
-        string_tmp = "測定データ"
+        string_tmp = StrMeasData
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
         e.Graphics.DrawString(string_tmp, fnt_10, print_curdata_brush,
                               datacell_width * 1 + datacell_width / 2 - stringSize.Width / 2,
@@ -8878,7 +8867,7 @@ Rdg8:
         e.Graphics.DrawString(string_tmp, fnt_10, print_curdata_brush,
                               datacell_width * 3 + datacell_width / 2 - stringSize.Width / 2,
                               ratio_hyou_top + cell_height25 * 2 + cell_height25 / 2 - stringSize.Height / 2)
-        string_tmp = "過去データ"
+        string_tmp = StrPastData
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
         e.Graphics.DrawString(string_tmp, fnt_10, print_olddata_brush,
                               datacell_width * 2 + datacell_width / 2 - stringSize.Width / 2,
@@ -8891,7 +8880,7 @@ Rdg8:
         e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               datacell_width / 2 - stringSize.Width / 2,
                               ratio_hyou_top + cell_height25 * 3 + cell_height25 / 2 - stringSize.Height / 2)
-        string_tmp = "Avg."
+        string_tmp = "Ave."
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
         e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               datacell_width / 2 - stringSize.Width / 2,
@@ -9025,7 +9014,7 @@ Rdg8:
 
         Dim MeasDataNum_cur As Integer = Val(TxtMeasNumCur.Text)
         If MeasDataNum_cur > 0 Then
-            string_tmp = "測定データ  測定　日付：" & DataDate_cur & "　 時間：" & DataTime_cur
+            string_tmp = StrMeasDataDate & DataDate_cur & StrMeasTime & DataTime_cur
             stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
             e.Graphics.DrawString(string_tmp, fnt_10, print_curdata_brush,
                                   paper_width - stringSize.Width, 0)
@@ -9067,34 +9056,34 @@ Rdg8:
                      paper_width, prfspec_hyoutop + (cell_height25 * 2))
 
         '測定仕様　タイトル
-        string_tmp = "マシーンNo."
+        string_tmp = StrMachNo
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
         e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               120 + cell_padding_left,
                               title_height + gyou_height25 + cell_height25 / 2 - stringSize.Height / 2)
-        string_tmp = "サンプル名"
+        string_tmp = StrSampleName
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
         e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               120 + 150 + cell_padding_left,
                               title_height + gyou_height25 + cell_height25 / 2 - stringSize.Height / 2)
         If FlgDBF = 1 Then
-            string_tmp = "マーク"
+            string_tmp = StrMark
             stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
             e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                                   paper_width - (100 + 100 + 100) + cell_padding_left,
                                   title_height + gyou_height25 + cell_height25 / 2 - stringSize.Height / 2)
         End If
-        string_tmp = "測定回数"
+        string_tmp = StrMeasNumber
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
         e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               paper_width - (100 + 100) + cell_padding_left,
                               title_height + gyou_height25 + cell_height25 / 2 - stringSize.Height / 2)
-        string_tmp = "測定ロット数"
+        string_tmp = StrMeasLot
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
         e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               paper_width - 100 + cell_padding_left,
                               title_height + gyou_height25 + cell_height25 / 2 - stringSize.Height / 2)
-        string_tmp = "測定仕様"
+        string_tmp = StrMeasSpec
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
         e.Graphics.DrawString(string_tmp, fnt_10, print_curdata_brush,
                               cell_padding_left,
@@ -9154,7 +9143,7 @@ Rdg8:
         path.AddLine(velohyou_width, velo_hyou_top,
                      velohyou_width, velo_hyou_top + cell_height25 * 5)
 
-        string_tmp = "伝播速度[Km/S]"
+        string_tmp = StrPropVelo_nounit
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
         e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               velohyou_width / 2 - stringSize.Width / 2,
@@ -9184,7 +9173,7 @@ Rdg8:
         e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               datacell_width * 0 + datacell_width / 2 - stringSize.Width / 2,
                               velo_hyou_top + cell_height25 * 2 + cell_height25 / 2 - stringSize.Height / 2)
-        string_tmp = "Avg."
+        string_tmp = "Ave."
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
         e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               datacell_width * 0 + datacell_width / 2 - stringSize.Width / 2,
@@ -9288,7 +9277,7 @@ Rdg8:
         e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               datacell_width * 0 + datacell_width / 2 - stringSize.Width / 2,
                               tsi_hyou_top + cell_height25 * 2 + cell_height25 / 2 - stringSize.Height / 2)
-        string_tmp = "Avg."
+        string_tmp = "Ave."
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
         e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               datacell_width * 0 + datacell_width / 2 - stringSize.Width / 2,
@@ -9410,7 +9399,7 @@ Rdg8:
         '測定データの測定日時
         Dim MeasDataNum_cur As Integer = Val(TxtMeasNumCur.Text)
         If MeasDataNum_cur > 0 Then
-            string_tmp = "測定データ  測定　日付：" & DataDate_cur & "　 時間：" & DataTime_cur
+            string_tmp = StrMeasDataDate & DataDate_cur & StrMeasTime & DataTime_cur
             stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
             e.Graphics.DrawString(string_tmp, fnt_10, print_curdata_brush,
                                   paper_width - stringSize.Width, 0)
@@ -9420,7 +9409,7 @@ Rdg8:
         'Dim MeasDataNo_bak As Integer = Val(TxtMeasNumBak.Text)
         Dim MeasDataNo_bak As Integer = Val(TxtMeasNumBak.Text)
         If MeasDataNo_bak > 0 Then
-            string_tmp = "過去データ  測定　日付：" & DataDate_bak & "   時間：" & DataTime_bak
+            string_tmp = StrPastDataDate & DataDate_bak & StrMeasTime & DataTime_bak
             stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
             e.Graphics.DrawString(string_tmp, fnt_10, print_olddata_brush,
                                   paper_width - stringSize.Width, stringSize.Height + 5)
@@ -9462,39 +9451,39 @@ Rdg8:
                      paper_width, prfspec_hyoutop + (cell_height25 * 3))
 
         '測定仕様　タイトル
-        string_tmp = "マシーンNo."
+        string_tmp = StrMachNo
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
         e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               120 + cell_padding_left,
                               prfspec_hyoutop + cell_height25 / 2 - stringSize.Height / 2)
-        string_tmp = "サンプル名"
+        string_tmp = StrSampleName
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
         e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               120 + 150 + cell_padding_left,
                               prfspec_hyoutop + cell_height25 / 2 - stringSize.Height / 2)
         If FlgDBF = 1 Then
-            string_tmp = "マーク"
+            string_tmp = StrMark
             stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
             e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                                   paper_width - (100 + 100 + 100) + cell_padding_left,
                                   prfspec_hyoutop + cell_height25 / 2 - stringSize.Height / 2)
         End If
-        string_tmp = "測定回数"
+        string_tmp = StrMeasNumber
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
         e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               paper_width - 100 - 100 + cell_padding_left,
                               prfspec_hyoutop + cell_height25 / 2 - stringSize.Height / 2)
-        string_tmp = "測定ロット数"
+        string_tmp = StrMeasLot
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
         e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               paper_width - 100 + cell_padding_left,
                               prfspec_hyoutop + cell_height25 / 2 - stringSize.Height / 2)
-        string_tmp = "測定仕様"
+        string_tmp = StrMeasSpec
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
         e.Graphics.DrawString(string_tmp, fnt_10, print_curdata_brush,
                               cell_padding_left,
                               prfspec_hyoutop + (cell_height25 * 1) + cell_height25 / 2 - stringSize.Height / 2)
-        string_tmp = "過去の仕様"
+        string_tmp = StrPastMeasSpec
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
         e.Graphics.DrawString(string_tmp, fnt_10, print_olddata_brush,
                               cell_padding_left,
@@ -9600,7 +9589,7 @@ Rdg8:
         path.AddLine(velohyou_width, velo_hyou_top,
                      velohyou_width, velo_hyou_top + cell_height25 * 6)
 
-        string_tmp = "伝播速度[Km/S]"
+        string_tmp = StrPropVelo_nounit
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
         e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               velohyou_width / 2 - stringSize.Width / 2,
@@ -9625,7 +9614,7 @@ Rdg8:
         e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               datacell_width * 8 - stringSize.Width / 2,
                               velo_hyou_top + cell_height25 + cell_height25 / 2 - stringSize.Height / 2)
-        string_tmp = "測定データ"
+        string_tmp = StrMeasData
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
         e.Graphics.DrawString(string_tmp, fnt_10, print_curdata_brush,
                               datacell_width * 1 + datacell_width / 2 - stringSize.Width / 2,
@@ -9639,7 +9628,7 @@ Rdg8:
         e.Graphics.DrawString(string_tmp, fnt_10, print_curdata_brush,
                               datacell_width * 7 + datacell_width / 2 - stringSize.Width / 2,
                               velo_hyou_top + cell_height25 * 2 + cell_height25 / 2 - stringSize.Height / 2)
-        string_tmp = "過去データ"
+        string_tmp = StrPastData
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
         e.Graphics.DrawString(string_tmp, fnt_10, print_olddata_brush,
                               datacell_width * 2 + datacell_width / 2 - stringSize.Width / 2,
@@ -9658,7 +9647,7 @@ Rdg8:
         e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               datacell_width / 2 - stringSize.Width / 2,
                               velo_hyou_top + cell_height25 * 3 + cell_height25 / 2 - stringSize.Height / 2)
-        string_tmp = "Avg."
+        string_tmp = "Ave."
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
         e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               datacell_width / 2 - stringSize.Width / 2,
@@ -9798,7 +9787,7 @@ Rdg8:
         e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               datacell_width * 4 - stringSize.Width / 2,
                               tsi_hyou_top + cell_height25 + cell_height25 / 2 - stringSize.Height / 2)
-        string_tmp = "測定データ"
+        string_tmp = StrMeasData
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
         e.Graphics.DrawString(string_tmp, fnt_10, print_curdata_brush,
                               datacell_width * 1 + datacell_width / 2 - stringSize.Width / 2,
@@ -9806,7 +9795,7 @@ Rdg8:
         e.Graphics.DrawString(string_tmp, fnt_10, print_curdata_brush,
                               datacell_width * 3 + datacell_width / 2 - stringSize.Width / 2,
                               tsi_hyou_top + cell_height25 * 2 + cell_height25 / 2 - stringSize.Height / 2)
-        string_tmp = "過去データ"
+        string_tmp = StrPastData
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
         e.Graphics.DrawString(string_tmp, fnt_10, print_olddata_brush,
                               datacell_width * 2 + datacell_width / 2 - stringSize.Width / 2,
@@ -9819,7 +9808,7 @@ Rdg8:
         e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               datacell_width / 2 - stringSize.Width / 2,
                               tsi_hyou_top + cell_height25 * 3 + cell_height25 / 2 - stringSize.Height / 2)
-        string_tmp = "Avg."
+        string_tmp = "Ave."
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
         e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               datacell_width / 2 - stringSize.Width / 2,
@@ -9986,13 +9975,13 @@ Rdg8:
 
         Select Case select_data
             Case PDMeasDataEnum
-                sub_title = "測定データ"
+                sub_title = StrMeasData
             Case PDOldDataEnum
-                sub_title = "過去データ"
+                sub_title = StrPastData
             Case PDAvgDataEnum
-                sub_title = "平均値データ"
+                sub_title = StrAvgValue
             Case Else
-                sub_title = "測定データ"
+                sub_title = StrMeasData
         End Select
 
         string_tmp = My.Application.Info.ProductName & " " & LblPrfTitle.Text & " " & sub_title
@@ -10020,7 +10009,7 @@ Rdg8:
             e.Graphics.DrawString(string_tmp, fnt_14, printfc_brush, 0, 0)
             string_tmp = curPrnPageNumber
             stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-            e.Graphics.DrawString(curPrnPageNumber & "ページ", fnt_10, printfc_brush, title_width + 5, title_height - stringSize.Height)
+            e.Graphics.DrawString(curPrnPageNumber & "Page", fnt_10, printfc_brush, title_width + 5, title_height - stringSize.Height)
 
             '測定仕様枠
             Dim prfspec_hyourowend As Integer
@@ -10060,7 +10049,7 @@ Rdg8:
 
             Dim MeasDataNum_cur As Integer = Val(TxtMeasNumCur.Text)
             If MeasDataNum_cur > 0 Then
-                string_tmp = "測定データ  測定　日付：" & DataDate_cur & "   時間：" & DataTime_cur
+                string_tmp = StrMeasDataDate & DataDate_cur & StrMeasTime & DataTime_cur
                 stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
                 e.Graphics.DrawString(string_tmp, fnt_10, print_curdata_brush,
                                       paper_width - stringSize.Width, 0)
@@ -10069,47 +10058,47 @@ Rdg8:
             If FlgAdmin <> 0 Then
                 Dim MeasDataNum_bak As Integer = Val(TxtMeasNumBak.Text)
                 If MeasDataNum_bak > 0 Then
-                    string_tmp = "過去データ  測定  日付：" & DataDate_bak & "   時間：" & DataTime_bak
+                    string_tmp = StrPastDataDate & DataDate_bak & StrMeasTime & DataTime_bak
                     stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
                     e.Graphics.DrawString(string_tmp, fnt_10, print_olddata_brush,
                                           paper_width - stringSize.Width, stringSize.Height + 5)
                 End If
             End If
 
-            string_tmp = "マシーンNo."
+            string_tmp = StrMachNo
             stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
             e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                                   120 + cell_padding_left,
                                   title_height + gyou_height25 + cell_height25 / 2 - stringSize.Height / 2)
-            string_tmp = "サンプル名"
+            string_tmp = StrSampleName
             stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
             e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                                   120 + 150 + cell_padding_left,
                                   title_height + gyou_height25 + cell_height25 / 2 - stringSize.Height / 2)
             If FlgDBF = 1 Then
-                string_tmp = "マーク"
+                string_tmp = StrMark
                 stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
                 e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                                       paper_width - (100 + 100 + 100) + cell_padding_left,
                                       title_height + gyou_height25 + cell_height25 / 2 - stringSize.Height / 2)
             End If
-            string_tmp = "測定回数"
+            string_tmp = StrMeasNumber
             stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
             e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                                   paper_width - (100 + 100) + cell_padding_left,
                                   title_height + gyou_height25 + cell_height25 / 2 - stringSize.Height / 2)
-            string_tmp = "測定ロット数"
+            string_tmp = StrMeasLot
             stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
             e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                                   paper_width - 100 + cell_padding_left,
                                   title_height + gyou_height25 + cell_height25 / 2 - stringSize.Height / 2)
-            string_tmp = "測定仕様"
+            string_tmp = StrMeasSpec
             stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
             e.Graphics.DrawString(string_tmp, fnt_10, print_curdata_brush,
                                   cell_padding_left,
                                   title_height + gyou_height25 + (cell_height25 * 1) + cell_height25 / 2 - stringSize.Height / 2)
             If FlgAdmin <> 0 Then
-                string_tmp = "過去の仕様"
+                string_tmp = StrPastMeasSpec
                 stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
                 e.Graphics.DrawString(string_tmp, fnt_10, print_olddata_brush,
                                       cell_padding_left,
@@ -10222,22 +10211,22 @@ Rdg8:
             e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                                   dv_col1_width / 2 - stringSize.Width / 2,
                                   prfdata_hyoutop + cell_height25 - stringSize.Height / 2)
-            string_tmp = "配向角[deg.]"
+            string_tmp = StrOrientAng
             stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
             e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                                   dv_col1_width + dv_datacol_width - stringSize.Width / 2,
                                   prfdata_hyoutop + cell_height25 / 2 - stringSize.Height / 2)
-            string_tmp = "配向比"
+            string_tmp = StrOrientRat
             stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
             e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                                   dv_col1_width + dv_datacol_width * 2 + dv_datacol_width - stringSize.Width / 2,
                                   prfdata_hyoutop + cell_height25 / 2 - stringSize.Height / 2)
-            string_tmp = "伝播速度[Km/S]"
+            string_tmp = StrPropVelo_nounit
             stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
             e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                                   dv_col1_width + dv_datacol_width * 4 + dv_datacol_width - stringSize.Width / 2,
                                   prfdata_hyoutop + cell_height25 / 2 - stringSize.Height / 2)
-            string_tmp = "伝播速度[Km/S]"
+            string_tmp = StrPropVelo_nounit
             stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
             e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                                   dv_col1_width + dv_datacol_width * 6 + dv_datacol_width - stringSize.Width / 2,
@@ -10302,7 +10291,7 @@ Rdg8:
             e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                                   dv_col1_width / 2 - stringSize.Width / 2,
                                   prfdata_hyoutop + cell_height25 * 2 + cell_height25 / 2 - stringSize.Height / 2)
-            string_tmp = "Avg."
+            string_tmp = "Ave."
             stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
             e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                                   dv_col1_width / 2 - stringSize.Width / 2,
@@ -10610,7 +10599,7 @@ Rdg8:
             e.Graphics.DrawString(string_tmp, fnt_14, printfc_brush, 0, 0)
             string_tmp = curPrnPageNumber
             stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
-            e.Graphics.DrawString(curPrnPageNumber & "ページ", fnt_10, printfc_brush, title_width + 5, title_height - stringSize.Height)
+            e.Graphics.DrawString(curPrnPageNumber & "Page", fnt_10, printfc_brush, title_width + 5, title_height - stringSize.Height)
 
             '測定仕様枠
             Dim prfspec_hyourowend As Integer
@@ -10650,7 +10639,7 @@ Rdg8:
 
             Dim MeasDataNum_cur As Integer = Val(TxtMeasNumCur.Text)
             If MeasDataNum_cur > 0 Then
-                string_tmp = "測定データ  測定　日付：" & DataDate_cur & "   時間：" & DataTime_cur
+                string_tmp = StrMeasDataDate & DataDate_cur & StrMeasTime & DataTime_cur
                 stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
                 e.Graphics.DrawString(string_tmp, fnt_10, print_curdata_brush,
                                       paper_width - stringSize.Width, 0)
@@ -10660,47 +10649,47 @@ Rdg8:
                 'Dim MeasDataNum_bak As Integer = Val(TxtMeasNumBak.Text)
                 Dim MeasDataNum_bak As Integer = Val(TxtMeasNumBak.Text)
                 If MeasDataNum_bak > 0 Then
-                    string_tmp = "過去データ  測定  日付：" & DataDate_bak & "   時間：" & DataTime_bak
+                    string_tmp = StrPastDataDate & DataDate_bak & StrMeasTime & DataTime_bak
                     stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
                     e.Graphics.DrawString(string_tmp, fnt_10, print_olddata_brush,
                                           paper_width - stringSize.Width, stringSize.Height + 5)
                 End If
             End If
 
-            string_tmp = "マシーンNo."
+            string_tmp = StrMachNo
             stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
             e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                                   120 + cell_padding_left,
                                   title_height + gyou_height25 + cell_height25 / 2 - stringSize.Height / 2)
-            string_tmp = "サンプル名"
+            string_tmp = StrSampleName
             stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
             e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                                   120 + 150 + cell_padding_left,
                                   title_height + gyou_height25 + cell_height25 / 2 - stringSize.Height / 2)
             If FlgDBF = 1 Then
-                string_tmp = "マーク"
+                string_tmp = StrMark
                 stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
                 e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                                   paper_width - (100 + 100 + 100) + cell_padding_left,
                                   title_height + gyou_height25 + cell_height25 / 2 - stringSize.Height / 2)
             End If
-            string_tmp = "測定回数"
+            string_tmp = StrMeasNumber
             stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
             e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                                   paper_width - (100 + 100) + cell_padding_left,
                                   title_height + gyou_height25 + cell_height25 / 2 - stringSize.Height / 2)
-            string_tmp = "測定ロット数"
+            string_tmp = StrMeasLot
             stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
             e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                                   paper_width - 100 + cell_padding_left,
                                   title_height + gyou_height25 + cell_height25 / 2 - stringSize.Height / 2)
-            string_tmp = "測定仕様"
+            string_tmp = StrMeasSpec
             stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
             e.Graphics.DrawString(string_tmp, fnt_10, print_curdata_brush,
                                   cell_padding_left,
                                   title_height + gyou_height25 + (cell_height25 * 1) + cell_height25 / 2 - stringSize.Height / 2)
             If FlgAdmin <> 0 Then
-                string_tmp = "過去の仕様"
+                string_tmp = StrPastMeasSpec
                 stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
                 e.Graphics.DrawString(string_tmp, fnt_10, print_olddata_brush,
                                       cell_padding_left,
@@ -10804,22 +10793,22 @@ Rdg8:
             e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                                   dv_col1_width / 2 - stringSize.Width / 2,
                                   prfdata_hyoutop + cell_height25 - stringSize.Height / 2)
-            string_tmp = "配向角[deg.]"
+            string_tmp = StrOrientAng
             stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
             e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                                   dv_col1_width + dv_datacol_width - stringSize.Width / 2,
                                   prfdata_hyoutop + cell_height25 / 2 - stringSize.Height / 2)
-            string_tmp = "配向比"
+            string_tmp = StrOrientRat
             stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
             e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                                   dv_col1_width + dv_datacol_width * 2 + dv_datacol_width - stringSize.Width / 2,
                                   prfdata_hyoutop + cell_height25 / 2 - stringSize.Height / 2)
-            string_tmp = "伝播速度[Km/S]"
+            string_tmp = StrPropVelo_nounit
             stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
             e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                                   dv_col1_width + dv_datacol_width * 4 + dv_datacol_width - stringSize.Width / 2,
                                   prfdata_hyoutop + cell_height25 / 2 - stringSize.Height / 2)
-            string_tmp = "伝播速度[Km/S]"
+            string_tmp = StrPropVelo_nounit
             stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
             e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                                   dv_col1_width + dv_datacol_width * 6 + dv_datacol_width - stringSize.Width / 2,
@@ -11272,7 +11261,7 @@ Rdg8:
 
     Private Sub PrfResultSave()
         CmdPrfResultSave.Enabled = False
-        CmdPrfResultSave.Text = "保存中"
+        CmdPrfResultSave.Text = "Saving"
 
         Dim Ret As DialogResult
         Dim FilePath As String = ""
@@ -11288,15 +11277,15 @@ Rdg8:
         Dim excelBooks As Excel.Workbooks = excelApp.Workbooks
         Dim excelBook As Excel.Workbook = excelBooks.Add()
         Dim sheet1 As Excel.Worksheet = excelApp.Worksheets.Add()
-        sheet1.Name = "配向角・配向比"
+        sheet1.Name = "Orientation Angle・Ratio"
         Dim sheet2 As Excel.Worksheet = excelApp.Worksheets.Add(, sheet1, 1, Excel.XlSheetType.xlWorksheet)
-        sheet2.Name = "伝播速度・TSI"
+        sheet2.Name = "Propagation Velocity・TSI"
         Dim sheet3 As Excel.Worksheet = excelApp.Worksheets.Add(, sheet2, 1, Excel.XlSheetType.xlWorksheet)
-        sheet3.Name = "測定データ"
+        sheet3.Name = "Meas.Data"
         Dim sheet4 As Excel.Worksheet = excelApp.Worksheets.Add(, sheet3, 1, Excel.XlSheetType.xlWorksheet)
-        sheet4.Name = "過去データ"
+        sheet4.Name = "Past Data"
         Dim sheet5 As Excel.Worksheet = excelApp.Worksheets.Add(, sheet4, 1, Excel.XlSheetType.xlWorksheet)
-        sheet5.Name = "平均値データ"
+        sheet5.Name = "Ave.Value Data"
 
         Try
             Using dialog As New SaveFileDialog
@@ -11312,8 +11301,8 @@ Rdg8:
                             .InitialDirectory = SG_ResultSave_path
                     End Select
 
-                    .Title = "測定結果保存"
-                    .Filter = "Excelファイル(*.xlsx)|*.xlsx"
+                    .Title = StrSaveMeasResult
+                    .Filter = "Excel File(*.xlsx)|*.xlsx"
 
                     SaveDate = Now.ToString("yyyyMMdd")
                     SaveTime = Now.ToString("HHmmss")
@@ -11354,23 +11343,23 @@ Rdg8:
 
                                 .Cells(1, 1) = My.Application.Info.ProductName & " " & LblPrfTitle.Text
                                 .Range(.Cells(1, 1), .Cells(1, 1)).Font.Color = frm_PrfForm_fc
-                                .Cells(2, 1) = "測定データ 測定　日付：" & DataDate_cur & "  時間：" & DataTime_cur
+                                .Cells(2, 1) = StrMeasDataDate & DataDate_cur & StrMeasTime & DataTime_cur
                                 .Range(.Cells(2, 1), .Cells(2, 1)).Font.Color = frm_PrfCurData_color
                                 .Range(.Cells(1, 1), .Cells(2, 1)).Locked = True
 
-                                .Cells(4, 2) = "マシーンNo."
-                                .Cells(4, 3) = "サンプル名"
+                                .Cells(4, 2) = StrMachNo
+                                .Cells(4, 3) = StrSampleName
                                 If FlgDBF = 1 Then
-                                    .Cells(4, 4) = "マーク"
-                                    .Cells(4, 5) = "測定回数"
-                                    .Cells(4, 6) = "測定ロット数"
+                                    .Cells(4, 4) = StrMark
+                                    .Cells(4, 5) = StrMeasNumber
+                                    .Cells(4, 6) = StrMeasLot
                                     .Range(.Cells(4, 2), .Cells(4, 6)).Font.Color = frm_PrfForm_fc
                                 Else
-                                    .Cells(4, 4) = "測定回数"
-                                    .Cells(4, 5) = "測定ロット数"
+                                    .Cells(4, 4) = StrMeasNumber
+                                    .Cells(4, 5) = StrMeasLot
                                     .Range(.Cells(4, 2), .Cells(4, 5)).Font.Color = frm_PrfForm_fc
                                 End If
-                                .Cells(5, 1) = "測定仕様"
+                                .Cells(5, 1) = StrMeasSpec
                                 .Cells(5, 2) = TxtMachNoCur.Text
                                 .Cells(5, 3) = TxtSmplNamCur.Text
                                 If FlgDBF = 1 Then
@@ -11391,12 +11380,12 @@ Rdg8:
                                 '.Range(.Cells(4, 1), .Cells(5, 5)).Interior.Color = frm_PrfGraph_bc
                                 'End If
                                 .Range(.Cells(7, 1), .Cells(7, 3)).MergeCells = True
-                                .Cells(7, 1) = "配向角[deg.]"
+                                .Cells(7, 1) = StrOrientAng
                                 .Cells(8, 2) = "Peak"
                                 .Cells(8, 3) = "Deep"
                                 .Range(.Cells(7, 1), .Cells(8, 3)).Font.Color = frm_PrfForm_fc
                                 .Cells(9, 1) = "Max."
-                                .Cells(10, 1) = "Avg."
+                                .Cells(10, 1) = "Ave."
                                 .Cells(11, 1) = "Min."
                                 .Range(.Cells(9, 1), .Cells(11, 1)).Font.Color = frm_PrfForm_fc
                                 .Cells(9, 2) = LblAnglePkMax_nom.Text
@@ -11438,12 +11427,12 @@ Rdg8:
                                 ratio_top_row = 13 + i + 1
 
                                 .Range(.Cells(ratio_top_row, 1), .Cells(ratio_top_row, 3)).MergeCells = True
-                                .Cells(ratio_top_row, 1) = "配向比"
+                                .Cells(ratio_top_row, 1) = StrOrientRat
                                 .Cells(ratio_top_row + 1, 2) = "Peak/Deep"
                                 .Cells(ratio_top_row + 1, 3) = "MD/CD"
                                 .Range(.Cells(ratio_top_row, 1), .Cells(ratio_top_row + 1, 3)).Font.Color = frm_PrfForm_fc
                                 .Cells(ratio_top_row + 2, 1) = "Max."
-                                .Cells(ratio_top_row + 3, 1) = "Avg."
+                                .Cells(ratio_top_row + 3, 1) = "Ave."
                                 .Cells(ratio_top_row + 4, 1) = "Min."
                                 .Range(.Cells(ratio_top_row + 2, 1), .Cells(ratio_top_row + 4, 1)).Font.Color = frm_PrfForm_fc
                                 .Cells(ratio_top_row + 2, 2) = LblRatioPkDpMax_nom.Text
@@ -11491,23 +11480,23 @@ Rdg8:
 
                                 .Cells(1, 1) = My.Application.Info.ProductName & " " & LblPrfTitle.Text
                                 .Range(.Cells(1, 1), .Cells(1, 1)).Font.Color = frm_PrfForm_fc
-                                .Cells(2, 1) = "測定データ 測定　日付：" & DataDate_cur & "  時間：" & DataTime_cur
+                                .Cells(2, 1) = StrMeasDataDate & DataDate_cur & StrMeasTime & DataTime_cur
                                 .Range(.Cells(2, 1), .Cells(2, 1)).Font.Color = frm_PrfCurData_color
                                 .Range(.Cells(1, 1), .Cells(2, 1)).Locked = True
 
-                                .Cells(4, 2) = "マシーンNo."
-                                .Cells(4, 3) = "サンプル名"
+                                .Cells(4, 2) = StrMachNo
+                                .Cells(4, 3) = StrSampleName
                                 If FlgDBF = 1 Then
-                                    .Cells(4, 4) = "マーク"
-                                    .Cells(4, 5) = "測定回数"
-                                    .Cells(4, 6) = "測定ロット数"
+                                    .Cells(4, 4) = StrMark
+                                    .Cells(4, 5) = StrMeasNumber
+                                    .Cells(4, 6) = StrMeasLot
                                     .Range(.Cells(4, 2), .Cells(4, 6)).Font.Color = frm_PrfForm_fc
                                 Else
-                                    .Cells(4, 4) = "測定回数"
-                                    .Cells(4, 5) = "測定ロット数"
+                                    .Cells(4, 4) = StrMeasNumber
+                                    .Cells(4, 5) = StrMeasLot
                                     .Range(.Cells(4, 2), .Cells(4, 5)).Font.Color = frm_PrfForm_fc
                                 End If
-                                .Cells(5, 1) = "測定仕様"
+                                .Cells(5, 1) = StrMeasSpec
                                 .Cells(5, 2) = TxtMachNoCur.Text
                                 .Cells(5, 3) = TxtSmplNamCur.Text
                                 If FlgDBF = 1 Then
@@ -11526,14 +11515,14 @@ Rdg8:
                                 End If
 
                                 .Range(.Cells(7, 1), .Cells(7, 5)).MergeCells = True
-                                .Cells(7, 1) = "伝播速度[Km/S]"
+                                .Cells(7, 1) = StrPropVelo
                                 .Cells(8, 2) = "Peak"
                                 .Cells(8, 3) = "Deep"
                                 .Cells(8, 4) = "MD"
                                 .Cells(8, 5) = "CD"
                                 .Range(.Cells(7, 1), .Cells(8, 5)).Font.Color = frm_PrfForm_fc
                                 .Cells(9, 1) = "Max."
-                                .Cells(10, 1) = "Avg."
+                                .Cells(10, 1) = "Ave."
                                 .Cells(11, 1) = "Min."
                                 .Range(.Cells(9, 1), .Cells(11, 1)).Font.Color = frm_PrfForm_fc
                                 .Cells(9, 2) = LblVeloPkMax_nom.Text
@@ -11586,7 +11575,7 @@ Rdg8:
                                 .Cells(tsi_top_row + 1, 3) = "CD"
                                 .Range(.Cells(tsi_top_row, 1), .Cells(tsi_top_row + 1, 3)).Font.Color = frm_PrfForm_fc
                                 .Cells(tsi_top_row + 2, 1) = "Max."
-                                .Cells(tsi_top_row + 3, 1) = "Avg."
+                                .Cells(tsi_top_row + 3, 1) = "Ave."
                                 .Cells(tsi_top_row + 4, 1) = "Min."
                                 .Range(.Cells(tsi_top_row + 2, 1), .Cells(tsi_top_row + 4, 1)).Font.Color = frm_PrfForm_fc
                                 .Cells(tsi_top_row + 2, 2) = LblTSIMDMax_nom.Text
@@ -11630,23 +11619,23 @@ Rdg8:
 
                                     .Cells(1, 1) = My.Application.Info.ProductName & " " & LblPrfTitle.Text
                                     .Range(.Cells(1, 1), .Cells(1, 1)).Font.Color = frm_PrfForm_fc
-                                    .Cells(2, 1) = "測定データ 測定　日付：" & DataDate_cur & "  時間：" & DataTime_cur
+                                    .Cells(2, 1) = StrMeasDataDate & DataDate_cur & StrMeasTime & DataTime_cur
                                     .Range(.Cells(2, 1), .Cells(2, 1)).Font.Color = frm_PrfCurData_color
                                     .Range(.Cells(1, 1), .Cells(2, 1)).Locked = True
 
-                                    .Cells(4, 2) = "マシーンNo."
-                                    .Cells(4, 3) = "サンプル名"
+                                    .Cells(4, 2) = StrMachNo
+                                    .Cells(4, 3) = StrSampleName
                                     If FlgDBF = 1 Then
-                                        .Cells(4, 4) = "マーク"
-                                        .Cells(4, 5) = "測定回数"
-                                        .Cells(4, 6) = "測定ロット数"
+                                        .Cells(4, 4) = StrMark
+                                        .Cells(4, 5) = StrMeasNumber
+                                        .Cells(4, 6) = StrMeasLot
                                         .Range(.Cells(4, 2), .Cells(4, 6)).Font.Color = frm_PrfForm_fc
                                     Else
-                                        .Cells(4, 4) = "測定回数"
-                                        .Cells(4, 5) = "測定ロット数"
+                                        .Cells(4, 4) = StrMeasNumber
+                                        .Cells(4, 5) = StrMeasLot
                                         .Range(.Cells(4, 2), .Cells(4, 5)).Font.Color = frm_PrfForm_fc
                                     End If
-                                    .Cells(5, 1) = "測定仕様"
+                                    .Cells(5, 1) = StrMeasSpec
                                     .Cells(5, 2) = TxtMachNoCur.Text
                                     .Cells(5, 3) = TxtSmplNamCur.Text
                                     .Cells(5, 4) = TxtMarkCur.Text
@@ -11661,11 +11650,11 @@ Rdg8:
                                     .Range(.Cells(7, 1), .Cells(8, 1)).MergeCells = True
                                     .Cells(7, 1) = "No."
                                     .Range(.Cells(7, 2), .Cells(7, 3)).MergeCells = True
-                                    .Cells(7, 2) = "配向角[deg.]"
+                                    .Cells(7, 2) = StrOrientAng
                                     .Range(.Cells(7, 4), .Cells(7, 5)).MergeCells = True
-                                    .Cells(7, 4) = "配向比"
+                                    .Cells(7, 4) = StrOrientRat
                                     .Range(.Cells(7, 6), .Cells(7, 9)).MergeCells = True
-                                    .Cells(7, 6) = "伝播速度[Km/S]"
+                                    .Cells(7, 6) = StrPropVelo
                                     .Range(.Cells(7, 10), .Cells(7, 11)).MergeCells = True
                                     .Cells(7, 10) = "TSI(Km/S)^2"
                                     .Range(.Cells(7, 1), .Cells(7, 10)).Font.Color = frm_PrfCurData_color
@@ -11681,7 +11670,7 @@ Rdg8:
                                     .Cells(8, 11) = "CD"
                                     .Range(.Cells(8, 2), .Cells(8, 11)).Font.Color = frm_PrfForm_fc
                                     .Cells(9, 1) = "Max."
-                                    .Cells(10, 1) = "Avg."
+                                    .Cells(10, 1) = "Ave."
                                     .Cells(11, 1) = "Min."
                                     .Range(.Cells(9, 1), .Cells(11, 1)).Font.Color = frm_PrfForm_fc
                                     .Cells(9, 2) = LblAnglePkMax_TB.Text
@@ -11729,7 +11718,7 @@ Rdg8:
                                     .Range(.Cells(7, 1), .Cells(11 + SampleNo, 11)).Locked = True
 
                                 Else
-                                    .Cells(1, 1) = "データ無し"
+                                    .Cells(1, 1) = StrNoData
                                 End If
 
                                 .Protect()
@@ -11743,23 +11732,23 @@ Rdg8:
                                     End If
 
                                     .Cells(1, 1) = My.Application.Info.ProductName & " " & LblPrfTitle.Text
-                                    .Cells(2, 1) = "測定データ 測定　日付：" & DataDate_cur & "  時間：" & DataTime_cur
+                                    .Cells(2, 1) = StrMeasDataDate & DataDate_cur & StrMeasTime & DataTime_cur
                                     .Range(.Cells(2, 1), .Cells(2, 1)).Font.Color = frm_PrfOldData_color
                                     .Range(.Cells(1, 1), .Cells(2, 1)).Locked = True
 
-                                    .Cells(4, 2) = "マシーンNo."
-                                    .Cells(4, 3) = "サンプル名"
+                                    .Cells(4, 2) = StrMachNo
+                                    .Cells(4, 3) = StrSampleName
                                     If FlgDBF = 1 Then
-                                        .Cells(4, 4) = "マーク"
-                                        .Cells(4, 5) = "測定回数"
-                                        .Cells(4, 6) = "測定ロット数"
+                                        .Cells(4, 4) = StrMark
+                                        .Cells(4, 5) = StrMeasNumber
+                                        .Cells(4, 6) = StrMeasLot
                                         .Range(.Cells(4, 2), .Cells(4, 6)).Font.Color = frm_PrfForm_fc
                                     Else
-                                        .Cells(4, 4) = "測定回数"
-                                        .Cells(4, 5) = "測定ロット数"
+                                        .Cells(4, 4) = StrMeasNumber
+                                        .Cells(4, 5) = StrMeasLot
                                         .Range(.Cells(4, 2), .Cells(4, 5)).Font.Color = frm_PrfForm_fc
                                     End If
-                                    .Cells(5, 1) = "測定仕様"
+                                    .Cells(5, 1) = StrMeasSpec
                                     .Cells(5, 2) = TxtMachNoCur.Text
                                     .Cells(5, 3) = TxtSmplNamCur.Text
                                     If FlgDBF = 1 Then
@@ -11782,11 +11771,11 @@ Rdg8:
                                     .Range(.Cells(7, 1), .Cells(8, 1)).MergeCells = True
                                     .Cells(7, 1) = "No."
                                     .Range(.Cells(7, 2), .Cells(7, 3)).MergeCells = True
-                                    .Cells(7, 2) = "配向角[deg.]"
+                                    .Cells(7, 2) = StrOrientAng
                                     .Range(.Cells(7, 4), .Cells(7, 5)).MergeCells = True
-                                    .Cells(7, 4) = "配向比"
+                                    .Cells(7, 4) = StrOrientRat
                                     .Range(.Cells(7, 6), .Cells(7, 9)).MergeCells = True
-                                    .Cells(7, 6) = "伝播速度[Km/S]"
+                                    .Cells(7, 6) = StrPropVelo
                                     .Range(.Cells(7, 10), .Cells(7, 11)).MergeCells = True
                                     .Cells(7, 10) = "TSI(Km/S)^2"
                                     .Range(.Cells(7, 1), .Cells(7, 10)).Font.Color = frm_PrfOldData_color
@@ -11802,7 +11791,7 @@ Rdg8:
                                     .Cells(8, 11) = "CD"
                                     .Range(.Cells(8, 2), .Cells(8, 11)).Font.Color = frm_PrfForm_fc
                                     .Cells(9, 1) = "Max."
-                                    .Cells(10, 1) = "Avg."
+                                    .Cells(10, 1) = "Ave."
                                     .Cells(11, 1) = "Min."
                                     .Range(.Cells(9, 1), .Cells(11, 1)).Font.Color = frm_PrfForm_fc
                                     .Cells(9, 2) = LblAnglePkMaxOld_TB
@@ -11849,7 +11838,7 @@ Rdg8:
                                     .Range(.Cells(7, 1), .Cells(11 + SampleNo, 11)).Borders.LineStyle = Excel.XlLineStyle.xlContinuous
                                     .Range(.Cells(7, 1), .Cells(11 + SampleNo, 11)).Locked = True
                                 Else
-                                    .Cells(1, 1) = "データ無し"
+                                    .Cells(1, 1) = StrNoData
                                 End If
 
                                 .Protect()
@@ -11863,23 +11852,23 @@ Rdg8:
                                     End If
 
                                     .Cells(1, 1) = My.Application.Info.ProductName & " " & LblPrfTitle.Text
-                                    .Cells(2, 1) = "測定データ 測定　日付：" & DataDate_cur & "  時間：" & DataTime_cur
+                                    .Cells(2, 1) = StrMeasDataDate & DataDate_cur & StrMeasTime & DataTime_cur
                                     .Range(.Cells(2, 1), .Cells(2, 1)).Font.Color = frm_PrfAvgData_color
                                     .Range(.Cells(1, 1), .Cells(2, 1)).Locked = True
 
-                                    .Cells(4, 2) = "マシーンNo."
-                                    .Cells(4, 3) = "サンプル名"
+                                    .Cells(4, 2) = StrMachNo
+                                    .Cells(4, 3) = StrSampleName
                                     If FlgDBF = 1 Then
-                                        .Cells(4, 4) = "マーク"
-                                        .Cells(4, 5) = "測定回数"
-                                        .Cells(4, 6) = "測定ロット数"
+                                        .Cells(4, 4) = StrMark
+                                        .Cells(4, 5) = StrMeasNumber
+                                        .Cells(4, 6) = StrMeasLot
                                         .Range(.Cells(4, 2), .Cells(4, 6)).Font.Color = frm_PrfForm_fc
                                     Else
-                                        .Cells(4, 4) = "測定回数"
-                                        .Cells(4, 5) = "測定ロット数"
+                                        .Cells(4, 4) = StrMeasNumber
+                                        .Cells(4, 5) = StrMeasLot
                                         .Range(.Cells(4, 2), .Cells(4, 5)).Font.Color = frm_PrfForm_fc
                                     End If
-                                    .Cells(5, 1) = "測定仕様"
+                                    .Cells(5, 1) = StrMeasSpec
                                     .Cells(5, 2) = TxtMachNoCur.Text
                                     .Cells(5, 3) = TxtSmplNamCur.Text
                                     If FlgDBF = 1 Then
@@ -11902,11 +11891,11 @@ Rdg8:
                                     .Range(.Cells(7, 1), .Cells(8, 1)).MergeCells = True
                                     .Cells(7, 1) = "No."
                                     .Range(.Cells(7, 2), .Cells(7, 3)).MergeCells = True
-                                    .Cells(7, 2) = "配向角[deg.]"
+                                    .Cells(7, 2) = StrOrientAng
                                     .Range(.Cells(7, 4), .Cells(7, 5)).MergeCells = True
-                                    .Cells(7, 4) = "配向比"
+                                    .Cells(7, 4) = StrOrientRat
                                     .Range(.Cells(7, 6), .Cells(7, 9)).MergeCells = True
-                                    .Cells(7, 6) = "伝播速度[Km/S]"
+                                    .Cells(7, 6) = StrPropVelo
                                     .Range(.Cells(7, 10), .Cells(7, 11)).MergeCells = True
                                     .Cells(7, 10) = "TSI(Km/S)^2"
                                     .Range(.Cells(7, 1), .Cells(7, 10)).Font.Color = frm_PrfAvgData_color
@@ -11922,7 +11911,7 @@ Rdg8:
                                     .Cells(8, 11) = "CD"
                                     .Range(.Cells(8, 2), .Cells(8, 11)).Font.Color = frm_PrfForm_fc
                                     .Cells(9, 1) = "Max."
-                                    .Cells(10, 1) = "Avg."
+                                    .Cells(10, 1) = "Ave."
                                     .Cells(11, 1) = "Min."
                                     .Range(.Cells(9, 1), .Cells(11, 1)).Font.Color = frm_PrfForm_fc
                                     .Cells(9, 2) = LblAnglePkMaxAvg_TB.Text
@@ -11969,7 +11958,7 @@ Rdg8:
                                     .Range(.Cells(7, 1), .Cells(11 + SampleNo, 11)).Borders.LineStyle = Excel.XlLineStyle.xlContinuous
                                     .Range(.Cells(7, 1), .Cells(11 + SampleNo, 11)).Locked = True
                                 Else
-                                    .Cells(1, 1) = "データ無し"
+                                    .Cells(1, 1) = StrNoData
                                 End If
 
                                 .Protect()
@@ -11984,25 +11973,25 @@ Rdg8:
 
                                 .Cells(1, 1) = My.Application.Info.ProductName & " " & LblPrfTitle.Text
                                 .Cells(1, 1).Font.Color = frm_PrfForm_fc
-                                .Cells(2, 1) = "測定データ 測定　日付：" & DataDate_cur & "  時間：" & DataTime_cur
+                                .Cells(2, 1) = StrMeasDataDate & DataDate_cur & StrMeasTime & DataTime_cur
                                 .Cells(2, 1).Font.Color = frm_PrfCurData_color
-                                .Cells(3, 1) = "過去データ 測定　日付：" & DataDate_bak & "  時間：" & DataTime_bak
+                                .Cells(3, 1) = StrPastDataDate & DataDate_bak & StrMeasTime & DataTime_bak
                                 .Cells(3, 1).Font.Color = frm_PrfOldData_color
                                 .Range(.Cells(1, 1), .Cells(3, 1)).Locked = True
 
-                                .Cells(5, 2) = "マシーンNo."
-                                .Cells(5, 3) = "サンプル名"
+                                .Cells(5, 2) = StrMachNo
+                                .Cells(5, 3) = StrSampleName
                                 If FlgDBF = 1 Then
-                                    .Cells(5, 4) = "マーク"
-                                    .Cells(5, 5) = "測定回数"
-                                    .Cells(5, 6) = "測定ロット数"
+                                    .Cells(5, 4) = StrMark
+                                    .Cells(5, 5) = StrMeasNumber
+                                    .Cells(5, 6) = StrMeasLot
                                     .Range(.Cells(5, 2), .Cells(5, 6)).Font.Color = frm_PrfForm_fc
                                 Else
-                                    .Cells(5, 4) = "測定回数"
-                                    .Cells(5, 5) = "測定ロット数"
+                                    .Cells(5, 4) = StrMeasNumber
+                                    .Cells(5, 5) = StrMeasLot
                                     .Range(.Cells(5, 2), .Cells(5, 5)).Font.Color = frm_PrfForm_fc
                                 End If
-                                .Cells(6, 1) = "測定仕様"
+                                .Cells(6, 1) = StrMeasSpec
                                 .Cells(6, 2) = TxtMachNoCur.Text
                                 .Cells(6, 3) = TxtSmplNamCur.Text
                                 If FlgDBF = 1 Then
@@ -12015,7 +12004,7 @@ Rdg8:
                                     .Cells(6, 5) = TxtMeasLotCur.Text
                                     .Range(.Cells(6, 1), .Cells(6, 5)).Font.Color = frm_PrfCurData_color
                                 End If
-                                .Cells(7, 1) = "過去の仕様"
+                                .Cells(7, 1) = StrPastMeasSpec
                                 .Cells(7, 2) = TxtMachNoBak.Text
                                 .Cells(7, 3) = TxtSmplNamBak.Text
                                 If FlgDBF = 1 Then
@@ -12037,7 +12026,7 @@ Rdg8:
                                 'End If
                                 '配向角データ グラフ
                                 .Range(.Cells(9, 1), .Cells(9, 5)).MergeCells = True
-                                .Cells(9, 1) = "配向角[deg.]"
+                                .Cells(9, 1) = StrOrientAng
                                 .Cells(9, 1).font.color = frm_PrfForm_fc
                                 .Range(.Cells(10, 2), .Cells(10, 3)).MergeCells = True
                                 .Cells(10, 2) = "Peak"
@@ -12046,31 +12035,31 @@ Rdg8:
                                 .Cells(10, 4) = "Deep"
                                 .Cells(10, 2).font.color = frm_PrfForm_fc
                                 .Cells(12, 1) = "Max."
-                                .Cells(13, 1) = "Avg."
+                                .Cells(13, 1) = "Ave."
                                 .Cells(14, 1) = "Min."
                                 .Range(.Cells(12, 1), .Cells(14, 1)).Font.Color = frm_PrfForm_fc
-                                .Cells(11, 2) = "現在データ"
+                                .Cells(11, 2) = StrCurData
                                 .Cells(12, 2) = LblAnglePkMaxCur_adm.Text
                                 .Cells(13, 2) = LblAnglePkAvgCur_adm.Text
                                 .Cells(14, 2) = LblAnglePkMinCur_adm.Text
                                 .Range(.Cells(11, 2), .Cells(14, 2)).Font.Color = frm_PrfCurData_color
-                                .Cells(11, 3) = "過去データ"
+                                .Cells(11, 3) = StrPastData
                                 .Cells(12, 3) = LblAnglePkMaxBak_adm.Text
                                 .Cells(13, 3) = LblAnglePkAvgBak_adm.Text
                                 .Cells(14, 3) = LblAnglePkMinBak_adm.Text
                                 .Range(.Cells(11, 3), .Cells(14, 3)).Font.Color = frm_PrfOldData_color
-                                .Cells(11, 4) = "現在データ"
+                                .Cells(11, 4) = StrCurData
                                 .Cells(12, 4) = LblAngleDpMaxCur_adm.Text
                                 .Cells(13, 4) = LblAngleDpAvgCur_adm.Text
                                 .Cells(14, 4) = LblAngleDpMinCur_adm.Text
                                 .Range(.Cells(11, 4), .Cells(14, 4)).Font.Color = frm_PrfCurData_color
-                                .Cells(11, 5) = "過去データ"
+                                .Cells(11, 5) = StrPastData
                                 .Cells(12, 5) = LblAngleDpMaxBak_adm.Text
                                 .Cells(13, 5) = LblAngleDpAvgBak_adm.Text
                                 .Cells(14, 5) = LblAngleDpMinBak_adm.Text
                                 .Range(.Cells(11, 5), .Cells(14, 5)).Font.Color = frm_PrfOldData_color
-                                .Range(.Cells(11, 1), .Cells(14, 5)).Borders.LineStyle = Excel.XlLineStyle.xlContinuous
-                                .Range(.Cells(11, 1), .Cells(14, 5)).Locked = True
+                                .Range(.Cells(9, 1), .Cells(14, 5)).Borders.LineStyle = Excel.XlLineStyle.xlContinuous
+                                .Range(.Cells(9, 1), .Cells(14, 5)).Locked = True
                                 'If FlgPrnBc_enable = True Then
                                 '.Range(.Cells(9, 1), .Cells(14, 5)).Interior.Color = frm_PrfGraph_bc
                                 'End If
@@ -12100,7 +12089,7 @@ Rdg8:
                                 ratio_top_row = 16 + i + 1
 
                                 .Range(.Cells(ratio_top_row, 1), .Cells(ratio_top_row, 5)).MergeCells = True
-                                .Cells(ratio_top_row, 1) = "配向比"
+                                .Cells(ratio_top_row, 1) = StrOrientRat
                                 .Cells(ratio_top_row, 1).font.color = frm_PrfForm_fc
                                 .Range(.Cells(ratio_top_row + 1, 2), .Cells(ratio_top_row + 1, 3)).MergeCells = True
                                 .Cells(ratio_top_row + 1, 2) = "Peak/Deep"
@@ -12109,25 +12098,25 @@ Rdg8:
                                 .Cells(ratio_top_row + 1, 4) = "MD/CD"
                                 .Cells(ratio_top_row + 1, 4).font.color = frm_PrfForm_fc
                                 .Cells(ratio_top_row + 3, 1) = "Max."
-                                .Cells(ratio_top_row + 4, 1) = "Avg."
+                                .Cells(ratio_top_row + 4, 1) = "Ave."
                                 .Cells(ratio_top_row + 5, 1) = "Min."
                                 .Range(.Cells(ratio_top_row + 3, 1), .Cells(ratio_top_row + 5, 1)).Font.Color = frm_PrfForm_fc
-                                .Cells(ratio_top_row + 2, 2) = "現在データ"
+                                .Cells(ratio_top_row + 2, 2) = StrCurData
                                 .Cells(ratio_top_row + 3, 2) = LblRatioPkDpMaxCur_adm.Text
                                 .Cells(ratio_top_row + 4, 2) = LblRatioPkDpAvgCur_adm.Text
                                 .Cells(ratio_top_row + 5, 2) = LblRatioPkDpMinCur_adm.Text
                                 .Range(.Cells(ratio_top_row + 2, 2), .Cells(ratio_top_row + 5, 2)).Font.Color = frm_PrfCurData_color
-                                .Cells(ratio_top_row + 2, 3) = "過去データ"
+                                .Cells(ratio_top_row + 2, 3) = StrPastData
                                 .Cells(ratio_top_row + 3, 3) = LblRatioPkDpMaxBak_adm.Text
                                 .Cells(ratio_top_row + 4, 3) = LblRatioPkDpAvgBak_adm.Text
                                 .Cells(ratio_top_row + 5, 3) = LblRatioPkDpMinBak_adm.Text
                                 .Range(.Cells(ratio_top_row + 2, 3), .Cells(ratio_top_row + 5, 3)).Font.Color = frm_PrfOldData_color
-                                .Cells(ratio_top_row + 2, 4) = "現在データ"
+                                .Cells(ratio_top_row + 2, 4) = StrCurData
                                 .Cells(ratio_top_row + 3, 4) = LblRatioMDCDMaxCur_adm.Text
                                 .Cells(ratio_top_row + 4, 4) = LblRatioMDCDAvgCur_adm.Text
                                 .Cells(ratio_top_row + 5, 4) = LblRatioMDCDMinCur_adm.Text
                                 .Range(.Cells(ratio_top_row + 2, 4), .Cells(ratio_top_row + 5, 4)).Font.Color = frm_PrfCurData_color
-                                .Cells(ratio_top_row + 2, 5) = "過去データ"
+                                .Cells(ratio_top_row + 2, 5) = StrPastData
                                 .Cells(ratio_top_row + 3, 5) = LblRatioMDCDMaxBak_adm.Text
                                 .Cells(ratio_top_row + 4, 5) = LblRatioMDCDAvgBak_adm.Text
                                 .Cells(ratio_top_row + 5, 5) = LblRatioMDCDMinBak_adm.Text
@@ -12166,24 +12155,24 @@ Rdg8:
 
                                 .Cells(1, 1) = My.Application.Info.ProductName & " " & LblPrfTitle.Text
                                 .Cells(1, 1).Font.Color = frm_PrfForm_fc
-                                .Cells(2, 1) = "測定データ 測定　日付：" & DataDate_cur & "  時間：" & DataTime_cur
+                                .Cells(2, 1) = StrMeasDataDate & DataDate_cur & StrMeasTime & DataTime_cur
                                 .Cells(2, 1).Font.Color = frm_PrfCurData_color
-                                .Cells(3, 1) = "過去データ 測定　日付：" & DataDate_bak & "  時間：" & DataTime_bak
+                                .Cells(3, 1) = StrPastDataDate & DataDate_bak & StrMeasTime & DataTime_bak
                                 .Cells(3, 1).Font.Color = frm_PrfOldData_color
                                 .Range(.Cells(1, 1), .Cells(3, 1)).Locked = True
-                                .Cells(5, 2) = "マシーンNo."
-                                .Cells(5, 3) = "サンプル名"
+                                .Cells(5, 2) = StrMachNo
+                                .Cells(5, 3) = StrSampleName
                                 If FlgDBF = 1 Then
-                                    .Cells(5, 4) = "マーク"
-                                    .Cells(5, 5) = "測定回数"
-                                    .Cells(5, 6) = "測定ロット数"
+                                    .Cells(5, 4) = StrMark
+                                    .Cells(5, 5) = StrMeasNumber
+                                    .Cells(5, 6) = StrMeasLot
                                     .Range(.Cells(5, 2), .Cells(5, 6)).Font.Color = frm_PrfForm_fc
                                 Else
-                                    .Cells(5, 4) = "測定回数"
-                                    .Cells(5, 5) = "測定ロット数"
+                                    .Cells(5, 4) = StrMeasNumber
+                                    .Cells(5, 5) = StrMeasLot
                                     .Range(.Cells(5, 2), .Cells(5, 5)).Font.Color = frm_PrfForm_fc
                                 End If
-                                .Cells(6, 1) = "測定仕様"
+                                .Cells(6, 1) = StrMeasSpec
                                 .Cells(6, 2) = TxtMachNoCur.Text
                                 .Cells(6, 3) = TxtSmplNamCur.Text
                                 If FlgDBF = 1 Then
@@ -12196,7 +12185,7 @@ Rdg8:
                                     .Cells(6, 5) = TxtMeasLotCur.Text
                                     .Range(.Cells(6, 1), .Cells(6, 5)).Font.Color = frm_PrfCurData_color
                                 End If
-                                .Cells(7, 1) = "過去の仕様"
+                                .Cells(7, 1) = StrPastMeasSpec
                                 .Cells(7, 2) = TxtMachNoBak.Text
                                 .Cells(7, 3) = TxtSmplNamBak.Text
                                 .Cells(7, 4) = TxtMarkBak.Text
@@ -12210,7 +12199,7 @@ Rdg8:
                                 'End If
                                 '配向角データ　グラフ
                                 .Range(.Cells(9, 1), .Cells(9, 9)).MergeCells = True
-                                .Cells(9, 1) = "伝播速度[Km/S]"
+                                .Cells(9, 1) = StrPropVelo
                                 .Cells(9, 1).font.color = frm_PrfForm_fc
                                 .Range(.Cells(10, 2), .Cells(10, 3)).MergeCells = True
                                 .Cells(10, 2) = "Peak"
@@ -12225,45 +12214,45 @@ Rdg8:
                                 .Cells(10, 8) = "CD"
                                 .Cells(10, 8).font.color = frm_PrfForm_fc
                                 .Cells(12, 1) = "Max."
-                                .Cells(13, 1) = "Avg."
+                                .Cells(13, 1) = "Ave."
                                 .Cells(14, 1) = "Min."
                                 .Range(.Cells(12, 1), .Cells(14, 1)).Font.Color = frm_PrfForm_fc
-                                .Cells(11, 2) = "現在データ"
+                                .Cells(11, 2) = StrCurData
                                 .Cells(12, 2) = LblVeloPkMaxCur_adm.Text
                                 .Cells(13, 2) = LblVeloPkAvgCur_adm.Text
                                 .Cells(14, 2) = LblVeloPkMinCur_adm.Text
                                 .Range(.Cells(11, 2), .Cells(14, 2)).Font.Color = frm_PrfCurData_color
-                                .Cells(11, 3) = "過去データ"
+                                .Cells(11, 3) = StrPastData
                                 .Cells(12, 3) = LblVeloPkMaxBak_adm.Text
                                 .Cells(13, 3) = LblVeloPkAvgBak_adm.Text
                                 .Cells(14, 3) = LblVeloPkMinBak_adm.Text
                                 .Range(.Cells(11, 3), .Cells(14, 3)).Font.Color = frm_PrfCurData_color
-                                .Cells(11, 4) = "現在データ"
+                                .Cells(11, 4) = StrCurData
                                 .Cells(12, 4) = LblVeloDpMaxCur_adm.Text
                                 .Cells(13, 4) = LblVeloDpAvgCur_adm.Text
                                 .Cells(14, 4) = LblVeloDpMinCur_adm.Text
                                 .Range(.Cells(11, 4), .Cells(14, 4)).Font.Color = frm_PrfCurData_color
-                                .Cells(11, 5) = "過去データ"
+                                .Cells(11, 5) = StrPastData
                                 .Cells(12, 5) = LblVeloDpMaxBak_adm.Text
                                 .Cells(13, 5) = LblVeloDpAvgBak_adm.Text
                                 .Cells(14, 5) = LblVeloDpMinBak_adm.Text
                                 .Range(.Cells(11, 5), .Cells(14, 5)).Font.Color = frm_PrfCurData_color
-                                .Cells(11, 6) = "現在データ"
+                                .Cells(11, 6) = StrCurData
                                 .Cells(12, 6) = LblVeloMDMaxCur_adm.Text
                                 .Cells(13, 6) = LblVeloMDAvgCur_adm.Text
                                 .Cells(14, 6) = LblVeloMDMinCur_adm.Text
                                 .Range(.Cells(11, 6), .Cells(14, 6)).Font.Color = frm_PrfCurData_color
-                                .Cells(11, 7) = "過去データ"
+                                .Cells(11, 7) = StrPastData
                                 .Cells(12, 7) = LblVeloMDMaxBak_adm.Text
                                 .Cells(13, 7) = LblVeloMDAvgBak_adm.Text
                                 .Cells(14, 7) = LblVeloMDMinBak_adm.Text
                                 .Range(.Cells(11, 7), .Cells(14, 7)).Font.Color = frm_PrfCurData_color
-                                .Cells(11, 8) = "現在データ"
+                                .Cells(11, 8) = StrCurData
                                 .Cells(12, 8) = LblVeloCDMaxCur_adm.Text
                                 .Cells(13, 8) = LblVeloCDAvgCur_adm.Text
                                 .Cells(14, 8) = LblVeloCDMinCur_adm.Text
                                 .Range(.Cells(11, 8), .Cells(14, 8)).Font.Color = frm_PrfCurData_color
-                                .Cells(11, 9) = "過去データ"
+                                .Cells(11, 9) = StrPastData
                                 .Cells(12, 9) = LblVeloCDMaxBak_adm.Text
                                 .Cells(13, 9) = LblVeloCDAvgBak_adm.Text
                                 .Cells(14, 9) = LblVeloCDMinBak_adm.Text
@@ -12310,25 +12299,25 @@ Rdg8:
                                 .Cells(tsi_top_row + 1, 4) = "CD"
                                 .Cells(tsi_top_row + 1, 4).font.color = frm_PrfForm_fc
                                 .Cells(tsi_top_row + 3, 1) = "Max."
-                                .Cells(tsi_top_row + 4, 1) = "Avg."
+                                .Cells(tsi_top_row + 4, 1) = "Ave."
                                 .Cells(tsi_top_row + 5, 1) = "Min."
                                 .Range(.Cells(tsi_top_row + 3, 1), .Cells(tsi_top_row + 5, 1)).Font.Color = frm_PrfForm_fc
-                                .Cells(tsi_top_row + 2, 2) = "現在データ"
+                                .Cells(tsi_top_row + 2, 2) = StrCurData
                                 .Cells(tsi_top_row + 3, 2) = LblTSIMDMaxCur_adm.Text
                                 .Cells(tsi_top_row + 4, 2) = LblTSIMDAvgCur_adm.Text
                                 .Cells(tsi_top_row + 5, 2) = LblTSIMDMinCur_adm.Text
                                 .Range(.Cells(tsi_top_row + 2, 2), .Cells(tsi_top_row + 5, 2)).Font.Color = frm_PrfCurData_color
-                                .Cells(tsi_top_row + 2, 3) = "過去データ"
+                                .Cells(tsi_top_row + 2, 3) = StrPastData
                                 .Cells(tsi_top_row + 3, 3) = LblTSIMDMaxBak_adm.Text
                                 .Cells(tsi_top_row + 4, 3) = LblTSIMDAvgBak_adm.Text
                                 .Cells(tsi_top_row + 5, 3) = LblTSIMDAvgBak_adm.Text
                                 .Range(.Cells(tsi_top_row + 2, 3), .Cells(tsi_top_row + 5, 3)).Font.Color = frm_PrfOldData_color
-                                .Cells(tsi_top_row + 2, 4) = "現在データ"
+                                .Cells(tsi_top_row + 2, 4) = StrCurData
                                 .Cells(tsi_top_row + 3, 4) = LblTSICDMaxCur_adm.Text
                                 .Cells(tsi_top_row + 4, 4) = LblTSICDAvgCur_adm.Text
                                 .Cells(tsi_top_row + 5, 4) = LblTSICDMinCur_adm.Text
                                 .Range(.Cells(tsi_top_row + 2, 4), .Cells(tsi_top_row + 5, 4)).Font.Color = frm_PrfCurData_color
-                                .Cells(tsi_top_row + 2, 5) = "過去データ"
+                                .Cells(tsi_top_row + 2, 5) = StrPastData
                                 .Cells(tsi_top_row + 3, 5) = LblTSICDMaxBak_adm.Text
                                 .Cells(tsi_top_row + 4, 5) = LblTSICDAvgBak_adm.Text
                                 .Cells(tsi_top_row + 5, 5) = LblTSICDAvgBak_adm.Text
@@ -12388,25 +12377,25 @@ Rdg8:
 
                                     .Cells(1, 1) = My.Application.Info.ProductName & " " & LblPrfTitle.Text
                                     .Cells(1, 1).font.color = frm_PrfForm_fc
-                                    .Cells(2, 1) = "測定データ 測定　日付：" & DataDate_cur & "  時間：" & DataTime_cur
+                                    .Cells(2, 1) = StrMeasDataDate & DataDate_cur & StrMeasTime & DataTime_cur
                                     .Cells(2, 1).font.color = frm_PrfCurData_color
-                                    .Cells(3, 1) = "過去データ 測定　日付：" & DataDate_bak & "  時間：" & DataTime_bak
+                                    .Cells(3, 1) = StrPastDataDate & DataDate_bak & StrMeasTime & DataTime_bak
                                     .Cells(3, 1).font.color = frm_PrfOldData_color
                                     .Range(.Cells(1, 1), .Cells(3, 1)).Locked = True
 
-                                    .Cells(5, 2) = "マシーンNo."
-                                    .Cells(5, 3) = "サンプル名"
+                                    .Cells(5, 2) = StrMachNo
+                                    .Cells(5, 3) = StrSampleName
                                     If FlgDBF = 1 Then
-                                        .Cells(5, 4) = "マーク"
-                                        .Cells(5, 5) = "測定回数"
-                                        .Cells(5, 6) = "測定ロット数"
+                                        .Cells(5, 4) = StrMark
+                                        .Cells(5, 5) = StrMeasNumber
+                                        .Cells(5, 6) = StrMeasLot
                                         .Range(.Cells(5, 2), .Cells(5, 6)).Font.Color = frm_PrfForm_fc
                                     Else
-                                        .Cells(5, 4) = "測定回数"
-                                        .Cells(5, 5) = "測定ロット数"
+                                        .Cells(5, 4) = StrMeasNumber
+                                        .Cells(5, 5) = StrMeasLot
                                         .Range(.Cells(5, 2), .Cells(5, 5)).Font.Color = frm_PrfForm_fc
                                     End If
-                                    .Cells(6, 1) = "測定仕様"
+                                    .Cells(6, 1) = StrMeasSpec
                                     .Cells(6, 2) = TxtMachNoCur.Text
                                     .Cells(6, 3) = TxtSmplNamCur.Text
                                     If FlgDBF = 1 Then
@@ -12419,7 +12408,7 @@ Rdg8:
                                         .Cells(6, 5) = TxtMeasLotCur.Text
                                         .Range(.Cells(6, 1), .Cells(6, 5)).Font.Color = frm_PrfCurData_color
                                     End If
-                                    .Cells(7, 1) = "過去の仕様"
+                                    .Cells(7, 1) = StrPastMeasSpec
                                     .Cells(7, 2) = TxtMachNoBak.Text
                                     .Cells(7, 3) = TxtSmplNamBak.Text
                                     If FlgDBF = 1 Then
@@ -12443,13 +12432,13 @@ Rdg8:
                                     .Cells(9, 1) = "No."
                                     .Cells(9, 1).font.color = frm_PrfForm_fc
                                     .Range(.Cells(9, 2), .Cells(9, 3)).MergeCells = True
-                                    .Cells(9, 2) = "配向角[deg.]"
+                                    .Cells(9, 2) = StrOrientAng
                                     .Cells(9, 2).font.color = frm_PrfForm_fc
                                     .Range(.Cells(9, 4), .Cells(9, 5)).MergeCells = True
-                                    .Cells(9, 4) = "配向比"
+                                    .Cells(9, 4) = StrOrientRat
                                     .Cells(9, 4).font.color = frm_PrfForm_fc
                                     .Range(.Cells(9, 6), .Cells(9, 9)).MergeCells = True
-                                    .Cells(9, 6) = "伝播速度[Km/S]"
+                                    .Cells(9, 6) = StrPropVelo
                                     .Cells(9, 6).font.color = frm_PrfForm_fc
                                     .Range(.Cells(9, 10), .Cells(9, 11)).MergeCells = True
                                     .Cells(9, 10) = "TSI(Km/S)^2"
@@ -12466,7 +12455,7 @@ Rdg8:
                                     .Cells(10, 11) = "CD"
                                     .Range(.Cells(10, 2), .Cells(10, 11)).Font.Color = frm_PrfForm_fc
                                     .Cells(11, 1) = "Max."
-                                    .Cells(12, 1) = "Avg."
+                                    .Cells(12, 1) = "Ave."
                                     .Cells(13, 1) = "Min."
                                     .Range(.Cells(11, 1), .Cells(13, 11)).Font.Color = frm_PrfForm_fc
                                     .Cells(11, 2) = LblAnglePkMax_TB.Text
@@ -12513,7 +12502,7 @@ Rdg8:
                                     '.Range(.Cells(9, 1), .Cells(13 + SampleNo, 11)).Interior.Color = frm_PrfGraph_bc
                                     'End If
                                 Else
-                                    .Cells(1, 1) = "データ無し"
+                                    .Cells(1, 1) = StrNoData
                                 End If
 
                                 .Protect()
@@ -12528,25 +12517,25 @@ Rdg8:
 
                                     .Cells(1, 1) = My.Application.Info.ProductName & " " & LblPrfTitle.Text
                                     .Cells(1, 1).font.color = frm_PrfForm_fc
-                                    .Cells(2, 1) = "測定データ 測定　日付：" & DataDate_cur & "  時間：" & DataTime_cur
+                                    .Cells(2, 1) = StrMeasDataDate & DataDate_cur & StrMeasTime & DataTime_cur
                                     .Cells(2, 1).font.color = frm_PrfCurData_color
-                                    .Cells(3, 1) = "過去データ 測定　日付：" & DataDate_bak & "  時間：" & DataTime_bak
+                                    .Cells(3, 1) = StrPastDataDate & DataDate_bak & StrMeasTime & DataTime_bak
                                     .Cells(3, 1).font.color = frm_PrfOldData_color
                                     .Range(.Cells(1, 1), .Cells(3, 1)).Locked = True
 
-                                    .Cells(5, 2) = "マシーンNo."
-                                    .Cells(5, 3) = "サンプル名"
+                                    .Cells(5, 2) = StrMachNo
+                                    .Cells(5, 3) = StrSampleName
                                     If FlgDBF = 1 Then
-                                        .Cells(5, 4) = "マーク"
-                                        .Cells(5, 5) = "測定回数"
-                                        .Cells(5, 6) = "測定ロット数"
+                                        .Cells(5, 4) = StrMark
+                                        .Cells(5, 5) = StrMeasNumber
+                                        .Cells(5, 6) = StrMeasLot
                                         .Range(.Cells(5, 2), .Cells(5, 6)).Font.Color = frm_PrfForm_fc
                                     Else
-                                        .Cells(5, 4) = "測定回数"
-                                        .Cells(5, 5) = "測定ロット数"
+                                        .Cells(5, 4) = StrMeasNumber
+                                        .Cells(5, 5) = StrMeasLot
                                         .Range(.Cells(5, 2), .Cells(5, 5)).Font.Color = frm_PrfForm_fc
                                     End If
-                                    .Cells(6, 1) = "測定仕様"
+                                    .Cells(6, 1) = StrMeasSpec
                                     .Cells(6, 2) = TxtMachNoCur.Text
                                     .Cells(6, 3) = TxtSmplNamCur.Text
                                     If FlgDBF = 1 Then
@@ -12559,7 +12548,7 @@ Rdg8:
                                         .Cells(6, 5) = TxtMeasLotCur.Text
                                         .Range(.Cells(6, 1), .Cells(6, 5)).Font.Color = frm_PrfCurData_color
                                     End If
-                                    .Cells(7, 1) = "過去の仕様"
+                                    .Cells(7, 1) = StrPastMeasSpec
                                     .Cells(7, 2) = TxtMachNoBak.Text
                                     .Cells(7, 3) = TxtSmplNamBak.Text
                                     If FlgDBF = 1 Then
@@ -12583,13 +12572,13 @@ Rdg8:
                                     .Cells(9, 1) = "No."
                                     .Cells(9, 1).font.color = frm_PrfForm_fc
                                     .Range(.Cells(9, 2), .Cells(9, 3)).MergeCells = True
-                                    .Cells(9, 2) = "配向角[deg.]"
+                                    .Cells(9, 2) = StrOrientAng
                                     .Cells(9, 2).font.color = frm_PrfForm_fc
                                     .Range(.Cells(9, 4), .Cells(9, 5)).MergeCells = True
-                                    .Cells(9, 4) = "配向比"
+                                    .Cells(9, 4) = StrOrientRat
                                     .Cells(9, 4).font.color = frm_PrfForm_fc
                                     .Range(.Cells(9, 6), .Cells(9, 9)).MergeCells = True
-                                    .Cells(9, 6) = "伝播速度[Km/S]"
+                                    .Cells(9, 6) = StrPropVelo
                                     .Cells(9, 6).font.color = frm_PrfForm_fc
                                     .Range(.Cells(9, 10), .Cells(9, 11)).MergeCells = True
                                     .Cells(9, 10) = "TSI(Km/S)^2"
@@ -12606,7 +12595,7 @@ Rdg8:
                                     .Cells(10, 11) = "CD"
                                     .Range(.Cells(10, 2), .Cells(10, 11)).Font.Color = frm_PrfForm_fc
                                     .Cells(11, 1) = "Max."
-                                    .Cells(12, 1) = "Avg."
+                                    .Cells(12, 1) = "Ave."
                                     .Cells(13, 1) = "Min."
                                     .Range(.Cells(11, 1), .Cells(13, 11)).Font.Color = frm_PrfForm_fc
                                     .Cells(11, 2) = LblAnglePkMaxOld_TB.Text
@@ -12653,7 +12642,7 @@ Rdg8:
                                     '.Range(.Cells(9, 1), .Cells(13 + SampleNo, 11)).Interior.Color = frm_PrfGraph_bc
                                     'End If
                                 Else
-                                    .Cells(1, 1) = "データ無し"
+                                    .Cells(1, 1) = StrNoData
                                 End If
 
                                 .Protect()
@@ -12668,24 +12657,24 @@ Rdg8:
 
                                     .Cells(1, 1) = My.Application.Info.ProductName & " " & LblPrfTitle.Text
                                     .Cells(1, 1).font.color = frm_PrfForm_fc
-                                    .Cells(2, 1) = "測定データ 測定　日付：" & DataDate_cur & "  時間：" & DataTime_cur
+                                    .Cells(2, 1) = StrMeasDataDate & DataDate_cur & StrMeasTime & DataTime_cur
                                     .Cells(2, 1).font.color = frm_PrfCurData_color
-                                    .Cells(3, 1) = "過去データ 測定　日付：" & DataDate_bak & "  時間：" & DataTime_bak
+                                    .Cells(3, 1) = StrPastDataDate & DataDate_bak & StrMeasTime & DataTime_bak
                                     .Cells(3, 1).font.color = frm_PrfOldData_color
                                     .Range(.Cells(1, 1), .Cells(3, 1)).Locked = True
-                                    .Cells(5, 2) = "マシーンNo."
-                                    .Cells(5, 3) = "サンプル名"
+                                    .Cells(5, 2) = StrMachNo
+                                    .Cells(5, 3) = StrSampleName
                                     If FlgDBF = 1 Then
-                                        .Cells(5, 4) = "マーク"
-                                        .Cells(5, 5) = "測定回数"
-                                        .Cells(5, 6) = "測定ロット数"
+                                        .Cells(5, 4) = StrMark
+                                        .Cells(5, 5) = StrMeasNumber
+                                        .Cells(5, 6) = StrMeasLot
                                         .Range(.Cells(5, 2), .Cells(5, 6)).Font.Color = frm_PrfForm_fc
                                     Else
-                                        .Cells(5, 4) = "測定回数"
-                                        .Cells(5, 5) = "測定ロット数"
+                                        .Cells(5, 4) = StrMeasNumber
+                                        .Cells(5, 5) = StrMeasLot
                                         .Range(.Cells(5, 2), .Cells(5, 5)).Font.Color = frm_PrfForm_fc
                                     End If
-                                    .Cells(6, 1) = "測定仕様"
+                                    .Cells(6, 1) = StrMeasSpec
                                     .Cells(6, 2) = TxtMachNoCur.Text
                                     .Cells(6, 3) = TxtSmplNamCur.Text
                                     If FlgDBF = 1 Then
@@ -12698,7 +12687,7 @@ Rdg8:
                                         .Cells(6, 5) = TxtMeasLotCur.Text
                                         .Range(.Cells(6, 1), .Cells(6, 5)).Font.Color = frm_PrfCurData_color
                                     End If
-                                    .Cells(7, 1) = "過去の仕様"
+                                    .Cells(7, 1) = StrPastMeasSpec
                                     .Cells(7, 2) = TxtMachNoBak.Text
                                     .Cells(7, 3) = TxtSmplNamBak.Text
                                     If FlgDBF = 1 Then
@@ -12722,13 +12711,13 @@ Rdg8:
                                     .Cells(9, 1) = "No."
                                     .Cells(9, 1).font.color = frm_PrfForm_fc
                                     .Range(.Cells(9, 2), .Cells(9, 3)).MergeCells = True
-                                    .Cells(9, 2) = "配向角[deg.]"
+                                    .Cells(9, 2) = StrOrientAng
                                     .Cells(9, 2).font.color = frm_PrfForm_fc
                                     .Range(.Cells(9, 4), .Cells(9, 5)).MergeCells = True
-                                    .Cells(9, 4) = "配向比"
+                                    .Cells(9, 4) = StrOrientRat
                                     .Cells(9, 4).font.color = frm_PrfForm_fc
                                     .Range(.Cells(9, 6), .Cells(9, 9)).MergeCells = True
-                                    .Cells(9, 6) = "伝播速度[Km/S]"
+                                    .Cells(9, 6) = StrPropVelo
                                     .Cells(9, 6).font.color = frm_PrfForm_fc
                                     .Range(.Cells(9, 10), .Cells(9, 11)).MergeCells = True
                                     .Cells(9, 10) = "TSI(Km/S)^2"
@@ -12745,7 +12734,7 @@ Rdg8:
                                     .Cells(10, 11) = "CD"
                                     .Range(.Cells(10, 2), .Cells(10, 11)).Font.Color = frm_PrfForm_fc
                                     .Cells(11, 1) = "Max."
-                                    .Cells(12, 1) = "Avg."
+                                    .Cells(12, 1) = "Ave."
                                     .Cells(13, 1) = "Min."
                                     .Range(.Cells(11, 1), .Cells(13, 11)).Font.Color = frm_PrfForm_fc
                                     .Cells(11, 2) = LblAnglePkMaxAvg_TB.Text
@@ -12792,7 +12781,7 @@ Rdg8:
                                     '.Range(.Cells(9, 1), .Cells(13 + SampleNo, 11)).Interior.Color = frm_PrfGraph_bc
                                     'End If
                                 Else
-                                    .Cells(1, 1) = "データ無し"
+                                    .Cells(1, 1) = StrNoData
                                 End If
 
                                 .Protect()
@@ -12820,7 +12809,7 @@ Rdg8:
             Marshal.ReleaseComObject(excelBook)
             Marshal.ReleaseComObject(excelApp)
 
-            CmdPrfResultSave.Text = "保　存"
+            CmdPrfResultSave.Text = "Save"
             CmdPrfResultSave.Enabled = True
         End Try
 
@@ -12874,25 +12863,25 @@ Rdg8:
         End If
     End Sub
 
-    Private Sub 測定中断ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles 測定中断ToolStripMenuItem.Click
-        測定中断ToolStripMenuItem.Enabled = False
+    Private Sub 測定中断ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MeasStopToolStripMenuItem.Click
+        MeasStopToolStripMenuItem.Enabled = False
         CmdQuitProfile.Enabled = False
-        終了ToolStripMenuItem.Enabled = False
+        QuitToolStripMenuItem.Enabled = False
         FlgStop = 1
         If FlgProfile = 3 Then
             FlgLongMeas = 0
         End If
     End Sub
 
-    Private Sub 測定開始ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles 測定開始ToolStripMenuItem.Click
+    Private Sub 測定開始ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MeasStartToolStripMenuItem.Click
         MeasRun()
     End Sub
 
-    Private Sub 終了ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles 終了ToolStripMenuItem.Click
+    Private Sub 終了ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles QuitToolStripMenuItem.Click
         FlgMainProfile = 90
     End Sub
 
-    Private Sub 選択ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles 選択ToolStripMenuItem.Click
+    Private Sub 選択ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SelectToolStripMenuItem.Click
         Dim result As DialogResult
         Dim fname As String = ""
 
@@ -12914,12 +12903,12 @@ Rdg8:
         SaveConstPrf()
     End Sub
 
-    Private Sub 読込ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles 読込ToolStripMenuItem.Click
+    Private Sub 読込ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LoadToolStripMenuItem.Click
         FlgMainProfile = 40
         FlgAvg = 0
     End Sub
 
-    Private Sub グラフ消去ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles グラフ消去ToolStripMenuItem.Click
+    Private Sub グラフ消去ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GraphDelToolStripMenuItem.Click
         DrawCalcCurData_init()
         DrawCalcBakData_init()
         DrawCalcAvgData_init()
@@ -12929,13 +12918,13 @@ Rdg8:
         GraphInitPrf(Points)
     End Sub
 
-    Private Sub 平均値ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles 平均値ToolStripMenuItem.Click
+    Private Sub 平均値ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AvgToolStripMenuItem.Click
         DataCount = 0
         FlgMainProfile = 45
         FlgAvg = 1
     End Sub
 
-    Private Sub 自動印刷ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles 自動印刷ToolStripMenuItem.Click
+    Private Sub 自動印刷ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AutoPrintToolStripMenuItem.Click
         Menu_AutoPrn.Checked = Not Menu_AutoPrn.Checked
         If Menu_AutoPrn.Checked = True Then
             If ChkPrfAutoPrn.Checked = False Then
@@ -12950,7 +12939,7 @@ Rdg8:
         End If
     End Sub
 
-    Private Sub 配向角配向比ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles 配向角配向比ToolStripMenuItem.Click
+    Private Sub 配向角配向比ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AngRatToolStripMenuItem.Click
         MenuPrn_AngleRatio.Checked = Not MenuPrn_AngleRatio.Checked
         If MenuPrn_AngleRatio.Checked = True Then
             If ChkPrn_AngleRatio.Checked = False Then
@@ -12970,7 +12959,7 @@ Rdg8:
                       chkPrnAvgData * 16
     End Sub
 
-    Private Sub 伝播速度TSIToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles 伝播速度TSIToolStripMenuItem.Click
+    Private Sub 伝播速度TSIToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VeloTSIToolStripMenuItem.Click
         MenuPrn_VeloTSI.Checked = Not MenuPrn_VeloTSI.Checked
         If MenuPrn_VeloTSI.Checked = True Then
             If ChkPrn_VelocityTSI.Checked = False Then
@@ -12990,7 +12979,7 @@ Rdg8:
                       chkPrnAvgData * 16
     End Sub
 
-    Private Sub 測定データ表ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles 測定データ表ToolStripMenuItem.Click
+    Private Sub 測定データ表ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MeasDataTableToolStripMenuItem.Click
         MenuPrn_measData.Checked = Not MenuPrn_measData.Checked
         If MenuPrn_measData.Checked = True Then
             If ChkPrn_MeasData.Checked = False Then
@@ -13010,7 +12999,7 @@ Rdg8:
                       chkPrnAvgData * 16
     End Sub
 
-    Private Sub 過去データ表ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles 過去データ表ToolStripMenuItem.Click
+    Private Sub 過去データ表ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OldDataTableToolStripMenuItem.Click
         MenuPrn_OldData.Checked = Not MenuPrn_OldData.Checked
         If MenuPrn_OldData.Checked = True Then
             If ChkPrn_OldData.Checked = False Then
@@ -13030,7 +13019,7 @@ Rdg8:
                       chkPrnAvgData * 16
     End Sub
 
-    Private Sub 平均値データ表ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles 平均値データ表ToolStripMenuItem.Click
+    Private Sub 平均値データ表ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AvgDataTableToolStripMenuItem.Click
         MenuPrn_AvgData.Checked = Not MenuPrn_AvgData.Checked
         If MenuPrn_AvgData.Checked = True Then
             If ChkPrn_AvgData.Checked = False Then
@@ -13050,15 +13039,15 @@ Rdg8:
                       chkPrnAvgData * 16
     End Sub
 
-    Private Sub 手動印刷ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles 手動印刷ToolStripMenuItem.Click
+    Private Sub 手動印刷ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ManualPrintToolStripMenuItem.Click
         PrintoutPrf()
     End Sub
 
-    Private Sub 保存ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles 保存ToolStripMenuItem1.Click
+    Private Sub 保存ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles SaveExcelToolStripMenuItem1.Click
         PrfResultSave()
     End Sub
 
-    Private Sub 設定ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles 設定ToolStripMenuItem1.Click
+    Private Sub 設定ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles SettingToolStripMenuItem1.Click
         FrmSST4500_1_0_0E_setting.Visible = True
     End Sub
 
@@ -13095,7 +13084,7 @@ Rdg8:
         End If
     End Sub
 
-    Private Sub SST4500についてToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SST4500についてToolStripMenuItem.Click
+    Private Sub SST4500についてToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SST4500InfoToolStripMenuItem.Click
         FrmSST4500_1_0_0E_helpinfo.ShowDialog()
     End Sub
 

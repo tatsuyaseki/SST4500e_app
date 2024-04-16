@@ -10,16 +10,16 @@
         next_step = 0
 
         If old_pass = "" Then
-            MessageBox.Show("古いパスワードを入力してください。",
-                            "パスワードエラー",
+            MessageBox.Show("Input Current Password",
+                            StrPassErr,
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Exclamation)
         Else
             If new_pass = "" Then
-                MessageBox.Show("新しいパスワードを入力してください。",
-                            "パスワードエラー",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Exclamation)
+                MessageBox.Show("Input New Password",
+                                StrPassErr,
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Exclamation)
             Else
                 next_step = 1
             End If
@@ -30,9 +30,8 @@
                 'admパスワード変更
                 If old_pass = passwd_adm Then
                     If new_pass = new_pass2 Then
-                        ret = MessageBox.Show("管理者モードのパスワードを" & vbCrLf &
-                                              "変更してもよろしいですか？",
-                                              "パスワード変更確認",
+                        ret = MessageBox.Show("Are you sure to change admin. Password?",
+                                              StrConfirmPassChg,
                                               MessageBoxButtons.YesNo,
                                               MessageBoxIcon.Information)
 
@@ -46,14 +45,14 @@
                             Me.Visible = False
                         End If
                     Else
-                        MessageBox.Show("新しいパスワードが一致しませんでした。",
-                                        "パスワードエラー",
+                        MessageBox.Show("New password did not match",
+                                        StrPassErr,
                                         MessageBoxButtons.OK,
                                         MessageBoxIcon.Exclamation)
                     End If
                 Else
-                    MessageBox.Show("古いパスワードが違います。",
-                                    "パスワードエラー",
+                    MessageBox.Show("Curent password is incorrect",
+                                    StrPassErr,
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Exclamation)
                 End If
@@ -61,9 +60,8 @@
                 'adm2パスワード変更
                 If old_pass = passwd_adm2 Then
                     If new_pass = new_pass2 Then
-                        ret = MessageBox.Show("管理者モード2のパスワードを" & vbCrLf &
-                                              "変更してもよろしいですか？",
-                                              "パスワード変更確認",
+                        ret = MessageBox.Show("Are you sure to change admin.mode 2 password?",
+                                              StrConfirmPassChg,
                                               MessageBoxButtons.YesNo,
                                               MessageBoxIcon.Information)
                         If ret = vbYes Then
@@ -76,14 +74,14 @@
                             Me.Visible = False
                         End If
                     Else
-                        MessageBox.Show("新しいパスワードが一致しませんでした。",
-                                        "パスワードエラー",
+                        MessageBox.Show("New password did not match",
+                                        StrPassErr,
                                         MessageBoxButtons.OK,
                                         MessageBoxIcon.Exclamation)
                     End If
                 Else
-                    MessageBox.Show("古いパスワードが違います。",
-                                    "パスワードエラー",
+                    MessageBox.Show("Curent password is incorrect",
+                                    StrPassErr,
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Exclamation)
                 End If
@@ -91,9 +89,9 @@
                 'dbfsettingパスワード変更
                 If old_pass = passwd_dbfsetting Then
                     If new_pass = new_pass2 Then
-                        ret = MessageBox.Show("測定データフォーマット設定用の" & vbCrLf &
-                                              "パスワードを変更してもよろしいですか？",
-                                              "パスワード変更確認",
+                        ret = MessageBox.Show("Are you sure you want to change" & vbCrLf &
+                                              "the password for setting data format?",
+                                              StrConfirmPassChg,
                                               MessageBoxButtons.YesNo,
                                               MessageBoxIcon.Information)
                         If ret = vbYes Then
@@ -106,14 +104,14 @@
                             Me.Visible = False
                         End If
                     Else
-                        MessageBox.Show("新しいパスワードが一致しませんでした。",
-                                        "パスワードエラー",
+                        MessageBox.Show("New password did not match",
+                                        StrPassErr,
                                         MessageBoxButtons.OK,
                                         MessageBoxIcon.Exclamation)
                     End If
                 Else
-                    MessageBox.Show("古いパスワードが違います。",
-                                    "パスワードエラー",
+                    MessageBox.Show("Curent password is incorrect",
+                                    StrPassErr,
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Exclamation)
                 End If
@@ -121,9 +119,9 @@
                 'PchExpSettingパスワード変更
                 If old_pass = passwd_pchexpsetting Then
                     If new_pass = new_pass2 Then
-                        ret = MessageBox.Show("ピッチ拡張設定用の" & vbCrLf &
-                                              "パスワードを変更してもよろしいですか？",
-                                              "パスワード変更確認",
+                        ret = MessageBox.Show("Are you sure you want to change" & vbCrLf &
+                                              "the password for setting pitch?",
+                                              StrConfirmPassChg,
                                               MessageBoxButtons.YesNo,
                                               MessageBoxIcon.Information)
                         If ret = vbYes Then
@@ -136,14 +134,14 @@
                             Me.Visible = False
                         End If
                     Else
-                        MessageBox.Show("新しいパスワードが一致しませんでした。",
-                                        "パスワードエラー",
+                        MessageBox.Show("New password did not match",
+                                        StrPassErr,
                                         MessageBoxButtons.OK,
                                         MessageBoxIcon.Exclamation)
                     End If
                 Else
-                    MessageBox.Show("古いパスワードが違います。",
-                                    "パスワードエラー",
+                    MessageBox.Show("Curent password is incorrect",
+                                    StrPassErr,
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Exclamation)
                 End If
@@ -166,15 +164,15 @@
 
         If Me.Visible = True Then
             If FlgPasswdChg = 1 Then
-                Me.Text = "パスワード変更"
+                Me.Text = "Password Change"
             ElseIf FlgPasswdChg = 2 Then
-                Me.Text = "パスワード変更2"
+                Me.Text = "Password Change 2"
             ElseIf FlgPasswdChg = 3 Then
-                Me.Text = "パスワード変更3"
+                Me.Text = "Password Change 3"
             ElseIf FlgPasswdChg = 4 Then
-                Me.Text = "パスワード変更4"
+                Me.Text = "Password Change4"
             Else
-                Me.Text = "パスワード変更"
+                Me.Text = "Password Change"
             End If
         End If
     End Sub

@@ -1180,9 +1180,9 @@ Namespace My
     Friend Module MySettingsProperty
         
         <Global.System.ComponentModel.Design.HelpKeywordAttribute("My.Settings")>  _
-        Friend ReadOnly Property Settings() As Global.SST4500_1_0_0J.My.MySettings
+        Friend ReadOnly Property Settings() As Global.SST4500_1_0_0E.My.MySettings
             Get
-                Return Global.SST4500_1_0_0J.My.MySettings.Default
+                Return Global.SST4500_1_0_0E.My.MySettings.Default
             End Get
         End Property
     End Module

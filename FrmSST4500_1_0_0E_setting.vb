@@ -95,7 +95,7 @@
 
     Private Sub FrmSST4500_1_0_0E_setting_VisibleChanged(sender As Object, e As EventArgs) Handles Me.VisibleChanged
         If Me.Visible = True Then
-            CmdMarginApply.Text = "適用"
+            CmdMarginApply.Text = "Apply"
 
             color_init()
 
@@ -325,7 +325,7 @@
     Private Sub CmdSGPath_Click(sender As Object, e As EventArgs) Handles CmdSGPath.Click
         Using dialog As New FolderBrowserDialog
             With dialog
-                .Description = "シングルシート測定結果保存フォルダ設定"
+                .Description = "Folder settings for saving Single Sheet meas.result"
                 .SelectedPath = SG_ResultSave_path
 
             End With
@@ -342,7 +342,7 @@
     Private Sub CmdPFPath_Click(sender As Object, e As EventArgs) Handles CmdPFPath.Click
         Using dialog As New FolderBrowserDialog
             With dialog
-                .Description = "プロファイル測定結果保存フォルダ設定"
+                .Description = "Folder settings for saving Profile meas.result"
                 .SelectedPath = PF_ResultSave_path
 
             End With
@@ -359,7 +359,7 @@
     Private Sub CmdCTPath_Click(sender As Object, e As EventArgs) Handles CmdCTPath.Click
         Using dialog As New FolderBrowserDialog
             With dialog
-                .Description = "カットシート測定結果保存フォルダ設定"
+                .Description = "Folder settings for saving Cut Sheet meas.result"
                 .SelectedPath = CT_ResultSave_path
 
             End With
@@ -376,7 +376,7 @@
     Private Sub CmdLGPath_Click(sender As Object, e As EventArgs) Handles CmdLGPath.Click
         Using dialog As New FolderBrowserDialog
             With dialog
-                .Description = "MD長尺測定結果保存フォルダ設定"
+                .Description = "Folder settings for saving MD Long meas.result"
                 .SelectedPath = LG_ResultSave_path
 
             End With
@@ -404,7 +404,7 @@
         My.Settings._printmargin_top = Prn_top_margin
 
         If NupPrnMarginTop.Value <> Prn_top_margin Then
-            CmdMarginApply.Text = "適用*"
+            CmdMarginApply.Text = "Apply*"
         End If
     End Sub
 
@@ -413,7 +413,7 @@
         My.Settings._printmargin_bottom = Prn_btm_margin
 
         If NupPrnMarginBottom.Value <> Prn_btm_margin Then
-            CmdMarginApply.Text = "適用*"
+            CmdMarginApply.Text = "Apply*"
         End If
     End Sub
 
@@ -422,7 +422,7 @@
         My.Settings._printmargin_left = Prn_left_margin
 
         If NupPrnMarginLeft.Value <> Prn_left_margin Then
-            CmdMarginApply.Text = "適用*"
+            CmdMarginApply.Text = "Apply*"
         End If
     End Sub
 
@@ -431,14 +431,14 @@
         My.Settings._printmargin_right = Prn_right_margin
 
         If NupPrnMarginRight.Value <> Prn_right_margin Then
-            CmdMarginApply.Text = "適用*"
+            CmdMarginApply.Text = "Apply*"
         End If
     End Sub
 
     Private Sub CmdMarginApply_Click(sender As Object, e As EventArgs) Handles CmdMarginApply.Click
         My.Settings.Save()
 
-        CmdMarginApply.Text = "適用"
+        CmdMarginApply.Text = "Apply"
     End Sub
 
     Private Sub CmdSettingQuit_Click(sender As Object, e As EventArgs) Handles CmdSettingQuit.Click
@@ -454,4 +454,5 @@
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         FrmSST4500_1_0_0E_colorsetting.Visible = True
     End Sub
+
 End Class

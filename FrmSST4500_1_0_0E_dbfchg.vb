@@ -39,7 +39,7 @@
         My.Settings.Save()
         With FrmSST4500_1_0_0E_main
             If FlgDBF = 1 Then
-                .ToolStripStatusLabel4.Text = "特殊1"
+                .ToolStripStatusLabel4.Text = "Special 1"
             Else
                 .ToolStripStatusLabel4.Text = ""
             End If

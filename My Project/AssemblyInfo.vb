@@ -8,11 +8,11 @@ Imports System.Runtime.InteropServices
 
 ' アセンブリ属性の値を確認します
 
-<Assembly: AssemblyTitle("SST-4500")>
+<Assembly: AssemblyTitle("SST-4500E")>
 <Assembly: AssemblyDescription("")>
 <Assembly: AssemblyCompany("NOMURA SHOJI")>
-<Assembly: AssemblyProduct("SST-4500")>
-<Assembly: AssemblyCopyright("Copyright ©  2023")>
+<Assembly: AssemblyProduct("SST-4500E")>
+<Assembly: AssemblyCopyright("Copyright ©  2024")>
 <Assembly: AssemblyTrademark("")>
 
 <Assembly: ComVisible(False)>
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 ' 既定値にすることができます:
 ' <Assembly: AssemblyVersion("1.0.*")>
 
-<Assembly: AssemblyVersion("1.0.3.1")>
-<Assembly: AssemblyFileVersion("1.0.3.1")>
+<Assembly: AssemblyVersion("1.0.3.2")>
+<Assembly: AssemblyFileVersion("1.0.3.2")>

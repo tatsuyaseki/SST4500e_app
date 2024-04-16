@@ -46,18 +46,18 @@ Partial Class FrmSST4500_1_0_0E_passchg
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(10, 9)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(74, 12)
+        Me.Label1.Size = New System.Drawing.Size(96, 12)
         Me.Label1.TabIndex = 9
-        Me.Label1.Text = "古いパスワード"
+        Me.Label1.Text = "Current Password"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(12, 55)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(83, 12)
+        Me.Label2.Size = New System.Drawing.Size(80, 12)
         Me.Label2.TabIndex = 10
-        Me.Label2.Text = "新しいパスワード"
+        Me.Label2.Text = "New Password"
         '
         'TxtNewPasswd
         '
@@ -72,9 +72,9 @@ Partial Class FrmSST4500_1_0_0E_passchg
         Me.Label3.AutoSize = True
         Me.Label3.Location = New System.Drawing.Point(12, 96)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(127, 12)
+        Me.Label3.Size = New System.Drawing.Size(157, 12)
         Me.Label3.TabIndex = 11
-        Me.Label3.Text = "新しいパスワード(確認用)"
+        Me.Label3.Text = "New Password (Confirmation)"
         '
         'TxtNewPasswd2
         '
@@ -90,7 +90,7 @@ Partial Class FrmSST4500_1_0_0E_passchg
         Me.CmdPasswdSave.Name = "CmdPasswdSave"
         Me.CmdPasswdSave.Size = New System.Drawing.Size(75, 23)
         Me.CmdPasswdSave.TabIndex = 12
-        Me.CmdPasswdSave.Text = "変更"
+        Me.CmdPasswdSave.Text = "Change"
         Me.CmdPasswdSave.UseVisualStyleBackColor = True
         '
         'CmdCancel
@@ -99,10 +99,10 @@ Partial Class FrmSST4500_1_0_0E_passchg
         Me.CmdCancel.Name = "CmdCancel"
         Me.CmdCancel.Size = New System.Drawing.Size(75, 23)
         Me.CmdCancel.TabIndex = 13
-        Me.CmdCancel.Text = "キャンセル"
+        Me.CmdCancel.Text = "Cancel"
         Me.CmdCancel.UseVisualStyleBackColor = True
         '
-        'FrmSST4500_1_0_0J_passchg
+        'FrmSST4500_1_0_0E_passchg
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -119,8 +119,8 @@ Partial Class FrmSST4500_1_0_0E_passchg
         Me.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
-        Me.Name = "FrmSST4500_1_0_0J_passchg"
-        Me.Text = "パスワード変更"
+        Me.Name = "FrmSST4500_1_0_0E_passchg"
+        Me.Text = "Password Change"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

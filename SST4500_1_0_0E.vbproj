@@ -6,9 +6,9 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{5D667461-D287-4FE4-83AC-8FB143DD5CE6}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>SST4500_1_0_0J.My.MyApplication</StartupObject>
-    <RootNamespace>SST4500_1_0_0J</RootNamespace>
-    <AssemblyName>SST4500_1_0_0J</AssemblyName>
+    <StartupObject>SST4500_1_0_0E.My.MyApplication</StartupObject>
+    <RootNamespace>SST4500_1_0_0E</RootNamespace>
+    <AssemblyName>SST4500_1_0_0E</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -38,7 +38,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>SST4500_1_0_0J.xml</DocumentationFile>
+    <DocumentationFile>SST4500_1_0_0E.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -48,7 +48,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>SST4500_1_0_0J.xml</DocumentationFile>
+    <DocumentationFile>SST4500_1_0_0E.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
@@ -199,6 +199,11 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Resource1.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource1.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="FrmSST4500_1_0_0E_colorsetting.resx">
@@ -242,6 +247,11 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource1.resx">
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource1.Designer.vb</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -300,9 +310,10 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\nomura_logo1.png" />
-    <Content Include="Resources\nomura_logo.png" />
-    <None Include="Resources\nomura_logo2.png" />
+    <None Include="Resources\down_arrow.png" />
+    <None Include="Resources\up_arrow.png" />
+    <None Include="Resources\nomura_logo1e.png" />
+    <None Include="Resources\nomura_logo2e.png" />
     <Content Include="sst4500.ico" />
   </ItemGroup>
   <ItemGroup>

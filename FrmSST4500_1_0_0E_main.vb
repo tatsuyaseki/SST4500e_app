@@ -13,7 +13,7 @@ Public Class FrmSST4500_1_0_0E_main
 
         _status = UsbOpen()
         If _status = 0 Then
-            ToolStripStatusLabel1.Text = "USB接続NG / status=" & Str(ftStatus)
+            ToolStripStatusLabel1.Text = "USB Connection NG / status=" & Str(ftStatus)
             FrmSST4500_1_0_0E_meas.ToolStripStatusLabel1.Text = ToolStripStatusLabel1.Text
             FrmSST4500_1_0_0E_Profile.ToolStripStatusLabel1.Text = ToolStripStatusLabel1.Text
             FrmSST4500_1_0_0E_test.ToolStripStatusLabel1.Text = ToolStripStatusLabel1.Text
@@ -23,7 +23,7 @@ Public Class FrmSST4500_1_0_0E_main
             FrmSST4500_1_0_0E_Profile.ToolStripStatusLabel1.Text = ToolStripStatusLabel1.Text
             FrmSST4500_1_0_0E_test.ToolStripStatusLabel1.Text = ToolStripStatusLabel1.Text
         Else
-            ToolStripStatusLabel1.Text = "USB接続OK = " & Str(lngHandle)
+            ToolStripStatusLabel1.Text = "USB Connection OK = " & Str(lngHandle)
             FrmSST4500_1_0_0E_meas.ToolStripStatusLabel1.Text = ToolStripStatusLabel1.Text
             FrmSST4500_1_0_0E_Profile.ToolStripStatusLabel1.Text = ToolStripStatusLabel1.Text
             FrmSST4500_1_0_0E_test.ToolStripStatusLabel1.Text = ToolStripStatusLabel1.Text
@@ -134,7 +134,7 @@ Public Class FrmSST4500_1_0_0E_main
         FlgDBF = My.Settings._flg_dbf
         If FlgDBF = 1 Then
             FrmSST4500_1_0_0E_dbfchg.Rb_custum1.Checked = True
-            ToolStripStatusLabel4.Text = "特殊1"
+            ToolStripStatusLabel4.Text = "Special 1"
         Else
             FrmSST4500_1_0_0E_dbfchg.Rb_default.Checked = True
             ToolStripStatusLabel4.Text = ""
@@ -169,7 +169,7 @@ Public Class FrmSST4500_1_0_0E_main
         FlgInitSplash = 0
         FlgMainSplash = 1
 
-        ToolStripStatusLabel3.Text = "未接続"
+        ToolStripStatusLabel3.Text = "Not Connected"
         FrmSST4500_1_0_0E_meas.ToolStripStatusLabel3.Text = ToolStripStatusLabel3.Text
         FrmSST4500_1_0_0E_Profile.ToolStripStatusLabel3.Text = ToolStripStatusLabel3.Text
         FrmSST4500_1_0_0E_test.ToolStripStatusLabel3.Text = ToolStripStatusLabel3.Text
@@ -281,7 +281,7 @@ Public Class FrmSST4500_1_0_0E_main
                         FlgMainSplash = 3
                         _flgfeeder = 0
                     End If
-                    ToolStripStatusLabel3.Text = "接続済み"
+                    ToolStripStatusLabel3.Text = "Connected"
                     FrmSST4500_1_0_0E_meas.ToolStripStatusLabel3.Text = ToolStripStatusLabel3.Text
                     FrmSST4500_1_0_0E_Profile.ToolStripStatusLabel3.Text = ToolStripStatusLabel3.Text
                     FrmSST4500_1_0_0E_test.ToolStripStatusLabel3.Text = ToolStripStatusLabel3.Text
@@ -356,8 +356,8 @@ Public Class FrmSST4500_1_0_0E_main
                     Else
                         FlgAdmin = 0
                         FlgMainSplash = 0
-                        MessageBox.Show("パスワードが違います。",
-                                        "パスワードエラー",
+                        MessageBox.Show("Incorrect Password",
+                                        "Password Error",
                                         MessageBoxButtons.OK,
                                         MessageBoxIcon.Exclamation)
                     End If
@@ -380,36 +380,36 @@ Public Class FrmSST4500_1_0_0E_main
     Private Sub Mode_cont(ByVal FlgAdm As Integer, ByVal FlgTest As Integer)
         If FlgAdm = 1 Then
             If FlgTest = 1 Then
-                ToolStripStatusLabel2.Text = "管理者モード1(TEST)"
+                ToolStripStatusLabel2.Text = "Admin Mode 1 (TEST)"
                 FrmSST4500_1_0_0E_meas.ToolStripStatusLabel2.Text = ToolStripStatusLabel2.Text
                 FrmSST4500_1_0_0E_Profile.ToolStripStatusLabel2.Text = ToolStripStatusLabel2.Text
                 FrmSST4500_1_0_0E_test.ToolStripStatusLabel2.Text = ToolStripStatusLabel2.Text
             Else
-                ToolStripStatusLabel2.Text = "管理者モード1"
+                ToolStripStatusLabel2.Text = "Admin Mode 1"
                 FrmSST4500_1_0_0E_meas.ToolStripStatusLabel2.Text = ToolStripStatusLabel2.Text
                 FrmSST4500_1_0_0E_Profile.ToolStripStatusLabel2.Text = ToolStripStatusLabel2.Text
                 FrmSST4500_1_0_0E_test.ToolStripStatusLabel2.Text = ToolStripStatusLabel2.Text
             End If
         ElseIf FlgAdm = 2 Then
             If FlgTest = 1 Then
-                ToolStripStatusLabel2.Text = "管理者モード2(TEST)"
+                ToolStripStatusLabel2.Text = "Admin Mode 2 (TEST)"
                 FrmSST4500_1_0_0E_meas.ToolStripStatusLabel2.Text = ToolStripStatusLabel2.Text
                 FrmSST4500_1_0_0E_Profile.ToolStripStatusLabel2.Text = ToolStripStatusLabel2.Text
                 FrmSST4500_1_0_0E_test.ToolStripStatusLabel2.Text = ToolStripStatusLabel2.Text
             Else
-                ToolStripStatusLabel2.Text = "管理者モード2"
+                ToolStripStatusLabel2.Text = "Admin Mode 2"
                 FrmSST4500_1_0_0E_meas.ToolStripStatusLabel2.Text = ToolStripStatusLabel2.Text
                 FrmSST4500_1_0_0E_Profile.ToolStripStatusLabel2.Text = ToolStripStatusLabel2.Text
                 FrmSST4500_1_0_0E_test.ToolStripStatusLabel2.Text = ToolStripStatusLabel2.Text
             End If
         Else
             If FlgTest = 1 Then
-                ToolStripStatusLabel2.Text = "通常モード(TEST)"
+                ToolStripStatusLabel2.Text = "Operator Mode (TEST)"
                 FrmSST4500_1_0_0E_meas.ToolStripStatusLabel2.Text = ToolStripStatusLabel2.Text
                 FrmSST4500_1_0_0E_Profile.ToolStripStatusLabel2.Text = ToolStripStatusLabel2.Text
                 FrmSST4500_1_0_0E_test.ToolStripStatusLabel2.Text = ToolStripStatusLabel2.Text
             Else
-                ToolStripStatusLabel2.Text = "通常モード"
+                ToolStripStatusLabel2.Text = "Operator Mode"
                 FrmSST4500_1_0_0E_meas.ToolStripStatusLabel2.Text = ToolStripStatusLabel2.Text
                 FrmSST4500_1_0_0E_Profile.ToolStripStatusLabel2.Text = ToolStripStatusLabel2.Text
                 FrmSST4500_1_0_0E_test.ToolStripStatusLabel2.Text = ToolStripStatusLabel2.Text
@@ -646,7 +646,7 @@ Public Class FrmSST4500_1_0_0E_main
         e.Graphics.Clear(BackColor)
 
         Dim string_tmp As String
-        string_tmp = "測定モード選択"
+        string_tmp = "Select Meas.Mode"
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_16)
 
         path.StartFigure()
@@ -664,7 +664,7 @@ Public Class FrmSST4500_1_0_0E_main
 
         e.Graphics.DrawString(string_tmp, fnt_16, label_brush, rect.Left + rect_width2 - stringSize.Width / 2, 112 - stringSize.Height / 2)
 
-        string_tmp = "管理者モード"
+        string_tmp = "Admin.Mode"
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_16)
 
         path.StartFigure()
@@ -695,14 +695,14 @@ Public Class FrmSST4500_1_0_0E_main
 
     End Sub
 
-    Private Sub 終了ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles QuitToolStripMenuItem.Click
+    Private Sub QuitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles QuitToolStripMenuItem.Click
         If FlgFTDLLerr = 0 Then
             UsbClose()
         End If
         Me.Close()
     End Sub
 
-    Private Sub シングルシートToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SingleSheetToolStripMenuItem.Click
+    Private Sub SingleSheetToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SingleSheetToolStripMenuItem.Click
         singlesheet_run()
     End Sub
 
@@ -717,28 +717,28 @@ Public Class FrmSST4500_1_0_0E_main
         FlgProfile = 0
     End Sub
 
-    Private Sub プロファイルToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ProfileToolStripMenuItem.Click
+    Private Sub ProfileToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ProfileToolStripMenuItem.Click
         profile_run()
     End Sub
 
-    Private Sub カットシートToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CutSheetToolStripMenuItem.Click
+    Private Sub CutSheetToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CutSheetToolStripMenuItem.Click
         cutsheet_run()
     End Sub
 
-    Private Sub 管理者ログインToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AdmLoginToolStripMenuItem.Click
+    Private Sub AdmLoginToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AdmLoginToolStripMenuItem.Click
         admin_login()
     End Sub
 
-    Private Sub パスワード変更ToolStripMenuItem_Click(sender As Object, e As EventArgs)
+    Private Sub PassChgToolStripMenuItem_Click(sender As Object, e As EventArgs)
         FlgPasswdChg = 1
         FrmSST4500_1_0_0E_passchg.Visible = True
     End Sub
 
-    Private Sub 設定ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles SettingToolStripMenuItem1.Click
+    Private Sub SettingToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles SettingToolStripMenuItem1.Click
         FrmSST4500_1_0_0E_setting.Visible = True
     End Sub
 
-    Private Sub SST4500についてToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SST4500InfoToolStripMenuItem.Click
+    Private Sub SST4500InfoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SST4500InfoToolStripMenuItem.Click
         FrmSST4500_1_0_0E_helpinfo.ShowDialog()
     End Sub
 
