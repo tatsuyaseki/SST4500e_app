@@ -160,6 +160,7 @@ Module Module1
     Public Const StrData = "Data"
     Public Const StrMeas = "Meas."
     Public Const StrOrientAng = "Orientation Angle[deg.]"
+    Public Const StrOrientAng_nounit = "Orientation Angle"
     Public Const StrOrientRat = "Orientation Ratio"
     Public Const StrPropVelo = "Propagation Velocity[Km/S]"
     Public Const StrPropVelo_nounit = "Propagation Velocity"

@@ -272,15 +272,15 @@ Partial Class FrmSST4500_1_0_0E_meas
         Me.LblProductNameMeas.Font = New System.Drawing.Font("MS UI Gothic", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.LblProductNameMeas.Location = New System.Drawing.Point(10, 26)
         Me.LblProductNameMeas.Name = "LblProductNameMeas"
-        Me.LblProductNameMeas.Size = New System.Drawing.Size(138, 27)
+        Me.LblProductNameMeas.Size = New System.Drawing.Size(154, 27)
         Me.LblProductNameMeas.TabIndex = 0
-        Me.LblProductNameMeas.Text = "SST-4500"
+        Me.LblProductNameMeas.Text = "SST-4500E"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("MS UI Gothic", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label2.Location = New System.Drawing.Point(156, 26)
+        Me.Label2.Location = New System.Drawing.Point(160, 26)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(167, 27)
         Me.Label2.TabIndex = 1
@@ -292,7 +292,7 @@ Partial Class FrmSST4500_1_0_0E_meas
         Me.LblMeasSpecCur.Font = New System.Drawing.Font("MS UI Gothic", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.LblMeasSpecCur.Location = New System.Drawing.Point(12, 86)
         Me.LblMeasSpecCur.Name = "LblMeasSpecCur"
-        Me.LblMeasSpecCur.Size = New System.Drawing.Size(87, 14)
+        Me.LblMeasSpecCur.Size = New System.Drawing.Size(82, 14)
         Me.LblMeasSpecCur.TabIndex = 2
         Me.LblMeasSpecCur.Text = "Meas.Spec."
         '
@@ -3042,7 +3042,7 @@ Partial Class FrmSST4500_1_0_0E_meas
         '
         Me.MeasSpecToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SelectToolStripMenuItem, Me.SaveToolStripMenuItem})
         Me.MeasSpecToolStripMenuItem.Name = "MeasSpecToolStripMenuItem"
-        Me.MeasSpecToolStripMenuItem.Size = New System.Drawing.Size(130, 22)
+        Me.MeasSpecToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
         Me.MeasSpecToolStripMenuItem.Text = "Meas.Spec."
         '
         'SelectToolStripMenuItem
@@ -3061,7 +3061,7 @@ Partial Class FrmSST4500_1_0_0E_meas
         '
         Me.OldDataToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LoadToolStripMenuItem, Me.AnotherMeasDataSelToolStripMenuItem})
         Me.OldDataToolStripMenuItem.Name = "OldDataToolStripMenuItem"
-        Me.OldDataToolStripMenuItem.Size = New System.Drawing.Size(130, 22)
+        Me.OldDataToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
         Me.OldDataToolStripMenuItem.Text = "Past Data"
         '
         'LoadToolStripMenuItem
@@ -3079,7 +3079,7 @@ Partial Class FrmSST4500_1_0_0E_meas
         'QuitToolStripMenuItem
         '
         Me.QuitToolStripMenuItem.Name = "QuitToolStripMenuItem"
-        Me.QuitToolStripMenuItem.Size = New System.Drawing.Size(130, 22)
+        Me.QuitToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
         Me.QuitToolStripMenuItem.Text = "Quit"
         '
         'MeasToolStripMenuItem
@@ -3104,6 +3104,7 @@ Partial Class FrmSST4500_1_0_0E_meas
         'ResultToolStripMenuItem
         '
         Me.ResultToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PrintToolStripMenuItem, Me.ManualPrintToolStripMenuItem, Me.SaveToolStripMenuItem1})
+        Me.ResultToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.ResultToolStripMenuItem.Name = "ResultToolStripMenuItem"
         Me.ResultToolStripMenuItem.Size = New System.Drawing.Size(79, 20)
         Me.ResultToolStripMenuItem.Text = "Data Output"
@@ -3112,20 +3113,21 @@ Partial Class FrmSST4500_1_0_0E_meas
         '
         Me.PrintToolStripMenuItem.Checked = True
         Me.PrintToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.PrintToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.PrintToolStripMenuItem.Name = "PrintToolStripMenuItem"
-        Me.PrintToolStripMenuItem.Size = New System.Drawing.Size(139, 22)
+        Me.PrintToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.PrintToolStripMenuItem.Text = "Auto. Printing"
         '
         'ManualPrintToolStripMenuItem
         '
         Me.ManualPrintToolStripMenuItem.Name = "ManualPrintToolStripMenuItem"
-        Me.ManualPrintToolStripMenuItem.Size = New System.Drawing.Size(139, 22)
+        Me.ManualPrintToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ManualPrintToolStripMenuItem.Text = "Manual Print"
         '
         'SaveToolStripMenuItem1
         '
         Me.SaveToolStripMenuItem1.Name = "SaveToolStripMenuItem1"
-        Me.SaveToolStripMenuItem1.Size = New System.Drawing.Size(139, 22)
+        Me.SaveToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
         Me.SaveToolStripMenuItem1.Text = "Save Excel"
         '
         'SettingToolStripMenuItem
@@ -3259,7 +3261,7 @@ Partial Class FrmSST4500_1_0_0E_meas
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "FrmSST4500_1_0_0E_meas"
-        Me.Text = "SST-4500 Single Sheet"
+        Me.Text = "SST-4500E Single Sheet"
         Me.TblMeasInfo_adm.ResumeLayout(False)
         Me.TblMeasInfo_adm.PerformLayout()
         Me.TblMeasData_adm.ResumeLayout(False)

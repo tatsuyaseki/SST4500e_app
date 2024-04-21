@@ -10973,6 +10973,8 @@ Rdg8:
         fnt_10.Dispose()
         fnt_14.Dispose()
 
+        curPrnPageNumber = 1
+        curPrnDataNumber = 1
     End Sub
 
     Private Sub FrmSST4500_1_0_0E_Profile_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
@@ -10996,13 +10998,25 @@ Rdg8:
                 If FlgPrfAutoPrn = 0 Then
                     '手動印刷
                     If flgprintpreview = True Then
-                        PPDAngleRatio_nom.ShowDialog()
+                        Try
+                            PPDAngleRatio_nom.ShowDialog()
+                        Catch ex As Exception
+                            Exit Sub
+                        End Try
                     Else
-                        PDAngleRatio_nom.Print()
+                        Try
+                            PDAngleRatio_nom.Print()
+                        Catch ex As Exception
+                            Exit Sub
+                        End Try
                     End If
                 Else
                     '自動印刷
-                    PDAngleRatio_nom.Print()
+                    Try
+                        PDAngleRatio_nom.Print()
+                    Catch ex As Exception
+                        Exit Sub
+                    End Try
                 End If
             End If
 
@@ -11011,12 +11025,24 @@ Rdg8:
                 PDVeloTSI_nom.DefaultPageSettings.Margins = New Margins(Prn_left_margin, Prn_right_margin, Prn_top_margin, Prn_btm_margin)
                 If FlgPrfAutoPrn = 0 Then
                     If flgprintpreview = True Then
-                        PPDVeloTSI_nom.ShowDialog()
+                        Try
+                            PPDVeloTSI_nom.ShowDialog()
+                        Catch ex As Exception
+                            Exit Sub
+                        End Try
                     Else
-                        PDVeloTSI_nom.Print()
+                        Try
+                            PDVeloTSI_nom.Print()
+                        Catch ex As Exception
+                            Exit Sub
+                        End Try
                     End If
                 Else
-                    PDVeloTSI_nom.Print()
+                    Try
+                        PDVeloTSI_nom.Print()
+                    Catch ex As Exception
+                        Exit Sub
+                    End Try
                 End If
             End If
 
@@ -11029,12 +11055,24 @@ Rdg8:
 
                 If FlgPrfAutoPrn = 0 Then
                     If flgprintpreview = True Then
-                        PPDMeasData.ShowDialog()
+                        Try
+                            PPDMeasData.ShowDialog()
+                        Catch ex As Exception
+                            Exit Sub
+                        End Try
                     Else
-                        PDMeasData.Print()
+                        Try
+                            PDMeasData.Print()
+                        Catch ex As Exception
+                            Exit Sub
+                        End Try
                     End If
                 Else
-                    PDMeasData.Print()
+                    Try
+                        PDMeasData.Print()
+                    Catch ex As Exception
+                        Exit Sub
+                    End Try
                 End If
             End If
         Else
@@ -11044,12 +11082,24 @@ Rdg8:
                 PDAngleRatio_adm.DefaultPageSettings.Margins = New Margins(Prn_left_margin, Prn_right_margin, Prn_top_margin, Prn_btm_margin)
                 If FlgPrfAutoPrn = 0 Then
                     If flgprintpreview = True Then
-                        PPDAngleRatio_adm.ShowDialog()
+                        Try
+                            PPDAngleRatio_adm.ShowDialog()
+                        Catch ex As Exception
+                            Exit Sub
+                        End Try
                     Else
-                        PDAngleRatio_adm.Print()
+                        Try
+                            PDAngleRatio_adm.Print()
+                        Catch ex As Exception
+                            Exit Sub
+                        End Try
                     End If
                 Else
-                    PDAngleRatio_adm.Print()
+                    Try
+                        PDAngleRatio_adm.Print()
+                    Catch ex As Exception
+                        Exit Sub
+                    End Try
                 End If
             End If
 
@@ -11058,12 +11108,24 @@ Rdg8:
                 PDVeloTSI_adm.DefaultPageSettings.Margins = New Margins(Prn_left_margin, Prn_right_margin, Prn_top_margin, Prn_btm_margin)
                 If FlgPrfAutoPrn = 0 Then
                     If flgprintpreview = True Then
-                        PPDVeloTSI_adm.ShowDialog()
+                        Try
+                            PPDVeloTSI_adm.ShowDialog()
+                        Catch ex As Exception
+                            Exit Sub
+                        End Try
                     Else
-                        PDVeloTSI_adm.Print()
+                        Try
+                            PDVeloTSI_adm.Print()
+                        Catch ex As Exception
+                            Exit Sub
+                        End Try
                     End If
                 Else
-                    PDVeloTSI_adm.Print()
+                    Try
+                        PDVeloTSI_adm.Print()
+                    Catch ex As Exception
+                        Exit Sub
+                    End Try
                 End If
             End If
 
@@ -11076,12 +11138,24 @@ Rdg8:
 
                 If FlgPrfAutoPrn = 0 Then
                     If flgprintpreview = True Then
-                        PPDMeasData.ShowDialog()
+                        Try
+                            PPDMeasData.ShowDialog()
+                        Catch ex As Exception
+                            Exit Sub
+                        End Try
                     Else
-                        PDMeasData.Print()
+                        Try
+                            PDMeasData.Print()
+                        Catch ex As Exception
+                            Exit Sub
+                        End Try
                     End If
                 Else
-                    PDMeasData.Print()
+                    Try
+                        PDMeasData.Print()
+                    Catch ex As Exception
+                        Exit Sub
+                    End Try
                 End If
             End If
 
@@ -11094,13 +11168,24 @@ Rdg8:
 
                 If FlgPrfAutoPrn = 0 Then
                     If flgprintpreview = True Then
-                        'PPDOldData.Document = PDOldData
-                        PPDOldData.ShowDialog()
+                        Try
+                            PPDOldData.ShowDialog()
+                        Catch ex As Exception
+                            Exit Sub
+                        End Try
                     Else
-                        PDOldData.Print()
+                        Try
+                            PDOldData.Print()
+                        Catch ex As Exception
+                            Exit Sub
+                        End Try
                     End If
                 Else
-                    PDOldData.Print()
+                    Try
+                        PDOldData.Print()
+                    Catch ex As Exception
+                        Exit Sub
+                    End Try
                 End If
             End If
 
@@ -11113,12 +11198,24 @@ Rdg8:
 
                 If FlgPrfAutoPrn = 0 Then
                     If flgprintpreview = True Then
-                        PPDAvgData.ShowDialog()
+                        Try
+                            PPDAvgData.ShowDialog()
+                        Catch ex As Exception
+                            Exit Sub
+                        End Try
                     Else
-                        PDAvgData.Print()
+                        Try
+                            PDAvgData.Print()
+                        Catch ex As Exception
+                            Exit Sub
+                        End Try
                     End If
                 Else
-                    PDAvgData.Print()
+                    Try
+                        PDAvgData.Print()
+                    Catch ex As Exception
+                        Exit Sub
+                    End Try
                 End If
             End If
 
@@ -11261,7 +11358,9 @@ Rdg8:
 
     Private Sub PrfResultSave()
         CmdPrfResultSave.Enabled = False
-        CmdPrfResultSave.Text = "Saving"
+        CmdPrfResultSave.Text = StrSaving
+        SaveExcelToolStripMenuItem1.Enabled = False
+        SaveExcelToolStripMenuItem1.Text = StrSaving
 
         Dim Ret As DialogResult
         Dim FilePath As String = ""
@@ -11273,19 +11372,10 @@ Rdg8:
         Dim bmp As Bitmap
         Dim aa As Single
         Dim i As Integer
+
         Dim excelApp As New Excel.Application
         Dim excelBooks As Excel.Workbooks = excelApp.Workbooks
         Dim excelBook As Excel.Workbook = excelBooks.Add()
-        Dim sheet1 As Excel.Worksheet = excelApp.Worksheets.Add()
-        sheet1.Name = "Orientation Angle・Ratio"
-        Dim sheet2 As Excel.Worksheet = excelApp.Worksheets.Add(, sheet1, 1, Excel.XlSheetType.xlWorksheet)
-        sheet2.Name = "Propagation Velocity・TSI"
-        Dim sheet3 As Excel.Worksheet = excelApp.Worksheets.Add(, sheet2, 1, Excel.XlSheetType.xlWorksheet)
-        sheet3.Name = "Meas.Data"
-        Dim sheet4 As Excel.Worksheet = excelApp.Worksheets.Add(, sheet3, 1, Excel.XlSheetType.xlWorksheet)
-        sheet4.Name = "Past Data"
-        Dim sheet5 As Excel.Worksheet = excelApp.Worksheets.Add(, sheet4, 1, Excel.XlSheetType.xlWorksheet)
-        sheet5.Name = "Ave.Value Data"
 
         Try
             Using dialog As New SaveFileDialog
@@ -11313,6 +11403,17 @@ Rdg8:
                     Ret = .ShowDialog
 
                     If Ret = DialogResult.OK Then
+                        Dim sheet1 As Excel.Worksheet = excelApp.Worksheets.Add()
+                        sheet1.Name = "Orientation Angle・Ratio"
+                        Dim sheet2 As Excel.Worksheet = excelApp.Worksheets.Add(, sheet1, 1, Excel.XlSheetType.xlWorksheet)
+                        sheet2.Name = "Propagation Velocity・TSI"
+                        Dim sheet3 As Excel.Worksheet = excelApp.Worksheets.Add(, sheet2, 1, Excel.XlSheetType.xlWorksheet)
+                        sheet3.Name = "Meas.Data"
+                        Dim sheet4 As Excel.Worksheet = excelApp.Worksheets.Add(, sheet3, 1, Excel.XlSheetType.xlWorksheet)
+                        sheet4.Name = "Past Data"
+                        Dim sheet5 As Excel.Worksheet = excelApp.Worksheets.Add(, sheet4, 1, Excel.XlSheetType.xlWorksheet)
+                        sheet5.Name = "Ave.Value Data"
+
                         FilePath = .FileName
 
                         Select Case FlgProfile
@@ -11340,7 +11441,7 @@ Rdg8:
                                 If frm_PrfForm_bc <> SystemColors.Control And FlgPrnBc_enable = True Then
                                     .Cells.Interior.Color = frm_PrfForm_bc
                                 End If
-
+                                .Range("A:A").ColumnWidth = 11
                                 .Cells(1, 1) = My.Application.Info.ProductName & " " & LblPrfTitle.Text
                                 .Range(.Cells(1, 1), .Cells(1, 1)).Font.Color = frm_PrfForm_fc
                                 .Cells(2, 1) = StrMeasDataDate & DataDate_cur & StrMeasTime & DataTime_cur
@@ -11477,7 +11578,7 @@ Rdg8:
                                 If frm_PrfForm_bc <> SystemColors.Control And FlgPrnBc_enable = True Then
                                     .Cells.Interior.Color = frm_PrfForm_bc
                                 End If
-
+                                .Range("A:A").ColumnWidth = 11
                                 .Cells(1, 1) = My.Application.Info.ProductName & " " & LblPrfTitle.Text
                                 .Range(.Cells(1, 1), .Cells(1, 1)).Font.Color = frm_PrfForm_fc
                                 .Cells(2, 1) = StrMeasDataDate & DataDate_cur & StrMeasTime & DataTime_cur
@@ -11616,7 +11717,7 @@ Rdg8:
                                     If frm_PrfForm_bc <> SystemColors.Control And FlgPrnBc_enable = True Then
                                         .Cells.Interior.Color = frm_PrfForm_bc
                                     End If
-
+                                    .Range("A:A").ColumnWidth = 11
                                     .Cells(1, 1) = My.Application.Info.ProductName & " " & LblPrfTitle.Text
                                     .Range(.Cells(1, 1), .Cells(1, 1)).Font.Color = frm_PrfForm_fc
                                     .Cells(2, 1) = StrMeasDataDate & DataDate_cur & StrMeasTime & DataTime_cur
@@ -11708,7 +11809,11 @@ Rdg8:
                                     For s = 1 To SampleNo
                                         For k = 0 To 10
                                             .Cells(11 + s, k + 1) = DataGridView1.Rows(s - 1).Cells(k).Value
-                                            .Range(.Cells(11 + s, k + 1), .Cells(11 + s, k + 1)).Font.Color = frm_PrfCurData_color
+                                            If k = 0 Then
+                                                .Range(.Cells(11 + s, k + 1), .Cells(11 + s, k + 1)).Font.Color = frm_PrfForm_fc
+                                            Else
+                                                .Range(.Cells(11 + s, k + 1), .Cells(11 + s, k + 1)).Font.Color = frm_PrfCurData_color
+                                            End If
                                         Next
                                     Next
                                     'If FlgPrnBc_enable = True Then
@@ -11730,7 +11835,7 @@ Rdg8:
                                     If frm_PrfForm_bc <> SystemColors.Control And FlgPrnBc_enable = True Then
                                         .Cells.Interior.Color = frm_PrfForm_bc
                                     End If
-
+                                    .Range("A:A").ColumnWidth = 11
                                     .Cells(1, 1) = My.Application.Info.ProductName & " " & LblPrfTitle.Text
                                     .Cells(2, 1) = StrMeasDataDate & DataDate_cur & StrMeasTime & DataTime_cur
                                     .Range(.Cells(2, 1), .Cells(2, 1)).Font.Color = frm_PrfOldData_color
@@ -11826,17 +11931,21 @@ Rdg8:
                                     .Cells(11, 11) = LblTSICDMinOld_TB.Text
                                     .Range(.Cells(9, 2), .Cells(11, 11)).Font.Color = frm_PrfOldData_color
 
-                                    For s = 1 To SampleNo
+                                    For s = 1 To FileDataMax
                                         For k = 0 To 10
                                             .Cells(11 + s, k + 1) = DataGridView2.Rows(s - 1).Cells(k).Value
-                                            .Range(.Cells(11 + s, k + 1), .Cells(11 + s, k + 1)).Font.Color = frm_PrfOldData_color
+                                            If k = 0 Then
+                                                .Range(.Cells(11 + s, k + 1), .Cells(11 + s, k + 1)).Font.Color = frm_PrfOldData_color
+                                            Else
+                                                .Range(.Cells(11 + s, k + 1), .Cells(11 + s, k + 1)).Font.Color = frm_PrfOldData_color
+                                            End If
                                         Next
                                     Next
                                     'If FlgPrnBc_enable = True Then
                                     '.Range(.Cells(7, 1), .Cells(11 + SampleNo, 11)).Interior.Color = frm_PrfGraph_bc
                                     'End If
-                                    .Range(.Cells(7, 1), .Cells(11 + SampleNo, 11)).Borders.LineStyle = Excel.XlLineStyle.xlContinuous
-                                    .Range(.Cells(7, 1), .Cells(11 + SampleNo, 11)).Locked = True
+                                    .Range(.Cells(7, 1), .Cells(11 + FileDataMax, 11)).Borders.LineStyle = Excel.XlLineStyle.xlContinuous
+                                    .Range(.Cells(7, 1), .Cells(11 + FileDataMax, 11)).Locked = True
                                 Else
                                     .Cells(1, 1) = StrNoData
                                 End If
@@ -11850,7 +11959,7 @@ Rdg8:
                                     If frm_PrfForm_bc <> SystemColors.Control And FlgPrnBc_enable = True Then
                                         .Cells.Interior.Color = frm_PrfForm_bc
                                     End If
-
+                                    .Range("A:A").ColumnWidth = 11
                                     .Cells(1, 1) = My.Application.Info.ProductName & " " & LblPrfTitle.Text
                                     .Cells(2, 1) = StrMeasDataDate & DataDate_cur & StrMeasTime & DataTime_cur
                                     .Range(.Cells(2, 1), .Cells(2, 1)).Font.Color = frm_PrfAvgData_color
@@ -11949,7 +12058,11 @@ Rdg8:
                                     For s = 1 To SampleNo
                                         For k = 0 To 10
                                             .Cells(11 + s, k + 1) = DataGridView3.Rows(s - 1).Cells(k).Value
-                                            .Range(.Cells(11 + s, k + 1), .Cells(11 + s, k + 1)).Font.Color = frm_PrfAvgData_color
+                                            If k = 0 Then
+                                                .Range(.Cells(11 + s, k + 1), .Cells(11 + s, k + 1)).Font.Color = frm_PrfForm_fc
+                                            Else
+                                                .Range(.Cells(11 + s, k + 1), .Cells(11 + s, k + 1)).Font.Color = frm_PrfAvgData_color
+                                            End If
                                         Next
                                     Next
                                     'If FlgPrnBc_enable = True Then
@@ -11970,7 +12083,7 @@ Rdg8:
                                 If frm_PrfForm_bc <> SystemColors.Control And FlgPrnBc_enable = True Then
                                     .Cells.Interior.Color = frm_PrfForm_bc
                                 End If
-
+                                .Range("A:A").ColumnWidth = 16
                                 .Cells(1, 1) = My.Application.Info.ProductName & " " & LblPrfTitle.Text
                                 .Cells(1, 1).Font.Color = frm_PrfForm_fc
                                 .Cells(2, 1) = StrMeasDataDate & DataDate_cur & StrMeasTime & DataTime_cur
@@ -12152,7 +12265,7 @@ Rdg8:
                                 If frm_MeasForm_bc <> SystemColors.Control And FlgPrnBc_enable = True Then
                                     .Cells.Interior.Color = frm_MeasForm_bc
                                 End If
-
+                                .Range("A:A").ColumnWidth = 16
                                 .Cells(1, 1) = My.Application.Info.ProductName & " " & LblPrfTitle.Text
                                 .Cells(1, 1).Font.Color = frm_PrfForm_fc
                                 .Cells(2, 1) = StrMeasDataDate & DataDate_cur & StrMeasTime & DataTime_cur
@@ -12374,7 +12487,7 @@ Rdg8:
                                     If frm_PrfForm_bc <> SystemColors.Control And FlgPrnBc_enable = True Then
                                         .Cells.Interior.Color = frm_PrfForm_bc
                                     End If
-
+                                    .Range("A:A").ColumnWidth = 16
                                     .Cells(1, 1) = My.Application.Info.ProductName & " " & LblPrfTitle.Text
                                     .Cells(1, 1).font.color = frm_PrfForm_fc
                                     .Cells(2, 1) = StrMeasDataDate & DataDate_cur & StrMeasTime & DataTime_cur
@@ -12493,7 +12606,11 @@ Rdg8:
                                     For s = 1 To SampleNo
                                         For k = 0 To 10
                                             .Cells(13 + s, k + 1) = DataGridView1.Rows(s - 1).Cells(k).Value
-                                            .Cells(13 + s, k + 1).font.color = frm_PrfCurData_color
+                                            If k = 0 Then
+                                                .Cells(13 + s, k + 1).font.color = frm_PrfForm_fc
+                                            Else
+                                                .Cells(13 + s, k + 1).font.color = frm_PrfCurData_color
+                                            End If
                                         Next
                                     Next
                                     .Range(.Cells(9, 1), .Cells(13 + SampleNo, 11)).Borders.LineStyle = Excel.XlLineStyle.xlContinuous
@@ -12514,7 +12631,7 @@ Rdg8:
                                     If frm_PrfForm_bc <> SystemColors.Control And FlgPrnBc_enable = True Then
                                         .Cells.Interior.Color = frm_PrfForm_bc
                                     End If
-
+                                    .Range("A:A").ColumnWidth = 16
                                     .Cells(1, 1) = My.Application.Info.ProductName & " " & LblPrfTitle.Text
                                     .Cells(1, 1).font.color = frm_PrfForm_fc
                                     .Cells(2, 1) = StrMeasDataDate & DataDate_cur & StrMeasTime & DataTime_cur
@@ -12633,11 +12750,15 @@ Rdg8:
                                     For s = 1 To FileDataMax
                                         For k = 0 To 10
                                             .Cells(13 + s, k + 1) = DataGridView2.Rows(s - 1).Cells(k).Value
-                                            .Cells(13 + s, k + 1).font.color = frm_PrfOldData_color
+                                            If k = 0 Then
+                                                .Cells(13 + s, k + 1).font.color = frm_PrfForm_fc
+                                            Else
+                                                .Cells(13 + s, k + 1).font.color = frm_PrfOldData_color
+                                            End If
                                         Next
                                     Next
-                                    .Range(.Cells(9, 1), .Cells(13 + SampleNo, 11)).Borders.LineStyle = Excel.XlLineStyle.xlContinuous
-                                    .Range(.Cells(9, 1), .Cells(13 + SampleNo, 11)).Locked = True
+                                    .Range(.Cells(9, 1), .Cells(13 + FileDataMax, 11)).Borders.LineStyle = Excel.XlLineStyle.xlContinuous
+                                    .Range(.Cells(9, 1), .Cells(13 + FileDataMax, 11)).Locked = True
                                     'If FlgPrnBc_enable = True Then
                                     '.Range(.Cells(9, 1), .Cells(13 + SampleNo, 11)).Interior.Color = frm_PrfGraph_bc
                                     'End If
@@ -12654,7 +12775,7 @@ Rdg8:
                                     If frm_PrfForm_bc <> SystemColors.Control And FlgPrnBc_enable = True Then
                                         .Cells.Interior.Color = frm_PrfForm_bc
                                     End If
-
+                                    .Range("A:A").ColumnWidth = 16
                                     .Cells(1, 1) = My.Application.Info.ProductName & " " & LblPrfTitle.Text
                                     .Cells(1, 1).font.color = frm_PrfForm_fc
                                     .Cells(2, 1) = StrMeasDataDate & DataDate_cur & StrMeasTime & DataTime_cur
@@ -12772,7 +12893,11 @@ Rdg8:
                                     For s = 1 To SampleNo
                                         For k = 0 To 10
                                             .Cells(13 + s, k + 1) = DataGridView3.Rows(s - 1).Cells(k).Value
-                                            .Cells(13 + s, k + 1).font.color = frm_PrfAvgData_color
+                                            If k = 0 Then
+                                                .Cells(13 + s, k + 1).font.color = frm_PrfForm_fc
+                                            Else
+                                                .Cells(13 + s, k + 1).font.color = frm_PrfAvgData_color
+                                            End If
                                         Next
                                     Next
                                     .Range(.Cells(9, 1), .Cells(13 + SampleNo, 11)).Borders.LineStyle = Excel.XlLineStyle.xlContinuous
@@ -12793,6 +12918,12 @@ Rdg8:
                         excelApp.DisplayAlerts = False
                         excelBook.SaveAs(FilePath)
                         excelApp.DisplayAlerts = True
+
+                        Marshal.ReleaseComObject(sheet1)
+                        Marshal.ReleaseComObject(sheet2)
+                        Marshal.ReleaseComObject(sheet3)
+                        Marshal.ReleaseComObject(sheet4)
+                        Marshal.ReleaseComObject(sheet5)
                     End If
                 End With
             End Using
@@ -12800,17 +12931,16 @@ Rdg8:
             Throw ex
         Finally
             excelBook.Close()
-            excelApp.Quit()
-            Marshal.ReleaseComObject(sheet1)
-            Marshal.ReleaseComObject(sheet2)
-            Marshal.ReleaseComObject(sheet3)
-            Marshal.ReleaseComObject(sheet4)
-            Marshal.ReleaseComObject(sheet5)
             Marshal.ReleaseComObject(excelBook)
+            Marshal.ReleaseComObject(excelBooks)
+            excelApp.Quit()
             Marshal.ReleaseComObject(excelApp)
+
 
             CmdPrfResultSave.Text = "Save"
             CmdPrfResultSave.Enabled = True
+            SaveExcelToolStripMenuItem1.Text = "Save"
+            SaveExcelToolStripMenuItem1.Enabled = True
         End Try
 
     End Sub

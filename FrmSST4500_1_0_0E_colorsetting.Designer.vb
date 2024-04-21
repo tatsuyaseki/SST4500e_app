@@ -376,7 +376,7 @@ Partial Class FrmSST4500_1_0_0E_colorsetting
         Me.GroupBox2.Size = New System.Drawing.Size(220, 410)
         Me.GroupBox2.TabIndex = 3
         Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Single sheet screen"
+        Me.GroupBox2.Text = "Single Sheet Screen"
         '
         'LblFrmMeasMeasButtonFC
         '
@@ -392,7 +392,7 @@ Partial Class FrmSST4500_1_0_0E_colorsetting
         Me.Label38.Location = New System.Drawing.Point(7, 255)
         Me.Label38.Name = "Label38"
         Me.Label38.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.Label38.Size = New System.Drawing.Size(130, 12)
+        Me.Label38.Size = New System.Drawing.Size(126, 12)
         Me.Label38.TabIndex = 41
         Me.Label38.Text = "Meas.Button Text Color"
         '
@@ -409,7 +409,7 @@ Partial Class FrmSST4500_1_0_0E_colorsetting
         Me.Label41.AutoSize = True
         Me.Label41.Location = New System.Drawing.Point(7, 233)
         Me.Label41.Name = "Label41"
-        Me.Label41.Size = New System.Drawing.Size(103, 12)
+        Me.Label41.Size = New System.Drawing.Size(99, 12)
         Me.Label41.TabIndex = 39
         Me.Label41.Text = "Meas.Button Color"
         '
@@ -468,7 +468,7 @@ Partial Class FrmSST4500_1_0_0E_colorsetting
         Me.Label53.AutoSize = True
         Me.Label53.Location = New System.Drawing.Point(6, 365)
         Me.Label53.Name = "Label53"
-        Me.Label53.Size = New System.Drawing.Size(93, 12)
+        Me.Label53.Size = New System.Drawing.Size(89, 12)
         Me.Label53.TabIndex = 35
         Me.Label53.Text = "Meas.Data Color"
         '
@@ -503,7 +503,7 @@ Partial Class FrmSST4500_1_0_0E_colorsetting
         Me.Label19.AutoSize = True
         Me.Label19.Location = New System.Drawing.Point(7, 277)
         Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(156, 12)
+        Me.Label19.Size = New System.Drawing.Size(152, 12)
         Me.Label19.TabIndex = 29
         Me.Label19.Text = "Meas.Indication Button Color"
         '
@@ -727,7 +727,7 @@ Partial Class FrmSST4500_1_0_0E_colorsetting
         Me.Label28.AutoSize = True
         Me.Label28.Location = New System.Drawing.Point(7, 256)
         Me.Label28.Name = "Label28"
-        Me.Label28.Size = New System.Drawing.Size(130, 12)
+        Me.Label28.Size = New System.Drawing.Size(126, 12)
         Me.Label28.TabIndex = 43
         Me.Label28.Text = "Meas.Button Text Color"
         '
@@ -744,7 +744,7 @@ Partial Class FrmSST4500_1_0_0E_colorsetting
         Me.Label33.AutoSize = True
         Me.Label33.Location = New System.Drawing.Point(7, 234)
         Me.Label33.Name = "Label33"
-        Me.Label33.Size = New System.Drawing.Size(103, 12)
+        Me.Label33.Size = New System.Drawing.Size(99, 12)
         Me.Label33.TabIndex = 41
         Me.Label33.Text = "Meas.Button Color"
         '
@@ -820,7 +820,7 @@ Partial Class FrmSST4500_1_0_0E_colorsetting
         Me.Label31.AutoSize = True
         Me.Label31.Location = New System.Drawing.Point(6, 365)
         Me.Label31.Name = "Label31"
-        Me.Label31.Size = New System.Drawing.Size(93, 12)
+        Me.Label31.Size = New System.Drawing.Size(89, 12)
         Me.Label31.TabIndex = 35
         Me.Label31.Text = "Meas.Data Color"
         '
@@ -855,7 +855,7 @@ Partial Class FrmSST4500_1_0_0E_colorsetting
         Me.Label37.AutoSize = True
         Me.Label37.Location = New System.Drawing.Point(7, 277)
         Me.Label37.Name = "Label37"
-        Me.Label37.Size = New System.Drawing.Size(156, 12)
+        Me.Label37.Size = New System.Drawing.Size(152, 12)
         Me.Label37.TabIndex = 29
         Me.Label37.Text = "Meas.Indication Button Color"
         '

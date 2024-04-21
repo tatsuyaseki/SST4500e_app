@@ -158,7 +158,7 @@ Partial Class FrmSST4500_1_0_0E_test
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("MS UI Gothic", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label2.Location = New System.Drawing.Point(140, 9)
+        Me.Label2.Location = New System.Drawing.Point(156, 9)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(67, 27)
         Me.Label2.TabIndex = 3
@@ -170,9 +170,9 @@ Partial Class FrmSST4500_1_0_0E_test
         Me.Label1.Font = New System.Drawing.Font("MS UI Gothic", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.Label1.Location = New System.Drawing.Point(6, 9)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(138, 27)
+        Me.Label1.Size = New System.Drawing.Size(154, 27)
         Me.Label1.TabIndex = 2
-        Me.Label1.Text = "SST-4500"
+        Me.Label1.Text = "SST-4500E"
         '
         'CmdClsGraph
         '
@@ -1643,7 +1643,7 @@ Partial Class FrmSST4500_1_0_0E_test
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(206, 8)
+        Me.Label13.Location = New System.Drawing.Point(223, 8)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(86, 12)
         Me.Label13.TabIndex = 36
@@ -1652,10 +1652,10 @@ Partial Class FrmSST4500_1_0_0E_test
         'LblTxData
         '
         Me.LblTxData.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.LblTxData.Location = New System.Drawing.Point(295, 4)
+        Me.LblTxData.Location = New System.Drawing.Point(307, 4)
         Me.LblTxData.Margin = New System.Windows.Forms.Padding(0)
         Me.LblTxData.Name = "LblTxData"
-        Me.LblTxData.Size = New System.Drawing.Size(276, 20)
+        Me.LblTxData.Size = New System.Drawing.Size(264, 20)
         Me.LblTxData.TabIndex = 37
         Me.LblTxData.Text = "1111"
         Me.LblTxData.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -1663,7 +1663,7 @@ Partial Class FrmSST4500_1_0_0E_test
         'Label15
         '
         Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(206, 29)
+        Me.Label15.Location = New System.Drawing.Point(223, 29)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(64, 12)
         Me.Label15.TabIndex = 38
@@ -1672,10 +1672,10 @@ Partial Class FrmSST4500_1_0_0E_test
         'LblRxData
         '
         Me.LblRxData.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.LblRxData.Location = New System.Drawing.Point(295, 25)
+        Me.LblRxData.Location = New System.Drawing.Point(307, 25)
         Me.LblRxData.Margin = New System.Windows.Forms.Padding(0)
         Me.LblRxData.Name = "LblRxData"
-        Me.LblRxData.Size = New System.Drawing.Size(276, 20)
+        Me.LblRxData.Size = New System.Drawing.Size(264, 20)
         Me.LblRxData.TabIndex = 39
         Me.LblRxData.Text = "111"
         Me.LblRxData.TextAlign = System.Drawing.ContentAlignment.MiddleLeft

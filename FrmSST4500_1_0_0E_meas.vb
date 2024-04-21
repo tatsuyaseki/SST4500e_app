@@ -1709,31 +1709,54 @@ Public Class FrmSST4500_1_0_0E_meas
                                                                         Prn_top_margin, Prn_btm_margin)
             If FlgMeasAutoPrn = 0 Then
                 If flgprintpreview = True Then
-                    PPD_amd.ShowDialog()
+                    Try
+                        PPD_amd.ShowDialog()
+                    Catch ex As Exception
+                        Exit Sub
+                    End Try
                 Else
-                    PrintDocument_adm.Print()
+                    Try
+                        PrintDocument_adm.Print()
+                    Catch ex As Exception
+                        Exit Sub
+                    End Try
                 End If
             Else
-                PrintDocument_adm.Print()
+                Try
+                    PrintDocument_adm.Print()
+                Catch ex As Exception
+                    Exit Sub
+                End Try
             End If
         Else
             '通常モード時の印刷
             PrintDocument_nom.OriginAtMargins = True
             PrintDocument_nom.DefaultPageSettings.Margins = New Margins(Prn_left_margin, Prn_right_margin,
-                                                                            Prn_top_margin, Prn_btm_margin)
+                                                                        Prn_top_margin, Prn_btm_margin)
             If FlgMeasAutoPrn = 0 Then
                 If flgprintpreview = True Then
-                    PPD_nom.ShowDialog()
+                    Try
+                        PPD_nom.ShowDialog()
+                    Catch ex As Exception
+                        Exit Sub
+                    End Try
                 Else
-                    PrintDocument_nom.Print()
+                    Try
+                        PrintDocument_nom.Print()
+                    Catch ex As Exception
+                        Exit Sub
+                    End Try
                 End If
             Else
 
                 'PrintDocument_nom.PrinterSettings.PrinterName = "Microsoft Print to PDF"
                 'PrintDocument_nom.PrinterSettings.PrintToFile = True
                 'PrintDocument_nom.PrinterSettings.PrintFileName = curdir & DEF_RESULT_FILE_FLD & "\" & StrDataFileName
-
-                PrintDocument_nom.Print()
+                Try
+                    PrintDocument_nom.Print()
+                Catch ex As Exception
+                    Exit Sub
+                End Try
             End If
         End If
     End Sub
@@ -1955,7 +1978,7 @@ Public Class FrmSST4500_1_0_0E_meas
         e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               cell_width74 + cell_width43 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + cell_height25 * 2 + 2)
-        string_tmp = StrOrientAng
+        string_tmp = StrOrientAng_nounit
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
         e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               cell_width74 + cell_width43 + cell_width67 - stringSize.Width / 2,
@@ -2726,7 +2749,7 @@ Public Class FrmSST4500_1_0_0E_meas
         e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               cell_width74 + cell_width43 / 2 - stringSize.Width / 2,
                               measresultcalc_hyoutop + cell_height25 * 2 + 2)
-        string_tmp = StrOrientAng
+        string_tmp = StrOrientAng_nounit
         stringSize = e.Graphics.MeasureString(string_tmp, fnt_10)
         e.Graphics.DrawString(string_tmp, fnt_10, printfc_brush,
                               cell_width74 + cell_width43 + cell_width67 - stringSize.Width / 2,
@@ -2995,7 +3018,6 @@ Public Class FrmSST4500_1_0_0E_meas
         Dim excelApp As New Excel.Application
         Dim excelBooks As Excel.Workbooks = excelApp.Workbooks
         Dim excelBook As Excel.Workbook = excelBooks.Add()
-        Dim sheet As Excel.Worksheet = excelApp.Worksheets("sheet1")
 
         Try
             Using dialog As New SaveFileDialog
@@ -3015,6 +3037,8 @@ Public Class FrmSST4500_1_0_0E_meas
                     Ret = .ShowDialog
 
                     If Ret = DialogResult.OK Then
+                        Dim sheet As Excel.Worksheet = excelApp.Worksheets("sheet1")
+
                         FilePath = .FileName
 
                         SG_ResultSave_path = Path.GetDirectoryName(FilePath)
@@ -3031,7 +3055,7 @@ Public Class FrmSST4500_1_0_0E_meas
                                 If frm_MeasForm_bc <> SystemColors.Control And FlgPrnBc_enable = True Then
                                     .Cells.Interior.Color = frm_MeasForm_bc
                                 End If
-
+                                .Range("A:A").ColumnWidth = 11  'タイトルが入力欄にはみ出る対策
                                 .Cells(1, 1) = My.Application.Info.ProductName & " Single Sheet"
                                 .Range(.Cells(1, 1), .Cells(1, 1)).Font.Color = frm_MeasForm_fc
                                 .Cells(2, 1) = StrMeasDataDate & DataDate_cur & StrMeasTime & DataTime_cur
@@ -3173,7 +3197,7 @@ Public Class FrmSST4500_1_0_0E_meas
                                 If frm_MeasForm_bc <> SystemColors.Control And FlgPrnBc_enable = True Then
                                     .Cells.Interior.Color = frm_MeasForm_bc
                                 End If
-
+                                .Range("A:A").ColumnWidth = 16  'タイトルが入力欄にはみ出る対策
                                 .Cells(1, 1) = My.Application.Info.ProductName & " SingleSheet"
                                 .Range(.Cells(1, 1), .Cells(1, 1)).Font.Color = frm_MeasForm_fc
                                 .Cells(2, 1) = StrMeasDataDate & DataDate_cur & StrMeasTime & DataTime_cur
@@ -3355,6 +3379,8 @@ Public Class FrmSST4500_1_0_0E_meas
                         excelApp.DisplayAlerts = False
                         excelBook.SaveAs(FilePath)
                         excelApp.DisplayAlerts = True
+
+                        Marshal.ReleaseComObject(sheet)
                     End If
                 End With
             End Using
@@ -3363,9 +3389,9 @@ Public Class FrmSST4500_1_0_0E_meas
             Throw ex
         Finally
             excelBook.Close()
-            excelApp.Quit()
-            Marshal.ReleaseComObject(sheet)
             Marshal.ReleaseComObject(excelBook)
+            Marshal.ReleaseComObject(excelBooks)
+            excelApp.Quit()
             Marshal.ReleaseComObject(excelApp)
 
             CmdMeasResultSave.Text = "Save"
