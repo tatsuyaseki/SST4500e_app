@@ -3042,44 +3042,44 @@ Partial Class FrmSST4500_1_0_0E_meas
         '
         Me.MeasSpecToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SelectToolStripMenuItem, Me.SaveToolStripMenuItem})
         Me.MeasSpecToolStripMenuItem.Name = "MeasSpecToolStripMenuItem"
-        Me.MeasSpecToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
+        Me.MeasSpecToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.MeasSpecToolStripMenuItem.Text = "Meas.Spec."
         '
         'SelectToolStripMenuItem
         '
         Me.SelectToolStripMenuItem.Name = "SelectToolStripMenuItem"
-        Me.SelectToolStripMenuItem.Size = New System.Drawing.Size(102, 22)
+        Me.SelectToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.SelectToolStripMenuItem.Text = "Select"
         '
         'SaveToolStripMenuItem
         '
         Me.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem"
-        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(102, 22)
+        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.SaveToolStripMenuItem.Text = "Save"
         '
         'OldDataToolStripMenuItem
         '
         Me.OldDataToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LoadToolStripMenuItem, Me.AnotherMeasDataSelToolStripMenuItem})
         Me.OldDataToolStripMenuItem.Name = "OldDataToolStripMenuItem"
-        Me.OldDataToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
+        Me.OldDataToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.OldDataToolStripMenuItem.Text = "Past Data"
         '
         'LoadToolStripMenuItem
         '
         Me.LoadToolStripMenuItem.Name = "LoadToolStripMenuItem"
-        Me.LoadToolStripMenuItem.Size = New System.Drawing.Size(168, 22)
-        Me.LoadToolStripMenuItem.Text = "読込"
+        Me.LoadToolStripMenuItem.Size = New System.Drawing.Size(191, 22)
+        Me.LoadToolStripMenuItem.Text = "Loading"
         '
         'AnotherMeasDataSelToolStripMenuItem
         '
         Me.AnotherMeasDataSelToolStripMenuItem.Name = "AnotherMeasDataSelToolStripMenuItem"
-        Me.AnotherMeasDataSelToolStripMenuItem.Size = New System.Drawing.Size(168, 22)
-        Me.AnotherMeasDataSelToolStripMenuItem.Text = "他の測定データ選択"
+        Me.AnotherMeasDataSelToolStripMenuItem.Size = New System.Drawing.Size(191, 22)
+        Me.AnotherMeasDataSelToolStripMenuItem.Text = "Select Other Meas.Data"
         '
         'QuitToolStripMenuItem
         '
         Me.QuitToolStripMenuItem.Name = "QuitToolStripMenuItem"
-        Me.QuitToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
+        Me.QuitToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.QuitToolStripMenuItem.Text = "Quit"
         '
         'MeasToolStripMenuItem
@@ -3098,8 +3098,8 @@ Partial Class FrmSST4500_1_0_0E_meas
         'AnotherMeasDataSelToolStripMenuItem1
         '
         Me.AnotherMeasDataSelToolStripMenuItem1.Name = "AnotherMeasDataSelToolStripMenuItem1"
-        Me.AnotherMeasDataSelToolStripMenuItem1.Size = New System.Drawing.Size(195, 22)
-        Me.AnotherMeasDataSelToolStripMenuItem1.Text = "Select Other Meas. Data"
+        Me.AnotherMeasDataSelToolStripMenuItem1.Size = New System.Drawing.Size(191, 22)
+        Me.AnotherMeasDataSelToolStripMenuItem1.Text = "Select Other Meas.Data"
         '
         'ResultToolStripMenuItem
         '
@@ -3115,19 +3115,19 @@ Partial Class FrmSST4500_1_0_0E_meas
         Me.PrintToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
         Me.PrintToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.PrintToolStripMenuItem.Name = "PrintToolStripMenuItem"
-        Me.PrintToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.PrintToolStripMenuItem.Size = New System.Drawing.Size(139, 22)
         Me.PrintToolStripMenuItem.Text = "Auto. Printing"
         '
         'ManualPrintToolStripMenuItem
         '
         Me.ManualPrintToolStripMenuItem.Name = "ManualPrintToolStripMenuItem"
-        Me.ManualPrintToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ManualPrintToolStripMenuItem.Size = New System.Drawing.Size(139, 22)
         Me.ManualPrintToolStripMenuItem.Text = "Manual Print"
         '
         'SaveToolStripMenuItem1
         '
         Me.SaveToolStripMenuItem1.Name = "SaveToolStripMenuItem1"
-        Me.SaveToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
+        Me.SaveToolStripMenuItem1.Size = New System.Drawing.Size(139, 22)
         Me.SaveToolStripMenuItem1.Text = "Save Excel"
         '
         'SettingToolStripMenuItem

@@ -178,13 +178,6 @@ Public Class FrmSST4500_1_0_0E_Profile
                     LblAngCenter.Text = PkAngCent
                     LblAngCenter.Visible = True
 
-                    'CmdMeas.Enabled = True
-                    'CmdMeasButton_set(_rdy)
-                    'CmdMeas.Text = "測定開始"
-                    '測定開始ToolStripMenuItem.Enabled = True
-                    '測定開始ToolStripMenuItem.Text = "測定開始"
-                    '測定中断ToolStripMenuItem.Enabled = False
-                    '終了ToolStripMenuItem.Enabled = True
                     MeasStartInit()
 
                     If FlgAdmin <> 0 Then
@@ -494,13 +487,7 @@ Public Class FrmSST4500_1_0_0E_Profile
                             FlgMainProfile = 10
                         Else
                             ToolStripStatusLabel4.Text = StrNextSample
-                            'CmdMeas.Enabled = True
-                            'CmdMeas.Text = "測定開始"
-                            'CmdMeasButton_set(_rdy)
-                            '測定開始ToolStripMenuItem.Enabled = True
-                            '測定開始ToolStripMenuItem.Text = "測定開始"
-                            '測定中断ToolStripMenuItem.Enabled = False
-                            '終了ToolStripMenuItem.Enabled = True
+
                             MeasStartInit()
 
                             CmdQuitProfile.Text = StrQuit
@@ -656,13 +643,6 @@ Public Class FrmSST4500_1_0_0E_Profile
 
                 FlgLongMeas = 1
 
-                'CmdMeas.Enabled = True
-                'CmdMeas.Text = "測定開始"
-                'CmdMeasButton_set(_rdy)
-                '測定開始ToolStripMenuItem.Enabled = True
-                '測定開始ToolStripMenuItem.Text = "測定開始"
-                '測定中断ToolStripMenuItem.Enabled = False
-                '終了ToolStripMenuItem.Enabled = True
                 MeasStartInit()
 
                 ConditionEnable()
@@ -719,13 +699,6 @@ Public Class FrmSST4500_1_0_0E_Profile
                     GraphInitPrf(Points)
                 End If
 
-                'CmdMeas.Enabled = True
-                'CmdMeasButton_set(_rdy)
-                'CmdMeas.Text = "測定開始"
-                '測定開始ToolStripMenuItem.Enabled = True
-                '測定開始ToolStripMenuItem.Text = "測定開始"
-                '測定中断ToolStripMenuItem.Enabled = False
-                '終了ToolStripMenuItem.Enabled = True
                 MeasStartInit()
 
                 SetPrintChk()
@@ -1787,13 +1760,7 @@ Public Class FrmSST4500_1_0_0E_Profile
                             FlgMainProfile = 150
                         Else
                             ToolStripStatusLabel4.Text = StrNextSample
-                            'CmdMeas.Enabled = True
-                            'CmdMeas.Text = "測定開始"
-                            'CmdMeasButton_set(_rdy)
-                            '測定開始ToolStripMenuItem.Enabled = True
-                            '測定開始ToolStripMenuItem.Text = "測定開始"
-                            '測定中断ToolStripMenuItem.Enabled = False
-                            '終了ToolStripMenuItem.Enabled = True
+
                             MeasStartInit()
 
                             CmdQuitProfile.Text = StrQuit
@@ -1878,13 +1845,6 @@ Public Class FrmSST4500_1_0_0E_Profile
 
                 FlgLongMeas = 1
 
-                'CmdMeas.Enabled = True
-                'CmdMeas.Text = "測定開始"
-                'CmdMeasButton_set(_rdy)
-                '測定開始ToolStripMenuItem.Enabled = True
-                '測定開始ToolStripMenuItem.Text = "測定開始"
-                '測定中断ToolStripMenuItem.Enabled = False
-                '終了ToolStripMenuItem.Enabled = True
                 MeasStartInit()
 
                 ConditionEnable()
@@ -4435,8 +4395,7 @@ Public Class FrmSST4500_1_0_0E_Profile
         End If
 
         If FlgProfile = 2 And FlgHoldMeas = 2 Then
-            'TxtStatusBox.Text = "測定中 "
-            'ToolStripStatusLabel4.Text = "測定中 "
+
             If FlgTest = 0 Then
                 '2回目以降の測定開始へ
                 FlgMainProfile = 4
